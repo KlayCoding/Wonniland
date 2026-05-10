@@ -359,7 +359,7 @@
   </div>
   <div class="mode-card trainer-card" id="modeTrainerCard">
     <div class="mode-img">
-      <img id="trainerImg" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Trainer"/>
+      <img id="trainerImg" src="https://i.redd.it/l4tso05j2p0e1.gif" alt="Trainer"/>
     </div>
     <div class="mode-content">
       <div class="mode-title">TRAINER<br/>CREATION</div>
@@ -5745,11 +5745,11 @@ function updProg() {
   const pl=document.getElementById('progLbl');
   if(pf) pf.style.width=(step/TOTAL*100)+'%';
   if(pl) pl.textContent=step<TOTAL?`QUESTION ${step+1} / ${TOTAL}`:'COMPLETE!';
-  // Only show panel toggle on Q1 in pokemon mode, and only after panel system is ready
   try {
     const toggle=document.getElementById('panelToggle');
     if(toggle){
-      if(currentMode==='pokemon' && step===0){ /* shown when pokemon selected */ }
+      // Show toggle on Q1 (pokemon mode) always — panel content handles empty state
+      if(currentMode==='pokemon' && step===0){ toggle.style.display=''; }
       else { toggle.style.display='none'; if(typeof closePanel==='function') closePanel(); }
     }
   } catch(e){}
