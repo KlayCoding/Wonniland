@@ -10,10 +10,10 @@
   ],
   "pokemon": [
     {
-      "id": "???",
+      "id": "1",
       "name": "Bulbasaur",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1",
+      "shiny_sprite": "1",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
