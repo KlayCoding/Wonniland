@@ -12,8 +12,8 @@
     {
       "id": "1",
       "name": "Bulbasaur",
-      "sprite": "1",
-      "shiny_sprite": "1",
+      "sprite": "0001",
+      "shiny_sprite": "0001",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
