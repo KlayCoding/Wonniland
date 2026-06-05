@@ -66,10 +66,10 @@
       "egg_moves_ref": "sBulbasaurEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "2",
       "name": "Ivysaur",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0002",
+      "shiny_sprite": "0002",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
@@ -123,10 +123,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "3",
       "name": "Venusaur",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0003",
+      "shiny_sprite": "0003",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
