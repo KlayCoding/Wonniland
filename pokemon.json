@@ -10,7 +10,7 @@
   ],
   "pokemon": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Bulbasaur",
       "sprite": "0001",
       "shiny_sprite": "0001",
@@ -60,7 +60,7 @@
       "egg_moves_ref": "sBulbasaurEggMoveLearnset"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Ivysaur",
       "sprite": "0002",
       "shiny_sprite": "0002",
@@ -111,7 +111,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Venusaur",
       "sprite": "0003m",
       "shiny_sprite": "0003m",
@@ -164,7 +164,7 @@
       "shiny_sprite_female": "0003f"
     },
     {
-      "id": "906",
+      "id": 906,
       "name": "Mega-Venusaur",
       "sprite": "0906",
       "shiny_sprite": "0906",
@@ -219,7 +219,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1489",
+      "id": 1489,
       "name": "GMax-Venusaur",
       "sprite": "1489",
       "shiny_sprite": "1489",
@@ -270,7 +270,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Charmander",
       "sprite": "0004",
       "shiny_sprite": "0004",
@@ -319,7 +319,7 @@
       "egg_moves_ref": "sCharmanderEggMoveLearnset"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Charmeleon",
       "sprite": "0005",
       "shiny_sprite": "0005",
@@ -369,7 +369,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Charizard",
       "sprite": "0006",
       "shiny_sprite": "0006",
@@ -418,7 +418,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "907",
+      "id": 907,
       "name": "Mega-Charizard-X",
       "sprite": "0907",
       "shiny_sprite": "0907",
@@ -472,7 +472,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "908",
+      "id": 908,
       "name": "Mega-Charizard-Y",
       "sprite": "0908",
       "shiny_sprite": "0908",
@@ -526,7 +526,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1491",
+      "id": 1491,
       "name": "GMax-Charizard",
       "sprite": "1491",
       "shiny_sprite": "1491",
@@ -575,7 +575,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "Squirtle",
       "sprite": "0007",
       "shiny_sprite": "0007",
@@ -624,7 +624,7 @@
       "egg_moves_ref": "sSquirtleEggMoveLearnset"
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "Wartortle",
       "sprite": "0008",
       "shiny_sprite": "0008",
@@ -674,7 +674,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "9",
+      "id": 9,
       "name": "Blastoise",
       "sprite": "0009",
       "shiny_sprite": "0009",
@@ -723,7 +723,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "909",
+      "id": 909,
       "name": "Mega-Blastoise",
       "sprite": "0909",
       "shiny_sprite": "0909",
@@ -777,7 +777,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1490",
+      "id": 1490,
       "name": "GMax-Blastoise",
       "sprite": "1490",
       "shiny_sprite": "1490",
@@ -826,7 +826,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "Caterpie",
       "sprite": "0010",
       "shiny_sprite": "0010",
@@ -875,7 +875,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "11",
+      "id": 11,
       "name": "Metapod",
       "sprite": "0011",
       "shiny_sprite": "0011",
@@ -920,7 +920,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "12",
+      "id": 12,
       "name": "Butterfree",
       "sprite": "0012m",
       "shiny_sprite": "0012m",
@@ -971,7 +971,7 @@
       "shiny_sprite_female": "0012f"
     },
     {
-      "id": "1492",
+      "id": 1492,
       "name": "GMax-Butterfree",
       "sprite": "1492",
       "shiny_sprite": "1492",
@@ -1020,7 +1020,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "13",
+      "id": 13,
       "name": "Weedle",
       "sprite": "0013",
       "shiny_sprite": "0013",
@@ -1069,7 +1069,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "14",
+      "id": 14,
       "name": "Kakuna",
       "sprite": "0014",
       "shiny_sprite": "0014",
@@ -1114,7 +1114,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "15",
+      "id": 15,
       "name": "Beedrill",
       "sprite": "0015",
       "shiny_sprite": "0015",
@@ -1162,7 +1162,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "910",
+      "id": 910,
       "name": "Mega-Beedrill",
       "sprite": "0910",
       "shiny_sprite": "0910",
@@ -1216,7 +1216,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "16",
+      "id": 16,
       "name": "Pidgey",
       "sprite": "0016",
       "shiny_sprite": "0016",
@@ -1269,7 +1269,7 @@
       "egg_moves_ref": "sPidgeyEggMoveLearnset"
     },
     {
-      "id": "17",
+      "id": 17,
       "name": "Pidgeotto",
       "sprite": "0017",
       "shiny_sprite": "0017",
@@ -1322,7 +1322,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "18",
+      "id": 18,
       "name": "Pidgeot",
       "sprite": "0018",
       "shiny_sprite": "0018",
@@ -1374,7 +1374,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "911",
+      "id": 911,
       "name": "Mega-Pidgeot",
       "sprite": "0911",
       "shiny_sprite": "0911",
@@ -1427,7 +1427,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "19",
+      "id": 19,
       "name": "Rattata",
       "sprite": "0019m",
       "shiny_sprite": "0019m",
@@ -1481,7 +1481,7 @@
       "shiny_sprite_female": "0019f"
     },
     {
-      "id": "20",
+      "id": 20,
       "name": "Raticate",
       "sprite": "0020m",
       "shiny_sprite": "0020m",
@@ -1535,7 +1535,7 @@
       "shiny_sprite_female": "0020f"
     },
     {
-      "id": "956",
+      "id": 956,
       "name": "Alolan-Rattata",
       "sprite": "0956",
       "shiny_sprite": "0956",
@@ -1585,10 +1585,10 @@
       "evolutions": null,
       "learnset_ref": "sRattataAlolaLevelUpLearnset",
       "teachable_ref": "sRattataAlolaTeachableLearnset",
-      "egg_moves_ref": "sRattataAlolaEggMoveLearnset",
+      "egg_moves_ref": "sRattataAlolaEggMoveLearnset"
     },
     {
-      "id": "957",
+      "id": 957,
       "name": "Alolan-Raticate",
       "sprite": "0957",
       "shiny_sprite": "0957",
@@ -1641,7 +1641,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1476",
+      "id": 1476,
       "name": "Alolan-Raticate-Totem",
       "sprite": "1476",
       "shiny_sprite": "1476",
@@ -1686,7 +1686,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "21",
+      "id": 21,
       "name": "Spearow",
       "sprite": "0021",
       "shiny_sprite": "0021",
@@ -1735,7 +1735,7 @@
       "egg_moves_ref": "sSpearowEggMoveLearnset"
     },
     {
-      "id": "22",
+      "id": 22,
       "name": "Fearow",
       "sprite": "0022",
       "shiny_sprite": "0022",
@@ -1784,7 +1784,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "23",
+      "id": 23,
       "name": "Ekans",
       "sprite": "0023",
       "shiny_sprite": "0023",
@@ -1837,7 +1837,7 @@
       "egg_moves_ref": "sEkansEggMoveLearnset"
     },
     {
-      "id": "24",
+      "id": 24,
       "name": "Arbok",
       "sprite": "0024",
       "shiny_sprite": "0024",
@@ -1889,7 +1889,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "172",
+      "id": 172,
       "name": "Pichu",
       "sprite": "0172",
       "shiny_sprite": "0172",
@@ -1938,7 +1938,7 @@
       "egg_moves_ref": "sPichuEggMoveLearnset"
     },
     {
-      "id": "1023",
+      "id": 1023,
       "name": "Spiky-Ear-Pichu",
       "sprite": "1023",
       "shiny_sprite": "1023",
@@ -1983,7 +1983,7 @@
       "egg_moves_ref": "sPichuEggMoveLearnset"
     },
     {
-      "id": "25",
+      "id": 25,
       "name": "Pikachu",
       "sprite": "0025m",
       "shiny_sprite": "0025m",
@@ -2033,7 +2033,7 @@
       "shiny_sprite_female": "0025f"
     },
     {
-      "id": "1009",
+      "id": 1009,
       "name": "Cosplay-Pikachu",
       "sprite": "1009",
       "shiny_sprite": "1009",
@@ -2082,7 +2082,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1010",
+      "id": 1010,
       "name": "Rockstar-Pikachu",
       "sprite": "1010",
       "shiny_sprite": "1010",
@@ -2131,7 +2131,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1011",
+      "id": 1011,
       "name": "Belle-Pikachu",
       "sprite": "1011",
       "shiny_sprite": "1011",
@@ -2180,7 +2180,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1012",
+      "id": 1012,
       "name": "Pop-Star-Pikachu",
       "sprite": "1012",
       "shiny_sprite": "1012",
@@ -2229,7 +2229,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1013",
+      "id": 1013,
       "name": "PHD-Pikachu",
       "sprite": "1013",
       "shiny_sprite": "1013",
@@ -2278,7 +2278,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1014",
+      "id": 1014,
       "name": "Libre-Pikachu",
       "sprite": "1014",
       "shiny_sprite": "1014",
@@ -2327,7 +2327,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1015",
+      "id": 1015,
       "name": "Original-Pikachu",
       "sprite": "1015",
       "shiny_sprite": "1015",
@@ -2376,7 +2376,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1016",
+      "id": 1016,
       "name": "Hoenn-Pikachu",
       "sprite": "1016",
       "shiny_sprite": "1016",
@@ -2425,7 +2425,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1017",
+      "id": 1017,
       "name": "Sinnoh-Pikachu",
       "sprite": "1017",
       "shiny_sprite": "1017",
@@ -2474,7 +2474,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1018",
+      "id": 1018,
       "name": "Unova-Pikachu",
       "sprite": "1018",
       "shiny_sprite": "1018",
@@ -2523,7 +2523,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1019",
+      "id": 1019,
       "name": "Kalos-Pikachu",
       "sprite": "1019",
       "shiny_sprite": "1019",
@@ -2572,7 +2572,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1020",
+      "id": 1020,
       "name": "Alola-Pikachu",
       "sprite": "1020",
       "shiny_sprite": "1020",
@@ -2621,7 +2621,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1021",
+      "id": 1021,
       "name": "Partner-Pikachu",
       "sprite": "1021",
       "shiny_sprite": "1021",
@@ -2670,7 +2670,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1022",
+      "id": 1022,
       "name": "World-Pikachu",
       "sprite": "1022",
       "shiny_sprite": "1022",
@@ -2719,7 +2719,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1493",
+      "id": 1493,
       "name": "GMax-Pikachu",
       "sprite": "1493",
       "shiny_sprite": "1493",
@@ -2767,7 +2767,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1487",
+      "id": 1487,
       "name": "Starter-Pikachu",
       "sprite": "1487",
       "shiny_sprite": "1487",
@@ -2816,7 +2816,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "26",
+      "id": 26,
       "name": "Raichu",
       "sprite": "0026m",
       "shiny_sprite": "0026m",
@@ -2866,7 +2866,7 @@
       "shiny_sprite_female": "0026f"
     },
     {
-      "id": "958",
+      "id": 958,
       "name": "Alolan-Raichu",
       "sprite": "0958",
       "shiny_sprite": "0958",
@@ -2914,7 +2914,7 @@
       "shiny_sprite_female": "0026f"
     },
     {
-      "id": "1553",
+      "id": 1553,
       "name": "Mega-Raichu-X",
       "sprite": "1553",
       "shiny_sprite": "1553",
@@ -2964,7 +2964,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1554",
+      "id": 1554,
       "name": "Mega-Raichu-Y",
       "sprite": "1554",
       "shiny_sprite": "1554",
@@ -3014,7 +3014,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "27",
+      "id": 27,
       "name": "Sandshrew",
       "sprite": "0027",
       "shiny_sprite": "0027",
@@ -3062,7 +3062,7 @@
       "egg_moves_ref": "sSandshrewEggMoveLearnset"
     },
     {
-      "id": "28",
+      "id": 28,
       "name": "Sandslash",
       "sprite": "0028",
       "shiny_sprite": "0028",
@@ -3110,7 +3110,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "959",
+      "id": 959,
       "name": "Sandshrew",
       "sprite": "0959",
       "shiny_sprite": "0959",
@@ -3159,7 +3159,7 @@
       "egg_moves_ref": "sSandshrewAlolaEggMoveLearnset"
     },
     {
-      "id": "960",
+      "id": 960,
       "name": "Sandslash",
       "sprite": "0960",
       "shiny_sprite": "0960",
@@ -3208,7 +3208,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "29",
+      "id": 29,
       "name": "Nidoran♀",
       "sprite": "0029",
       "shiny_sprite": "0029",
@@ -3262,7 +3262,7 @@
       "egg_moves_ref": "sNidoranFEggMoveLearnset"
     },
     {
-      "id": "30",
+      "id": 30,
       "name": "Nidorina",
       "sprite": "0030",
       "shiny_sprite": "0030",
@@ -3315,7 +3315,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "31",
+      "id": 31,
       "name": "Nidoqueen",
       "sprite": "0031",
       "shiny_sprite": "0031",
@@ -3366,7 +3366,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "32",
+      "id": 32,
       "name": "Nidoran♂",
       "sprite": "0032",
       "shiny_sprite": "0032",
@@ -3420,7 +3420,7 @@
       "egg_moves_ref": "sNidoranMEggMoveLearnset"
     },
     {
-      "id": "33",
+      "id": 33,
       "name": "Nidorino",
       "sprite": "0033",
       "shiny_sprite": "0033",
@@ -3474,7 +3474,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "34",
+      "id": 34,
       "name": "Nidoking",
       "sprite": "0034",
       "shiny_sprite": "0034",
@@ -3526,7 +3526,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "173",
+      "id": 173,
       "name": "Cleffa",
       "sprite": "0173",
       "shiny_sprite": "0173",
@@ -3579,7 +3579,7 @@
       "egg_moves_ref": "sCleffaEggMoveLearnset"
     },
     {
-      "id": "35",
+      "id": 35,
       "name": "Clefairy",
       "sprite": "0035",
       "shiny_sprite": "0035",
@@ -3631,7 +3631,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "36",
+      "id": 36,
       "name": "Clefable",
       "sprite": "0036",
       "shiny_sprite": "0036",
@@ -3682,7 +3682,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1524",
+      "id": 1524,
       "name": "Mega-Clefable",
       "sprite": "1524",
       "shiny_sprite": "1524",
@@ -3735,7 +3735,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "37",
+      "id": 37,
       "name": "Vulpix",
       "sprite": "0037",
       "shiny_sprite": "0037",
@@ -3783,7 +3783,7 @@
       "egg_moves_ref": "sVulpixEggMoveLearnset"
     },
     {
-      "id": "38",
+      "id": 38,
       "name": "Ninetales",
       "sprite": "0038",
       "shiny_sprite": "0038",
@@ -3832,7 +3832,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "961",
+      "id": 961,
       "name": "Alolan-Vulpix",
       "sprite": "0961",
       "shiny_sprite": "0961",
@@ -3881,7 +3881,7 @@
       "egg_moves_ref": "sVulpixAlolaEggMoveLearnset"
     },
     {
-      "id": "962",
+      "id": 962,
       "name": "Alolan-Ninetales",
       "sprite": "0962",
       "shiny_sprite": "0962",
@@ -3931,7 +3931,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "174",
+      "id": 174,
       "name": "Igglybuff",
       "sprite": "0174",
       "shiny_sprite": "0174",
@@ -3984,7 +3984,7 @@
       "egg_moves_ref": "sIgglybuffEggMoveLearnset"
     },
     {
-      "id": "39",
+      "id": 39,
       "name": "Jigglypuff",
       "sprite": "0039",
       "shiny_sprite": "0039",
@@ -4036,7 +4036,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "40",
+      "id": 40,
       "name": "Wigglytuff",
       "sprite": "0040",
       "shiny_sprite": "0040",
@@ -4088,7 +4088,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "41",
+      "id": 41,
       "name": "Zubat",
       "sprite": "0041m",
       "shiny_sprite": "0041m",
@@ -4138,7 +4138,7 @@
       "shiny_sprite_female": "0041f"
     },
     {
-      "id": "42",
+      "id": 42,
       "name": "Golbat",
       "sprite": "0042m",
       "shiny_sprite": "0042m",
@@ -4188,7 +4188,7 @@
       "shiny_sprite_female": "0042f"
     },
     {
-      "id": "169",
+      "id": 169,
       "name": "Crobat",
       "sprite": "0169",
       "shiny_sprite": "0169",
@@ -4237,7 +4237,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "43",
+      "id": 43,
       "name": "Oddish",
       "sprite": "0043",
       "shiny_sprite": "0043",
@@ -4285,7 +4285,7 @@
       "egg_moves_ref": "sOddishEggMoveLearnset"
     },
     {
-      "id": "44",
+      "id": 44,
       "name": "Gloom",
       "sprite": "0044m",
       "shiny_sprite": "0044m",
@@ -4335,7 +4335,7 @@
       "shiny_sprite_female": "0044f"
     },
     {
-      "id": "45",
+      "id": 45,
       "name": "Vileplume",
       "sprite": "0045m",
       "shiny_sprite": "0045m",
@@ -4384,7 +4384,7 @@
       "shiny_sprite_female": "0045f"
     },
     {
-      "id": "182",
+      "id": 182,
       "name": "Bellossom",
       "sprite": "0182",
       "shiny_sprite": "0182",
@@ -4432,7 +4432,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "46",
+      "id": 46,
       "name": "Paras",
       "sprite": "0046",
       "shiny_sprite": "0046",
@@ -4485,7 +4485,7 @@
       "egg_moves_ref": "sParasEggMoveLearnset"
     },
     {
-      "id": "47",
+      "id": 47,
       "name": "Parasect",
       "sprite": "0047",
       "shiny_sprite": "0047",
@@ -4539,7 +4539,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "48",
+      "id": 48,
       "name": "Venonat",
       "sprite": "0048",
       "shiny_sprite": "0048",
@@ -4591,7 +4591,7 @@
       "egg_moves_ref": "sVenonatEggMoveLearnset"
     },
     {
-      "id": "49",
+      "id": 49,
       "name": "Venomoth",
       "sprite": "0049",
       "shiny_sprite": "0049",
@@ -4644,7 +4644,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "50",
+      "id": 50,
       "name": "Diglett",
       "sprite": "0050",
       "shiny_sprite": "0050",
@@ -4696,7 +4696,7 @@
       "egg_moves_ref": "sDiglettEggMoveLearnset"
     },
     {
-      "id": "51",
+      "id": 51,
       "name": "Dugtrio",
       "sprite": "0051",
       "shiny_sprite": "0051",
@@ -4747,7 +4747,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "963",
+      "id": 963,
       "name": "Alolan-Diglett",
       "sprite": "0963",
       "shiny_sprite": "0963",
@@ -4800,7 +4800,7 @@
       "egg_moves_ref": "sDiglettAlolaEggMoveLearnset"
     },
     {
-      "id": "964",
+      "id": 964,
       "name": "Alolan-Dugtrio",
       "sprite": "0964",
       "shiny_sprite": "0964",
@@ -4853,7 +4853,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "52",
+      "id": 52,
       "name": "Meowth",
       "sprite": "0052",
       "shiny_sprite": "0052",
@@ -4893,7 +4893,7 @@
       "egg_moves_ref": "sMeowthEggMoveLearnset"
     },
     {
-      "id": "53",
+      "id": 53,
       "name": "Persian",
       "sprite": "0053",
       "shiny_sprite": "0053",
@@ -4946,7 +4946,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "965",
+      "id": 965,
       "name": "Alolan-Meowth",
       "sprite": "0965",
       "shiny_sprite": "0965",
@@ -4999,7 +4999,7 @@
       "egg_moves_ref": "sMeowthAlolaEggMoveLearnset"
     },
     {
-      "id": "966",
+      "id": 966,
       "name": "Persian",
       "sprite": "0966",
       "shiny_sprite": "0966",
@@ -5052,7 +5052,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "974",
+      "id": 974,
       "name": "Meowth",
       "sprite": "0974",
       "shiny_sprite": "0974",
@@ -5105,7 +5105,7 @@
       "egg_moves_ref": "sMeowthGalarEggMoveLearnset"
     },
     {
-      "id": "863",
+      "id": 863,
       "name": "Perrserker",
       "sprite": "0863",
       "shiny_sprite": "0863",
@@ -5158,7 +5158,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1494",
+      "id": 1494,
       "name": "GMax-Meowth",
       "sprite": "1494",
       "shiny_sprite": "1494",
@@ -5198,7 +5198,7 @@
       "egg_moves_ref": "sMeowthEggMoveLearnset"
     },
     {
-      "id": "54",
+      "id": 54,
       "name": "Psyduck",
       "sprite": "0054",
       "shiny_sprite": "0054",
@@ -5251,7 +5251,7 @@
       "egg_moves_ref": "sPsyduckEggMoveLearnset"
     },
     {
-      "id": "55",
+      "id": 55,
       "name": "Golduck",
       "sprite": "0055",
       "shiny_sprite": "0055",
@@ -5304,7 +5304,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "56",
+      "id": 56,
       "name": "Mankey",
       "sprite": "0056",
       "shiny_sprite": "0056",
@@ -5356,7 +5356,7 @@
       "egg_moves_ref": "sMankeyEggMoveLearnset"
     },
     {
-      "id": "57",
+      "id": 57,
       "name": "Primeape",
       "sprite": "0057",
       "shiny_sprite": "0057",
@@ -5408,7 +5408,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1370",
+      "id": 1370,
       "name": "Annihilape",
       "sprite": "1370",
       "shiny_sprite": "1370",
@@ -5461,7 +5461,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "58",
+      "id": 58,
       "name": "Growlithe",
       "sprite": "0058",
       "shiny_sprite": "0058",
@@ -5513,7 +5513,7 @@
       "egg_moves_ref": "sGrowlitheEggMoveLearnset"
     },
     {
-      "id": "59",
+      "id": 59,
       "name": "Arcanine",
       "sprite": "0059",
       "shiny_sprite": "0059",
@@ -5565,7 +5565,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "993",
+      "id": 993,
       "name": "Hisuian-Growlithe",
       "sprite": "0993",
       "shiny_sprite": "0993",
@@ -5618,7 +5618,7 @@
       "egg_moves_ref": "sGrowlitheHisuiEggMoveLearnset"
     },
     {
-      "id": "994",
+      "id": 994,
       "name": "Hisuian-Arcanine",
       "sprite": "0994",
       "shiny_sprite": "0994",
@@ -5671,7 +5671,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "60",
+      "id": 60,
       "name": "Poliwag",
       "sprite": "0060",
       "shiny_sprite": "0060",
@@ -5724,7 +5724,7 @@
       "egg_moves_ref": "sPoliwagEggMoveLearnset"
     },
     {
-      "id": "61",
+      "id": 61,
       "name": "Poliwhirl",
       "sprite": "0061",
       "shiny_sprite": "0061",
@@ -5777,7 +5777,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "62",
+      "id": 62,
       "name": "Poliwrath",
       "sprite": "0062",
       "shiny_sprite": "0062",
@@ -5828,7 +5828,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "186",
+      "id": 186,
       "name": "Politoed",
       "sprite": "0186m",
       "shiny_sprite": "0186m",
@@ -5883,7 +5883,7 @@
       "shiny_sprite_female": "0186f"
     },
     {
-      "id": "63",
+      "id": 63,
       "name": "Abra",
       "sprite": "0063",
       "shiny_sprite": "0063",
@@ -5935,7 +5935,7 @@
       "egg_moves_ref": "sAbraEggMoveLearnset"
     },
     {
-      "id": "64",
+      "id": 64,
       "name": "Kadabra",
       "sprite": "0064m",
       "shiny_sprite": "0064m",
@@ -5989,7 +5989,7 @@
       "shiny_sprite_female": "0064f"
     },
     {
-      "id": "65",
+      "id": 65,
       "name": "Alakazam",
       "sprite": "0065m",
       "shiny_sprite": "0065m",
@@ -6043,7 +6043,7 @@
       "shiny_sprite_female": "0065f"
     },
     {
-      "id": "912",
+      "id": 912,
       "name": "Mega-Alakazam",
       "sprite": "0912",
       "shiny_sprite": "0912",
@@ -6095,7 +6095,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "66",
+      "id": 66,
       "name": "Machop",
       "sprite": "0066",
       "shiny_sprite": "0066",
@@ -6148,7 +6148,7 @@
       "egg_moves_ref": "sMachopEggMoveLearnset"
     },
     {
-      "id": "67",
+      "id": 67,
       "name": "Machoke",
       "sprite": "0067",
       "shiny_sprite": "0067",
@@ -6200,7 +6200,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "68",
+      "id": 68,
       "name": "Machamp",
       "sprite": "0068",
       "shiny_sprite": "0068",
@@ -6252,7 +6252,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1495",
+      "id": 1495,
       "name": "GMax-Machamp",
       "sprite": "1495",
       "shiny_sprite": "1495",
@@ -6304,7 +6304,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "69",
+      "id": 69,
       "name": "Bellsprout",
       "sprite": "0069",
       "shiny_sprite": "0069",
@@ -6352,7 +6352,7 @@
       "egg_moves_ref": "sBellsproutEggMoveLearnset"
     },
     {
-      "id": "70",
+      "id": 70,
       "name": "Weepinbell",
       "sprite": "0070",
       "shiny_sprite": "0070",
@@ -6400,7 +6400,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "71",
+      "id": 71,
       "name": "Victreebel",
       "sprite": "0071",
       "shiny_sprite": "0071",
@@ -6448,7 +6448,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1525",
+      "id": 1525,
       "name": "Mega-Victreebel",
       "sprite": "1525",
       "shiny_sprite": "1525",
@@ -6501,7 +6501,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "72",
+      "id": 72,
       "name": "Tentacool",
       "sprite": "0072",
       "shiny_sprite": "0072",
@@ -6553,7 +6553,7 @@
       "egg_moves_ref": "sTentacoolEggMoveLearnset"
     },
     {
-      "id": "73",
+      "id": 73,
       "name": "Tentacruel",
       "sprite": "0073",
       "shiny_sprite": "0073",
@@ -6605,7 +6605,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "74",
+      "id": 74,
       "name": "Geodude",
       "sprite": "0074",
       "shiny_sprite": "0074",
@@ -6658,7 +6658,7 @@
       "egg_moves_ref": "sGeodudeEggMoveLearnset"
     },
     {
-      "id": "75",
+      "id": 75,
       "name": "Graveler",
       "sprite": "0075",
       "shiny_sprite": "0075",
@@ -6711,7 +6711,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "76",
+      "id": 76,
       "name": "Golem",
       "sprite": "0076",
       "shiny_sprite": "0076",
@@ -6762,7 +6762,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "967",
+      "id": 967,
       "name": "Alolan-Geodude",
       "sprite": "0967",
       "shiny_sprite": "0967",
@@ -6815,7 +6815,7 @@
       "egg_moves_ref": "sGeodudeAlolaEggMoveLearnset"
     },
     {
-      "id": "968",
+      "id": 968,
       "name": "Alolan-Graveler",
       "sprite": "0968",
       "shiny_sprite": "0968",
@@ -6868,7 +6868,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "969",
+      "id": 969,
       "name": "Alolan-Golem",
       "sprite": "0969",
       "shiny_sprite": "0969",
@@ -6921,7 +6921,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "77",
+      "id": 77,
       "name": "Ponyta",
       "sprite": "0077",
       "shiny_sprite": "0077",
@@ -6974,7 +6974,7 @@
       "egg_moves_ref": "sPonytaEggMoveLearnset"
     },
     {
-      "id": "78",
+      "id": 78,
       "name": "Rapidash",
       "sprite": "0078",
       "shiny_sprite": "0078",
@@ -7027,7 +7027,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "975",
+      "id": 975,
       "name": "Galarian-Ponyta",
       "sprite": "0975",
       "shiny_sprite": "0975",
@@ -7080,7 +7080,7 @@
       "egg_moves_ref": "sPonytaGalarEggMoveLearnset"
     },
     {
-      "id": "976",
+      "id": 976,
       "name": "Galarian-Rapidash",
       "sprite": "0976",
       "shiny_sprite": "0976",
@@ -7133,7 +7133,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "79",
+      "id": 79,
       "name": "Slowpoke",
       "sprite": "0079",
       "shiny_sprite": "0079",
@@ -7187,7 +7187,7 @@
       "egg_moves_ref": "sSlowpokeEggMoveLearnset"
     },
     {
-      "id": "80",
+      "id": 80,
       "name": "Slowbro",
       "sprite": "0080",
       "shiny_sprite": "0080",
@@ -7240,7 +7240,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "199",
+      "id": 199,
       "name": "Slowking",
       "sprite": "0199",
       "shiny_sprite": "0199",
@@ -7292,7 +7292,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "913",
+      "id": 913,
       "name": "Mega-Slowbro",
       "sprite": "0913",
       "shiny_sprite": "0913",
@@ -7346,7 +7346,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "977",
+      "id": 977,
       "name": "Galarian-Slowpoke",
       "sprite": "0977",
       "shiny_sprite": "0977",
@@ -7400,7 +7400,7 @@
       "egg_moves_ref": "sSlowpokeGalarEggMoveLearnset"
     },
     {
-      "id": "978",
+      "id": 978,
       "name": "Galarian-Slowbro",
       "sprite": "0978",
       "shiny_sprite": "0978",
@@ -7454,7 +7454,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "985",
+      "id": 985,
       "name": "Galarian-Slowking",
       "sprite": "0985",
       "shiny_sprite": "0985",
@@ -7508,7 +7508,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "81",
+      "id": 81,
       "name": "Magnemite",
       "sprite": "0081",
       "shiny_sprite": "0081",
@@ -7560,7 +7560,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "82",
+      "id": 82,
       "name": "Magneton",
       "sprite": "0082",
       "shiny_sprite": "0082",
@@ -7612,7 +7612,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "462",
+      "id": 462,
       "name": "Magnezone",
       "sprite": "0462",
       "shiny_sprite": "0462",
@@ -7665,7 +7665,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "83",
+      "id": 83,
       "name": "Farfetch'd",
       "sprite": "0083",
       "shiny_sprite": "0083",
@@ -7717,7 +7717,7 @@
       "egg_moves_ref": "sFarfetchdEggMoveLearnset"
     },
     {
-      "id": "979",
+      "id": 979,
       "name": "Galarian-Farfetch'd",
       "sprite": "0979",
       "shiny_sprite": "0979",
@@ -7767,7 +7767,7 @@
       "egg_moves_ref": "sFarfetchdGalarEggMoveLearnset"
     },
     {
-      "id": "865",
+      "id": 865,
       "name": "Sirfetch'd",
       "sprite": "0865",
       "shiny_sprite": "0865",
@@ -7817,7 +7817,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "84",
+      "id": 84,
       "name": "Doduo",
       "sprite": "0084m",
       "shiny_sprite": "0084m",
@@ -7872,7 +7872,7 @@
       "shiny_sprite_female": "0084f"
     },
     {
-      "id": "85",
+      "id": 85,
       "name": "Dodrio",
       "sprite": "0085m",
       "shiny_sprite": "0085m",
@@ -7926,7 +7926,7 @@
       "shiny_sprite_female": "0085f"
     },
     {
-      "id": "86",
+      "id": 86,
       "name": "Seel",
       "sprite": "0086",
       "shiny_sprite": "0086",
@@ -7979,7 +7979,7 @@
       "egg_moves_ref": "sSeelEggMoveLearnset"
     },
     {
-      "id": "87",
+      "id": 87,
       "name": "Dewgong",
       "sprite": "0087",
       "shiny_sprite": "0087",
@@ -8032,7 +8032,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "88",
+      "id": 88,
       "name": "Grimer",
       "sprite": "0088",
       "shiny_sprite": "0088",
@@ -8084,7 +8084,7 @@
       "egg_moves_ref": "sGrimerEggMoveLearnset"
     },
     {
-      "id": "89",
+      "id": 89,
       "name": "Muk",
       "sprite": "0089",
       "shiny_sprite": "0089",
@@ -8137,7 +8137,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "970",
+      "id": 970,
       "name": "Alolan-Grimer",
       "sprite": "0970",
       "shiny_sprite": "0970",
@@ -8190,7 +8190,7 @@
       "egg_moves_ref": "sGrimerAlolaEggMoveLearnset"
     },
     {
-      "id": "971",
+      "id": 971,
       "name": "Alolan-Muk",
       "sprite": "0971",
       "shiny_sprite": "0971",
@@ -8244,7 +8244,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "90",
+      "id": 90,
       "name": "Shellder",
       "sprite": "0090",
       "shiny_sprite": "0090",
@@ -8296,7 +8296,7 @@
       "egg_moves_ref": "sShellderEggMoveLearnset"
     },
     {
-      "id": "91",
+      "id": 91,
       "name": "Cloyster",
       "sprite": "0091",
       "shiny_sprite": "0091",
@@ -8348,7 +8348,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "92",
+      "id": 92,
       "name": "Gastly",
       "sprite": "0092",
       "shiny_sprite": "0092",
@@ -8392,7 +8392,7 @@
       "egg_moves_ref": "sGastlyEggMoveLearnset"
     },
     {
-      "id": "93",
+      "id": 93,
       "name": "Haunter",
       "sprite": "0093",
       "shiny_sprite": "0093",
@@ -8436,7 +8436,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "94",
+      "id": 94,
       "name": "Gengar",
       "sprite": "0094",
       "shiny_sprite": "0094",
@@ -8475,7 +8475,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "914",
+      "id": 914,
       "name": "Mega-Gengar",
       "sprite": "0914",
       "shiny_sprite": "0914",
@@ -8528,7 +8528,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1496",
+      "id": 1496,
       "name": "GMax-Gengar",
       "sprite": "1496",
       "shiny_sprite": "1496",
@@ -8567,7 +8567,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "95",
+      "id": 95,
       "name": "Onix",
       "sprite": "0095",
       "shiny_sprite": "0095",
@@ -8619,7 +8619,7 @@
       "egg_moves_ref": "sOnixEggMoveLearnset"
     },
     {
-      "id": "208",
+      "id": 208,
       "name": "Steelix",
       "sprite": "0208m",
       "shiny_sprite": "0208m",
@@ -8674,7 +8674,7 @@
       "shiny_sprite_female": "0208f"
     },
     {
-      "id": "922",
+      "id": 922,
       "name": "Mega-Steelix",
       "sprite": "0922",
       "shiny_sprite": "0922",
@@ -8727,7 +8727,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "96",
+      "id": 96,
       "name": "Drowzee",
       "sprite": "0096",
       "shiny_sprite": "0096",
@@ -8779,7 +8779,7 @@
       "egg_moves_ref": "sDrowzeeEggMoveLearnset"
     },
     {
-      "id": "97",
+      "id": 97,
       "name": "Hypno",
       "sprite": "0097m",
       "shiny_sprite": "0097m",
@@ -8833,7 +8833,7 @@
       "shiny_sprite_female": "0097f"
     },
     {
-      "id": "98",
+      "id": 98,
       "name": "Krabby",
       "sprite": "0098",
       "shiny_sprite": "0098",
@@ -8886,7 +8886,7 @@
       "egg_moves_ref": "sKrabbyEggMoveLearnset"
     },
     {
-      "id": "99",
+      "id": 99,
       "name": "Kingler",
       "sprite": "0099",
       "shiny_sprite": "0099",
@@ -8939,7 +8939,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1497",
+      "id": 1497,
       "name": "GMax-Kingler",
       "sprite": "1497",
       "shiny_sprite": "1497",
@@ -8992,7 +8992,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "100",
+      "id": 100,
       "name": "Voltorb",
       "sprite": "0100",
       "shiny_sprite": "0100",
@@ -9045,7 +9045,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "101",
+      "id": 101,
       "name": "Electrode",
       "sprite": "0101",
       "shiny_sprite": "0101",
@@ -9097,7 +9097,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "995",
+      "id": 995,
       "name": "Hisuian-Voltorb",
       "sprite": "0995",
       "shiny_sprite": "0995",
@@ -9150,7 +9150,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "996",
+      "id": 996,
       "name": "Hisuian-Electrode",
       "sprite": "0996",
       "shiny_sprite": "0996",
@@ -9203,7 +9203,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "102",
+      "id": 102,
       "name": "Exeggcute",
       "sprite": "0102",
       "shiny_sprite": "0102",
@@ -9251,7 +9251,7 @@
       "egg_moves_ref": "sExeggcuteEggMoveLearnset"
     },
     {
-      "id": "103",
+      "id": 103,
       "name": "Exeggutor",
       "sprite": "0103",
       "shiny_sprite": "0103",
@@ -9300,7 +9300,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "972",
+      "id": 972,
       "name": "Exeggutor",
       "sprite": "0972",
       "shiny_sprite": "0972",
@@ -9349,7 +9349,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "104",
+      "id": 104,
       "name": "Cubone",
       "sprite": "0104",
       "shiny_sprite": "0104",
@@ -9401,7 +9401,7 @@
       "egg_moves_ref": "sCuboneEggMoveLearnset"
     },
     {
-      "id": "105",
+      "id": 105,
       "name": "Marowak",
       "sprite": "0105",
       "shiny_sprite": "0105",
@@ -9453,7 +9453,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "973",
+      "id": 973,
       "name": "Alolan-Marowak",
       "sprite": "0973",
       "shiny_sprite": "0973",
@@ -9506,7 +9506,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1483",
+      "id": 1483,
       "name": "Alolan-Marowak-Totem",
       "sprite": "1483",
       "shiny_sprite": "1483",
@@ -9551,7 +9551,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "236",
+      "id": 236,
       "name": "Tyrogue",
       "sprite": "0236",
       "shiny_sprite": "0236",
@@ -9604,7 +9604,7 @@
       "egg_moves_ref": "sTyrogueEggMoveLearnset"
     },
     {
-      "id": "106",
+      "id": 106,
       "name": "Hitmonlee",
       "sprite": "0106",
       "shiny_sprite": "0106",
@@ -9656,7 +9656,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "107",
+      "id": 107,
       "name": "Hitmonchan",
       "sprite": "0107",
       "shiny_sprite": "0107",
@@ -9708,7 +9708,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "237",
+      "id": 237,
       "name": "Hitmontop",
       "sprite": "0237",
       "shiny_sprite": "0237",
@@ -9761,7 +9761,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "108",
+      "id": 108,
       "name": "Lickitung",
       "sprite": "0108",
       "shiny_sprite": "0108",
@@ -9813,7 +9813,7 @@
       "egg_moves_ref": "sLickitungEggMoveLearnset"
     },
     {
-      "id": "463",
+      "id": 463,
       "name": "Lickilicky",
       "sprite": "0463",
       "shiny_sprite": "0463",
@@ -9866,7 +9866,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "109",
+      "id": 109,
       "name": "Koffing",
       "sprite": "0109",
       "shiny_sprite": "0109",
@@ -9918,7 +9918,7 @@
       "egg_moves_ref": "sKoffingEggMoveLearnset"
     },
     {
-      "id": "110",
+      "id": 110,
       "name": "Weezing",
       "sprite": "0110",
       "shiny_sprite": "0110",
@@ -9970,7 +9970,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "980",
+      "id": 980,
       "name": "Galarian-Weezing",
       "sprite": "0980",
       "shiny_sprite": "0980",
@@ -10023,7 +10023,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "111",
+      "id": 111,
       "name": "Rhyhorn",
       "sprite": "0111m",
       "shiny_sprite": "0111m",
@@ -10079,7 +10079,7 @@
       "shiny_sprite_female": "0111f"
     },
     {
-      "id": "112",
+      "id": 112,
       "name": "Rhydon",
       "sprite": "0112m",
       "shiny_sprite": "0112m",
@@ -10135,7 +10135,7 @@
       "shiny_sprite_female": "0112f"
     },
     {
-      "id": "464",
+      "id": 464,
       "name": "Rhyperior",
       "sprite": "0464m",
       "shiny_sprite": "0464m",
@@ -10191,7 +10191,7 @@
       "shiny_sprite_female": "0464f"
     },
     {
-      "id": "440",
+      "id": 440,
       "name": "Happiny",
       "sprite": "0440",
       "shiny_sprite": "0440",
@@ -10244,7 +10244,7 @@
       "egg_moves_ref": "sHappinyEggMoveLearnset"
     },
     {
-      "id": "113",
+      "id": 113,
       "name": "Chansey",
       "sprite": "0113",
       "shiny_sprite": "0113",
@@ -10296,7 +10296,7 @@
       "egg_moves_ref": "sChanseyEggMoveLearnset"
     },
     {
-      "id": "242",
+      "id": 242,
       "name": "Blissey",
       "sprite": "0242",
       "shiny_sprite": "0242",
@@ -10347,7 +10347,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "114",
+      "id": 114,
       "name": "Tangela",
       "sprite": "0114",
       "shiny_sprite": "0114",
@@ -10399,7 +10399,7 @@
       "egg_moves_ref": "sTangelaEggMoveLearnset"
     },
     {
-      "id": "465",
+      "id": 465,
       "name": "Tangrowth",
       "sprite": "0465m",
       "shiny_sprite": "0465m",
@@ -10454,7 +10454,7 @@
       "shiny_sprite_female": "0465f"
     },
     {
-      "id": "115",
+      "id": 115,
       "name": "Kangaskhan",
       "sprite": "0115",
       "shiny_sprite": "0115",
@@ -10506,7 +10506,7 @@
       "egg_moves_ref": "sKangaskhanEggMoveLearnset"
     },
     {
-      "id": "915",
+      "id": 915,
       "name": "Mega-Kangaskhan",
       "sprite": "0915",
       "shiny_sprite": "0915",
@@ -10559,7 +10559,7 @@
       "egg_moves_ref": "sKangaskhanEggMoveLearnset"
     },
     {
-      "id": "116",
+      "id": 116,
       "name": "Horsea",
       "sprite": "0116",
       "shiny_sprite": "0116",
@@ -10612,7 +10612,7 @@
       "egg_moves_ref": "sHorseaEggMoveLearnset"
     },
     {
-      "id": "117",
+      "id": 117,
       "name": "Seadra",
       "sprite": "0117",
       "shiny_sprite": "0117",
@@ -10666,7 +10666,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "230",
+      "id": 230,
       "name": "Kingdra",
       "sprite": "0230",
       "shiny_sprite": "0230",
@@ -10722,7 +10722,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "118",
+      "id": 118,
       "name": "Goldeen",
       "sprite": "0118m",
       "shiny_sprite": "0118m",
@@ -10776,7 +10776,7 @@
       "shiny_sprite_female": "0118f"
     },
     {
-      "id": "119",
+      "id": 119,
       "name": "Seaking",
       "sprite": "0119m",
       "shiny_sprite": "0119m",
@@ -10830,7 +10830,7 @@
       "shiny_sprite_female": "0119f"
     },
     {
-      "id": "120",
+      "id": 120,
       "name": "Staryu",
       "sprite": "0120",
       "shiny_sprite": "0120",
@@ -10882,7 +10882,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "121",
+      "id": 121,
       "name": "Starmie",
       "sprite": "0121",
       "shiny_sprite": "0121",
@@ -10934,7 +10934,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1526",
+      "id": 1526,
       "name": "Mega-Starmie",
       "sprite": "1526",
       "shiny_sprite": "1526",
@@ -10987,7 +10987,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "439",
+      "id": 439,
       "name": "Mime Jr.",
       "sprite": "0439",
       "shiny_sprite": "0439",
@@ -11040,7 +11040,7 @@
       "egg_moves_ref": "sMimeJrEggMoveLearnset"
     },
     {
-      "id": "122",
+      "id": 122,
       "name": "Mr. Mime",
       "sprite": "0122",
       "shiny_sprite": "0122",
@@ -11092,7 +11092,7 @@
       "egg_moves_ref": "sMrMimeEggMoveLearnset"
     },
     {
-      "id": "981",
+      "id": 981,
       "name": "Galarian-Mr. Mime",
       "sprite": "0981",
       "shiny_sprite": "0981",
@@ -11145,7 +11145,7 @@
       "egg_moves_ref": "sMrMimeGalarEggMoveLearnset"
     },
     {
-      "id": "866",
+      "id": 866,
       "name": "Mr. Rime",
       "sprite": "0866",
       "shiny_sprite": "0866",
@@ -11198,7 +11198,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "123",
+      "id": 123,
       "name": "Scyther",
       "sprite": "0123m",
       "shiny_sprite": "0123m",
@@ -11252,7 +11252,7 @@
       "shiny_sprite_female": "0123f"
     },
     {
-      "id": "212",
+      "id": 212,
       "name": "Scizor",
       "sprite": "0212m",
       "shiny_sprite": "0212m",
@@ -11307,7 +11307,7 @@
       "shiny_sprite_female": "0212f"
     },
     {
-      "id": "923",
+      "id": 923,
       "name": "Mega-Scizor",
       "sprite": "0923",
       "shiny_sprite": "0923",
@@ -11362,7 +11362,7 @@
       "shiny_sprite_female": "0212f"
     },
     {
-      "id": "900",
+      "id": 900,
       "name": "Kleavor",
       "sprite": "0900",
       "shiny_sprite": "0900",
@@ -11415,7 +11415,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "238",
+      "id": 238,
       "name": "Smoochum",
       "sprite": "0238",
       "shiny_sprite": "0238",
@@ -11468,7 +11468,7 @@
       "egg_moves_ref": "sSmoochumEggMoveLearnset"
     },
     {
-      "id": "124",
+      "id": 124,
       "name": "Jynx",
       "sprite": "0124",
       "shiny_sprite": "0124",
@@ -11520,7 +11520,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "239",
+      "id": 239,
       "name": "Elekid",
       "sprite": "0239",
       "shiny_sprite": "0239",
@@ -11569,7 +11569,7 @@
       "egg_moves_ref": "sElekidEggMoveLearnset"
     },
     {
-      "id": "125",
+      "id": 125,
       "name": "Electabuzz",
       "sprite": "0125",
       "shiny_sprite": "0125",
@@ -11617,7 +11617,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "466",
+      "id": 466,
       "name": "Electivire",
       "sprite": "0466",
       "shiny_sprite": "0466",
@@ -11666,7 +11666,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "240",
+      "id": 240,
       "name": "Magby",
       "sprite": "0240",
       "shiny_sprite": "0240",
@@ -11715,7 +11715,7 @@
       "egg_moves_ref": "sMagbyEggMoveLearnset"
     },
     {
-      "id": "126",
+      "id": 126,
       "name": "Magmar",
       "sprite": "0126",
       "shiny_sprite": "0126",
@@ -11763,7 +11763,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "467",
+      "id": 467,
       "name": "Magmortar",
       "sprite": "0467",
       "shiny_sprite": "0467",
@@ -11812,7 +11812,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "127",
+      "id": 127,
       "name": "Pinsir",
       "sprite": "0127",
       "shiny_sprite": "0127",
@@ -11864,7 +11864,7 @@
       "egg_moves_ref": "sPinsirEggMoveLearnset"
     },
     {
-      "id": "916",
+      "id": 916,
       "name": "Mega-Pinsir",
       "sprite": "0916",
       "shiny_sprite": "0916",
@@ -11917,7 +11917,7 @@
       "egg_moves_ref": "sPinsirEggMoveLearnset"
     },
     {
-      "id": "128",
+      "id": 128,
       "name": "Tauros",
       "sprite": "0128",
       "shiny_sprite": "0128",
@@ -11970,7 +11970,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1402",
+      "id": 1402,
       "name": "Paldean-Tauros-Combat",
       "sprite": "1402",
       "shiny_sprite": "1402",
@@ -12023,7 +12023,7 @@
       "egg_moves_ref": "sTaurosPaldeaCombatEggMoveLearnset"
     },
     {
-      "id": "1403",
+      "id": 1403,
       "name": "Paldean-Tauros-Blaze",
       "sprite": "1403",
       "shiny_sprite": "1403",
@@ -12076,7 +12076,7 @@
       "egg_moves_ref": "sTaurosPaldeaBlazeEggMoveLearnset"
     },
     {
-      "id": "1404",
+      "id": 1404,
       "name": "Paldean-Tauros-Aqua",
       "sprite": "1404",
       "shiny_sprite": "1404",
@@ -12129,7 +12129,7 @@
       "egg_moves_ref": "sTaurosPaldeaAquaEggMoveLearnset"
     },
     {
-      "id": "129",
+      "id": 129,
       "name": "Magikarp",
       "sprite": "0129m",
       "shiny_sprite": "0129m",
@@ -12180,7 +12180,7 @@
       "shiny_sprite_female": "0129f"
     },
     {
-      "id": "130",
+      "id": 130,
       "name": "Gyarados",
       "sprite": "0130m",
       "shiny_sprite": "0130m",
@@ -12231,7 +12231,7 @@
       "shiny_sprite_female": "0130f"
     },
     {
-      "id": "917",
+      "id": 917,
       "name": "Mega-Gyarados",
       "sprite": "0917",
       "shiny_sprite": "0917",
@@ -12285,7 +12285,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "131",
+      "id": 131,
       "name": "Lapras",
       "sprite": "0131",
       "shiny_sprite": "0131",
@@ -12338,7 +12338,7 @@
       "egg_moves_ref": "sLaprasEggMoveLearnset"
     },
     {
-      "id": "1498",
+      "id": 1498,
       "name": "GMax-Lapras",
       "sprite": "1498",
       "shiny_sprite": "1498",
@@ -12391,7 +12391,7 @@
       "egg_moves_ref": "sLaprasEggMoveLearnset"
     },
     {
-      "id": "132",
+      "id": 132,
       "name": "Ditto",
       "sprite": "0132",
       "shiny_sprite": "0132",
@@ -12440,7 +12440,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "133",
+      "id": 133,
       "name": "Eevee",
       "sprite": "0133m",
       "shiny_sprite": "0133m",
@@ -12481,7 +12481,7 @@
       "shiny_sprite_female": "0133f"
     },
     {
-      "id": "1499",
+      "id": 1499,
       "name": "GMax-Eevee",
       "sprite": "1499",
       "shiny_sprite": "1499",
@@ -12520,7 +12520,7 @@
       "egg_moves_ref": "sEeveeEggMoveLearnset"
     },
     {
-      "id": "1488",
+      "id": 1488,
       "name": "Starter-Eevee",
       "sprite": "1488",
       "shiny_sprite": "1488",
@@ -12573,7 +12573,7 @@
       "egg_moves_ref": "sEeveeEggMoveLearnset"
     },
     {
-      "id": "134",
+      "id": 134,
       "name": "Vaporeon",
       "sprite": "0134",
       "shiny_sprite": "0134",
@@ -12625,7 +12625,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "135",
+      "id": 135,
       "name": "Jolteon",
       "sprite": "0135",
       "shiny_sprite": "0135",
@@ -12677,7 +12677,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "136",
+      "id": 136,
       "name": "Flareon",
       "sprite": "0136",
       "shiny_sprite": "0136",
@@ -12729,7 +12729,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "196",
+      "id": 196,
       "name": "Espeon",
       "sprite": "0196",
       "shiny_sprite": "0196",
@@ -12782,7 +12782,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "197",
+      "id": 197,
       "name": "Umbreon",
       "sprite": "0197",
       "shiny_sprite": "0197",
@@ -12835,7 +12835,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "470",
+      "id": 470,
       "name": "Leafeon",
       "sprite": "0470",
       "shiny_sprite": "0470",
@@ -12888,7 +12888,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "471",
+      "id": 471,
       "name": "Glaceon",
       "sprite": "0471",
       "shiny_sprite": "0471",
@@ -12941,7 +12941,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "700",
+      "id": 700,
       "name": "Sylveon",
       "sprite": "0700",
       "shiny_sprite": "0700",
@@ -12994,7 +12994,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "137",
+      "id": 137,
       "name": "Porygon",
       "sprite": "0137",
       "shiny_sprite": "0137",
@@ -13046,7 +13046,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "233",
+      "id": 233,
       "name": "Porygon2",
       "sprite": "0233",
       "shiny_sprite": "0233",
@@ -13099,7 +13099,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "474",
+      "id": 474,
       "name": "Porygon-Z",
       "sprite": "0474",
       "shiny_sprite": "0474",
@@ -13152,7 +13152,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "138",
+      "id": 138,
       "name": "Omanyte",
       "sprite": "0138",
       "shiny_sprite": "0138",
@@ -13205,7 +13205,7 @@
       "egg_moves_ref": "sOmanyteEggMoveLearnset"
     },
     {
-      "id": "139",
+      "id": 139,
       "name": "Omastar",
       "sprite": "0139",
       "shiny_sprite": "0139",
@@ -13258,7 +13258,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "140",
+      "id": 140,
       "name": "Kabuto",
       "sprite": "0140",
       "shiny_sprite": "0140",
@@ -13311,7 +13311,7 @@
       "egg_moves_ref": "sKabutoEggMoveLearnset"
     },
     {
-      "id": "141",
+      "id": 141,
       "name": "Kabutops",
       "sprite": "0141",
       "shiny_sprite": "0141",
@@ -13364,7 +13364,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "142",
+      "id": 142,
       "name": "Aerodactyl",
       "sprite": "0142",
       "shiny_sprite": "0142",
@@ -13416,7 +13416,7 @@
       "egg_moves_ref": "sAerodactylEggMoveLearnset"
     },
     {
-      "id": "918",
+      "id": 918,
       "name": "Mega-Aerodactyl",
       "sprite": "0918",
       "shiny_sprite": "0918",
@@ -13469,7 +13469,7 @@
       "egg_moves_ref": "sAerodactylEggMoveLearnset"
     },
     {
-      "id": "446",
+      "id": 446,
       "name": "Munchlax",
       "sprite": "0446",
       "shiny_sprite": "0446",
@@ -13522,7 +13522,7 @@
       "egg_moves_ref": "sMunchlaxEggMoveLearnset"
     },
     {
-      "id": "143",
+      "id": 143,
       "name": "Snorlax",
       "sprite": "0143",
       "shiny_sprite": "0143",
@@ -13574,7 +13574,7 @@
       "egg_moves_ref": "sSnorlaxEggMoveLearnset"
     },
     {
-      "id": "1500",
+      "id": 1500,
       "name": "GMax-Snorlax",
       "sprite": "1500",
       "shiny_sprite": "1500",
@@ -13626,7 +13626,7 @@
       "egg_moves_ref": "sSnorlaxEggMoveLearnset"
     },
     {
-      "id": "144",
+      "id": 144,
       "name": "Articuno",
       "sprite": "0144",
       "shiny_sprite": "0144",
@@ -13674,7 +13674,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "982",
+      "id": 982,
       "name": "Galarian-Articuno",
       "sprite": "0982",
       "shiny_sprite": "0982",
@@ -13719,7 +13719,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "145",
+      "id": 145,
       "name": "Zapdos",
       "sprite": "0145",
       "shiny_sprite": "0145",
@@ -13767,7 +13767,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "983",
+      "id": 983,
       "name": "Galarian-Zapdos",
       "sprite": "0983",
       "shiny_sprite": "0983",
@@ -13812,7 +13812,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "146",
+      "id": 146,
       "name": "Moltres",
       "sprite": "0146",
       "shiny_sprite": "0146",
@@ -13860,7 +13860,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "984",
+      "id": 984,
       "name": "Galarian-Moltres",
       "sprite": "0984",
       "shiny_sprite": "0984",
@@ -13905,7 +13905,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "147",
+      "id": 147,
       "name": "Dratini",
       "sprite": "0147",
       "shiny_sprite": "0147",
@@ -13955,7 +13955,7 @@
       "egg_moves_ref": "sDratiniEggMoveLearnset"
     },
     {
-      "id": "148",
+      "id": 148,
       "name": "Dragonair",
       "sprite": "0148",
       "shiny_sprite": "0148",
@@ -14005,7 +14005,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "149",
+      "id": 149,
       "name": "Dragonite",
       "sprite": "0149",
       "shiny_sprite": "0149",
@@ -14055,7 +14055,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1527",
+      "id": 1527,
       "name": "Mega-Dragonite",
       "sprite": "1527",
       "shiny_sprite": "1527",
@@ -14109,7 +14109,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "150",
+      "id": 150,
       "name": "Mewtwo",
       "sprite": "0150",
       "shiny_sprite": "0150",
@@ -14157,7 +14157,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "919",
+      "id": 919,
       "name": "Mega-Mewtwo-X",
       "sprite": "0919",
       "shiny_sprite": "0919",
@@ -14210,7 +14210,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "920",
+      "id": 920,
       "name": "Mega-Mewtwo-Y",
       "sprite": "0920",
       "shiny_sprite": "0920",
@@ -14263,7 +14263,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "151",
+      "id": 151,
       "name": "Mew",
       "sprite": "0151",
       "shiny_sprite": "0151",
@@ -14308,7 +14308,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "152",
+      "id": 152,
       "name": "Chikorita",
       "sprite": "0152",
       "shiny_sprite": "0152",
@@ -14358,7 +14358,7 @@
       "egg_moves_ref": "sChikoritaEggMoveLearnset"
     },
     {
-      "id": "153",
+      "id": 153,
       "name": "Bayleef",
       "sprite": "0153",
       "shiny_sprite": "0153",
@@ -14409,7 +14409,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "154",
+      "id": 154,
       "name": "Meganium",
       "sprite": "0154m",
       "shiny_sprite": "0154m",
@@ -14462,7 +14462,7 @@
       "shiny_sprite_female": "0154f"
     },
     {
-      "id": "1528",
+      "id": 1528,
       "name": "Mega-Meganium",
       "sprite": "1528",
       "shiny_sprite": "1528",
@@ -14517,7 +14517,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "155",
+      "id": 155,
       "name": "Cyndaquil",
       "sprite": "0155",
       "shiny_sprite": "0155",
@@ -14566,7 +14566,7 @@
       "egg_moves_ref": "sCyndaquilEggMoveLearnset"
     },
     {
-      "id": "156",
+      "id": 156,
       "name": "Quilava",
       "sprite": "0156",
       "shiny_sprite": "0156",
@@ -14616,7 +14616,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "157",
+      "id": 157,
       "name": "Typhlosion",
       "sprite": "0157",
       "shiny_sprite": "0157",
@@ -14665,7 +14665,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "997",
+      "id": 997,
       "name": "Hisuian-Typhlosion",
       "sprite": "0997",
       "shiny_sprite": "0997",
@@ -14714,7 +14714,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "158",
+      "id": 158,
       "name": "Totodile",
       "sprite": "0158",
       "shiny_sprite": "0158",
@@ -14764,7 +14764,7 @@
       "egg_moves_ref": "sTotodileEggMoveLearnset"
     },
     {
-      "id": "159",
+      "id": 159,
       "name": "Croconaw",
       "sprite": "0159",
       "shiny_sprite": "0159",
@@ -14815,7 +14815,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "160",
+      "id": 160,
       "name": "Feraligatr",
       "sprite": "0160",
       "shiny_sprite": "0160",
@@ -14866,7 +14866,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1529",
+      "id": 1529,
       "name": "Mega-Feraligatr",
       "sprite": "1529",
       "shiny_sprite": "1529",
@@ -14921,7 +14921,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "161",
+      "id": 161,
       "name": "Sentret",
       "sprite": "0161",
       "shiny_sprite": "0161",
@@ -14974,7 +14974,7 @@
       "egg_moves_ref": "sSentretEggMoveLearnset"
     },
     {
-      "id": "162",
+      "id": 162,
       "name": "Furret",
       "sprite": "0162",
       "shiny_sprite": "0162",
@@ -15027,7 +15027,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "163",
+      "id": 163,
       "name": "Hoothoot",
       "sprite": "0163",
       "shiny_sprite": "0163",
@@ -15080,7 +15080,7 @@
       "egg_moves_ref": "sHoothootEggMoveLearnset"
     },
     {
-      "id": "164",
+      "id": 164,
       "name": "Noctowl",
       "sprite": "0164",
       "shiny_sprite": "0164",
@@ -15132,7 +15132,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "165",
+      "id": 165,
       "name": "Ledyba",
       "sprite": "0165m",
       "shiny_sprite": "0165m",
@@ -15187,7 +15187,7 @@
       "shiny_sprite_female": "0165f"
     },
     {
-      "id": "166",
+      "id": 166,
       "name": "Ledian",
       "sprite": "0166m",
       "shiny_sprite": "0166m",
@@ -15242,7 +15242,7 @@
       "shiny_sprite_female": "0166f"
     },
     {
-      "id": "167",
+      "id": 167,
       "name": "Spinarak",
       "sprite": "0167",
       "shiny_sprite": "0167",
@@ -15295,7 +15295,7 @@
       "egg_moves_ref": "sSpinarakEggMoveLearnset"
     },
     {
-      "id": "168",
+      "id": 168,
       "name": "Ariados",
       "sprite": "0168",
       "shiny_sprite": "0168",
@@ -15347,7 +15347,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "170",
+      "id": 170,
       "name": "Chinchou",
       "sprite": "0170",
       "shiny_sprite": "0170",
@@ -15400,7 +15400,7 @@
       "egg_moves_ref": "sChinchouEggMoveLearnset"
     },
     {
-      "id": "171",
+      "id": 171,
       "name": "Lanturn",
       "sprite": "0171",
       "shiny_sprite": "0171",
@@ -15453,7 +15453,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "175",
+      "id": 175,
       "name": "Togepi",
       "sprite": "0175",
       "shiny_sprite": "0175",
@@ -15506,7 +15506,7 @@
       "egg_moves_ref": "sTogepiEggMoveLearnset"
     },
     {
-      "id": "176",
+      "id": 176,
       "name": "Togetic",
       "sprite": "0176",
       "shiny_sprite": "0176",
@@ -15560,7 +15560,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "468",
+      "id": 468,
       "name": "Togekiss",
       "sprite": "0468",
       "shiny_sprite": "0468",
@@ -15615,7 +15615,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "177",
+      "id": 177,
       "name": "Natu",
       "sprite": "0177",
       "shiny_sprite": "0177",
@@ -15668,7 +15668,7 @@
       "egg_moves_ref": "sNatuEggMoveLearnset"
     },
     {
-      "id": "178",
+      "id": 178,
       "name": "Xatu",
       "sprite": "0178m",
       "shiny_sprite": "0178m",
@@ -15724,7 +15724,7 @@
       "shiny_sprite_female": "0178f"
     },
     {
-      "id": "179",
+      "id": 179,
       "name": "Mareep",
       "sprite": "0179",
       "shiny_sprite": "0179",
@@ -15774,7 +15774,7 @@
       "egg_moves_ref": "sMareepEggMoveLearnset"
     },
     {
-      "id": "180",
+      "id": 180,
       "name": "Flaaffy",
       "sprite": "0180",
       "shiny_sprite": "0180",
@@ -15824,7 +15824,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "181",
+      "id": 181,
       "name": "Ampharos",
       "sprite": "0181",
       "shiny_sprite": "0181",
@@ -15873,7 +15873,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "921",
+      "id": 921,
       "name": "Mega-Ampharos",
       "sprite": "0921",
       "shiny_sprite": "0921",
@@ -15927,7 +15927,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "298",
+      "id": 298,
       "name": "Azurill",
       "sprite": "0298",
       "shiny_sprite": "0298",
@@ -15980,7 +15980,7 @@
       "egg_moves_ref": "sAzurillEggMoveLearnset"
     },
     {
-      "id": "183",
+      "id": 183,
       "name": "Marill",
       "sprite": "0183",
       "shiny_sprite": "0183",
@@ -16034,7 +16034,7 @@
       "egg_moves_ref": "sMarillEggMoveLearnset"
     },
     {
-      "id": "184",
+      "id": 184,
       "name": "Azumarill",
       "sprite": "0184",
       "shiny_sprite": "0184",
@@ -16087,7 +16087,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "438",
+      "id": 438,
       "name": "Bonsly",
       "sprite": "0438",
       "shiny_sprite": "0438",
@@ -16140,7 +16140,7 @@
       "egg_moves_ref": "sBonslyEggMoveLearnset"
     },
     {
-      "id": "185",
+      "id": 185,
       "name": "Sudowoodo",
       "sprite": "0185m",
       "shiny_sprite": "0185m",
@@ -16195,7 +16195,7 @@
       "shiny_sprite_female": "0185f"
     },
     {
-      "id": "187",
+      "id": 187,
       "name": "Hoppip",
       "sprite": "0187",
       "shiny_sprite": "0187",
@@ -16249,7 +16249,7 @@
       "egg_moves_ref": "sHoppipEggMoveLearnset"
     },
     {
-      "id": "188",
+      "id": 188,
       "name": "Skiploom",
       "sprite": "0188",
       "shiny_sprite": "0188",
@@ -16303,7 +16303,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "189",
+      "id": 189,
       "name": "Jumpluff",
       "sprite": "0189",
       "shiny_sprite": "0189",
@@ -16356,7 +16356,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "190",
+      "id": 190,
       "name": "Aipom",
       "sprite": "0190m",
       "shiny_sprite": "0190m",
@@ -16411,7 +16411,7 @@
       "shiny_sprite_female": "0190f"
     },
     {
-      "id": "424",
+      "id": 424,
       "name": "Ambipom",
       "sprite": "0424m",
       "shiny_sprite": "0424m",
@@ -16466,7 +16466,7 @@
       "shiny_sprite_female": "0424f"
     },
     {
-      "id": "191",
+      "id": 191,
       "name": "Sunkern",
       "sprite": "0191",
       "shiny_sprite": "0191",
@@ -16519,7 +16519,7 @@
       "egg_moves_ref": "sSunkernEggMoveLearnset"
     },
     {
-      "id": "192",
+      "id": 192,
       "name": "Sunflora",
       "sprite": "0192",
       "shiny_sprite": "0192",
@@ -16572,7 +16572,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "193",
+      "id": 193,
       "name": "Yanma",
       "sprite": "0193",
       "shiny_sprite": "0193",
@@ -16623,7 +16623,7 @@
       "egg_moves_ref": "sYanmaEggMoveLearnset"
     },
     {
-      "id": "469",
+      "id": 469,
       "name": "Yanmega",
       "sprite": "0469",
       "shiny_sprite": "0469",
@@ -16676,7 +16676,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "194",
+      "id": 194,
       "name": "Wooper",
       "sprite": "0194m",
       "shiny_sprite": "0194m",
@@ -16732,7 +16732,7 @@
       "shiny_sprite_female": "0194f"
     },
     {
-      "id": "195",
+      "id": 195,
       "name": "Quagsire",
       "sprite": "0195m",
       "shiny_sprite": "0195m",
@@ -16788,7 +16788,7 @@
       "shiny_sprite_female": "0195f"
     },
     {
-      "id": "1406",
+      "id": 1406,
       "name": "Paldean-Wooper",
       "sprite": "1406",
       "shiny_sprite": "1406",
@@ -16842,7 +16842,7 @@
       "egg_moves_ref": "sWooperPaldeaEggMoveLearnset"
     },
     {
-      "id": "1371",
+      "id": 1371,
       "name": "Clodsire",
       "sprite": "1371",
       "shiny_sprite": "1371",
@@ -16896,7 +16896,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "198",
+      "id": 198,
       "name": "Murkrow",
       "sprite": "0198m",
       "shiny_sprite": "0198m",
@@ -16951,7 +16951,7 @@
       "shiny_sprite_female": "0198f"
     },
     {
-      "id": "430",
+      "id": 430,
       "name": "Honchkrow",
       "sprite": "0430",
       "shiny_sprite": "0430",
@@ -17004,7 +17004,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "200",
+      "id": 200,
       "name": "Misdreavus",
       "sprite": "0200",
       "shiny_sprite": "0200",
@@ -17049,7 +17049,7 @@
       "egg_moves_ref": "sMisdreavusEggMoveLearnset"
     },
     {
-      "id": "429",
+      "id": 429,
       "name": "Mismagius",
       "sprite": "0429",
       "shiny_sprite": "0429",
@@ -17096,7 +17096,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "360",
+      "id": 360,
       "name": "Wynaut",
       "sprite": "0360",
       "shiny_sprite": "0360",
@@ -17145,7 +17145,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "202",
+      "id": 202,
       "name": "Wobbuffet",
       "sprite": "0202m",
       "shiny_sprite": "0202m",
@@ -17196,7 +17196,7 @@
       "shiny_sprite_female": "0202f"
     },
     {
-      "id": "203",
+      "id": 203,
       "name": "Girafarig",
       "sprite": "0203m",
       "shiny_sprite": "0203m",
@@ -17251,7 +17251,7 @@
       "shiny_sprite_female": "0203f"
     },
     {
-      "id": "1372",
+      "id": 1372,
       "name": "Farigiraf",
       "sprite": "1372",
       "shiny_sprite": "1372",
@@ -17304,7 +17304,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "204",
+      "id": 204,
       "name": "Pineco",
       "sprite": "0204",
       "shiny_sprite": "0204",
@@ -17353,7 +17353,7 @@
       "egg_moves_ref": "sPinecoEggMoveLearnset"
     },
     {
-      "id": "205",
+      "id": 205,
       "name": "Forretress",
       "sprite": "0205",
       "shiny_sprite": "0205",
@@ -17402,7 +17402,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "206",
+      "id": 206,
       "name": "Dunsparce",
       "sprite": "0206",
       "shiny_sprite": "0206",
@@ -17455,7 +17455,7 @@
       "egg_moves_ref": "sDunsparceEggMoveLearnset"
     },
     {
-      "id": "1373",
+      "id": 1373,
       "name": "Dudunsparce-Two-Segments",
       "sprite": "1373",
       "shiny_sprite": "1373",
@@ -17508,7 +17508,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1374",
+      "id": 1374,
       "name": "Dudunsparce-Three-Segments",
       "sprite": "1374",
       "shiny_sprite": "1374",
@@ -17561,7 +17561,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "207",
+      "id": 207,
       "name": "Gligar",
       "sprite": "0207m",
       "shiny_sprite": "0207m",
@@ -17616,7 +17616,7 @@
       "shiny_sprite_female": "0207f"
     },
     {
-      "id": "472",
+      "id": 472,
       "name": "Gliscor",
       "sprite": "0472",
       "shiny_sprite": "0472",
@@ -17669,7 +17669,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "209",
+      "id": 209,
       "name": "Snubbull",
       "sprite": "0209",
       "shiny_sprite": "0209",
@@ -17723,7 +17723,7 @@
       "egg_moves_ref": "sSnubbullEggMoveLearnset"
     },
     {
-      "id": "210",
+      "id": 210,
       "name": "Granbull",
       "sprite": "0210",
       "shiny_sprite": "0210",
@@ -17777,7 +17777,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "211",
+      "id": 211,
       "name": "Qwilfish",
       "sprite": "0211",
       "shiny_sprite": "0211",
@@ -17829,7 +17829,7 @@
       "egg_moves_ref": "sQwilfishEggMoveLearnset"
     },
     {
-      "id": "998",
+      "id": 998,
       "name": "Hisuian-Qwilfish",
       "sprite": "0998",
       "shiny_sprite": "0998",
@@ -17882,7 +17882,7 @@
       "egg_moves_ref": "sQwilfishHisuiEggMoveLearnset"
     },
     {
-      "id": "904",
+      "id": 904,
       "name": "Overqwil",
       "sprite": "0904",
       "shiny_sprite": "0904",
@@ -17935,7 +17935,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "213",
+      "id": 213,
       "name": "Shuckle",
       "sprite": "0213",
       "shiny_sprite": "0213",
@@ -17989,7 +17989,7 @@
       "egg_moves_ref": "sShuckleEggMoveLearnset"
     },
     {
-      "id": "214",
+      "id": 214,
       "name": "Heracross",
       "sprite": "0214m",
       "shiny_sprite": "0214m",
@@ -18044,7 +18044,7 @@
       "shiny_sprite_female": "0214f"
     },
     {
-      "id": "924",
+      "id": 924,
       "name": "Mega-Heracross",
       "sprite": "0924",
       "shiny_sprite": "0924",
@@ -18099,7 +18099,7 @@
       "shiny_sprite_female": "0214f"
     },
     {
-      "id": "215",
+      "id": 215,
       "name": "Sneasel",
       "sprite": "0215m",
       "shiny_sprite": "0215m",
@@ -18154,7 +18154,7 @@
       "shiny_sprite_female": "0215f"
     },
     {
-      "id": "461",
+      "id": 461,
       "name": "Weavile",
       "sprite": "0461m",
       "shiny_sprite": "0461m",
@@ -18206,7 +18206,7 @@
       "shiny_sprite_female": "0461f"
     },
     {
-      "id": "999",
+      "id": 999,
       "name": "Hisuian-Sneasel",
       "sprite": "0999m",
       "shiny_sprite": "0999m",
@@ -18261,7 +18261,7 @@
       "shiny_sprite_female": "0999f"
     },
     {
-      "id": "903",
+      "id": 903,
       "name": "Sneasler",
       "sprite": "0903",
       "shiny_sprite": "0903",
@@ -18314,7 +18314,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "216",
+      "id": 216,
       "name": "Teddiursa",
       "sprite": "0216",
       "shiny_sprite": "0216",
@@ -18367,7 +18367,7 @@
       "egg_moves_ref": "sTeddiursaEggMoveLearnset"
     },
     {
-      "id": "217",
+      "id": 217,
       "name": "Ursaring",
       "sprite": "0217m",
       "shiny_sprite": "0217m",
@@ -18422,7 +18422,7 @@
       "shiny_sprite_female": "0217f"
     },
     {
-      "id": "901",
+      "id": 901,
       "name": "Ursaluna",
       "sprite": "0901",
       "shiny_sprite": "0901",
@@ -18475,7 +18475,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1424",
+      "id": 1424,
       "name": "Bloodmoon-Ursaluna",
       "sprite": "1424",
       "shiny_sprite": "1424",
@@ -18520,7 +18520,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "218",
+      "id": 218,
       "name": "Slugma",
       "sprite": "0218",
       "shiny_sprite": "0218",
@@ -18573,7 +18573,7 @@
       "egg_moves_ref": "sSlugmaEggMoveLearnset"
     },
     {
-      "id": "219",
+      "id": 219,
       "name": "Magcargo",
       "sprite": "0219",
       "shiny_sprite": "0219",
@@ -18624,7 +18624,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "220",
+      "id": 220,
       "name": "Swinub",
       "sprite": "0220",
       "shiny_sprite": "0220",
@@ -18677,7 +18677,7 @@
       "egg_moves_ref": "sSwinubEggMoveLearnset"
     },
     {
-      "id": "221",
+      "id": 221,
       "name": "Piloswine",
       "sprite": "0221m",
       "shiny_sprite": "0221m",
@@ -18733,7 +18733,7 @@
       "shiny_sprite_female": "0221f"
     },
     {
-      "id": "473",
+      "id": 473,
       "name": "Mamoswine",
       "sprite": "0473m",
       "shiny_sprite": "0473m",
@@ -18788,7 +18788,7 @@
       "shiny_sprite_female": "0473f"
     },
     {
-      "id": "222",
+      "id": 222,
       "name": "Corsola",
       "sprite": "0222",
       "shiny_sprite": "0222",
@@ -18840,7 +18840,7 @@
       "egg_moves_ref": "sCorsolaEggMoveLearnset"
     },
     {
-      "id": "986",
+      "id": 986,
       "name": "Galarian-Corsola",
       "sprite": "0986",
       "shiny_sprite": "0986",
@@ -18890,7 +18890,7 @@
       "egg_moves_ref": "sCorsolaGalarEggMoveLearnset"
     },
     {
-      "id": "864",
+      "id": 864,
       "name": "Cursola",
       "sprite": "0864",
       "shiny_sprite": "0864",
@@ -18940,7 +18940,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "223",
+      "id": 223,
       "name": "Remoraid",
       "sprite": "0223",
       "shiny_sprite": "0223",
@@ -18994,7 +18994,7 @@
       "egg_moves_ref": "sRemoraidEggMoveLearnset"
     },
     {
-      "id": "224",
+      "id": 224,
       "name": "Octillery",
       "sprite": "0224m",
       "shiny_sprite": "0224m",
@@ -19051,7 +19051,7 @@
       "shiny_sprite_female": "0224f"
     },
     {
-      "id": "225",
+      "id": 225,
       "name": "Delibird",
       "sprite": "0225",
       "shiny_sprite": "0225",
@@ -19105,7 +19105,7 @@
       "egg_moves_ref": "sDelibirdEggMoveLearnset"
     },
     {
-      "id": "458",
+      "id": 458,
       "name": "Mantyke",
       "sprite": "0458",
       "shiny_sprite": "0458",
@@ -19158,7 +19158,7 @@
       "egg_moves_ref": "sMantykeEggMoveLearnset"
     },
     {
-      "id": "226",
+      "id": 226,
       "name": "Mantine",
       "sprite": "0226",
       "shiny_sprite": "0226",
@@ -19210,7 +19210,7 @@
       "egg_moves_ref": "sMantineEggMoveLearnset"
     },
     {
-      "id": "227",
+      "id": 227,
       "name": "Skarmory",
       "sprite": "0227",
       "shiny_sprite": "0227",
@@ -19263,7 +19263,7 @@
       "egg_moves_ref": "sSkarmoryEggMoveLearnset"
     },
     {
-      "id": "1530",
+      "id": 1530,
       "name": "Mega-Skarmory",
       "sprite": "1530",
       "shiny_sprite": "1530",
@@ -19316,7 +19316,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "228",
+      "id": 228,
       "name": "Houndour",
       "sprite": "0228",
       "shiny_sprite": "0228",
@@ -19369,7 +19369,7 @@
       "egg_moves_ref": "sHoundourEggMoveLearnset"
     },
     {
-      "id": "229",
+      "id": 229,
       "name": "Houndoom",
       "sprite": "0229m",
       "shiny_sprite": "0229m",
@@ -19424,7 +19424,7 @@
       "shiny_sprite_female": "0229f"
     },
     {
-      "id": "925",
+      "id": 925,
       "name": "Mega-Houndoom",
       "sprite": "0925",
       "shiny_sprite": "0925",
@@ -19477,7 +19477,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "231",
+      "id": 231,
       "name": "Phanpy",
       "sprite": "0231",
       "shiny_sprite": "0231",
@@ -19526,7 +19526,7 @@
       "egg_moves_ref": "sPhanpyEggMoveLearnset"
     },
     {
-      "id": "232",
+      "id": 232,
       "name": "Donphan",
       "sprite": "0232m",
       "shiny_sprite": "0232m",
@@ -19578,7 +19578,7 @@
       "shiny_sprite_female": "0232f"
     },
     {
-      "id": "234",
+      "id": 234,
       "name": "Stantler",
       "sprite": "0234",
       "shiny_sprite": "0234",
@@ -19631,7 +19631,7 @@
       "egg_moves_ref": "sStantlerEggMoveLearnset"
     },
     {
-      "id": "899",
+      "id": 899,
       "name": "Wyrdeer",
       "sprite": "0899",
       "shiny_sprite": "0899",
@@ -19685,7 +19685,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "235",
+      "id": 235,
       "name": "Smeargle",
       "sprite": "0235",
       "shiny_sprite": "0235",
@@ -19738,7 +19738,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "241",
+      "id": 241,
       "name": "Miltank",
       "sprite": "0241",
       "shiny_sprite": "0241",
@@ -19791,7 +19791,7 @@
       "egg_moves_ref": "sMiltankEggMoveLearnset"
     },
     {
-      "id": "243",
+      "id": 243,
       "name": "Raikou",
       "sprite": "0243",
       "shiny_sprite": "0243",
@@ -19841,7 +19841,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "244",
+      "id": 244,
       "name": "Entei",
       "sprite": "0244",
       "shiny_sprite": "0244",
@@ -19891,7 +19891,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "245",
+      "id": 245,
       "name": "Suicune",
       "sprite": "0245",
       "shiny_sprite": "0245",
@@ -19941,7 +19941,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "246",
+      "id": 246,
       "name": "Larvitar",
       "sprite": "0246",
       "shiny_sprite": "0246",
@@ -19990,7 +19990,7 @@
       "egg_moves_ref": "sLarvitarEggMoveLearnset"
     },
     {
-      "id": "247",
+      "id": 247,
       "name": "Pupitar",
       "sprite": "0247",
       "shiny_sprite": "0247",
@@ -20035,7 +20035,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "248",
+      "id": 248,
       "name": "Tyranitar",
       "sprite": "0248",
       "shiny_sprite": "0248",
@@ -20084,7 +20084,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "926",
+      "id": 926,
       "name": "Mega-Tyranitar",
       "sprite": "0926",
       "shiny_sprite": "0926",
@@ -20137,7 +20137,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "249",
+      "id": 249,
       "name": "Lugia",
       "sprite": "0249",
       "shiny_sprite": "0249",
@@ -20186,7 +20186,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "250",
+      "id": 250,
       "name": "Ho-Oh",
       "sprite": "0250",
       "shiny_sprite": "0250",
@@ -20235,7 +20235,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "251",
+      "id": 251,
       "name": "Celebi",
       "sprite": "0251",
       "shiny_sprite": "0251",
@@ -20280,7 +20280,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "252",
+      "id": 252,
       "name": "Treecko",
       "sprite": "0252",
       "shiny_sprite": "0252",
@@ -20330,7 +20330,7 @@
       "egg_moves_ref": "sTreeckoEggMoveLearnset"
     },
     {
-      "id": "253",
+      "id": 253,
       "name": "Grovyle",
       "sprite": "0253",
       "shiny_sprite": "0253",
@@ -20380,7 +20380,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "254",
+      "id": 254,
       "name": "Sceptile",
       "sprite": "0254",
       "shiny_sprite": "0254",
@@ -20430,7 +20430,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "927",
+      "id": 927,
       "name": "Mega-Sceptile",
       "sprite": "0927",
       "shiny_sprite": "0927",
@@ -20484,7 +20484,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "255",
+      "id": 255,
       "name": "Torchic",
       "sprite": "0255m",
       "shiny_sprite": "0255m",
@@ -20535,7 +20535,7 @@
       "shiny_sprite_female": "0255f"
     },
     {
-      "id": "256",
+      "id": 256,
       "name": "Combusken",
       "sprite": "0256m",
       "shiny_sprite": "0256m",
@@ -20587,7 +20587,7 @@
       "shiny_sprite_female": "0256f"
     },
     {
-      "id": "257",
+      "id": 257,
       "name": "Blaziken",
       "sprite": "0257m",
       "shiny_sprite": "0257m",
@@ -20638,7 +20638,7 @@
       "shiny_sprite_female": "0257f"
     },
     {
-      "id": "928",
+      "id": 928,
       "name": "Mega-Blaziken",
       "sprite": "0928",
       "shiny_sprite": "0928",
@@ -20693,7 +20693,7 @@
       "shiny_sprite_female": "0257f"
     },
     {
-      "id": "258",
+      "id": 258,
       "name": "Mudkip",
       "sprite": "0258",
       "shiny_sprite": "0258",
@@ -20743,7 +20743,7 @@
       "egg_moves_ref": "sMudkipEggMoveLearnset"
     },
     {
-      "id": "259",
+      "id": 259,
       "name": "Marshtomp",
       "sprite": "0259",
       "shiny_sprite": "0259",
@@ -20793,7 +20793,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "260",
+      "id": 260,
       "name": "Swampert",
       "sprite": "0260",
       "shiny_sprite": "0260",
@@ -20843,7 +20843,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "929",
+      "id": 929,
       "name": "Mega-Swampert",
       "sprite": "0929",
       "shiny_sprite": "0929",
@@ -20897,7 +20897,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "261",
+      "id": 261,
       "name": "Poochyena",
       "sprite": "0261",
       "shiny_sprite": "0261",
@@ -20950,7 +20950,7 @@
       "egg_moves_ref": "sPoochyenaEggMoveLearnset"
     },
     {
-      "id": "0262",
+      "id": 262,
       "name": "Mightyena",
       "sprite": "0262",
       "shiny_sprite": "0262",
@@ -21003,7 +21003,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "263",
+      "id": 263,
       "name": "Zigzagoon",
       "sprite": "0263",
       "shiny_sprite": "0263",
@@ -21056,7 +21056,7 @@
       "egg_moves_ref": "sZigzagoonEggMoveLearnset"
     },
     {
-      "id": "264",
+      "id": 264,
       "name": "Linoone",
       "sprite": "0264",
       "shiny_sprite": "0264",
@@ -21109,7 +21109,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "987",
+      "id": 987,
       "name": "Galarian-Zigzagoon",
       "sprite": "0987",
       "shiny_sprite": "0987",
@@ -21162,7 +21162,7 @@
       "egg_moves_ref": "sZigzagoonGalarEggMoveLearnset"
     },
     {
-      "id": "988",
+      "id": 988,
       "name": "Galarian-Linoone",
       "sprite": "0988",
       "shiny_sprite": "0988",
@@ -21215,7 +21215,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "862",
+      "id": 862,
       "name": "Obstagoon",
       "sprite": "0862",
       "shiny_sprite": "0862",
@@ -21268,7 +21268,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "265",
+      "id": 265,
       "name": "Wurmple",
       "sprite": "0265",
       "shiny_sprite": "0265",
@@ -21317,7 +21317,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "266",
+      "id": 266,
       "name": "Silcoon",
       "sprite": "0266",
       "shiny_sprite": "0266",
@@ -21362,7 +21362,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "267",
+      "id": 267,
       "name": "Beautifly",
       "sprite": "0267m",
       "shiny_sprite": "0267m",
@@ -71110,6 +71110,1266 @@
       "height": null,
       "weight": null,
       "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (A)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (B)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (C)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (D)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (E)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (F)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (G)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (H)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (I)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (J)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (K)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (L)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (M)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (N)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (O)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (P)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (Q)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (R)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (S)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (T)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (U)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (V)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (W)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (X)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (Y)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (Z)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (!)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "name": "Unown (?)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
       "related_forms": [],
       "evolutions": null,
       "learnset_ref": null,

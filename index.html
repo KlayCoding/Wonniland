@@ -761,11 +761,13 @@ let CAJUN_NAMES = {};
 function buildAllMon() {
   ALL_MON.length = 0;
   POKEMON.forEach(p => {
-    ALL_MON.push({displayId:`${String(p.id).padStart(4,'0')}a`,baseId:p.id,sub:'a',name:p.name,t1:p.t1,t2:p.t2,spriteId:p.id,art:true,isForm:false,
-      spriteFile:p.sprite||String(p.id).padStart(4,'0'),
+    const dispId = p.id ? String(p.id).padStart(4,'0') : '????';
+    ALL_MON.push({displayId:dispId+'a',baseId:p.id,sub:'a',name:p.name,t1:p.t1,t2:p.t2,spriteId:p.id,art:true,isForm:false,
+      spriteFile:p.sprite||dispId,
       spriteFemale:p.spriteF||null,
-      shinyFile:p.shinySprite||String(p.id).padStart(4,'0'),
+      shinyFile:p.shinySprite||dispId,
       shinyFemale:p.shinySpriteF||null,
+      _full:p._full||null,
     });
     POKEMON_FORMS.filter(f=>f.baseId===p.id).forEach(f=>{
       ALL_MON.push({displayId:`${String(f.baseId).padStart(4,'0')}${f.sub}`,baseId:f.baseId,sub:f.sub,name:f.name,t1:f.t1,t2:f.t2,spriteId:f.spriteId,art:f.art!==false,isForm:true,formName:f.name});
@@ -1005,8 +1007,8 @@ const ART     = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprite
 const SPR     = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
 
 function iconUrl(id, useArt=false, spriteFile=null) {
-  if(!id) return `${SHOWDOWN}0.gif`;
-  const file = spriteFile || String(id).padStart(4,'0');
+  const file = spriteFile || (id ? String(id).padStart(4,'0') : '');
+  if(!file) return `${SHOWDOWN}0.gif`;
   return `${PKM_BASE1}${file}.png`;
 }
 function iconUrlFallback(img, id) {
@@ -3461,7 +3463,9 @@ function makeMoveSearch(card, onDone, stepRef) {
 // ── Pokédex Modal ─────────────────────────────────────────────────────────────
 function showPokedex(mon) {
   // Find full data from POKEMON list
-  const fullData = POKEMON.find(p => p.id === (mon.baseId||mon.id) || p.name.toLowerCase() === mon.name.toLowerCase()) || mon;
+  // Use cached full JSON data if available, else find in POKEMON array
+  const _monFull = mon._full || (POKEMON.find(p => p.name.toLowerCase()===mon.name.toLowerCase()) || {})._full || mon;
+  const fullData = _monFull;
 
   const bd = document.createElement('div'); bd.className='pdx-backdrop';
   bd.addEventListener('click', e => { if(e.target===bd) bd.remove(); });
@@ -3620,27 +3624,31 @@ async function loadPokemonData() {
     const data = await r.json();
     const list = data.pokemon || [];
 
-    // Build POKEMON array
+    // Build POKEMON array — include ALL entries, use index for missing IDs
     POKEMON.length = 0;
-    list.forEach(p => {
-      if (!p.id || p.id === '???') return;
+    list.forEach((p, idx) => {
+      const id = (p.id && p.id !== '???') ? p.id : null;
+      const spriteFile = p.sprite || (id ? String(id).padStart(4,'0') : '');
       POKEMON.push({
-        id: p.id, name: p.name,
+        id: id, name: p.name,
         t1: p.type1 || 'Normal', t2: p.type2 || null,
-        sprite: p.sprite || String(p.id).padStart(4,'0'),
+        sprite: spriteFile,
         spriteF: p.sprite_female || null,
-        shinySprite: p.shiny_sprite || String(p.id).padStart(4,'0'),
+        shinySprite: p.shiny_sprite || spriteFile,
         shinySpriteF: p.shiny_sprite_female || null,
+        // Store full data for Pokedex
+        _full: p,
       });
     });
 
     // Build BASE_STATS: id -> [hp, atk, def, spa, spd, spe]
     list.forEach(p => {
-      if (!p.id || p.id === '???') return;
       const bs = p.base_stats || {};
-      if (Object.keys(bs).length) {
-        BASE_STATS[p.id] = [bs.hp||0, bs.atk||0, bs.def||0, bs.spa||0, bs.spd||0, bs.spe||0];
-      }
+      if (!Object.keys(bs).length) return;
+      const arr = [bs.hp||0, bs.atk||0, bs.def||0, bs.spa||0, bs.spd||0, bs.spe||0];
+      if (p.id && p.id !== '???') BASE_STATS[p.id] = arr;
+      // Also index by name for lookup
+      BASE_STATS['_n_'+p.name.toLowerCase()] = arr;
     });
 
     // Build CAJUN_NAMES: id -> uppercase name for cajunavenger fallback
