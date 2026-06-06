@@ -20280,10 +20280,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "252",
       "name": "Treecko",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0252",
+      "shiny_sprite": "0252",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -20330,10 +20330,10 @@
       "egg_moves_ref": "sTreeckoEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "253",
       "name": "Grovyle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0253",
+      "shiny_sprite": "0253",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -20380,10 +20380,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "254",
       "name": "Sceptile",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0254",
+      "shiny_sprite": "0254",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -20430,10 +20430,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Sceptile",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "927",
+      "name": "Mega-Sceptile",
+      "sprite": "0927",
+      "shiny_sprite": "0927",
       "type1": "Grass",
       "type2": "Dragon",
       "base_stats": {
@@ -20484,7 +20484,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "255",
       "name": "Torchic",
       "sprite": "0255m",
       "shiny_sprite": "0255m",
@@ -20535,7 +20535,7 @@
       "shiny_sprite_female": "0255f"
     },
     {
-      "id": "???",
+      "id": "256",
       "name": "Combusken",
       "sprite": "0256m",
       "shiny_sprite": "0256m",
@@ -20587,7 +20587,7 @@
       "shiny_sprite_female": "0256f"
     },
     {
-      "id": "???",
+      "id": "257",
       "name": "Blaziken",
       "sprite": "0257m",
       "shiny_sprite": "0257m",
@@ -20638,10 +20638,10 @@
       "shiny_sprite_female": "0257f"
     },
     {
-      "id": "???",
-      "name": "Blaziken",
-      "sprite": "0257m",
-      "shiny_sprite": "0257m",
+      "id": "928",
+      "name": "Mega-Blaziken",
+      "sprite": "0928",
+      "shiny_sprite": "0928",
       "type1": "Fire",
       "type2": "Fighting",
       "base_stats": {
@@ -20693,10 +20693,10 @@
       "shiny_sprite_female": "0257f"
     },
     {
-      "id": "???",
+      "id": "258",
       "name": "Mudkip",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0258",
+      "shiny_sprite": "0258",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -20743,10 +20743,10 @@
       "egg_moves_ref": "sMudkipEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "259",
       "name": "Marshtomp",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0259",
+      "shiny_sprite": "0259",
       "type1": "Water",
       "type2": "Ground",
       "base_stats": {
@@ -20793,10 +20793,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "260",
       "name": "Swampert",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0260",
+      "shiny_sprite": "0260",
       "type1": "Water",
       "type2": "Ground",
       "base_stats": {
@@ -20843,10 +20843,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Swampert",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "929",
+      "name": "Mega-Swampert",
+      "sprite": "0929",
+      "shiny_sprite": "0929",
       "type1": "Water",
       "type2": "Ground",
       "base_stats": {
@@ -20897,10 +20897,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "261",
       "name": "Poochyena",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0261",
+      "shiny_sprite": "0261",
       "type1": "Dark",
       "type2": null,
       "base_stats": {
@@ -20950,10 +20950,10 @@
       "egg_moves_ref": "sPoochyenaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "0262",
       "name": "Mightyena",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0262",
+      "shiny_sprite": "0262",
       "type1": "Dark",
       "type2": null,
       "base_stats": {
@@ -21003,10 +21003,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "263",
       "name": "Zigzagoon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0263",
+      "shiny_sprite": "0263",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -21056,10 +21056,10 @@
       "egg_moves_ref": "sZigzagoonEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "264",
       "name": "Linoone",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0264",
+      "shiny_sprite": "0264",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -21109,10 +21109,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Zigzagoon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "987",
+      "name": "Galarian-Zigzagoon",
+      "sprite": "0987",
+      "shiny_sprite": "0987",
       "type1": "Dark",
       "type2": "Normal",
       "base_stats": {
@@ -21162,10 +21162,10 @@
       "egg_moves_ref": "sZigzagoonGalarEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Linoone",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "988",
+      "name": "Galarian-Linoone",
+      "sprite": "0988",
+      "shiny_sprite": "0988",
       "type1": "Dark",
       "type2": "Normal",
       "base_stats": {
@@ -21215,10 +21215,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "862",
       "name": "Obstagoon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0862",
+      "shiny_sprite": "0862",
       "type1": "Dark",
       "type2": "Normal",
       "base_stats": {
@@ -21268,10 +21268,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "265",
       "name": "Wurmple",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0265",
+      "shiny_sprite": "0265",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -21317,10 +21317,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "266",
       "name": "Silcoon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0266",
+      "shiny_sprite": "0266",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -21362,7 +21362,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "267",
       "name": "Beautifly",
       "sprite": "0267m",
       "shiny_sprite": "0267m",
