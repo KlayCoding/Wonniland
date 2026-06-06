@@ -27678,10 +27678,10 @@
       "egg_moves_ref": "sCastformEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Castform",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1051",
+      "name": "Castform (Sunny)",
+      "sprite": "1051",
+      "shiny_sprite": "1051",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -27724,10 +27724,10 @@
       "egg_moves_ref": "sCastformEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Castform",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1052",
+      "name": "Castform (Rainy)",
+      "sprite": "1052",
+      "shiny_sprite": "1052",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -27770,10 +27770,10 @@
       "egg_moves_ref": "sCastformEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Castform",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1053",
+      "name": "Castform (Snowy)",
+      "sprite": "1053",
+      "shiny_sprite": "1053",
       "type1": "Ice",
       "type2": null,
       "base_stats": {
@@ -27816,10 +27816,10 @@
       "egg_moves_ref": "sCastformEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "352",
       "name": "Kecleon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0352",
+      "shiny_sprite": "0352",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -27865,10 +27865,10 @@
       "egg_moves_ref": "sKecleonEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "353",
       "name": "Shuppet",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0353",
+      "shiny_sprite": "0353",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -27918,10 +27918,10 @@
       "egg_moves_ref": "sShuppetEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "354",
       "name": "Banette",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0354",
+      "shiny_sprite": "0354",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -27971,10 +27971,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Banette",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "939",
+      "name": "Mega-Banette",
+      "sprite": "0939",
+      "shiny_sprite": "0939",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -28024,10 +28024,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "355",
       "name": "Duskull",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0355",
+      "shiny_sprite": "0355",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
