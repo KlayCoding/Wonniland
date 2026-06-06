@@ -1163,7 +1163,7 @@
     },
     {
       "id": "910",
-      "name": "Beedrill",
+      "name": "Mega-Beedrill",
       "sprite": "0910",
       "shiny_sprite": "0910",
       "type1": "Bug",
@@ -1537,8 +1537,8 @@
     {
       "id": "956",
       "name": "Alolan-Rattata",
-      "sprite": "956",
-      "shiny_sprite": "956",
+      "sprite": "0956",
+      "shiny_sprite": "0956",
       "type1": "Dark",
       "type2": "Normal",
       "base_stats": {
