@@ -8567,10 +8567,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "95",
       "name": "Onix",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0095",
+      "shiny_sprite": "0095",
       "type1": "Rock",
       "type2": "Ground",
       "base_stats": {
@@ -8619,7 +8619,7 @@
       "egg_moves_ref": "sOnixEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "208",
       "name": "Steelix",
       "sprite": "0208m",
       "shiny_sprite": "0208m",
@@ -8674,10 +8674,10 @@
       "shiny_sprite_female": "0208f"
     },
     {
-      "id": "???",
-      "name": "Steelix",
-      "sprite": "0208m",
-      "shiny_sprite": "0208m",
+      "id": "922",
+      "name": "Mega-Steelix",
+      "sprite": "0922",
+      "shiny_sprite": "0922",
       "type1": "Steel",
       "type2": "Ground",
       "base_stats": {
@@ -8724,15 +8724,13 @@
       "evolutions": null,
       "learnset_ref": "sSteelixLevelUpLearnset",
       "teachable_ref": "sSteelixTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0208f",
-      "shiny_sprite_female": "0208f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "96",
       "name": "Drowzee",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0096",
+      "shiny_sprite": "0096",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -8781,7 +8779,7 @@
       "egg_moves_ref": "sDrowzeeEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "97",
       "name": "Hypno",
       "sprite": "0097m",
       "shiny_sprite": "0097m",
@@ -8835,10 +8833,10 @@
       "shiny_sprite_female": "0097f"
     },
     {
-      "id": "???",
+      "id": "98",
       "name": "Krabby",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0098",
+      "shiny_sprite": "0098",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -8888,10 +8886,10 @@
       "egg_moves_ref": "sKrabbyEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "99",
       "name": "Kingler",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0099",
+      "shiny_sprite": "0099",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -8941,10 +8939,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Kingler",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1497",
+      "name": "GMax-Kingler",
+      "sprite": "1497",
+      "shiny_sprite": "1497",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -8994,10 +8992,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "100",
       "name": "Voltorb",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0100",
+      "shiny_sprite": "0100",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -9047,10 +9045,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "101",
       "name": "Electrode",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0101",
+      "shiny_sprite": "0101",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -9099,10 +9097,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Voltorb",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "995",
+      "name": "Hisuian-Voltorb",
+      "sprite": "0995",
+      "shiny_sprite": "0995",
       "type1": "Electric",
       "type2": "Grass",
       "base_stats": {
@@ -9152,10 +9150,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Electrode",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "996",
+      "name": "Hisuian-Electrode",
+      "sprite": "0996",
+      "shiny_sprite": "0996",
       "type1": "Electric",
       "type2": "Grass",
       "base_stats": {
@@ -9205,10 +9203,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "102",
       "name": "Exeggcute",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0102",
+      "shiny_sprite": "0102",
       "type1": "Grass",
       "type2": "Psychic",
       "base_stats": {
@@ -9253,10 +9251,10 @@
       "egg_moves_ref": "sExeggcuteEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "103",
       "name": "Exeggutor",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0103",
+      "shiny_sprite": "0103",
       "type1": "Grass",
       "type2": "Psychic",
       "base_stats": {
@@ -9302,10 +9300,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "972",
       "name": "Exeggutor",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0972",
+      "shiny_sprite": "0972",
       "type1": "Grass",
       "type2": "Dragon",
       "base_stats": {
@@ -9351,10 +9349,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "104",
       "name": "Cubone",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0104",
+      "shiny_sprite": "0104",
       "type1": "Ground",
       "type2": null,
       "base_stats": {
@@ -9403,10 +9401,10 @@
       "egg_moves_ref": "sCuboneEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "105",
       "name": "Marowak",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0105",
+      "shiny_sprite": "0105",
       "type1": "Ground",
       "type2": null,
       "base_stats": {
@@ -9455,10 +9453,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Marowak",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "973",
+      "name": "Alolan-Marowak",
+      "sprite": "0973",
+      "shiny_sprite": "0973",
       "type1": "Fire",
       "type2": "Ghost",
       "base_stats": {
@@ -9508,10 +9506,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Marowak",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1483",
+      "name": "Alolan-Marowak-Totem",
+      "sprite": "1483",
+      "shiny_sprite": "1483",
       "type1": "Fire",
       "type2": "Ghost",
       "base_stats": {
@@ -9553,10 +9551,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "236",
       "name": "Tyrogue",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0236",
+      "shiny_sprite": "0236",
       "type1": "Fighting",
       "type2": null,
       "base_stats": {
@@ -9606,10 +9604,10 @@
       "egg_moves_ref": "sTyrogueEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "106",
       "name": "Hitmonlee",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0106",
+      "shiny_sprite": "0106",
       "type1": "Fighting",
       "type2": null,
       "base_stats": {
@@ -9658,10 +9656,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "107",
       "name": "Hitmonchan",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0107",
+      "shiny_sprite": "0107",
       "type1": "Fighting",
       "type2": null,
       "base_stats": {
@@ -9710,10 +9708,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "237",
       "name": "Hitmontop",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0237",
+      "shiny_sprite": "0237",
       "type1": "Fighting",
       "type2": null,
       "base_stats": {
@@ -9763,10 +9761,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "108",
       "name": "Lickitung",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0108",
+      "shiny_sprite": "0108",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -9815,10 +9813,10 @@
       "egg_moves_ref": "sLickitungEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "463",
       "name": "Lickilicky",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0463",
+      "shiny_sprite": "0463",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -9868,10 +9866,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "109",
       "name": "Koffing",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0109",
+      "shiny_sprite": "0109",
       "type1": "Poison",
       "type2": null,
       "base_stats": {
@@ -9920,10 +9918,10 @@
       "egg_moves_ref": "sKoffingEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "110",
       "name": "Weezing",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0110",
+      "shiny_sprite": "0110",
       "type1": "Poison",
       "type2": null,
       "base_stats": {
@@ -9972,10 +9970,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Weezing",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "980",
+      "name": "Galarian-Weezing",
+      "sprite": "0980",
+      "shiny_sprite": "0980",
       "type1": "Poison",
       "type2": "Fairy",
       "base_stats": {
@@ -10025,7 +10023,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "111",
       "name": "Rhyhorn",
       "sprite": "0111m",
       "shiny_sprite": "0111m",
@@ -10081,7 +10079,7 @@
       "shiny_sprite_female": "0111f"
     },
     {
-      "id": "???",
+      "id": "112",
       "name": "Rhydon",
       "sprite": "0112m",
       "shiny_sprite": "0112m",
@@ -10137,7 +10135,7 @@
       "shiny_sprite_female": "0112f"
     },
     {
-      "id": "???",
+      "id": "464",
       "name": "Rhyperior",
       "sprite": "0464m",
       "shiny_sprite": "0464m",
@@ -10193,10 +10191,10 @@
       "shiny_sprite_female": "0464f"
     },
     {
-      "id": "???",
+      "id": "440",
       "name": "Happiny",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0440",
+      "shiny_sprite": "0440",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -10246,10 +10244,10 @@
       "egg_moves_ref": "sHappinyEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "113",
       "name": "Chansey",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0113",
+      "shiny_sprite": "0113",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -10298,10 +10296,10 @@
       "egg_moves_ref": "sChanseyEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "242",
       "name": "Blissey",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0242",
+      "shiny_sprite": "0242",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -10349,10 +10347,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "114",
       "name": "Tangela",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0114",
+      "shiny_sprite": "0114",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -10401,7 +10399,7 @@
       "egg_moves_ref": "sTangelaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "465",
       "name": "Tangrowth",
       "sprite": "0465m",
       "shiny_sprite": "0465m",
@@ -10456,10 +10454,10 @@
       "shiny_sprite_female": "0465f"
     },
     {
-      "id": "???",
+      "id": "115",
       "name": "Kangaskhan",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0115",
+      "shiny_sprite": "0115",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -10508,10 +10506,10 @@
       "egg_moves_ref": "sKangaskhanEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Kangaskhan",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "915",
+      "name": "Mega-Kangaskhan",
+      "sprite": "0915",
+      "shiny_sprite": "0915",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -10561,10 +10559,10 @@
       "egg_moves_ref": "sKangaskhanEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "116",
       "name": "Horsea",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0116",
+      "shiny_sprite": "0116",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -10614,10 +10612,10 @@
       "egg_moves_ref": "sHorseaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "117",
       "name": "Seadra",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0117",
+      "shiny_sprite": "0117",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -10668,10 +10666,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "230",
       "name": "Kingdra",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0230",
+      "shiny_sprite": "0230",
       "type1": "Water",
       "type2": "Dragon",
       "base_stats": {
@@ -10724,7 +10722,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "118",
       "name": "Goldeen",
       "sprite": "0118m",
       "shiny_sprite": "0118m",
@@ -10778,7 +10776,7 @@
       "shiny_sprite_female": "0118f"
     },
     {
-      "id": "???",
+      "id": "119",
       "name": "Seaking",
       "sprite": "0119m",
       "shiny_sprite": "0119m",
@@ -10832,10 +10830,10 @@
       "shiny_sprite_female": "0119f"
     },
     {
-      "id": "???",
+      "id": "120",
       "name": "Staryu",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0120",
+      "shiny_sprite": "0120",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -10884,10 +10882,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "121",
       "name": "Starmie",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0121",
+      "shiny_sprite": "0121",
       "type1": "Water",
       "type2": "Psychic",
       "base_stats": {
@@ -10936,10 +10934,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Starmie",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1526",
+      "name": "Mega-Starmie",
+      "sprite": "1526",
+      "shiny_sprite": "1526",
       "type1": "Water",
       "type2": "Psychic",
       "base_stats": {
@@ -10989,10 +10987,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "439",
       "name": "Mime Jr.",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0439",
+      "shiny_sprite": "0439",
       "type1": "Psychic",
       "type2": "Fairy",
       "base_stats": {
@@ -11042,10 +11040,10 @@
       "egg_moves_ref": "sMimeJrEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "122",
       "name": "Mr. Mime",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0122",
+      "shiny_sprite": "0122",
       "type1": "Psychic",
       "type2": "Fairy",
       "base_stats": {
@@ -11094,10 +11092,10 @@
       "egg_moves_ref": "sMrMimeEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Mr. Mime",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "981",
+      "name": "Galarian-Mr. Mime",
+      "sprite": "0981",
+      "shiny_sprite": "0981",
       "type1": "Ice",
       "type2": "Psychic",
       "base_stats": {
@@ -11147,10 +11145,10 @@
       "egg_moves_ref": "sMrMimeGalarEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "866",
       "name": "Mr. Rime",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0866",
+      "shiny_sprite": "0866",
       "type1": "Ice",
       "type2": "Psychic",
       "base_stats": {
@@ -11200,7 +11198,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "123",
       "name": "Scyther",
       "sprite": "0123m",
       "shiny_sprite": "0123m",
@@ -11254,7 +11252,7 @@
       "shiny_sprite_female": "0123f"
     },
     {
-      "id": "???",
+      "id": "212",
       "name": "Scizor",
       "sprite": "0212m",
       "shiny_sprite": "0212m",
@@ -11309,10 +11307,10 @@
       "shiny_sprite_female": "0212f"
     },
     {
-      "id": "???",
-      "name": "Scizor",
-      "sprite": "0212m",
-      "shiny_sprite": "0212m",
+      "id": "923",
+      "name": "Mega-Scizor",
+      "sprite": "0923",
+      "shiny_sprite": "0923",
       "type1": "Bug",
       "type2": "Steel",
       "base_stats": {
@@ -11364,10 +11362,10 @@
       "shiny_sprite_female": "0212f"
     },
     {
-      "id": "???",
+      "id": "900",
       "name": "Kleavor",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0900",
+      "shiny_sprite": "0900",
       "type1": "Bug",
       "type2": "Rock",
       "base_stats": {
@@ -11417,10 +11415,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "238",
       "name": "Smoochum",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0238",
+      "shiny_sprite": "0238",
       "type1": "Ice",
       "type2": "Psychic",
       "base_stats": {
@@ -11470,10 +11468,10 @@
       "egg_moves_ref": "sSmoochumEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "124",
       "name": "Jynx",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0124",
+      "shiny_sprite": "0124",
       "type1": "Ice",
       "type2": "Psychic",
       "base_stats": {
@@ -11522,10 +11520,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "239",
       "name": "Elekid",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0239",
+      "shiny_sprite": "0239",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -11571,10 +11569,10 @@
       "egg_moves_ref": "sElekidEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "125",
       "name": "Electabuzz",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0125",
+      "shiny_sprite": "0125",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -11619,10 +11617,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "466",
       "name": "Electivire",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0466",
+      "shiny_sprite": "0466",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -11668,10 +11666,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "240",
       "name": "Magby",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0240",
+      "shiny_sprite": "0240",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -11717,10 +11715,10 @@
       "egg_moves_ref": "sMagbyEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "126",
       "name": "Magmar",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0126",
+      "shiny_sprite": "0126",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -11765,10 +11763,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "467",
       "name": "Magmortar",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0467",
+      "shiny_sprite": "0467",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -11814,10 +11812,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "127",
       "name": "Pinsir",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0127",
+      "shiny_sprite": "0127",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -11866,10 +11864,10 @@
       "egg_moves_ref": "sPinsirEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Pinsir",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "916",
+      "name": "Mega-Pinsir",
+      "sprite": "0916",
+      "shiny_sprite": "0916",
       "type1": "Bug",
       "type2": "Flying",
       "base_stats": {
@@ -11919,10 +11917,10 @@
       "egg_moves_ref": "sPinsirEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "128",
       "name": "Tauros",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0128",
+      "shiny_sprite": "0128",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -11972,10 +11970,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Tauros",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1402",
+      "name": "Paldean-Tauros-Combat",
+      "sprite": "1402",
+      "shiny_sprite": "1402",
       "type1": "Fighting",
       "type2": null,
       "base_stats": {
@@ -12025,10 +12023,10 @@
       "egg_moves_ref": "sTaurosPaldeaCombatEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Tauros",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1403",
+      "name": "Paldean-Tauros-Blaze",
+      "sprite": "1403",
+      "shiny_sprite": "1403",
       "type1": "Fighting",
       "type2": "Fire",
       "base_stats": {
@@ -12078,10 +12076,10 @@
       "egg_moves_ref": "sTaurosPaldeaBlazeEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Tauros",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1404",
+      "name": "Paldean-Tauros-Aqua",
+      "sprite": "1404",
+      "shiny_sprite": "1404",
       "type1": "Fighting",
       "type2": "Water",
       "base_stats": {
@@ -12131,7 +12129,7 @@
       "egg_moves_ref": "sTaurosPaldeaAquaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "129",
       "name": "Magikarp",
       "sprite": "0129m",
       "shiny_sprite": "0129m",
@@ -12182,7 +12180,7 @@
       "shiny_sprite_female": "0129f"
     },
     {
-      "id": "???",
+      "id": "130",
       "name": "Gyarados",
       "sprite": "0130m",
       "shiny_sprite": "0130m",
@@ -12233,10 +12231,10 @@
       "shiny_sprite_female": "0130f"
     },
     {
-      "id": "???",
-      "name": "Gyarados",
-      "sprite": "0130m",
-      "shiny_sprite": "0130m",
+      "id": "917",
+      "name": "Mega-Gyarados",
+      "sprite": "0917",
+      "shiny_sprite": "0917",
       "type1": "Water",
       "type2": "Dark",
       "base_stats": {
@@ -12284,15 +12282,13 @@
       "evolutions": null,
       "learnset_ref": "sGyaradosLevelUpLearnset",
       "teachable_ref": "sGyaradosTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0130f",
-      "shiny_sprite_female": "0130f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "131",
       "name": "Lapras",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0131",
+      "shiny_sprite": "0131",
       "type1": "Water",
       "type2": "Ice",
       "base_stats": {
@@ -12342,10 +12338,10 @@
       "egg_moves_ref": "sLaprasEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Lapras",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1498",
+      "name": "GMax-Lapras",
+      "sprite": "1498",
+      "shiny_sprite": "1498",
       "type1": "Water",
       "type2": "Ice",
       "base_stats": {
@@ -12395,10 +12391,10 @@
       "egg_moves_ref": "sLaprasEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "132",
       "name": "Ditto",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0132",
+      "shiny_sprite": "0132",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -12444,7 +12440,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "133",
       "name": "Eevee",
       "sprite": "0133m",
       "shiny_sprite": "0133m",
@@ -12485,10 +12481,10 @@
       "shiny_sprite_female": "0133f"
     },
     {
-      "id": "???",
-      "name": "Eevee",
-      "sprite": "0133m",
-      "shiny_sprite": "0133m",
+      "id": "1499",
+      "name": "GMax-Eevee",
+      "sprite": "1499",
+      "shiny_sprite": "1499",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -12521,15 +12517,13 @@
       "evolutions": null,
       "learnset_ref": "sEeveeLevelUpLearnset",
       "teachable_ref": "sEeveeTeachableLearnset",
-      "egg_moves_ref": "sEeveeEggMoveLearnset",
-      "sprite_female": "0133f",
-      "shiny_sprite_female": "0133f"
+      "egg_moves_ref": "sEeveeEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Eevee",
-      "sprite": "0133m",
-      "shiny_sprite": "0133m",
+      "id": "1488",
+      "name": "Starter-Eevee",
+      "sprite": "1488",
+      "shiny_sprite": "1488",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -12576,15 +12570,13 @@
       "evolutions": null,
       "learnset_ref": "sEeveeLevelUpLearnset",
       "teachable_ref": "sEeveeTeachableLearnset",
-      "egg_moves_ref": "sEeveeEggMoveLearnset",
-      "sprite_female": "0133f",
-      "shiny_sprite_female": "0133f"
+      "egg_moves_ref": "sEeveeEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "134",
       "name": "Vaporeon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0134",
+      "shiny_sprite": "0134",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -12633,10 +12625,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "135",
       "name": "Jolteon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0135",
+      "shiny_sprite": "0135",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -12685,10 +12677,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "136",
       "name": "Flareon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0136",
+      "shiny_sprite": "0136",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -12737,10 +12729,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "196",
       "name": "Espeon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0196",
+      "shiny_sprite": "0196",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -12790,10 +12782,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "197",
       "name": "Umbreon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0197",
+      "shiny_sprite": "0197",
       "type1": "Dark",
       "type2": null,
       "base_stats": {
@@ -12843,10 +12835,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "470",
       "name": "Leafeon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0470",
+      "shiny_sprite": "0470",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -12896,10 +12888,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "471",
       "name": "Glaceon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0471",
+      "shiny_sprite": "0471",
       "type1": "Ice",
       "type2": null,
       "base_stats": {
@@ -12949,10 +12941,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "700",
       "name": "Sylveon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0700",
+      "shiny_sprite": "0700",
       "type1": "Fairy",
       "type2": null,
       "base_stats": {
@@ -13002,10 +12994,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "137",
       "name": "Porygon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0137",
+      "shiny_sprite": "0137",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -13054,10 +13046,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "233",
       "name": "Porygon2",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0233",
+      "shiny_sprite": "0233",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -13107,10 +13099,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "474",
       "name": "Porygon-Z",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0474",
+      "shiny_sprite": "0474",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -13160,10 +13152,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "138",
       "name": "Omanyte",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0138",
+      "shiny_sprite": "0138",
       "type1": "Rock",
       "type2": "Water",
       "base_stats": {
@@ -13213,10 +13205,10 @@
       "egg_moves_ref": "sOmanyteEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "139",
       "name": "Omastar",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0139",
+      "shiny_sprite": "0139",
       "type1": "Rock",
       "type2": "Water",
       "base_stats": {
@@ -13266,10 +13258,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "140",
       "name": "Kabuto",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0140",
+      "shiny_sprite": "0140",
       "type1": "Rock",
       "type2": "Water",
       "base_stats": {
@@ -13319,10 +13311,10 @@
       "egg_moves_ref": "sKabutoEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "141",
       "name": "Kabutops",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0141",
+      "shiny_sprite": "0141",
       "type1": "Rock",
       "type2": "Water",
       "base_stats": {
@@ -13372,10 +13364,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "142",
       "name": "Aerodactyl",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0142",
+      "shiny_sprite": "0142",
       "type1": "Rock",
       "type2": "Flying",
       "base_stats": {
@@ -13424,10 +13416,10 @@
       "egg_moves_ref": "sAerodactylEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Aerodactyl",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "918",
+      "name": "Mega-Aerodactyl",
+      "sprite": "0918",
+      "shiny_sprite": "0918",
       "type1": "Rock",
       "type2": "Flying",
       "base_stats": {
@@ -13477,10 +13469,10 @@
       "egg_moves_ref": "sAerodactylEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "446",
       "name": "Munchlax",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0446",
+      "shiny_sprite": "0446",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -13530,10 +13522,10 @@
       "egg_moves_ref": "sMunchlaxEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "143",
       "name": "Snorlax",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0143",
+      "shiny_sprite": "0143",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -13582,10 +13574,10 @@
       "egg_moves_ref": "sSnorlaxEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Snorlax",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1500",
+      "name": "GMax-Snorlax",
+      "sprite": "1500",
+      "shiny_sprite": "1500",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -13634,10 +13626,10 @@
       "egg_moves_ref": "sSnorlaxEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "144",
       "name": "Articuno",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0144",
+      "shiny_sprite": "0144",
       "type1": "Ice",
       "type2": "Flying",
       "base_stats": {
@@ -13682,10 +13674,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Articuno",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "982",
+      "name": "Galarian-Articuno",
+      "sprite": "0982",
+      "shiny_sprite": "0982",
       "type1": "Psychic",
       "type2": "Flying",
       "base_stats": {
@@ -13727,10 +13719,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "145",
       "name": "Zapdos",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0145",
+      "shiny_sprite": "0145",
       "type1": "Electric",
       "type2": "Flying",
       "base_stats": {
@@ -13775,10 +13767,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Zapdos",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "983",
+      "name": "Galarian-Zapdos",
+      "sprite": "0983",
+      "shiny_sprite": "0983",
       "type1": "Fighting",
       "type2": "Flying",
       "base_stats": {
@@ -13820,10 +13812,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "146",
       "name": "Moltres",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0146",
+      "shiny_sprite": "0146",
       "type1": "Fire",
       "type2": "Flying",
       "base_stats": {
@@ -13868,10 +13860,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Moltres",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "984",
+      "name": "Galarian-Moltres",
+      "sprite": "0984",
+      "shiny_sprite": "0984",
       "type1": "Dark",
       "type2": "Flying",
       "base_stats": {
@@ -13913,10 +13905,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "147",
       "name": "Dratini",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0147",
+      "shiny_sprite": "0147",
       "type1": "Dragon",
       "type2": null,
       "base_stats": {
@@ -13963,10 +13955,10 @@
       "egg_moves_ref": "sDratiniEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "148",
       "name": "Dragonair",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0148",
+      "shiny_sprite": "0148",
       "type1": "Dragon",
       "type2": null,
       "base_stats": {
@@ -14013,10 +14005,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "149",
       "name": "Dragonite",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0149",
+      "shiny_sprite": "0149",
       "type1": "Dragon",
       "type2": "Flying",
       "base_stats": {
@@ -14063,10 +14055,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Dragonite",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1527",
+      "name": "Mega-Dragonite",
+      "sprite": "1527",
+      "shiny_sprite": "1527",
       "type1": "Dragon",
       "type2": "Flying",
       "base_stats": {
@@ -14080,7 +14072,11 @@
       "bst": 700,
       "abilities": [
         {
-          "name": "Inner Focus",
+          "name": "Multiscale",
+          "hidden": false
+        },
+        {
+          "name": "Multiscale",
           "hidden": false
         },
         {
@@ -14113,10 +14109,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "150",
       "name": "Mewtwo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0150",
+      "shiny_sprite": "0150",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -14161,10 +14157,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Mewtwo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "919",
+      "name": "Mega-Mewtwo-X",
+      "sprite": "0919",
+      "shiny_sprite": "0919",
       "type1": "Psychic",
       "type2": "Fighting",
       "base_stats": {
@@ -14214,10 +14210,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Mewtwo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "920",
+      "name": "Mega-Mewtwo-Y",
+      "sprite": "0920",
+      "shiny_sprite": "0920",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -14267,10 +14263,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "151",
       "name": "Mew",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0151",
+      "shiny_sprite": "0151",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -14312,10 +14308,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "152",
       "name": "Chikorita",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0152",
+      "shiny_sprite": "0152",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -14362,10 +14358,10 @@
       "egg_moves_ref": "sChikoritaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "153",
       "name": "Bayleef",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0153",
+      "shiny_sprite": "0153",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -14413,7 +14409,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "154",
       "name": "Meganium",
       "sprite": "0154m",
       "shiny_sprite": "0154m",
@@ -14466,10 +14462,10 @@
       "shiny_sprite_female": "0154f"
     },
     {
-      "id": "???",
-      "name": "Meganium",
-      "sprite": "0154m",
-      "shiny_sprite": "0154m",
+      "id": "1528",
+      "name": "Mega-Meganium",
+      "sprite": "1528",
+      "shiny_sprite": "1528",
       "type1": "Grass",
       "type2": "Fairy",
       "base_stats": {
@@ -14483,11 +14479,15 @@
       "bst": 625,
       "abilities": [
         {
-          "name": "Overgrow",
+          "name": "Mega Sol",
           "hidden": false
         },
         {
-          "name": "Leaf Guard",
+          "name": "Mega Sol",
+          "hidden": false
+        },
+        {
+          "name": "Mega Sol",
           "hidden": true
         }
       ],
@@ -14514,15 +14514,13 @@
       "evolutions": null,
       "learnset_ref": "sMeganiumLevelUpLearnset",
       "teachable_ref": "sMeganiumTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0154f",
-      "shiny_sprite_female": "0154f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "155",
       "name": "Cyndaquil",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0155",
+      "shiny_sprite": "0155",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -14568,10 +14566,10 @@
       "egg_moves_ref": "sCyndaquilEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "156",
       "name": "Quilava",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0156",
+      "shiny_sprite": "0156",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -14618,10 +14616,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "157",
       "name": "Typhlosion",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0157",
+      "shiny_sprite": "0157",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -14667,10 +14665,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Typhlosion",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "997",
+      "name": "Hisuian-Typhlosion",
+      "sprite": "0997",
+      "shiny_sprite": "0997",
       "type1": "Fire",
       "type2": "Ghost",
       "base_stats": {
@@ -14716,10 +14714,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "158",
       "name": "Totodile",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0158",
+      "shiny_sprite": "0158",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -14766,10 +14764,10 @@
       "egg_moves_ref": "sTotodileEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "159",
       "name": "Croconaw",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0159",
+      "shiny_sprite": "0159",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -14817,10 +14815,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "160",
       "name": "Feraligatr",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0160",
+      "shiny_sprite": "0160",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -14868,10 +14866,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Feraligatr",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1529",
+      "name": "Mega-Feraligatr",
+      "sprite": "1529",
+      "shiny_sprite": "1529",
       "type1": "Water",
       "type2": "Dragon",
       "base_stats": {
@@ -14885,11 +14883,15 @@
       "bst": 630,
       "abilities": [
         {
-          "name": "Torrent",
+          "name": "Dragonize",
           "hidden": false
         },
         {
-          "name": "Sheer Force",
+          "name": "Dragonize",
+          "hidden": false
+        },
+        {
+          "name": "Dragonize",
           "hidden": true
         }
       ],
@@ -14919,10 +14921,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "161",
       "name": "Sentret",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0161",
+      "shiny_sprite": "0161",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -14972,10 +14974,10 @@
       "egg_moves_ref": "sSentretEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "162",
       "name": "Furret",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0162",
+      "shiny_sprite": "0162",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -15025,10 +15027,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "163",
       "name": "Hoothoot",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0163",
+      "shiny_sprite": "0163",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -15078,10 +15080,10 @@
       "egg_moves_ref": "sHoothootEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "164",
       "name": "Noctowl",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0164",
+      "shiny_sprite": "0164",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -15130,7 +15132,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "165",
       "name": "Ledyba",
       "sprite": "0165m",
       "shiny_sprite": "0165m",
@@ -15185,7 +15187,7 @@
       "shiny_sprite_female": "0165f"
     },
     {
-      "id": "???",
+      "id": "166",
       "name": "Ledian",
       "sprite": "0166m",
       "shiny_sprite": "0166m",
@@ -15240,10 +15242,10 @@
       "shiny_sprite_female": "0166f"
     },
     {
-      "id": "???",
+      "id": "167",
       "name": "Spinarak",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0167",
+      "shiny_sprite": "0167",
       "type1": "Bug",
       "type2": "Poison",
       "base_stats": {
@@ -15293,10 +15295,10 @@
       "egg_moves_ref": "sSpinarakEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "168",
       "name": "Ariados",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0168",
+      "shiny_sprite": "0168",
       "type1": "Bug",
       "type2": "Poison",
       "base_stats": {
@@ -15345,10 +15347,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "170",
       "name": "Chinchou",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0170",
+      "shiny_sprite": "0170",
       "type1": "Water",
       "type2": "Electric",
       "base_stats": {
@@ -15398,10 +15400,10 @@
       "egg_moves_ref": "sChinchouEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "171",
       "name": "Lanturn",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0171",
+      "shiny_sprite": "0171",
       "type1": "Water",
       "type2": "Electric",
       "base_stats": {
@@ -15451,11 +15453,11 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "175",
       "name": "Togepi",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Togepi Family Type1",
+      "sprite": "0175",
+      "shiny_sprite": "0175",
+      "type1": "Fairy",
       "type2": null,
       "base_stats": {
         "hp": 35,
@@ -15504,11 +15506,11 @@
       "egg_moves_ref": "sTogepiEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "176",
       "name": "Togetic",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Togepi Family Type1",
+      "sprite": "0176",
+      "shiny_sprite": "0176",
+      "type1": "Fairy",
       "type2": "Flying",
       "base_stats": {
         "hp": 55,
@@ -15558,11 +15560,11 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "468",
       "name": "Togekiss",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Togepi Family Type1",
+      "sprite": "0468",
+      "shiny_sprite": "0468",
+      "type1": "Fairy",
       "type2": "Flying",
       "base_stats": {
         "hp": 85,
@@ -15613,10 +15615,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "177",
       "name": "Natu",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0177",
+      "shiny_sprite": "0177",
       "type1": "Psychic",
       "type2": "Flying",
       "base_stats": {
@@ -15666,7 +15668,7 @@
       "egg_moves_ref": "sNatuEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "178",
       "name": "Xatu",
       "sprite": "0178m",
       "shiny_sprite": "0178m",
@@ -15722,10 +15724,10 @@
       "shiny_sprite_female": "0178f"
     },
     {
-      "id": "???",
+      "id": "179",
       "name": "Mareep",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0179",
+      "shiny_sprite": "0179",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -15772,10 +15774,10 @@
       "egg_moves_ref": "sMareepEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "180",
       "name": "Flaaffy",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0180",
+      "shiny_sprite": "0180",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -15822,10 +15824,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "181",
       "name": "Ampharos",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0181",
+      "shiny_sprite": "0181",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -15871,10 +15873,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Ampharos",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "921",
+      "name": "Mega-Ampharos",
+      "sprite": "0921",
+      "shiny_sprite": "0921",
       "type1": "Electric",
       "type2": "Dragon",
       "base_stats": {
@@ -15925,10 +15927,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "298",
       "name": "Azurill",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0298",
+      "shiny_sprite": "0298",
       "type1": "Normal",
       "type2": "Fairy",
       "base_stats": {
@@ -15978,10 +15980,10 @@
       "egg_moves_ref": "sAzurillEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "183",
       "name": "Marill",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0183",
+      "shiny_sprite": "0183",
       "type1": "Water",
       "type2": "Fairy",
       "base_stats": {
@@ -16032,10 +16034,10 @@
       "egg_moves_ref": "sMarillEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "184",
       "name": "Azumarill",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0184",
+      "shiny_sprite": "0184",
       "type1": "Water",
       "type2": "Fairy",
       "base_stats": {
@@ -16085,10 +16087,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "438",
       "name": "Bonsly",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0438",
+      "shiny_sprite": "0438",
       "type1": "Rock",
       "type2": null,
       "base_stats": {
@@ -16138,7 +16140,7 @@
       "egg_moves_ref": "sBonslyEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "185",
       "name": "Sudowoodo",
       "sprite": "0185m",
       "shiny_sprite": "0185m",
@@ -16193,10 +16195,10 @@
       "shiny_sprite_female": "0185f"
     },
     {
-      "id": "???",
+      "id": "187",
       "name": "Hoppip",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0187",
+      "shiny_sprite": "0187",
       "type1": "Grass",
       "type2": "Flying",
       "base_stats": {
@@ -16247,10 +16249,10 @@
       "egg_moves_ref": "sHoppipEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "188",
       "name": "Skiploom",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0188",
+      "shiny_sprite": "0188",
       "type1": "Grass",
       "type2": "Flying",
       "base_stats": {
@@ -16301,10 +16303,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "189",
       "name": "Jumpluff",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0189",
+      "shiny_sprite": "0189",
       "type1": "Grass",
       "type2": "Flying",
       "base_stats": {
@@ -16354,7 +16356,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "190",
       "name": "Aipom",
       "sprite": "0190m",
       "shiny_sprite": "0190m",
@@ -16409,7 +16411,7 @@
       "shiny_sprite_female": "0190f"
     },
     {
-      "id": "???",
+      "id": "424",
       "name": "Ambipom",
       "sprite": "0424m",
       "shiny_sprite": "0424m",
@@ -16464,10 +16466,10 @@
       "shiny_sprite_female": "0424f"
     },
     {
-      "id": "???",
+      "id": "191",
       "name": "Sunkern",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0191",
+      "shiny_sprite": "0191",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -16517,10 +16519,10 @@
       "egg_moves_ref": "sSunkernEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "192",
       "name": "Sunflora",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0192",
+      "shiny_sprite": "0192",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -16570,10 +16572,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "193",
       "name": "Yanma",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0193",
+      "shiny_sprite": "0193",
       "type1": "Bug",
       "type2": "Flying",
       "base_stats": {
@@ -16621,10 +16623,10 @@
       "egg_moves_ref": "sYanmaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "469",
       "name": "Yanmega",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0469",
+      "shiny_sprite": "0469",
       "type1": "Bug",
       "type2": "Flying",
       "base_stats": {
@@ -16674,7 +16676,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "194",
       "name": "Wooper",
       "sprite": "0194m",
       "shiny_sprite": "0194m",
@@ -16730,7 +16732,7 @@
       "shiny_sprite_female": "0194f"
     },
     {
-      "id": "???",
+      "id": "195",
       "name": "Quagsire",
       "sprite": "0195m",
       "shiny_sprite": "0195m",
@@ -16786,10 +16788,10 @@
       "shiny_sprite_female": "0195f"
     },
     {
-      "id": "???",
-      "name": "Wooper",
-      "sprite": "0194m",
-      "shiny_sprite": "0194m",
+      "id": "1406",
+      "name": "Paldean-Wooper",
+      "sprite": "1406",
+      "shiny_sprite": "1406",
       "type1": "Poison",
       "type2": "Ground",
       "base_stats": {
@@ -16837,15 +16839,13 @@
       "evolutions": null,
       "learnset_ref": "sWooperPaldeaLevelUpLearnset",
       "teachable_ref": "sWooperPaldeaTeachableLearnset",
-      "egg_moves_ref": "sWooperPaldeaEggMoveLearnset",
-      "sprite_female": "0194f",
-      "shiny_sprite_female": "0194f"
+      "egg_moves_ref": "sWooperPaldeaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1371",
       "name": "Clodsire",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1371",
+      "shiny_sprite": "1371",
       "type1": "Poison",
       "type2": "Ground",
       "base_stats": {
@@ -16896,7 +16896,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "198",
       "name": "Murkrow",
       "sprite": "0198m",
       "shiny_sprite": "0198m",
@@ -16951,10 +16951,10 @@
       "shiny_sprite_female": "0198f"
     },
     {
-      "id": "???",
+      "id": "430",
       "name": "Honchkrow",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0430",
+      "shiny_sprite": "0430",
       "type1": "Dark",
       "type2": "Flying",
       "base_stats": {
@@ -17004,10 +17004,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "200",
       "name": "Misdreavus",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0200",
+      "shiny_sprite": "0200",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -17049,10 +17049,10 @@
       "egg_moves_ref": "sMisdreavusEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "429",
       "name": "Mismagius",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0429",
+      "shiny_sprite": "0429",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -17096,10 +17096,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "360",
       "name": "Wynaut",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0360",
+      "shiny_sprite": "0360",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -17145,7 +17145,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "202",
       "name": "Wobbuffet",
       "sprite": "0202m",
       "shiny_sprite": "0202m",
@@ -17196,7 +17196,7 @@
       "shiny_sprite_female": "0202f"
     },
     {
-      "id": "???",
+      "id": "203",
       "name": "Girafarig",
       "sprite": "0203m",
       "shiny_sprite": "0203m",
@@ -17251,10 +17251,10 @@
       "shiny_sprite_female": "0203f"
     },
     {
-      "id": "???",
+      "id": "1372",
       "name": "Farigiraf",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1372",
+      "shiny_sprite": "1372",
       "type1": "Normal",
       "type2": "Psychic",
       "base_stats": {
@@ -17304,10 +17304,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "204",
       "name": "Pineco",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0204",
+      "shiny_sprite": "0204",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -17353,10 +17353,10 @@
       "egg_moves_ref": "sPinecoEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "205",
       "name": "Forretress",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0205",
+      "shiny_sprite": "0205",
       "type1": "Bug",
       "type2": "Steel",
       "base_stats": {
@@ -17402,10 +17402,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "206",
       "name": "Dunsparce",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0206",
+      "shiny_sprite": "0206",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -17455,10 +17455,10 @@
       "egg_moves_ref": "sDunsparceEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Dudunsparce",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1373",
+      "name": "Dudunsparce-Two-Segments",
+      "sprite": "1373",
+      "shiny_sprite": "1373",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -17508,10 +17508,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Dudunsparce",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1374",
+      "name": "Dudunsparce-Three-Segments",
+      "sprite": "1374",
+      "shiny_sprite": "1374",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -17561,7 +17561,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "207",
       "name": "Gligar",
       "sprite": "0207m",
       "shiny_sprite": "0207m",
@@ -17616,10 +17616,10 @@
       "shiny_sprite_female": "0207f"
     },
     {
-      "id": "???",
+      "id": "472",
       "name": "Gliscor",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0472",
+      "shiny_sprite": "0472",
       "type1": "Ground",
       "type2": "Flying",
       "base_stats": {
@@ -17669,10 +17669,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "209",
       "name": "Snubbull",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0209",
+      "shiny_sprite": "0209",
       "type1": "Fairy",
       "type2": null,
       "base_stats": {
@@ -17723,10 +17723,10 @@
       "egg_moves_ref": "sSnubbullEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "210",
       "name": "Granbull",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0210",
+      "shiny_sprite": "0210",
       "type1": "Fairy",
       "type2": null,
       "base_stats": {
@@ -17777,10 +17777,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "211",
       "name": "Qwilfish",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0211",
+      "shiny_sprite": "0211",
       "type1": "Water",
       "type2": "Poison",
       "base_stats": {
@@ -17829,10 +17829,10 @@
       "egg_moves_ref": "sQwilfishEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Qwilfish",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "998",
+      "name": "Hisuian-Qwilfish",
+      "sprite": "0998",
+      "shiny_sprite": "0998",
       "type1": "Dark",
       "type2": "Poison",
       "base_stats": {
@@ -17882,10 +17882,10 @@
       "egg_moves_ref": "sQwilfishHisuiEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "904",
       "name": "Overqwil",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0904",
+      "shiny_sprite": "0904",
       "type1": "Dark",
       "type2": "Poison",
       "base_stats": {
@@ -17935,10 +17935,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "213",
       "name": "Shuckle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0213",
+      "shiny_sprite": "0213",
       "type1": "Bug",
       "type2": "Rock",
       "base_stats": {
@@ -17989,7 +17989,7 @@
       "egg_moves_ref": "sShuckleEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "214",
       "name": "Heracross",
       "sprite": "0214m",
       "shiny_sprite": "0214m",
@@ -18044,10 +18044,10 @@
       "shiny_sprite_female": "0214f"
     },
     {
-      "id": "???",
-      "name": "Heracross",
-      "sprite": "0214m",
-      "shiny_sprite": "0214m",
+      "id": "924",
+      "name": "Mega-Heracross",
+      "sprite": "0924",
+      "shiny_sprite": "0924",
       "type1": "Bug",
       "type2": "Fighting",
       "base_stats": {
@@ -18099,7 +18099,7 @@
       "shiny_sprite_female": "0214f"
     },
     {
-      "id": "???",
+      "id": "215",
       "name": "Sneasel",
       "sprite": "0215m",
       "shiny_sprite": "0215m",
@@ -18154,7 +18154,7 @@
       "shiny_sprite_female": "0215f"
     },
     {
-      "id": "???",
+      "id": "461",
       "name": "Weavile",
       "sprite": "0461m",
       "shiny_sprite": "0461m",
@@ -18206,10 +18206,10 @@
       "shiny_sprite_female": "0461f"
     },
     {
-      "id": "???",
-      "name": "Sneasel",
-      "sprite": "0215m",
-      "shiny_sprite": "0215m",
+      "id": "999",
+      "name": "Hisuian-Sneasel",
+      "sprite": "0999m",
+      "shiny_sprite": "0999m",
       "type1": "Fighting",
       "type2": "Poison",
       "base_stats": {
@@ -18257,14 +18257,14 @@
       "learnset_ref": "sSneaselHisuiLevelUpLearnset",
       "teachable_ref": "sSneaselHisuiTeachableLearnset",
       "egg_moves_ref": "sSneaselHisuiEggMoveLearnset",
-      "sprite_female": "0215f",
-      "shiny_sprite_female": "0215f"
+      "sprite_female": "0999f",
+      "shiny_sprite_female": "0999f"
     },
     {
-      "id": "???",
+      "id": "903",
       "name": "Sneasler",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0903",
+      "shiny_sprite": "0903",
       "type1": "Fighting",
       "type2": "Poison",
       "base_stats": {
@@ -18314,10 +18314,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "216",
       "name": "Teddiursa",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0216",
+      "shiny_sprite": "0216",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -18367,7 +18367,7 @@
       "egg_moves_ref": "sTeddiursaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "217",
       "name": "Ursaring",
       "sprite": "0217m",
       "shiny_sprite": "0217m",
@@ -18422,10 +18422,10 @@
       "shiny_sprite_female": "0217f"
     },
     {
-      "id": "???",
+      "id": "901",
       "name": "Ursaluna",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0901",
+      "shiny_sprite": "0901",
       "type1": "Ground",
       "type2": "Normal",
       "base_stats": {
@@ -18475,10 +18475,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Ursaluna",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1424",
+      "name": "Bloodmoon-Ursaluna",
+      "sprite": "1424",
+      "shiny_sprite": "1424",
       "type1": "Ground",
       "type2": "Normal",
       "base_stats": {
@@ -18520,10 +18520,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "218",
       "name": "Slugma",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0218",
+      "shiny_sprite": "0218",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -18573,10 +18573,10 @@
       "egg_moves_ref": "sSlugmaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "219",
       "name": "Magcargo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0219",
+      "shiny_sprite": "0219",
       "type1": "Fire",
       "type2": "Rock",
       "base_stats": {
@@ -18624,10 +18624,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "220",
       "name": "Swinub",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0220",
+      "shiny_sprite": "0220",
       "type1": "Ice",
       "type2": "Ground",
       "base_stats": {
@@ -18677,7 +18677,7 @@
       "egg_moves_ref": "sSwinubEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "221",
       "name": "Piloswine",
       "sprite": "0221m",
       "shiny_sprite": "0221m",
@@ -18733,7 +18733,7 @@
       "shiny_sprite_female": "0221f"
     },
     {
-      "id": "???",
+      "id": "473",
       "name": "Mamoswine",
       "sprite": "0473m",
       "shiny_sprite": "0473m",
@@ -18788,10 +18788,10 @@
       "shiny_sprite_female": "0473f"
     },
     {
-      "id": "???",
+      "id": "222",
       "name": "Corsola",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0222",
+      "shiny_sprite": "0222",
       "type1": "Water",
       "type2": "Rock",
       "base_stats": {
@@ -18840,10 +18840,10 @@
       "egg_moves_ref": "sCorsolaEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Corsola",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "986",
+      "name": "Galarian-Corsola",
+      "sprite": "0986",
+      "shiny_sprite": "0986",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -18890,10 +18890,10 @@
       "egg_moves_ref": "sCorsolaGalarEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "864",
       "name": "Cursola",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0864",
+      "shiny_sprite": "0864",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -18940,10 +18940,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "223",
       "name": "Remoraid",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0223",
+      "shiny_sprite": "0223",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -18994,7 +18994,7 @@
       "egg_moves_ref": "sRemoraidEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "224",
       "name": "Octillery",
       "sprite": "0224m",
       "shiny_sprite": "0224m",
@@ -19051,10 +19051,10 @@
       "shiny_sprite_female": "0224f"
     },
     {
-      "id": "???",
+      "id": "225",
       "name": "Delibird",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0225",
+      "shiny_sprite": "0225",
       "type1": "Ice",
       "type2": "Flying",
       "base_stats": {
@@ -19105,10 +19105,10 @@
       "egg_moves_ref": "sDelibirdEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "458",
       "name": "Mantyke",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0458",
+      "shiny_sprite": "0458",
       "type1": "Water",
       "type2": "Flying",
       "base_stats": {
@@ -19158,10 +19158,10 @@
       "egg_moves_ref": "sMantykeEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "226",
       "name": "Mantine",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0226",
+      "shiny_sprite": "0226",
       "type1": "Water",
       "type2": "Flying",
       "base_stats": {
@@ -19210,10 +19210,10 @@
       "egg_moves_ref": "sMantineEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "227",
       "name": "Skarmory",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0227",
+      "shiny_sprite": "0227",
       "type1": "Steel",
       "type2": "Flying",
       "base_stats": {
@@ -19263,10 +19263,10 @@
       "egg_moves_ref": "sSkarmoryEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Skarmory",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1530",
+      "name": "Mega-Skarmory",
+      "sprite": "1530",
+      "shiny_sprite": "1530",
       "type1": "Steel",
       "type2": "Flying",
       "base_stats": {
@@ -19280,15 +19280,15 @@
       "bst": 565,
       "abilities": [
         {
-          "name": "Keen Eye",
+          "name": "Stalwart",
           "hidden": false
         },
         {
-          "name": "Sturdy",
+          "name": "Stalwart",
           "hidden": false
         },
         {
-          "name": "Weak Armor",
+          "name": "Stalwart",
           "hidden": true
         }
       ],
@@ -19316,10 +19316,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "228",
       "name": "Houndour",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0228",
+      "shiny_sprite": "0228",
       "type1": "Dark",
       "type2": "Fire",
       "base_stats": {
@@ -19369,7 +19369,7 @@
       "egg_moves_ref": "sHoundourEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "229",
       "name": "Houndoom",
       "sprite": "0229m",
       "shiny_sprite": "0229m",
@@ -19424,10 +19424,10 @@
       "shiny_sprite_female": "0229f"
     },
     {
-      "id": "???",
-      "name": "Houndoom",
-      "sprite": "0229m",
-      "shiny_sprite": "0229m",
+      "id": "925",
+      "name": "Mega-Houndoom",
+      "sprite": "0925",
+      "shiny_sprite": "0925",
       "type1": "Dark",
       "type2": "Fire",
       "base_stats": {
@@ -19474,15 +19474,13 @@
       "evolutions": null,
       "learnset_ref": "sHoundoomLevelUpLearnset",
       "teachable_ref": "sHoundoomTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0229f",
-      "shiny_sprite_female": "0229f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "231",
       "name": "Phanpy",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0231",
+      "shiny_sprite": "0231",
       "type1": "Ground",
       "type2": null,
       "base_stats": {
@@ -19528,7 +19526,7 @@
       "egg_moves_ref": "sPhanpyEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "232",
       "name": "Donphan",
       "sprite": "0232m",
       "shiny_sprite": "0232m",
@@ -19580,10 +19578,10 @@
       "shiny_sprite_female": "0232f"
     },
     {
-      "id": "???",
+      "id": "234",
       "name": "Stantler",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0234",
+      "shiny_sprite": "0234",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -19633,10 +19631,10 @@
       "egg_moves_ref": "sStantlerEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "899",
       "name": "Wyrdeer",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0899",
+      "shiny_sprite": "0899",
       "type1": "Normal",
       "type2": "Psychic",
       "base_stats": {
@@ -19687,10 +19685,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "235",
       "name": "Smeargle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0235",
+      "shiny_sprite": "0235",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -19740,10 +19738,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "241",
       "name": "Miltank",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0241",
+      "shiny_sprite": "0241",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -19793,10 +19791,10 @@
       "egg_moves_ref": "sMiltankEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "243",
       "name": "Raikou",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0243",
+      "shiny_sprite": "0243",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -19843,10 +19841,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "244",
       "name": "Entei",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0244",
+      "shiny_sprite": "0244",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -19893,10 +19891,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "245",
       "name": "Suicune",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0245",
+      "shiny_sprite": "0245",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -19943,10 +19941,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "246",
       "name": "Larvitar",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0246",
+      "shiny_sprite": "0246",
       "type1": "Rock",
       "type2": "Ground",
       "base_stats": {
@@ -19992,10 +19990,10 @@
       "egg_moves_ref": "sLarvitarEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "247",
       "name": "Pupitar",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0247",
+      "shiny_sprite": "0247",
       "type1": "Rock",
       "type2": "Ground",
       "base_stats": {
@@ -20037,10 +20035,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "248",
       "name": "Tyranitar",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0248",
+      "shiny_sprite": "0248",
       "type1": "Rock",
       "type2": "Dark",
       "base_stats": {
@@ -20086,10 +20084,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Tyranitar",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "926",
+      "name": "Mega-Tyranitar",
+      "sprite": "0926",
+      "shiny_sprite": "0926",
       "type1": "Rock",
       "type2": "Dark",
       "base_stats": {
@@ -20139,10 +20137,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "249",
       "name": "Lugia",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0249",
+      "shiny_sprite": "0249",
       "type1": "Psychic",
       "type2": "Flying",
       "base_stats": {
@@ -20188,10 +20186,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "250",
       "name": "Ho-Oh",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0250",
+      "shiny_sprite": "0250",
       "type1": "Fire",
       "type2": "Flying",
       "base_stats": {
@@ -20237,10 +20235,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "251",
       "name": "Celebi",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0251",
+      "shiny_sprite": "0251",
       "type1": "Psychic",
       "type2": "Grass",
       "base_stats": {
