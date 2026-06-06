@@ -10,10 +10,10 @@
   ],
   "pokemon": [
     {
-      "id": "???",
+      "id": "1",
       "name": "Bulbasaur",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0001",
+      "shiny_sprite": "0001",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
@@ -60,10 +60,10 @@
       "egg_moves_ref": "sBulbasaurEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "2",
       "name": "Ivysaur",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0002",
+      "shiny_sprite": "0002",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
@@ -111,7 +111,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "3",
       "name": "Venusaur",
       "sprite": "0003m",
       "shiny_sprite": "0003m",
@@ -164,10 +164,10 @@
       "shiny_sprite_female": "0003f"
     },
     {
-      "id": "???",
-      "name": "Venusaur",
-      "sprite": "0003m",
-      "shiny_sprite": "0003m",
+      "id": "906",
+      "name": "Mega-Venusaur",
+      "sprite": "0906",
+      "shiny_sprite": "0906",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
@@ -216,13 +216,11 @@
       "evolutions": null,
       "learnset_ref": "sVenusaurLevelUpLearnset",
       "teachable_ref": "sVenusaurTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0003f",
-      "shiny_sprite_female": "0003f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Venusaur",
+      "id": "1489",
+      "name": "GMax-Venusaur",
       "sprite": "0003m",
       "shiny_sprite": "0003m",
       "type1": "Grass",
@@ -269,15 +267,13 @@
       "evolutions": null,
       "learnset_ref": "sVenusaurLevelUpLearnset",
       "teachable_ref": "sVenusaurTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0003f",
-      "shiny_sprite_female": "0003f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "4",
       "name": "Charmander",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0004",
+      "shiny_sprite": "0004",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -323,10 +319,10 @@
       "egg_moves_ref": "sCharmanderEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "5",
       "name": "Charmeleon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0005",
+      "shiny_sprite": "0005",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -373,10 +369,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "6",
       "name": "Charizard",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0006",
+      "shiny_sprite": "0006",
       "type1": "Fire",
       "type2": "Flying",
       "base_stats": {
@@ -422,10 +418,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "0907",
       "name": "Charizard",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0907",
+      "shiny_sprite": "0907",
       "type1": "Fire",
       "type2": "Dragon",
       "base_stats": {
@@ -476,10 +472,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "908",
       "name": "Charizard",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0908",
+      "shiny_sprite": "0908",
       "type1": "Fire",
       "type2": "Flying",
       "base_stats": {
@@ -530,10 +526,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1491",
       "name": "Charizard",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1491",
+      "shiny_sprite": "1491",
       "type1": "Fire",
       "type2": "Flying",
       "base_stats": {
