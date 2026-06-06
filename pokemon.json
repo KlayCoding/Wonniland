@@ -17096,6 +17096,1266 @@
       "egg_moves_ref": null
     },
     {
+      "id": "201",
+      "name": "Unown (A)",
+      "sprite": "0201",
+      "shiny_sprite": "0201",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1024",
+      "name": "Unown (B)",
+      "sprite": "1024",
+      "shiny_sprite": "1024",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1025",
+      "name": "Unown (C)",
+      "sprite": "1025",
+      "shiny_sprite": "1025",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1026",
+      "name": "Unown (D)",
+      "sprite": "1026",
+      "shiny_sprite": "1026",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1027",
+      "name": "Unown (E)",
+      "sprite": "1027",
+      "shiny_sprite": "1027",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1028",
+      "name": "Unown (F)",
+      "sprite": "1028",
+      "shiny_sprite": "1028",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1029",
+      "name": "Unown (G)",
+      "sprite": "1029",
+      "shiny_sprite": "1029",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1030",
+      "name": "Unown (H)",
+      "sprite": "1030",
+      "shiny_sprite": "1030",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1031",
+      "name": "Unown (I)",
+      "sprite": "1031",
+      "shiny_sprite": "1031",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1032",
+      "name": "Unown (J)",
+      "sprite": "1032",
+      "shiny_sprite": "1032",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1033",
+      "name": "Unown (K)",
+      "sprite": "1033",
+      "shiny_sprite": "1033",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1034",
+      "name": "Unown (L)",
+      "sprite": "1034",
+      "shiny_sprite": "1034",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1035",
+      "name": "Unown (M)",
+      "sprite": "1035",
+      "shiny_sprite": "1035",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1036",
+      "name": "Unown (N)",
+      "sprite": "1036",
+      "shiny_sprite": "1036",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1037",
+      "name": "Unown (O)",
+      "sprite": "1037",
+      "shiny_sprite": "1037",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1038",
+      "name": "Unown (P)",
+      "sprite": "1038",
+      "shiny_sprite": "1038",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1039",
+      "name": "Unown (Q)",
+      "sprite": "1039",
+      "shiny_sprite": "1039",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1040",
+      "name": "Unown (R)",
+      "sprite": "1040",
+      "shiny_sprite": "1040",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1041",
+      "name": "Unown (S)",
+      "sprite": "1041",
+      "shiny_sprite": "1041",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1042",
+      "name": "Unown (T)",
+      "sprite": "1042",
+      "shiny_sprite": "1042",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1043",
+      "name": "Unown (U)",
+      "sprite": "1043",
+      "shiny_sprite": "1043",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1044",
+      "name": "Unown (V)",
+      "sprite": "1044",
+      "shiny_sprite": "1044",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1045",
+      "name": "Unown (W)",
+      "sprite": "1045",
+      "shiny_sprite": "1045",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1046",
+      "name": "Unown (X)",
+      "sprite": "1046",
+      "shiny_sprite": "1046",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1047",
+      "name": "Unown (Y)",
+      "sprite": "1047",
+      "shiny_sprite": "1047",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1048",
+      "name": "Unown (Z)",
+      "sprite": "1048",
+      "shiny_sprite": "1048",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1049",
+      "name": "Unown (!)",
+      "sprite": "1049",
+      "shiny_sprite": "1049",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1050",
+      "name": "Unown (?)",
+      "sprite": "1050",
+      "shiny_sprite": "1050",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "atk": 72,
+        "def": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "bst": 336,
+      "abilities": [
+        {
+          "name": "Levitate",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spa": 1
+      },
+      "gender_ratio": "Genderless",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Black",
+      "category": "Symbol",
+      "height": 5,
+      "weight": 50,
+      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
       "id": 360,
       "name": "Wynaut",
       "sprite": "0360",
@@ -21412,10 +22672,10 @@
       "shiny_sprite_female": "0267f"
     },
     {
-      "id": "???",
+      "id": "268",
       "name": "Cascoon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0268",
+      "shiny_sprite": "0268",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -21457,7 +22717,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "269",
       "name": "Dustox",
       "sprite": "0269m",
       "shiny_sprite": "0269m",
@@ -21508,10 +22768,10 @@
       "shiny_sprite_female": "0269f"
     },
     {
-      "id": "???",
+      "id": "270",
       "name": "Lotad",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0270",
+      "shiny_sprite": "0270",
       "type1": "Water",
       "type2": "Grass",
       "base_stats": {
@@ -21562,10 +22822,10 @@
       "egg_moves_ref": "sLotadEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "271",
       "name": "Lombre",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0271",
+      "shiny_sprite": "0271",
       "type1": "Water",
       "type2": "Grass",
       "base_stats": {
@@ -21616,7 +22876,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "272",
       "name": "Ludicolo",
       "sprite": "0272m",
       "shiny_sprite": "0272m",
@@ -21672,10 +22932,10 @@
       "shiny_sprite_female": "0272f"
     },
     {
-      "id": "???",
+      "id": "273",
       "name": "Seedot",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0273",
+      "shiny_sprite": "0273",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -21726,7 +22986,7 @@
       "egg_moves_ref": "sSeedotEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "274",
       "name": "Nuzleaf",
       "sprite": "0274m",
       "shiny_sprite": "0274m",
@@ -21782,7 +23042,7 @@
       "shiny_sprite_female": "0274f"
     },
     {
-      "id": "???",
+      "id": "275",
       "name": "Shiftry",
       "sprite": "0275m",
       "shiny_sprite": "0275m",
@@ -21838,10 +23098,10 @@
       "shiny_sprite_female": "0275f"
     },
     {
-      "id": "???",
+      "id": "276",
       "name": "Taillow",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0276",
+      "shiny_sprite": "0276",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -21887,10 +23147,10 @@
       "egg_moves_ref": "sTaillowEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "277",
       "name": "Swellow",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0277",
+      "shiny_sprite": "0277",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -21935,10 +23195,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "278",
       "name": "Wingull",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0278",
+      "shiny_sprite": "0278",
       "type1": "Water",
       "type2": "Flying",
       "base_stats": {
@@ -21989,10 +23249,10 @@
       "egg_moves_ref": "sWingullEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "279",
       "name": "Pelipper",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0279",
+      "shiny_sprite": "0279",
       "type1": "Water",
       "type2": "Flying",
       "base_stats": {
@@ -22042,10 +23302,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "280",
       "name": "Ralts",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0280",
+      "shiny_sprite": "0280",
       "type1": "Psychic",
       "type2": "Ralts Family Type2",
       "base_stats": {
@@ -22093,10 +23353,10 @@
       "egg_moves_ref": "sRaltsEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "281",
       "name": "Kirlia",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0281",
+      "shiny_sprite": "0281",
       "type1": "Psychic",
       "type2": "Ralts Family Type2",
       "base_stats": {
@@ -22144,10 +23404,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "282",
       "name": "Gardevoir",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0282",
+      "shiny_sprite": "0282",
       "type1": "Psychic",
       "type2": "Ralts Family Type2",
       "base_stats": {
@@ -22195,10 +23455,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Gardevoir",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "930",
+      "name": "Mega-Gardevoir",
+      "sprite": "0930",
+      "shiny_sprite": "0930",
       "type1": "Psychic",
       "type2": "Fairy",
       "base_stats": {
@@ -22246,10 +23506,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "475",
       "name": "Gallade",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0475",
+      "shiny_sprite": "0475",
       "type1": "Psychic",
       "type2": "Fighting",
       "base_stats": {
@@ -22297,10 +23557,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Gallade",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "950",
+      "name": "Mega-Gallade",
+      "sprite": "0950",
+      "shiny_sprite": "0950",
       "type1": "Psychic",
       "type2": "Fighting",
       "base_stats": {
@@ -22348,10 +23608,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "283",
       "name": "Surskit",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0283",
+      "shiny_sprite": "0283",
       "type1": "Bug",
       "type2": "Water",
       "base_stats": {
@@ -22398,10 +23658,10 @@
       "egg_moves_ref": "sSurskitEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "284",
       "name": "Masquerain",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0284",
+      "shiny_sprite": "0284",
       "type1": "Bug",
       "type2": "Flying",
       "base_stats": {
@@ -22447,10 +23707,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "285",
       "name": "Shroomish",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0285",
+      "shiny_sprite": "0285",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -22501,10 +23761,10 @@
       "egg_moves_ref": "sShroomishEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "286",
       "name": "Breloom",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0286",
+      "shiny_sprite": "0286",
       "type1": "Grass",
       "type2": "Fighting",
       "base_stats": {
@@ -22555,10 +23815,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "287",
       "name": "Slakoth",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0287",
+      "shiny_sprite": "0287",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -22600,10 +23860,10 @@
       "egg_moves_ref": "sSlakothEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "288",
       "name": "Vigoroth",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0288",
+      "shiny_sprite": "0288",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -22645,10 +23905,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "289",
       "name": "Slaking",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0289",
+      "shiny_sprite": "0289",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -22690,10 +23950,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "290",
       "name": "Nincada",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0290",
+      "shiny_sprite": "0290",
       "type1": "Bug",
       "type2": "Ground",
       "base_stats": {
@@ -22739,10 +23999,10 @@
       "egg_moves_ref": "sNincadaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "291",
       "name": "Ninjask",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0291",
+      "shiny_sprite": "0291",
       "type1": "Bug",
       "type2": "Flying",
       "base_stats": {
@@ -22788,10 +24048,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "292",
       "name": "Shedinja",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0292",
+      "shiny_sprite": "0292",
       "type1": "Bug",
       "type2": "Ghost",
       "base_stats": {
@@ -22833,10 +24093,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "293",
       "name": "Whismur",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0293",
+      "shiny_sprite": "0293",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -22883,10 +24143,10 @@
       "egg_moves_ref": "sWhismurEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "294",
       "name": "Loudred",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0294",
+      "shiny_sprite": "0294",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -22933,10 +24193,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "295",
       "name": "Exploud",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0295",
+      "shiny_sprite": "0295",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -22982,10 +24242,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "296",
       "name": "Makuhita",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0296",
+      "shiny_sprite": "0296",
       "type1": "Fighting",
       "type2": null,
       "base_stats": {
@@ -23035,10 +24295,10 @@
       "egg_moves_ref": "sMakuhitaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "297",
       "name": "Hariyama",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0297",
+      "shiny_sprite": "0297",
       "type1": "Fighting",
       "type2": null,
       "base_stats": {
@@ -23088,10 +24348,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "299",
       "name": "Nosepass",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0299",
+      "shiny_sprite": "0299",
       "type1": "Rock",
       "type2": null,
       "base_stats": {
@@ -23141,10 +24401,10 @@
       "egg_moves_ref": "sNosepassEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "476",
       "name": "Probopass",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0476",
+      "shiny_sprite": "0476",
       "type1": "Rock",
       "type2": "Steel",
       "base_stats": {
@@ -23195,10 +24455,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "300",
       "name": "Skitty",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0300",
+      "shiny_sprite": "0300",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -23249,10 +24509,10 @@
       "egg_moves_ref": "sSkittyEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "301",
       "name": "Delcatty",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0301",
+      "shiny_sprite": "0301",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -23303,10 +24563,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "302",
       "name": "Sableye",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0302",
+      "shiny_sprite": "0302",
       "type1": "Dark",
       "type2": "Ghost",
       "base_stats": {
@@ -23357,10 +24617,10 @@
       "egg_moves_ref": "sSableyeEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Sableye",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "931",
+      "name": "Mega-Sableye",
+      "sprite": "0931",
+      "shiny_sprite": "0931",
       "type1": "Dark",
       "type2": "Ghost",
       "base_stats": {
@@ -23411,10 +24671,10 @@
       "egg_moves_ref": "sSableyeEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "303",
       "name": "Mawile",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0303",
+      "shiny_sprite": "0303",
       "type1": "Steel",
       "type2": "Fairy",
       "base_stats": {
@@ -23466,10 +24726,10 @@
       "egg_moves_ref": "sMawileEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Mawile",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "932",
+      "name": "Mega-Mawile",
+      "sprite": "0932",
+      "shiny_sprite": "0932",
       "type1": "Steel",
       "type2": "Fairy",
       "base_stats": {
@@ -23521,10 +24781,10 @@
       "egg_moves_ref": "sMawileEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "304",
       "name": "Aron",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0304",
+      "shiny_sprite": "0304",
       "type1": "Steel",
       "type2": "Rock",
       "base_stats": {
@@ -23574,10 +24834,10 @@
       "egg_moves_ref": "sAronEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "305",
       "name": "Lairon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0305",
+      "shiny_sprite": "0305",
       "type1": "Steel",
       "type2": "Rock",
       "base_stats": {
@@ -23627,10 +24887,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "306",
       "name": "Aggron",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0306",
+      "shiny_sprite": "0306",
       "type1": "Steel",
       "type2": "Rock",
       "base_stats": {
@@ -23680,10 +24940,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Aggron",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "933",
+      "name": "Mega-Aggron",
+      "sprite": "0933",
+      "shiny_sprite": "0933",
       "type1": "Steel",
       "type2": null,
       "base_stats": {
@@ -23733,7 +24993,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "307",
       "name": "Meditite",
       "sprite": "0307m",
       "shiny_sprite": "0307m",
@@ -23784,7 +25044,7 @@
       "shiny_sprite_female": "0307f"
     },
     {
-      "id": "???",
+      "id": "308",
       "name": "Medicham",
       "sprite": "0308m",
       "shiny_sprite": "0308m",
@@ -23835,10 +25095,10 @@
       "shiny_sprite_female": "0308f"
     },
     {
-      "id": "???",
-      "name": "Medicham",
-      "sprite": "0308m",
-      "shiny_sprite": "0308m",
+      "id": "934",
+      "name": "Mega-Medicham",
+      "sprite": "0934",
+      "shiny_sprite": "0934",
       "type1": "Fighting",
       "type2": "Psychic",
       "base_stats": {
@@ -23890,10 +25150,10 @@
       "shiny_sprite_female": "0308f"
     },
     {
-      "id": "???",
+      "id": "309",
       "name": "Electrike",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0309",
+      "shiny_sprite": "0309",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -23943,10 +25203,10 @@
       "egg_moves_ref": "sElectrikeEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "310",
       "name": "Manectric",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0310",
+      "shiny_sprite": "0310",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -23996,10 +25256,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Manectric",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "935",
+      "name": "Mega-Manectric",
+      "sprite": "0935",
+      "shiny_sprite": "0935",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -24049,10 +25309,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "311",
       "name": "Plusle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0311",
+      "shiny_sprite": "0311",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -24098,10 +25358,10 @@
       "egg_moves_ref": "sPlusleEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "312",
       "name": "Minun",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0312",
+      "shiny_sprite": "0312",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -24147,10 +25407,10 @@
       "egg_moves_ref": "sMinunEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "313",
       "name": "Volbeat",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0313",
+      "shiny_sprite": "0313",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -24199,10 +25459,10 @@
       "egg_moves_ref": "sVolbeatEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "314",
       "name": "Illumise",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0314",
+      "shiny_sprite": "0314",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -24251,10 +25511,10 @@
       "egg_moves_ref": "sIllumiseEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "406",
       "name": "Budew",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0406",
+      "shiny_sprite": "0406",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
@@ -24304,7 +25564,7 @@
       "egg_moves_ref": "sBudewEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "315",
       "name": "Roselia",
       "sprite": "0315m",
       "shiny_sprite": "0315m",
@@ -24358,7 +25618,7 @@
       "shiny_sprite_female": "0315f"
     },
     {
-      "id": "???",
+      "id": "407",
       "name": "Roserade",
       "sprite": "0407m",
       "shiny_sprite": "0407m",
@@ -24413,7 +25673,7 @@
       "shiny_sprite_female": "0407f"
     },
     {
-      "id": "???",
+      "id": "316",
       "name": "Gulpin",
       "sprite": "0316m",
       "shiny_sprite": "0316m",
@@ -24468,7 +25728,7 @@
       "shiny_sprite_female": "0316f"
     },
     {
-      "id": "???",
+      "id": "317",
       "name": "Swalot",
       "sprite": "0317m",
       "shiny_sprite": "0317m",
@@ -24523,10 +25783,10 @@
       "shiny_sprite_female": "0317f"
     },
     {
-      "id": "???",
+      "id": "318",
       "name": "Carvanha",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0318",
+      "shiny_sprite": "0318",
       "type1": "Water",
       "type2": "Dark",
       "base_stats": {
@@ -24572,10 +25832,10 @@
       "egg_moves_ref": "sCarvanhaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "319",
       "name": "Sharpedo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0319",
+      "shiny_sprite": "0319",
       "type1": "Water",
       "type2": "Dark",
       "base_stats": {
@@ -24621,10 +25881,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Sharpedo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "936",
+      "name": "Mega-Sharpedo",
+      "sprite": "0936",
+      "shiny_sprite": "0936",
       "type1": "Water",
       "type2": "Dark",
       "base_stats": {
@@ -24674,10 +25934,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "320",
       "name": "Wailmer",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0320",
+      "shiny_sprite": "0320",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -24728,10 +25988,10 @@
       "egg_moves_ref": "sWailmerEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "321",
       "name": "Wailord",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0321",
+      "shiny_sprite": "0321",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -24782,7 +26042,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "322",
       "name": "Numel",
       "sprite": "0322m",
       "shiny_sprite": "0322m",
@@ -24837,7 +26097,7 @@
       "shiny_sprite_female": "0322f"
     },
     {
-      "id": "???",
+      "id": "323",
       "name": "Camerupt",
       "sprite": "0323m",
       "shiny_sprite": "0323m",
@@ -24893,10 +26153,10 @@
       "shiny_sprite_female": "0323f"
     },
     {
-      "id": "???",
-      "name": "Camerupt",
-      "sprite": "0323m",
-      "shiny_sprite": "0323m",
+      "id": "937",
+      "name": "Mega-Camerupt",
+      "sprite": "0937",
+      "shiny_sprite": "0937",
       "type1": "Fire",
       "type2": "Ground",
       "base_stats": {
@@ -24949,10 +26209,10 @@
       "shiny_sprite_female": "0323f"
     },
     {
-      "id": "???",
+      "id": "324",
       "name": "Torkoal",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0324",
+      "shiny_sprite": "0324",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -25002,10 +26262,10 @@
       "egg_moves_ref": "sTorkoalEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "325",
       "name": "Spoink",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0325",
+      "shiny_sprite": "0325",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -25055,10 +26315,10 @@
       "egg_moves_ref": "sSpoinkEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "326",
       "name": "Grumpig",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0326",
+      "shiny_sprite": "0326",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -25108,10 +26368,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "327",
       "name": "Spinda",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0327",
+      "shiny_sprite": "0327",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -25162,10 +26422,10 @@
       "egg_moves_ref": "sSpindaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "328",
       "name": "Trapinch",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0328",
+      "shiny_sprite": "0328",
       "type1": "Ground",
       "type2": null,
       "base_stats": {
@@ -25213,10 +26473,10 @@
       "egg_moves_ref": "sTrapinchEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "329",
       "name": "Vibrava",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0329",
+      "shiny_sprite": "0329",
       "type1": "Ground",
       "type2": "Dragon",
       "base_stats": {
@@ -25265,10 +26525,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "330",
       "name": "Flygon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0330",
+      "shiny_sprite": "0330",
       "type1": "Ground",
       "type2": "Dragon",
       "base_stats": {
@@ -25317,10 +26577,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "331",
       "name": "Cacnea",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0331",
+      "shiny_sprite": "0331",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -25367,7 +26627,7 @@
       "egg_moves_ref": "sCacneaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "332",
       "name": "Cacturne",
       "sprite": "0332m",
       "shiny_sprite": "0332m",
@@ -25420,10 +26680,10 @@
       "shiny_sprite_female": "0332f"
     },
     {
-      "id": "???",
+      "id": "333",
       "name": "Swablu",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0333",
+      "shiny_sprite": "0333",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -25470,10 +26730,10 @@
       "egg_moves_ref": "sSwabluEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "334",
       "name": "Altaria",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0334",
+      "shiny_sprite": "0334",
       "type1": "Dragon",
       "type2": "Flying",
       "base_stats": {
@@ -25520,10 +26780,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Altaria",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "938",
+      "name": "Mega-Altaria",
+      "sprite": "0938",
+      "shiny_sprite": "0938",
       "type1": "Dragon",
       "type2": "Fairy",
       "base_stats": {
@@ -25574,10 +26834,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "335",
       "name": "Zangoose",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0335",
+      "shiny_sprite": "0335",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -25623,10 +26883,10 @@
       "egg_moves_ref": "sZangooseEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "336",
       "name": "Seviper",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0336",
+      "shiny_sprite": "0336",
       "type1": "Poison",
       "type2": null,
       "base_stats": {
@@ -25674,10 +26934,10 @@
       "egg_moves_ref": "sSeviperEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "337",
       "name": "Lunatone",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0337",
+      "shiny_sprite": "0337",
       "type1": "Rock",
       "type2": "Psychic",
       "base_stats": {
@@ -25718,10 +26978,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "338",
       "name": "Solrock",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0338",
+      "shiny_sprite": "0338",
       "type1": "Rock",
       "type2": "Psychic",
       "base_stats": {
@@ -25762,10 +27022,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "339",
       "name": "Barboach",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0339",
+      "shiny_sprite": "0339",
       "type1": "Water",
       "type2": "Ground",
       "base_stats": {
@@ -25815,10 +27075,10 @@
       "egg_moves_ref": "sBarboachEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "340",
       "name": "Whiscash",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0340",
+      "shiny_sprite": "0340",
       "type1": "Water",
       "type2": "Ground",
       "base_stats": {
@@ -25868,10 +27128,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "341",
       "name": "Corphish",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0341",
+      "shiny_sprite": "0341",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -25922,10 +27182,10 @@
       "egg_moves_ref": "sCorphishEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "342",
       "name": "Crawdaunt",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0342",
+      "shiny_sprite": "0342",
       "type1": "Water",
       "type2": "Dark",
       "base_stats": {
@@ -25976,10 +27236,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "343",
       "name": "Baltoy",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0343",
+      "shiny_sprite": "0343",
       "type1": "Ground",
       "type2": "Psychic",
       "base_stats": {
@@ -26021,10 +27281,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "344",
       "name": "Claydol",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0344",
+      "shiny_sprite": "0344",
       "type1": "Ground",
       "type2": "Psychic",
       "base_stats": {
@@ -26066,10 +27326,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "345",
       "name": "Lileep",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0345",
+      "shiny_sprite": "0345",
       "type1": "Rock",
       "type2": "Grass",
       "base_stats": {
@@ -26115,10 +27375,10 @@
       "egg_moves_ref": "sLileepEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "346",
       "name": "Cradily",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0346",
+      "shiny_sprite": "0346",
       "type1": "Rock",
       "type2": "Grass",
       "base_stats": {
@@ -26164,10 +27424,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "347",
       "name": "Anorith",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0347",
+      "shiny_sprite": "0347",
       "type1": "Rock",
       "type2": "Bug",
       "base_stats": {
@@ -26213,10 +27473,10 @@
       "egg_moves_ref": "sAnorithEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "348",
       "name": "Armaldo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0348",
+      "shiny_sprite": "0348",
       "type1": "Rock",
       "type2": "Bug",
       "base_stats": {
@@ -26262,10 +27522,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "349",
       "name": "Feebas",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0349",
+      "shiny_sprite": "0349",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -26316,7 +27576,7 @@
       "egg_moves_ref": "sFeebasEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "350",
       "name": "Milotic",
       "sprite": "0350m",
       "shiny_sprite": "0350m",
@@ -26372,10 +27632,10 @@
       "shiny_sprite_female": "0350f"
     },
     {
-      "id": "???",
+      "id": "351",
       "name": "Castform",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0351",
+      "shiny_sprite": "0351",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -71110,1266 +72370,6 @@
       "height": null,
       "weight": null,
       "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (A)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (B)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (C)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (D)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (E)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (F)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (G)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (H)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (I)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (J)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (K)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (L)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (M)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (N)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (O)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (P)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (Q)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (R)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (S)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (T)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (U)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (V)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (W)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (X)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (Y)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (Z)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (!)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Unown (?)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 48,
-        "atk": 72,
-        "def": 48,
-        "spa": 72,
-        "spd": 48,
-        "spe": 48
-      },
-      "bst": 336,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 70,
-      "growth_rate": "Medium Fast",
-      "body_color": "Black",
-      "category": "Symbol",
-      "height": 5,
-      "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
       "related_forms": [],
       "evolutions": null,
       "learnset_ref": null,
