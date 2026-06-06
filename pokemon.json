@@ -221,8 +221,8 @@
     {
       "id": "1489",
       "name": "GMax-Venusaur",
-      "sprite": "0003m",
-      "shiny_sprite": "0003m",
+      "sprite": "1489",
+      "shiny_sprite": "1489",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
@@ -418,7 +418,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "0907",
+      "id": "907",
       "name": "Mega-Charizard-X",
       "sprite": "0907",
       "shiny_sprite": "0907",
@@ -778,7 +778,7 @@
     },
     {
       "id": "1490",
-      "name": "Blastoise",
+      "name": "GMax-Blastoise",
       "sprite": "1490",
       "shiny_sprite": "1490",
       "type1": "Water",
