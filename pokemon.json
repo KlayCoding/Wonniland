@@ -419,7 +419,7 @@
     },
     {
       "id": "0907",
-      "name": "Charizard",
+      "name": "Mega-Charizard-X",
       "sprite": "0907",
       "shiny_sprite": "0907",
       "type1": "Fire",
@@ -473,7 +473,7 @@
     },
     {
       "id": "908",
-      "name": "Charizard",
+      "name": "Mega-Charizard-Y",
       "sprite": "0908",
       "shiny_sprite": "0908",
       "type1": "Fire",
@@ -527,7 +527,7 @@
     },
     {
       "id": "1491",
-      "name": "Charizard",
+      "name": "GMax-Charizard",
       "sprite": "1491",
       "shiny_sprite": "1491",
       "type1": "Fire",
@@ -575,10 +575,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "7",
       "name": "Squirtle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0007",
+      "shiny_sprite": "0007",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -624,10 +624,10 @@
       "egg_moves_ref": "sSquirtleEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "8",
       "name": "Wartortle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0008",
+      "shiny_sprite": "0008",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -674,10 +674,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "9",
       "name": "Blastoise",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0009",
+      "shiny_sprite": "0009",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -723,10 +723,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Blastoise",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "909",
+      "name": "Mega-Blastoise",
+      "sprite": "0909",
+      "shiny_sprite": "0909",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -777,10 +777,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1490",
       "name": "Blastoise",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1490",
+      "shiny_sprite": "1490",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -826,10 +826,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "10",
       "name": "Caterpie",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0010",
+      "shiny_sprite": "0010",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -875,10 +875,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "11",
       "name": "Metapod",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0011",
+      "shiny_sprite": "0011",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -920,7 +920,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "12",
       "name": "Butterfree",
       "sprite": "0012m",
       "shiny_sprite": "0012m",
@@ -971,10 +971,10 @@
       "shiny_sprite_female": "0012f"
     },
     {
-      "id": "???",
-      "name": "Butterfree",
-      "sprite": "0012m",
-      "shiny_sprite": "0012m",
+      "id": "1492",
+      "name": "GMax-Butterfree",
+      "sprite": "1492",
+      "shiny_sprite": "1492",
       "type1": "Bug",
       "type2": "Flying",
       "base_stats": {
@@ -1017,15 +1017,13 @@
       "evolutions": null,
       "learnset_ref": "sButterfreeLevelUpLearnset",
       "teachable_ref": "sButterfreeTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0012f",
-      "shiny_sprite_female": "0012f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "13",
       "name": "Weedle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0013",
+      "shiny_sprite": "0013",
       "type1": "Bug",
       "type2": "Poison",
       "base_stats": {
@@ -1071,10 +1069,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "14",
       "name": "Kakuna",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0014",
+      "shiny_sprite": "0014",
       "type1": "Bug",
       "type2": "Poison",
       "base_stats": {
@@ -1116,10 +1114,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "15",
       "name": "Beedrill",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0015",
+      "shiny_sprite": "0015",
       "type1": "Bug",
       "type2": "Poison",
       "base_stats": {
@@ -1164,10 +1162,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "910",
       "name": "Beedrill",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0910",
+      "shiny_sprite": "0910",
       "type1": "Bug",
       "type2": "Poison",
       "base_stats": {
@@ -1218,10 +1216,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "16",
       "name": "Pidgey",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0016",
+      "shiny_sprite": "0016",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -1271,10 +1269,10 @@
       "egg_moves_ref": "sPidgeyEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "17",
       "name": "Pidgeotto",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0017",
+      "shiny_sprite": "0017",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -1324,10 +1322,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "18",
       "name": "Pidgeot",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0018",
+      "shiny_sprite": "0018",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -1376,10 +1374,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pidgeot",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "911",
+      "name": "Mega-Pidgeot",
+      "sprite": "0911",
+      "shiny_sprite": "0911",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -1429,7 +1427,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "19",
       "name": "Rattata",
       "sprite": "0019m",
       "shiny_sprite": "0019m",
@@ -1483,7 +1481,7 @@
       "shiny_sprite_female": "0019f"
     },
     {
-      "id": "???",
+      "id": "20",
       "name": "Raticate",
       "sprite": "0020m",
       "shiny_sprite": "0020m",
@@ -1537,10 +1535,10 @@
       "shiny_sprite_female": "0020f"
     },
     {
-      "id": "???",
-      "name": "Rattata",
-      "sprite": "0019m",
-      "shiny_sprite": "0019m",
+      "id": "956",
+      "name": "Alolan-Rattata",
+      "sprite": "956",
+      "shiny_sprite": "956",
       "type1": "Dark",
       "type2": "Normal",
       "base_stats": {
@@ -1588,14 +1586,12 @@
       "learnset_ref": "sRattataAlolaLevelUpLearnset",
       "teachable_ref": "sRattataAlolaTeachableLearnset",
       "egg_moves_ref": "sRattataAlolaEggMoveLearnset",
-      "sprite_female": "0019f",
-      "shiny_sprite_female": "0019f"
     },
     {
-      "id": "???",
-      "name": "Raticate",
-      "sprite": "0020m",
-      "shiny_sprite": "0020m",
+      "id": "957",
+      "name": "Alolan-Raticate",
+      "sprite": "0957",
+      "shiny_sprite": "0957",
       "type1": "Dark",
       "type2": "Normal",
       "base_stats": {
@@ -1642,15 +1638,13 @@
       "evolutions": null,
       "learnset_ref": "sRaticateAlolaLevelUpLearnset",
       "teachable_ref": "sRaticateAlolaTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0020f",
-      "shiny_sprite_female": "0020f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Raticate",
-      "sprite": "0020m",
-      "shiny_sprite": "0020m",
+      "id": "1476",
+      "name": "Alolan-Raticate-Totem",
+      "sprite": "1476",
+      "shiny_sprite": "1476",
       "type1": "Dark",
       "type2": "Normal",
       "base_stats": {
@@ -1689,15 +1683,13 @@
       "evolutions": null,
       "learnset_ref": "sRaticateAlolaLevelUpLearnset",
       "teachable_ref": "sRaticateAlolaTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0020f",
-      "shiny_sprite_female": "0020f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "21",
       "name": "Spearow",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0021",
+      "shiny_sprite": "0021",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -1743,10 +1735,10 @@
       "egg_moves_ref": "sSpearowEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "22",
       "name": "Fearow",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0022",
+      "shiny_sprite": "0022",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -1792,10 +1784,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "23",
       "name": "Ekans",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0023",
+      "shiny_sprite": "0023",
       "type1": "Poison",
       "type2": null,
       "base_stats": {
@@ -1845,10 +1837,10 @@
       "egg_moves_ref": "sEkansEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "24",
       "name": "Arbok",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0024",
+      "shiny_sprite": "0024",
       "type1": "Poison",
       "type2": null,
       "base_stats": {
@@ -1897,10 +1889,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "172",
       "name": "Pichu",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "0172",
+      "shiny_sprite": "0172",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -1946,10 +1938,10 @@
       "egg_moves_ref": "sPichuEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Pichu",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1023",
+      "name": "Spiky-Ear-Pichu",
+      "sprite": "1023",
+      "shiny_sprite": "1023",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -1991,7 +1983,7 @@
       "egg_moves_ref": "sPichuEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "25",
       "name": "Pikachu",
       "sprite": "0025m",
       "shiny_sprite": "0025m",
@@ -2041,10 +2033,10 @@
       "shiny_sprite_female": "0025f"
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1009",
+      "name": "Cosplay-Pikachu",
+      "sprite": "1009",
+      "shiny_sprite": "1009",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2087,15 +2079,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1010",
+      "name": "Rockstar-Pikachu",
+      "sprite": "1010",
+      "shiny_sprite": "1010",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2138,15 +2128,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1011",
+      "name": "Belle-Pikachu",
+      "sprite": "1011",
+      "shiny_sprite": "1011",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2189,15 +2177,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1012",
+      "name": "Pop-Star-Pikachu",
+      "sprite": "1012",
+      "shiny_sprite": "1012",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2240,15 +2226,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1013",
+      "name": "PHD-Pikachu",
+      "sprite": "1013",
+      "shiny_sprite": "1013",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2291,15 +2275,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1014",
+      "name": "Libre-Pikachu",
+      "sprite": "1014",
+      "shiny_sprite": "1014",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2342,15 +2324,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1015",
+      "name": "Original-Pikachu",
+      "sprite": "1015",
+      "shiny_sprite": "1015",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2393,15 +2373,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1016",
+      "name": "Hoenn-Pikachu",
+      "sprite": "1016",
+      "shiny_sprite": "1016",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2444,15 +2422,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1017",
+      "name": "Sinnoh-Pikachu",
+      "sprite": "1017",
+      "shiny_sprite": "1017",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2495,15 +2471,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1018",
+      "name": "Unova-Pikachu",
+      "sprite": "1018",
+      "shiny_sprite": "1018",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2546,15 +2520,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1019",
+      "name": "Kalos-Pikachu",
+      "sprite": "1019",
+      "shiny_sprite": "1019",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2597,15 +2569,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1020",
+      "name": "Alola-Pikachu",
+      "sprite": "1020",
+      "shiny_sprite": "1020",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2648,15 +2618,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1021",
+      "name": "Partner-Pikachu",
+      "sprite": "1021",
+      "shiny_sprite": "1021",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2699,15 +2667,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1022",
+      "name": "World-Pikachu",
+      "sprite": "1022",
+      "shiny_sprite": "1022",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2750,15 +2716,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1493",
+      "name": "GMax-Pikachu",
+      "sprite": "1493",
+      "shiny_sprite": "1493",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2800,15 +2764,13 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Pikachu",
-      "sprite": "0025m",
-      "shiny_sprite": "0025m",
+      "id": "1487",
+      "name": "Starter-Pikachu",
+      "sprite": "1487",
+      "shiny_sprite": "1487",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -2851,12 +2813,10 @@
       "evolutions": null,
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0025f",
-      "shiny_sprite_female": "0025f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "26",
       "name": "Raichu",
       "sprite": "0026m",
       "shiny_sprite": "0026m",
@@ -2906,10 +2866,10 @@
       "shiny_sprite_female": "0026f"
     },
     {
-      "id": "???",
-      "name": "Raichu",
-      "sprite": "0026m",
-      "shiny_sprite": "0026m",
+      "id": "958",
+      "name": "Alolan-Raichu",
+      "sprite": "0958",
+      "shiny_sprite": "0958",
       "type1": "Electric",
       "type2": "Psychic",
       "base_stats": {
@@ -2954,10 +2914,10 @@
       "shiny_sprite_female": "0026f"
     },
     {
-      "id": "???",
-      "name": "Raichu",
-      "sprite": "0026m",
-      "shiny_sprite": "0026m",
+      "id": "1553",
+      "name": "Mega-Raichu-X",
+      "sprite": "1553",
+      "shiny_sprite": "1553",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -3001,15 +2961,13 @@
       "evolutions": null,
       "learnset_ref": "sRaichuLevelUpLearnset",
       "teachable_ref": "sRaichuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0026f",
-      "shiny_sprite_female": "0026f"
+      "egg_moves_ref": null
     },
     {
       "id": "???",
-      "name": "Raichu",
-      "sprite": "0026m",
-      "shiny_sprite": "0026m",
+      "name": "Mega-Raichu-Y",
+      "sprite": "1554",
+      "shiny_sprite": "1554",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -3053,9 +3011,7 @@
       "evolutions": null,
       "learnset_ref": "sRaichuLevelUpLearnset",
       "teachable_ref": "sRaichuTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0026f",
-      "shiny_sprite_female": "0026f"
+      "egg_moves_ref": null
     },
     {
       "id": "???",
