@@ -62624,10 +62624,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1298",
       "name": "Lechonk",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1298",
+      "shiny_sprite": "1298",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -62677,10 +62677,10 @@
       "egg_moves_ref": "sLechonkEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1299",
       "name": "Oinkologne",
-      "sprite": "0915m",
-      "shiny_sprite": "0915m",
+      "sprite": "1299",
+      "shiny_sprite": "1299",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -62728,14 +62728,12 @@
       "learnset_ref": "sOinkologneMLevelUpLearnset",
       "teachable_ref": "sOinkologneTeachableLearnset",
       "egg_moves_ref": null,
-      "sprite_female": "0915f",
-      "shiny_sprite_female": "0915f"
     },
     {
-      "id": "???",
+      "id": "1300",
       "name": "Oinkologne",
-      "sprite": "0915m",
-      "shiny_sprite": "0915m",
+      "sprite": "1300",
+      "shiny_sprite": "1300",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -62782,15 +62780,13 @@
       "evolutions": null,
       "learnset_ref": "sOinkologneFLevelUpLearnset",
       "teachable_ref": "sOinkologneTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0915f",
-      "shiny_sprite_female": "0915f"
+      "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1301",
       "name": "Tarountula",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1301",
+      "shiny_sprite": "1301",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -62836,10 +62832,10 @@
       "egg_moves_ref": "sTarountulaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1302",
       "name": "Spidops",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1302",
+      "shiny_sprite": "1302",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -62885,10 +62881,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1303",
       "name": "Nymble",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1303",
+      "shiny_sprite": "1303",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -62934,10 +62930,10 @@
       "egg_moves_ref": "sNymbleEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1304",
       "name": "Lokix",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1304",
+      "shiny_sprite": "1304",
       "type1": "Bug",
       "type2": "Dark",
       "base_stats": {
@@ -62983,10 +62979,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1305",
       "name": "Pawmi",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1305",
+      "shiny_sprite": "1305",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -63036,10 +63032,10 @@
       "egg_moves_ref": "sPawmiEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1306",
       "name": "Pawmo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1306",
+      "shiny_sprite": "1306",
       "type1": "Electric",
       "type2": "Fighting",
       "base_stats": {
@@ -63089,10 +63085,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1307",
       "name": "Pawmot",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1307",
+      "shiny_sprite": "1307",
       "type1": "Electric",
       "type2": "Fighting",
       "base_stats": {
@@ -63142,10 +63138,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1308",
       "name": "Tandemaus",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1308",
+      "shiny_sprite": "1308",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -63196,10 +63192,10 @@
       "egg_moves_ref": "sTandemausEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Maushold",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1309",
+      "name": "Maushold (Three)",
+      "sprite": "1309",
+      "shiny_sprite": "1309",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -63250,10 +63246,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Maushold",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1310",
+      "name": "Maushold (Four)",
+      "sprite": "1310",
+      "shiny_sprite": "1310",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -63304,10 +63300,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1311",
       "name": "Fidough",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1311",
+      "shiny_sprite": "1311",
       "type1": "Fairy",
       "type2": null,
       "base_stats": {
@@ -63354,10 +63350,10 @@
       "egg_moves_ref": "sFidoughEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1312",
       "name": "Dachsbun",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1312",
+      "shiny_sprite": "1312",
       "type1": "Fairy",
       "type2": null,
       "base_stats": {
@@ -63404,10 +63400,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1313",
       "name": "Smoliv",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1313",
+      "shiny_sprite": "1313",
       "type1": "Grass",
       "type2": "Normal",
       "base_stats": {
@@ -63453,10 +63449,10 @@
       "egg_moves_ref": "sSmolivEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1314",
       "name": "Dolliv",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1314",
+      "shiny_sprite": "1314",
       "type1": "Grass",
       "type2": "Normal",
       "base_stats": {
@@ -63502,10 +63498,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1315",
       "name": "Arboliva",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1315",
+      "shiny_sprite": "1315",
       "type1": "Grass",
       "type2": "Normal",
       "base_stats": {
@@ -63551,10 +63547,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Squawkabilly",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1316",
+      "name": "Squawkabilly (Green)",
+      "sprite": "1316",
+      "shiny_sprite": "1316",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -63604,10 +63600,10 @@
       "egg_moves_ref": "sSquawkabillyEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Squawkabilly",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1317",
+      "name": "Squawkabilly (Blue)",
+      "sprite": "1317",
+      "shiny_sprite": "1317",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -63657,10 +63653,10 @@
       "egg_moves_ref": "sSquawkabillyEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Squawkabilly",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1318",
+      "name": "Squawkabilly (Yellow)",
+      "sprite": "1318",
+      "shiny_sprite": "1318",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -63710,10 +63706,10 @@
       "egg_moves_ref": "sSquawkabillyEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Squawkabilly",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1319",
+      "name": "Squawkabilly (White)",
+      "sprite": "1319",
+      "shiny_sprite": "1319",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -63763,10 +63759,10 @@
       "egg_moves_ref": "sSquawkabillyEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1320",
       "name": "Nacli",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1320",
+      "shiny_sprite": "1320",
       "type1": "Rock",
       "type2": null,
       "base_stats": {
@@ -63816,10 +63812,10 @@
       "egg_moves_ref": "sNacliEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1321",
       "name": "Naclstack",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1321",
+      "shiny_sprite": "1321",
       "type1": "Rock",
       "type2": null,
       "base_stats": {
@@ -63869,10 +63865,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1322",
       "name": "Garganacl",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1322",
+      "shiny_sprite": "1322",
       "type1": "Rock",
       "type2": null,
       "base_stats": {
@@ -63922,10 +63918,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1323",
       "name": "Charcadet",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1323",
+      "shiny_sprite": "1323",
       "type1": "Fire",
       "type2": null,
       "base_stats": {
@@ -63971,10 +63967,10 @@
       "egg_moves_ref": "sCharcadetEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1324",
       "name": "Armarouge",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1324",
+      "shiny_sprite": "1324",
       "type1": "Fire",
       "type2": "Psychic",
       "base_stats": {
@@ -64020,10 +64016,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1325",
       "name": "Ceruledge",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1325",
+      "shiny_sprite": "1325",
       "type1": "Fire",
       "type2": "Ghost",
       "base_stats": {
@@ -64069,10 +64065,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1326",
       "name": "Tadbulb",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1326",
+      "shiny_sprite": "1326",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -64122,10 +64118,10 @@
       "egg_moves_ref": "sTadbulbEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1327",
       "name": "Bellibolt",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1327",
+      "shiny_sprite": "1327",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -64175,10 +64171,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1328",
       "name": "Wattrel",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1328",
+      "shiny_sprite": "1328",
       "type1": "Electric",
       "type2": "Flying",
       "base_stats": {
@@ -64229,10 +64225,10 @@
       "egg_moves_ref": "sWattrelEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1329",
       "name": "Kilowattrel",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1329",
+      "shiny_sprite": "1329",
       "type1": "Electric",
       "type2": "Flying",
       "base_stats": {
@@ -64283,10 +64279,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1330",
       "name": "Maschiff",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1330",
+      "shiny_sprite": "1330",
       "type1": "Dark",
       "type2": null,
       "base_stats": {
@@ -64336,10 +64332,10 @@
       "egg_moves_ref": "sMaschiffEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1331",
       "name": "Mabosstiff",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1331",
+      "shiny_sprite": "1331",
       "type1": "Dark",
       "type2": null,
       "base_stats": {
@@ -64389,10 +64385,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1332",
       "name": "Shroodle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1332",
+      "shiny_sprite": "1332",
       "type1": "Poison",
       "type2": "Normal",
       "base_stats": {
@@ -64442,10 +64438,10 @@
       "egg_moves_ref": "sShroodleEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1333",
       "name": "Grafaiai",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1333",
+      "shiny_sprite": "1333",
       "type1": "Poison",
       "type2": "Normal",
       "base_stats": {
@@ -64495,10 +64491,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1334",
       "name": "Bramblin",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1334",
+      "shiny_sprite": "1334",
       "type1": "Grass",
       "type2": "Ghost",
       "base_stats": {
@@ -64544,10 +64540,10 @@
       "egg_moves_ref": "sBramblinEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1335",
       "name": "Brambleghast",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1335",
+      "shiny_sprite": "1335",
       "type1": "Grass",
       "type2": "Ghost",
       "base_stats": {
@@ -64593,10 +64589,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1336",
       "name": "Toedscool",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1336",
+      "shiny_sprite": "1336",
       "type1": "Ground",
       "type2": "Grass",
       "base_stats": {
@@ -64638,10 +64634,10 @@
       "egg_moves_ref": "sToedscoolEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1337",
       "name": "Toedscruel",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1337",
+      "shiny_sprite": "1337",
       "type1": "Ground",
       "type2": "Grass",
       "base_stats": {
@@ -64683,10 +64679,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1338",
       "name": "Klawf",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1338",
+      "shiny_sprite": "1338",
       "type1": "Rock",
       "type2": null,
       "base_stats": {
@@ -64736,10 +64732,10 @@
       "egg_moves_ref": "sKlawfEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1339",
       "name": "Capsakid",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1339",
+      "shiny_sprite": "1339",
       "type1": "Grass",
       "type2": null,
       "base_stats": {
@@ -64789,10 +64785,10 @@
       "egg_moves_ref": "sCapsakidEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1340",
       "name": "Scovillain",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1340",
+      "shiny_sprite": "1340",
       "type1": "Grass",
       "type2": "Fire",
       "base_stats": {
@@ -64842,10 +64838,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Scovillain",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1567",
+      "name": "Mega-Scovillain",
+      "sprite": "1567",
+      "shiny_sprite": "1567",
       "type1": "Grass",
       "type2": "Fire",
       "base_stats": {
@@ -64895,10 +64891,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1341",
       "name": "Rellor",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1341",
+      "shiny_sprite": "1341",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -64944,10 +64940,10 @@
       "egg_moves_ref": "sRellorEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1342",
       "name": "Rabsca",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1342",
+      "shiny_sprite": "1342",
       "type1": "Bug",
       "type2": "Psychic",
       "base_stats": {
@@ -64993,10 +64989,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1343",
       "name": "Flittle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1343",
+      "shiny_sprite": "1343",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -65046,10 +65042,10 @@
       "egg_moves_ref": "sFlittleEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1344",
       "name": "Espathra",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1344",
+      "shiny_sprite": "1344",
       "type1": "Psychic",
       "type2": null,
       "base_stats": {
@@ -65099,10 +65095,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1345",
       "name": "Tinkatink",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1345",
+      "shiny_sprite": "1345",
       "type1": "Fairy",
       "type2": "Steel",
       "base_stats": {
@@ -65152,10 +65148,10 @@
       "egg_moves_ref": "sTinkatinkEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1346",
       "name": "Tinkatuff",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1346",
+      "shiny_sprite": "1346",
       "type1": "Fairy",
       "type2": "Steel",
       "base_stats": {
@@ -65205,10 +65201,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1347",
       "name": "Tinkaton",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1347",
+      "shiny_sprite": "1347",
       "type1": "Fairy",
       "type2": "Steel",
       "base_stats": {
@@ -65258,10 +65254,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1348",
       "name": "Wiglett",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1348",
+      "shiny_sprite": "1348",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -65311,10 +65307,10 @@
       "egg_moves_ref": "sWiglettEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1349",
       "name": "Wugtrio",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1349",
+      "shiny_sprite": "1349",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -65364,10 +65360,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1350",
       "name": "Bombirdier",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1350",
+      "shiny_sprite": "1350",
       "type1": "Flying",
       "type2": "Dark",
       "base_stats": {
@@ -65417,10 +65413,10 @@
       "egg_moves_ref": "sBombirdierEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1351",
       "name": "Finizen",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1351",
+      "shiny_sprite": "1351",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -65463,10 +65459,10 @@
       "egg_moves_ref": "sFinizenEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Palafin",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1352",
+      "name": "Palafin (Zero)",
+      "sprite": "1352",
+      "shiny_sprite": "1352",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -65509,10 +65505,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Palafin",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1353",
+      "name": "Palafin (Hero)",
+      "sprite": "1353",
+      "shiny_sprite": "1353",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -65555,10 +65551,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1354",
       "name": "Varoom",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1354",
+      "shiny_sprite": "1354",
       "type1": "Steel",
       "type2": "Poison",
       "base_stats": {
@@ -65604,10 +65600,10 @@
       "egg_moves_ref": "sVaroomEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1355",
       "name": "Revavroom",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1355",
+      "shiny_sprite": "1355",
       "type1": "Steel",
       "type2": "Poison",
       "base_stats": {
@@ -65653,10 +65649,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1356",
       "name": "Cyclizar",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1356",
+      "shiny_sprite": "1356",
       "type1": "Dragon",
       "type2": "Normal",
       "base_stats": {
@@ -65702,10 +65698,10 @@
       "egg_moves_ref": "sCyclizarEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1357",
       "name": "Orthworm",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1357",
+      "shiny_sprite": "1357",
       "type1": "Steel",
       "type2": null,
       "base_stats": {
@@ -65751,10 +65747,10 @@
       "egg_moves_ref": "sOrthwormEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1358",
       "name": "Glimmet",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1358",
+      "shiny_sprite": "1358",
       "type1": "Rock",
       "type2": "Poison",
       "base_stats": {
@@ -65800,10 +65796,10 @@
       "egg_moves_ref": "sGlimmetEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1359",
       "name": "Glimmora",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1359",
+      "shiny_sprite": "1359",
       "type1": "Rock",
       "type2": "Poison",
       "base_stats": {
@@ -65849,10 +65845,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Glimmora",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1572",
+      "name": "Mega-Glimmora",
+      "sprite": "1572",
+      "shiny_sprite": "1572",
       "type1": "Rock",
       "type2": "Poison",
       "base_stats": {
@@ -65898,10 +65894,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1360",
       "name": "Greavard",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1360",
+      "shiny_sprite": "1360",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -65947,10 +65943,10 @@
       "egg_moves_ref": "sGreavardEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1361",
       "name": "Houndstone",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1361",
+      "shiny_sprite": "1361",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -65996,10 +65992,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1362",
       "name": "Flamigo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1362",
+      "shiny_sprite": "1362",
       "type1": "Flying",
       "type2": "Fighting",
       "base_stats": {
@@ -66049,10 +66045,10 @@
       "egg_moves_ref": "sFlamigoEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1363",
       "name": "Cetoddle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1363",
+      "shiny_sprite": "1363",
       "type1": "Ice",
       "type2": null,
       "base_stats": {
@@ -66102,10 +66098,10 @@
       "egg_moves_ref": "sCetoddleEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1364",
       "name": "Cetitan",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1364",
+      "shiny_sprite": "1364",
       "type1": "Ice",
       "type2": null,
       "base_stats": {
@@ -66155,10 +66151,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1365",
       "name": "Veluza",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1365",
+      "shiny_sprite": "1365",
       "type1": "Water",
       "type2": "Psychic",
       "base_stats": {
@@ -66204,10 +66200,10 @@
       "egg_moves_ref": "sVeluzaEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1366",
       "name": "Dondozo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1366",
+      "shiny_sprite": "1366",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -66257,10 +66253,10 @@
       "egg_moves_ref": "sDondozoEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Tatsugiri",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1367",
+      "name": "Tatsugiri (Curly)",
+      "sprite": "1367",
+      "shiny_sprite": "1367",
       "type1": "Dragon",
       "type2": "Water",
       "base_stats": {
@@ -66306,10 +66302,10 @@
       "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Tatsugiri",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1569",
+      "name": "Mega-Tatsugiri (Curly)",
+      "sprite": "1569",
+      "shiny_sprite": "1569",
       "type1": "Dragon",
       "type2": "Water",
       "base_stats": {
@@ -66355,10 +66351,10 @@
       "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Tatsugiri",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1368",
+      "name": "Tatsugiri (Droopy)",
+      "sprite": "1368",
+      "shiny_sprite": "1368",
       "type1": "Dragon",
       "type2": "Water",
       "base_stats": {
@@ -66404,10 +66400,10 @@
       "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Tatsugiri",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1570",
+      "name": "Mega-Tatsugiri (Droopy)",
+      "sprite": "1570",
+      "shiny_sprite": "1570",
       "type1": "Dragon",
       "type2": "Water",
       "base_stats": {
@@ -66453,10 +66449,10 @@
       "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Tatsugiri",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1369",
+      "name": "Tatsugiri (Stretchy)",
+      "sprite": "1369",
+      "shiny_sprite": "1369",
       "type1": "Dragon",
       "type2": "Water",
       "base_stats": {
@@ -66502,10 +66498,10 @@
       "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
-      "id": "???",
-      "name": "Tatsugiri",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1571",
+      "name": "Mega-Tatsugiri (Stretchy)",
+      "sprite": "1571",
+      "shiny_sprite": "1571",
       "type1": "Dragon",
       "type2": "Water",
       "base_stats": {
@@ -66551,10 +66547,10 @@
       "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1376",
       "name": "Great Tusk",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1376",
+      "shiny_sprite": "1376",
       "type1": "Ground",
       "type2": "Fighting",
       "base_stats": {
@@ -66596,10 +66592,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1377",
       "name": "Scream Tail",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1377",
+      "shiny_sprite": "1377",
       "type1": "Fairy",
       "type2": "Psychic",
       "base_stats": {
@@ -66641,10 +66637,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1378",
       "name": "Brute Bonnet",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1378",
+      "shiny_sprite": "1378",
       "type1": "Grass",
       "type2": "Dark",
       "base_stats": {
@@ -66686,10 +66682,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1379",
       "name": "Flutter Mane",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1379",
+      "shiny_sprite": "1379",
       "type1": "Ghost",
       "type2": "Fairy",
       "base_stats": {
@@ -66733,10 +66729,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1380",
       "name": "Slither Wing",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1380",
+      "shiny_sprite": "1380",
       "type1": "Bug",
       "type2": "Fighting",
       "base_stats": {
@@ -66778,10 +66774,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1381",
       "name": "Sandy Shocks",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1381",
+      "shiny_sprite": "1381",
       "type1": "Electric",
       "type2": "Ground",
       "base_stats": {
@@ -66823,10 +66819,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1382",
       "name": "Iron Treads",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1382",
+      "shiny_sprite": "1382",
       "type1": "Ground",
       "type2": "Steel",
       "base_stats": {
@@ -66868,10 +66864,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1383",
       "name": "Iron Bundle",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1383",
+      "shiny_sprite": "1383",
       "type1": "Ice",
       "type2": "Water",
       "base_stats": {
@@ -66913,10 +66909,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1384",
       "name": "Iron Hands",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1384",
+      "shiny_sprite": "1384",
       "type1": "Fighting",
       "type2": "Electric",
       "base_stats": {
@@ -66958,10 +66954,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1385",
       "name": "Iron Jugulis",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1385",
+      "shiny_sprite": "1385",
       "type1": "Dark",
       "type2": "Flying",
       "base_stats": {
@@ -67003,10 +66999,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1386",
       "name": "Iron Moth",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1386",
+      "shiny_sprite": "1386",
       "type1": "Fire",
       "type2": "Poison",
       "base_stats": {
@@ -67048,10 +67044,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1387",
       "name": "Iron Thorns",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1387",
+      "shiny_sprite": "1387",
       "type1": "Rock",
       "type2": "Electric",
       "base_stats": {
@@ -67093,10 +67089,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1388",
       "name": "Frigibax",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1388",
+      "shiny_sprite": "1388",
       "type1": "Dragon",
       "type2": "Ice",
       "base_stats": {
@@ -67143,10 +67139,10 @@
       "egg_moves_ref": "sFrigibaxEggMoveLearnset"
     },
     {
-      "id": "???",
+      "id": "1389",
       "name": "Arctibax",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1389",
+      "shiny_sprite": "1389",
       "type1": "Dragon",
       "type2": "Ice",
       "base_stats": {
@@ -67193,10 +67189,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1390",
       "name": "Baxcalibur",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1390",
+      "shiny_sprite": "1390",
       "type1": "Dragon",
       "type2": "Ice",
       "base_stats": {
@@ -67243,10 +67239,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Baxcalibur",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1568",
+      "name": "Mega-Baxcalibur",
+      "sprite": "1568",
+      "shiny_sprite": "1568",
       "type1": "Dragon",
       "type2": "Ice",
       "base_stats": {
@@ -67293,10 +67289,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Gimmighoul",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1391",
+      "name": "Gimmighoul (Chest)",
+      "sprite": "1391",
+      "shiny_sprite": "1391",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -67338,10 +67334,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Gimmighoul",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1392",
+      "name": "Gimmighoul (Roaming)",
+      "sprite": "1392",
+      "shiny_sprite": "1392",
       "type1": "Ghost",
       "type2": null,
       "base_stats": {
@@ -67383,10 +67379,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1393",
       "name": "Gholdengo",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1393",
+      "shiny_sprite": "1393",
       "type1": "Steel",
       "type2": "Ghost",
       "base_stats": {
@@ -67428,10 +67424,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1394",
       "name": "Wo-Chien",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1394",
+      "shiny_sprite": "1394",
       "type1": "Dark",
       "type2": "Grass",
       "base_stats": {
@@ -67473,10 +67469,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1395",
       "name": "Chien-Pao",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1395",
+      "shiny_sprite": "1395",
       "type1": "Dark",
       "type2": "Ice",
       "base_stats": {
@@ -67518,10 +67514,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1396",
       "name": "Ting-Lu",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1396",
+      "shiny_sprite": "1396",
       "type1": "Dark",
       "type2": "Ground",
       "base_stats": {
@@ -67563,10 +67559,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1397",
       "name": "Chi-Yu",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1397",
+      "shiny_sprite": "1397",
       "type1": "Dark",
       "type2": "Fire",
       "base_stats": {
@@ -67608,10 +67604,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1398",
       "name": "Roaring Moon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1398",
+      "shiny_sprite": "1398",
       "type1": "Dragon",
       "type2": "Dark",
       "base_stats": {
@@ -67653,10 +67649,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1399",
       "name": "Iron Valiant",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1399",
+      "shiny_sprite": "1399",
       "type1": "Fairy",
       "type2": "Fighting",
       "base_stats": {
@@ -67698,10 +67694,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1400",
       "name": "Koraidon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1400",
+      "shiny_sprite": "1400",
       "type1": "Fighting",
       "type2": "Dragon",
       "base_stats": {
@@ -67743,10 +67739,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1401",
       "name": "Miraidon",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1401",
+      "shiny_sprite": "1401",
       "type1": "Electric",
       "type2": "Dragon",
       "base_stats": {
@@ -67788,10 +67784,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1406",
       "name": "Walking Wake",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1406",
+      "shiny_sprite": "1406",
       "type1": "Water",
       "type2": "Dragon",
       "base_stats": {
@@ -67833,10 +67829,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1407",
       "name": "Iron Leaves",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1407",
+      "shiny_sprite": "1407",
       "type1": "Grass",
       "type2": "Psychic",
       "base_stats": {
@@ -67878,10 +67874,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Poltchageist",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1409",
+      "name": "Poltchageist (Counterfeit)",
+      "sprite": "1409",
+      "shiny_sprite": "1409",
       "type1": "Grass",
       "type2": "Ghost",
       "base_stats": {
@@ -67928,10 +67924,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Poltchageist",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1410",
+      "name": "Poltchageist (Artisan)",
+      "sprite": "1410",
+      "shiny_sprite": "1410",
       "type1": "Grass",
       "type2": "Ghost",
       "base_stats": {
@@ -67978,10 +67974,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Sinistcha",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1411",
+      "name": "Sinistcha (Unremarkable)",
+      "sprite": "1411",
+      "shiny_sprite": "1411",
       "type1": "Grass",
       "type2": "Ghost",
       "base_stats": {
@@ -68028,10 +68024,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Sinistcha",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1412",
+      "name": "Sinistcha (Masterpiece)",
+      "sprite": "1412",
+      "shiny_sprite": "1412",
       "type1": "Grass",
       "type2": "Ghost",
       "base_stats": {
@@ -68078,10 +68074,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1413",
       "name": "Okidogi",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1413",
+      "shiny_sprite": "1413",
       "type1": "Poison",
       "type2": "Fighting",
       "base_stats": {
@@ -68127,10 +68123,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1414",
       "name": "Munkidori",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1414",
+      "shiny_sprite": "1414",
       "type1": "Poison",
       "type2": "Psychic",
       "base_stats": {
@@ -68176,10 +68172,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1415",
       "name": "Fezandipiti",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1415",
+      "shiny_sprite": "1415",
       "type1": "Poison",
       "type2": "Fairy",
       "base_stats": {
@@ -68226,10 +68222,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1427",
       "name": "Gouging Fire",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1427",
+      "shiny_sprite": "1427",
       "type1": "Fire",
       "type2": "Dragon",
       "base_stats": {
@@ -68271,10 +68267,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1428",
       "name": "Raging Bolt",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1428",
+      "shiny_sprite": "1428",
       "type1": "Electric",
       "type2": "Dragon",
       "base_stats": {
@@ -68316,10 +68312,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1429",
       "name": "Iron Boulder",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1429",
+      "shiny_sprite": "1429",
       "type1": "Rock",
       "type2": "Psychic",
       "base_stats": {
@@ -68361,10 +68357,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1430",
       "name": "Iron Crown",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1430",
+      "shiny_sprite": "1430",
       "type1": "Steel",
       "type2": "Psychic",
       "base_stats": {
@@ -68406,10 +68402,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Terapagos",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1431",
+      "name": "Terapagos (Normal)",
+      "sprite": "1431",
+      "shiny_sprite": "1431",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -68451,10 +68447,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Terapagos",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1432",
+      "name": "Terapagos (Terastal)",
+      "sprite": "1432",
+      "shiny_sprite": "1432",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -68497,10 +68493,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
-      "name": "Terapagos",
-      "sprite": "",
-      "shiny_sprite": "",
+      "id": "1433",
+      "name": "Terapagos (Stellar)",
+      "sprite": "1433",
+      "shiny_sprite": "1433",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -68542,10 +68538,10 @@
       "egg_moves_ref": null
     },
     {
-      "id": "???",
+      "id": "1434",
       "name": "Pecharunt",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1434",
+      "shiny_sprite": "1434",
       "type1": "Poison",
       "type2": "Ghost",
       "base_stats": {
@@ -68584,3778 +68580,6 @@
       "evolutions": null,
       "learnset_ref": "sPecharuntLevelUpLearnset",
       "teachable_ref": "sPecharuntTeachableLearnset",
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Rattata",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dark",
-      "type2": "Normal",
-      "base_stats": {
-        "hp": 30,
-        "atk": 56,
-        "def": 35,
-        "spa": 25,
-        "spd": 35,
-        "spe": 72
-      },
-      "bst": 253,
-      "abilities": [
-        {
-          "name": "Gluttony",
-          "hidden": false
-        },
-        {
-          "name": "Hustle",
-          "hidden": false
-        },
-        {
-          "name": "Thick Fat",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Raticate",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dark",
-      "type2": "Normal",
-      "base_stats": {
-        "hp": 75,
-        "atk": 71,
-        "def": 70,
-        "spa": 40,
-        "spd": 80,
-        "spe": 77
-      },
-      "bst": 413,
-      "abilities": [
-        {
-          "name": "Gluttony",
-          "hidden": false
-        },
-        {
-          "name": "Hustle",
-          "hidden": false
-        },
-        {
-          "name": "Thick Fat",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Raichu",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": "Psychic",
-      "base_stats": {
-        "hp": 60,
-        "atk": 85,
-        "def": 50,
-        "spa": 95,
-        "spd": 85,
-        "spe": 110
-      },
-      "bst": 485,
-      "abilities": [
-        {
-          "name": "Surge Surfer",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Sandshrew",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": "Steel",
-      "base_stats": {
-        "hp": 50,
-        "atk": 75,
-        "def": 90,
-        "spa": 10,
-        "spd": 35,
-        "spe": 40
-      },
-      "bst": 300,
-      "abilities": [
-        {
-          "name": "Snow Cloak",
-          "hidden": false
-        },
-        {
-          "name": "Slush Rush",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Sandslash",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": "Steel",
-      "base_stats": {
-        "hp": 75,
-        "atk": 100,
-        "def": 120,
-        "spa": 25,
-        "spd": 65,
-        "spe": 65
-      },
-      "bst": 450,
-      "abilities": [
-        {
-          "name": "Snow Cloak",
-          "hidden": false
-        },
-        {
-          "name": "Slush Rush",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Vulpix",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": null,
-      "base_stats": {
-        "hp": 38,
-        "atk": 41,
-        "def": 40,
-        "spa": 50,
-        "spd": 65,
-        "spe": 65
-      },
-      "bst": 299,
-      "abilities": [
-        {
-          "name": "Snow Cloak",
-          "hidden": false
-        },
-        {
-          "name": "Snow Warning",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Ninetales",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": "Fairy",
-      "base_stats": {
-        "hp": 73,
-        "atk": 67,
-        "def": 75,
-        "spa": 81,
-        "spd": 100,
-        "spe": 109
-      },
-      "bst": 505,
-      "abilities": [
-        {
-          "name": "Snow Cloak",
-          "hidden": false
-        },
-        {
-          "name": "Snow Warning",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Diglett",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ground",
-      "type2": "Steel",
-      "base_stats": {
-        "hp": 10,
-        "atk": 55,
-        "def": 30,
-        "spa": 35,
-        "spd": 45,
-        "spe": 90
-      },
-      "bst": 265,
-      "abilities": [
-        {
-          "name": "Sand Veil",
-          "hidden": false
-        },
-        {
-          "name": "Tangling Hair",
-          "hidden": false
-        },
-        {
-          "name": "Sand Force",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Dugtrio",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ground",
-      "type2": "Steel",
-      "base_stats": {
-        "hp": 35,
-        "atk": 100,
-        "def": 60,
-        "spa": 50,
-        "spd": 70,
-        "spe": 110
-      },
-      "bst": 425,
-      "abilities": [
-        {
-          "name": "Sand Veil",
-          "hidden": false
-        },
-        {
-          "name": "Tangling Hair",
-          "hidden": false
-        },
-        {
-          "name": "Sand Force",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Meowth",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dark",
-      "type2": null,
-      "base_stats": {
-        "hp": 40,
-        "atk": 35,
-        "def": 35,
-        "spa": 50,
-        "spd": 40,
-        "spe": 90
-      },
-      "bst": 290,
-      "abilities": [
-        {
-          "name": "Pickup",
-          "hidden": false
-        },
-        {
-          "name": "Technician",
-          "hidden": false
-        },
-        {
-          "name": "Rattled",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Persian",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dark",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 60,
-        "spa": 75,
-        "spd": 65,
-        "spe": 115
-      },
-      "bst": 440,
-      "abilities": [
-        {
-          "name": "Fur Coat",
-          "hidden": false
-        },
-        {
-          "name": "Technician",
-          "hidden": false
-        },
-        {
-          "name": "Rattled",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Geodude",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Rock",
-      "type2": "Electric",
-      "base_stats": {
-        "hp": 40,
-        "atk": 80,
-        "def": 100,
-        "spa": 30,
-        "spd": 30,
-        "spe": 20
-      },
-      "bst": 300,
-      "abilities": [
-        {
-          "name": "Magnet Pull",
-          "hidden": false
-        },
-        {
-          "name": "Sturdy",
-          "hidden": false
-        },
-        {
-          "name": "Galvanize",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Graveler",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Rock",
-      "type2": "Electric",
-      "base_stats": {
-        "hp": 55,
-        "atk": 95,
-        "def": 115,
-        "spa": 45,
-        "spd": 45,
-        "spe": 35
-      },
-      "bst": 390,
-      "abilities": [
-        {
-          "name": "Magnet Pull",
-          "hidden": false
-        },
-        {
-          "name": "Sturdy",
-          "hidden": false
-        },
-        {
-          "name": "Galvanize",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Golem",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Rock",
-      "type2": "Electric",
-      "base_stats": {
-        "hp": 80,
-        "atk": 120,
-        "def": 130,
-        "spa": 55,
-        "spd": 65,
-        "spe": 45
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Magnet Pull",
-          "hidden": false
-        },
-        {
-          "name": "Sturdy",
-          "hidden": false
-        },
-        {
-          "name": "Galvanize",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Grimer",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Poison",
-      "type2": "Dark",
-      "base_stats": {
-        "hp": 80,
-        "atk": 80,
-        "def": 50,
-        "spa": 40,
-        "spd": 50,
-        "spe": 25
-      },
-      "bst": 325,
-      "abilities": [
-        {
-          "name": "Poison Touch",
-          "hidden": false
-        },
-        {
-          "name": "Gluttony",
-          "hidden": false
-        },
-        {
-          "name": "Power Of Alchemy",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Muk",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Poison",
-      "type2": "Dark",
-      "base_stats": {
-        "hp": 105,
-        "atk": 105,
-        "def": 75,
-        "spa": 65,
-        "spd": 100,
-        "spe": 50
-      },
-      "bst": 500,
-      "abilities": [
-        {
-          "name": "Poison Touch",
-          "hidden": false
-        },
-        {
-          "name": "Gluttony",
-          "hidden": false
-        },
-        {
-          "name": "Power Of Alchemy",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Exeggutor",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": "Dragon",
-      "base_stats": {
-        "hp": 95,
-        "atk": 105,
-        "def": 85,
-        "spa": 125,
-        "spd": 75,
-        "spe": 45
-      },
-      "bst": 530,
-      "abilities": [
-        {
-          "name": "Frisk",
-          "hidden": false
-        },
-        {
-          "name": "Harvest",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Alolan Marowak",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fire",
-      "type2": "Ghost",
-      "base_stats": {
-        "hp": 60,
-        "atk": 80,
-        "def": 110,
-        "spa": 50,
-        "spd": 80,
-        "spe": 45
-      },
-      "bst": 425,
-      "abilities": [
-        {
-          "name": "Cursed Body",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": false
-        },
-        {
-          "name": "Rock Head",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Meowth",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Steel",
-      "type2": null,
-      "base_stats": {
-        "hp": 50,
-        "atk": 65,
-        "def": 55,
-        "spa": 40,
-        "spd": 40,
-        "spe": 40
-      },
-      "bst": 290,
-      "abilities": [
-        {
-          "name": "Tough Claws",
-          "hidden": false
-        },
-        {
-          "name": "Unnerve",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Ponyta",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 50,
-        "atk": 85,
-        "def": 55,
-        "spa": 65,
-        "spd": 65,
-        "spe": 90
-      },
-      "bst": 410,
-      "abilities": [
-        {
-          "name": "Run Away",
-          "hidden": false
-        },
-        {
-          "name": "Pastel Veil",
-          "hidden": false
-        },
-        {
-          "name": "Anticipation",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Rapidash",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": "Fairy",
-      "base_stats": {
-        "hp": 65,
-        "atk": 100,
-        "def": 70,
-        "spa": 80,
-        "spd": 80,
-        "spe": 105
-      },
-      "bst": 500,
-      "abilities": [
-        {
-          "name": "Run Away",
-          "hidden": false
-        },
-        {
-          "name": "Pastel Veil",
-          "hidden": false
-        },
-        {
-          "name": "Anticipation",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Slowpoke",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 90,
-        "atk": 65,
-        "def": 65,
-        "spa": 40,
-        "spd": 40,
-        "spe": 15
-      },
-      "bst": 315,
-      "abilities": [
-        {
-          "name": "Gluttony",
-          "hidden": false
-        },
-        {
-          "name": "Own Tempo",
-          "hidden": false
-        },
-        {
-          "name": "Regenerator",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Slowbro",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Poison",
-      "type2": "Psychic",
-      "base_stats": {
-        "hp": 95,
-        "atk": 100,
-        "def": 95,
-        "spa": 100,
-        "spd": 70,
-        "spe": 30
-      },
-      "bst": 490,
-      "abilities": [
-        {
-          "name": "Quick Draw",
-          "hidden": false
-        },
-        {
-          "name": "Own Tempo",
-          "hidden": false
-        },
-        {
-          "name": "Regenerator",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Slowking",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Poison",
-      "type2": "Psychic",
-      "base_stats": {
-        "hp": 95,
-        "atk": 65,
-        "def": 80,
-        "spa": 110,
-        "spd": 110,
-        "spe": 30
-      },
-      "bst": 490,
-      "abilities": [
-        {
-          "name": "Curious Medicine",
-          "hidden": false
-        },
-        {
-          "name": "Own Tempo",
-          "hidden": false
-        },
-        {
-          "name": "Regenerator",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Farfetch'd",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fighting",
-      "type2": null,
-      "base_stats": {
-        "hp": 52,
-        "atk": 95,
-        "def": 55,
-        "spa": 58,
-        "spd": 62,
-        "spe": 60
-      },
-      "bst": 382,
-      "abilities": [
-        {
-          "name": "Steadfast",
-          "hidden": false
-        },
-        {
-          "name": "Scrappy",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Weezing",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Poison",
-      "type2": "Fairy",
-      "base_stats": {
-        "hp": 65,
-        "atk": 90,
-        "def": 120,
-        "spa": 85,
-        "spd": 70,
-        "spe": 60
-      },
-      "bst": 490,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        },
-        {
-          "name": "Neutralizing Gas",
-          "hidden": false
-        },
-        {
-          "name": "Misty Surge",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Mr. Mime",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": "Psychic",
-      "base_stats": {
-        "hp": 50,
-        "atk": 65,
-        "def": 65,
-        "spa": 90,
-        "spd": 90,
-        "spe": 100
-      },
-      "bst": 460,
-      "abilities": [
-        {
-          "name": "Vital Spirit",
-          "hidden": false
-        },
-        {
-          "name": "Screen Cleaner",
-          "hidden": false
-        },
-        {
-          "name": "Ice Body",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Articuno",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": "Flying",
-      "base_stats": {
-        "hp": 90,
-        "atk": 85,
-        "def": 85,
-        "spa": 125,
-        "spd": 100,
-        "spe": 95
-      },
-      "bst": 580,
-      "abilities": [
-        {
-          "name": "Competitive",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Zapdos",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fighting",
-      "type2": "Flying",
-      "base_stats": {
-        "hp": 90,
-        "atk": 125,
-        "def": 90,
-        "spa": 85,
-        "spd": 90,
-        "spe": 100
-      },
-      "bst": 580,
-      "abilities": [
-        {
-          "name": "Defiant",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Moltres",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dark",
-      "type2": "Flying",
-      "base_stats": {
-        "hp": 90,
-        "atk": 85,
-        "def": 90,
-        "spa": 100,
-        "spd": 125,
-        "spe": 90
-      },
-      "bst": 580,
-      "abilities": [
-        {
-          "name": "Berserk",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Corsola",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ghost",
-      "type2": null,
-      "base_stats": {
-        "hp": 60,
-        "atk": 55,
-        "def": 100,
-        "spa": 65,
-        "spd": 100,
-        "spe": 30
-      },
-      "bst": 410,
-      "abilities": [
-        {
-          "name": "Weak Armor",
-          "hidden": false
-        },
-        {
-          "name": "Natural Cure",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Zigzagoon",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dark",
-      "type2": "Normal",
-      "base_stats": {
-        "hp": 38,
-        "atk": 30,
-        "def": 41,
-        "spa": 30,
-        "spd": 41,
-        "spe": 60
-      },
-      "bst": 240,
-      "abilities": [
-        {
-          "name": "Pickup",
-          "hidden": false
-        },
-        {
-          "name": "Gluttony",
-          "hidden": false
-        },
-        {
-          "name": "Quick Feet",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Linoone",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dark",
-      "type2": "Normal",
-      "base_stats": {
-        "hp": 78,
-        "atk": 70,
-        "def": 61,
-        "spa": 50,
-        "spd": 61,
-        "spe": 100
-      },
-      "bst": 420,
-      "abilities": [
-        {
-          "name": "Pickup",
-          "hidden": false
-        },
-        {
-          "name": "Gluttony",
-          "hidden": false
-        },
-        {
-          "name": "Quick Feet",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Darumaka",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": null,
-      "base_stats": {
-        "hp": 70,
-        "atk": 90,
-        "def": 45,
-        "spa": 15,
-        "spd": 45,
-        "spe": 50
-      },
-      "bst": 315,
-      "abilities": [
-        {
-          "name": "Hustle",
-          "hidden": false
-        },
-        {
-          "name": "Inner Focus",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Darmanitan",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": null,
-      "base_stats": {
-        "hp": 105,
-        "atk": 140,
-        "def": 55,
-        "spa": 30,
-        "spd": 55,
-        "spe": 95
-      },
-      "bst": 480,
-      "abilities": [
-        {
-          "name": "Gorilla Tactics",
-          "hidden": false
-        },
-        {
-          "name": "Zen Mode",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Darmanitan Zen",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": "Fire",
-      "base_stats": {
-        "hp": 105,
-        "atk": 160,
-        "def": 55,
-        "spa": 30,
-        "spd": 55,
-        "spe": 135
-      },
-      "bst": 540,
-      "abilities": [
-        {
-          "name": "Zen Mode",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Galarian Stunfisk",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ground",
-      "type2": "Steel",
-      "base_stats": {
-        "hp": 109,
-        "atk": 81,
-        "def": 99,
-        "spa": 66,
-        "spd": 84,
-        "spe": 32
-      },
-      "bst": 471,
-      "abilities": [
-        {
-          "name": "Mimicry",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Growlithe",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fire",
-      "type2": "Rock",
-      "base_stats": {
-        "hp": 60,
-        "atk": 75,
-        "def": 45,
-        "spa": 65,
-        "spd": 45,
-        "spe": 55
-      },
-      "bst": 345,
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "hidden": false
-        },
-        {
-          "name": "Flash Fire",
-          "hidden": false
-        },
-        {
-          "name": "Rock Head",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Arcanine",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fire",
-      "type2": "Rock",
-      "base_stats": {
-        "hp": 95,
-        "atk": 115,
-        "def": 80,
-        "spa": 95,
-        "spd": 80,
-        "spe": 90
-      },
-      "bst": 555,
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "hidden": false
-        },
-        {
-          "name": "Flash Fire",
-          "hidden": false
-        },
-        {
-          "name": "Rock Head",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Voltorb",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": "Grass",
-      "base_stats": {
-        "hp": 40,
-        "atk": 30,
-        "def": 50,
-        "spa": 55,
-        "spd": 55,
-        "spe": 100
-      },
-      "bst": 330,
-      "abilities": [
-        {
-          "name": "Soundproof",
-          "hidden": false
-        },
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Aftermath",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Electrode",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": "Grass",
-      "base_stats": {
-        "hp": 60,
-        "atk": 50,
-        "def": 70,
-        "spa": 80,
-        "spd": 80,
-        "spe": 150
-      },
-      "bst": 490,
-      "abilities": [
-        {
-          "name": "Soundproof",
-          "hidden": false
-        },
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Aftermath",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Typhlosion",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fire",
-      "type2": "Ghost",
-      "base_stats": {
-        "hp": 73,
-        "atk": 84,
-        "def": 78,
-        "spa": 119,
-        "spd": 85,
-        "spe": 95
-      },
-      "bst": 534,
-      "abilities": [
-        {
-          "name": "Blaze",
-          "hidden": false
-        },
-        {
-          "name": "Frisk",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Qwilfish",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dark",
-      "type2": "Poison",
-      "base_stats": {
-        "hp": 65,
-        "atk": 95,
-        "def": 85,
-        "spa": 55,
-        "spd": 55,
-        "spe": 85
-      },
-      "bst": 440,
-      "abilities": [
-        {
-          "name": "Poison Point",
-          "hidden": false
-        },
-        {
-          "name": "Swift Swim",
-          "hidden": false
-        },
-        {
-          "name": "Intimidate",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Sneasel",
-      "sprite": "0215hm",
-      "shiny_sprite": "0215hm",
-      "type1": "Fighting",
-      "type2": "Poison",
-      "base_stats": {
-        "hp": 55,
-        "atk": 95,
-        "def": 55,
-        "spa": 35,
-        "spd": 75,
-        "spe": 115
-      },
-      "bst": 430,
-      "abilities": [
-        {
-          "name": "Inner Focus",
-          "hidden": false
-        },
-        {
-          "name": "Keen Eye",
-          "hidden": false
-        },
-        {
-          "name": "Pickpocket",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null,
-      "sprite_female": "0215hf",
-      "shiny_sprite_female": "0215hf"
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Samurott",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Water",
-      "type2": "Dark",
-      "base_stats": {
-        "hp": 90,
-        "atk": 108,
-        "def": 80,
-        "spa": 100,
-        "spd": 65,
-        "spe": 85
-      },
-      "bst": 528,
-      "abilities": [
-        {
-          "name": "Torrent",
-          "hidden": false
-        },
-        {
-          "name": "Sharpness",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Lilligant",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": "Fighting",
-      "base_stats": {
-        "hp": 70,
-        "atk": 105,
-        "def": 75,
-        "spa": 50,
-        "spd": 75,
-        "spe": 105
-      },
-      "bst": 480,
-      "abilities": [
-        {
-          "name": "Chlorophyll",
-          "hidden": false
-        },
-        {
-          "name": "Hustle",
-          "hidden": false
-        },
-        {
-          "name": "Leaf Guard",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Zorua",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Normal",
-      "type2": "Ghost",
-      "base_stats": {
-        "hp": 35,
-        "atk": 60,
-        "def": 40,
-        "spa": 85,
-        "spd": 40,
-        "spe": 65
-      },
-      "bst": 325,
-      "abilities": [
-        {
-          "name": "Illusion",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Zoroark",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Normal",
-      "type2": "Ghost",
-      "base_stats": {
-        "hp": 55,
-        "atk": 100,
-        "def": 60,
-        "spa": 125,
-        "spd": 60,
-        "spe": 105
-      },
-      "bst": 505,
-      "abilities": [
-        {
-          "name": "Illusion",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Braviary",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": "Flying",
-      "base_stats": {
-        "hp": 110,
-        "atk": 83,
-        "def": 70,
-        "spa": 112,
-        "spd": 70,
-        "spe": 65
-      },
-      "bst": 510,
-      "abilities": [
-        {
-          "name": "Keen Eye",
-          "hidden": false
-        },
-        {
-          "name": "Sheer Force",
-          "hidden": false
-        },
-        {
-          "name": "Tinted Lens",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Sliggoo",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Steel",
-      "type2": "Dragon",
-      "base_stats": {
-        "hp": 58,
-        "atk": 75,
-        "def": 83,
-        "spa": 83,
-        "spd": 113,
-        "spe": 40
-      },
-      "bst": 452,
-      "abilities": [
-        {
-          "name": "Sap Sipper",
-          "hidden": false
-        },
-        {
-          "name": "Shell Armor",
-          "hidden": false
-        },
-        {
-          "name": "Gooey",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Goodra",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Steel",
-      "type2": "Dragon",
-      "base_stats": {
-        "hp": 80,
-        "atk": 100,
-        "def": 100,
-        "spa": 110,
-        "spd": 150,
-        "spe": 60
-      },
-      "bst": 600,
-      "abilities": [
-        {
-          "name": "Sap Sipper",
-          "hidden": false
-        },
-        {
-          "name": "Shell Armor",
-          "hidden": false
-        },
-        {
-          "name": "Gooey",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Avalugg",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": "Rock",
-      "base_stats": {
-        "hp": 95,
-        "atk": 127,
-        "def": 184,
-        "spa": 34,
-        "spd": 36,
-        "spe": 28
-      },
-      "bst": 504,
-      "abilities": [
-        {
-          "name": "Strong Jaw",
-          "hidden": false
-        },
-        {
-          "name": "Ice Body",
-          "hidden": false
-        },
-        {
-          "name": "Sturdy",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Hisuian Decidueye",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": "Fighting",
-      "base_stats": {
-        "hp": 88,
-        "atk": 112,
-        "def": 80,
-        "spa": 95,
-        "spd": 95,
-        "spe": 60
-      },
-      "bst": 530,
-      "abilities": [
-        {
-          "name": "Overgrow",
-          "hidden": false
-        },
-        {
-          "name": "Long Reach",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Paldean Tauros (Combat)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fighting",
-      "type2": null,
-      "base_stats": {
-        "hp": 75,
-        "atk": 110,
-        "def": 105,
-        "spa": 30,
-        "spd": 70,
-        "spe": 100
-      },
-      "bst": 490,
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "hidden": false
-        },
-        {
-          "name": "Anger Point",
-          "hidden": false
-        },
-        {
-          "name": "Cud Chew",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Paldean Tauros (Blaze)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fighting",
-      "type2": "Fire",
-      "base_stats": {
-        "hp": 75,
-        "atk": 110,
-        "def": 105,
-        "spa": 30,
-        "spd": 70,
-        "spe": 100
-      },
-      "bst": 490,
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "hidden": false
-        },
-        {
-          "name": "Anger Point",
-          "hidden": false
-        },
-        {
-          "name": "Cud Chew",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Paldean Tauros (Aqua)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fighting",
-      "type2": "Water",
-      "base_stats": {
-        "hp": 75,
-        "atk": 110,
-        "def": 105,
-        "spa": 30,
-        "spd": 70,
-        "spe": 100
-      },
-      "bst": 490,
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "hidden": false
-        },
-        {
-          "name": "Anger Point",
-          "hidden": false
-        },
-        {
-          "name": "Cud Chew",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Paldean Wooper",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Poison",
-      "type2": "Ground",
-      "base_stats": {
-        "hp": 55,
-        "atk": 45,
-        "def": 45,
-        "spa": 25,
-        "spd": 25,
-        "spe": 15
-      },
-      "bst": 210,
-      "abilities": [
-        {
-          "name": "Poison Point",
-          "hidden": false
-        },
-        {
-          "name": "Water Absorb",
-          "hidden": false
-        },
-        {
-          "name": "Unaware",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Primal Kyogre",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Water",
-      "type2": null,
-      "base_stats": {
-        "hp": 100,
-        "atk": 150,
-        "def": 90,
-        "spa": 180,
-        "spd": 160,
-        "spe": 90
-      },
-      "bst": 770,
-      "abilities": [
-        {
-          "name": "Primordial Sea",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Primal Groudon",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ground",
-      "type2": "Fire",
-      "base_stats": {
-        "hp": 100,
-        "atk": 180,
-        "def": 160,
-        "spa": 150,
-        "spd": 90,
-        "spe": 90
-      },
-      "bst": 770,
-      "abilities": [
-        {
-          "name": "Desolate Land",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Giratina (Origin)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ghost",
-      "type2": "Dragon",
-      "base_stats": {
-        "hp": 150,
-        "atk": 120,
-        "def": 100,
-        "spa": 120,
-        "spd": 100,
-        "spe": 90
-      },
-      "bst": 680,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Dialga (Origin)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Steel",
-      "type2": "Dragon",
-      "base_stats": {
-        "hp": 100,
-        "atk": 100,
-        "def": 120,
-        "spa": 150,
-        "spd": 120,
-        "spe": 90
-      },
-      "bst": 680,
-      "abilities": [
-        {
-          "name": "Pressure",
-          "hidden": false
-        },
-        {
-          "name": "Telepathy",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Palkia (Origin)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Water",
-      "type2": "Dragon",
-      "base_stats": {
-        "hp": 90,
-        "atk": 120,
-        "def": 100,
-        "spa": 150,
-        "spd": 120,
-        "spe": 100
-      },
-      "bst": 680,
-      "abilities": [
-        {
-          "name": "Pressure",
-          "hidden": false
-        },
-        {
-          "name": "Telepathy",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Cosplay)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Rock Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Belle)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Pop Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (PhD)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Libre)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Original Cap)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Hoenn Cap)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Sinnoh Cap)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Unova Cap)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Kalos Cap)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Alola Cap)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (Partner Cap)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pikachu (World Cap)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 35,
-        "atk": 55,
-        "def": 40,
-        "spa": 50,
-        "spd": 50,
-        "spe": 90
-      },
-      "bst": 320,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Pichu (Spiky-Ear)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 20,
-        "atk": 40,
-        "def": 15,
-        "spa": 35,
-        "spd": 35,
-        "spe": 60
-      },
-      "bst": 205,
-      "abilities": [
-        {
-          "name": "Static",
-          "hidden": false
-        },
-        {
-          "name": "Lightning Rod",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Rotom (Heat)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": "Fire",
-      "base_stats": {
-        "hp": 50,
-        "atk": 65,
-        "def": 107,
-        "spa": 105,
-        "spd": 107,
-        "spe": 86
-      },
-      "bst": 520,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Rotom (Wash)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": "Water",
-      "base_stats": {
-        "hp": 50,
-        "atk": 65,
-        "def": 107,
-        "spa": 105,
-        "spd": 107,
-        "spe": 86
-      },
-      "bst": 520,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Rotom (Frost)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": "Ice",
-      "base_stats": {
-        "hp": 50,
-        "atk": 65,
-        "def": 107,
-        "spa": 105,
-        "spd": 107,
-        "spe": 86
-      },
-      "bst": 520,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Rotom (Fan)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": "Flying",
-      "base_stats": {
-        "hp": 50,
-        "atk": 65,
-        "def": 107,
-        "spa": 105,
-        "spd": 107,
-        "spe": 86
-      },
-      "bst": 520,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "name": "Rotom (Mow)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": "Grass",
-      "base_stats": {
-        "hp": 50,
-        "atk": 65,
-        "def": 107,
-        "spa": 105,
-        "spd": 107,
-        "spe": 86
-      },
-      "bst": 520,
-      "abilities": [
-        {
-          "name": "Levitate",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
       "egg_moves_ref": null
     }
   ]
