@@ -761,17 +761,19 @@ let CAJUN_NAMES = {};
 function buildAllMon() {
   ALL_MON.length = 0;
   POKEMON.forEach(p => {
-    const dispId = p.id ? String(p.id).padStart(4,'0') : '????';
-    ALL_MON.push({displayId:dispId+'a',baseId:p.id,sub:'a',name:p.name,t1:p.t1,t2:p.t2,spriteId:p.id,art:true,isForm:false,
-      spriteFile:p.sprite||dispId,
-      spriteFemale:p.spriteF||null,
-      shinyFile:p.shinySprite||dispId,
-      shinyFemale:p.shinySpriteF||null,
-      _full:p._full||null,
+    const dispId = p.id ? String(p.id).padStart(4,'0') : '';
+    ALL_MON.push({
+      displayId: p.id ? String(p.id).padStart(4,'0') : '',
+      baseId: p.id, id: p.id,
+      name: p.name, t1: p.t1, t2: p.t2,
+      spriteId: p.id, art: true, isForm: false,
+      spriteFile: p.sprite || dispId,
+      spriteFemale: p.spriteF || null,
+      shinyFile: p.shinySprite || dispId,
+      shinyFemale: p.shinySpriteF || null,
+      _full: p._full || null,
     });
-    POKEMON_FORMS.filter(f=>f.baseId===p.id).forEach(f=>{
-      ALL_MON.push({displayId:`${String(f.baseId).padStart(4,'0')}${f.sub}`,baseId:f.baseId,sub:f.sub,name:f.name,t1:f.t1,t2:f.t2,spriteId:f.spriteId,art:f.art!==false,isForm:true,formName:f.name});
-    });
+    // NOTE: Forms now come from JSON only — POKEMON_FORMS array is disabled
   });
 }
 const ALL_MON = [];
@@ -2931,7 +2933,7 @@ function updSummary(){
           const ico=document.createElement('img'); ico.className='sum-icon';
           ico.src=a.mon.isForm?formSpriteUrl(a.mon.name,a.mon.spriteId,a.mon.art):iconUrl(a.mon.spriteId,a.mon.art,a.mon.spriteFile);
           ico.onerror=()=>iconUrlFallback(ico,a.mon.spriteId||a.mon.baseId);
-          const nm=document.createElement('span'); nm.style.fontWeight='600'; nm.textContent=a.mon.name;
+          const nm=document.createElement('span'); nm.style.fontWeight='600'; nm.textContent=a.mon.name; // no displayId suffix
           const badges=document.createElement('div'); badges.className='tbadges';
           badges.appendChild(tb(a.mon.t1)); if(a.mon.t2) badges.appendChild(tb(a.mon.t2));
           top.append(ico,nm,badges);
@@ -3075,7 +3077,7 @@ function makeAC(ph,list){
     const sf=p.spriteFile||String(p.spriteId).padStart(4,'0');
     pIco.src=`${PKM_BASE1}${sf}.png`;
     pIco.onerror=()=>iconUrlFallback(pIco,p.spriteId||p.baseId);
-    pNm.textContent=`#${p.displayId} — ${p.name}`;
+    pNm.textContent=`${p.displayId ? '#'+p.displayId+' — ' : ''}${p.name}`;
     pBdg.innerHTML=''; pBdg.appendChild(tb(p.t1)); if(p.t2)pBdg.appendChild(tb(p.t2));
     // Gender toggle — only show if female sprite exists
     const gToggle=prev.querySelector('.gender-toggle');
@@ -3482,7 +3484,7 @@ function showPokedex(mon) {
   const titleDiv = document.createElement('div'); titleDiv.className='pdx-title';
   const nameDiv = document.createElement('div'); nameDiv.className='pdx-name'; nameDiv.textContent = mon.name;
   const numDiv = document.createElement('div'); numDiv.className='pdx-num';
-  numDiv.textContent = mon.id && mon.id!=='???' ? `#${String(mon.id).padStart(4,'0')}` : '';
+  numDiv.textContent = mon.id && mon.id!=='???' ? `#${String(mon.id).padStart(4,'0')}` : (mon.displayId ? '#'+mon.displayId : '');
   // Type badges
   const bdg = document.createElement('div'); bdg.className='tbadges'; bdg.style.marginTop='6px';
   bdg.appendChild(tb(mon.t1||fullData.t1||'Normal'));
