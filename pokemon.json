@@ -52940,7 +52940,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1139",
+      "id": 1139,
       "dex_number": "???",
       "temp_form": false,
       "name": "Floette (Blue)",
@@ -52987,7 +52987,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1140",
+      "id": 1140,
       "dex_number": "???",
       "temp_form": false,
       "name": "Floette (White)",
@@ -53081,7 +53081,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1545",
+      "id": 1545,
       "name": "Mega-Floette (Eternal)",
       "sprite": "1545",
       "shiny_sprite": "1545",
@@ -53132,7 +53132,7 @@
       "dex_number": "???"
     },
     {
-      "id": "671",
+      "id": 671,
       "dex_number": "???",
       "temp_form": false,
       "name": "Florges (Red)",
@@ -53179,7 +53179,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1142",
+      "id": 1142,
       "dex_number": "???",
       "temp_form": false,
       "name": "Florges (Yellow)",
@@ -53226,7 +53226,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1143",
+      "id": 1143,
       "dex_number": "???",
       "temp_form": false,
       "name": "Florges (Orange)",
@@ -53273,7 +53273,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1144",
+      "id": 1144,
       "dex_number": "???",
       "temp_form": false,
       "name": "Florges (Blue)",
@@ -53320,7 +53320,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1145",
+      "id": 1145,
       "dex_number": "???",
       "temp_form": false,
       "name": "Florges (White)",
@@ -53582,7 +53582,7 @@
       "dex_number": 675
     },
         {
-      "id": "676",
+      "id": 676,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (Natural)",
@@ -53625,7 +53625,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1146",
+      "id": 1146,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (Heart)",
@@ -53668,7 +53668,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1147",
+      "id": 1147,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (Star)",
@@ -53711,7 +53711,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1148",
+      "id": 1148,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (Diamond)",
@@ -53754,7 +53754,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1149",
+      "id": 1149,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (Debutante)",
@@ -53797,7 +53797,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1150",
+      "id": 1150,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (Matron)",
@@ -53840,7 +53840,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1151",
+      "id": 1151,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (Dandy)",
@@ -53883,7 +53883,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1152",
+      "id": 1152,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (La Reine)",
@@ -53926,7 +53926,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1153",
+      "id": 1153,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (Kabuki)",
@@ -53969,7 +53969,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1154",
+      "id": 1154,
       "dex_number": "???",
       "temp_form": false,
       "name": "Furfrou (Pharaoh)",
@@ -54067,7 +54067,7 @@
       "dex_number": 677
     },
     {
-      "id": "678",
+      "id": 678,
       "name": "Meowstic (♂)",
       "sprite": "0678",
       "shiny_sprite": "0678",
@@ -54120,7 +54120,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1155",
+      "id": 1155,
       "name": "Meowstic (♀)",
       "sprite": "1155",
       "shiny_sprite": "1155",
@@ -54173,7 +54173,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1561",
+      "id": 1561,
       "name": "Mega-Meowstic (♂)",
       "sprite": "1561",
       "shiny_sprite": "1561",
@@ -54226,7 +54226,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1562",
+      "id": 1562,
       "name": "Mega-Meowstic (♀)",
       "sprite": "1562",
       "shiny_sprite": "1562",
@@ -54279,7 +54279,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "679",
+      "id": 679,
       "name": "Honedge",
       "sprite": "0679",
       "shiny_sprite": "0679",
