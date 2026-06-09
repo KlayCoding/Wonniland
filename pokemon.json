@@ -54117,7 +54117,7 @@
       "evolutions": null,
       "learnset_ref": "sMeowsticMLevelUpLearnset",
       "teachable_ref": "sMeowsticMTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": "1155",
@@ -80968,7 +80968,7 @@
       "learnset_ref": null,
       "teachable_ref": null,
       "egg_moves_ref": null
-    }
+    },
     {
       "id": 1427,
       "name": "Gouging Fire",
