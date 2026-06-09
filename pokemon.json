@@ -37153,6 +37153,780 @@
       "dex_number": "???"
     },
     {
+      "id": "493",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Normal)",
+      "sprite": "0493",
+      "shiny_sprite": "0493",
+      "type1": "Normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1073",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Fighting)",
+      "sprite": "1073",
+      "shiny_sprite": "1073",
+      "type1": "Fighting",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1074",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Flying)",
+      "sprite": "1074",
+      "shiny_sprite": "1074",
+      "type1": "Flying",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1075",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Poison)",
+      "sprite": "1075",
+      "shiny_sprite": "1075",
+      "type1": "Poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1076",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Ground)",
+      "sprite": "1076",
+      "shiny_sprite": "1076",
+      "type1": "Ground",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1077",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Rock)",
+      "sprite": "1077",
+      "shiny_sprite": "1077",
+      "type1": "Rock",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1078",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Bug)",
+      "sprite": "1078",
+      "shiny_sprite": "1078",
+      "type1": "Bug",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1079",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Ghost)",
+      "sprite": "1079",
+      "shiny_sprite": "1079",
+      "type1": "Ghost",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1080",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Steel)",
+      "sprite": "1080",
+      "shiny_sprite": "1080",
+      "type1": "Steel",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1081",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Fire)",
+      "sprite": "1081",
+      "shiny_sprite": "1081",
+      "type1": "Fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1082",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Water)",
+      "sprite": "1082",
+      "shiny_sprite": "1082",
+      "type1": "Water",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1083",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Grass)",
+      "sprite": "1083",
+      "shiny_sprite": "1083",
+      "type1": "Grass",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1084",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Electric)",
+      "sprite": "1084",
+      "shiny_sprite": "1084",
+      "type1": "Electric",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1085",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Psychic)",
+      "sprite": "1085",
+      "shiny_sprite": "1085",
+      "type1": "Psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1086",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Ice)",
+      "sprite": "1086",
+      "shiny_sprite": "1086",
+      "type1": "Ice",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1087",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Dragon)",
+      "sprite": "1087",
+      "shiny_sprite": "1087",
+      "type1": "Dragon",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1088",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Dark)",
+      "sprite": "1088",
+      "shiny_sprite": "1088",
+      "type1": "Dark",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1089",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Arceus (Fairy)",
+      "sprite": "1089",
+      "shiny_sprite": "1089",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 120,
+        "atk": 120,
+        "def": 120,
+        "spa": 120,
+        "spd": 120,
+        "spe": 120
+      },
+      "bst": 720,
+      "abilities": [
+        {
+          "name": "Multitype",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
       "id": 494,
       "name": "Victini",
       "sprite": "0494",
@@ -47453,6 +48227,221 @@
       "egg_moves_ref": null,
       "temp_form": false,
       "dex_number": "???"
+    },
+    {
+      "id": "649",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Genesect (Normal)",
+      "sprite": "0649",
+      "shiny_sprite": "0649",
+      "type1": "Bug",
+      "type2": "Steel",
+      "base_stats": {
+        "hp": 71,
+        "atk": 120,
+        "def": 95,
+        "spa": 120,
+        "spd": 95,
+        "spe": 99
+      },
+      "bst": 600,
+      "abilities": [
+        {
+          "name": "Download",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1108",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Genesect (Douse)",
+      "sprite": "1108",
+      "shiny_sprite": "1108",
+      "type1": "Bug",
+      "type2": "Steel",
+      "base_stats": {
+        "hp": 71,
+        "atk": 120,
+        "def": 95,
+        "spa": 120,
+        "spd": 95,
+        "spe": 99
+      },
+      "bst": 600,
+      "abilities": [
+        {
+          "name": "Download",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1109",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Genesect (Shock)",
+      "sprite": "1109",
+      "shiny_sprite": "1109",
+      "type1": "Bug",
+      "type2": "Steel",
+      "base_stats": {
+        "hp": 71,
+        "atk": 120,
+        "def": 95,
+        "spa": 120,
+        "spd": 95,
+        "spe": 99
+      },
+      "bst": 600,
+      "abilities": [
+        {
+          "name": "Download",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1110",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Genesect (Burn)",
+      "sprite": "1110",
+      "shiny_sprite": "1110",
+      "type1": "Bug",
+      "type2": "Steel",
+      "base_stats": {
+        "hp": 71,
+        "atk": 120,
+        "def": 95,
+        "spa": 120,
+        "spd": 95,
+        "spe": 99
+      },
+      "bst": 600,
+      "abilities": [
+        {
+          "name": "Download",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1111",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Genesect (Chill)",
+      "sprite": "1111",
+      "shiny_sprite": "1111",
+      "type1": "Bug",
+      "type2": "Steel",
+      "base_stats": {
+        "hp": 71,
+        "atk": 120,
+        "def": 95,
+        "spa": 120,
+        "spd": 95,
+        "spe": 99
+      },
+      "bst": 600,
+      "abilities": [
+        {
+          "name": "Download",
+          "hidden": false
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 650,
@@ -71299,7 +72288,7 @@
     },
     {
       "id": 876,
-      "name": "Indeedee",
+      "name": "Indeedee (♂)",
       "sprite": "0876",
       "shiny_sprite": "0876",
       "type1": "Psychic",
@@ -71351,6 +72340,59 @@
       "egg_moves_ref": null,
       "temp_form": false,
       "dex_number": 876
+    },
+    {
+      "id": "1225",
+      "name": "Indeedee (♀)",
+      "sprite": "1225",
+      "shiny_sprite": "1225",
+      "type1": "Psychic",
+      "type2": "Normal",
+      "base_stats": {
+        "hp": 70,
+        "atk": 55,
+        "def": 65,
+        "spa": 95,
+        "spd": 105,
+        "spe": 85
+      },
+      "bst": 475,
+      "abilities": [
+        {
+          "name": "Own Tempo",
+          "hidden": false
+        },
+        {
+          "name": "Synchronize",
+          "hidden": false
+        },
+        {
+          "name": "Psychic Surge",
+          "hidden": true
+        }
+      ],
+      "catch_rate": 30,
+      "exp_yield": 166,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 40,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 140,
+      "growth_rate": "Fast",
+      "body_color": "Purple",
+      "category": "Emotion",
+      "height": 9,
+      "weight": 280,
+      "description": "They diligently serve people and Pokémon so they can gather feelings of gratitude. The females are particularly good at babysitting.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": "sIndeedeeFLevelUpLearnset",
+      "teachable_ref": "sIndeedeeFTeachableLearnset",
+      "egg_moves_ref": "sIndeedeeFEggMoveLearnset"
     },
     {
       "id": 877,
@@ -73714,7 +74756,7 @@
     },
     {
       "id": 1299,
-      "name": "Oinkologne",
+      "name": "Oinkologne (♂)",
       "sprite": "1299",
       "shiny_sprite": "1299",
       "type1": "Normal",
@@ -73766,6 +74808,59 @@
       "egg_moves_ref": null,
       "temp_form": false,
       "dex_number": "???"
+    },
+    {
+      "id": "1300",
+      "name": "Oinkologne (♀)",
+      "sprite": "1300",
+      "shiny_sprite": "1300",
+      "type1": "Normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 115,
+        "atk": 90,
+        "def": 70,
+        "spa": 59,
+        "spd": 90,
+        "spe": 65
+      },
+      "bst": 489,
+      "abilities": [
+        {
+          "name": "Aroma Veil",
+          "hidden": false
+        },
+        {
+          "name": "Gluttony",
+          "hidden": false
+        },
+        {
+          "name": "Thick Fat",
+          "hidden": true
+        }
+      ],
+      "catch_rate": 100,
+      "exp_yield": 171,
+      "ev_yield": {
+        "hp": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 15,
+      "egg_groups": [
+        "Field"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Gray",
+      "category": "Hog",
+      "height": 10,
+      "weight": 1200,
+      "description": "This is a meticulous Pokémon that likes to keep things tidy. It shrouds itself in a floral aroma that soothes the Pokémon around it.",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": "sOinkologneFLevelUpLearnset",
+      "teachable_ref": "sOinkologneTeachableLearnset",
+      "egg_moves_ref": null
     },
     {
       "id": 1301,
@@ -79427,6 +80522,454 @@
       "dex_number": "???"
     },
     {
+      "id": "1416",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Teal)",
+      "sprite": "1416",
+      "shiny_sprite": "1416",
+      "type1": "Grass",
+      "type2": null,
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Defiant",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "The Teal Mask form of Ogerpon. Wields the Teal Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1417",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Wellspring Mask)",
+      "sprite": "1417",
+      "shiny_sprite": "1417",
+      "type1": "Grass",
+      "type2": "Water",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Water Absorb",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Wearing the Wellspring Mask, Ogerpon gains the Water type.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1418",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Hearthflame Mask)",
+      "sprite": "1418",
+      "shiny_sprite": "1418",
+      "type1": "Grass",
+      "type2": "Fire",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Mold Breaker",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Wearing the Hearthflame Mask, Ogerpon gains the Fire type.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1419",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Cornerstone Mask)",
+      "sprite": "1419",
+      "shiny_sprite": "1419",
+      "type1": "Grass",
+      "type2": "Rock",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Sturdy",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Wearing the Cornerstone Mask, Ogerpon gains the Rock type.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1420",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Teal Mask Tera)",
+      "sprite": "1420",
+      "shiny_sprite": "1420",
+      "type1": "Grass",
+      "type2": null,
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Embody Aspect",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Ogerpon in its Terastallized form with the Teal Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1421",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Wellspring Mask Tera)",
+      "sprite": "1421",
+      "shiny_sprite": "1421",
+      "type1": "Grass",
+      "type2": "Water",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Embody Aspect",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Ogerpon Terastallized with the Wellspring Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1422",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Hearthflame Mask Tera)",
+      "sprite": "1422",
+      "shiny_sprite": "1422",
+      "type1": "Grass",
+      "type2": "Fire",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Embody Aspect",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Ogerpon Terastallized with the Hearthflame Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1423",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Cornerstone Mask Tera)",
+      "sprite": "1423",
+      "shiny_sprite": "1423",
+      "type1": "Grass",
+      "type2": "Rock",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Embody Aspect",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Ogerpon Terastallized with the Cornerstone Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    }
+    {
       "id": 1427,
       "name": "Gouging Fire",
       "sprite": "1427",
@@ -79802,1357 +81345,6 @@
       "egg_moves_ref": null,
       "temp_form": false,
       "dex_number": "???"
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Fighting)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fighting",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Flying)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Flying",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Poison)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Poison",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Ground)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ground",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Rock)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Rock",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Bug)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Bug",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Ghost)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ghost",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Steel)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Steel",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Fire)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fire",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Water)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Water",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Grass)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Electric)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Electric",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Psychic)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Psychic",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Ice)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Ice",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Dragon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dragon",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Dark)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Dark",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Arceus (Fairy)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 120,
-        "atk": 120,
-        "def": 120,
-        "spa": 120,
-        "spd": 120,
-        "spe": 120
-      },
-      "bst": 720,
-      "abilities": [
-        {
-          "name": "Multitype",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Genesect (Douse)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Bug",
-      "type2": "Steel",
-      "base_stats": {
-        "hp": 71,
-        "atk": 120,
-        "def": 95,
-        "spa": 120,
-        "spd": 95,
-        "spe": 99
-      },
-      "bst": 600,
-      "abilities": [
-        {
-          "name": "Download",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Genesect (Shock)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Bug",
-      "type2": "Steel",
-      "base_stats": {
-        "hp": 71,
-        "atk": 120,
-        "def": 95,
-        "spa": 120,
-        "spd": 95,
-        "spe": 99
-      },
-      "bst": 600,
-      "abilities": [
-        {
-          "name": "Download",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Genesect (Burn)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Bug",
-      "type2": "Steel",
-      "base_stats": {
-        "hp": 71,
-        "atk": 120,
-        "def": 95,
-        "spa": 120,
-        "spd": 95,
-        "spe": 99
-      },
-      "bst": 600,
-      "abilities": [
-        {
-          "name": "Download",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Genesect (Chill)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Bug",
-      "type2": "Steel",
-      "base_stats": {
-        "hp": 71,
-        "atk": 120,
-        "def": 95,
-        "spa": 120,
-        "spd": 95,
-        "spe": 99
-      },
-      "bst": 600,
-      "abilities": [
-        {
-          "name": "Download",
-          "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Ogerpon",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": null,
-      "base_stats": {
-        "hp": 80,
-        "atk": 120,
-        "def": 84,
-        "spa": 60,
-        "spd": 96,
-        "spe": 110
-      },
-      "bst": 550,
-      "abilities": [
-        {
-          "name": "Defiant",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 5,
-      "exp_yield": 275,
-      "ev_yield": {
-        "atk": 3
-      },
-      "gender_ratio": "100% Female",
-      "egg_cycles": 10,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 50,
-      "growth_rate": "Slow",
-      "body_color": "Green",
-      "category": "Mask",
-      "height": 12,
-      "weight": 392,
-      "description": "The Teal Mask form of Ogerpon. Wields the Teal Mask.",
-      "related_forms": [
-        "Ogerpon",
-        "Ogerpon (Wellspring Mask)",
-        "Ogerpon (Hearthflame Mask)",
-        "Ogerpon (Cornerstone Mask)",
-        "Ogerpon (Teal Mask Tera)",
-        "Ogerpon (Wellspring Mask Tera)",
-        "Ogerpon (Hearthflame Mask Tera)",
-        "Ogerpon (Cornerstone Mask Tera)"
-      ],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Ogerpon (Wellspring Mask)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": "Water",
-      "base_stats": {
-        "hp": 80,
-        "atk": 120,
-        "def": 84,
-        "spa": 60,
-        "spd": 96,
-        "spe": 110
-      },
-      "bst": 550,
-      "abilities": [
-        {
-          "name": "Water Absorb",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 5,
-      "exp_yield": 275,
-      "ev_yield": {
-        "atk": 3
-      },
-      "gender_ratio": "100% Female",
-      "egg_cycles": 10,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 50,
-      "growth_rate": "Slow",
-      "body_color": "Green",
-      "category": "Mask",
-      "height": 12,
-      "weight": 392,
-      "description": "Wearing the Wellspring Mask, Ogerpon gains the Water type.",
-      "related_forms": [
-        "Ogerpon",
-        "Ogerpon (Wellspring Mask)",
-        "Ogerpon (Hearthflame Mask)",
-        "Ogerpon (Cornerstone Mask)",
-        "Ogerpon (Teal Mask Tera)",
-        "Ogerpon (Wellspring Mask Tera)",
-        "Ogerpon (Hearthflame Mask Tera)",
-        "Ogerpon (Cornerstone Mask Tera)"
-      ],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Ogerpon (Hearthflame Mask)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": "Fire",
-      "base_stats": {
-        "hp": 80,
-        "atk": 120,
-        "def": 84,
-        "spa": 60,
-        "spd": 96,
-        "spe": 110
-      },
-      "bst": 550,
-      "abilities": [
-        {
-          "name": "Mold Breaker",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 5,
-      "exp_yield": 275,
-      "ev_yield": {
-        "atk": 3
-      },
-      "gender_ratio": "100% Female",
-      "egg_cycles": 10,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 50,
-      "growth_rate": "Slow",
-      "body_color": "Green",
-      "category": "Mask",
-      "height": 12,
-      "weight": 392,
-      "description": "Wearing the Hearthflame Mask, Ogerpon gains the Fire type.",
-      "related_forms": [
-        "Ogerpon",
-        "Ogerpon (Wellspring Mask)",
-        "Ogerpon (Hearthflame Mask)",
-        "Ogerpon (Cornerstone Mask)",
-        "Ogerpon (Teal Mask Tera)",
-        "Ogerpon (Wellspring Mask Tera)",
-        "Ogerpon (Hearthflame Mask Tera)",
-        "Ogerpon (Cornerstone Mask Tera)"
-      ],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Ogerpon (Cornerstone Mask)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": "Rock",
-      "base_stats": {
-        "hp": 80,
-        "atk": 120,
-        "def": 84,
-        "spa": 60,
-        "spd": 96,
-        "spe": 110
-      },
-      "bst": 550,
-      "abilities": [
-        {
-          "name": "Sturdy",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 5,
-      "exp_yield": 275,
-      "ev_yield": {
-        "atk": 3
-      },
-      "gender_ratio": "100% Female",
-      "egg_cycles": 10,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 50,
-      "growth_rate": "Slow",
-      "body_color": "Green",
-      "category": "Mask",
-      "height": 12,
-      "weight": 392,
-      "description": "Wearing the Cornerstone Mask, Ogerpon gains the Rock type.",
-      "related_forms": [
-        "Ogerpon",
-        "Ogerpon (Wellspring Mask)",
-        "Ogerpon (Hearthflame Mask)",
-        "Ogerpon (Cornerstone Mask)",
-        "Ogerpon (Teal Mask Tera)",
-        "Ogerpon (Wellspring Mask Tera)",
-        "Ogerpon (Hearthflame Mask Tera)",
-        "Ogerpon (Cornerstone Mask Tera)"
-      ],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Ogerpon (Teal Mask Tera)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": null,
-      "base_stats": {
-        "hp": 80,
-        "atk": 120,
-        "def": 84,
-        "spa": 60,
-        "spd": 96,
-        "spe": 110
-      },
-      "bst": 550,
-      "abilities": [
-        {
-          "name": "Embody Aspect",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 5,
-      "exp_yield": 275,
-      "ev_yield": {
-        "atk": 3
-      },
-      "gender_ratio": "100% Female",
-      "egg_cycles": 10,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 50,
-      "growth_rate": "Slow",
-      "body_color": "Green",
-      "category": "Mask",
-      "height": 12,
-      "weight": 392,
-      "description": "Ogerpon in its Terastallized form with the Teal Mask.",
-      "related_forms": [
-        "Ogerpon",
-        "Ogerpon (Wellspring Mask)",
-        "Ogerpon (Hearthflame Mask)",
-        "Ogerpon (Cornerstone Mask)",
-        "Ogerpon (Teal Mask Tera)",
-        "Ogerpon (Wellspring Mask Tera)",
-        "Ogerpon (Hearthflame Mask Tera)",
-        "Ogerpon (Cornerstone Mask Tera)"
-      ],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Ogerpon (Wellspring Mask Tera)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": "Water",
-      "base_stats": {
-        "hp": 80,
-        "atk": 120,
-        "def": 84,
-        "spa": 60,
-        "spd": 96,
-        "spe": 110
-      },
-      "bst": 550,
-      "abilities": [
-        {
-          "name": "Embody Aspect",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 5,
-      "exp_yield": 275,
-      "ev_yield": {
-        "atk": 3
-      },
-      "gender_ratio": "100% Female",
-      "egg_cycles": 10,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 50,
-      "growth_rate": "Slow",
-      "body_color": "Green",
-      "category": "Mask",
-      "height": 12,
-      "weight": 392,
-      "description": "Ogerpon Terastallized with the Wellspring Mask.",
-      "related_forms": [
-        "Ogerpon",
-        "Ogerpon (Wellspring Mask)",
-        "Ogerpon (Hearthflame Mask)",
-        "Ogerpon (Cornerstone Mask)",
-        "Ogerpon (Teal Mask Tera)",
-        "Ogerpon (Wellspring Mask Tera)",
-        "Ogerpon (Hearthflame Mask Tera)",
-        "Ogerpon (Cornerstone Mask Tera)"
-      ],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Ogerpon (Hearthflame Mask Tera)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": "Fire",
-      "base_stats": {
-        "hp": 80,
-        "atk": 120,
-        "def": 84,
-        "spa": 60,
-        "spd": 96,
-        "spe": 110
-      },
-      "bst": 550,
-      "abilities": [
-        {
-          "name": "Embody Aspect",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 5,
-      "exp_yield": 275,
-      "ev_yield": {
-        "atk": 3
-      },
-      "gender_ratio": "100% Female",
-      "egg_cycles": 10,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 50,
-      "growth_rate": "Slow",
-      "body_color": "Green",
-      "category": "Mask",
-      "height": 12,
-      "weight": 392,
-      "description": "Ogerpon Terastallized with the Hearthflame Mask.",
-      "related_forms": [
-        "Ogerpon",
-        "Ogerpon (Wellspring Mask)",
-        "Ogerpon (Hearthflame Mask)",
-        "Ogerpon (Cornerstone Mask)",
-        "Ogerpon (Teal Mask Tera)",
-        "Ogerpon (Wellspring Mask Tera)",
-        "Ogerpon (Hearthflame Mask Tera)",
-        "Ogerpon (Cornerstone Mask Tera)"
-      ],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Ogerpon (Cornerstone Mask Tera)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Grass",
-      "type2": "Rock",
-      "base_stats": {
-        "hp": 80,
-        "atk": 120,
-        "def": 84,
-        "spa": 60,
-        "spd": 96,
-        "spe": 110
-      },
-      "bst": 550,
-      "abilities": [
-        {
-          "name": "Embody Aspect",
-          "hidden": false
-        }
-      ],
-      "catch_rate": 5,
-      "exp_yield": 275,
-      "ev_yield": {
-        "atk": 3
-      },
-      "gender_ratio": "100% Female",
-      "egg_cycles": 10,
-      "egg_groups": [
-        "Undiscovered"
-      ],
-      "friendship": 50,
-      "growth_rate": "Slow",
-      "body_color": "Green",
-      "category": "Mask",
-      "height": 12,
-      "weight": 392,
-      "description": "Ogerpon Terastallized with the Cornerstone Mask.",
-      "related_forms": [
-        "Ogerpon",
-        "Ogerpon (Wellspring Mask)",
-        "Ogerpon (Hearthflame Mask)",
-        "Ogerpon (Cornerstone Mask)",
-        "Ogerpon (Teal Mask Tera)",
-        "Ogerpon (Wellspring Mask Tera)",
-        "Ogerpon (Hearthflame Mask Tera)",
-        "Ogerpon (Cornerstone Mask Tera)"
-      ],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
     }
   ]
 }
