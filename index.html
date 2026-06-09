@@ -1013,17 +1013,39 @@ function iconUrl(id, useArt=false, spriteFile=null) {
   if(!file) return `${SHOWDOWN}0.gif`;
   return `${PKM_BASE1}${file}.png`;
 }
-function iconUrlFallback(img, id) {
-  const padded = String(id).padStart(4,'0');
-  if(img.src.includes('pkm-sprites/') && !img.src.includes('pkm-sprites2/')) {
-    img.src = `${PKM_BASE2}${padded}.png`;
-  } else if(img.src.includes('pkm-sprites2/')) {
-    // Try cajunavenger as last resort
-    const slug = CAJUN_NAMES[id];
-    if(slug) { img.src = `${CAJUN}${slug}.png`; }
-    else { img.src = `${SHOWDOWN}${id}.gif`; }
+// Two-folder sprite system: BASE1 = first half, BASE2 = second half
+// onerror tries BASE2, then cajunavenger, then showdown gif
+function iconUrlFallback(img, id, spriteFile) {
+  const file = spriteFile || (id ? String(id).padStart(4,'0') : '');
+  if(!file){ img.src=`${SHOWDOWN}0.gif`; return; }
+  if(img.src.includes(PKM_BASE1.replace('https://',''))){
+    // Try second sprites folder
+    img.onerror=()=>{
+      // Both folders failed — try cajunavenger
+      const slug=CAJUN_NAMES[id];
+      if(slug){ img.src=`${CAJUN}${slug}.png`; img.onerror=()=>{img.src=`${SHOWDOWN}${id||0}.gif`;img.onerror=null;}; }
+      else{ img.src=`${SHOWDOWN}${id||0}.gif`; img.onerror=null; }
+    };
+    img.src=`${PKM_BASE2}${file}.png`;
+  } else if(img.src.includes(PKM_BASE2.replace('https://',''))){
+    const slug=CAJUN_NAMES[id];
+    if(slug){ img.src=`${CAJUN}${slug}.png`; img.onerror=()=>{img.src=`${SHOWDOWN}${id||0}.gif`;img.onerror=null;}; }
+    else{ img.src=`${SHOWDOWN}${id||0}.gif`; img.onerror=null; }
   } else {
-    img.src = `${SHOWDOWN}${id}.gif`;
+    img.src=`${SHOWDOWN}${id||0}.gif`; img.onerror=null;
+  }
+}
+function shinyUrl(spriteFile, id) {
+  const file = spriteFile || (id ? String(id).padStart(4,'0') : '');
+  return file ? `${PKM_SHINY1}${file}.png` : `${SHOWDOWN}${id||0}.gif`;
+}
+function shinyUrlFallback(img, id, spriteFile) {
+  const file = spriteFile || (id ? String(id).padStart(4,'0') : '');
+  if(img.src.includes(PKM_SHINY1.replace('https://',''))){
+    img.onerror=()=>{ img.src=`${PKM_BASE1}${file}.png`; img.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)'; img.onerror=null; };
+    img.src=`${PKM_SHINY2}${file}.png`;
+  } else {
+    img.src=`${PKM_BASE1}${file}.png`; img.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)'; img.onerror=null;
   }
 }
 function formSpriteUrl(name, id, art) {
@@ -3032,7 +3054,7 @@ function makeAC(ph,list){
     matches.forEach(p=>{
       const item=document.createElement('div'); item.className='dd-item';
       // Sprite
-      const ico=document.createElement('img'); ico.className='pico'; ico.src=p.isForm?formSpriteUrl(p.name,p.spriteId,p.art):iconUrl(p.spriteId,p.art); ico.loading='lazy'; ico.onerror=()=>iconUrlFallback(ico,p.spriteId||p.baseId);
+      const ico=document.createElement('img'); ico.className='pico'; ico.src=p.isForm?formSpriteUrl(p.name,p.spriteId,p.art):iconUrl(p.spriteId,p.art); ico.loading='lazy'; ico.onerror=()=>iconUrlFallback(ico,p.spriteId||p.baseId,p.spriteFile);
       // Right side: 2 lines
       const info=document.createElement('div'); info.className='dd-info';
       // Line 1: name + dex number
@@ -3649,8 +3671,12 @@ async function loadPokemonData() {
       if (!Object.keys(bs).length) return;
       const arr = [bs.hp||0, bs.atk||0, bs.def||0, bs.spa||0, bs.spd||0, bs.spe||0];
       if (p.id && p.id !== '???') BASE_STATS[p.id] = arr;
-      // Also index by name for lookup
+      // Index by name (normalized) for form lookups
       BASE_STATS['_n_'+p.name.toLowerCase()] = arr;
+      // Also index by dex_number if different from id
+      if (p.dex_number && p.dex_number !== '???' && p.dex_number !== p.id) {
+        BASE_STATS[p.dex_number] = BASE_STATS[p.dex_number] || arr;
+      }
     });
 
     // Build CAJUN_NAMES: id -> uppercase name for cajunavenger fallback
@@ -3661,9 +3687,21 @@ async function loadPokemonData() {
 
     buildAllMon();
     console.log(`✓ Loaded ${POKEMON.length} Pokemon from pokemon.json`);
+
+    // Also load abilities.json if available
+    try {
+      const ra = await fetch('abilities.json');
+      if(ra.ok){
+        const ad = await ra.json();
+        (ad.abilities||[]).forEach(ab=>{
+          ABILITIES_DB[ab.name.toLowerCase()] = ab;
+        });
+        console.log(`✓ Loaded ${Object.keys(ABILITIES_DB).length} abilities from abilities.json`);
+      }
+    } catch(e2) { /* abilities.json optional */ }
   } catch(e) {
-    console.warn('pokemon.json not found or invalid, keeping built-in data:', e.message);
-    buildAllMon(); // still build ALL_MON from whatever POKEMON is
+    console.warn('pokemon.json not found:', e.message);
+    buildAllMon();
   }
 }
 
@@ -3823,7 +3861,21 @@ function renderQ(){
         const dp=document.createElement('div'); dp.style.cssText='max-height:0;overflow:hidden;transition:max-height .3s;background:rgba(255,255,255,.03);';
         const di=document.createElement('div'); di.style.cssText='padding:10px 16px;font-size:12px;color:var(--gray);line-height:1.5;'; di.textContent='Loading…'; dp.appendChild(di);
         let loaded=false,open=false;
-        ib.addEventListener('click',e=>{e.stopPropagation();open=!open;if(open){if(!loaded){fetch('https://pokeapi.co/api/v2/ability/'+ab.name.toLowerCase().replace(/ /g,'-')+'/').then(r=>r.json()).then(d=>{const eng=d.flavor_text_entries?.find(e=>e.language.name==='en');const eff=d.effect_entries?.find(e=>e.language.name==='en');di.textContent=eng?.flavor_text?.replace(/[\n\f]/g,' ')||eff?.short_effect||'No description available.';loaded=true;}).catch(()=>{di.textContent='No description available.';loaded=true;});}dp.style.maxHeight='120px';ib.style.background='rgba(206,147,216,.2)';ib.style.color='var(--pl)';}else{dp.style.maxHeight='0';ib.style.background='rgba(255,255,255,.08)';ib.style.color='var(--gray)';}});
+        ib.addEventListener('click',e=>{e.stopPropagation();open=!open;if(open){if(!loaded){
+  // Try local abilities.json first
+  const localAb=ABILITIES_DB[ab.name.toLowerCase()]||ABILITIES_DB[ab.name.toLowerCase().replace(/ /g,'-')];
+  if(localAb&&localAb.description){
+    di.textContent=localAb.description;
+    if(localAb.ai_rating!==undefined){
+      const rat=document.createElement('div');rat.style.cssText='font-size:9px;color:var(--pl);margin-top:4px;font-family:"Press Start 2P",monospace;';
+      rat.textContent='AI Rating: '+localAb.ai_rating+'/10';di.appendChild(rat);
+    }
+    loaded=true;
+  } else {
+    // Fallback to PokeAPI
+    fetch('https://pokeapi.co/api/v2/ability/'+ab.name.toLowerCase().replace(/ /g,'-')+'/').then(r=>r.json()).then(d=>{const eng=d.flavor_text_entries?.find(e=>e.language.name==='en');const eff=d.effect_entries?.find(e=>e.language.name==='en');di.textContent=eng?.flavor_text?.replace(/[\n\f]/g,' ')||eff?.short_effect||'No description available.';loaded=true;}).catch(()=>{di.textContent='No description available.';loaded=true;});
+  }
+}dp.style.maxHeight='120px';ib.style.background='rgba(206,147,216,.2)';ib.style.color='var(--pl)';}else{dp.style.maxHeight='0';ib.style.background='rgba(255,255,255,.08)';ib.style.color='var(--gray)';}});
         btn.append(nm,tag,ib);
         btn.addEventListener('click',()=>{abilityWrap.querySelectorAll('[data-awrap]').forEach(w=>w.style.borderColor='var(--border)');wrap.style.borderColor=ab.isHidden?'var(--pl)':'var(--green)';selectedAbility=dn+(ab.isHidden?' (Hidden)':'');});
         wrap.append(btn,dp); wrap.dataset.awrap='1'; abilityWrap.appendChild(wrap);
@@ -4323,6 +4375,9 @@ const POKEMON_Q_START = 4; // step index where pokemon questions begin (Q5)
 const POKEMON_Q_END = 15;  // step index of last pokemon question (Q16, moves)
 const MAX_TEAM = 6;
 
+// Ability database (loaded from abilities.json)
+let ABILITIES_DB = {};
+
 // Team state
 let trainerInfo = {};
 let team = [];
@@ -4639,7 +4694,8 @@ function renderSlotReview(slotIdx, returnToSlot) {
   badges.appendChild(tb(slot.mon.t1)); if(slot.mon.t2)badges.appendChild(tb(slot.mon.t2));
   info.prepend(nm); info.appendChild(badges);
   // Stat bars under name+types
-  const statsId=slot.mon.baseId; const statsArr=BASE_STATS[statsId]||BASE_STATS[slot.mon.spriteId]||null;
+  const statsId=slot.mon.baseId||slot.mon.id;
+  const statsArr=BASE_STATS[statsId]||BASE_STATS[slot.mon.spriteId]||BASE_STATS['_n_'+(slot.mon.name||'').toLowerCase()]||null;
   if(statsArr){
     const bars=document.createElement('div'); bars.className='stat-bars'; bars.style.marginTop='8px';
     SLBLS.forEach((sl,si)=>{
@@ -5050,10 +5106,15 @@ function renderTrainerQ() {
         wrap.append(btn,descPanel); wrap.dataset.awrap='1'; abilityWrap.appendChild(wrap);
       });    }
     if(selMon){
-      const an=selMon.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-      const bp=POKEMON.find(p=>p.id===selMon.baseId);
-      const tryNames=[an]; if(bp&&bp.name.toLowerCase()!==an)tryNames.push(bp.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''));
-      (async()=>{for(const n of tryNames){try{const r=await fetch(`https://pokeapi.co/api/v2/pokemon/${n}`);if(!r.ok)continue;const d=await r.json();renderAbilityBtnsT(d.abilities.map(a=>({name:a.ability.name,isHidden:a.is_hidden})).sort((a,b)=>a.isHidden-b.isHidden));return;}catch(e){}}renderAbilityBtnsT([]);})();
+      const fullMonT=selMon._full||(POKEMON.find(p=>p.name.toLowerCase()===selMon.name.toLowerCase())||{})?._full;
+      if(fullMonT&&fullMonT.abilities&&fullMonT.abilities.length){
+        renderAbilityBtnsT(fullMonT.abilities.map(a=>({name:a.name,isHidden:a.hidden||false})));
+      } else {
+        const an=selMon.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        const bp=POKEMON.find(p=>p.id===selMon.baseId);
+        const tryNames=[an]; if(bp&&bp.name.toLowerCase()!==an)tryNames.push(bp.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''));
+        (async()=>{for(const n of tryNames){try{const r=await fetch(`https://pokeapi.co/api/v2/pokemon/${n}`);if(!r.ok)continue;const d=await r.json();renderAbilityBtnsT(d.abilities.map(a=>({name:a.ability.name,isHidden:a.is_hidden})).sort((a,b)=>a.isHidden-b.isHidden));return;}catch(e){}}renderAbilityBtnsT([]);})();
+      }
     }else{loadingEl.textContent='No Pokemon selected in Q4 — type manually:';const inp=document.createElement('input');inp.type='text';inp.placeholder='Ability name…';inp.addEventListener('input',()=>{selectedAbility=inp.value.trim()||null;});abilityWrap.appendChild(inp);}
     getV=()=>selectedAbility?{value:selectedAbility}:null;
 
@@ -5204,13 +5265,14 @@ function renderTrainerQ() {
       const spritesS=document.createElement('div'); spritesS.style.cssText='display:flex;gap:24px;justify-content:center;margin-bottom:16px;';
       const nWS=document.createElement('div'); nWS.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;';
       const nImgS=document.createElement('img'); nImgS.style.cssText='width:80px;height:80px;object-fit:contain;image-rendering:pixelated;';
-      nImgS.src=iconUrl(selMonS.spriteId,selMonS.art); nImgS.onerror=()=>fallback(nImgS,selMonS.spriteId);
+      const sfN=selMonS.spriteFile||String(selMonS.spriteId||selMonS.baseId||1).padStart(4,'0');
+      nImgS.src=`${PKM_BASE1}${sfN}.png`; nImgS.onerror=()=>iconUrlFallback(nImgS,selMonS.spriteId||selMonS.baseId,sfN);
       const nLS=document.createElement('div'); nLS.style.cssText='font-size:10px;color:var(--gray);'; nLS.textContent='Normal';
       nWS.append(nImgS,nLS); spritesS.appendChild(nWS);
       const sWS=document.createElement('div'); sWS.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;';
       const sImgS=document.createElement('img'); sImgS.style.cssText='width:80px;height:80px;object-fit:contain;image-rendering:pixelated;';
       const cajunSlugS=CAJUN_NAMES[selMonS.baseId]||CAJUN_NAMES[selMonS.spriteId];
-      if(cajunSlugS){sImgS.src=`${PKM_SHINY1}${String(selMonS.baseId||selMonS.spriteId).padStart(4,'0')}.png`;sImgS.onerror=()=>{const pid=selMonS.baseId||selMonS.spriteId;const pad=String(pid).padStart(4,'0');if(sImgS.src.includes('shinysprites/')){sImgS.src=`${PKM_SHINY2}${pad}.png`;sImgS.onerror=()=>{sImgS.src=iconUrl(pid);sImgS.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';sImgS.onerror=null;};}else{sImgS.src=iconUrl(pid);sImgS.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';}};}else{sImgS.src=iconUrl(selMonS.spriteId,selMonS.art);sImgS.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';}
+      if(cajunSlugS){sImgS.src=`${PKM_SHINY1}${String(selMonS.baseId||selMonS.spriteId).padStart(4,'0')}.png`;sImgS.onerror=()=>shinyUrlFallback(sImgS,selMonS.baseId||selMonS.spriteId,shinyFileS);;}else{sImgS.src=iconUrl(selMonS.spriteId,selMonS.art);sImgS.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';}
       const sLS=document.createElement('div'); sLS.style.cssText='font-size:10px;color:#ffd700;'; sLS.textContent='✨ Shiny';
       sWS.append(sImgS,sLS); spritesS.appendChild(sWS); card.appendChild(spritesS);
     }
