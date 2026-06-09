@@ -59,7 +59,7 @@
       "teachable_ref": "sBulbasaurTeachableLearnset",
       "egg_moves_ref": "sBulbasaurEggMoveLearnset",
       "temp_form": false,
-      "dex_number": 1
+      "dex_number": "0001"
     },
     {
       "id": 2,
@@ -167,7 +167,7 @@
       "sprite_female": "0003f",
       "shiny_sprite_female": "0003f",
       "temp_form": false,
-      "dex_number": 3
+      "dex_number": "0003a"
     },
     {
       "id": 906,
