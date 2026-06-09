@@ -80202,6 +80202,454 @@
       "learnset_ref": null,
       "teachable_ref": null,
       "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Grass",
+      "type2": null,
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Defiant",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "The Teal Mask form of Ogerpon. Wields the Teal Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Wellspring Mask)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Grass",
+      "type2": "Water",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Water Absorb",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Wearing the Wellspring Mask, Ogerpon gains the Water type.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Hearthflame Mask)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Grass",
+      "type2": "Fire",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Mold Breaker",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Wearing the Hearthflame Mask, Ogerpon gains the Fire type.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Cornerstone Mask)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Grass",
+      "type2": "Rock",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Sturdy",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Wearing the Cornerstone Mask, Ogerpon gains the Rock type.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Teal Mask Tera)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Grass",
+      "type2": null,
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Embody Aspect",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Ogerpon in its Terastallized form with the Teal Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Wellspring Mask Tera)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Grass",
+      "type2": "Water",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Embody Aspect",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Ogerpon Terastallized with the Wellspring Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Hearthflame Mask Tera)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Grass",
+      "type2": "Fire",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Embody Aspect",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Ogerpon Terastallized with the Hearthflame Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "???",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Ogerpon (Cornerstone Mask Tera)",
+      "sprite": "",
+      "shiny_sprite": "",
+      "type1": "Grass",
+      "type2": "Rock",
+      "base_stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+      },
+      "bst": 550,
+      "abilities": [
+        {
+          "name": "Embody Aspect",
+          "hidden": false
+        }
+      ],
+      "catch_rate": 5,
+      "exp_yield": 275,
+      "ev_yield": {
+        "atk": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 10,
+      "egg_groups": [
+        "Undiscovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Slow",
+      "body_color": "Green",
+      "category": "Mask",
+      "height": 12,
+      "weight": 392,
+      "description": "Ogerpon Terastallized with the Cornerstone Mask.",
+      "related_forms": [
+        "Ogerpon",
+        "Ogerpon (Wellspring Mask)",
+        "Ogerpon (Hearthflame Mask)",
+        "Ogerpon (Cornerstone Mask)",
+        "Ogerpon (Teal Mask Tera)",
+        "Ogerpon (Wellspring Mask Tera)",
+        "Ogerpon (Hearthflame Mask Tera)",
+        "Ogerpon (Cornerstone Mask Tera)"
+      ],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
     }
   ]
 }
