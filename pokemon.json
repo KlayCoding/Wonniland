@@ -224,7 +224,7 @@
       "teachable_ref": "sVenusaurTeachableLearnset",
       "egg_moves_ref": null,
       "temp_form": false,
-      "dex_number": 906
+      "dex_number": 0003b
     },
     {
       "id": 1489,
@@ -277,7 +277,7 @@
       "teachable_ref": "sVenusaurTeachableLearnset",
       "egg_moves_ref": null,
       "temp_form": false,
-      "dex_number": "???"
+      "dex_number": "0003c"
     },
     {
       "id": 4,
@@ -290,6 +290,7 @@
         "hp": 39,
         "atk": 52,
         "def": 43,
+        "spa": 60,
         "spd": 50,
         "spe": 65
       },
