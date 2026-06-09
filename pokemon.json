@@ -54170,7 +54170,7 @@
       "evolutions": null,
       "learnset_ref": "sMeowsticFLevelUpLearnset",
       "teachable_ref": "sMeowsticFTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": "1561",
@@ -54223,7 +54223,7 @@
       "evolutions": null,
       "learnset_ref": "sMeowsticMLevelUpLearnset",
       "teachable_ref": "sMeowsticMTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": "1562",
@@ -54276,7 +54276,7 @@
       "evolutions": null,
       "learnset_ref": "sMeowsticFLevelUpLearnset",
       "teachable_ref": "sMeowsticFTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 679,
