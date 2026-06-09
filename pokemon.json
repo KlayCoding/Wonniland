@@ -67887,6 +67887,3014 @@
       "dex_number": 868
     },
     {
+      "id": "869",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Vanilla Cream Strawberry)",
+      "sprite": "0869",
+      "shiny_sprite": "0869",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1235",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Vanilla Cream Berry)",
+      "sprite": "1235",
+      "shiny_sprite": "1235",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1244",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Vanilla Cream Love)",
+      "sprite": "1244",
+      "shiny_sprite": "1244",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1253",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Vanilla Cream Star)",
+      "sprite": "1253",
+      "shiny_sprite": "1253",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1262",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Vanilla Cream Clover)",
+      "sprite": "1262",
+      "shiny_sprite": "1262",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1271",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Vanilla Cream Flower)",
+      "sprite": "1271",
+      "shiny_sprite": "1271",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1280",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Vanilla Cream Ribbon)",
+      "sprite": "1280",
+      "shiny_sprite": "1280",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1216",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Cream Strawberry)",
+      "sprite": "1216",
+      "shiny_sprite": "1216",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1236",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Cream Berry)",
+      "sprite": "1236",
+      "shiny_sprite": "1236",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1245",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Cream Love)",
+      "sprite": "1245",
+      "shiny_sprite": "1245",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1254",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Cream Star)",
+      "sprite": "1254",
+      "shiny_sprite": "1254",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1263",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Cream Clover)",
+      "sprite": "1263",
+      "shiny_sprite": "1263",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1272",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Cream Flower)",
+      "sprite": "1272",
+      "shiny_sprite": "1272",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1281",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Cream Ribbon)",
+      "sprite": "1281",
+      "shiny_sprite": "1281",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1217",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Matcha Cream Strawberry)",
+      "sprite": "1217",
+      "shiny_sprite": "1217",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1237",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Matcha Cream Berry)",
+      "sprite": "1237",
+      "shiny_sprite": "1237",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1246",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Matcha Cream Love)",
+      "sprite": "1246",
+      "shiny_sprite": "1246",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1255",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Matcha Cream Star)",
+      "sprite": "1255",
+      "shiny_sprite": "1255",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1264",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Matcha Cream Clover)",
+      "sprite": "1264",
+      "shiny_sprite": "1264",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1273",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Matcha Cream Flower)",
+      "sprite": "1273",
+      "shiny_sprite": "1273",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1282",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Matcha Cream Ribbon)",
+      "sprite": "1282",
+      "shiny_sprite": "1282",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1218",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Mint Cream Strawberry)",
+      "sprite": "1218",
+      "shiny_sprite": "1218",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1238",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Mint Cream Berry)",
+      "sprite": "1238",
+      "shiny_sprite": "1238",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1247",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Mint Cream Love)",
+      "sprite": "1247",
+      "shiny_sprite": "1247",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1256",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Mint Cream Star)",
+      "sprite": "1256",
+      "shiny_sprite": "1256",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1265",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Mint Cream Clover)",
+      "sprite": "1265",
+      "shiny_sprite": "1265",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1274",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Mint Cream Flower)",
+      "sprite": "1274",
+      "shiny_sprite": "1274",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1283",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Mint Cream Ribbon)",
+      "sprite": "1283",
+      "shiny_sprite": "1283",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1219",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Lemon Cream Strawberry)",
+      "sprite": "1219",
+      "shiny_sprite": "1219",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1239",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Lemon Cream Berry)",
+      "sprite": "1239",
+      "shiny_sprite": "1239",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1248",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Lemon Cream Love)",
+      "sprite": "1248",
+      "shiny_sprite": "1248",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1257",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Lemon Cream Star)",
+      "sprite": "1257",
+      "shiny_sprite": "1257",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1266",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Lemon Cream Clover)",
+      "sprite": "1266",
+      "shiny_sprite": "1266",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1275",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Lemon Cream Flower)",
+      "sprite": "1275",
+      "shiny_sprite": "1275",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1284",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Lemon Cream Ribbon)",
+      "sprite": "1284",
+      "shiny_sprite": "1284",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1220",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Salted Cream Strawberry)",
+      "sprite": "1220",
+      "shiny_sprite": "1220",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1240",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Salted Cream Berry)",
+      "sprite": "1240",
+      "shiny_sprite": "12400",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1249",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Salted Cream Love)",
+      "sprite": "1249",
+      "shiny_sprite": "1249",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1258",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Salted Cream Star)",
+      "sprite": "1258",
+      "shiny_sprite": "1258",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1267",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Salted Cream Clover)",
+      "sprite": "1267",
+      "shiny_sprite": "1267",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1276",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Salted Cream Flower)",
+      "sprite": "1276",
+      "shiny_sprite": "1276",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1285",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Salted Cream Ribbon)",
+      "sprite": "1285",
+      "shiny_sprite": "1285",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1221",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Swirl Strawberry)",
+      "sprite": "1221",
+      "shiny_sprite": "1221",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1241",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Swirl Berry)",
+      "sprite": "1241",
+      "shiny_sprite": "1241",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1250",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Swirl Love)",
+      "sprite": "1250",
+      "shiny_sprite": "1250",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1259",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Swirl Star)",
+      "sprite": "1259",
+      "shiny_sprite": "1259",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1268",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Swirl Clover)",
+      "sprite": "1268",
+      "shiny_sprite": "1268",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1277",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Swirl Flower)",
+      "sprite": "1277",
+      "shiny_sprite": "1277",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1286",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Ruby Swirl Ribbon)",
+      "sprite": "1286",
+      "shiny_sprite": "1286",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1222",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Caramel Swirl Strawberry)",
+      "sprite": "1222",
+      "shiny_sprite": "1222",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1242",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Caramel Swirl Berry)",
+      "sprite": "1242",
+      "shiny_sprite": "1242",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1251",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Caramel Swirl Love)",
+      "sprite": "1251",
+      "shiny_sprite": "1251",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1260",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Caramel Swirl Star)",
+      "sprite": "1260",
+      "shiny_sprite": "1260",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1269",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Caramel Swirl Clover)",
+      "sprite": "1269",
+      "shiny_sprite": "1269",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1278",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Caramel Swirl Flower)",
+      "sprite": "1278",
+      "shiny_sprite": "1278",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1287",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Caramel Swirl Ribbon)",
+      "sprite": "1287",
+      "shiny_sprite": "1287",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1223",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Rainbow Swirl Strawberry)",
+      "sprite": "1223",
+      "shiny_sprite": "1223",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1243",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Rainbow Swirl Berry)",
+      "sprite": "1243",
+      "shiny_sprite": "1243",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1252",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Rainbow Swirl Love)",
+      "sprite": "1252",
+      "shiny_sprite": "1252",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1261",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Rainbow Swirl Star)",
+      "sprite": "1261",
+      "shiny_sprite": "1261",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1270",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Rainbow Swirl Clover)",
+      "sprite": "1270",
+      "shiny_sprite": "1270",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1279",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Rainbow Swirl Flower)",
+      "sprite": "1279",
+      "shiny_sprite": "1279",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1288",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "Alcremie (Rainbow Swirl Ribbon)",
+      "sprite": "1288",
+      "shiny_sprite": "1288",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
+      "id": "1518",
+      "dex_number": "???",
+      "temp_form": false,
+      "name": "GMax-Alcremie",
+      "sprite": "1518",
+      "shiny_sprite": "1518",
+      "type1": "Fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+      },
+      "bst": 495,
+      "abilities": [
+        {
+          "name": "Sweet Veil",
+          "hidden": false
+        },
+        {
+          "name": "Aroma Veil",
+          "hidden": true
+        }
+      ],
+      "catch_rate": null,
+      "exp_yield": null,
+      "ev_yield": {},
+      "gender_ratio": null,
+      "egg_cycles": null,
+      "egg_groups": [],
+      "friendship": null,
+      "growth_rate": null,
+      "body_color": null,
+      "category": null,
+      "height": null,
+      "weight": null,
+      "description": "",
+      "related_forms": [],
+      "evolutions": null,
+      "learnset_ref": null,
+      "teachable_ref": null,
+      "egg_moves_ref": null
+    },
+    {
       "id": 870,
       "name": "Falinks",
       "sprite": "0870",
@@ -77677,2967 +80685,6 @@
         {
           "name": "Download",
           "hidden": false
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Vanilla Cream Strawberry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Vanilla Cream Berry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Vanilla Cream Love)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Vanilla Cream Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Vanilla Cream Clover)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Vanilla Cream Flower)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Vanilla Cream Ribbon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Cream Strawberry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Cream Berry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Cream Love)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Cream Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Cream Clover)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Cream Flower)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Cream Ribbon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Matcha Cream Strawberry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Matcha Cream Berry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Matcha Cream Love)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Matcha Cream Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Matcha Cream Clover)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Matcha Cream Flower)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Matcha Cream Ribbon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Mint Cream Strawberry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Mint Cream Berry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Mint Cream Love)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Mint Cream Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Mint Cream Clover)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Mint Cream Flower)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Mint Cream Ribbon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Lemon Cream Strawberry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Lemon Cream Berry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Lemon Cream Love)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Lemon Cream Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Lemon Cream Clover)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Lemon Cream Flower)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Lemon Cream Ribbon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Salted Cream Strawberry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Salted Cream Berry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Salted Cream Love)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Salted Cream Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Salted Cream Clover)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Salted Cream Flower)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Salted Cream Ribbon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Swirl Strawberry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Swirl Berry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Swirl Love)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Swirl Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Swirl Clover)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Swirl Flower)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Ruby Swirl Ribbon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Caramel Swirl Strawberry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Caramel Swirl Berry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Caramel Swirl Love)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Caramel Swirl Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Caramel Swirl Clover)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Caramel Swirl Flower)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Caramel Swirl Ribbon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Rainbow Swirl Strawberry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Rainbow Swirl Berry)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Rainbow Swirl Love)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Rainbow Swirl Star)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Rainbow Swirl Clover)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Rainbow Swirl Flower)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
-        }
-      ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "related_forms": [],
-      "evolutions": null,
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null
-    },
-    {
-      "id": "???",
-      "dex_number": "???",
-      "temp_form": false,
-      "name": "Alcremie (Rainbow Swirl Ribbon)",
-      "sprite": "",
-      "shiny_sprite": "",
-      "type1": "Fairy",
-      "type2": null,
-      "base_stats": {
-        "hp": 65,
-        "atk": 60,
-        "def": 75,
-        "spa": 110,
-        "spd": 121,
-        "spe": 64
-      },
-      "bst": 495,
-      "abilities": [
-        {
-          "name": "Sweet Veil",
-          "hidden": false
-        },
-        {
-          "name": "Aroma Veil",
-          "hidden": true
         }
       ],
       "catch_rate": null,
