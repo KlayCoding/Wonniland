@@ -1016,36 +1016,46 @@ function iconUrl(id, useArt=false, spriteFile=null) {
 // Two-folder sprite system: BASE1 = first half, BASE2 = second half
 // onerror tries BASE2, then cajunavenger, then showdown gif
 function iconUrlFallback(img, id, spriteFile) {
-  const file = spriteFile || (id ? String(id).padStart(4,'0') : '');
-  if(!file){ img.src=`${SHOWDOWN}0.gif`; return; }
-  if(img.src.includes(PKM_BASE1.replace('https://',''))){
-    // Try second sprites folder
+  const file = spriteFileFor(spriteFile, id);
+  if(!file){ img.src=`${SHOWDOWN}0.gif`; img.onerror=null; return; }
+  const src = img.src || '';
+  if(src.includes('pkm-sprites/') && !src.includes('pkm-sprites2/')){
+    // Came from BASE1 → try BASE2
     img.onerror=()=>{
-      // Both folders failed — try cajunavenger
-      const slug=CAJUN_NAMES[id];
-      if(slug){ img.src=`${CAJUN}${slug}.png`; img.onerror=()=>{img.src=`${SHOWDOWN}${id||0}.gif`;img.onerror=null;}; }
-      else{ img.src=`${SHOWDOWN}${id||0}.gif`; img.onerror=null; }
+      img.onerror=null; img.src=`${SHOWDOWN}${id||0}.gif`;
     };
     img.src=`${PKM_BASE2}${file}.png`;
-  } else if(img.src.includes(PKM_BASE2.replace('https://',''))){
-    const slug=CAJUN_NAMES[id];
-    if(slug){ img.src=`${CAJUN}${slug}.png`; img.onerror=()=>{img.src=`${SHOWDOWN}${id||0}.gif`;img.onerror=null;}; }
-    else{ img.src=`${SHOWDOWN}${id||0}.gif`; img.onerror=null; }
   } else {
-    img.src=`${SHOWDOWN}${id||0}.gif`; img.onerror=null;
+    img.onerror=null; img.src=`${SHOWDOWN}${id||0}.gif`;
   }
 }
+function spriteFileFor(spriteFile, id) {
+  // Always returns 4-digit padded filename
+  if(spriteFile && spriteFile !== '') return spriteFile;
+  return id ? String(id).padStart(4,'0') : '';
+}
 function shinyUrl(spriteFile, id) {
-  const file = spriteFile || (id ? String(id).padStart(4,'0') : '');
+  const file = spriteFileFor(spriteFile, id);
   return file ? `${PKM_SHINY1}${file}.png` : `${SHOWDOWN}${id||0}.gif`;
 }
 function shinyUrlFallback(img, id, spriteFile) {
-  const file = spriteFile || (id ? String(id).padStart(4,'0') : '');
-  if(img.src.includes(PKM_SHINY1.replace('https://',''))){
-    img.onerror=()=>{ img.src=`${PKM_BASE1}${file}.png`; img.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)'; img.onerror=null; };
+  const file = spriteFileFor(spriteFile, id);
+  if(!file){ img.src=`${SHOWDOWN}0.gif`; img.onerror=null; return; }
+  // SHINY1 failed → try SHINY2 (second half of sprites)
+  if(img.src.includes('pkm-shinysprites/') || img.src===shinyUrl(spriteFile,id)){
+    img.onerror=()=>{
+      // Both shiny folders failed → normal sprite with filter
+      img.onerror=null;
+      img.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';
+      img.src=`${PKM_BASE1}${file}.png`;
+      img.onerror=()=>{ img.src=`${PKM_BASE2}${file}.png`; img.onerror=null; };
+    };
     img.src=`${PKM_SHINY2}${file}.png`;
   } else {
-    img.src=`${PKM_BASE1}${file}.png`; img.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)'; img.onerror=null;
+    img.onerror=null;
+    img.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';
+    img.src=`${PKM_BASE1}${file}.png`;
+    img.onerror=()=>{ img.src=`${PKM_BASE2}${file}.png`; img.onerror=null; };
   }
 }
 function formSpriteUrl(name, id, art) {
@@ -2960,7 +2970,10 @@ function updSummary(){
           badges.appendChild(tb(a.mon.t1)); if(a.mon.t2) badges.appendChild(tb(a.mon.t2));
           top.append(ico,nm,badges);
           const sid=a.mon.baseId||a.mon.spriteId;
-          const stats=BASE_STATS[sid]||null;
+          const stats=BASE_STATS[sid]
+        ||BASE_STATS[sid?String(sid).padStart(4,'0'):null]
+        ||BASE_STATS['_n_'+(a.mon.name||'').toLowerCase()]
+        ||null;
           if(stats){
             const bars=document.createElement('div'); bars.className='stat-bars';
             SLBLS.forEach((lbl2,idx)=>{
@@ -3005,7 +3018,11 @@ function updSummary(){
       const badges=document.createElement('div'); badges.className='tbadges';
       badges.appendChild(tb(a.mon.t1)); if(a.mon.t2) badges.appendChild(tb(a.mon.t2));
       top.append(ico,nm,badges);
-      const sid=a.mon.baseId; const stats=BASE_STATS[sid]||BASE_STATS[a.mon.spriteId]||null;
+      const sid=a.mon.baseId; const stats=BASE_STATS[sid]
+        ||BASE_STATS[sid?String(sid).padStart(4,'0'):null]
+        ||BASE_STATS[a.mon.spriteId]
+        ||BASE_STATS['_n_'+(a.mon.name||'').toLowerCase()]
+        ||null;
       if(stats){
         const bars=document.createElement('div'); bars.className='stat-bars';
         SLBLS.forEach((lbl2,idx)=>{
@@ -4695,7 +4712,11 @@ function renderSlotReview(slotIdx, returnToSlot) {
   info.prepend(nm); info.appendChild(badges);
   // Stat bars under name+types
   const statsId=slot.mon.baseId||slot.mon.id;
-  const statsArr=BASE_STATS[statsId]||BASE_STATS[slot.mon.spriteId]||BASE_STATS['_n_'+(slot.mon.name||'').toLowerCase()]||null;
+  const statsArr=BASE_STATS[statsId]
+    ||BASE_STATS[statsId?String(statsId).padStart(4,'0'):null]
+    ||BASE_STATS[slot.mon.spriteId]
+    ||BASE_STATS['_n_'+(slot.mon.name||'').toLowerCase()]
+    ||null;
   if(statsArr){
     const bars=document.createElement('div'); bars.className='stat-bars'; bars.style.marginTop='8px';
     SLBLS.forEach((sl,si)=>{
