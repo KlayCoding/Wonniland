@@ -462,293 +462,9 @@ let POKEMON = [];
 // Total: 1025
 
 
-const POKEMON_FORMS = [
-  {baseId:386,sub:"b",name:"Deoxys (Attack)",t1:"Psychic",t2:null,spriteId:10001,art:true},
-  {baseId:386,sub:"c",name:"Deoxys (Defense)",t1:"Psychic",t2:null,spriteId:10002,art:true},
-  {baseId:386,sub:"d",name:"Deoxys (Speed)",t1:"Psychic",t2:null,spriteId:10003,art:true},
-  {baseId:413,sub:"b",name:"Wormadam (Sandy)",t1:"Bug",t2:"Ground",spriteId:10004,art:false},
-  {baseId:413,sub:"c",name:"Wormadam (Trash)",t1:"Bug",t2:"Steel",spriteId:10005,art:false},
-  {baseId:421,sub:"b",name:"Cherrim (Sunshine)",t1:"Grass",t2:null,spriteId:10006,art:false},
-  {baseId:422,sub:"b",name:"Shellos (East)",t1:"Water",t2:null,spriteId:10007,art:false},
-  {baseId:423,sub:"b",name:"Gastrodon (East)",t1:"Water",t2:"Ground",spriteId:10008,art:false},
-  {baseId:479,sub:"b",name:"Rotom (Heat)",t1:"Electric",t2:"Fire",spriteId:10009,art:true},
-  {baseId:479,sub:"c",name:"Rotom (Wash)",t1:"Electric",t2:"Water",spriteId:10010,art:true},
-  {baseId:479,sub:"d",name:"Rotom (Frost)",t1:"Electric",t2:"Ice",spriteId:10011,art:true},
-  {baseId:479,sub:"e",name:"Rotom (Fan)",t1:"Electric",t2:"Flying",spriteId:10012,art:true},
-  {baseId:479,sub:"f",name:"Rotom (Mow)",t1:"Electric",t2:"Grass",spriteId:10013,art:true},
-  {baseId:487,sub:"b",name:"Giratina (Origin)",t1:"Ghost",t2:"Dragon",spriteId:10014,art:true},
-  {baseId:492,sub:"b",name:"Shaymin (Sky)",t1:"Grass",t2:"Flying",spriteId:10015,art:true},
-  {baseId:493,sub:"b",name:"Arceus (Fighting)",t1:"Fighting",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"c",name:"Arceus (Flying)",t1:"Flying",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"d",name:"Arceus (Poison)",t1:"Poison",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"e",name:"Arceus (Ground)",t1:"Ground",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"f",name:"Arceus (Rock)",t1:"Rock",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"g",name:"Arceus (Bug)",t1:"Bug",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"h",name:"Arceus (Ghost)",t1:"Ghost",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"i",name:"Arceus (Steel)",t1:"Steel",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"j",name:"Arceus (Fire)",t1:"Fire",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"k",name:"Arceus (Water)",t1:"Water",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"l",name:"Arceus (Grass)",t1:"Grass",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"m",name:"Arceus (Electric)",t1:"Electric",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"n",name:"Arceus (Psychic)",t1:"Psychic",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"o",name:"Arceus (Ice)",t1:"Ice",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"p",name:"Arceus (Dragon)",t1:"Dragon",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"q",name:"Arceus (Dark)",t1:"Dark",t2:null,spriteId:493,art:true},
-  {baseId:493,sub:"r",name:"Arceus (Fairy)",t1:"Fairy",t2:null,spriteId:493,art:true},
-  {baseId:555,sub:"b",name:"Darmanitan (Zen)",t1:"Fire",t2:"Psychic",spriteId:10016,art:true},
-  {baseId:555,sub:"c",name:"Galarian-Darmanitan",t1:"Ice",t2:null,spriteId:10177,art:true},
-  {baseId:555,sub:"d",name:"Galarian-Darmanitan (Zen)",t1:"Ice",t2:"Fire",spriteId:10178,art:true},
-  {baseId:648,sub:"b",name:"Meloetta (Pirouette)",t1:"Normal",t2:"Fighting",spriteId:10018,art:true},
-  {baseId:641,sub:"b",name:"Tornadus (Therian)",t1:"Flying",t2:null,spriteId:10019,art:true},
-  {baseId:642,sub:"b",name:"Thundurus (Therian)",t1:"Electric",t2:"Flying",spriteId:10020,art:true},
-  {baseId:645,sub:"b",name:"Landorus (Therian)",t1:"Ground",t2:"Flying",spriteId:10021,art:true},
-  {baseId:646,sub:"b",name:"Kyurem (Black)",t1:"Dragon",t2:"Ice",spriteId:10022,art:true},
-  {baseId:646,sub:"c",name:"Kyurem (White)",t1:"Dragon",t2:"Ice",spriteId:10023,art:true},
-  {baseId:647,sub:"b",name:"Keldeo (Resolute)",t1:"Water",t2:"Fighting",spriteId:10024,art:true},
-  {baseId:678,sub:"b",name:"Meowstic (Female)",t1:"Psychic",t2:null,spriteId:10025,art:false},
-  {baseId:681,sub:"b",name:"Aegislash (Blade)",t1:"Steel",t2:"Ghost",spriteId:10026,art:true},
-  {baseId:710,sub:"b",name:"Pumpkaboo (Small)",t1:"Ghost",t2:"Grass",spriteId:10027,art:false},
-  {baseId:710,sub:"c",name:"Pumpkaboo (Large)",t1:"Ghost",t2:"Grass",spriteId:10028,art:false},
-  {baseId:710,sub:"d",name:"Pumpkaboo (Super)",t1:"Ghost",t2:"Grass",spriteId:10029,art:false},
-  {baseId:711,sub:"b",name:"Gourgeist (Small)",t1:"Ghost",t2:"Grass",spriteId:10030,art:false},
-  {baseId:711,sub:"c",name:"Gourgeist (Large)",t1:"Ghost",t2:"Grass",spriteId:10031,art:false},
-  {baseId:711,sub:"d",name:"Gourgeist (Super)",t1:"Ghost",t2:"Grass",spriteId:10032,art:false},
-  {baseId:3,sub:"b",name:"Mega-Venusaur",t1:"Grass",t2:"Poison",spriteId:10033,art:true},
-  {baseId:6,sub:"b",name:"Mega-Charizard-X",t1:"Fire",t2:"Dragon",spriteId:10034,art:true},
-  {baseId:6,sub:"c",name:"Mega-Charizard-Y",t1:"Fire",t2:"Flying",spriteId:10035,art:true},
-  {baseId:9,sub:"b",name:"Mega-Blastoise",t1:"Water",t2:null,spriteId:10036,art:true},
-  {baseId:65,sub:"b",name:"Mega-Alakazam",t1:"Psychic",t2:null,spriteId:10037,art:true},
-  {baseId:94,sub:"b",name:"Mega-Gengar",t1:"Ghost",t2:"Poison",spriteId:10038,art:true},
-  {baseId:115,sub:"b",name:"Mega-Kangaskhan",t1:"Normal",t2:null,spriteId:10039,art:true},
-  {baseId:127,sub:"b",name:"Mega-Pinsir",t1:"Bug",t2:"Flying",spriteId:10040,art:true},
-  {baseId:130,sub:"b",name:"Mega-Gyarados",t1:"Water",t2:"Dark",spriteId:10041,art:true},
-  {baseId:142,sub:"b",name:"Mega-Aerodactyl",t1:"Rock",t2:"Flying",spriteId:10042,art:true},
-  {baseId:150,sub:"b",name:"Mega-Mewtwo-X",t1:"Psychic",t2:"Fighting",spriteId:10043,art:true},
-  {baseId:150,sub:"c",name:"Mega-Mewtwo-Y",t1:"Psychic",t2:null,spriteId:10044,art:true},
-  {baseId:181,sub:"b",name:"Mega-Ampharos",t1:"Electric",t2:"Dragon",spriteId:10045,art:true},
-  {baseId:212,sub:"b",name:"Mega-Scizor",t1:"Bug",t2:"Steel",spriteId:10046,art:true},
-  {baseId:214,sub:"b",name:"Mega-Heracross",t1:"Bug",t2:"Fighting",spriteId:10047,art:true},
-  {baseId:229,sub:"b",name:"Mega-Houndoom",t1:"Dark",t2:"Fire",spriteId:10048,art:true},
-  {baseId:248,sub:"b",name:"Mega-Tyranitar",t1:"Rock",t2:"Dark",spriteId:10049,art:true},
-  {baseId:257,sub:"b",name:"Mega-Blaziken",t1:"Fire",t2:"Fighting",spriteId:10050,art:true},
-  {baseId:282,sub:"b",name:"Mega-Gardevoir",t1:"Psychic",t2:"Fairy",spriteId:10051,art:true},
-  {baseId:303,sub:"b",name:"Mega-Mawile",t1:"Steel",t2:"Fairy",spriteId:10052,art:true},
-  {baseId:306,sub:"b",name:"Mega-Aggron",t1:"Steel",t2:null,spriteId:10053,art:true},
-  {baseId:308,sub:"b",name:"Mega-Medicham",t1:"Fighting",t2:"Psychic",spriteId:10054,art:true},
-  {baseId:310,sub:"b",name:"Mega-Manectric",t1:"Electric",t2:null,spriteId:10055,art:true},
-  {baseId:302,sub:"b",name:"Mega-Sableye",t1:"Dark",t2:"Ghost",spriteId:10056,art:true},
-  {baseId:359,sub:"b",name:"Mega-Absol",t1:"Dark",t2:"Fairy",spriteId:10057,art:true},
-  {baseId:362,sub:"b",name:"Mega-Glalie",t1:"Ice",t2:null,spriteId:10058,art:true},
-  {baseId:373,sub:"b",name:"Mega-Salamence",t1:"Dragon",t2:"Flying",spriteId:10059,art:true},
-  {baseId:376,sub:"b",name:"Mega-Metagross",t1:"Steel",t2:"Psychic",spriteId:10060,art:true},
-  {baseId:380,sub:"b",name:"Mega-Latias",t1:"Dragon",t2:"Psychic",spriteId:10061,art:true},
-  {baseId:381,sub:"b",name:"Mega-Latios",t1:"Dragon",t2:"Psychic",spriteId:10062,art:true},
-  {baseId:382,sub:"b",name:"Primal-Kyogre",t1:"Water",t2:null,spriteId:10063,art:true},
-  {baseId:383,sub:"b",name:"Primal-Groudon",t1:"Ground",t2:"Fire",spriteId:10064,art:true},
-  {baseId:384,sub:"b",name:"Mega-Rayquaza",t1:"Dragon",t2:"Flying",spriteId:10065,art:true},
-  {baseId:15,sub:"b",name:"Mega-Beedrill",t1:"Bug",t2:"Poison",spriteId:10066,art:true},
-  {baseId:18,sub:"b",name:"Mega-Pidgeot",t1:"Normal",t2:"Flying",spriteId:10067,art:true},
-  {baseId:80,sub:"b",name:"Mega-Slowbro",t1:"Water",t2:"Psychic",spriteId:10068,art:true},
-  {baseId:208,sub:"b",name:"Mega-Steelix",t1:"Steel",t2:"Ground",spriteId:10069,art:true},
-  {baseId:19,sub:"b",name:"Alolan-Rattata",t1:"Dark",t2:"Normal",spriteId:10090,art:true},
-  {baseId:20,sub:"b",name:"Alolan-Raticate",t1:"Dark",t2:"Normal",spriteId:10091,art:true},
-  {baseId:26,sub:"b",name:"Alolan-Raichu",t1:"Electric",t2:"Psychic",spriteId:10100,art:true},
-  {baseId:27,sub:"b",name:"Alolan-Sandshrew",t1:"Ice",t2:"Steel",spriteId:10101,art:true},
-  {baseId:28,sub:"b",name:"Alolan-Sandslash",t1:"Ice",t2:"Steel",spriteId:10102,art:true},
-  {baseId:37,sub:"b",name:"Alolan-Vulpix",t1:"Ice",t2:null,spriteId:10103,art:true},
-  {baseId:38,sub:"b",name:"Alolan-Ninetales",t1:"Ice",t2:"Fairy",spriteId:10104,art:true},
-  {baseId:50,sub:"b",name:"Alolan-Diglett",t1:"Ground",t2:"Steel",spriteId:10105,art:true},
-  {baseId:51,sub:"b",name:"Alolan-Dugtrio",t1:"Ground",t2:"Steel",spriteId:10106,art:true},
-  {baseId:52,sub:"b",name:"Alolan-Meowth",t1:"Dark",t2:null,spriteId:10107,art:true},
-  {baseId:53,sub:"b",name:"Alolan-Persian",t1:"Dark",t2:null,spriteId:10108,art:true},
-  {baseId:74,sub:"b",name:"Alolan-Geodude",t1:"Rock",t2:"Electric",spriteId:74,art:true},
-  {baseId:75,sub:"b",name:"Alolan-Graveler",t1:"Rock",t2:"Electric",spriteId:75,art:true},
-  {baseId:76,sub:"b",name:"Alolan-Golem",t1:"Rock",t2:"Electric",spriteId:76,art:true},
-  {baseId:88,sub:"b",name:"Alolan-Grimer",t1:"Poison",t2:"Dark",spriteId:10109,art:true},
-  {baseId:89,sub:"b",name:"Alolan-Muk",t1:"Poison",t2:"Dark",spriteId:10110,art:true},
-  {baseId:103,sub:"b",name:"Alolan-Exeggutor",t1:"Grass",t2:"Dragon",spriteId:10111,art:true},
-  {baseId:105,sub:"b",name:"Alolan-Marowak",t1:"Fire",t2:"Ghost",spriteId:10112,art:true},
-  {baseId:25,sub:"b",name:"Pikachu (Original Cap)",t1:"Electric",t2:null,spriteId:10143,art:false},
-  {baseId:25,sub:"c",name:"Pikachu (Hoenn Cap)",t1:"Electric",t2:null,spriteId:10144,art:false},
-  {baseId:25,sub:"d",name:"Pikachu (Sinnoh Cap)",t1:"Electric",t2:null,spriteId:10145,art:false},
-  {baseId:25,sub:"e",name:"Pikachu (Unova Cap)",t1:"Electric",t2:null,spriteId:10146,art:false},
-  {baseId:25,sub:"f",name:"Pikachu (Kalos Cap)",t1:"Electric",t2:null,spriteId:10147,art:false},
-  {baseId:25,sub:"g",name:"Pikachu (Alola Cap)",t1:"Electric",t2:null,spriteId:10148,art:false},
-  {baseId:25,sub:"h",name:"Pikachu (Partner Cap)",t1:"Electric",t2:null,spriteId:10149,art:false},
-  {baseId:172,sub:"b",name:"Pichu (Spiky-Ear)",t1:"Electric",t2:null,spriteId:172,art:true},
-  {baseId:25,sub:"i",name:"Pikachu (World Cap)",t1:"Electric",t2:null,spriteId:10160,art:false},
-  {baseId:52,sub:"c",name:"Galarian-Meowth",t1:"Steel",t2:null,spriteId:10161,art:true},
-  {baseId:83,sub:"b",name:"Galarian-Farfetch'd",t1:"Fighting",t2:null,spriteId:10162,art:true},
-  {baseId:77,sub:"b",name:"Galarian-Ponyta",t1:"Psychic",t2:null,spriteId:77,art:true},
-  {baseId:78,sub:"b",name:"Galarian-Rapidash",t1:"Psychic",t2:"Fairy",spriteId:78,art:true},
-  {baseId:79,sub:"b",name:"Galarian-Slowpoke",t1:"Psychic",t2:null,spriteId:10164,art:true},
-  {baseId:80,sub:"c",name:"Galarian-Slowbro",t1:"Poison",t2:"Psychic",spriteId:10165,art:true},
-  {baseId:199,sub:"b",name:"Galarian-Slowking",t1:"Poison",t2:"Psychic",spriteId:199,art:true},
-  {baseId:122,sub:"b",name:"Galarian-Mr.-Mime",t1:"Ice",t2:"Psychic",spriteId:122,art:true},
-  {baseId:144,sub:"b",name:"Galarian-Articuno",t1:"Psychic",t2:"Flying",spriteId:144,art:true},
-  {baseId:145,sub:"b",name:"Galarian-Zapdos",t1:"Fighting",t2:"Flying",spriteId:145,art:true},
-  {baseId:146,sub:"b",name:"Galarian-Moltres",t1:"Dark",t2:"Flying",spriteId:146,art:true},
-  {baseId:222,sub:"b",name:"Galarian-Corsola",t1:"Ghost",t2:null,spriteId:222,art:true},
-  {baseId:263,sub:"b",name:"Galarian-Zigzagoon",t1:"Dark",t2:"Normal",spriteId:263,art:true},
-  {baseId:264,sub:"b",name:"Galarian-Linoone",t1:"Dark",t2:"Normal",spriteId:264,art:true},
-  {baseId:554,sub:"b",name:"Galarian-Darumaka",t1:"Ice",t2:null,spriteId:554,art:true},
-  {baseId:618,sub:"b",name:"Galarian-Stunfisk",t1:"Ground",t2:"Steel",spriteId:618,art:true},
-  {baseId:800,sub:"b",name:"Necrozma (Dusk Mane)",t1:"Psychic",t2:"Steel",spriteId:10155,art:true},
-  {baseId:800,sub:"c",name:"Necrozma (Dawn Wings)",t1:"Psychic",t2:"Ghost",spriteId:10156,art:true},
-  {baseId:800,sub:"d",name:"Necrozma (Ultra)",t1:"Psychic",t2:"Dragon",spriteId:10157,art:true},
-  {baseId:801,sub:"b",name:"Magearna (Original)",t1:"Steel",t2:"Fairy",spriteId:10158,art:true},
-  {baseId:658,sub:"b",name:"Greninja (Battle Bond)",t1:"Water",t2:"Dark",spriteId:10116,art:true},
-  {baseId:658,sub:"c",name:"Ash-Greninja",t1:"Water",t2:"Dark",spriteId:10117,art:true},
-  {baseId:670,sub:"b",name:"Floette (Eternal)",t1:"Fairy",t2:null,spriteId:670,art:true},
-  {baseId:718,sub:"b",name:"Zygarde (10%)",t1:"Dragon",t2:"Ground",spriteId:10118,art:true},
-  {baseId:718,sub:"c",name:"Zygarde (Complete)",t1:"Dragon",t2:"Ground",spriteId:10119,art:true},
-  {baseId:720,sub:"b",name:"Hoopa (Unbound)",t1:"Psychic",t2:"Dark",spriteId:10120,art:true},
-  {baseId:741,sub:"b",name:"Oricorio (Pom-Pom)",t1:"Electric",t2:"Flying",spriteId:10121,art:false},
-  {baseId:741,sub:"c",name:"Oricorio (Pa'u)",t1:"Psychic",t2:"Flying",spriteId:10122,art:false},
-  {baseId:741,sub:"d",name:"Oricorio (Sensu)",t1:"Ghost",t2:"Flying",spriteId:10123,art:false},
-  {baseId:745,sub:"b",name:"Lycanroc (Midnight)",t1:"Rock",t2:null,spriteId:10126,art:true},
-  {baseId:745,sub:"c",name:"Lycanroc (Dusk)",t1:"Rock",t2:null,spriteId:10152,art:true},
-  {baseId:746,sub:"b",name:"Wishiwashi (School)",t1:"Water",t2:null,spriteId:10127,art:true},
-  {baseId:774,sub:"b",name:"Minior (Core)",t1:"Rock",t2:"Flying",spriteId:10136,art:false},
-  {baseId:778,sub:"b",name:"Mimikyu (Busted)",t1:"Ghost",t2:"Fairy",spriteId:10139,art:false},
-  {baseId:3,sub:"c",name:"GMax-Venusaur",t1:"Grass",t2:"Poison",spriteId:10186,art:true},
-  {baseId:6,sub:"d",name:"GMax-Charizard",t1:"Fire",t2:"Flying",spriteId:10187,art:true},
-  {baseId:9,sub:"c",name:"GMax-Blastoise",t1:"Water",t2:null,spriteId:10188,art:true},
-  {baseId:12,sub:"b",name:"GMax-Butterfree",t1:"Bug",t2:"Flying",spriteId:10189,art:true},
-  {baseId:52,sub:"d",name:"GMax-Meowth",t1:"Normal",t2:null,spriteId:10190,art:true},
-  {baseId:94,sub:"c",name:"GMax-Gengar",t1:"Ghost",t2:"Poison",spriteId:10191,art:true},
-  {baseId:133,sub:"b",name:"GMax-Eevee",t1:"Normal",t2:null,spriteId:10192,art:true},
-  {baseId:25,sub:"j",name:"GMax-Pikachu",t1:"Electric",t2:null,spriteId:10193,art:true},
-  {baseId:143,sub:"b",name:"GMax-Snorlax",t1:"Normal",t2:null,spriteId:10194,art:true},
-  {baseId:131,sub:"b",name:"GMax-Lapras",t1:"Water",t2:"Ice",spriteId:10195,art:true},
-  {baseId:841,sub:"b",name:"GMax-Flapple",t1:"Grass",t2:"Dragon",spriteId:10196,art:true},
-  {baseId:842,sub:"b",name:"GMax-Appletun",t1:"Grass",t2:"Dragon",spriteId:10197,art:true},
-  {baseId:844,sub:"b",name:"GMax-Sandaconda",t1:"Ground",t2:null,spriteId:10198,art:true},
-  {baseId:849,sub:"c",name:"GMax-Toxtricity (Amped)",t1:"Electric",t2:"Poison",spriteId:10199,art:true},
-  {baseId:851,sub:"b",name:"GMax-Centiskorch",t1:"Fire",t2:"Bug",spriteId:10200,art:true},
-  {baseId:858,sub:"b",name:"GMax-Hatterene",t1:"Psychic",t2:"Fairy",spriteId:10201,art:true},
-  {baseId:861,sub:"b",name:"GMax-Grimmsnarl",t1:"Dark",t2:"Fairy",spriteId:10202,art:true},
-  {baseId:869,sub:"b",name:"GMax-Alcremie",t1:"Fairy",t2:null,spriteId:10203,art:true},
-  {baseId:879,sub:"b",name:"GMax-Copperajah",t1:"Steel",t2:null,spriteId:10204,art:true},
-  {baseId:884,sub:"b",name:"GMax-Duraludon",t1:"Steel",t2:"Dragon",spriteId:10205,art:true},
-  {baseId:892,sub:"c",name:"GMax-Urshifu (Single Strike)",t1:"Fighting",t2:"Dark",spriteId:10206,art:true},
-  {baseId:892,sub:"d",name:"GMax-Urshifu (Rapid Strike)",t1:"Fighting",t2:"Water",spriteId:10207,art:true},
-  {baseId:845,sub:"b",name:"Cramorant (Gulping)",t1:"Flying",t2:"Water",spriteId:845,art:false},
-  {baseId:845,sub:"c",name:"Cramorant (Gorging)",t1:"Flying",t2:"Water",spriteId:845,art:false},
-  {baseId:849,sub:"b",name:"Toxtricity (Low-Key)",t1:"Electric",t2:"Poison",spriteId:10171,art:false},
-  {baseId:854,sub:"b",name:"Sinistea (Antique)",t1:"Ghost",t2:null,spriteId:854,art:false},
-  {baseId:855,sub:"b",name:"Polteageist (Antique)",t1:"Ghost",t2:null,spriteId:855,art:false},
-  {baseId:876,sub:"b",name:"Indeedee (Female)",t1:"Psychic",t2:"Normal",spriteId:876,art:false},
-  {baseId:877,sub:"b",name:"Morpeko (Hangry)",t1:"Electric",t2:"Dark",spriteId:877,art:false},
-  {baseId:888,sub:"b",name:"Zacian (Crowned)",t1:"Fairy",t2:"Steel",spriteId:10179,art:true},
-  {baseId:889,sub:"b",name:"Zamazenta (Crowned)",t1:"Fighting",t2:"Steel",spriteId:10180,art:true},
-  {baseId:890,sub:"b",name:"Eternatus (Eternamax)",t1:"Poison",t2:"Dragon",spriteId:10181,art:true},
-  {baseId:892,sub:"b",name:"Urshifu (Rapid Strike)",t1:"Fighting",t2:"Water",spriteId:10182,art:true},
-  {baseId:898,sub:"b",name:"Calyrex (Ice Rider)",t1:"Psychic",t2:"Ice",spriteId:10183,art:true},
-  {baseId:898,sub:"c",name:"Calyrex (Shadow Rider)",t1:"Psychic",t2:"Ghost",spriteId:10184,art:true},
-  {baseId:905,sub:"b",name:"Enamorus (Therian)",t1:"Fairy",t2:"Flying",spriteId:905,art:true},
-  {baseId:58,sub:"b",name:"Hisuian-Growlithe",t1:"Fire",t2:"Rock",spriteId:58,art:true},
-  {baseId:59,sub:"b",name:"Hisuian-Arcanine",t1:"Fire",t2:"Rock",spriteId:59,art:true},
-  {baseId:100,sub:"b",name:"Hisuian-Voltorb",t1:"Electric",t2:"Grass",spriteId:100,art:true},
-  {baseId:101,sub:"b",name:"Hisuian-Electrode",t1:"Electric",t2:"Grass",spriteId:101,art:true},
-  {baseId:157,sub:"b",name:"Hisuian-Typhlosion",t1:"Fire",t2:"Ghost",spriteId:157,art:true},
-  {baseId:211,sub:"b",name:"Hisuian-Qwilfish",t1:"Dark",t2:"Poison",spriteId:211,art:true},
-  {baseId:215,sub:"b",name:"Hisuian-Sneasel",t1:"Fighting",t2:"Poison",spriteId:215,art:true},
-  {baseId:503,sub:"b",name:"Hisuian-Samurott",t1:"Water",t2:"Dark",spriteId:503,art:true},
-  {baseId:549,sub:"b",name:"Hisuian-Lilligant",t1:"Grass",t2:"Fighting",spriteId:549,art:true},
-  {baseId:570,sub:"b",name:"Hisuian-Zorua",t1:"Normal",t2:"Ghost",spriteId:570,art:true},
-  {baseId:571,sub:"b",name:"Hisuian-Zoroark",t1:"Normal",t2:"Ghost",spriteId:571,art:true},
-  {baseId:628,sub:"b",name:"Hisuian-Braviary",t1:"Psychic",t2:"Flying",spriteId:628,art:true},
-  {baseId:705,sub:"b",name:"Hisuian-Sliggoo",t1:"Steel",t2:"Dragon",spriteId:705,art:true},
-  {baseId:706,sub:"b",name:"Hisuian-Goodra",t1:"Steel",t2:"Dragon",spriteId:706,art:true},
-  {baseId:713,sub:"b",name:"Hisuian-Avalugg",t1:"Ice",t2:"Rock",spriteId:713,art:true},
-  {baseId:724,sub:"b",name:"Hisuian-Decidueye",t1:"Grass",t2:"Fighting",spriteId:724,art:true},
-  {baseId:128,sub:"b",name:"Paldean-Tauros (Aqua)",t1:"Water",t2:"Fighting",spriteId:128,art:true},
-  {baseId:128,sub:"c",name:"Paldean-Tauros (Blaze)",t1:"Fire",t2:"Fighting",spriteId:128,art:true},
-  {baseId:128,sub:"d",name:"Paldean-Tauros (Combat)",t1:"Fighting",t2:null,spriteId:128,art:true},
-  {baseId:194,sub:"b",name:"Paldean-Wooper",t1:"Poison",t2:"Ground",spriteId:194,art:true},
-  {baseId:773,sub:"b",name:"Silvally (Fighting)",t1:"Fighting",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"c",name:"Silvally (Flying)",t1:"Flying",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"d",name:"Silvally (Poison)",t1:"Poison",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"e",name:"Silvally (Ground)",t1:"Ground",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"f",name:"Silvally (Rock)",t1:"Rock",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"g",name:"Silvally (Bug)",t1:"Bug",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"h",name:"Silvally (Ghost)",t1:"Ghost",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"i",name:"Silvally (Steel)",t1:"Steel",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"j",name:"Silvally (Fire)",t1:"Fire",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"k",name:"Silvally (Water)",t1:"Water",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"l",name:"Silvally (Grass)",t1:"Grass",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"m",name:"Silvally (Electric)",t1:"Electric",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"n",name:"Silvally (Psychic)",t1:"Psychic",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"o",name:"Silvally (Ice)",t1:"Ice",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"p",name:"Silvally (Dragon)",t1:"Dragon",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"q",name:"Silvally (Dark)",t1:"Dark",t2:null,spriteId:773,art:true},
-  {baseId:773,sub:"r",name:"Silvally (Fairy)",t1:"Fairy",t2:null,spriteId:773,art:true},
-  {baseId:201,sub:"b",name:"Unown-B",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"c",name:"Unown-C",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"d",name:"Unown-D",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"e",name:"Unown-E",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"f",name:"Unown-F",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"g",name:"Unown-G",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"h",name:"Unown-H",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"i",name:"Unown-I",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"j",name:"Unown-J",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"k",name:"Unown-K",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"l",name:"Unown-L",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"m",name:"Unown-M",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"n",name:"Unown-N",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"o",name:"Unown-O",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"p",name:"Unown-P",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"q",name:"Unown-Q",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"r",name:"Unown-R",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"s",name:"Unown-S",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"t",name:"Unown-T",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"u",name:"Unown-U",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"v",name:"Unown-V",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"w",name:"Unown-W",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"x",name:"Unown-X",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"y",name:"Unown-Y",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"z",name:"Unown-Z",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"!",name:"Unown-!",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:201,sub:"?",name:"Unown-?",t1:"Psychic",t2:null,spriteId:201,art:true},
-  {baseId:916,sub:"b",name:"Oinkologne (Female)",t1:"Normal",t2:null,spriteId:916,art:true},
-  {baseId:931,sub:"b",name:"Squawkabilly (Blue)",t1:"Normal",t2:"Flying",spriteId:931,art:true},
-  {baseId:931,sub:"c",name:"Squawkabilly (Yellow)",t1:"Normal",t2:"Flying",spriteId:931,art:true},
-  {baseId:931,sub:"d",name:"Squawkabilly (White)",t1:"Normal",t2:"Flying",spriteId:931,art:true},
-  {baseId:964,sub:"b",name:"Palafin (Hero)",t1:"Water",t2:null,spriteId:964,art:true},
-  {baseId:978,sub:"b",name:"Tatsugiri (Droopy)",t1:"Dragon",t2:"Water",spriteId:978,art:true},
-  {baseId:978,sub:"c",name:"Tatsugiri (Stretchy)",t1:"Dragon",t2:"Water",spriteId:978,art:true},
-  {baseId:982,sub:"b",name:"Dudunsparce (Three-Segment)",t1:"Normal",t2:null,spriteId:982,art:true},
-  {baseId:1017,sub:"b",name:"Ogerpon (Wellspring)",t1:"Water",t2:"Grass",spriteId:10273,art:true},
-  {baseId:1017,sub:"c",name:"Ogerpon (Hearthflame)",t1:"Fire",t2:"Grass",spriteId:10274,art:true},
-  {baseId:1017,sub:"d",name:"Ogerpon (Cornerstone)",t1:"Rock",t2:"Grass",spriteId:10275,art:true},
-  {baseId:1024,sub:"b",name:"Terapagos (Terastal)",t1:"Normal",t2:null,spriteId:1024,art:true},
-  {baseId:1024,sub:"c",name:"Terapagos (Stellar)",t1:"Normal",t2:null,spriteId:1024,art:true},
+// POKEMON_FORMS removed — forms now loaded from pokemon.json
+const POKEMON_FORMS = [];
 
-  // ── NEW GMax forms ────────────────────────────────────────────────────────
-  {baseId:66,sub:"b",name:"GMax-Machamp",t1:"Fighting",t2:null,spriteId:66,art:false},
-  {baseId:99,sub:"b",name:"GMax-Kingler",t1:"Water",t2:null,spriteId:99,art:false},
-  {baseId:569,sub:"b",name:"GMax-Garbodor",t1:"Poison",t2:null,spriteId:569,art:false},
-  {baseId:809,sub:"b",name:"GMax-Melmetal",t1:"Steel",t2:null,spriteId:809,art:false},
-  {baseId:812,sub:"b",name:"GMax-Rillaboom",t1:"Grass",t2:null,spriteId:812,art:false},
-  {baseId:815,sub:"b",name:"GMax-Cinderace",t1:"Fire",t2:null,spriteId:815,art:false},
-  {baseId:818,sub:"b",name:"GMax-Inteleon",t1:"Water",t2:null,spriteId:818,art:false},
-  {baseId:823,sub:"b",name:"GMax-Corviknight",t1:"Flying",t2:"Steel",spriteId:823,art:false},
-  {baseId:826,sub:"b",name:"GMax-Orbeetle",t1:"Bug",t2:"Psychic",spriteId:826,art:false},
-  {baseId:834,sub:"b",name:"GMax-Drednaw",t1:"Water",t2:"Rock",spriteId:834,art:false},
-  {baseId:839,sub:"b",name:"GMax-Coalossal",t1:"Rock",t2:"Fire",spriteId:839,art:false},
-  {baseId:849,sub:"c",name:"GMax-Toxtricity (Low-Key)",t1:"Electric",t2:"Poison",spriteId:849,art:false},
-  // ── Pikachu special cosplay/libre forms ──────────────────────────────────
-  {baseId:25,sub:"k",name:"Pikachu (Libre)",t1:"Electric",t2:null,spriteId:25,art:false},
-  {baseId:25,sub:"l",name:"Pikachu (Cosplay)",t1:"Electric",t2:null,spriteId:25,art:false},
-  {baseId:25,sub:"m",name:"Pikachu (Belle)",t1:"Electric",t2:null,spriteId:25,art:false},
-  {baseId:25,sub:"n",name:"Pikachu (Pop Star)",t1:"Electric",t2:null,spriteId:25,art:false},
-  {baseId:25,sub:"o",name:"Pikachu (Rock Star)",t1:"Electric",t2:null,spriteId:25,art:false},
-  {baseId:25,sub:"p",name:"Pikachu (PhD)",t1:"Electric",t2:null,spriteId:25,art:false},
-  // ── Dialga / Palkia Origin forms ─────────────────────────────────────────
-  {baseId:483,sub:"b",name:"Dialga (Origin)",t1:"Steel",t2:"Dragon",spriteId:483,art:false},
-  {baseId:484,sub:"b",name:"Palkia (Origin)",t1:"Water",t2:"Dragon",spriteId:484,art:false},
-];
 // Total: 261
 
 
@@ -758,8 +474,10 @@ let BASE_STATS = {};
 let CAJUN_NAMES = {};
 
 // ── ALL_MON builder (called after data loads) ─────────────────────────────────
+let _allMonBuilt = false;
 function buildAllMon() {
   ALL_MON.length = 0;
+  _allMonBuilt = false;
   POKEMON.forEach(p => {
     const dispId = p.id ? String(p.id).padStart(4,'0') : '';
     ALL_MON.push({
@@ -3055,6 +2773,11 @@ function updSummary(){
 }
 
 // ── Autocomplete ──────────────────────────────────────────────────────────────
+// ── Debounce utility ─────────────────────────────────────────────────────────
+function debounce(fn, ms) {
+  let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
 function makeAC(ph,list){
   const wrap=document.createElement('div'); wrap.className='ac-wrap';
   const inp=document.createElement('input'); inp.type='text'; inp.placeholder=ph; inp.autocomplete='off'; inp.spellcheck=false;
@@ -3434,7 +3157,7 @@ function makeMoveSearch(card, onDone, stepRef) {
       let ai=-1;
       function buildDD(q,filterType,filterCat,sortMode,ddEl){
         const ddTarget=ddEl||dd;
-        ddTarget.innerHTML='';ai=-1;
+        ddTarget.innerHTML='';ai=-1; const ddFrag=document.createDocumentFragment();
         const q2=q.toLowerCase();
         let matches=q?MOVES.filter(m=>m.name.toLowerCase().includes(q2)||m.type.toLowerCase().includes(q2)||m.cat.toLowerCase().includes(q2)||String(m.id).includes(q2)):[...MOVES];
         if(filterType) matches=matches.filter(m=>m.type===filterType);
@@ -3484,7 +3207,8 @@ function makeMoveSearch(card, onDone, stepRef) {
       }
       function pick(m){sel[si]=m;inp.value=m.name;inp.classList.add('valid');dd.innerHTML='';prev.innerHTML='';prev.style.display='block';prev.appendChild(moveCard(m));}
       allDDs.push(dd); allInps.push(inp);
-      inp.addEventListener('input',()=>{sel[si]=null;inp.classList.remove('valid');prev.style.display='none';prev.innerHTML='';buildDD(inp.value.trim(),activeType,activeCat,activeSort,dd);});
+      const debouncedDD=debounce((v,dd2)=>{buildDD(v,activeType,activeCat,activeSort,dd2);},120);
+      inp.addEventListener('input',()=>{sel[si]=null;inp.classList.remove('valid');prev.style.display='none';prev.innerHTML='';debouncedDD(inp.value.trim(),dd);});
       inp.addEventListener('focus',()=>{if(!dd.children.length)buildDD(inp.value.trim(),activeType,activeCat,activeSort,dd);});
       inp.addEventListener('click',()=>{if(!dd.children.length)buildDD(inp.value.trim(),activeType,activeCat,activeSort,dd);});
       inp.addEventListener('keydown',e=>{const its=dd.querySelectorAll('.dd-item');if(e.key==='ArrowDown'){e.preventDefault();ai=Math.min(ai+1,its.length-1);its.forEach((el,j)=>el.classList.toggle('act',j===ai));if(its[ai])its[ai].scrollIntoView({block:'nearest'});}else if(e.key==='ArrowUp'){e.preventDefault();ai=Math.max(ai-1,0);its.forEach((el,j)=>el.classList.toggle('act',j===ai));}else if(e.key==='Escape')dd.innerHTML='';});
@@ -3660,10 +3384,20 @@ function addS(c,t){const e=document.createElement('div');e.className='q-sub';e.t
 // ── Pokemon data loader ───────────────────────────────────────────────────────
 async function loadPokemonData() {
   try {
-    const r = await fetch('pokemon.json');
+    // Fetch both JSONs in parallel
+    const [r, ra] = await Promise.all([
+      fetch('pokemon.json'),
+      fetch('abilities.json').catch(()=>null),
+    ]);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const data = await r.json();
     const list = data.pokemon || [];
+    // Load abilities immediately
+    if(ra && ra.ok){
+      const ad = await ra.json();
+      (ad.abilities||[]).forEach(ab=>{ ABILITIES_DB[ab.name.toLowerCase()]=ab; });
+      console.log(`✓ Loaded ${Object.keys(ABILITIES_DB).length} abilities`);
+    }
 
     // Build POKEMON array — include ALL entries, use index for missing IDs
     POKEMON.length = 0;
@@ -3705,17 +3439,7 @@ async function loadPokemonData() {
     buildAllMon();
     console.log(`✓ Loaded ${POKEMON.length} Pokemon from pokemon.json`);
 
-    // Also load abilities.json if available
-    try {
-      const ra = await fetch('abilities.json');
-      if(ra.ok){
-        const ad = await ra.json();
-        (ad.abilities||[]).forEach(ab=>{
-          ABILITIES_DB[ab.name.toLowerCase()] = ab;
-        });
-        console.log(`✓ Loaded ${Object.keys(ABILITIES_DB).length} abilities from abilities.json`);
-      }
-    } catch(e2) { /* abilities.json optional */ }
+    // abilities.json loaded in parallel above
   } catch(e) {
     console.warn('pokemon.json not found:', e.message);
     buildAllMon();
@@ -4125,7 +3849,8 @@ function renderQ(){
       });
     }
     function pickI(it){selItem=it;inp.value=it.name;inp.classList.add('valid');dd.innerHTML='';pIco.src=iUrl(it.slug);pIco.onerror=()=>iFb(pIco,it.slug);pName.textContent=`#${String(it.id).padStart(4,'0')} — ${it.name}`;pDesc.textContent=it.desc;pUses.textContent=`Uses: ${it.uses}`;prev.classList.add('vis');}
-    inp.addEventListener('input',()=>{selItem=null;inp.classList.remove('valid');prev.classList.remove('vis');buildIDD(inp.value.trim());});
+    const debouncedItem=debounce(v=>{buildIDD(v);},120);
+    inp.addEventListener('input',()=>{selItem=null;inp.classList.remove('valid');prev.classList.remove('vis');debouncedItem(inp.value.trim());});
     inp.addEventListener('focus',()=>{if(!dd.children.length)buildIDD(inp.value.trim());});
     inp.addEventListener('click',()=>{if(!dd.children.length)buildIDD(inp.value.trim());});
     inp.addEventListener('keydown',e=>{const its=dd.querySelectorAll('.dd-item');if(e.key==='ArrowDown'){e.preventDefault();iai=Math.min(iai+1,its.length-1);its.forEach((el,i)=>el.classList.toggle('act',i===iai));if(its[iai])its[iai].scrollIntoView({block:'nearest'});}else if(e.key==='ArrowUp'){e.preventDefault();iai=Math.max(iai-1,0);its.forEach((el,i)=>el.classList.toggle('act',i===iai));if(its[iai])its[iai].scrollIntoView({block:'nearest'});}else if(e.key==='Escape')dd.innerHTML='';});
