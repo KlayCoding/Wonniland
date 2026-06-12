@@ -474,10 +474,8 @@ let BASE_STATS = {};
 let CAJUN_NAMES = {};
 
 // ── ALL_MON builder (called after data loads) ─────────────────────────────────
-let _allMonBuilt = false;
 function buildAllMon() {
   ALL_MON.length = 0;
-  _allMonBuilt = false;
   POKEMON.forEach(p => {
     const dispId = p.id ? String(p.id).padStart(4,'0') : '';
     ALL_MON.push({
