@@ -29623,7 +29623,7 @@
       "dex_number": 940
     },
     {
-      "id": "1556",
+      "id": 1556,
       "name": "Mega-Absol-Z",
       "sprite": "1556",
       "shiny_sprite": "1556",
@@ -33283,7 +33283,7 @@
       "dex_number": "???"
     },
     {
-      "id": "414",
+      "id": 414,
       "dex_number": "???",
       "temp_form": false,
       "name": "Mothim (Plant)",
@@ -33330,7 +33330,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1436",
+      "id": 1436,
       "dex_number": "???",
       "temp_form": false,
       "name": "Mothim (Sandy)",
@@ -33377,7 +33377,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1437",
+      "id": 1437,
       "dex_number": "???",
       "temp_form": false,
       "name": "Mothim (Trash)",
@@ -37154,7 +37154,7 @@
       "dex_number": "???"
     },
     {
-      "id": "493",
+      "id": 493,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Normal)",
@@ -37197,7 +37197,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1073",
+      "id": 1073,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Fighting)",
@@ -37240,7 +37240,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1074",
+      "id": 1074,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Flying)",
@@ -37283,7 +37283,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1075",
+      "id": 1075,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Poison)",
@@ -37326,7 +37326,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1076",
+      "id": 1076,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Ground)",
@@ -37369,7 +37369,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1077",
+      "id": 1077,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Rock)",
@@ -37412,7 +37412,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1078",
+      "id": 1078,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Bug)",
@@ -37455,7 +37455,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1079",
+      "id": 1079,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Ghost)",
@@ -37498,7 +37498,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1080",
+      "id": 1080,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Steel)",
@@ -37541,7 +37541,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1081",
+      "id": 1081,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Fire)",
@@ -37584,7 +37584,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1082",
+      "id": 1082,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Water)",
@@ -37627,7 +37627,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1083",
+      "id": 1083,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Grass)",
@@ -37670,7 +37670,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1084",
+      "id": 1084,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Electric)",
@@ -37713,7 +37713,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1085",
+      "id": 1085,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Psychic)",
@@ -37756,7 +37756,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1086",
+      "id": 1086,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Ice)",
@@ -37799,7 +37799,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1087",
+      "id": 1087,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Dragon)",
@@ -37842,7 +37842,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1088",
+      "id": 1088,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Dark)",
@@ -37885,7 +37885,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1089",
+      "id": 1089,
       "dex_number": "???",
       "temp_form": false,
       "name": "Arceus (Fairy)",
@@ -48230,7 +48230,7 @@
       "dex_number": "???"
     },
     {
-      "id": "649",
+      "id": 649,
       "dex_number": "???",
       "temp_form": false,
       "name": "Genesect (Normal)",
@@ -48273,7 +48273,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1108",
+      "id": 1108,
       "dex_number": "???",
       "temp_form": false,
       "name": "Genesect (Douse)",
@@ -48316,7 +48316,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1109",
+      "id": 1109,
       "dex_number": "???",
       "temp_form": false,
       "name": "Genesect (Shock)",
@@ -48359,7 +48359,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1110",
+      "id": 1110,
       "dex_number": "???",
       "temp_form": false,
       "name": "Genesect (Burn)",
@@ -48402,7 +48402,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1111",
+      "id": 1111,
       "dex_number": "???",
       "temp_form": false,
       "name": "Genesect (Chill)",
@@ -49417,7 +49417,7 @@
       "dex_number": 663
     },
     {
-      "id": "664",
+      "id": 664,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Icy Snow)",
@@ -49468,7 +49468,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1438",
+      "id": 1438,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Polar)",
@@ -49519,7 +49519,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1439",
+      "id": 1439,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Tundra)",
@@ -49570,7 +49570,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1440",
+      "id": 1440,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Continental)",
@@ -49621,7 +49621,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1441",
+      "id": 1441,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Garden)",
@@ -49672,7 +49672,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1442",
+      "id": 1442,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Elegant)",
@@ -49723,7 +49723,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1443",
+      "id": 1443,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Meadow)",
@@ -49774,7 +49774,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1444",
+      "id": 1444,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Modern)",
@@ -49825,7 +49825,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1445",
+      "id": 1445,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Marine)",
@@ -49876,7 +49876,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1446",
+      "id": 1446,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Archipelago)",
@@ -49927,7 +49927,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1447",
+      "id": 1447,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (High Plains)",
@@ -49978,7 +49978,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1448",
+      "id": 1448,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Sandstorm)",
@@ -50029,7 +50029,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1449",
+      "id": 1449,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (River)",
@@ -50080,7 +50080,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1450",
+      "id": 1450,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Monsoon)",
@@ -50131,7 +50131,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1451",
+      "id": 1451,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Savanna)",
@@ -50182,7 +50182,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1452",
+      "id": 1452,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Sun)",
@@ -50233,7 +50233,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1453",
+      "id": 1453,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Ocean)",
@@ -50284,7 +50284,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1454",
+      "id": 1454,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Jungle)",
@@ -50335,7 +50335,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1455",
+      "id": 1455,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Fancy)",
@@ -50386,7 +50386,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1456",
+      "id": 1456,
       "dex_number": "???",
       "temp_form": false,
       "name": "Scatterbug (Pokéball)",
@@ -50437,7 +50437,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "665",
+      "id": 665,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Icy Snow)",
@@ -50484,7 +50484,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1457",
+      "id": 1457,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Polar)",
@@ -50531,7 +50531,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1458",
+      "id": 1458,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Tundra)",
@@ -50578,7 +50578,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1459",
+      "id": 1459,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Continental)",
@@ -50625,7 +50625,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1460",
+      "id": 1460,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Garden)",
@@ -50672,7 +50672,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1461",
+      "id": 1461,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Elegant)",
@@ -50719,7 +50719,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1462",
+      "id": 1462,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Meadow)",
@@ -50766,7 +50766,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1463",
+      "id": 1463,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Modern)",
@@ -50813,7 +50813,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1464",
+      "id": 1464,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Marine)",
@@ -50860,7 +50860,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1465",
+      "id": 1465,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Archipelago)",
@@ -50907,7 +50907,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1466",
+      "id": 1466,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (High Plains)",
@@ -50954,7 +50954,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1467",
+      "id": 1467,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Sandstorm)",
@@ -51001,7 +51001,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1468",
+      "id": 1468,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (River)",
@@ -51048,7 +51048,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1469",
+      "id": 1469,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Monsoon)",
@@ -51095,7 +51095,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1470",
+      "id": 1470,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Savanna)",
@@ -51142,7 +51142,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1471",
+      "id": 1471,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Sun)",
@@ -51189,7 +51189,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1472",
+      "id": 1472,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Ocean)",
@@ -51236,7 +51236,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1473",
+      "id": 1473,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Jungle)",
@@ -51283,7 +51283,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1474",
+      "id": 1474,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Fancy)",
@@ -51330,7 +51330,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1475",
+      "id": 1475,
       "dex_number": "???",
       "temp_form": false,
       "name": "Spewpa (Pokéball)",
@@ -51377,7 +51377,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "666",
+      "id": 666,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Icy Snow)",
@@ -51428,7 +51428,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1114",
+      "id": 1114,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Polar)",
@@ -51479,7 +51479,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1115",
+      "id": 1115,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Tundra)",
@@ -51530,7 +51530,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1116",
+      "id": 1116,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Continental)",
@@ -51581,7 +51581,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1117",
+      "id": 1117,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Garden)",
@@ -51632,7 +51632,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1118",
+      "id": 1118,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Elegant)",
@@ -51683,7 +51683,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1119",
+      "id": 1119,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Meadow)",
@@ -51734,7 +51734,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1120",
+      "id": 1120,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Modern)",
@@ -51785,7 +51785,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1121",
+      "id": 1121,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Marine)",
@@ -51836,7 +51836,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1122",
+      "id": 1122,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Archipelago)",
@@ -51887,7 +51887,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1123",
+      "id": 1123,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (High Plains)",
@@ -51938,7 +51938,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1124",
+      "id": 1124,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Sandstorm)",
@@ -51989,7 +51989,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1125",
+      "id": 1125,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (River)",
@@ -52040,7 +52040,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1126",
+      "id": 1126,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Monsoon)",
@@ -52091,7 +52091,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1127",
+      "id": 1127,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Savanna)",
@@ -52142,7 +52142,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1128",
+      "id": 1128,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Sun)",
@@ -52193,7 +52193,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1129",
+      "id": 1129,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Ocean)",
@@ -52244,7 +52244,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1130",
+      "id": 1130,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Jungle)",
@@ -52295,7 +52295,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1131",
+      "id": 1131,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Fancy)",
@@ -52346,7 +52346,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1132",
+      "id": 1132,
       "dex_number": "???",
       "temp_form": false,
       "name": "Vivillon (Pokéball)",
@@ -52565,7 +52565,7 @@
       "dex_number": "???"
     },
     {
-      "id": "669",
+      "id": 669,
       "dex_number": "???",
       "temp_form": false,
       "name": "Flabébé (Red)",
@@ -52612,7 +52612,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1133",
+      "id": 1133,
       "dex_number": "???",
       "temp_form": false,
       "name": "Flabébé (Yellow)",
@@ -52659,7 +52659,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1134",
+      "id": 1134,
       "dex_number": "???",
       "temp_form": false,
       "name": "Flabébé (Orange)",
@@ -52706,7 +52706,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1135",
+      "id": 1135,
       "dex_number": "???",
       "temp_form": false,
       "name": "Flabébé (Blue)",
@@ -52753,7 +52753,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1136",
+      "id": 1136,
       "dex_number": "???",
       "temp_form": false,
       "name": "Flabébé (White)",
@@ -52800,7 +52800,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "670",
+      "id": 670,
       "dex_number": "???",
       "temp_form": false,
       "name": "Floette (Red)",
@@ -52847,7 +52847,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1137",
+      "id": 1137,
       "dex_number": "???",
       "temp_form": false,
       "name": "Floette (Yellow)",
@@ -52894,7 +52894,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1138",
+      "id": 1138,
       "dex_number": "???",
       "temp_form": false,
       "name": "Floette (Orange)",
@@ -53035,7 +53035,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1141",
+      "id": 1141,
       "dex_number": "???",
       "temp_form": false,
       "name": "Floette (Eternal)",
@@ -61074,7 +61074,7 @@
       "dex_number": 772
     },
     {
-      "id": "773",
+      "id": 773,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Normal)",
@@ -61117,7 +61117,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1176",
+      "id": 1176,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Fighting)",
@@ -61160,7 +61160,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1177",
+      "id": 1177,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Flying)",
@@ -61203,7 +61203,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1178",
+      "id": 1178,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Poison)",
@@ -61246,7 +61246,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1179",
+      "id": 1179,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Ground)",
@@ -61289,7 +61289,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1180",
+      "id": 1180,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Rock)",
@@ -61332,7 +61332,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1181",
+      "id": 1181,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Bug)",
@@ -61375,7 +61375,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1182",
+      "id": 1182,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Ghost)",
@@ -61418,7 +61418,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1183",
+      "id": 1183,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Steel)",
@@ -61461,7 +61461,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1184",
+      "id": 1184,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Fire)",
@@ -61504,7 +61504,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1185",
+      "id": 1185,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Water)",
@@ -61547,7 +61547,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1186",
+      "id": 1186,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Grass)",
@@ -61590,7 +61590,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1187",
+      "id": 1187,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Electric)",
@@ -61633,7 +61633,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1188",
+      "id": 1188,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Psychic)",
@@ -61676,7 +61676,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1189",
+      "id": 1189,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Ice)",
@@ -61719,7 +61719,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1190",
+      "id": 1190,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Dragon)",
@@ -61762,7 +61762,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1191",
+      "id": 1191,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Dark)",
@@ -61805,7 +61805,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1192",
+      "id": 1192,
       "dex_number": "???",
       "temp_form": false,
       "name": "Silvally (Fairy)",
@@ -61848,7 +61848,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "774",
+      "id": 774,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Red Meteor)",
@@ -61891,7 +61891,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1199",
+      "id": 1199,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Red Core)",
@@ -61934,7 +61934,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1193",
+      "id": 1193,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Orange Meteor)",
@@ -61977,7 +61977,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1200",
+      "id": 1200,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Orange Core)",
@@ -62020,7 +62020,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1194",
+      "id": 1194,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Yellow Meteor)",
@@ -62063,7 +62063,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1201",
+      "id": 1201,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Yellow Core)",
@@ -62106,7 +62106,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1195",
+      "id": 1195,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Green Meteor)",
@@ -62149,7 +62149,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1202",
+      "id": 1202,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Green Core)",
@@ -62192,7 +62192,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1196",
+      "id": 1196,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Blue Meteor)",
@@ -62235,7 +62235,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1203",
+      "id": 1203,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Blue Core)",
@@ -62278,7 +62278,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1197",
+      "id": 1197,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Indigo Meteor)",
@@ -62321,7 +62321,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1204",
+      "id": 1204,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Indigo Core)",
@@ -62364,7 +62364,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1198",
+      "id": 1198,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Violet Meteor)",
@@ -62407,7 +62407,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1205",
+      "id": 1205,
       "dex_number": "???",
       "temp_form": false,
       "name": "Minior (Violet Core)",
@@ -66770,7 +66770,7 @@
       "dex_number": 839
     },
     {
-      "id": "1509",
+      "id": 1509,
       "name": "GMax-Coalossal",
       "sprite": "1509",
       "shiny_sprite": "1509",
@@ -68877,7 +68877,7 @@
       "dex_number": 868
     },
     {
-      "id": "869",
+      "id": 869,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Vanilla Cream Strawberry)",
@@ -68924,7 +68924,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1235",
+      "id": 1235,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Vanilla Cream Berry)",
@@ -68971,7 +68971,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1244",
+      "id": 1244,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Vanilla Cream Love)",
@@ -69018,7 +69018,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1253",
+      "id": 1253,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Vanilla Cream Star)",
@@ -69065,7 +69065,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1262",
+      "id": 1262,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Vanilla Cream Clover)",
@@ -69112,7 +69112,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1271",
+      "id": 1271,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Vanilla Cream Flower)",
@@ -69159,7 +69159,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1280",
+      "id": 1280,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Vanilla Cream Ribbon)",
@@ -69206,7 +69206,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1216",
+      "id": 1216,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Cream Strawberry)",
@@ -69253,7 +69253,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1236",
+      "id": 1236,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Cream Berry)",
@@ -69300,7 +69300,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1245",
+      "id": 1245,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Cream Love)",
@@ -69347,7 +69347,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1254",
+      "id": 1254,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Cream Star)",
@@ -69394,7 +69394,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1263",
+      "id": 1263,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Cream Clover)",
@@ -69441,7 +69441,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1272",
+      "id": 1272,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Cream Flower)",
@@ -69488,7 +69488,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1281",
+      "id": 1281,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Cream Ribbon)",
@@ -69535,7 +69535,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1217",
+      "id": 1217,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Matcha Cream Strawberry)",
@@ -69582,7 +69582,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1237",
+      "id": 1237,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Matcha Cream Berry)",
@@ -69629,7 +69629,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1246",
+      "id": 1246,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Matcha Cream Love)",
@@ -69676,7 +69676,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1255",
+      "id": 1255,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Matcha Cream Star)",
@@ -69723,7 +69723,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1264",
+      "id": 1264,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Matcha Cream Clover)",
@@ -69770,7 +69770,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1273",
+      "id": 1273,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Matcha Cream Flower)",
@@ -69817,7 +69817,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1282",
+      "id": 1282,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Matcha Cream Ribbon)",
@@ -69864,7 +69864,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1218",
+      "id": 1218,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Mint Cream Strawberry)",
@@ -69911,7 +69911,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1238",
+      "id": 1238,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Mint Cream Berry)",
@@ -69958,7 +69958,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1247",
+      "id": 1247,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Mint Cream Love)",
@@ -70005,7 +70005,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1256",
+      "id": 1256,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Mint Cream Star)",
@@ -70052,7 +70052,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1265",
+      "id": 1265,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Mint Cream Clover)",
@@ -70099,7 +70099,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1274",
+      "id": 1274,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Mint Cream Flower)",
@@ -70146,7 +70146,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1283",
+      "id": 1283,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Mint Cream Ribbon)",
@@ -70193,7 +70193,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1219",
+      "id": 1219,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Lemon Cream Strawberry)",
@@ -70240,7 +70240,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1239",
+      "id": 1239,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Lemon Cream Berry)",
@@ -70287,7 +70287,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1248",
+      "id": 1248,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Lemon Cream Love)",
@@ -70334,7 +70334,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1257",
+      "id": 1257,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Lemon Cream Star)",
@@ -70381,7 +70381,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1266",
+      "id": 1266,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Lemon Cream Clover)",
@@ -70428,7 +70428,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1275",
+      "id": 1275,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Lemon Cream Flower)",
@@ -70475,7 +70475,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1284",
+      "id": 1284,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Lemon Cream Ribbon)",
@@ -70522,7 +70522,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1220",
+      "id": 1220,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Salted Cream Strawberry)",
@@ -70569,7 +70569,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1240",
+      "id": 1240,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Salted Cream Berry)",
@@ -70616,7 +70616,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1249",
+      "id": 1249,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Salted Cream Love)",
@@ -70663,7 +70663,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1258",
+      "id": 1258,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Salted Cream Star)",
@@ -70710,7 +70710,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1267",
+      "id": 1267,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Salted Cream Clover)",
@@ -70757,7 +70757,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1276",
+      "id": 1276,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Salted Cream Flower)",
@@ -70804,7 +70804,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1285",
+      "id": 1285,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Salted Cream Ribbon)",
@@ -70851,7 +70851,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1221",
+      "id": 1221,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Swirl Strawberry)",
@@ -70898,7 +70898,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1241",
+      "id": 1241,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Swirl Berry)",
@@ -70945,7 +70945,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1250",
+      "id": 1250,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Swirl Love)",
@@ -70992,7 +70992,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1259",
+      "id": 1259,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Swirl Star)",
@@ -71039,7 +71039,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1268",
+      "id": 1268,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Swirl Clover)",
@@ -71086,7 +71086,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1277",
+      "id": 1277,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Swirl Flower)",
@@ -71133,7 +71133,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1286",
+      "id": 1286,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Ruby Swirl Ribbon)",
@@ -71180,7 +71180,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1222",
+      "id": 1222,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Caramel Swirl Strawberry)",
@@ -71227,7 +71227,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1242",
+      "id": 1242,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Caramel Swirl Berry)",
@@ -71274,7 +71274,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1251",
+      "id": 1251,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Caramel Swirl Love)",
@@ -71321,7 +71321,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1260",
+      "id": 1260,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Caramel Swirl Star)",
@@ -71368,7 +71368,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1269",
+      "id": 1269,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Caramel Swirl Clover)",
@@ -71415,7 +71415,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1278",
+      "id": 1278,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Caramel Swirl Flower)",
@@ -71462,7 +71462,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1287",
+      "id": 1287,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Caramel Swirl Ribbon)",
@@ -71509,7 +71509,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1223",
+      "id": 1223,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Rainbow Swirl Strawberry)",
@@ -71556,7 +71556,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1243",
+      "id": 1243,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Rainbow Swirl Berry)",
@@ -71603,7 +71603,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1252",
+      "id": 1252,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Rainbow Swirl Love)",
@@ -71650,7 +71650,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1261",
+      "id": 1261,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Rainbow Swirl Star)",
@@ -71697,7 +71697,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1270",
+      "id": 1270,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Rainbow Swirl Clover)",
@@ -71744,7 +71744,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1279",
+      "id": 1279,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Rainbow Swirl Flower)",
@@ -71791,7 +71791,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1288",
+      "id": 1288,
       "dex_number": "???",
       "temp_form": false,
       "name": "Alcremie (Rainbow Swirl Ribbon)",
@@ -71838,7 +71838,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1518",
+      "id": 1518,
       "dex_number": "???",
       "temp_form": false,
       "name": "GMax-Alcremie",
@@ -72343,7 +72343,7 @@
       "dex_number": 876
     },
     {
-      "id": "1225",
+      "id": 1225,
       "name": "Indeedee (♀)",
       "sprite": "1225",
       "shiny_sprite": "1225",
@@ -74811,7 +74811,7 @@
       "dex_number": "???"
     },
     {
-      "id": "1300",
+      "id": 1300,
       "name": "Oinkologne (♀)",
       "sprite": "1300",
       "shiny_sprite": "1300",
@@ -80523,7 +80523,7 @@
       "dex_number": "???"
     },
     {
-      "id": "1416",
+      "id": 1416,
       "dex_number": "???",
       "temp_form": false,
       "name": "Ogerpon (Teal)",
@@ -80579,7 +80579,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1417",
+      "id": 1417,
       "dex_number": "???",
       "temp_form": false,
       "name": "Ogerpon (Wellspring Mask)",
@@ -80635,7 +80635,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1418",
+      "id": 1418,
       "dex_number": "???",
       "temp_form": false,
       "name": "Ogerpon (Hearthflame Mask)",
@@ -80691,7 +80691,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1419",
+      "id": 1419,
       "dex_number": "???",
       "temp_form": false,
       "name": "Ogerpon (Cornerstone Mask)",
@@ -80747,7 +80747,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1420",
+      "id": 1420,
       "dex_number": "???",
       "temp_form": false,
       "name": "Ogerpon (Teal Mask Tera)",
@@ -80803,7 +80803,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1421",
+      "id": 1421,
       "dex_number": "???",
       "temp_form": false,
       "name": "Ogerpon (Wellspring Mask Tera)",
@@ -80859,7 +80859,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1422",
+      "id": 1422,
       "dex_number": "???",
       "temp_form": false,
       "name": "Ogerpon (Hearthflame Mask Tera)",
@@ -80915,7 +80915,7 @@
       "egg_moves_ref": null
     },
     {
-      "id": "1423",
+      "id": 1423,
       "dex_number": "???",
       "temp_form": false,
       "name": "Ogerpon (Cornerstone Mask Tera)",
