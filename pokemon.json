@@ -74215,6 +74215,8 @@
     },
     {
       "id": 1289,
+      "group": "Gen 9",
+      "dex_number": "0906",
       "name": "Sprigatito",
       "sprite": "1289",
       "shiny_sprite": "1289",
@@ -74261,12 +74263,12 @@
       "evolutions": null,
       "learnset_ref": "sSprigatitoLevelUpLearnset",
       "teachable_ref": "sSprigatitoTeachableLearnset",
-      "egg_moves_ref": "sSprigatitoEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sSprigatitoEggMoveLearnset"
     },
     {
       "id": 1290,
+      "group": "Gen 9",
+      "dex_number": "0907",
       "name": "Floragato",
       "sprite": "129",
       "shiny_sprite": "1290",
@@ -74314,11 +74316,11 @@
       "learnset_ref": "sFloragatoLevelUpLearnset",
       "teachable_ref": "sFloragatoTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1291,
+      "group": "Gen 9",
+      "dex_number": "0908",
       "name": "Meowscarada",
       "sprite": "1291",
       "shiny_sprite": "1291",
@@ -74366,11 +74368,11 @@
       "learnset_ref": "sMeowscaradaLevelUpLearnset",
       "teachable_ref": "sMeowscaradaTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1292,
+      "group": "Gen 9",
+      "dex_number": "0909",
       "name": "Fuecoco",
       "sprite": "1292",
       "shiny_sprite": "1292",
@@ -74416,12 +74418,12 @@
       "evolutions": null,
       "learnset_ref": "sFuecocoLevelUpLearnset",
       "teachable_ref": "sFuecocoTeachableLearnset",
-      "egg_moves_ref": "sFuecocoEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sFuecocoEggMoveLearnset"
     },
     {
       "id": 1293,
+      "group": "Gen 9",
+      "dex_number": "0910",
       "name": "Crocalor",
       "sprite": "1293",
       "shiny_sprite": "1293",
@@ -74468,11 +74470,11 @@
       "learnset_ref": "sCrocalorLevelUpLearnset",
       "teachable_ref": "sCrocalorTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1294,
+      "group": "Gen 9",
+      "dex_number": "0911",
       "name": "Skeledirge",
       "sprite": "1294",
       "shiny_sprite": "1294",
@@ -74519,11 +74521,11 @@
       "learnset_ref": "sSkeledirgeLevelUpLearnset",
       "teachable_ref": "sSkeledirgeTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1295,
+      "group": "Gen 9",
+      "dex_number": "0912",
       "name": "Quaxly",
       "sprite": "1295",
       "shiny_sprite": "1295",
@@ -74570,12 +74572,12 @@
       "evolutions": null,
       "learnset_ref": "sQuaxlyLevelUpLearnset",
       "teachable_ref": "sQuaxlyTeachableLearnset",
-      "egg_moves_ref": "sQuaxlyEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sQuaxlyEggMoveLearnset"
     },
     {
       "id": 1296,
+      "group": "Gen 9",
+      "dex_number": "0913",
       "name": "Quaxwell",
       "sprite": "1296",
       "shiny_sprite": "1296",
@@ -74623,11 +74625,11 @@
       "learnset_ref": "sQuaxwellLevelUpLearnset",
       "teachable_ref": "sQuaxwellTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1297,
+      "group": "Gen 9",
+      "dex_number": "0914",
       "name": "Quaquaval",
       "sprite": "1297",
       "shiny_sprite": "1297",
@@ -74675,11 +74677,11 @@
       "learnset_ref": "sQuaquavalLevelUpLearnset",
       "teachable_ref": "sQuaquavalTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1298,
+      "group": "Gen 9",
+      "dex_number": "0915",
       "name": "Lechonk",
       "sprite": "1298",
       "shiny_sprite": "1298",
@@ -74729,12 +74731,12 @@
       "evolutions": null,
       "learnset_ref": "sLechonkLevelUpLearnset",
       "teachable_ref": "sLechonkTeachableLearnset",
-      "egg_moves_ref": "sLechonkEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sLechonkEggMoveLearnset"
     },
     {
       "id": 1299,
+      "group": "Gen 9",
+      "dex_number": "0916a",
       "name": "Oinkologne (♂)",
       "sprite": "1299",
       "shiny_sprite": "1299",
@@ -74785,11 +74787,11 @@
       "learnset_ref": "sOinkologneMLevelUpLearnset",
       "teachable_ref": "sOinkologneTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1300,
+      "group": "Gen 9",
+      "dex_number": "0916b",
       "name": "Oinkologne (♀)",
       "sprite": "1300",
       "shiny_sprite": "1300",
@@ -74843,6 +74845,8 @@
     },
     {
       "id": 1301,
+      "group": "Gen 9",
+      "dex_number": "0917",
       "name": "Tarountula",
       "sprite": "1301",
       "shiny_sprite": "1301",
@@ -74888,12 +74892,12 @@
       "evolutions": null,
       "learnset_ref": "sTarountulaLevelUpLearnset",
       "teachable_ref": "sTarountulaTeachableLearnset",
-      "egg_moves_ref": "sTarountulaEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTarountulaEggMoveLearnset"
     },
     {
       "id": 1302,
+      "group": "Gen 9",
+      "dex_number": "0918",
       "name": "Spidops",
       "sprite": "1302",
       "shiny_sprite": "1302",
@@ -74940,11 +74944,11 @@
       "learnset_ref": "sSpidopsLevelUpLearnset",
       "teachable_ref": "sSpidopsTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1303,
+      "group": "Gen 9",
+      "dex_number": "0919",
       "name": "Nymble",
       "sprite": "1303",
       "shiny_sprite": "1303",
@@ -74990,12 +74994,12 @@
       "evolutions": null,
       "learnset_ref": "sNymbleLevelUpLearnset",
       "teachable_ref": "sNymbleTeachableLearnset",
-      "egg_moves_ref": "sNymbleEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sNymbleEggMoveLearnset"
     },
     {
       "id": 1304,
+      "group": "Gen 9",
+      "dex_number": "0920",
       "name": "Lokix",
       "sprite": "1304",
       "shiny_sprite": "1304",
@@ -75042,11 +75046,11 @@
       "learnset_ref": "sLokixLevelUpLearnset",
       "teachable_ref": "sLokixTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1305,
+      "group": "Gen 9",
+      "dex_number": "0921",
       "name": "Pawmi",
       "sprite": "1305",
       "shiny_sprite": "1305",
@@ -75096,12 +75100,12 @@
       "evolutions": null,
       "learnset_ref": "sPawmiLevelUpLearnset",
       "teachable_ref": "sPawmiTeachableLearnset",
-      "egg_moves_ref": "sPawmiEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sPawmiEggMoveLearnset"
     },
     {
       "id": 1306,
+      "group": "Gen 9",
+      "dex_number": "0922",
       "name": "Pawmo",
       "sprite": "1306",
       "shiny_sprite": "1306",
@@ -75152,11 +75156,11 @@
       "learnset_ref": "sPawmoLevelUpLearnset",
       "teachable_ref": "sPawmoTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1307,
+      "group": "Gen 9",
+      "dex_number": "0923",
       "name": "Pawmot",
       "sprite": "1307",
       "shiny_sprite": "1307",
@@ -75207,11 +75211,11 @@
       "learnset_ref": "sPawmotLevelUpLearnset",
       "teachable_ref": "sPawmotTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1308,
+      "group": "Gen 9",
+      "dex_number": "0924",
       "name": "Tandemaus",
       "sprite": "1308",
       "shiny_sprite": "1308",
@@ -75262,12 +75266,12 @@
       "evolutions": null,
       "learnset_ref": "sTandemausLevelUpLearnset",
       "teachable_ref": "sTandemausTeachableLearnset",
-      "egg_moves_ref": "sTandemausEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTandemausEggMoveLearnset"
     },
     {
       "id": 1309,
+      "group": "Gen 9",
+      "dex_number": "0925a",
       "name": "Maushold (Three)",
       "sprite": "1309",
       "shiny_sprite": "1309",
@@ -75319,11 +75323,11 @@
       "learnset_ref": "sMausholdLevelUpLearnset",
       "teachable_ref": "sMausholdTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1310,
+      "group": "Gen 9",
+      "dex_number": "0925b",
       "name": "Maushold (Four)",
       "sprite": "1310",
       "shiny_sprite": "1310",
@@ -75375,11 +75379,11 @@
       "learnset_ref": "sMausholdLevelUpLearnset",
       "teachable_ref": "sMausholdTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1311,
+      "group": "Gen 9",
+      "dex_number": "0926",
       "name": "Fidough",
       "sprite": "1311",
       "shiny_sprite": "1311",
@@ -75426,12 +75430,12 @@
       "evolutions": null,
       "learnset_ref": "sFidoughLevelUpLearnset",
       "teachable_ref": "sFidoughTeachableLearnset",
-      "egg_moves_ref": "sFidoughEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sFidoughEggMoveLearnset"
     },
     {
       "id": 1312,
+      "group": "Gen 9",
+      "dex_number": "0927",
       "name": "Dachsbun",
       "sprite": "1312",
       "shiny_sprite": "1312",
@@ -75479,11 +75483,11 @@
       "learnset_ref": "sDachsbunLevelUpLearnset",
       "teachable_ref": "sDachsbunTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1313,
+      "group": "Gen 9",
+      "dex_number": "0928",
       "name": "Smoliv",
       "sprite": "1313",
       "shiny_sprite": "1313",
@@ -75529,12 +75533,12 @@
       "evolutions": null,
       "learnset_ref": "sSmolivLevelUpLearnset",
       "teachable_ref": "sSmolivTeachableLearnset",
-      "egg_moves_ref": "sSmolivEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sSmolivEggMoveLearnset"
     },
     {
       "id": 1314,
+      "group": "Gen 9",
+      "dex_number": "0929",
       "name": "Dolliv",
       "sprite": "1314",
       "shiny_sprite": "1314",
@@ -75581,11 +75585,11 @@
       "learnset_ref": "sDollivLevelUpLearnset",
       "teachable_ref": "sDollivTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1315,
+      "group": "Gen 9",
+      "dex_number": "0930",
       "name": "Arboliva",
       "sprite": "1315",
       "shiny_sprite": "1315",
@@ -75632,11 +75636,11 @@
       "learnset_ref": "sArbolivaLevelUpLearnset",
       "teachable_ref": "sArbolivaTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1316,
+      "group": "Gen 9",
+      "dex_number": "0931a",
       "name": "Squawkabilly (Green)",
       "sprite": "1316",
       "shiny_sprite": "1316",
@@ -75686,12 +75690,12 @@
       "evolutions": null,
       "learnset_ref": "sSquawkabillyLevelUpLearnset",
       "teachable_ref": "sSquawkabillyTeachableLearnset",
-      "egg_moves_ref": "sSquawkabillyEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sSquawkabillyEggMoveLearnset"
     },
     {
       "id": 1317,
+      "group": "Gen 9",
+      "dex_number": "0931b",
       "name": "Squawkabilly (Blue)",
       "sprite": "1317",
       "shiny_sprite": "1317",
@@ -75741,12 +75745,12 @@
       "evolutions": null,
       "learnset_ref": "sSquawkabillyLevelUpLearnset",
       "teachable_ref": "sSquawkabillyTeachableLearnset",
-      "egg_moves_ref": "sSquawkabillyEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sSquawkabillyEggMoveLearnset"
     },
     {
       "id": 1318,
+      "group": "Gen 9",
+      "dex_number": "0931c",
       "name": "Squawkabilly (Yellow)",
       "sprite": "1318",
       "shiny_sprite": "1318",
@@ -75796,12 +75800,12 @@
       "evolutions": null,
       "learnset_ref": "sSquawkabillyLevelUpLearnset",
       "teachable_ref": "sSquawkabillyTeachableLearnset",
-      "egg_moves_ref": "sSquawkabillyEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sSquawkabillyEggMoveLearnset"
     },
     {
       "id": 1319,
+      "group": "Gen 9",
+      "dex_number": "0931d",
       "name": "Squawkabilly (White)",
       "sprite": "1319",
       "shiny_sprite": "1319",
@@ -75851,12 +75855,12 @@
       "evolutions": null,
       "learnset_ref": "sSquawkabillyLevelUpLearnset",
       "teachable_ref": "sSquawkabillyTeachableLearnset",
-      "egg_moves_ref": "sSquawkabillyEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sSquawkabillyEggMoveLearnset"
     },
     {
       "id": 1320,
+      "group": "Gen 9",
+      "dex_number": "0932",
       "name": "Nacli",
       "sprite": "1320",
       "shiny_sprite": "1320",
@@ -75906,12 +75910,12 @@
       "evolutions": null,
       "learnset_ref": "sNacliLevelUpLearnset",
       "teachable_ref": "sNacliTeachableLearnset",
-      "egg_moves_ref": "sNacliEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sNacliEggMoveLearnset"
     },
     {
       "id": 1321,
+      "group": "Gen 9",
+      "dex_number": "0933",
       "name": "Naclstack",
       "sprite": "1321",
       "shiny_sprite": "1321",
@@ -75962,11 +75966,11 @@
       "learnset_ref": "sNaclstackLevelUpLearnset",
       "teachable_ref": "sNaclstackTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1322,
+      "group": "Gen 9",
+      "dex_number": "0934",
       "name": "Garganacl",
       "sprite": "1322",
       "shiny_sprite": "1322",
@@ -76017,11 +76021,11 @@
       "learnset_ref": "sGarganaclLevelUpLearnset",
       "teachable_ref": "sGarganaclTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1323,
+      "group": "Gen 9",
+      "dex_number": "0935",
       "name": "Charcadet",
       "sprite": "1323",
       "shiny_sprite": "1323",
@@ -76067,12 +76071,12 @@
       "evolutions": null,
       "learnset_ref": "sCharcadetLevelUpLearnset",
       "teachable_ref": "sCharcadetTeachableLearnset",
-      "egg_moves_ref": "sCharcadetEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sCharcadetEggMoveLearnset"
     },
     {
       "id": 1324,
+      "group": "Gen 9",
+      "dex_number": "0936",
       "name": "Armarouge",
       "sprite": "1324",
       "shiny_sprite": "1324",
@@ -76119,11 +76123,11 @@
       "learnset_ref": "sArmarougeLevelUpLearnset",
       "teachable_ref": "sArmarougeTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1325,
+      "group": "Gen 9",
+      "dex_number": "0937",
       "name": "Ceruledge",
       "sprite": "1325",
       "shiny_sprite": "1325",
@@ -76170,11 +76174,11 @@
       "learnset_ref": "sCeruledgeLevelUpLearnset",
       "teachable_ref": "sCeruledgeTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1326,
+      "group": "Gen 9",
+      "dex_number": "0938",
       "name": "Tadbulb",
       "sprite": "1326",
       "shiny_sprite": "1326",
@@ -76224,12 +76228,12 @@
       "evolutions": null,
       "learnset_ref": "sTadbulbLevelUpLearnset",
       "teachable_ref": "sTadbulbTeachableLearnset",
-      "egg_moves_ref": "sTadbulbEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTadbulbEggMoveLearnset"
     },
     {
       "id": 1327,
+      "group": "Gen 9",
+      "dex_number": "0939",
       "name": "Bellibolt",
       "sprite": "1327",
       "shiny_sprite": "1327",
@@ -76280,11 +76284,11 @@
       "learnset_ref": "sBelliboltLevelUpLearnset",
       "teachable_ref": "sBelliboltTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1328,
+      "group": "Gen 9",
+      "dex_number": "0940",
       "name": "Wattrel",
       "sprite": "1328",
       "shiny_sprite": "1328",
@@ -76335,12 +76339,12 @@
       "evolutions": null,
       "learnset_ref": "sWattrelLevelUpLearnset",
       "teachable_ref": "sWattrelTeachableLearnset",
-      "egg_moves_ref": "sWattrelEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sWattrelEggMoveLearnset"
     },
     {
       "id": 1329,
+      "group": "Gen 9",
+      "dex_number": "0941",
       "name": "Kilowattrel",
       "sprite": "1329",
       "shiny_sprite": "1329",
@@ -76392,11 +76396,11 @@
       "learnset_ref": "sKilowattrelLevelUpLearnset",
       "teachable_ref": "sKilowattrelTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1330,
+      "group": "Gen 9",
+      "dex_number": "0942",
       "name": "Maschiff",
       "sprite": "1330",
       "shiny_sprite": "1330",
@@ -76446,12 +76450,12 @@
       "evolutions": null,
       "learnset_ref": "sMaschiffLevelUpLearnset",
       "teachable_ref": "sMaschiffTeachableLearnset",
-      "egg_moves_ref": "sMaschiffEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sMaschiffEggMoveLearnset"
     },
     {
       "id": 1331,
+      "group": "Gen 9",
+      "dex_number": "0943",
       "name": "Mabosstiff",
       "sprite": "1331",
       "shiny_sprite": "1331",
@@ -76502,11 +76506,11 @@
       "learnset_ref": "sMabosstiffLevelUpLearnset",
       "teachable_ref": "sMabosstiffTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1332,
+      "group": "Gen 9",
+      "dex_number": "0944",
       "name": "Shroodle",
       "sprite": "1332",
       "shiny_sprite": "1332",
@@ -76556,12 +76560,12 @@
       "evolutions": null,
       "learnset_ref": "sShroodleLevelUpLearnset",
       "teachable_ref": "sShroodleTeachableLearnset",
-      "egg_moves_ref": "sShroodleEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sShroodleEggMoveLearnset"
     },
     {
       "id": 1333,
+      "group": "Gen 9",
+      "dex_number": "0945",
       "name": "Grafaiai",
       "sprite": "1333",
       "shiny_sprite": "1333",
@@ -76612,11 +76616,11 @@
       "learnset_ref": "sGrafaiaiLevelUpLearnset",
       "teachable_ref": "sGrafaiaiTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1334,
+      "group": "Gen 9",
+      "dex_number": "0946",
       "name": "Bramblin",
       "sprite": "1334",
       "shiny_sprite": "1334",
@@ -76662,12 +76666,12 @@
       "evolutions": null,
       "learnset_ref": "sBramblinLevelUpLearnset",
       "teachable_ref": "sBramblinTeachableLearnset",
-      "egg_moves_ref": "sBramblinEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sBramblinEggMoveLearnset"
     },
     {
       "id": 1335,
+      "group": "Gen 9",
+      "dex_number": "0947",
       "name": "Brambleghast",
       "sprite": "1335",
       "shiny_sprite": "1335",
@@ -76714,11 +76718,11 @@
       "learnset_ref": "sBrambleghastLevelUpLearnset",
       "teachable_ref": "sBrambleghastTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1336,
+      "group": "Gen 9",
+      "dex_number": "0948",
       "name": "Toedscool",
       "sprite": "1336",
       "shiny_sprite": "1336",
@@ -76760,12 +76764,12 @@
       "evolutions": null,
       "learnset_ref": "sToedscoolLevelUpLearnset",
       "teachable_ref": "sToedscoolTeachableLearnset",
-      "egg_moves_ref": "sToedscoolEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sToedscoolEggMoveLearnset"
     },
     {
       "id": 1337,
+      "group": "Gen 9",
+      "dex_number": "0949",
       "name": "Toedscruel",
       "sprite": "1337",
       "shiny_sprite": "1337",
@@ -76808,11 +76812,11 @@
       "learnset_ref": "sToedscruelLevelUpLearnset",
       "teachable_ref": "sToedscruelTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1338,
+      "group": "Gen 9",
+      "dex_number": "0950",
       "name": "Klawf",
       "sprite": "1338",
       "shiny_sprite": "1338",
@@ -76862,12 +76866,12 @@
       "evolutions": null,
       "learnset_ref": "sKlawfLevelUpLearnset",
       "teachable_ref": "sKlawfTeachableLearnset",
-      "egg_moves_ref": "sKlawfEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sKlawfEggMoveLearnset"
     },
     {
       "id": 1339,
+      "group": "Gen 9",
+      "dex_number": "0951",
       "name": "Capsakid",
       "sprite": "1339",
       "shiny_sprite": "1339",
@@ -76917,12 +76921,12 @@
       "evolutions": null,
       "learnset_ref": "sCapsakidLevelUpLearnset",
       "teachable_ref": "sCapsakidTeachableLearnset",
-      "egg_moves_ref": "sCapsakidEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sCapsakidEggMoveLearnset"
     },
     {
       "id": 1340,
+      "group": "Gen 9",
+      "dex_number": "0952a",
       "name": "Scovillain",
       "sprite": "1340",
       "shiny_sprite": "1340",
@@ -76973,11 +76977,11 @@
       "learnset_ref": "sScovillainLevelUpLearnset",
       "teachable_ref": "sScovillainTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1567,
+      "group": "Mega",
+      "dex_number": "0952b",
       "name": "Mega-Scovillain",
       "sprite": "1567",
       "shiny_sprite": "1567",
@@ -77028,11 +77032,11 @@
       "learnset_ref": "sScovillainLevelUpLearnset",
       "teachable_ref": "sScovillainTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1341,
+      "group": "Gen 9",
+      "dex_number": "0953",
       "name": "Rellor",
       "sprite": "1341",
       "shiny_sprite": "1341",
@@ -77078,12 +77082,12 @@
       "evolutions": null,
       "learnset_ref": "sRellorLevelUpLearnset",
       "teachable_ref": "sRellorTeachableLearnset",
-      "egg_moves_ref": "sRellorEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sRellorEggMoveLearnset"
     },
     {
       "id": 1342,
+      "group": "Gen 9",
+      "dex_number": "0954",
       "name": "Rabsca",
       "sprite": "1342",
       "shiny_sprite": "1342",
@@ -77130,11 +77134,11 @@
       "learnset_ref": "sRabscaLevelUpLearnset",
       "teachable_ref": "sRabscaTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1343,
+      "group": "Gen 9",
+      "dex_number": "0955",
       "name": "Flittle",
       "sprite": "1343",
       "shiny_sprite": "1343",
@@ -77184,12 +77188,12 @@
       "evolutions": null,
       "learnset_ref": "sFlittleLevelUpLearnset",
       "teachable_ref": "sFlittleTeachableLearnset",
-      "egg_moves_ref": "sFlittleEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sFlittleEggMoveLearnset"
     },
     {
       "id": 1344,
+      "group": "Gen 9",
+      "dex_number": "0956",
       "name": "Espathra",
       "sprite": "1344",
       "shiny_sprite": "1344",
@@ -77240,11 +77244,11 @@
       "learnset_ref": "sEspathraLevelUpLearnset",
       "teachable_ref": "sEspathraTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1345,
+      "group": "Gen 9",
+      "dex_number": "0957",
       "name": "Tinkatink",
       "sprite": "1345",
       "shiny_sprite": "1345",
@@ -77294,12 +77298,12 @@
       "evolutions": null,
       "learnset_ref": "sTinkatinkLevelUpLearnset",
       "teachable_ref": "sTinkatinkTeachableLearnset",
-      "egg_moves_ref": "sTinkatinkEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTinkatinkEggMoveLearnset"
     },
     {
       "id": 1346,
+      "group": "Gen 9",
+      "dex_number": "0958",
       "name": "Tinkatuff",
       "sprite": "1346",
       "shiny_sprite": "1346",
@@ -77350,11 +77354,11 @@
       "learnset_ref": "sTinkatuffLevelUpLearnset",
       "teachable_ref": "sTinkatuffTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1347,
+      "group": "Gen 9",
+      "dex_number": "0959",
       "name": "Tinkaton",
       "sprite": "1347",
       "shiny_sprite": "1347",
@@ -77405,11 +77409,11 @@
       "learnset_ref": "sTinkatonLevelUpLearnset",
       "teachable_ref": "sTinkatonTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1348,
+      "group": "Gen 9",
+      "dex_number": "0960",
       "name": "Wiglett",
       "sprite": "1348",
       "shiny_sprite": "1348",
@@ -77459,12 +77463,12 @@
       "evolutions": null,
       "learnset_ref": "sWiglettLevelUpLearnset",
       "teachable_ref": "sWiglettTeachableLearnset",
-      "egg_moves_ref": "sWiglettEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sWiglettEggMoveLearnset"
     },
     {
       "id": 1349,
+      "group": "Gen 9",
+      "dex_number": "0961",
       "name": "Wugtrio",
       "sprite": "1349",
       "shiny_sprite": "1349",
@@ -77515,11 +77519,11 @@
       "learnset_ref": "sWugtrioLevelUpLearnset",
       "teachable_ref": "sWugtrioTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1350,
+      "group": "Gen 9",
+      "dex_number": "0962",
       "name": "Bombirdier",
       "sprite": "1350",
       "shiny_sprite": "1350",
@@ -77569,12 +77573,12 @@
       "evolutions": null,
       "learnset_ref": "sBombirdierLevelUpLearnset",
       "teachable_ref": "sBombirdierTeachableLearnset",
-      "egg_moves_ref": "sBombirdierEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sBombirdierEggMoveLearnset"
     },
     {
       "id": 1351,
+      "group": "Gen 9",
+      "dex_number": "0963",
       "name": "Finizen",
       "sprite": "1351",
       "shiny_sprite": "1351",
@@ -77617,12 +77621,12 @@
       "evolutions": null,
       "learnset_ref": "sFinizenLevelUpLearnset",
       "teachable_ref": "sFinizenTeachableLearnset",
-      "egg_moves_ref": "sFinizenEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sFinizenEggMoveLearnset"
     },
     {
       "id": 1352,
+      "group": "Gen 9",
+      "dex_number": "0964a",
       "name": "Palafin (Zero)",
       "sprite": "1352",
       "shiny_sprite": "1352",
@@ -77666,11 +77670,11 @@
       "learnset_ref": "sPalafinLevelUpLearnset",
       "teachable_ref": "sPalafinTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1353,
+      "group": "Gen 9",
+      "dex_number": "0964b",
       "name": "Palafin (Hero)",
       "sprite": "1353",
       "shiny_sprite": "1353",
@@ -77714,11 +77718,11 @@
       "learnset_ref": "sPalafinLevelUpLearnset",
       "teachable_ref": "sPalafinTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1354,
+      "group": "Gen 9",
+      "dex_number": "0965",
       "name": "Varoom",
       "sprite": "1354",
       "shiny_sprite": "1354",
@@ -77764,12 +77768,12 @@
       "evolutions": null,
       "learnset_ref": "sVaroomLevelUpLearnset",
       "teachable_ref": "sVaroomTeachableLearnset",
-      "egg_moves_ref": "sVaroomEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sVaroomEggMoveLearnset"
     },
     {
       "id": 1355,
+      "group": "Gen 9",
+      "dex_number": "0966",
       "name": "Revavroom",
       "sprite": "1355",
       "shiny_sprite": "1355",
@@ -77816,11 +77820,11 @@
       "learnset_ref": "sRevavroomLevelUpLearnset",
       "teachable_ref": "sRevavroomTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1356,
+      "group": "Gen 9",
+      "dex_number": "0967",
       "name": "Cyclizar",
       "sprite": "1356",
       "shiny_sprite": "1356",
@@ -77866,12 +77870,12 @@
       "evolutions": null,
       "learnset_ref": "sCyclizarLevelUpLearnset",
       "teachable_ref": "sCyclizarTeachableLearnset",
-      "egg_moves_ref": "sCyclizarEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sCyclizarEggMoveLearnset"
     },
     {
       "id": 1357,
+      "group": "Gen 9",
+      "dex_number": "0968",
       "name": "Orthworm",
       "sprite": "1357",
       "shiny_sprite": "1357",
@@ -77917,12 +77921,12 @@
       "evolutions": null,
       "learnset_ref": "sOrthwormLevelUpLearnset",
       "teachable_ref": "sOrthwormTeachableLearnset",
-      "egg_moves_ref": "sOrthwormEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sOrthwormEggMoveLearnset"
     },
     {
       "id": 1358,
+      "group": "Gen 9",
+      "dex_number": "0969",
       "name": "Glimmet",
       "sprite": "1358",
       "shiny_sprite": "1358",
@@ -77968,12 +77972,12 @@
       "evolutions": null,
       "learnset_ref": "sGlimmetLevelUpLearnset",
       "teachable_ref": "sGlimmetTeachableLearnset",
-      "egg_moves_ref": "sGlimmetEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sGlimmetEggMoveLearnset"
     },
     {
       "id": 1359,
+      "group": "Gen 9",
+      "dex_number": "0970a",
       "name": "Glimmora",
       "sprite": "1359",
       "shiny_sprite": "1359",
@@ -78020,11 +78024,11 @@
       "learnset_ref": "sGlimmoraLevelUpLearnset",
       "teachable_ref": "sGlimmoraTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1572,
+      "group": "Mega",
+      "dex_number": "0970b",
       "name": "Mega-Glimmora",
       "sprite": "1572",
       "shiny_sprite": "1572",
@@ -78071,11 +78075,11 @@
       "learnset_ref": "sGlimmoraLevelUpLearnset",
       "teachable_ref": "sGlimmoraTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1360,
+      "group": "Gen 9",
+      "dex_number": "0971",
       "name": "Greavard",
       "sprite": "1360",
       "shiny_sprite": "1360",
@@ -78121,12 +78125,12 @@
       "evolutions": null,
       "learnset_ref": "sGreavardLevelUpLearnset",
       "teachable_ref": "sGreavardTeachableLearnset",
-      "egg_moves_ref": "sGreavardEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sGreavardEggMoveLearnset"
     },
     {
       "id": 1361,
+      "group": "Gen 9",
+      "dex_number": "0972",
       "name": "Houndstone",
       "sprite": "1361",
       "shiny_sprite": "1361",
@@ -78173,11 +78177,11 @@
       "learnset_ref": "sHoundstoneLevelUpLearnset",
       "teachable_ref": "sHoundstoneTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1362,
+      "group": "Gen 9",
+      "dex_number": "0973",
       "name": "Flamigo",
       "sprite": "1362",
       "shiny_sprite": "1362",
@@ -78227,12 +78231,12 @@
       "evolutions": null,
       "learnset_ref": "sFlamigoLevelUpLearnset",
       "teachable_ref": "sFlamigoTeachableLearnset",
-      "egg_moves_ref": "sFlamigoEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sFlamigoEggMoveLearnset"
     },
     {
       "id": 1363,
+      "group": "Gen 9",
+      "dex_number": "0974",
       "name": "Cetoddle",
       "sprite": "1363",
       "shiny_sprite": "1363",
@@ -78282,12 +78286,12 @@
       "evolutions": null,
       "learnset_ref": "sCetoddleLevelUpLearnset",
       "teachable_ref": "sCetoddleTeachableLearnset",
-      "egg_moves_ref": "sCetoddleEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sCetoddleEggMoveLearnset"
     },
     {
       "id": 1364,
+      "group": "Gen 9",
+      "dex_number": "0975",
       "name": "Cetitan",
       "sprite": "1364",
       "shiny_sprite": "1364",
@@ -78338,11 +78342,11 @@
       "learnset_ref": "sCetitanLevelUpLearnset",
       "teachable_ref": "sCetitanTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1365,
+      "group": "Gen 9",
+      "dex_number": "0976",
       "name": "Veluza",
       "sprite": "1365",
       "shiny_sprite": "1365",
@@ -78388,12 +78392,12 @@
       "evolutions": null,
       "learnset_ref": "sVeluzaLevelUpLearnset",
       "teachable_ref": "sVeluzaTeachableLearnset",
-      "egg_moves_ref": "sVeluzaEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sVeluzaEggMoveLearnset"
     },
     {
       "id": 1366,
+      "group": "Gen 9",
+      "dex_number": "0977",
       "name": "Dondozo",
       "sprite": "1366",
       "shiny_sprite": "1366",
@@ -78443,12 +78447,12 @@
       "evolutions": null,
       "learnset_ref": "sDondozoLevelUpLearnset",
       "teachable_ref": "sDondozoTeachableLearnset",
-      "egg_moves_ref": "sDondozoEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sDondozoEggMoveLearnset"
     },
     {
       "id": 1367,
+      "group": "Gen 9",
+      "dex_number": "0978a",
       "name": "Tatsugiri (Curly)",
       "sprite": "1367",
       "shiny_sprite": "1367",
@@ -78494,12 +78498,12 @@
       "evolutions": null,
       "learnset_ref": "sTatsugiriLevelUpLearnset",
       "teachable_ref": "sTatsugiriTeachableLearnset",
-      "egg_moves_ref": "sTatsugiriEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
       "id": 1569,
+      "group": "Gen 9",
+      "dex_number": "0978b",
       "name": "Mega-Tatsugiri (Curly)",
       "sprite": "1569",
       "shiny_sprite": "1569",
@@ -78545,12 +78549,12 @@
       "evolutions": null,
       "learnset_ref": "sTatsugiriLevelUpLearnset",
       "teachable_ref": "sTatsugiriTeachableLearnset",
-      "egg_moves_ref": "sTatsugiriEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
       "id": 1368,
+      "group": "Gen 9",
+      "dex_number": "0978c",
       "name": "Tatsugiri (Droopy)",
       "sprite": "1368",
       "shiny_sprite": "1368",
@@ -78596,12 +78600,12 @@
       "evolutions": null,
       "learnset_ref": "sTatsugiriLevelUpLearnset",
       "teachable_ref": "sTatsugiriTeachableLearnset",
-      "egg_moves_ref": "sTatsugiriEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
       "id": 1570,
+      "group": "Gen 9",
+      "dex_number": "0978d",
       "name": "Mega-Tatsugiri (Droopy)",
       "sprite": "1570",
       "shiny_sprite": "1570",
@@ -78647,12 +78651,12 @@
       "evolutions": null,
       "learnset_ref": "sTatsugiriLevelUpLearnset",
       "teachable_ref": "sTatsugiriTeachableLearnset",
-      "egg_moves_ref": "sTatsugiriEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
       "id": 1369,
+      "group": "Gen 9",
+      "dex_number": "0978e",
       "name": "Tatsugiri (Stretchy)",
       "sprite": "1369",
       "shiny_sprite": "1369",
@@ -78698,12 +78702,12 @@
       "evolutions": null,
       "learnset_ref": "sTatsugiriLevelUpLearnset",
       "teachable_ref": "sTatsugiriTeachableLearnset",
-      "egg_moves_ref": "sTatsugiriEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
       "id": 1571,
+      "group": "Gen 9",
+      "dex_number": "0978f",
       "name": "Mega-Tatsugiri (Stretchy)",
       "sprite": "1571",
       "shiny_sprite": "1571",
@@ -78749,12 +78753,12 @@
       "evolutions": null,
       "learnset_ref": "sTatsugiriLevelUpLearnset",
       "teachable_ref": "sTatsugiriTeachableLearnset",
-      "egg_moves_ref": "sTatsugiriEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sTatsugiriEggMoveLearnset"
     },
     {
       "id": 1376,
+      "group": "Gen 9",
+      "dex_number": "0984",
       "name": "Great Tusk",
       "sprite": "1376",
       "shiny_sprite": "1376",
@@ -78797,11 +78801,11 @@
       "learnset_ref": "sGreatTuskLevelUpLearnset",
       "teachable_ref": "sGreatTuskTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1377,
+      "group": "Gen 9",
+      "dex_number": "0985",
       "name": "Scream Tail",
       "sprite": "1377",
       "shiny_sprite": "1377",
@@ -78844,11 +78848,11 @@
       "learnset_ref": "sScreamTailLevelUpLearnset",
       "teachable_ref": "sScreamTailTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1378,
+      "group": "Gen 9",
+      "dex_number": "0986",
       "name": "Brute Bonnet",
       "sprite": "1378",
       "shiny_sprite": "1378",
@@ -78891,11 +78895,11 @@
       "learnset_ref": "sBruteBonnetLevelUpLearnset",
       "teachable_ref": "sBruteBonnetTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1379,
+      "group": "Gen 9",
+      "dex_number": "0987",
       "name": "Flutter Mane",
       "sprite": "1379",
       "shiny_sprite": "1379",
@@ -78940,11 +78944,11 @@
       "learnset_ref": "sFlutterManeLevelUpLearnset",
       "teachable_ref": "sFlutterManeTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1380,
+      "group": "Gen 9",
+      "dex_number": "0988",
       "name": "Slither Wing",
       "sprite": "1380",
       "shiny_sprite": "1380",
@@ -78987,11 +78991,11 @@
       "learnset_ref": "sSlitherWingLevelUpLearnset",
       "teachable_ref": "sSlitherWingTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1381,
+      "group": "Gen 9",
+      "dex_number": "0989",
       "name": "Sandy Shocks",
       "sprite": "1381",
       "shiny_sprite": "1381",
@@ -79034,11 +79038,11 @@
       "learnset_ref": "sSandyShocksLevelUpLearnset",
       "teachable_ref": "sSandyShocksTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1382,
+      "group": "Gen 9",
+      "dex_number": "0990",
       "name": "Iron Treads",
       "sprite": "1382",
       "shiny_sprite": "1382",
@@ -79081,11 +79085,11 @@
       "learnset_ref": "sIronTreadsLevelUpLearnset",
       "teachable_ref": "sIronTreadsTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1383,
+      "group": "Gen 9",
+      "dex_number": "0991",
       "name": "Iron Bundle",
       "sprite": "1383",
       "shiny_sprite": "1383",
@@ -79128,11 +79132,11 @@
       "learnset_ref": "sIronBundleLevelUpLearnset",
       "teachable_ref": "sIronBundleTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1384,
+      "group": "Gen 9",
+      "dex_number": "0992",
       "name": "Iron Hands",
       "sprite": "1384",
       "shiny_sprite": "1384",
@@ -79175,11 +79179,11 @@
       "learnset_ref": "sIronHandsLevelUpLearnset",
       "teachable_ref": "sIronHandsTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1385,
+      "group": "Gen 9",
+      "dex_number": "0993",
       "name": "Iron Jugulis",
       "sprite": "1385",
       "shiny_sprite": "1385",
@@ -79222,11 +79226,11 @@
       "learnset_ref": "sIronJugulisLevelUpLearnset",
       "teachable_ref": "sIronJugulisTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1386,
+      "group": "Gen 9",
+      "dex_number": "0994",
       "name": "Iron Moth",
       "sprite": "1386",
       "shiny_sprite": "1386",
@@ -79269,11 +79273,11 @@
       "learnset_ref": "sIronMothLevelUpLearnset",
       "teachable_ref": "sIronMothTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1387,
+      "group": "Gen 9",
+      "dex_number": "0995",
       "name": "Iron Thorns",
       "sprite": "1387",
       "shiny_sprite": "1387",
@@ -79316,11 +79320,11 @@
       "learnset_ref": "sIronThornsLevelUpLearnset",
       "teachable_ref": "sIronThornsTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1388,
+      "group": "Gen 9",
+      "dex_number": "0996",
       "name": "Frigibax",
       "sprite": "1388",
       "shiny_sprite": "1388",
@@ -79367,12 +79371,12 @@
       "evolutions": null,
       "learnset_ref": "sFrigibaxLevelUpLearnset",
       "teachable_ref": "sFrigibaxTeachableLearnset",
-      "egg_moves_ref": "sFrigibaxEggMoveLearnset",
-      "temp_form": false,
-      "dex_number": "???"
+      "egg_moves_ref": "sFrigibaxEggMoveLearnset"
     },
     {
       "id": 1389,
+      "group": "Gen 9",
+      "dex_number": "0997",
       "name": "Arctibax",
       "sprite": "1389",
       "shiny_sprite": "1389",
@@ -79420,11 +79424,11 @@
       "learnset_ref": "sArctibaxLevelUpLearnset",
       "teachable_ref": "sArctibaxTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1390,
+      "group": "Gen 9",
+      "dex_number": "0998a",
       "name": "Baxcalibur",
       "sprite": "1390",
       "shiny_sprite": "1390",
@@ -79472,11 +79476,11 @@
       "learnset_ref": "sBaxcaliburLevelUpLearnset",
       "teachable_ref": "sBaxcaliburTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1568,
+      "group": "Mega",
+      "dex_number": "0998b",
       "name": "Mega-Baxcalibur",
       "sprite": "1568",
       "shiny_sprite": "1568",
@@ -79524,11 +79528,11 @@
       "learnset_ref": "sBaxcaliburLevelUpLearnset",
       "teachable_ref": "sBaxcaliburTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1391,
+      "group": "Gen 9",
+      "dex_number": "0999a",
       "name": "Gimmighoul (Chest)",
       "sprite": "1391",
       "shiny_sprite": "1391",
@@ -79571,11 +79575,11 @@
       "learnset_ref": "sGimmighoulLevelUpLearnset",
       "teachable_ref": "sGimmighoulTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1392,
+      "group": "Gen 9",
+      "dex_number": "0999b",
       "name": "Gimmighoul (Roaming)",
       "sprite": "1392",
       "shiny_sprite": "1392",
@@ -79618,11 +79622,11 @@
       "learnset_ref": "sGimmighoulLevelUpLearnset",
       "teachable_ref": "sGimmighoulTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1393,
+      "group": "Gen 9",
+      "dex_number": "1000",
       "name": "Gholdengo",
       "sprite": "1393",
       "shiny_sprite": "1393",
@@ -79665,11 +79669,11 @@
       "learnset_ref": "sGholdengoLevelUpLearnset",
       "teachable_ref": "sGholdengoTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1394,
+      "group": "Gen 9",
+      "dex_number": "1001",
       "name": "Wo-Chien",
       "sprite": "1394",
       "shiny_sprite": "1394",
@@ -79712,11 +79716,11 @@
       "learnset_ref": "sWoChienLevelUpLearnset",
       "teachable_ref": "sWoChienTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1395,
+      "group": "Gen 9",
+      "dex_number": "1002",
       "name": "Chien-Pao",
       "sprite": "1395",
       "shiny_sprite": "1395",
@@ -79759,11 +79763,11 @@
       "learnset_ref": "sChienPaoLevelUpLearnset",
       "teachable_ref": "sChienPaoTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1396,
+      "group": "Gen 9",
+      "dex_number": "1003",
       "name": "Ting-Lu",
       "sprite": "1396",
       "shiny_sprite": "1396",
@@ -79806,11 +79810,11 @@
       "learnset_ref": "sTingLuLevelUpLearnset",
       "teachable_ref": "sTingLuTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1397,
+      "group": "Gen 9",
+      "dex_number": "1004",
       "name": "Chi-Yu",
       "sprite": "1397",
       "shiny_sprite": "1397",
@@ -79853,11 +79857,11 @@
       "learnset_ref": "sChiYuLevelUpLearnset",
       "teachable_ref": "sChiYuTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1398,
+      "group": "Gen 9",
+      "dex_number": "1005",
       "name": "Roaring Moon",
       "sprite": "1398",
       "shiny_sprite": "1398",
@@ -79900,11 +79904,11 @@
       "learnset_ref": "sRoaringMoonLevelUpLearnset",
       "teachable_ref": "sRoaringMoonTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1399,
+      "group": "Gen 9",
+      "dex_number": "1006",
       "name": "Iron Valiant",
       "sprite": "1399",
       "shiny_sprite": "1399",
@@ -79947,11 +79951,11 @@
       "learnset_ref": "sIronValiantLevelUpLearnset",
       "teachable_ref": "sIronValiantTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1400,
+      "group": "Gen 9",
+      "dex_number": "1007",
       "name": "Koraidon",
       "sprite": "1400",
       "shiny_sprite": "1400",
@@ -79994,11 +79998,11 @@
       "learnset_ref": "sKoraidonLevelUpLearnset",
       "teachable_ref": "sKoraidonTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1401,
+      "group": "Gen 9",
+      "dex_number": "1008",
       "name": "Miraidon",
       "sprite": "1401",
       "shiny_sprite": "1401",
@@ -80041,11 +80045,11 @@
       "learnset_ref": "sMiraidonLevelUpLearnset",
       "teachable_ref": "sMiraidonTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1406,
+      "group": "Gen 9",
+      "dex_number": "1009",
       "name": "Walking Wake",
       "sprite": "1406",
       "shiny_sprite": "1406",
@@ -80088,11 +80092,11 @@
       "learnset_ref": "sWalkingWakeLevelUpLearnset",
       "teachable_ref": "sWalkingWakeTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1407,
+      "group": "Gen 9",
+      "dex_number": "1010",
       "name": "Iron Leaves",
       "sprite": "1407",
       "shiny_sprite": "1407",
@@ -80135,11 +80139,11 @@
       "learnset_ref": "sIronLeavesLevelUpLearnset",
       "teachable_ref": "sIronLeavesTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1409,
+      "group": "Gen 9",
+      "dex_number": "1012a",
       "name": "Poltchageist (Counterfeit)",
       "sprite": "1409",
       "shiny_sprite": "1409",
@@ -80187,11 +80191,11 @@
       "learnset_ref": "sPoltchageistLevelUpLearnset",
       "teachable_ref": "sPoltchageistTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1410,
+      "group": "Gen 9",
+      "dex_number": "1012b",
       "name": "Poltchageist (Artisan)",
       "sprite": "1410",
       "shiny_sprite": "1410",
@@ -80239,11 +80243,11 @@
       "learnset_ref": "sPoltchageistLevelUpLearnset",
       "teachable_ref": "sPoltchageistTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1411,
+      "group": "Gen 9",
+      "dex_number": "1013a",
       "name": "Sinistcha (Unremarkable)",
       "sprite": "1411",
       "shiny_sprite": "1411",
@@ -80291,11 +80295,11 @@
       "learnset_ref": "sSinistchaLevelUpLearnset",
       "teachable_ref": "sSinistchaTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1412,
+      "group": "Gen 9",
+      "dex_number": "1013b",
       "name": "Sinistcha (Masterpiece)",
       "sprite": "1412",
       "shiny_sprite": "1412",
@@ -80343,11 +80347,11 @@
       "learnset_ref": "sSinistchaLevelUpLearnset",
       "teachable_ref": "sSinistchaTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1413,
+      "group": "Gen 9",
+      "dex_number": "1014",
       "name": "Okidogi",
       "sprite": "1413",
       "shiny_sprite": "1413",
@@ -80394,11 +80398,11 @@
       "learnset_ref": "sOkidogiLevelUpLearnset",
       "teachable_ref": "sOkidogiTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1414,
+      "group": "Gen 9",
+      "dex_number": "1015",
       "name": "Munkidori",
       "sprite": "1414",
       "shiny_sprite": "1414",
@@ -80445,11 +80449,11 @@
       "learnset_ref": "sMunkidoriLevelUpLearnset",
       "teachable_ref": "sMunkidoriTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1415,
+      "group": "Gen 9",
+      "dex_number": "1016",
       "name": "Fezandipiti",
       "sprite": "1415",
       "shiny_sprite": "1415",
@@ -80497,13 +80501,11 @@
       "learnset_ref": "sFezandipitiLevelUpLearnset",
       "teachable_ref": "sFezandipitiTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1416,
-      "dex_number": "???",
-      "temp_form": false,
+      "group": "Gen 9",
+      "dex_number": "1017a",
       "name": "Ogerpon (Teal)",
       "sprite": "1416",
       "shiny_sprite": "1416",
@@ -80558,8 +80560,8 @@
     },
     {
       "id": 1417,
-      "dex_number": "???",
-      "temp_form": false,
+      "group": "Gen 9",
+      "dex_number": "1017b",
       "name": "Ogerpon (Wellspring Mask)",
       "sprite": "1417",
       "shiny_sprite": "1417",
@@ -80614,8 +80616,8 @@
     },
     {
       "id": 1418,
-      "dex_number": "???",
-      "temp_form": false,
+      "group": "Gen 9",
+      "dex_number": "1017c",
       "name": "Ogerpon (Hearthflame Mask)",
       "sprite": "1418",
       "shiny_sprite": "1418",
@@ -80670,8 +80672,8 @@
     },
     {
       "id": 1419,
-      "dex_number": "???",
-      "temp_form": false,
+      "group": "Gen 9",
+      "dex_number": "1017d",
       "name": "Ogerpon (Cornerstone Mask)",
       "sprite": "1419",
       "shiny_sprite": "1419",
@@ -80726,8 +80728,8 @@
     },
     {
       "id": 1420,
-      "dex_number": "???",
-      "temp_form": false,
+      "group": "Gen 9",
+      "dex_number": "1017e",
       "name": "Ogerpon (Teal Mask Tera)",
       "sprite": "1420",
       "shiny_sprite": "1420",
@@ -80782,8 +80784,8 @@
     },
     {
       "id": 1421,
-      "dex_number": "???",
-      "temp_form": false,
+      "group": "Gen 9",
+      "dex_number": "1017f",
       "name": "Ogerpon (Wellspring Mask Tera)",
       "sprite": "1421",
       "shiny_sprite": "1421",
@@ -80838,8 +80840,8 @@
     },
     {
       "id": 1422,
-      "dex_number": "???",
-      "temp_form": false,
+      "group": "Gen 9",
+      "dex_number": "1017g",
       "name": "Ogerpon (Hearthflame Mask Tera)",
       "sprite": "1422",
       "shiny_sprite": "1422",
@@ -80894,8 +80896,8 @@
     },
     {
       "id": 1423,
-      "dex_number": "???",
-      "temp_form": false,
+      "group": "Gen 9",
+      "dex_number": "1017h",
       "name": "Ogerpon (Cornerstone Mask Tera)",
       "sprite": "1423",
       "shiny_sprite": "1423",
@@ -80950,6 +80952,8 @@
     },
     {
       "id": 1427,
+      "group": "Gen 9",
+      "dex_number": "1020",
       "name": "Gouging Fire",
       "sprite": "1427",
       "shiny_sprite": "1427",
@@ -80992,11 +80996,11 @@
       "learnset_ref": "sGougingFireLevelUpLearnset",
       "teachable_ref": "sGougingFireTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1428,
+      "group": "Gen 9",
+      "dex_number": "1021",
       "name": "Raging Bolt",
       "sprite": "1428",
       "shiny_sprite": "1428",
@@ -81039,11 +81043,11 @@
       "learnset_ref": "sRagingBoltLevelUpLearnset",
       "teachable_ref": "sRagingBoltTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1429,
+      "group": "Gen 9",
+      "dex_number": "1022",
       "name": "Iron Boulder",
       "sprite": "1429",
       "shiny_sprite": "1429",
@@ -81086,11 +81090,11 @@
       "learnset_ref": "sIronBoulderLevelUpLearnset",
       "teachable_ref": "sIronBoulderTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1430,
+      "group": "Gen 9",
+      "dex_number": "1023",
       "name": "Iron Crown",
       "sprite": "1430",
       "shiny_sprite": "1430",
@@ -81133,11 +81137,11 @@
       "learnset_ref": "sIronCrownLevelUpLearnset",
       "teachable_ref": "sIronCrownTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1431,
+      "group": "Gen 9",
+      "dex_number": "1024a",
       "name": "Terapagos (Normal)",
       "sprite": "1431",
       "shiny_sprite": "1431",
@@ -81180,11 +81184,11 @@
       "learnset_ref": "sTerapagosLevelUpLearnset",
       "teachable_ref": "sTerapagosTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1432,
+      "group": "Gen 9",
+      "dex_number": "1024b",
       "name": "Terapagos (Terastal)",
       "sprite": "1432",
       "shiny_sprite": "1432",
@@ -81228,11 +81232,11 @@
       "learnset_ref": "sTerapagosLevelUpLearnset",
       "teachable_ref": "sTerapagosTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1433,
+      "group": "Gen 9",
+      "dex_number": "1024c",
       "name": "Terapagos (Stellar)",
       "sprite": "1433",
       "shiny_sprite": "1433",
@@ -81275,11 +81279,11 @@
       "learnset_ref": "sTerapagosLevelUpLearnset",
       "teachable_ref": "sTerapagosTeachableLearnset",
       "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": "???"
     },
     {
       "id": 1434,
+      "group": "Gen 9",
+      "dex_number": "1025",
       "name": "Pecharunt",
       "sprite": "1434",
       "shiny_sprite": "1434",
