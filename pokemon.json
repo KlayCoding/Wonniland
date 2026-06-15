@@ -24091,7 +24091,7 @@
       "evolutions": null,
       "learnset_ref": "sSwellowLevelUpLearnset",
       "teachable_ref": "sSwellowTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 278,
@@ -24202,7 +24202,7 @@
       "evolutions": null,
       "learnset_ref": "sPelipperLevelUpLearnset",
       "teachable_ref": "sPelipperTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 280,
@@ -24308,7 +24308,7 @@
       "evolutions": null,
       "learnset_ref": "sKirliaLevelUpLearnset",
       "teachable_ref": "sKirliaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 282,
@@ -24361,7 +24361,7 @@
       "evolutions": null,
       "learnset_ref": "sGardevoirLevelUpLearnset",
       "teachable_ref": "sGardevoirTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 930,
@@ -24414,7 +24414,7 @@
       "evolutions": null,
       "learnset_ref": "sGardevoirLevelUpLearnset",
       "teachable_ref": "sGardevoirTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 475,
@@ -24467,7 +24467,7 @@
       "evolutions": null,
       "learnset_ref": "sGalladeLevelUpLearnset",
       "teachable_ref": "sGalladeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 950,
@@ -24520,7 +24520,7 @@
       "evolutions": null,
       "learnset_ref": "sGalladeLevelUpLearnset",
       "teachable_ref": "sGalladeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 283,
@@ -24623,7 +24623,7 @@
       "evolutions": null,
       "learnset_ref": "sMasquerainLevelUpLearnset",
       "teachable_ref": "sMasquerainTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 285,
@@ -24735,7 +24735,7 @@
       "evolutions": null,
       "learnset_ref": "sBreloomLevelUpLearnset",
       "teachable_ref": "sBreloomTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 287,
@@ -24829,7 +24829,7 @@
       "evolutions": null,
       "learnset_ref": "sVigorothLevelUpLearnset",
       "teachable_ref": "sVigorothTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 289,
@@ -24876,7 +24876,7 @@
       "evolutions": null,
       "learnset_ref": "sSlakingLevelUpLearnset",
       "teachable_ref": "sSlakingTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 290,
@@ -24978,7 +24978,7 @@
       "evolutions": null,
       "learnset_ref": "sNinjaskLevelUpLearnset",
       "teachable_ref": "sNinjaskTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 292,
@@ -25025,7 +25025,7 @@
       "evolutions": null,
       "learnset_ref": "sShedinjaLevelUpLearnset",
       "teachable_ref": "sShedinjaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 293,
@@ -25129,7 +25129,7 @@
       "evolutions": null,
       "learnset_ref": "sLoudredLevelUpLearnset",
       "teachable_ref": "sLoudredTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 295,
@@ -25180,7 +25180,7 @@
       "evolutions": null,
       "learnset_ref": "sExploudLevelUpLearnset",
       "teachable_ref": "sExploudTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 296,
@@ -25290,7 +25290,7 @@
       "evolutions": null,
       "learnset_ref": "sHariyamaLevelUpLearnset",
       "teachable_ref": "sHariyamaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 299,
@@ -25401,7 +25401,7 @@
       "evolutions": null,
       "learnset_ref": "sProbopassLevelUpLearnset",
       "teachable_ref": "sProbopassTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 300,
@@ -25513,7 +25513,7 @@
       "evolutions": null,
       "learnset_ref": "sDelcattyLevelUpLearnset",
       "teachable_ref": "sDelcattyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 302,
@@ -25849,7 +25849,7 @@
       "evolutions": null,
       "learnset_ref": "sLaironLevelUpLearnset",
       "teachable_ref": "sLaironTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 306,
@@ -25904,7 +25904,7 @@
       "evolutions": null,
       "learnset_ref": "sAggronLevelUpLearnset",
       "teachable_ref": "sAggronTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 933,
@@ -25959,7 +25959,7 @@
       "evolutions": null,
       "learnset_ref": "sAggronLevelUpLearnset",
       "teachable_ref": "sAggronTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 307,
@@ -25967,7 +25967,9 @@
       "dex_number": "0307",
       "name": "Meditite",
       "sprite": "0307m",
+      "sprite_female": "0307f",
       "shiny_sprite": "0307m",
+      "shiny_sprite_female": "0307f",
       "type1": "Fighting",
       "type2": "Psychic",
       "base_stats": {
@@ -26010,9 +26012,7 @@
       "evolutions": null,
       "learnset_ref": "sMedititeLevelUpLearnset",
       "teachable_ref": "sMedititeTeachableLearnset",
-      "egg_moves_ref": "sMedititeEggMoveLearnset",
-      "sprite_female": "0307f",
-      "shiny_sprite_female": "0307f"
+      "egg_moves_ref": "sMedititeEggMoveLearnset"
     },
     {
       "id": 308,
@@ -26020,7 +26020,9 @@
       "dex_number": "0308a",
       "name": "Medicham",
       "sprite": "0308m",
+      "sprite_female": "0308f",
       "shiny_sprite": "0308m",
+      "shiny_sprite_female": "0308f",
       "type1": "Fighting",
       "type2": "Psychic",
       "base_stats": {
@@ -26063,9 +26065,7 @@
       "evolutions": null,
       "learnset_ref": "sMedichamLevelUpLearnset",
       "teachable_ref": "sMedichamTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0308f",
-      "shiny_sprite_female": "0308f"
+      "egg_moves_ref": null
     },
     {
       "id": 934,
@@ -26120,9 +26120,7 @@
       "evolutions": null,
       "learnset_ref": "sMedichamLevelUpLearnset",
       "teachable_ref": "sMedichamTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0308f",
-      "shiny_sprite_female": "0308f"
+      "egg_moves_ref": null
     },
     {
       "id": 309,
@@ -26232,7 +26230,7 @@
       "evolutions": null,
       "learnset_ref": "sManectricLevelUpLearnset",
       "teachable_ref": "sManectricTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 935,
@@ -26287,7 +26285,7 @@
       "evolutions": null,
       "learnset_ref": "sManectricLevelUpLearnset",
       "teachable_ref": "sManectricTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 311,
@@ -26560,7 +26558,9 @@
       "dex_number": "0315",
       "name": "Roselia",
       "sprite": "0315m",
+      "sprite_female": "0315f",
       "shiny_sprite": "0315m",
+      "shiny_sprite_female": "0315f",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
@@ -26606,9 +26606,7 @@
       "evolutions": null,
       "learnset_ref": "sRoseliaLevelUpLearnset",
       "teachable_ref": "sRoseliaTeachableLearnset",
-      "egg_moves_ref": "sRoseliaEggMoveLearnset",
-      "sprite_female": "0315f",
-      "shiny_sprite_female": "0315f"
+      "egg_moves_ref": "sRoseliaEggMoveLearnset"
     },
     {
       "id": 407,
@@ -26616,7 +26614,9 @@
       "dex_number": "0407",
       "name": "Roserade",
       "sprite": "0407m",
+      "sprite_female": "0407f",
       "shiny_sprite": "0407m",
+      "shiny_sprite_female": "0407f",
       "type1": "Grass",
       "type2": "Poison",
       "base_stats": {
@@ -26663,9 +26663,7 @@
       "evolutions": null,
       "learnset_ref": "sRoseradeLevelUpLearnset",
       "teachable_ref": "sRoseradeTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0407f",
-      "shiny_sprite_female": "0407f"
+      "egg_moves_ref": null
     },
     {
       "id": 316,
@@ -26673,7 +26671,9 @@
       "dex_number": "0316",
       "name": "Gulpin",
       "sprite": "0316m",
+      "sprite_female": "0316f",
       "shiny_sprite": "0316m",
+      "shiny_sprite_female": "0316f",
       "type1": "Poison",
       "type2": null,
       "base_stats": {
@@ -26720,9 +26720,7 @@
       "evolutions": null,
       "learnset_ref": "sGulpinLevelUpLearnset",
       "teachable_ref": "sGulpinTeachableLearnset",
-      "egg_moves_ref": "sGulpinEggMoveLearnset",
-      "sprite_female": "0316f",
-      "shiny_sprite_female": "0316f",
+      "egg_moves_ref": "sGulpinEggMoveLearnset"
     },
     {
       "id": 317,
@@ -26730,7 +26728,9 @@
       "dex_number": "0317",
       "name": "Swalot",
       "sprite": "0317m",
+      "sprite_female": "0317f",
       "shiny_sprite": "0317m",
+      "shiny_sprite_female": "0317f",
       "type1": "Poison",
       "type2": null,
       "base_stats": {
@@ -26777,9 +26777,7 @@
       "evolutions": null,
       "learnset_ref": "sSwalotLevelUpLearnset",
       "teachable_ref": "sSwalotTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0317f",
-      "shiny_sprite_female": "0317f"
+      "egg_moves_ref": null
     },
     {
       "id": 318,
@@ -26881,7 +26879,7 @@
       "evolutions": null,
       "learnset_ref": "sSharpedoLevelUpLearnset",
       "teachable_ref": "sSharpedoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 936,
@@ -26936,7 +26934,7 @@
       "evolutions": null,
       "learnset_ref": "sSharpedoLevelUpLearnset",
       "teachable_ref": "sSharpedoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 320,
@@ -27048,7 +27046,7 @@
       "evolutions": null,
       "learnset_ref": "sWailordLevelUpLearnset",
       "teachable_ref": "sWailordTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 322,
@@ -27056,7 +27054,9 @@
       "dex_number": "0322",
       "name": "Numel",
       "sprite": "0322m",
+      "sprite_female": "0322f",
       "shiny_sprite": "0322m",
+      "shiny_sprite_female": "0322f",
       "type1": "Fire",
       "type2": "Ground",
       "base_stats": {
@@ -27103,9 +27103,7 @@
       "evolutions": null,
       "learnset_ref": "sNumelLevelUpLearnset",
       "teachable_ref": "sNumelTeachableLearnset",
-      "egg_moves_ref": "sNumelEggMoveLearnset",
-      "sprite_female": "0322f",
-      "shiny_sprite_female": "0322f"
+      "egg_moves_ref": "sNumelEggMoveLearnset"
     },
     {
       "id": 323,
@@ -27113,7 +27111,9 @@
       "dex_number": "0323a",
       "name": "Camerupt",
       "sprite": "0323m",
+      "sprite_female": "0323f",
       "shiny_sprite": "0323m",
+      "shiny_sprite_female": "0323f",
       "type1": "Fire",
       "type2": "Ground",
       "base_stats": {
@@ -27161,9 +27161,7 @@
       "evolutions": null,
       "learnset_ref": "sCameruptLevelUpLearnset",
       "teachable_ref": "sCameruptTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0323f",
-      "shiny_sprite_female": "0323f"
+      "egg_moves_ref": null
     },
     {
       "id": 937,
@@ -27171,7 +27169,9 @@
       "dex_number": "0323b",
       "name": "Mega-Camerupt",
       "sprite": "0937",
+      "sprite_female": "0323f",
       "shiny_sprite": "0937",
+      "shiny_sprite_female": "0323f",
       "type1": "Fire",
       "type2": "Ground",
       "base_stats": {
@@ -27219,9 +27219,7 @@
       "evolutions": null,
       "learnset_ref": "sCameruptLevelUpLearnset",
       "teachable_ref": "sCameruptTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0323f",
-      "shiny_sprite_female": "0323f"
+      "egg_moves_ref": null
     },
     {
       "id": 324,
@@ -27386,7 +27384,7 @@
       "evolutions": null,
       "learnset_ref": "sGrumpigLevelUpLearnset",
       "teachable_ref": "sGrumpigTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 327,
@@ -27549,7 +27547,7 @@
       "evolutions": null,
       "learnset_ref": "sVibravaLevelUpLearnset",
       "teachable_ref": "sVibravaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 330,
@@ -27603,7 +27601,7 @@
       "evolutions": null,
       "learnset_ref": "sFlygonLevelUpLearnset",
       "teachable_ref": "sFlygonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 331,
@@ -27663,7 +27661,9 @@
       "dex_number": "0332",
       "name": "Cacturne",
       "sprite": "0332m",
+      "sprite_female": "0332f",
       "shiny_sprite": "0332m",
+      "shiny_sprite_female": "0332f",
       "type1": "Grass",
       "type2": "Dark",
       "base_stats": {
@@ -27708,9 +27708,7 @@
       "evolutions": null,
       "learnset_ref": "sCacturneLevelUpLearnset",
       "teachable_ref": "sCacturneTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0332f",
-      "shiny_sprite_female": "0332f"
+      "egg_moves_ref": null
     },
     {
       "id": 333,
@@ -27814,7 +27812,7 @@
       "evolutions": null,
       "learnset_ref": "sAltariaLevelUpLearnset",
       "teachable_ref": "sAltariaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 938,
@@ -27870,7 +27868,7 @@
       "evolutions": null,
       "learnset_ref": "sAltariaLevelUpLearnset",
       "teachable_ref": "sAltariaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 335,
@@ -28020,7 +28018,7 @@
       "evolutions": null,
       "learnset_ref": "sLunatoneLevelUpLearnset",
       "teachable_ref": "sLunatoneTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 338,
@@ -28066,7 +28064,7 @@
       "evolutions": null,
       "learnset_ref": "sSolrockLevelUpLearnset",
       "teachable_ref": "sSolrockTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 339,
@@ -28176,7 +28174,7 @@
       "evolutions": null,
       "learnset_ref": "sWhiscashLevelUpLearnset",
       "teachable_ref": "sWhiscashTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 341,
@@ -28288,7 +28286,7 @@
       "evolutions": null,
       "learnset_ref": "sCrawdauntLevelUpLearnset",
       "teachable_ref": "sCrawdauntTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 343,
@@ -28335,7 +28333,7 @@
       "evolutions": null,
       "learnset_ref": "sBaltoyLevelUpLearnset",
       "teachable_ref": "sBaltoyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 344,
@@ -28382,7 +28380,7 @@
       "evolutions": null,
       "learnset_ref": "sClaydolLevelUpLearnset",
       "teachable_ref": "sClaydolTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 345,
@@ -28484,7 +28482,7 @@
       "evolutions": null,
       "learnset_ref": "sCradilyLevelUpLearnset",
       "teachable_ref": "sCradilyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 347,
@@ -28586,7 +28584,7 @@
       "evolutions": null,
       "learnset_ref": "sArmaldoLevelUpLearnset",
       "teachable_ref": "sArmaldoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 349,
@@ -28650,7 +28648,9 @@
       "dex_number": "0350",
       "name": "Milotic",
       "sprite": "0350m",
+      "sprite_female": "0350f",
       "shiny_sprite": "0350m",
+      "shiny_sprite_female": "0350f",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -28698,9 +28698,7 @@
       "evolutions": null,
       "learnset_ref": "sMiloticLevelUpLearnset",
       "teachable_ref": "sMiloticTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0350f",
-      "shiny_sprite_female": "0350f"
+      "egg_moves_ref": null
     },
     {
       "id": 351,
@@ -29053,7 +29051,7 @@
       "evolutions": null,
       "learnset_ref": "sBanetteLevelUpLearnset",
       "teachable_ref": "sBanetteTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 939,
@@ -29108,7 +29106,7 @@
       "evolutions": null,
       "learnset_ref": "sBanetteLevelUpLearnset",
       "teachable_ref": "sBanetteTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 355,
@@ -29210,7 +29208,7 @@
       "evolutions": null,
       "learnset_ref": "sDusclopsLevelUpLearnset",
       "teachable_ref": "sDusclopsTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 477,
@@ -29262,7 +29260,7 @@
       "evolutions": null,
       "learnset_ref": "sDusknoirLevelUpLearnset",
       "teachable_ref": "sDusknoirTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 357,
@@ -29735,7 +29733,7 @@
       "evolutions": null,
       "learnset_ref": "sGlalieLevelUpLearnset",
       "teachable_ref": "sGlalieTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 941,
@@ -29791,7 +29789,7 @@
       "evolutions": null,
       "learnset_ref": "sGlalieLevelUpLearnset",
       "teachable_ref": "sGlalieTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 478,
@@ -29843,7 +29841,7 @@
       "evolutions": null,
       "learnset_ref": "sFroslassLevelUpLearnset",
       "teachable_ref": "sFroslassTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1531,
@@ -29895,7 +29893,7 @@
       "evolutions": null,
       "learnset_ref": "sFroslassLevelUpLearnset",
       "teachable_ref": "sFroslassTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 363,
@@ -30007,7 +30005,7 @@
       "evolutions": null,
       "learnset_ref": "sSealeoLevelUpLearnset",
       "teachable_ref": "sSealeoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 365,
@@ -30063,7 +30061,7 @@
       "evolutions": null,
       "learnset_ref": "sWalreinLevelUpLearnset",
       "teachable_ref": "sWalreinTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 366,
@@ -30166,7 +30164,7 @@
       "evolutions": null,
       "learnset_ref": "sHuntailLevelUpLearnset",
       "teachable_ref": "sHuntailTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 368,
@@ -30217,7 +30215,7 @@
       "evolutions": null,
       "learnset_ref": "sGorebyssLevelUpLearnset",
       "teachable_ref": "sGorebyssTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 369,
@@ -30225,7 +30223,9 @@
       "dex_number": "0369",
       "name": "Relicanth",
       "sprite": "0369m",
+      "sprite_female": "0369f",
       "shiny_sprite": "0369m",
+      "shiny_sprite_female": "0369f",
       "type1": "Water",
       "type2": "Rock",
       "base_stats": {
@@ -30274,9 +30274,7 @@
       "evolutions": null,
       "learnset_ref": "sRelicanthLevelUpLearnset",
       "teachable_ref": "sRelicanthTeachableLearnset",
-      "egg_moves_ref": "sRelicanthEggMoveLearnset",
-      "sprite_female": "0369f",
-      "shiny_sprite_female": "0369f"
+      "egg_moves_ref": "sRelicanthEggMoveLearnset"
     },
     {
       "id": 370,
@@ -30429,7 +30427,7 @@
       "evolutions": null,
       "learnset_ref": "sShelgonLevelUpLearnset",
       "teachable_ref": "sShelgonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 373,
@@ -30480,7 +30478,7 @@
       "evolutions": null,
       "learnset_ref": "sSalamenceLevelUpLearnset",
       "teachable_ref": "sSalamenceTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 942,
@@ -30535,7 +30533,7 @@
       "evolutions": null,
       "learnset_ref": "sSalamenceLevelUpLearnset",
       "teachable_ref": "sSalamenceTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 374,
@@ -30586,7 +30584,7 @@
       "evolutions": null,
       "learnset_ref": "sBeldumLevelUpLearnset",
       "teachable_ref": "sBeldumTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 375,
@@ -30637,7 +30635,7 @@
       "evolutions": null,
       "learnset_ref": "sMetangLevelUpLearnset",
       "teachable_ref": "sMetangTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 376,
@@ -30688,7 +30686,7 @@
       "evolutions": null,
       "learnset_ref": "sMetagrossLevelUpLearnset",
       "teachable_ref": "sMetagrossTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 943,
@@ -30743,7 +30741,7 @@
       "evolutions": null,
       "learnset_ref": "sMetagrossLevelUpLearnset",
       "teachable_ref": "sMetagrossTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 377,
@@ -30794,7 +30792,7 @@
       "evolutions": null,
       "learnset_ref": "sRegirockLevelUpLearnset",
       "teachable_ref": "sRegirockTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 378,
@@ -30845,7 +30843,7 @@
       "evolutions": null,
       "learnset_ref": "sRegiceLevelUpLearnset",
       "teachable_ref": "sRegiceTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 379,
@@ -30897,7 +30895,7 @@
       "evolutions": null,
       "learnset_ref": "sRegisteelLevelUpLearnset",
       "teachable_ref": "sRegisteelTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 380,
@@ -30944,7 +30942,7 @@
       "evolutions": null,
       "learnset_ref": "sLatiasLevelUpLearnset",
       "teachable_ref": "sLatiasTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 944,
@@ -30999,7 +30997,7 @@
       "evolutions": null,
       "learnset_ref": "sLatiasLevelUpLearnset",
       "teachable_ref": "sLatiasTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 381,
@@ -31046,7 +31044,7 @@
       "evolutions": null,
       "learnset_ref": "sLatiosLevelUpLearnset",
       "teachable_ref": "sLatiosTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 945,
@@ -31101,7 +31099,7 @@
       "evolutions": null,
       "learnset_ref": "sLatiosLevelUpLearnset",
       "teachable_ref": "sLatiosTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 382,
@@ -31148,7 +31146,7 @@
       "evolutions": null,
       "learnset_ref": "sKyogreLevelUpLearnset",
       "teachable_ref": "sKyogreTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 954,
@@ -31199,7 +31197,7 @@
       "evolutions": null,
       "learnset_ref": "sKyogreLevelUpLearnset",
       "teachable_ref": "sKyogreTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 383,
@@ -31246,7 +31244,7 @@
       "evolutions": null,
       "learnset_ref": "sGroudonLevelUpLearnset",
       "teachable_ref": "sGroudonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 955,
@@ -31297,7 +31295,7 @@
       "evolutions": null,
       "learnset_ref": "sGroudonLevelUpLearnset",
       "teachable_ref": "sGroudonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 384,
@@ -31345,7 +31343,7 @@
       "evolutions": null,
       "learnset_ref": "sRayquazaLevelUpLearnset",
       "teachable_ref": "sRayquazaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 953,
@@ -31401,7 +31399,7 @@
       "evolutions": null,
       "learnset_ref": "sRayquazaLevelUpLearnset",
       "teachable_ref": "sRayquazaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 385,
@@ -31448,7 +31446,7 @@
       "evolutions": null,
       "learnset_ref": "sJirachiLevelUpLearnset",
       "teachable_ref": "sJirachiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 386,
@@ -31497,7 +31495,7 @@
       "evolutions": null,
       "learnset_ref": "sDeoxysNormalLevelUpLearnset",
       "teachable_ref": "sDeoxysNormalTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1054,
@@ -31545,7 +31543,7 @@
       "evolutions": null,
       "learnset_ref": "sDeoxysAttackLevelUpLearnset",
       "teachable_ref": "sDeoxysAttackTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1055,
@@ -31593,7 +31591,7 @@
       "evolutions": null,
       "learnset_ref": "sDeoxysDefenseLevelUpLearnset",
       "teachable_ref": "sDeoxysDefenseTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1056,
@@ -31640,7 +31638,7 @@
       "evolutions": null,
       "learnset_ref": "sDeoxysSpeedLevelUpLearnset",
       "teachable_ref": "sDeoxysSpeedTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 387,
@@ -31745,7 +31743,7 @@
       "evolutions": null,
       "learnset_ref": "sGrotleLevelUpLearnset",
       "teachable_ref": "sGrotleTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 389,
@@ -31798,7 +31796,7 @@
       "evolutions": null,
       "learnset_ref": "sTorterraLevelUpLearnset",
       "teachable_ref": "sTorterraTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 390,
@@ -31903,7 +31901,7 @@
       "evolutions": null,
       "learnset_ref": "sMonfernoLevelUpLearnset",
       "teachable_ref": "sMonfernoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 392,
@@ -31957,7 +31955,7 @@
       "evolutions": null,
       "learnset_ref": "sInfernapeLevelUpLearnset",
       "teachable_ref": "sInfernapeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 393,
@@ -32061,7 +32059,7 @@
       "evolutions": null,
       "learnset_ref": "sPrinplupLevelUpLearnset",
       "teachable_ref": "sPrinplupTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 395,
@@ -32113,7 +32111,7 @@
       "evolutions": null,
       "learnset_ref": "sEmpoleonLevelUpLearnset",
       "teachable_ref": "sEmpoleonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 396,
@@ -32121,7 +32119,9 @@
       "dex_number": "0396",
       "name": "Starly",
       "sprite": "0396m",
+      "sprite_female": "0396f",
       "shiny_sprite": "0396m",
+      "shiny_sprite_female": "0396f",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -32164,9 +32164,7 @@
       "evolutions": null,
       "learnset_ref": "sStarlyLevelUpLearnset",
       "teachable_ref": "sStarlyTeachableLearnset",
-      "egg_moves_ref": "sStarlyEggMoveLearnset",
-      "sprite_female": "0396f",
-      "shiny_sprite_female": "0396f"
+      "egg_moves_ref": "sStarlyEggMoveLearnset"
     },
     {
       "id": 397,
@@ -32174,7 +32172,9 @@
       "dex_number": "0397",
       "name": "Staravia",
       "sprite": "0397m",
+      "sprite_female": "0397f",
       "shiny_sprite": "0397m",
+      "shiny_sprite_female": "0397f",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -32217,9 +32217,7 @@
       "evolutions": null,
       "learnset_ref": "sStaraviaLevelUpLearnset",
       "teachable_ref": "sStaraviaTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0397f",
-      "shiny_sprite_female": "0397f"
+      "egg_moves_ref": null
     },
     {
       "id": 398,
@@ -32227,7 +32225,9 @@
       "dex_number": "0398a",
       "name": "Staraptor",
       "sprite": "0398m",
+      "sprite_female": "0398f",
       "shiny_sprite": "0398m",
+      "shiny_sprite_female": "0398f",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -32269,9 +32269,7 @@
       "evolutions": null,
       "learnset_ref": "sStaraptorLevelUpLearnset",
       "teachable_ref": "sStaraptorTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0398f",
-      "shiny_sprite_female": "0398f"
+      "egg_moves_ref": null
     },
     {
       "id": 1557,
@@ -32322,9 +32320,7 @@
       "evolutions": null,
       "learnset_ref": "sStaraptorLevelUpLearnset",
       "teachable_ref": "sStaraptorTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0398f",
-      "shiny_sprite_female": "0398f"
+      "egg_moves_ref": null
     },
     {
       "id": 399,
@@ -32332,7 +32328,9 @@
       "dex_number": "0399",
       "name": "Bidoof",
       "sprite": "0399m",
+      "sprite_female": "0399f",
       "shiny_sprite": "0399m",
+      "shiny_sprite_female": "0399f",
       "type1": "Normal",
       "type2": null,
       "base_stats": {
@@ -32380,9 +32378,7 @@
       "evolutions": null,
       "learnset_ref": "sBidoofLevelUpLearnset",
       "teachable_ref": "sBidoofTeachableLearnset",
-      "egg_moves_ref": "sBidoofEggMoveLearnset",
-      "sprite_female": "0399f",
-      "shiny_sprite_female": "0399f"
+      "egg_moves_ref": "sBidoofEggMoveLearnset"
     },
     {
       "id": 400,
@@ -32390,7 +32386,9 @@
       "dex_number": "0400",
       "name": "Bibarel",
       "sprite": "0400m",
+      "sprite_female": "0400f",
       "shiny_sprite": "0400m",
+      "shiny_sprite_female": "0400f",
       "type1": "Normal",
       "type2": "Water",
       "base_stats": {
@@ -32438,9 +32436,7 @@
       "evolutions": null,
       "learnset_ref": "sBibarelLevelUpLearnset",
       "teachable_ref": "sBibarelTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0400f",
-      "shiny_sprite_female": "0400f"
+      "egg_moves_ref": null
     },
     {
       "id": 401,
@@ -32448,7 +32444,9 @@
       "dex_number": "0401",
       "name": "Kricketot",
       "sprite": "0401m",
+      "sprite_female": "0401f",
       "shiny_sprite": "0401m",
+      "shiny_sprite_female": "0401f",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -32491,9 +32489,7 @@
       "evolutions": null,
       "learnset_ref": "sKricketotLevelUpLearnset",
       "teachable_ref": "sKricketotTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0401f",
-      "shiny_sprite_female": "0401f",
+      "egg_moves_ref": null
     },
     {
       "id": 402,
@@ -32501,7 +32497,9 @@
       "dex_number": "0402",
       "name": "Kricketune",
       "sprite": "0402m",
+      "sprite_female": "0402f",
       "shiny_sprite": "0402m",
+      "shiny_sprite_female": "0402f",
       "type1": "Bug",
       "type2": null,
       "base_stats": {
@@ -32544,9 +32542,7 @@
       "evolutions": null,
       "learnset_ref": "sKricketuneLevelUpLearnset",
       "teachable_ref": "sKricketuneTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0402f",
-      "shiny_sprite_female": "0402f"
+      "egg_moves_ref": null
     },
     {
       "id": 403,
@@ -32554,7 +32550,9 @@
       "dex_number": "0403",
       "name": "Shinx",
       "sprite": "0403m",
+      "sprite_female": "0403f",
       "shiny_sprite": "0403m",
+      "shiny_sprite_female": "0403f",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -32601,9 +32599,7 @@
       "evolutions": null,
       "learnset_ref": "sShinxLevelUpLearnset",
       "teachable_ref": "sShinxTeachableLearnset",
-      "egg_moves_ref": "sShinxEggMoveLearnset",
-      "sprite_female": "0403f",
-      "shiny_sprite_female": "0403f"
+      "egg_moves_ref": "sShinxEggMoveLearnset"
     },
     {
       "id": 404,
@@ -32611,7 +32607,9 @@
       "dex_number": "0404",
       "name": "Luxio",
       "sprite": "0404m",
+      "sprite_female": "0404f",
       "shiny_sprite": "0404m",
+      "shiny_sprite_female": "0404f",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -32658,9 +32656,7 @@
       "evolutions": null,
       "learnset_ref": "sLuxioLevelUpLearnset",
       "teachable_ref": "sLuxioTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0404f",
-      "shiny_sprite_female": "0404f"
+      "egg_moves_ref": null
     },
     {
       "id": 405,
@@ -32668,7 +32664,9 @@
       "dex_number": "0405",
       "name": "Luxray",
       "sprite": "0405m",
+      "sprite_female": "0405f",
       "shiny_sprite": "0405m",
+      "shiny_sprite_female": "0405f",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -32715,9 +32713,7 @@
       "evolutions": null,
       "learnset_ref": "sLuxrayLevelUpLearnset",
       "teachable_ref": "sLuxrayTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0405f",
-      "shiny_sprite_female": "0405f"
+      "egg_moves_ref": null
     },
     {
       "id": 408,
@@ -32819,7 +32815,7 @@
       "evolutions": null,
       "learnset_ref": "sRampardosLevelUpLearnset",
       "teachable_ref": "sRampardosTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 410,
@@ -32921,7 +32917,7 @@
       "evolutions": null,
       "learnset_ref": "sBastiodonLevelUpLearnset",
       "teachable_ref": "sBastiodonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 412,
@@ -32972,7 +32968,7 @@
       "evolutions": null,
       "learnset_ref": "sBurmyLevelUpLearnset",
       "teachable_ref": "sBurmyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1057,
@@ -33023,7 +33019,7 @@
       "evolutions": null,
       "learnset_ref": "sBurmyLevelUpLearnset",
       "teachable_ref": "sBurmyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1058,
@@ -33074,7 +33070,7 @@
       "evolutions": null,
       "learnset_ref": "sBurmyLevelUpLearnset",
       "teachable_ref": "sBurmyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 413,
@@ -33125,7 +33121,7 @@
       "evolutions": null,
       "learnset_ref": "sWormadamPlantLevelUpLearnset",
       "teachable_ref": "sWormadamPlantTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1059,
@@ -33176,7 +33172,7 @@
       "evolutions": null,
       "learnset_ref": "sWormadamSandyLevelUpLearnset",
       "teachable_ref": "sWormadamSandyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1060,
@@ -33230,7 +33226,7 @@
       "evolutions": null,
       "learnset_ref": "sWormadamTrashLevelUpLearnset",
       "teachable_ref": "sWormadamTrashTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 414,
@@ -33379,7 +33375,9 @@
       "dex_number": "0415",
       "name": "Combee",
       "sprite": "0415m",
+      "sprite_female": "0415f",
       "shiny_sprite": "0415m",
+      "shiny_sprite_female": "0415f",
       "type1": "Bug",
       "type2": "Flying",
       "base_stats": {
@@ -33422,9 +33420,7 @@
       "evolutions": null,
       "learnset_ref": "sCombeeLevelUpLearnset",
       "teachable_ref": "sCombeeTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0415f",
-      "shiny_sprite_female": "0415f"
+      "egg_moves_ref": null
     },
     {
       "id": 416,
@@ -33476,9 +33472,7 @@
       "evolutions": null,
       "learnset_ref": "sVespiquenLevelUpLearnset",
       "teachable_ref": "sVespiquenTeachableLearnset",
-      "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": 416
+      "egg_moves_ref": null
     },
     {
       "id": 417,
@@ -33486,7 +33480,9 @@
       "dex_number": "0417",
       "name": "Pachirisu",
       "sprite": "0417m",
+      "sprite_female": "0417f",
       "shiny_sprite": "0417m",
+      "shiny_sprite_female": "0417f",
       "type1": "Electric",
       "type2": null,
       "base_stats": {
@@ -33534,9 +33530,7 @@
       "evolutions": null,
       "learnset_ref": "sPachirisuLevelUpLearnset",
       "teachable_ref": "sPachirisuTeachableLearnset",
-      "egg_moves_ref": "sPachirisuEggMoveLearnset",
-      "sprite_female": "0417f",
-      "shiny_sprite_female": "0417f"
+      "egg_moves_ref": "sPachirisuEggMoveLearnset"
     },
     {
       "id": 418,
@@ -33544,7 +33538,9 @@
       "dex_number": "0418",
       "name": "Buizel",
       "sprite": "0418m",
+      "sprite_female": "0418f",
       "shiny_sprite": "0418m",
+      "shiny_sprite_female": "0418f",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -33588,9 +33584,7 @@
       "evolutions": null,
       "learnset_ref": "sBuizelLevelUpLearnset",
       "teachable_ref": "sBuizelTeachableLearnset",
-      "egg_moves_ref": "sBuizelEggMoveLearnset",
-      "sprite_female": "0418f",
-      "shiny_sprite_female": "0418f"
+      "egg_moves_ref": "sBuizelEggMoveLearnset"
     },
     {
       "id": 419,
@@ -33598,7 +33592,9 @@
       "dex_number": "0419",
       "name": "Floatzel",
       "sprite": "0419m",
+      "sprite_female": "0419f",
       "shiny_sprite": "0419m",
+      "shiny_sprite_female": "0419f",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -33642,9 +33638,7 @@
       "evolutions": null,
       "learnset_ref": "sFloatzelLevelUpLearnset",
       "teachable_ref": "sFloatzelTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0419f",
-      "shiny_sprite_female": "0419f"
+      "egg_moves_ref": null
     },
     {
       "id": 420,
@@ -33740,7 +33734,7 @@
       "evolutions": null,
       "learnset_ref": "sCherrimLevelUpLearnset",
       "teachable_ref": "sCherrimTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1061,
@@ -33788,7 +33782,7 @@
       "evolutions": null,
       "learnset_ref": "sCherrimLevelUpLearnset",
       "teachable_ref": "sCherrimTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 422,
@@ -33956,7 +33950,7 @@
       "evolutions": null,
       "learnset_ref": "sGastrodonLevelUpLearnset",
       "teachable_ref": "sGastrodonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1063,
@@ -34012,7 +34006,7 @@
       "evolutions": null,
       "learnset_ref": "sGastrodonLevelUpLearnset",
       "teachable_ref": "sGastrodonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 425,
@@ -34122,7 +34116,7 @@
       "evolutions": null,
       "learnset_ref": "sDrifblimLevelUpLearnset",
       "teachable_ref": "sDrifblimTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 427,
@@ -34234,7 +34228,7 @@
       "evolutions": null,
       "learnset_ref": "sLopunnyLevelUpLearnset",
       "teachable_ref": "sLopunnyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 946,
@@ -34290,7 +34284,7 @@
       "evolutions": null,
       "learnset_ref": "sLopunnyLevelUpLearnset",
       "teachable_ref": "sLopunnyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 431,
@@ -34400,7 +34394,7 @@
       "evolutions": null,
       "learnset_ref": "sPuruglyLevelUpLearnset",
       "teachable_ref": "sPuruglyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 434,
@@ -34510,7 +34504,7 @@
       "evolutions": null,
       "learnset_ref": "sSkuntankLevelUpLearnset",
       "teachable_ref": "sSkuntankTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 436,
@@ -34565,7 +34559,7 @@
       "evolutions": null,
       "learnset_ref": "sBronzorLevelUpLearnset",
       "teachable_ref": "sBronzorTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 437,
@@ -34621,7 +34615,7 @@
       "evolutions": null,
       "learnset_ref": "sBronzongLevelUpLearnset",
       "teachable_ref": "sBronzongTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 441,
@@ -34736,7 +34730,9 @@
       "dex_number": "0443",
       "name": "Gible",
       "sprite": "0443m",
+      "sprite_female": "0443f",
       "shiny_sprite": "0443m",
+      "shiny_sprite_female": "0443f",
       "type1": "Dragon",
       "type2": "Ground",
       "base_stats": {
@@ -34780,9 +34776,7 @@
       "evolutions": null,
       "learnset_ref": "sGibleLevelUpLearnset",
       "teachable_ref": "sGibleTeachableLearnset",
-      "egg_moves_ref": "sGibleEggMoveLearnset",
-      "sprite_female": "0443f",
-      "shiny_sprite_female": "0443f"
+      "egg_moves_ref": "sGibleEggMoveLearnset"
     },
     {
       "id": 444,
@@ -34790,7 +34784,9 @@
       "dex_number": "0444",
       "name": "Gabite",
       "sprite": "0444m",
+      "sprite_female": "0444f",
       "shiny_sprite": "0444m",
+      "shiny_sprite_female": "0444f",
       "type1": "Dragon",
       "type2": "Ground",
       "base_stats": {
@@ -34834,9 +34830,7 @@
       "evolutions": null,
       "learnset_ref": "sGabiteLevelUpLearnset",
       "teachable_ref": "sGabiteTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0444f",
-      "shiny_sprite_female": "0444f"
+      "egg_moves_ref": null
     },
     {
       "id": 445,
@@ -34844,7 +34838,9 @@
       "dex_number": "0445a",
       "name": "Garchomp",
       "sprite": "0445m",
+      "sprite_female": "0445f",
       "shiny_sprite": "0445m",
+      "shiny_sprite_female": "0445f",
       "type1": "Dragon",
       "type2": "Ground",
       "base_stats": {
@@ -34888,9 +34884,7 @@
       "evolutions": null,
       "learnset_ref": "sGarchompLevelUpLearnset",
       "teachable_ref": "sGarchompTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0445f",
-      "shiny_sprite_female": "0445f",
+      "egg_moves_ref": null
     },
     {
       "id": 947,
@@ -34946,9 +34940,7 @@
       "evolutions": null,
       "learnset_ref": "sGarchompLevelUpLearnset",
       "teachable_ref": "sGarchompTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0445f",
-      "shiny_sprite_female": "0445f"
+      "egg_moves_ref": null
     },
     {
       "id": 1558,
@@ -35000,9 +34992,7 @@
       "evolutions": null,
       "learnset_ref": "sGarchompLevelUpLearnset",
       "teachable_ref": "sGarchompTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0445f",
-      "shiny_sprite_female": "0445f"
+      "egg_moves_ref": null
     },
     {
       "id": 447,
@@ -35114,7 +35104,7 @@
       "evolutions": null,
       "learnset_ref": "sLucarioLevelUpLearnset",
       "teachable_ref": "sLucarioTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 948,
@@ -35171,7 +35161,7 @@
       "evolutions": null,
       "learnset_ref": "sLucarioLevelUpLearnset",
       "teachable_ref": "sLucarioTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1559,
@@ -35228,7 +35218,7 @@
       "evolutions": null,
       "learnset_ref": "sLucarioLevelUpLearnset",
       "teachable_ref": "sLucarioTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 449,
@@ -35236,7 +35226,9 @@
       "dex_number": "0449",
       "name": "Hippopotas",
       "sprite": "0449m",
+      "sprite_female": "0449f",
       "shiny_sprite": "0449m",
+      "shiny_sprite_female": "0449f",
       "type1": "Ground",
       "type2": null,
       "base_stats": {
@@ -35279,9 +35271,7 @@
       "evolutions": null,
       "learnset_ref": "sHippopotasLevelUpLearnset",
       "teachable_ref": "sHippopotasTeachableLearnset",
-      "egg_moves_ref": "sHippopotasEggMoveLearnset",
-      "sprite_female": "0449f",
-      "shiny_sprite_female": "0449f",
+      "egg_moves_ref": "sHippopotasEggMoveLearnset"
     },
     {
       "id": 450,
@@ -35289,7 +35279,9 @@
       "dex_number": "0450",
       "name": "Hippowdon",
       "sprite": "0450m",
+      "sprite_female": "0450f",
       "shiny_sprite": "0450m",
+      "shiny_sprite_female": "0450f",
       "type1": "Ground",
       "type2": null,
       "base_stats": {
@@ -35332,9 +35324,7 @@
       "evolutions": null,
       "learnset_ref": "sHippowdonLevelUpLearnset",
       "teachable_ref": "sHippowdonTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0450f",
-      "shiny_sprite_female": "0450f",
+      "egg_moves_ref": null
     },
     {
       "id": 451,
@@ -35446,7 +35436,7 @@
       "evolutions": null,
       "learnset_ref": "sDrapionLevelUpLearnset",
       "teachable_ref": "sDrapionTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 453,
@@ -35454,7 +35444,9 @@
       "dex_number": "0453",
       "name": "Croagunk",
       "sprite": "0453m",
+      "sprite_female": "0453f",
       "shiny_sprite": "0453m",
+      "shiny_sprite_female": "0453f",
       "type1": "Poison",
       "type2": "Fighting",
       "base_stats": {
@@ -35501,9 +35493,7 @@
       "evolutions": null,
       "learnset_ref": "sCroagunkLevelUpLearnset",
       "teachable_ref": "sCroagunkTeachableLearnset",
-      "egg_moves_ref": "sCroagunkEggMoveLearnset",
-      "sprite_female": "0453f",
-      "shiny_sprite_female": "0453f"
+      "egg_moves_ref": "sCroagunkEggMoveLearnset"
     },
     {
       "id": 454,
@@ -35511,7 +35501,9 @@
       "dex_number": "0454",
       "name": "Toxicroak",
       "sprite": "0454m",
+      "sprite_female": "0454f",
       "shiny_sprite": "0454m",
+      "shiny_sprite_female": "0454f",
       "type1": "Poison",
       "type2": "Fighting",
       "base_stats": {
@@ -35558,9 +35550,7 @@
       "evolutions": null,
       "learnset_ref": "sToxicroakLevelUpLearnset",
       "teachable_ref": "sToxicroakTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0454f",
-      "shiny_sprite_female": "0454f"
+      "egg_moves_ref": null
     },
     {
       "id": 455,
@@ -35615,7 +35605,9 @@
       "dex_number": "0456",
       "name": "Finneon",
       "sprite": "0456m",
+      "sprite_female": "0456f",
       "shiny_sprite": "0456m",
+      "shiny_sprite_female": "0456f",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -35662,9 +35654,7 @@
       "evolutions": null,
       "learnset_ref": "sFinneonLevelUpLearnset",
       "teachable_ref": "sFinneonTeachableLearnset",
-      "egg_moves_ref": "sFinneonEggMoveLearnset",
-      "sprite_female": "0456f",
-      "shiny_sprite_female": "0456f"
+      "egg_moves_ref": "sFinneonEggMoveLearnset"
     },
     {
       "id": 457,
@@ -35672,7 +35662,9 @@
       "dex_number": "0457",
       "name": "Lumineon",
       "sprite": "0457m",
+      "sprite_female": "0457f",
       "shiny_sprite": "0457m",
+      "shiny_sprite_female": "0457f",
       "type1": "Water",
       "type2": null,
       "base_stats": {
@@ -35719,9 +35711,7 @@
       "evolutions": null,
       "learnset_ref": "sLumineonLevelUpLearnset",
       "teachable_ref": "sLumineonTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0457f",
-      "shiny_sprite_female": "0457f"
+      "egg_moves_ref": null
     },
     {
       "id": 459,
@@ -35729,7 +35719,9 @@
       "dex_number": "0459",
       "name": "Snover",
       "sprite": "0459m",
+      "sprite_female": "0459f",
       "shiny_sprite": "0459m",
+      "shiny_sprite_female": "0459f",
       "type1": "Grass",
       "type2": "Ice",
       "base_stats": {
@@ -35773,9 +35765,7 @@
       "evolutions": null,
       "learnset_ref": "sSnoverLevelUpLearnset",
       "teachable_ref": "sSnoverTeachableLearnset",
-      "egg_moves_ref": "sSnoverEggMoveLearnset",
-      "sprite_female": "0459f",
-      "shiny_sprite_female": "0459f"
+      "egg_moves_ref": "sSnoverEggMoveLearnset"
     },
     {
       "id": 460,
@@ -35783,7 +35773,9 @@
       "dex_number": "0460a",
       "name": "Abomasnow",
       "sprite": "0460m",
+      "sprite_female": "0460f",
       "shiny_sprite": "0460m",
+      "shiny_sprite_female": "0460f",
       "type1": "Grass",
       "type2": "Ice",
       "base_stats": {
@@ -35828,9 +35820,7 @@
       "evolutions": null,
       "learnset_ref": "sAbomasnowLevelUpLearnset",
       "teachable_ref": "sAbomasnowTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0460f",
-      "shiny_sprite_female": "0460f"
+      "egg_moves_ref": null
     },
     {
       "id": 949,
@@ -35887,7 +35877,7 @@
       "evolutions": null,
       "learnset_ref": "sAbomasnowLevelUpLearnset",
       "teachable_ref": "sAbomasnowTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 479,
@@ -35935,7 +35925,7 @@
       "evolutions": null,
       "learnset_ref": "sRotomLevelUpLearnset",
       "teachable_ref": "sRotomTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1064,
@@ -35983,7 +35973,7 @@
       "evolutions": null,
       "learnset_ref": "sRotomLevelUpLearnset",
       "teachable_ref": "sRotomTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1065,
@@ -36031,7 +36021,7 @@
       "evolutions": null,
       "learnset_ref": "sRotomLevelUpLearnset",
       "teachable_ref": "sRotomTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1066,
@@ -36079,7 +36069,7 @@
       "evolutions": null,
       "learnset_ref": "sRotomLevelUpLearnset",
       "teachable_ref": "sRotomTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1067,
@@ -36127,7 +36117,7 @@
       "evolutions": null,
       "learnset_ref": "sRotomLevelUpLearnset",
       "teachable_ref": "sRotomTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1068,
@@ -36175,7 +36165,7 @@
       "evolutions": null,
       "learnset_ref": "sRotomLevelUpLearnset",
       "teachable_ref": "sRotomTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 480,
@@ -36223,7 +36213,7 @@
       "evolutions": null,
       "learnset_ref": "sUxieLevelUpLearnset",
       "teachable_ref": "sUxieTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 481,
@@ -36272,7 +36262,7 @@
       "evolutions": null,
       "learnset_ref": "sMespritLevelUpLearnset",
       "teachable_ref": "sMespritTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 482,
@@ -36320,7 +36310,7 @@
       "evolutions": null,
       "learnset_ref": "sAzelfLevelUpLearnset",
       "teachable_ref": "sAzelfTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 483,
@@ -36371,7 +36361,7 @@
       "evolutions": null,
       "learnset_ref": "sDialgaLevelUpLearnset",
       "teachable_ref": "sDialgaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1069,
@@ -36422,7 +36412,7 @@
       "evolutions": null,
       "learnset_ref": "sDialgaLevelUpLearnset",
       "teachable_ref": "sDialgaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 484,
@@ -36473,7 +36463,7 @@
       "evolutions": null,
       "learnset_ref": "sPalkiaLevelUpLearnset",
       "teachable_ref": "sPalkiaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1070,
@@ -36524,7 +36514,7 @@
       "evolutions": null,
       "learnset_ref": "sPalkiaLevelUpLearnset",
       "teachable_ref": "sPalkiaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 485,
@@ -36575,7 +36565,7 @@
       "evolutions": null,
       "learnset_ref": "sHeatranLevelUpLearnset",
       "teachable_ref": "sHeatranTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1550,
@@ -36626,7 +36616,7 @@
       "evolutions": null,
       "learnset_ref": "sHeatranLevelUpLearnset",
       "teachable_ref": "sHeatranTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 486,
@@ -36673,7 +36663,7 @@
       "evolutions": null,
       "learnset_ref": "sRegigigasLevelUpLearnset",
       "teachable_ref": "sRegigigasTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 487,
@@ -36724,7 +36714,7 @@
       "evolutions": null,
       "learnset_ref": "sGiratinaLevelUpLearnset",
       "teachable_ref": "sGiratinaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1071,
@@ -36771,7 +36761,7 @@
       "evolutions": null,
       "learnset_ref": "sGiratinaLevelUpLearnset",
       "teachable_ref": "sGiratinaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 488,
@@ -36816,7 +36806,7 @@
       "evolutions": null,
       "learnset_ref": "sCresseliaLevelUpLearnset",
       "teachable_ref": "sCresseliaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 489,
@@ -36864,7 +36854,7 @@
       "evolutions": null,
       "learnset_ref": "sPhioneLevelUpLearnset",
       "teachable_ref": "sPhioneTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 490,
@@ -36912,7 +36902,7 @@
       "evolutions": null,
       "learnset_ref": "sManaphyLevelUpLearnset",
       "teachable_ref": "sManaphyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 491,
@@ -36960,7 +36950,7 @@
       "evolutions": null,
       "learnset_ref": "sDarkraiLevelUpLearnset",
       "teachable_ref": "sDarkraiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1551,
@@ -37008,7 +36998,7 @@
       "evolutions": null,
       "learnset_ref": "sDarkraiLevelUpLearnset",
       "teachable_ref": "sDarkraiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 492,
@@ -37055,7 +37045,7 @@
       "evolutions": null,
       "learnset_ref": "sShayminLandLevelUpLearnset",
       "teachable_ref": "sShayminLandTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1072,
@@ -37103,7 +37093,7 @@
       "evolutions": null,
       "learnset_ref": "sShayminSkyLevelUpLearnset",
       "teachable_ref": "sShayminSkyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 493,
@@ -37924,7 +37914,7 @@
       "evolutions": null,
       "learnset_ref": "sVictiniLevelUpLearnset",
       "teachable_ref": "sVictiniTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 495,
@@ -38028,7 +38018,7 @@
       "evolutions": null,
       "learnset_ref": "sServineLevelUpLearnset",
       "teachable_ref": "sServineTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 497,
@@ -38080,7 +38070,7 @@
       "evolutions": null,
       "learnset_ref": "sSerperiorLevelUpLearnset",
       "teachable_ref": "sSerperiorTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 498,
@@ -38182,7 +38172,7 @@
       "evolutions": null,
       "learnset_ref": "sPigniteLevelUpLearnset",
       "teachable_ref": "sPigniteTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 500,
@@ -38233,7 +38223,7 @@
       "evolutions": null,
       "learnset_ref": "sEmboarLevelUpLearnset",
       "teachable_ref": "sEmboarTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1532,
@@ -38284,7 +38274,7 @@
       "evolutions": null,
       "learnset_ref": "sEmboarLevelUpLearnset",
       "teachable_ref": "sEmboarTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 501,
@@ -38386,7 +38376,7 @@
       "evolutions": null,
       "learnset_ref": "sDewottLevelUpLearnset",
       "teachable_ref": "sDewottTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 503,
@@ -38437,7 +38427,7 @@
       "evolutions": null,
       "learnset_ref": "sSamurottLevelUpLearnset",
       "teachable_ref": "sSamurottTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1000,
@@ -38488,7 +38478,7 @@
       "evolutions": null,
       "learnset_ref": "sSamurottHisuiLevelUpLearnset",
       "teachable_ref": "sSamurottHisuiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 504,
@@ -38598,7 +38588,7 @@
       "evolutions": null,
       "learnset_ref": "sWatchogLevelUpLearnset",
       "teachable_ref": "sWatchogTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 506,
@@ -38708,7 +38698,7 @@
       "evolutions": null,
       "learnset_ref": "sHerdierLevelUpLearnset",
       "teachable_ref": "sHerdierTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 508,
@@ -38762,7 +38752,7 @@
       "evolutions": null,
       "learnset_ref": "sStoutlandLevelUpLearnset",
       "teachable_ref": "sStoutlandTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 509,
@@ -38872,7 +38862,7 @@
       "evolutions": null,
       "learnset_ref": "sLiepardLevelUpLearnset",
       "teachable_ref": "sLiepardTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 511,
@@ -38974,7 +38964,7 @@
       "evolutions": null,
       "learnset_ref": "sSimisageLevelUpLearnset",
       "teachable_ref": "sSimisageTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 513,
@@ -39076,7 +39066,7 @@
       "evolutions": null,
       "learnset_ref": "sSimisearLevelUpLearnset",
       "teachable_ref": "sSimisearTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 515,
@@ -39178,7 +39168,7 @@
       "evolutions": null,
       "learnset_ref": "sSimipourLevelUpLearnset",
       "teachable_ref": "sSimipourTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 517,
@@ -39288,7 +39278,7 @@
       "evolutions": null,
       "learnset_ref": "sMusharnaLevelUpLearnset",
       "teachable_ref": "sMusharnaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 519,
@@ -39398,7 +39388,7 @@
       "evolutions": null,
       "learnset_ref": "sTranquillLevelUpLearnset",
       "teachable_ref": "sTranquillTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 521,
@@ -39406,7 +39396,9 @@
       "dex_number": "0521",
       "name": "Unfezant",
       "sprite": "0521m",
+      "sprite_female": "0521f",
       "shiny_sprite": "0521m",
+      "shiny_sprite_female": "0521f",
       "type1": "Normal",
       "type2": "Flying",
       "base_stats": {
@@ -39452,9 +39444,7 @@
       "evolutions": null,
       "learnset_ref": "sUnfezantLevelUpLearnset",
       "teachable_ref": "sUnfezantTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0521f",
-      "shiny_sprite_female": "0521f"
+      "egg_moves_ref": null
     },
     {
       "id": 522,
@@ -39564,7 +39554,7 @@
       "evolutions": null,
       "learnset_ref": "sZebstrikaLevelUpLearnset",
       "teachable_ref": "sZebstrikaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 524,
@@ -39675,7 +39665,7 @@
       "evolutions": null,
       "learnset_ref": "sBoldoreLevelUpLearnset",
       "teachable_ref": "sBoldoreTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 526,
@@ -39729,7 +39719,7 @@
       "evolutions": null,
       "learnset_ref": "sGigalithLevelUpLearnset",
       "teachable_ref": "sGigalithTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 527,
@@ -39840,7 +39830,7 @@
       "evolutions": null,
       "learnset_ref": "sSwoobatLevelUpLearnset",
       "teachable_ref": "sSwoobatTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 529,
@@ -39950,7 +39940,7 @@
       "evolutions": null,
       "learnset_ref": "sExcadrillLevelUpLearnset",
       "teachable_ref": "sExcadrillTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1533,
@@ -40005,7 +39995,7 @@
       "evolutions": null,
       "learnset_ref": "sExcadrillLevelUpLearnset",
       "teachable_ref": "sExcadrillTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 531,
@@ -40225,7 +40215,7 @@
       "evolutions": null,
       "learnset_ref": "sGurdurrLevelUpLearnset",
       "teachable_ref": "sGurdurrTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 534,
@@ -40280,7 +40270,7 @@
       "evolutions": null,
       "learnset_ref": "sConkeldurrLevelUpLearnset",
       "teachable_ref": "sConkeldurrTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 535,
@@ -40390,7 +40380,7 @@
       "evolutions": null,
       "learnset_ref": "sPalpitoadLevelUpLearnset",
       "teachable_ref": "sPalpitoadTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 537,
@@ -40444,7 +40434,7 @@
       "evolutions": null,
       "learnset_ref": "sSeismitoadLevelUpLearnset",
       "teachable_ref": "sSeismitoadTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 538,
@@ -40499,7 +40489,7 @@
       "evolutions": null,
       "learnset_ref": "sThrohLevelUpLearnset",
       "teachable_ref": "sThrohTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 539,
@@ -40554,7 +40544,7 @@
       "evolutions": null,
       "learnset_ref": "sSawkLevelUpLearnset",
       "teachable_ref": "sSawkTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 540,
@@ -40664,7 +40654,7 @@
       "evolutions": null,
       "learnset_ref": "sSwadloonLevelUpLearnset",
       "teachable_ref": "sSwadloonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 542,
@@ -40718,7 +40708,7 @@
       "evolutions": null,
       "learnset_ref": "sLeavannyLevelUpLearnset",
       "teachable_ref": "sLeavannyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 543,
@@ -40828,7 +40818,7 @@
       "evolutions": null,
       "learnset_ref": "sWhirlipedeLevelUpLearnset",
       "teachable_ref": "sWhirlipedeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 545,
@@ -40882,7 +40872,7 @@
       "evolutions": null,
       "learnset_ref": "sScolipedeLevelUpLearnset",
       "teachable_ref": "sScolipedeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1534,
@@ -40937,7 +40927,7 @@
       "evolutions": null,
       "learnset_ref": "sScolipedeLevelUpLearnset",
       "teachable_ref": "sScolipedeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 546,
@@ -41049,7 +41039,7 @@
       "evolutions": null,
       "learnset_ref": "sWhimsicottLevelUpLearnset",
       "teachable_ref": "sWhimsicottTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 548,
@@ -41159,7 +41149,7 @@
       "evolutions": null,
       "learnset_ref": "sLilligantLevelUpLearnset",
       "teachable_ref": "sLilligantTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1001,
@@ -41215,7 +41205,7 @@
       "evolutions": null,
       "learnset_ref": "sLilligantHisuiLevelUpLearnset",
       "teachable_ref": "sLilligantHisuiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 550,
@@ -41435,7 +41425,7 @@
       "evolutions": null,
       "learnset_ref": "sBasculegionLevelUpLearnset",
       "teachable_ref": "sBasculegionTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1234,
@@ -41490,9 +41480,7 @@
       "evolutions": null,
       "learnset_ref": "sBasculegionLevelUpLearnset",
       "teachable_ref": "sBasculegionTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0902f",
-      "shiny_sprite_female": "0902f"
+      "egg_moves_ref": null
     },
     {
       "id": 551,
@@ -41602,7 +41590,7 @@
       "evolutions": null,
       "learnset_ref": "sKrokorokLevelUpLearnset",
       "teachable_ref": "sKrokorokTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 553,
@@ -41656,7 +41644,7 @@
       "evolutions": null,
       "learnset_ref": "sKrookodileLevelUpLearnset",
       "teachable_ref": "sKrookodileTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 554,
@@ -41758,7 +41746,7 @@
       "evolutions": null,
       "learnset_ref": "sDarmanitanLevelUpLearnset",
       "teachable_ref": "sDarmanitanTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1092,
@@ -41809,7 +41797,7 @@
       "evolutions": null,
       "learnset_ref": "sDarmanitanLevelUpLearnset",
       "teachable_ref": "sDarmanitanTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 989,
@@ -41911,7 +41899,7 @@
       "evolutions": null,
       "learnset_ref": "sDarmanitanGalarLevelUpLearnset",
       "teachable_ref": "sDarmanitanGalarTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1093,
@@ -41962,7 +41950,7 @@
       "evolutions": null,
       "learnset_ref": "sDarmanitanGalarLevelUpLearnset",
       "teachable_ref": "sDarmanitanGalarTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 556,
@@ -42128,7 +42116,7 @@
       "evolutions": null,
       "learnset_ref": "sCrustleLevelUpLearnset",
       "teachable_ref": "sCrustleTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 559,
@@ -42241,7 +42229,7 @@
       "evolutions": null,
       "learnset_ref": "sScraftyLevelUpLearnset",
       "teachable_ref": "sScraftyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1535,
@@ -42298,7 +42286,7 @@
       "evolutions": null,
       "learnset_ref": "sScraftyLevelUpLearnset",
       "teachable_ref": "sScraftyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 561,
@@ -42449,7 +42437,7 @@
       "evolutions": null,
       "learnset_ref": "sCofagrigusLevelUpLearnset",
       "teachable_ref": "sCofagrigusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 991,
@@ -42545,7 +42533,7 @@
       "evolutions": null,
       "learnset_ref": "sRunerigusLevelUpLearnset",
       "teachable_ref": "sRunerigusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 564,
@@ -42657,7 +42645,7 @@
       "evolutions": null,
       "learnset_ref": "sCarracostaLevelUpLearnset",
       "teachable_ref": "sCarracostaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 566,
@@ -42753,7 +42741,7 @@
       "evolutions": null,
       "learnset_ref": "sArcheopsLevelUpLearnset",
       "teachable_ref": "sArcheopsTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 568,
@@ -42863,7 +42851,7 @@
       "evolutions": null,
       "learnset_ref": "sGarbodorLevelUpLearnset",
       "teachable_ref": "sGarbodorTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1501,
@@ -42918,7 +42906,7 @@
       "evolutions": null,
       "learnset_ref": "sGarbodorLevelUpLearnset",
       "teachable_ref": "sGarbodorTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 570,
@@ -43012,7 +43000,7 @@
       "evolutions": null,
       "learnset_ref": "sZoroarkLevelUpLearnset",
       "teachable_ref": "sZoroarkTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1002,
@@ -43106,7 +43094,7 @@
       "evolutions": null,
       "learnset_ref": "sZoroarkHisuiLevelUpLearnset",
       "teachable_ref": "sZoroarkHisuiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 572,
@@ -43216,7 +43204,7 @@
       "evolutions": null,
       "learnset_ref": "sCinccinoLevelUpLearnset",
       "teachable_ref": "sCinccinoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 574,
@@ -43326,7 +43314,7 @@
       "evolutions": null,
       "learnset_ref": "sGothoritaLevelUpLearnset",
       "teachable_ref": "sGothoritaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 576,
@@ -43381,7 +43369,7 @@
       "evolutions": null,
       "learnset_ref": "sGothitelleLevelUpLearnset",
       "teachable_ref": "sGothitelleTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 577,
@@ -43491,7 +43479,7 @@
       "evolutions": null,
       "learnset_ref": "sDuosionLevelUpLearnset",
       "teachable_ref": "sDuosionTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 579,
@@ -43546,7 +43534,7 @@
       "evolutions": null,
       "learnset_ref": "sReuniclusLevelUpLearnset",
       "teachable_ref": "sReuniclusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 580,
@@ -43658,7 +43646,7 @@
       "evolutions": null,
       "learnset_ref": "sSwannaLevelUpLearnset",
       "teachable_ref": "sSwannaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 582,
@@ -43768,7 +43756,7 @@
       "evolutions": null,
       "learnset_ref": "sVanillishLevelUpLearnset",
       "teachable_ref": "sVanillishTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 584,
@@ -43823,7 +43811,7 @@
       "evolutions": null,
       "learnset_ref": "sVanilluxeLevelUpLearnset",
       "teachable_ref": "sVanilluxeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 585,
@@ -44098,7 +44086,7 @@
       "evolutions": null,
       "learnset_ref": "sSawsbuckLevelUpLearnset",
       "teachable_ref": "sSawsbuckTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1097,
@@ -44153,7 +44141,7 @@
       "evolutions": null,
       "learnset_ref": "sSawsbuckLevelUpLearnset",
       "teachable_ref": "sSawsbuckTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1098,
@@ -44208,7 +44196,7 @@
       "evolutions": null,
       "learnset_ref": "sSawsbuckLevelUpLearnset",
       "teachable_ref": "sSawsbuckTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1099,
@@ -44263,7 +44251,7 @@
       "evolutions": null,
       "learnset_ref": "sSawsbuckLevelUpLearnset",
       "teachable_ref": "sSawsbuckTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 587,
@@ -44424,7 +44412,7 @@
       "evolutions": null,
       "learnset_ref": "sEscavalierLevelUpLearnset",
       "teachable_ref": "sEscavalierTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 590,
@@ -44526,7 +44514,7 @@
       "evolutions": null,
       "learnset_ref": "sAmoongussLevelUpLearnset",
       "teachable_ref": "sAmoongussTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 592,
@@ -44534,7 +44522,9 @@
       "dex_number": "0592",
       "name": "Frillish",
       "sprite": "0592m",
+      "sprite_female": "0592f",
       "shiny_sprite": "0592m",
+      "shiny_sprite_female": "0592f",
       "type1": "Water",
       "type2": "Ghost",
       "base_stats": {
@@ -44581,9 +44571,7 @@
       "evolutions": null,
       "learnset_ref": "sFrillishLevelUpLearnset",
       "teachable_ref": "sFrillishTeachableLearnset",
-      "egg_moves_ref": "sFrillishEggMoveLearnset",
-      "sprite_female": "0592f",
-      "shiny_sprite_female": "0592f"
+      "egg_moves_ref": "sFrillishEggMoveLearnset"
     },
     {
       "id": 593,
@@ -44591,7 +44579,9 @@
       "dex_number": "0593",
       "name": "Jellicent",
       "sprite": "0593m",
+      "sprite_female": "0593f",
       "shiny_sprite": "0593m",
+      "shiny_sprite_female": "0593f",
       "type1": "Water",
       "type2": "Ghost",
       "base_stats": {
@@ -44638,9 +44628,7 @@
       "evolutions": null,
       "learnset_ref": "sJellicentLevelUpLearnset",
       "teachable_ref": "sJellicentTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0593f",
-      "shiny_sprite_female": "0593f"
+      "egg_moves_ref": null
     },
     {
       "id": 594,
@@ -44806,7 +44794,7 @@
       "evolutions": null,
       "learnset_ref": "sGalvantulaLevelUpLearnset",
       "teachable_ref": "sGalvantulaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 597,
@@ -44906,7 +44894,7 @@
       "evolutions": null,
       "learnset_ref": "sFerrothornLevelUpLearnset",
       "teachable_ref": "sFerrothornTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 599,
@@ -44961,7 +44949,7 @@
       "evolutions": null,
       "learnset_ref": "sKlinkLevelUpLearnset",
       "teachable_ref": "sKlinkTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 600,
@@ -45016,7 +45004,7 @@
       "evolutions": null,
       "learnset_ref": "sKlangLevelUpLearnset",
       "teachable_ref": "sKlangTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 601,
@@ -45071,7 +45059,7 @@
       "evolutions": null,
       "learnset_ref": "sKlinklangLevelUpLearnset",
       "teachable_ref": "sKlinklangTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 602,
@@ -45118,7 +45106,7 @@
       "evolutions": null,
       "learnset_ref": "sTynamoLevelUpLearnset",
       "teachable_ref": "sTynamoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 603,
@@ -45165,7 +45153,7 @@
       "evolutions": null,
       "learnset_ref": "sEelektrikLevelUpLearnset",
       "teachable_ref": "sEelektrikTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 604,
@@ -45212,7 +45200,7 @@
       "evolutions": null,
       "learnset_ref": "sEelektrossLevelUpLearnset",
       "teachable_ref": "sEelektrossTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1536,
@@ -45259,7 +45247,7 @@
       "evolutions": null,
       "learnset_ref": "sEelektrossLevelUpLearnset",
       "teachable_ref": "sEelektrossTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 605,
@@ -45369,7 +45357,7 @@
       "evolutions": null,
       "learnset_ref": "sBeheeyemLevelUpLearnset",
       "teachable_ref": "sBeheeyemTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 607,
@@ -45479,7 +45467,7 @@
       "evolutions": null,
       "learnset_ref": "sLampentLevelUpLearnset",
       "teachable_ref": "sLampentTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 609,
@@ -45534,7 +45522,7 @@
       "evolutions": null,
       "learnset_ref": "sChandelureLevelUpLearnset",
       "teachable_ref": "sChandelureTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1537,
@@ -45589,7 +45577,7 @@
       "evolutions": null,
       "learnset_ref": "sChandelureLevelUpLearnset",
       "teachable_ref": "sChandelureTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 610,
@@ -45701,7 +45689,7 @@
       "evolutions": null,
       "learnset_ref": "sFraxureLevelUpLearnset",
       "teachable_ref": "sFraxureTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 612,
@@ -45757,7 +45745,7 @@
       "evolutions": null,
       "learnset_ref": "sHaxorusLevelUpLearnset",
       "teachable_ref": "sHaxorusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 613,
@@ -45866,7 +45854,7 @@
       "evolutions": null,
       "learnset_ref": "sBearticLevelUpLearnset",
       "teachable_ref": "sBearticTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 615,
@@ -45911,7 +45899,7 @@
       "evolutions": null,
       "learnset_ref": "sCryogonalLevelUpLearnset",
       "teachable_ref": "sCryogonalTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 616,
@@ -46021,7 +46009,7 @@
       "evolutions": null,
       "learnset_ref": "sAccelgorLevelUpLearnset",
       "teachable_ref": "sAccelgorTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 618,
@@ -46237,7 +46225,7 @@
       "evolutions": null,
       "learnset_ref": "sMienshaoLevelUpLearnset",
       "teachable_ref": "sMienshaoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 621,
@@ -46348,7 +46336,7 @@
       "evolutions": null,
       "learnset_ref": "sGolettLevelUpLearnset",
       "teachable_ref": "sGolettTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 623,
@@ -46403,7 +46391,7 @@
       "evolutions": null,
       "learnset_ref": "sGolurkLevelUpLearnset",
       "teachable_ref": "sGolurkTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1560,
@@ -46458,7 +46446,7 @@
       "evolutions": null,
       "learnset_ref": "sGolurkLevelUpLearnset",
       "teachable_ref": "sGolurkTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 624,
@@ -46568,7 +46556,7 @@
       "evolutions": null,
       "learnset_ref": "sBisharpLevelUpLearnset",
       "teachable_ref": "sBisharpTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1375,
@@ -46623,7 +46611,7 @@
       "evolutions": null,
       "learnset_ref": "sKingambitLevelUpLearnset",
       "teachable_ref": "sKingambitTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 626,
@@ -46733,7 +46721,7 @@
       "evolutions": null,
       "learnset_ref": "sRuffletLevelUpLearnset",
       "teachable_ref": "sRuffletTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 628,
@@ -46788,7 +46776,7 @@
       "evolutions": null,
       "learnset_ref": "sBraviaryLevelUpLearnset",
       "teachable_ref": "sBraviaryTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1004,
@@ -46843,7 +46831,7 @@
       "evolutions": null,
       "learnset_ref": "sBraviaryHisuiLevelUpLearnset",
       "teachable_ref": "sBraviaryHisuiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 629,
@@ -46953,7 +46941,7 @@
       "evolutions": null,
       "learnset_ref": "sMandibuzzLevelUpLearnset",
       "teachable_ref": "sMandibuzzTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 631,
@@ -47157,7 +47145,7 @@
       "evolutions": null,
       "learnset_ref": "sZweilousLevelUpLearnset",
       "teachable_ref": "sZweilousTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 635,
@@ -47204,7 +47192,7 @@
       "evolutions": null,
       "learnset_ref": "sHydreigonLevelUpLearnset",
       "teachable_ref": "sHydreigonTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 636,
@@ -47306,7 +47294,7 @@
       "evolutions": null,
       "learnset_ref": "sVolcaronaLevelUpLearnset",
       "teachable_ref": "sVolcaronaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 638,
@@ -47353,7 +47341,7 @@
       "evolutions": null,
       "learnset_ref": "sCobalionLevelUpLearnset",
       "teachable_ref": "sCobalionTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 639,
@@ -47400,7 +47388,7 @@
       "evolutions": null,
       "learnset_ref": "sTerrakionLevelUpLearnset",
       "teachable_ref": "sTerrakionTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 640,
@@ -47447,7 +47435,7 @@
       "evolutions": null,
       "learnset_ref": "sVirizionLevelUpLearnset",
       "teachable_ref": "sVirizionTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 641,
@@ -47498,7 +47486,7 @@
       "evolutions": null,
       "learnset_ref": "sTornadusLevelUpLearnset",
       "teachable_ref": "sTornadusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1100,
@@ -47549,7 +47537,7 @@
       "evolutions": null,
       "learnset_ref": "sTornadusLevelUpLearnset",
       "teachable_ref": "sTornadusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 642,
@@ -47600,7 +47588,7 @@
       "evolutions": null,
       "learnset_ref": "sThundurusLevelUpLearnset",
       "teachable_ref": "sThundurusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1101,
@@ -47651,7 +47639,7 @@
       "evolutions": null,
       "learnset_ref": "sThundurusLevelUpLearnset",
       "teachable_ref": "sThundurusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 643,
@@ -47698,7 +47686,7 @@
       "evolutions": null,
       "learnset_ref": "sReshiramLevelUpLearnset",
       "teachable_ref": "sReshiramTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 644,
@@ -47745,7 +47733,7 @@
       "evolutions": null,
       "learnset_ref": "sZekromLevelUpLearnset",
       "teachable_ref": "sZekromTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 645,
@@ -47796,7 +47784,7 @@
       "evolutions": null,
       "learnset_ref": "sLandorusLevelUpLearnset",
       "teachable_ref": "sLandorusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1102,
@@ -47843,7 +47831,7 @@
       "evolutions": null,
       "learnset_ref": "sLandorusLevelUpLearnset",
       "teachable_ref": "sLandorusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 646,
@@ -47892,7 +47880,7 @@
       "evolutions": null,
       "learnset_ref": "sKyuremLevelUpLearnset",
       "teachable_ref": "sKyuremTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1104,
@@ -47939,7 +47927,7 @@
       "evolutions": null,
       "learnset_ref": "sKyuremWhiteLevelUpLearnset",
       "teachable_ref": "sKyuremTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1105,
@@ -47986,7 +47974,7 @@
       "evolutions": null,
       "learnset_ref": "sKyuremBlackLevelUpLearnset",
       "teachable_ref": "sKyuremTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 647,
@@ -48033,7 +48021,7 @@
       "evolutions": null,
       "learnset_ref": "sKeldeoLevelUpLearnset",
       "teachable_ref": "sKeldeoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1106,
@@ -48080,7 +48068,7 @@
       "evolutions": null,
       "learnset_ref": "sKeldeoLevelUpLearnset",
       "teachable_ref": "sKeldeoTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 648,
@@ -48129,7 +48117,7 @@
       "evolutions": null,
       "learnset_ref": "sMeloettaLevelUpLearnset",
       "teachable_ref": "sMeloettaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1107,
@@ -48179,7 +48167,7 @@
       "evolutions": null,
       "learnset_ref": "sMeloettaLevelUpLearnset",
       "teachable_ref": "sMeloettaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 649,
@@ -48496,7 +48484,7 @@
       "evolutions": null,
       "learnset_ref": "sQuilladinLevelUpLearnset",
       "teachable_ref": "sQuilladinTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 652,
@@ -48547,9 +48535,7 @@
       "evolutions": null,
       "learnset_ref": "sChesnaughtLevelUpLearnset",
       "teachable_ref": "sChesnaughtTeachableLearnset",
-      "egg_moves_ref": null,
-      "temp_form": false,
-      "dex_number": 652
+      "egg_moves_ref": null
     },
     {
       "id": 1538,
@@ -48600,7 +48586,7 @@
       "evolutions": null,
       "learnset_ref": "sChesnaughtLevelUpLearnset",
       "teachable_ref": "sChesnaughtTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 653,
@@ -48702,7 +48688,7 @@
       "evolutions": null,
       "learnset_ref": "sBraixenLevelUpLearnset",
       "teachable_ref": "sBraixenTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 655,
@@ -48753,7 +48739,7 @@
       "evolutions": null,
       "learnset_ref": "sDelphoxLevelUpLearnset",
       "teachable_ref": "sDelphoxTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1539,
@@ -48804,7 +48790,7 @@
       "evolutions": null,
       "learnset_ref": "sDelphoxLevelUpLearnset",
       "teachable_ref": "sDelphoxTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 656,
@@ -48906,7 +48892,7 @@
       "evolutions": null,
       "learnset_ref": "sFrogadierLevelUpLearnset",
       "teachable_ref": "sFrogadierTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 658,
@@ -48957,7 +48943,7 @@
       "evolutions": null,
       "learnset_ref": "sGreninjaLevelUpLearnset",
       "teachable_ref": "sGreninjaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1112,
@@ -49004,7 +48990,7 @@
       "evolutions": null,
       "learnset_ref": "sGreninjaLevelUpLearnset",
       "teachable_ref": "sGreninjaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1113,
@@ -49051,7 +49037,7 @@
       "evolutions": null,
       "learnset_ref": "sGreninjaLevelUpLearnset",
       "teachable_ref": "sGreninjaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1540,
@@ -49102,7 +49088,7 @@
       "evolutions": null,
       "learnset_ref": "sGreninjaLevelUpLearnset",
       "teachable_ref": "sGreninjaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 659,
@@ -49212,7 +49198,7 @@
       "evolutions": null,
       "learnset_ref": "sDiggersbyLevelUpLearnset",
       "teachable_ref": "sDiggersbyTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 661,
@@ -49314,7 +49300,7 @@
       "evolutions": null,
       "learnset_ref": "sFletchinderLevelUpLearnset",
       "teachable_ref": "sFletchinderTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 663,
@@ -52411,7 +52397,9 @@
       "dex_number": "0668a",
       "name": "Pyroar",
       "sprite": "0668m",
+      "sprite_female": "0668f",
       "shiny_sprite": "0668m",
+      "shiny_sprite_female": "0668f",
       "type1": "Fire",
       "type2": "Normal",
       "base_stats": {
@@ -52458,9 +52446,7 @@
       "evolutions": null,
       "learnset_ref": "sPyroarLevelUpLearnset",
       "teachable_ref": "sPyroarTeachableLearnset",
-      "egg_moves_ref": null,
-      "sprite_female": "0668f",
-      "shiny_sprite_female": "0668f"
+      "egg_moves_ref": null
     },
     {
       "id": 1541,
@@ -53084,7 +53070,7 @@
       "evolutions": null,
       "learnset_ref": "sFloetteEternalLevelUpLearnset",
       "teachable_ref": "sFloetteEternalTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 671,
@@ -53421,7 +53407,7 @@
       "evolutions": null,
       "learnset_ref": "sGogoatLevelUpLearnset",
       "teachable_ref": "sGogoatTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 674,
@@ -54333,7 +54319,7 @@
       "evolutions": null,
       "learnset_ref": "sDoubladeLevelUpLearnset",
       "teachable_ref": "sDoubladeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 681,
@@ -54379,7 +54365,7 @@
       "evolutions": null,
       "learnset_ref": "sAegislashLevelUpLearnset",
       "teachable_ref": "sAegislashTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1156,
@@ -54427,7 +54413,7 @@
       "evolutions": null,
       "learnset_ref": "sAegislashLevelUpLearnset",
       "teachable_ref": "sAegislashTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 682,
@@ -54529,7 +54515,7 @@
       "evolutions": null,
       "learnset_ref": "sAromatisseLevelUpLearnset",
       "teachable_ref": "sAromatisseTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 684,
@@ -54631,7 +54617,7 @@
       "evolutions": null,
       "learnset_ref": "sSlurpuffLevelUpLearnset",
       "teachable_ref": "sSlurpuffTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 686,
@@ -54743,7 +54729,7 @@
       "evolutions": null,
       "learnset_ref": "sMalamarLevelUpLearnset",
       "teachable_ref": "sMalamarTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1542,
@@ -54799,7 +54785,7 @@
       "evolutions": null,
       "learnset_ref": "sMalamarLevelUpLearnset",
       "teachable_ref": "sMalamarTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 688,
@@ -54909,7 +54895,7 @@
       "evolutions": null,
       "learnset_ref": "sBarbaracleLevelUpLearnset",
       "teachable_ref": "sBarbaracleTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1546,
@@ -54964,7 +54950,7 @@
       "evolutions": null,
       "learnset_ref": "sBarbaracleLevelUpLearnset",
       "teachable_ref": "sBarbaracleTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 690,
@@ -55076,7 +55062,7 @@
       "evolutions": null,
       "learnset_ref": "sDragalgeLevelUpLearnset",
       "teachable_ref": "sDragalgeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1543,
@@ -55132,7 +55118,7 @@
       "evolutions": null,
       "learnset_ref": "sDragalgeLevelUpLearnset",
       "teachable_ref": "sDragalgeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 692,
@@ -55228,7 +55214,7 @@
       "evolutions": null,
       "learnset_ref": "sClawitzerLevelUpLearnset",
       "teachable_ref": "sClawitzerTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 694,
@@ -55341,7 +55327,7 @@
       "evolutions": null,
       "learnset_ref": "sHelioliskLevelUpLearnset",
       "teachable_ref": "sHelioliskTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 696,
@@ -55445,7 +55431,7 @@
       "evolutions": null,
       "learnset_ref": "sTyrantrumLevelUpLearnset",
       "teachable_ref": "sTyrantrumTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 698,
@@ -55547,7 +55533,7 @@
       "evolutions": null,
       "learnset_ref": "sAurorusLevelUpLearnset",
       "teachable_ref": "sAurorusTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 701,
@@ -55659,7 +55645,7 @@
       "evolutions": null,
       "learnset_ref": "sHawluchaLevelUpLearnset",
       "teachable_ref": "sHawluchaTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 702,
@@ -55768,7 +55754,7 @@
       "evolutions": null,
       "learnset_ref": "sCarbinkLevelUpLearnset",
       "teachable_ref": "sCarbinkTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 704,
@@ -55878,7 +55864,7 @@
       "evolutions": null,
       "learnset_ref": "sSliggooLevelUpLearnset",
       "teachable_ref": "sSliggooTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 706,
@@ -55933,7 +55919,7 @@
       "evolutions": null,
       "learnset_ref": "sGoodraLevelUpLearnset",
       "teachable_ref": "sGoodraTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1005,
@@ -55988,7 +55974,7 @@
       "evolutions": null,
       "learnset_ref": "sSliggooHisuiLevelUpLearnset",
       "teachable_ref": "sSliggooHisuiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1006,
@@ -56043,7 +56029,7 @@
       "evolutions": null,
       "learnset_ref": "sGoodraHisuiLevelUpLearnset",
       "teachable_ref": "sGoodraHisuiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 707,
@@ -56206,7 +56192,7 @@
       "evolutions": null,
       "learnset_ref": "sTrevenantLevelUpLearnset",
       "teachable_ref": "sTrevenantTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 710,
@@ -56481,7 +56467,7 @@
       "evolutions": null,
       "learnset_ref": "sGourgeistLevelUpLearnset",
       "teachable_ref": "sGourgeistTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1160,
@@ -56536,7 +56522,7 @@
       "evolutions": null,
       "learnset_ref": "sGourgeistLevelUpLearnset",
       "teachable_ref": "sGourgeistTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1161,
@@ -56591,7 +56577,7 @@
       "evolutions": null,
       "learnset_ref": "sGourgeistLevelUpLearnset",
       "teachable_ref": "sGourgeistTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1162,
@@ -56646,7 +56632,7 @@
       "evolutions": null,
       "learnset_ref": "sGourgeistLevelUpLearnset",
       "teachable_ref": "sGourgeistTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 712,
@@ -56752,7 +56738,7 @@
       "evolutions": null,
       "learnset_ref": "sAvaluggLevelUpLearnset",
       "teachable_ref": "sAvaluggTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1007,
@@ -56805,7 +56791,7 @@
       "evolutions": null,
       "learnset_ref": "sAvaluggHisuiLevelUpLearnset",
       "teachable_ref": "sAvaluggHisuiTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 714,
@@ -56911,7 +56897,7 @@
       "evolutions": null,
       "learnset_ref": "sNoivernLevelUpLearnset",
       "teachable_ref": "sNoivernTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 716,
@@ -56958,7 +56944,7 @@
       "evolutions": null,
       "learnset_ref": "sXerneasLevelUpLearnset",
       "teachable_ref": "sXerneasTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1163,
@@ -57005,7 +56991,7 @@
       "evolutions": null,
       "learnset_ref": "sXerneasLevelUpLearnset",
       "teachable_ref": "sXerneasTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 717,
@@ -57052,7 +57038,7 @@
       "evolutions": null,
       "learnset_ref": "sYveltalLevelUpLearnset",
       "teachable_ref": "sYveltalTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 718,
@@ -57099,7 +57085,7 @@
       "evolutions": null,
       "learnset_ref": "sZygardeLevelUpLearnset",
       "teachable_ref": "sZygardeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1166,
@@ -57146,7 +57132,7 @@
       "evolutions": null,
       "learnset_ref": "sZygardeLevelUpLearnset",
       "teachable_ref": "sZygardeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1164,
@@ -57193,7 +57179,7 @@
       "evolutions": null,
       "learnset_ref": "sZygardeLevelUpLearnset",
       "teachable_ref": "sZygardeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1165,
@@ -57240,7 +57226,7 @@
       "evolutions": null,
       "learnset_ref": "sZygardeLevelUpLearnset",
       "teachable_ref": "sZygardeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1167,
@@ -57287,7 +57273,7 @@
       "evolutions": null,
       "learnset_ref": "sZygardeLevelUpLearnset",
       "teachable_ref": "sZygardeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1547,
@@ -57334,7 +57320,7 @@
       "evolutions": null,
       "learnset_ref": "sZygardeLevelUpLearnset",
       "teachable_ref": "sZygardeTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 719,
@@ -57382,7 +57368,7 @@
       "evolutions": null,
       "learnset_ref": "sDiancieLevelUpLearnset",
       "teachable_ref": "sDiancieTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 952,
@@ -57438,7 +57424,7 @@
       "evolutions": null,
       "learnset_ref": "sDiancieLevelUpLearnset",
       "teachable_ref": "sDiancieTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 720,
@@ -57485,7 +57471,7 @@
       "evolutions": null,
       "learnset_ref": "sHoopaConfinedLevelUpLearnset",
       "teachable_ref": "sHoopaConfinedTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 1168,
@@ -57532,7 +57518,7 @@
       "evolutions": null,
       "learnset_ref": "sHoopaUnboundLevelUpLearnset",
       "teachable_ref": "sHoopaUnboundTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 721,
@@ -57579,7 +57565,7 @@
       "evolutions": null,
       "learnset_ref": "sVolcanionLevelUpLearnset",
       "teachable_ref": "sVolcanionTeachableLearnset",
-      "egg_moves_ref": null,
+      "egg_moves_ref": null
     },
     {
       "id": 722,
