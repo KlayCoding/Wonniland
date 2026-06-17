@@ -528,6 +528,7 @@ const PKM_BASE1  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/
 const PKM_BASE2  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-sprites2/';
 const PKM_SHINY1 = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites/';
 const PKM_SHINY2 = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites2/';
+const ITEM_BASE  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
 const SPRITES = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/Sprites/';
 const FORM_SPRITES = {
   'Unown (B)': `${SPRITES}UNOWN_B.png`,
@@ -2631,6 +2632,14 @@ function showPokedex(mon) {
       img.onerror=()=>iconUrlFallback(img, member.id, sfile);
       const nm=document.createElement('div'); nm.className='pdx-fam-name'; nm.textContent=member.name;
       card.append(img,nm);
+      // Type badges
+      if(member.type1){
+        const typeRow=document.createElement('div'); typeRow.style.cssText='display:flex;gap:3px;';
+        const t1b=tb(member.type1); t1b.style.fontSize='8px'; t1b.style.padding='1px 6px';
+        typeRow.appendChild(t1b);
+        if(member.type2){ const t2b=tb(member.type2); t2b.style.fontSize='8px'; t2b.style.padding='1px 6px'; typeRow.appendChild(t2b); }
+        card.appendChild(typeRow);
+      }
       if(member.group==='Mega'||member.group==='GMax'||member.name.startsWith('Mega')||member.name.startsWith('GMax')){
         const tag=document.createElement('span'); tag.className='pdx-fam-tag'; tag.textContent=member.group||'Temp';
         card.appendChild(tag);
@@ -2699,10 +2708,25 @@ function showPokedex(mon) {
         if(altForms.length){
           const altRow = document.createElement('div'); altRow.className='pdx-fam-altforms';
           altForms.forEach(af=>{
+            const altCol = document.createElement('div'); altCol.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;';
             const isCurrentAlt = af.name.toLowerCase()===mon.name.toLowerCase();
             const smallCard = famCard(af, isCurrentAlt);
             smallCard.style.transform='scale(0.8)'; smallCard.style.opacity='0.9';
-            altRow.appendChild(smallCard);
+            altCol.appendChild(smallCard);
+            // Show form requirement (e.g. Mega Stone) if present
+            if(af.form_requirement){
+              const reqBadge=document.createElement('div'); reqBadge.style.cssText='display:flex;align-items:center;gap:3px;font-size:8px;color:var(--gray);';
+              const matchedItem = ITEMS.find(it=>it.name && it.name.toLowerCase()===af.form_requirement.toLowerCase());
+              if(matchedItem && matchedItem.slug){
+                const ri=document.createElement('img'); ri.style.cssText='width:14px;height:14px;object-fit:contain;image-rendering:pixelated;';
+                ri.src=`${ITEM_BASE}${matchedItem.slug}.png`; ri.onerror=()=>{ri.style.display='none';};
+                reqBadge.appendChild(ri);
+              }
+              const reqTxt=document.createElement('span'); reqTxt.textContent=af.form_requirement;
+              reqBadge.appendChild(reqTxt);
+              altCol.appendChild(reqBadge);
+            }
+            altRow.appendChild(altCol);
           });
           col.appendChild(altRow);
         }
@@ -2716,12 +2740,24 @@ function showPokedex(mon) {
         const connector = document.createElement('div'); connector.className='pdx-fam-connector';
         const arrow = document.createElement('div'); arrow.className='pdx-fam-arrow-down'; arrow.textContent='↓';
         connector.appendChild(arrow);
-        // Show method(s) from current stage to next
+        // Show method(s) from current stage to next — with item sprite if applicable
         stage.forEach(m=>{
           (m.evolves_into||[]).forEach(evo=>{
-            const methodTxt = document.createElement('div');
+            const methodWrap = document.createElement('div');
+            methodWrap.style.cssText='display:flex;align-items:center;gap:5px;';
+            // Check if the param matches a known item name (for Mega Stones, etc.)
+            const matchedItem = ITEMS.find(it=>it.name && evo.param && it.name.toLowerCase()===evo.param.toLowerCase());
+            if(matchedItem && matchedItem.slug){
+              const itemImg=document.createElement('img');
+              itemImg.style.cssText='width:20px;height:20px;object-fit:contain;image-rendering:pixelated;';
+              itemImg.src=`${ITEM_BASE}${matchedItem.slug}.png`;
+              itemImg.onerror=()=>{itemImg.style.display='none';};
+              methodWrap.appendChild(itemImg);
+            }
+            const methodTxt = document.createElement('span');
             methodTxt.textContent = evo.param ? `${evo.method} (${evo.param})` : evo.method;
-            connector.appendChild(methodTxt);
+            methodWrap.appendChild(methodTxt);
+            connector.appendChild(methodWrap);
           });
         });
         sec.appendChild(connector);
