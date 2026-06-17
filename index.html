@@ -2818,9 +2818,14 @@ function showPokedex(mon) {
     }
 
     if(!learnset){
-      console.warn('[Moves Tab] No match found. Available keys sample:', Object.keys(LEARNSETS_DB).slice(0,10));
       const empty=document.createElement('div'); empty.className='pdx-move-empty';
-      empty.textContent='No learnset data available for this Pokémon yet.';
+      empty.style.cssText='padding:20px;text-align:center;color:var(--gray);font-size:11px;line-height:1.6;';
+      const dbSize = Object.keys(LEARNSETS_DB).length;
+      if(dbSize === 0){
+        empty.innerHTML = '⚠️ <b style="color:#f0c600;">learnsets.json failed to load.</b><br><br>Check that learnsets.json is uploaded to the same GitHub folder as index.html, and that the filename matches exactly (case-sensitive).';
+      } else {
+        empty.innerHTML = `No learnset entry found for "<b>${mon.name}</b>".<br><br>Tried keys: ${candidates.join(', ')}<br>Database has ${dbSize} entries loaded.`;
+      }
       page3.appendChild(empty);
       return;
     }
