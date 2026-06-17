@@ -297,6 +297,25 @@
     .pdx-evo-method{font-size:8px;color:var(--pl);}
     .pdx-btn{display:inline-flex;align-items:center;gap:4px;font-size:9px;padding:4px 10px;border-radius:6px;border:1px solid var(--pl);background:rgba(206,147,216,.1);color:var(--pl);cursor:pointer;font-family:'Press Start 2P',monospace;transition:all .2s;}
     .pdx-btn:hover{background:rgba(206,147,216,.2);}
+    .pdx-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);position:sticky;top:0;background:#0d1117;z-index:2;}
+    .pdx-tab{flex:1;padding:12px;text-align:center;font-size:10px;font-family:'Press Start 2P',monospace;color:var(--gray);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;}
+    .pdx-tab.active{color:var(--pl);border-bottom-color:var(--pl);}
+    .pdx-tab:hover{color:var(--white);}
+    .pdx-tabpage{display:none;}
+    .pdx-tabpage.active{display:block;}
+    .pdx-fam-stage{display:flex;flex-direction:column;align-items:center;gap:6px;}
+    .pdx-fam-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+    .pdx-fam-card{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px;border-radius:10px;border:2px solid var(--border);background:rgba(255,255,255,.02);cursor:pointer;transition:all .2s;min-width:80px;}
+    .pdx-fam-card:hover{border-color:var(--pl);background:rgba(206,147,216,.06);}
+    .pdx-fam-card.current{border-color:var(--pl);background:rgba(206,147,216,.12);}
+    .pdx-fam-sprite{width:56px;height:56px;object-fit:contain;image-rendering:pixelated;}
+    .pdx-fam-name{font-size:11px;font-weight:600;text-align:center;}
+    .pdx-fam-tag{font-size:8px;padding:1px 6px;border-radius:4px;background:rgba(240,198,0,.15);color:#f0c600;}
+    .pdx-fam-connector{display:flex;flex-direction:column;align-items:center;color:var(--gray);font-size:9px;gap:2px;}
+    .pdx-fam-arrow-down{font-size:16px;}
+    .pdx-fam-branch{display:flex;gap:24px;justify-content:center;}
+    .pdx-fam-branch-col{display:flex;flex-direction:column;align-items:center;gap:6px;}
+    .pdx-fam-altforms{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;justify-content:center;}
     /* ── Info Side Panel ── */
     .side-panel{
       position:fixed;top:0;left:0;width:360px;max-width:90vw;height:100vh;
@@ -2476,6 +2495,27 @@ function showPokedex(mon) {
   hdr.append(sprite, titleDiv, closeBtn);
   modal.appendChild(hdr);
 
+  // ── Tabs ──────────────────────────────────────────────────────────────────
+  const tabsRow = document.createElement('div'); tabsRow.className='pdx-tabs';
+  const tabOverview = document.createElement('div'); tabOverview.className='pdx-tab active'; tabOverview.textContent='OVERVIEW';
+  const tabEvo = document.createElement('div'); tabEvo.className='pdx-tab'; tabEvo.textContent='EVOLUTION FAMILY';
+  tabsRow.append(tabOverview, tabEvo);
+  modal.appendChild(tabsRow);
+
+  const page1 = document.createElement('div'); page1.className='pdx-tabpage active';
+  const page2 = document.createElement('div'); page2.className='pdx-tabpage';
+  modal.append(page1, page2);
+
+  tabOverview.addEventListener('click', ()=>{
+    tabOverview.classList.add('active'); tabEvo.classList.remove('active');
+    page1.classList.add('active'); page2.classList.remove('active');
+  });
+  tabEvo.addEventListener('click', ()=>{
+    tabEvo.classList.add('active'); tabOverview.classList.remove('active');
+    page2.classList.add('active'); page1.classList.remove('active');
+    if(!page2.dataset.built){ buildEvoFamilyPage(); page2.dataset.built='1'; }
+  });
+
   // Temp-form warning for Mega/GMax
   const isTempForm = (fullData.group==='Mega' || fullData.group==='GMax' ||
     mon.name.startsWith('Mega-') || mon.name.startsWith('Mega ') ||
@@ -2495,7 +2535,7 @@ function showPokedex(mon) {
     const sec = document.createElement('div'); sec.className='pdx-section';
     const desc = document.createElement('div'); desc.className='pdx-desc'; desc.textContent=fullData.description;
     if(fullData.category){const cat=document.createElement('div');cat.style.cssText='font-size:10px;color:var(--pl);margin-bottom:6px;';cat.textContent=`The "${fullData.category}" Pokémon`;sec.appendChild(cat);}
-    sec.appendChild(desc); modal.appendChild(sec);
+    sec.appendChild(desc); page1.appendChild(sec);
   }
 
   // ── Base Stats ────────────────────────────────────────────────────────────
@@ -2516,7 +2556,7 @@ function showPokedex(mon) {
       bar.appendChild(fill); row.append(lbl,val,bar); sec.appendChild(row);
       setTimeout(()=>{ fill.style.width=Math.min(100,Math.round(v/255*100))+'%'; }, 80);
     });
-    modal.appendChild(sec);
+    page1.appendChild(sec);
   }
 
   // ── Info Grid ─────────────────────────────────────────────────────────────
@@ -2544,7 +2584,7 @@ function showPokedex(mon) {
     const v=document.createElement('div');v.className='pdx-value';v.textContent=val;
     f.append(l,v); grid.appendChild(f);
   });
-  infoSec.appendChild(grid); modal.appendChild(infoSec);
+  infoSec.appendChild(grid); page1.appendChild(infoSec);
 
   // ── Abilities ─────────────────────────────────────────────────────────────
   if(fullData.abilities?.length){
@@ -2558,90 +2598,146 @@ function showPokedex(mon) {
       tag.textContent=ab.hidden?'Hidden':'Ability';
       row.append(nm,tag); sec.appendChild(row);
     });
-    modal.appendChild(sec);
+    page1.appendChild(sec);
   }
 
-  // ── Evolution Line ────────────────────────────────────────────────────────
-  const hasEvoData = (fullData.pre_evolution && fullData.pre_evolution!=='???') ||
-                      (fullData.evolves_into && fullData.evolves_into.length>0);
-  if(hasEvoData){
-    const sec=document.createElement('div');sec.className='pdx-section';
-    const t=document.createElement('div');t.className='pdx-section-title';
-    t.textContent = fullData.evolution_line && fullData.evolution_line!=='???' ? fullData.evolution_line.toUpperCase() : 'EVOLUTION';
-    sec.appendChild(t);
-    const chain=document.createElement('div');chain.className='pdx-evo-chain';
+  // ── Evolution Family Page (Tab 2) ───────────────────────────────────────────
+  function buildEvoFamilyPage() {
+    page2.innerHTML = '';
+    const famName = fullData.evolution_line && fullData.evolution_line!=='???'
+      ? fullData.evolution_line : null;
 
-    // Pre-evolution (if exists and isn't Egg)
-    if(fullData.pre_evolution && fullData.pre_evolution!=='???' && fullData.pre_evolution!=='Egg'){
-      const preItem=document.createElement('div');preItem.className='pdx-evo-item';
-      const preNm=document.createElement('div');preNm.textContent=fullData.pre_evolution;
-      preItem.appendChild(preNm);
-      const arrIn=document.createElement('div');arrIn.className='pdx-evo-arrow';arrIn.textContent='→';
-      chain.append(preItem,arrIn);
-    } else if(fullData.pre_evolution==='Egg'){
-      const eggItem=document.createElement('div');eggItem.className='pdx-evo-item';
-      eggItem.style.opacity='.6'; eggItem.textContent='🥚 Egg';
-      const arrIn=document.createElement('div');arrIn.className='pdx-evo-arrow';arrIn.textContent='→';
-      chain.append(eggItem,arrIn);
+    if(!famName){
+      const empty = document.createElement('div');
+      empty.style.cssText='padding:30px 20px;text-align:center;color:var(--gray);font-size:12px;';
+      empty.textContent='No evolution family data available for this Pokémon yet.';
+      page2.appendChild(empty);
+      return;
     }
 
-    // Current pokemon
-    const curr=document.createElement('div');curr.className='pdx-evo-item';
-    const csp=document.createElement('img');csp.style.cssText='width:48px;height:48px;object-fit:contain;image-rendering:pixelated;';
-    csp.src=`${PKM_BASE1}${sf}.png`; csp.onerror=()=>iconUrlFallback(csp,mon.spriteId);
-    const cnm=document.createElement('div');cnm.textContent=mon.name; cnm.style.fontWeight='700'; cnm.style.color='var(--pl)';
-    curr.append(csp,cnm); chain.appendChild(curr);
-
-    // Evolves into (can be multiple branches)
-    (fullData.evolves_into||[]).forEach(evo=>{
-      const arr=document.createElement('div');arr.className='pdx-evo-arrow';
-      const arrowSym=document.createElement('div');arrowSym.textContent='→';
-      const method=document.createElement('div');method.className='pdx-evo-method';
-      method.textContent=evo.param?`${evo.method} (${evo.param})`:evo.method;
-      arr.append(arrowSym,method);
-      const evoItem=document.createElement('div');evoItem.className='pdx-evo-item';
-      const evoNm=document.createElement('div');evoNm.textContent=evo.name;
-      evoItem.appendChild(evoNm);
-      chain.append(arr,evoItem);
-    });
-    sec.appendChild(chain); modal.appendChild(sec);
-  }
-
-  // ── Alternate Forms ───────────────────────────────────────────────────────
-  if(fullData.alternate_forms && fullData.alternate_forms.length>0){
-    const sec=document.createElement('div');sec.className='pdx-section';
-    const t=document.createElement('div');t.className='pdx-section-title';t.textContent='ALTERNATE FORMS';
+    const sec = document.createElement('div'); sec.className='pdx-section';
+    const t = document.createElement('div'); t.className='pdx-section-title'; t.textContent=famName.toUpperCase();
     sec.appendChild(t);
-    const row=document.createElement('div');row.style.cssText='display:flex;gap:8px;flex-wrap:wrap;';
-    fullData.alternate_forms.forEach(formName=>{
-      const chip=document.createElement('span');
-      chip.style.cssText='font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(206,147,216,.12);color:var(--pl);border:1px solid rgba(206,147,216,.25);cursor:pointer;';
-      chip.textContent=formName;
-      chip.addEventListener('click',()=>{
-        const altMon=ALL_MON.find(m=>m.name.toLowerCase()===formName.toLowerCase());
-        if(altMon){ bd.remove(); showPokedex(altMon); }
+
+    // Gather all members of this evolution_line from POKEMON
+    const members = POKEMON.map(pp=>pp._full).filter(f=>f && f.evolution_line===famName);
+
+    // Helper to render one Pokemon as a clickable sprite card
+    function famCard(member, isCurrent){
+      const card=document.createElement('div'); card.className='pdx-fam-card'+(isCurrent?' current':'');
+      const sfile = member.sprite || (member.id && member.id!=='???' ? String(member.id).padStart(4,'0') : '');
+      const img=document.createElement('img'); img.className='pdx-fam-sprite';
+      img.src = sfile ? `${PKM_BASE1}${sfile}.png` : `${SHOWDOWN}0.gif`;
+      img.onerror=()=>iconUrlFallback(img, member.id, sfile);
+      const nm=document.createElement('div'); nm.className='pdx-fam-name'; nm.textContent=member.name;
+      card.append(img,nm);
+      if(member.group==='Mega'||member.group==='GMax'||member.name.startsWith('Mega')||member.name.startsWith('GMax')){
+        const tag=document.createElement('span'); tag.className='pdx-fam-tag'; tag.textContent=member.group||'Temp';
+        card.appendChild(tag);
+      }
+      if(!isCurrent){
+        card.addEventListener('click', ()=>{
+          const altMon = ALL_MON.find(m=>m.name.toLowerCase()===member.name.toLowerCase());
+          if(altMon){ bd.remove(); showPokedex(altMon); }
+        });
+      }
+      return card;
+    }
+
+    // Group members by "base stage" (those without alternate-form siblings pointing TO them)
+    // Strategy: find evolutionary stages by following pre_evolution chains, then attach
+    // alternate_forms (Mega/GMax) as siblings under their base stage.
+
+    // Identify true evolutionary stages (exclude pure alt-forms like Mega/GMax themselves,
+    // since those will be attached to their base stage instead)
+    const isAltForm = (m) => (m.group==='Mega'||m.group==='GMax'||/^(Mega|GMax)[- ]/.test(m.name));
+    const stageMembers = members.filter(m=>!isAltForm(m));
+
+    // Build stage order via pre_evolution chain
+    const byName = {}; members.forEach(m=>{ byName[m.name.toLowerCase()] = m; });
+    const stages = []; // array of arrays (for branches at same level)
+    const visited = new Set();
+
+    // Find root(s): stage members whose pre_evolution is Egg/??? or not in this family
+    const roots = stageMembers.filter(m=>{
+      const pre = m.pre_evolution;
+      return !pre || pre==='???' || pre==='Egg' || !byName[pre.toLowerCase()];
+    });
+
+    function collectNext(currentNames){
+      const next = [];
+      stageMembers.forEach(m=>{
+        if(visited.has(m.name)) return;
+        const pre=(m.pre_evolution||'').toLowerCase();
+        if(currentNames.some(cn=>cn.toLowerCase()===pre)){ next.push(m); }
       });
-      row.appendChild(chip);
+      return next;
+    }
+
+    let currentLevel = roots;
+    roots.forEach(r=>visited.add(r.name));
+    stages.push(currentLevel);
+    while(currentLevel.length){
+      const names = currentLevel.map(m=>m.name);
+      const next = collectNext(names);
+      if(!next.length) break;
+      next.forEach(n=>visited.add(n.name));
+      stages.push(next);
+      currentLevel = next;
+    }
+
+    // Render stage by stage
+    stages.forEach((stage, si)=>{
+      const row = document.createElement('div'); row.className='pdx-fam-row';
+      stage.forEach(member=>{
+        const col = document.createElement('div'); col.style.cssText='display:flex;flex-direction:column;align-items:center;gap:6px;';
+        const isCurrent = member.name.toLowerCase()===mon.name.toLowerCase();
+        col.appendChild(famCard(member, isCurrent));
+
+        // Attach alternate forms (Mega/GMax) directly below this member
+        const altForms = (member.alternate_forms||[]).map(n=>byName[n.toLowerCase()]).filter(Boolean).filter(isAltForm);
+        if(altForms.length){
+          const altRow = document.createElement('div'); altRow.className='pdx-fam-altforms';
+          altForms.forEach(af=>{
+            const isCurrentAlt = af.name.toLowerCase()===mon.name.toLowerCase();
+            const smallCard = famCard(af, isCurrentAlt);
+            smallCard.style.transform='scale(0.8)'; smallCard.style.opacity='0.9';
+            altRow.appendChild(smallCard);
+          });
+          col.appendChild(altRow);
+        }
+        row.appendChild(col);
+      });
+      sec.appendChild(row);
+
+      // Connector arrow + method between stages
+      if(si < stages.length-1){
+        const nextStage = stages[si+1];
+        const connector = document.createElement('div'); connector.className='pdx-fam-connector';
+        const arrow = document.createElement('div'); arrow.className='pdx-fam-arrow-down'; arrow.textContent='↓';
+        connector.appendChild(arrow);
+        // Show method(s) from current stage to next
+        stage.forEach(m=>{
+          (m.evolves_into||[]).forEach(evo=>{
+            const methodTxt = document.createElement('div');
+            methodTxt.textContent = evo.param ? `${evo.method} (${evo.param})` : evo.method;
+            connector.appendChild(methodTxt);
+          });
+        });
+        sec.appendChild(connector);
+      }
     });
-    sec.appendChild(row); modal.appendChild(sec);
+
+    // If no stages were resolved (e.g. data incomplete), show flat list fallback
+    if(stages.every(s=>s.length===0) || stages.length===0){
+      const flatRow = document.createElement('div'); flatRow.className='pdx-fam-row';
+      members.filter(m=>!isAltForm(m)).forEach(m=>flatRow.appendChild(famCard(m, m.name.toLowerCase()===mon.name.toLowerCase())));
+      sec.appendChild(flatRow);
+    }
+
+    page2.appendChild(sec);
   }
 
-  // ── EV Yield ──────────────────────────────────────────────────────────────
-  const evY = fullData.ev_yield || {};
-  const evEntries = Object.entries(evY).filter(([,v])=>v>0);
-  if(evEntries.length){
-    const sec=document.createElement('div');sec.className='pdx-section';
-    const t=document.createElement('div');t.className='pdx-section-title';t.textContent='EV YIELD';
-    sec.appendChild(t);
-    const statLabels2={hp:'HP',atk:'Atk',def:'Def',spa:'SpA',spd:'SpD',spe:'Spe'};
-    const row=document.createElement('div');row.style.cssText='display:flex;gap:10px;flex-wrap:wrap;';
-    evEntries.forEach(([k,v])=>{
-      const chip=document.createElement('span');chip.style.cssText='font-size:11px;padding:3px 10px;border-radius:6px;background:rgba(206,147,216,.12);color:var(--pl);';
-      chip.textContent=`+${v} ${statLabels2[k]||k}`;
-      row.appendChild(chip);
-    });
-    sec.appendChild(row); modal.appendChild(sec);
-  }
 
   bd.appendChild(modal);
   document.body.appendChild(bd);
