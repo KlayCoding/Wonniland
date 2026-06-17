@@ -1903,6 +1903,19 @@ function debounce(fn, ms) {
   let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
 
+function _dexCompare(a, b) {
+  // Handles dex numbers like "0003", "0003a", "0003b" — numeric part first, then letter suffix
+  const parse = (v) => {
+    if (!v || v === '???') return [9999, ''];
+    const s = String(v);
+    const m = s.match(/^(\d+)([a-zA-Z]*)$/);
+    return m ? [parseInt(m[1], 10), m[2]] : [9999, ''];
+  };
+  const [an, al] = parse(a);
+  const [bn, bl] = parse(b);
+  if (an !== bn) return an - bn;
+  return al.localeCompare(bl);
+}
 function makeAC(ph,list){
   const wrap=document.createElement('div'); wrap.className='ac-wrap';
   const inp=document.createElement('input'); inp.type='text'; inp.placeholder=ph; inp.autocomplete='off'; inp.spellcheck=false;
@@ -1932,8 +1945,8 @@ function makeAC(ph,list){
       pool=[...pool];
       if(_acSort==='id_asc') pool.sort((a,b)=>(a.id||9999)-(b.id||9999));
       else if(_acSort==='id_desc') pool.sort((a,b)=>(b.id||0)-(a.id||0));
-      else if(_acSort==='dex_asc') pool.sort((a,b)=>(+a.dex_number||9999)-(+b.dex_number||9999));
-      else if(_acSort==='dex_desc') pool.sort((a,b)=>(+b.dex_number||0)-(+a.dex_number||0));
+      else if(_acSort==='dex_asc') pool.sort((a,b)=>_dexCompare(a.dex_number,b.dex_number));
+      else if(_acSort==='dex_desc') pool.sort((a,b)=>_dexCompare(b.dex_number,a.dex_number));
       else if(_acSort==='bst_desc') pool.sort((a,b)=>(b.bst||0)-(a.bst||0));
       else if(_acSort==='bst_asc') pool.sort((a,b)=>(a.bst||0)-(b.bst||0));
       else if(_acSort==='type_az') pool.sort((a,b)=>(a.t1||'').localeCompare(b.t1||''));
@@ -1943,7 +1956,7 @@ function makeAC(ph,list){
     matches.forEach(p=>{
       const item=document.createElement('div'); item.className='dd-item';
       // Sprite
-      const ico=document.createElement('img'); ico.className='pico'; ico.src=p.isForm?formSpriteUrl(p.name,p.spriteId,p.art):iconUrl(p.spriteId,p.art); ico.loading='lazy'; ico.onerror=()=>iconUrlFallback(ico,p.spriteId||p.baseId,p.spriteFile);
+      const ico=document.createElement('img'); ico.className='pico'; ico.src=p.isForm?formSpriteUrl(p.name,p.spriteId,p.art):iconUrl(p.spriteId,p.art,p.spriteFile); ico.loading='lazy'; ico.onerror=()=>iconUrlFallback(ico,p.spriteId||p.baseId,p.spriteFile);
       // Right side: 2 lines
       const info=document.createElement('div'); info.className='dd-info';
       // Line 1: name + dex number
@@ -1988,7 +2001,7 @@ function makeAC(ph,list){
     const sf=p.spriteFile||String(p.spriteId).padStart(4,'0');
     pIco.src=`${PKM_BASE1}${sf}.png`;
     pIco.onerror=()=>iconUrlFallback(pIco,p.spriteId||p.baseId);
-    pNm.textContent=`${p.displayId ? '#'+p.displayId+' — ' : ''}${p.name}`;
+    pNm.innerHTML=`${p.name}<br><span style="font-size:11px;opacity:.7;">Game ID: ${p.displayId?'#'+p.displayId:'???'} ${p.dex_number?' · Dex: #'+String(p.dex_number).padStart(4,'0'):''}</span>`;
     pBdg.innerHTML=''; pBdg.appendChild(tb(p.t1)); if(p.t2)pBdg.appendChild(tb(p.t2));
     // Gender toggle — only show if female sprite exists
     const gToggle=prev.querySelector('.gender-toggle');
@@ -2462,6 +2475,20 @@ function showPokedex(mon) {
   closeBtn.addEventListener('click', ()=>bd.remove());
   hdr.append(sprite, titleDiv, closeBtn);
   modal.appendChild(hdr);
+
+  // Temp-form warning for Mega/GMax
+  const isTempForm = (fullData.group==='Mega' || fullData.group==='GMax' ||
+    mon.name.startsWith('Mega-') || mon.name.startsWith('Mega ') ||
+    mon.name.startsWith('GMax-') || mon.name.startsWith('GMax '));
+  if(isTempForm){
+    const warnBox = document.createElement('div');
+    warnBox.style.cssText = 'margin:0 20px 16px;padding:10px 14px;background:rgba(240,198,0,.1);border:1px solid rgba(240,198,0,.3);border-radius:8px;display:flex;align-items:center;gap:8px;';
+    const warnIcon = document.createElement('span'); warnIcon.style.fontSize='16px'; warnIcon.textContent='⚠️';
+    const warnText = document.createElement('span'); warnText.style.cssText='font-size:12px;color:#f0c600;';
+    warnText.textContent = 'Temporary Form — changes to default after a match.';
+    warnBox.append(warnIcon, warnText);
+    modal.appendChild(warnBox);
+  }
 
   // ── Description ───────────────────────────────────────────────────────────
   if(fullData.description){
