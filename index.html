@@ -2791,16 +2791,34 @@ function showPokedex(mon) {
   // ── Moves Page (Tab 3) ───────────────────────────────────────────────────
   function buildMovesPage() {
     page3.innerHTML = '';
-    // Find learnset by learnset_ref (strip 's' prefix and 'LevelUpLearnset'/etc suffix)
+    console.log('[Moves Tab] LEARNSETS_DB size:', Object.keys(LEARNSETS_DB).length);
+    console.log('[Moves Tab] fullData.learnset_ref:', fullData.learnset_ref);
+    console.log('[Moves Tab] mon.name:', mon.name);
+    // Find learnset by learnset_ref (strip 's' prefix and Learnset-type suffix)
     function resolveLearnsetKey(ref) {
       if(!ref) return null;
-      let key = ref.replace(/^s/, '').replace(/LevelUpLearnset$|TeachableLearnset$|EggMoveLearnset$/, '');
+      let key = ref.replace(/^s/, '').replace(/(LevelUp|Teachable|EggMove)Learnset$/, '');
       return key;
     }
-    const lsKey = resolveLearnsetKey(fullData.learnset_ref) || mon.name.replace(/[^a-zA-Z]/g,'');
-    const learnset = LEARNSETS_DB[lsKey] || LEARNSETS_DB[mon.name.replace(/[^a-zA-Z]/g,'')];
+    // Try multiple resolution strategies in order
+    const baseName = mon.name.replace(/\s*\([^)]*\)\s*/g,'').replace(/[^a-zA-Z]/g,''); // strip (Form) suffixes too
+    const plainName = mon.name.replace(/[^a-zA-Z]/g,'');
+    const candidates = [
+      resolveLearnsetKey(fullData.learnset_ref),
+      resolveLearnsetKey(fullData.teachable_ref),
+      resolveLearnsetKey(fullData.egg_moves_ref),
+      plainName,
+      baseName,
+    ].filter(Boolean);
+    console.log('[Moves Tab] Trying keys:', candidates);
+
+    let learnset = null;
+    for(const key of candidates){
+      if(LEARNSETS_DB[key]){ learnset = LEARNSETS_DB[key]; console.log('[Moves Tab] Matched key:', key); break; }
+    }
 
     if(!learnset){
+      console.warn('[Moves Tab] No match found. Available keys sample:', Object.keys(LEARNSETS_DB).slice(0,10));
       const empty=document.createElement('div'); empty.className='pdx-move-empty';
       empty.textContent='No learnset data available for this Pokémon yet.';
       page3.appendChild(empty);
