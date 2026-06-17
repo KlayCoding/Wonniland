@@ -666,7 +666,7 @@
         "atk": 63,
         "def": 80,
         "spa": 65,
-        "spd" 80,
+        "spd": 80,
         "spe": 58
       },
       "bst": 325,
@@ -719,7 +719,7 @@
         "atk": 83,
         "def": 100,
         "spa": 85,
-        "spd" 105,
+        "spd": 105,
         "spe": 78
       },
       "bst": 425,
@@ -2092,7 +2092,7 @@
       "base_stats": {
         "hp": 35,
         "atk": 55,
-        "def": 40
+        "def": 40,
         "spa": 50,
         "spd": 60,
         "spe": 90
@@ -2858,7 +2858,7 @@
       "base_stats": {
         "hp": 35,
         "atk": 55,
-        "def": 40
+        "def": 40,
         "spa": 50,
         "spd": 60,
         "spe": 90
@@ -3257,7 +3257,7 @@
       "teachable_ref": "sSandslashTeachableLearnset",
       "egg_moves_ref": null
     },
-        {
+    {
       "id": 959,
       "group": "Regional",
       "dex_number": "0027b",
@@ -7886,7 +7886,7 @@
         "atk": 35,
         "def": 70,
         "spa": 95,
-        "spd": 55
+        "spd": 55,
         "spe": 45
       },
       "bst": 270,
@@ -9804,7 +9804,7 @@
       "learnset_ref": "sExeggutorAlolaLevelUpLearnset",
       "teachable_ref": "sExeggutorAlolaTeachableLearnset",
       "egg_moves_ref": null
-    }, 
+    },
     {
       "id": 104,
       "group": "Gen 1",
@@ -10754,7 +10754,7 @@
         "hp": 250,
         "atk": 5,
         "def": 5,
-        "spa": 35, 
+        "spa": 35,
         "spd": 105,
         "spe": 50
       },
@@ -41871,7 +41871,7 @@
       "evolutions": null,
       "learnset_ref": "sDarumakaLevelUpLearnset",
       "teachable_ref": "sDarumakaTeachableLearnset",
-      "egg_moves_ref": "sDarumakaEggMoveLearnset",
+      "egg_moves_ref": "sDarumakaEggMoveLearnset"
     },
     {
       "id": 555,
@@ -62778,7 +62778,7 @@
       "evolutions": null,
       "learnset_ref": "sTogedemaruLevelUpLearnset",
       "teachable_ref": "sTogedemaruTeachableLearnset",
-      "egg_moves_ref": "sTogedemaruEggMoveLearnset",
+      "egg_moves_ref": "sTogedemaruEggMoveLearnset"
     },
     {
       "id": 778,
