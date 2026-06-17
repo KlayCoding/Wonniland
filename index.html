@@ -2183,12 +2183,12 @@ function showIVEVOverlay(){
   backdrop.appendChild(box); document.body.appendChild(backdrop);
 }
 
+function bpColor(bp){if(!bp||bp===0)return'var(--gray)';if(bp<=60)return'#f0c600';if(bp<=100)return'#ff9800';return'#E3350D';}
 function makeMoveSearch(card, onDone, stepRef) {
   const MTCOL={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
   const MCCOL={Physical:'#e8622a',Special:'#4f90d3',Status:'#4caf50'};
   const MCICO={Physical:'⚔️',Special:'✨',Status:'🔄'};
   const MCAT_SPRITE_BASE='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/move-damage-class/';
-  function bpColor(bp){if(!bp||bp===0)return'var(--gray)';if(bp<=60)return'#f0c600';if(bp<=100)return'#ff9800';return'#E3350D';}
   function typeChip(type){
     const col=MTCOL[type]||'#888';
     const chip=document.createElement('span');
@@ -2834,7 +2834,7 @@ function showPokedex(mon) {
       const found = MOVES.find(m=>m.name.toLowerCase()===moveName.toLowerCase());
       const row=document.createElement('div'); row.className='pdx-move-row';
       if(found){
-        const tChip=typeChip(found.type); tChip.style.fontSize='8px'; tChip.style.padding='1px 6px';
+        const tChip=tb(found.type); tChip.style.fontSize='8px'; tChip.style.padding='1px 6px';
         row.appendChild(tChip);
       }
       const nm=document.createElement('div'); nm.className='pdx-move-name'; nm.textContent=moveName;
