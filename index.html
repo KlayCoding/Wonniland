@@ -2561,30 +2561,69 @@ function showPokedex(mon) {
     modal.appendChild(sec);
   }
 
-  // ── Evolutions ────────────────────────────────────────────────────────────
-  if(fullData.evolutions?.length){
+  // ── Evolution Line ────────────────────────────────────────────────────────
+  const hasEvoData = (fullData.pre_evolution && fullData.pre_evolution!=='???') ||
+                      (fullData.evolves_into && fullData.evolves_into.length>0);
+  if(hasEvoData){
     const sec=document.createElement('div');sec.className='pdx-section';
-    const t=document.createElement('div');t.className='pdx-section-title';t.textContent='EVOLUTION';
+    const t=document.createElement('div');t.className='pdx-section-title';
+    t.textContent = fullData.evolution_line && fullData.evolution_line!=='???' ? fullData.evolution_line.toUpperCase() : 'EVOLUTION';
     sec.appendChild(t);
     const chain=document.createElement('div');chain.className='pdx-evo-chain';
+
+    // Pre-evolution (if exists and isn't Egg)
+    if(fullData.pre_evolution && fullData.pre_evolution!=='???' && fullData.pre_evolution!=='Egg'){
+      const preItem=document.createElement('div');preItem.className='pdx-evo-item';
+      const preNm=document.createElement('div');preNm.textContent=fullData.pre_evolution;
+      preItem.appendChild(preNm);
+      const arrIn=document.createElement('div');arrIn.className='pdx-evo-arrow';arrIn.textContent='→';
+      chain.append(preItem,arrIn);
+    } else if(fullData.pre_evolution==='Egg'){
+      const eggItem=document.createElement('div');eggItem.className='pdx-evo-item';
+      eggItem.style.opacity='.6'; eggItem.textContent='🥚 Egg';
+      const arrIn=document.createElement('div');arrIn.className='pdx-evo-arrow';arrIn.textContent='→';
+      chain.append(eggItem,arrIn);
+    }
+
     // Current pokemon
     const curr=document.createElement('div');curr.className='pdx-evo-item';
     const csp=document.createElement('img');csp.style.cssText='width:48px;height:48px;object-fit:contain;image-rendering:pixelated;';
     csp.src=`${PKM_BASE1}${sf}.png`; csp.onerror=()=>iconUrlFallback(csp,mon.spriteId);
-    const cnm=document.createElement('div');cnm.textContent=mon.name;
+    const cnm=document.createElement('div');cnm.textContent=mon.name; cnm.style.fontWeight='700'; cnm.style.color='var(--pl)';
     curr.append(csp,cnm); chain.appendChild(curr);
-    fullData.evolutions.forEach(evo=>{
+
+    // Evolves into (can be multiple branches)
+    (fullData.evolves_into||[]).forEach(evo=>{
       const arr=document.createElement('div');arr.className='pdx-evo-arrow';
       const arrowSym=document.createElement('div');arrowSym.textContent='→';
       const method=document.createElement('div');method.className='pdx-evo-method';
-      method.textContent=evo.param&&evo.param!=='0'?`${evo.method} ${evo.param}`:evo.method;
+      method.textContent=evo.param?`${evo.method} (${evo.param})`:evo.method;
       arr.append(arrowSym,method);
       const evoItem=document.createElement('div');evoItem.className='pdx-evo-item';
-      const evoNm=document.createElement('div');evoNm.textContent=evo.into;
+      const evoNm=document.createElement('div');evoNm.textContent=evo.name;
       evoItem.appendChild(evoNm);
       chain.append(arr,evoItem);
     });
     sec.appendChild(chain); modal.appendChild(sec);
+  }
+
+  // ── Alternate Forms ───────────────────────────────────────────────────────
+  if(fullData.alternate_forms && fullData.alternate_forms.length>0){
+    const sec=document.createElement('div');sec.className='pdx-section';
+    const t=document.createElement('div');t.className='pdx-section-title';t.textContent='ALTERNATE FORMS';
+    sec.appendChild(t);
+    const row=document.createElement('div');row.style.cssText='display:flex;gap:8px;flex-wrap:wrap;';
+    fullData.alternate_forms.forEach(formName=>{
+      const chip=document.createElement('span');
+      chip.style.cssText='font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(206,147,216,.12);color:var(--pl);border:1px solid rgba(206,147,216,.25);cursor:pointer;';
+      chip.textContent=formName;
+      chip.addEventListener('click',()=>{
+        const altMon=ALL_MON.find(m=>m.name.toLowerCase()===formName.toLowerCase());
+        if(altMon){ bd.remove(); showPokedex(altMon); }
+      });
+      row.appendChild(chip);
+    });
+    sec.appendChild(row); modal.appendChild(sec);
   }
 
   // ── EV Yield ──────────────────────────────────────────────────────────────
