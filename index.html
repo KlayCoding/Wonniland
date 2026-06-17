@@ -316,6 +316,12 @@
     .pdx-fam-branch{display:flex;gap:24px;justify-content:center;}
     .pdx-fam-branch-col{display:flex;flex-direction:column;align-items:center;gap:6px;}
     .pdx-fam-altforms{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;justify-content:center;}
+    .pdx-move-group{margin-bottom:14px;}
+    .pdx-move-group-title{font-size:9px;font-family:'Press Start 2P',monospace;color:var(--pl);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+    .pdx-move-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;background:rgba(255,255,255,.02);margin-bottom:4px;font-size:12px;}
+    .pdx-move-lvl{font-size:10px;color:var(--gray);min-width:40px;font-family:'Press Start 2P',monospace;}
+    .pdx-move-name{flex:1;font-weight:600;}
+    .pdx-move-empty{padding:16px;text-align:center;color:var(--gray);font-size:11px;}
     /* ── Info Side Panel ── */
     .side-panel{
       position:fixed;top:0;left:0;width:360px;max-width:90vw;height:100vh;
@@ -2499,22 +2505,29 @@ function showPokedex(mon) {
   // ── Tabs ──────────────────────────────────────────────────────────────────
   const tabsRow = document.createElement('div'); tabsRow.className='pdx-tabs';
   const tabOverview = document.createElement('div'); tabOverview.className='pdx-tab active'; tabOverview.textContent='OVERVIEW';
-  const tabEvo = document.createElement('div'); tabEvo.className='pdx-tab'; tabEvo.textContent='EVOLUTION FAMILY';
-  tabsRow.append(tabOverview, tabEvo);
+  const tabEvo = document.createElement('div'); tabEvo.className='pdx-tab'; tabEvo.textContent='EVOLUTION';
+  const tabMoves = document.createElement('div'); tabMoves.className='pdx-tab'; tabMoves.textContent='MOVES';
+  tabsRow.append(tabOverview, tabEvo, tabMoves);
   modal.appendChild(tabsRow);
 
   const page1 = document.createElement('div'); page1.className='pdx-tabpage active';
   const page2 = document.createElement('div'); page2.className='pdx-tabpage';
-  modal.append(page1, page2);
+  const page3 = document.createElement('div'); page3.className='pdx-tabpage';
+  modal.append(page1, page2, page3);
 
-  tabOverview.addEventListener('click', ()=>{
-    tabOverview.classList.add('active'); tabEvo.classList.remove('active');
-    page1.classList.add('active'); page2.classList.remove('active');
-  });
+  function switchTab(activeTab, activePage){
+    [tabOverview,tabEvo,tabMoves].forEach(t=>t.classList.remove('active'));
+    [page1,page2,page3].forEach(p=>p.classList.remove('active'));
+    activeTab.classList.add('active'); activePage.classList.add('active');
+  }
+  tabOverview.addEventListener('click', ()=>switchTab(tabOverview,page1));
   tabEvo.addEventListener('click', ()=>{
-    tabEvo.classList.add('active'); tabOverview.classList.remove('active');
-    page2.classList.add('active'); page1.classList.remove('active');
+    switchTab(tabEvo,page2);
     if(!page2.dataset.built){ buildEvoFamilyPage(); page2.dataset.built='1'; }
+  });
+  tabMoves.addEventListener('click', ()=>{
+    switchTab(tabMoves,page3);
+    if(!page3.dataset.built){ buildMovesPage(); page3.dataset.built='1'; }
   });
 
   // Temp-form warning for Mega/GMax
@@ -2775,6 +2788,90 @@ function showPokedex(mon) {
   }
 
 
+  // ── Moves Page (Tab 3) ───────────────────────────────────────────────────
+  function buildMovesPage() {
+    page3.innerHTML = '';
+    // Find learnset by learnset_ref (strip 's' prefix and 'LevelUpLearnset'/etc suffix)
+    function resolveLearnsetKey(ref) {
+      if(!ref) return null;
+      let key = ref.replace(/^s/, '').replace(/LevelUpLearnset$|TeachableLearnset$|EggMoveLearnset$/, '');
+      return key;
+    }
+    const lsKey = resolveLearnsetKey(fullData.learnset_ref) || mon.name.replace(/[^a-zA-Z]/g,'');
+    const learnset = LEARNSETS_DB[lsKey] || LEARNSETS_DB[mon.name.replace(/[^a-zA-Z]/g,'')];
+
+    if(!learnset){
+      const empty=document.createElement('div'); empty.className='pdx-move-empty';
+      empty.textContent='No learnset data available for this Pokémon yet.';
+      page3.appendChild(empty);
+      return;
+    }
+
+    function moveChip(moveName){
+      const found = MOVES.find(m=>m.name.toLowerCase()===moveName.toLowerCase());
+      const row=document.createElement('div'); row.className='pdx-move-row';
+      if(found){
+        const tChip=typeChip(found.type); tChip.style.fontSize='8px'; tChip.style.padding='1px 6px';
+        row.appendChild(tChip);
+      }
+      const nm=document.createElement('div'); nm.className='pdx-move-name'; nm.textContent=moveName;
+      row.appendChild(nm);
+      if(found){
+        const bp=document.createElement('div'); bp.style.cssText='font-size:10px;color:'+bpColor(found.power)+';font-weight:700;min-width:34px;text-align:right;';
+        bp.textContent = found.power || '—';
+        row.appendChild(bp);
+      }
+      return row;
+    }
+
+    // Level-Up moves
+    const lvlSec=document.createElement('div'); lvlSec.className='pdx-section';
+    const lvlGroup=document.createElement('div'); lvlGroup.className='pdx-move-group';
+    const lvlTitle=document.createElement('div'); lvlTitle.className='pdx-move-group-title'; lvlTitle.textContent='⬆ LEVEL-UP MOVES';
+    lvlGroup.appendChild(lvlTitle);
+    const lvlMoves = learnset.level_up || [];
+    if(lvlMoves.length){
+      lvlMoves.forEach(lm=>{
+        const row=moveChip(lm.move);
+        const lvlBadge=document.createElement('div'); lvlBadge.className='pdx-move-lvl'; lvlBadge.textContent='Lv.'+lm.level;
+        row.insertBefore(lvlBadge, row.firstChild);
+        lvlGroup.appendChild(row);
+      });
+    } else {
+      const e=document.createElement('div'); e.className='pdx-move-empty'; e.textContent='No level-up moves listed.';
+      lvlGroup.appendChild(e);
+    }
+    lvlSec.appendChild(lvlGroup); page3.appendChild(lvlSec);
+
+    // Teachable moves
+    const tSec=document.createElement('div'); tSec.className='pdx-section';
+    const tGroup=document.createElement('div'); tGroup.className='pdx-move-group';
+    const tTitle=document.createElement('div'); tTitle.className='pdx-move-group-title'; tTitle.textContent='📀 TEACHABLE MOVES (TM/Tutor)';
+    tGroup.appendChild(tTitle);
+    const teach = (learnset.teachable||[]).filter(m=>m!=='???');
+    if(teach.length){
+      teach.forEach(mv=>tGroup.appendChild(moveChip(mv)));
+    } else {
+      const e=document.createElement('div'); e.className='pdx-move-empty'; e.textContent='Teachable move data not yet entered.';
+      tGroup.appendChild(e);
+    }
+    tSec.appendChild(tGroup); page3.appendChild(tSec);
+
+    // Egg moves
+    const eSec=document.createElement('div'); eSec.className='pdx-section';
+    const eGroup=document.createElement('div'); eGroup.className='pdx-move-group';
+    const eTitle=document.createElement('div'); eTitle.className='pdx-move-group-title'; eTitle.textContent='🥚 EGG MOVES';
+    eGroup.appendChild(eTitle);
+    const eggMoves = (learnset.egg_moves||[]).filter(m=>m!=='???');
+    if(eggMoves.length){
+      eggMoves.forEach(mv=>eGroup.appendChild(moveChip(mv)));
+    } else {
+      const e=document.createElement('div'); e.className='pdx-move-empty'; e.textContent='Egg move data not yet entered.';
+      eGroup.appendChild(e);
+    }
+    eSec.appendChild(eGroup); page3.appendChild(eSec);
+  }
+
   bd.appendChild(modal);
   document.body.appendChild(bd);
 }
@@ -2787,10 +2884,11 @@ function addS(c,t){const e=document.createElement('div');e.className='q-sub';e.t
 async function loadPokemonData() {
   try {
     // Fetch all JSONs in parallel
-    const [r, ra, ri] = await Promise.all([
+    const [r, ra, ri, rl] = await Promise.all([
       fetch('pokemon.json'),
       fetch('abilities.json').catch(()=>null),
       fetch('items.json').catch(()=>null),
+      fetch('learnsets.json').catch(()=>null),
     ]);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const data = await r.json();
@@ -2816,6 +2914,12 @@ async function loadPokemonData() {
         hold_effect: it.hold_effect || null,
       }));
       console.log(`✓ Loaded ${ITEMS.length} items from items.json`);
+    }
+    // Load learnsets
+    if(rl && rl.ok){
+      const ld = await rl.json();
+      LEARNSETS_DB = ld.learnsets || {};
+      console.log(`✓ Loaded ${Object.keys(LEARNSETS_DB).length} learnsets from learnsets.json`);
     }
 
     // Build POKEMON array — include ALL entries, use index for missing IDs
@@ -3538,6 +3642,7 @@ const MAX_TEAM = 6;
 
 // Ability database (loaded from abilities.json)
 let ABILITIES_DB = {};
+let LEARNSETS_DB = {};
 
 // Team state
 let trainerInfo = {};
