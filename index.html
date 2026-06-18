@@ -16,7 +16,7 @@
     /* ── Master Ball: bounce then flash ── */
     .mb{width:80px;height:80px;margin:0 auto 20px;position:relative;}
     .mb svg{width:100%;height:100%;}
-    .mb-wrap{animation:mb-bounce 2.6s ease-in-out 0s 1 forwards;}
+    .mb-wrap{animation:mb-bounce 2.6s ease-in-out 0s 1 forwards,mb-idle 2s ease-in-out 2.8s infinite alternate;}
     @keyframes mb-bounce{
       0%{transform:translateY(0);}10%{transform:translateY(-28px);}20%{transform:translateY(0);}
       28%{transform:translateY(-18px);}36%{transform:translateY(0);}
@@ -30,11 +30,6 @@
     .mb-flash{position:absolute;inset:0;border-radius:50%;background:white;opacity:0;animation:mb-flash 2.6s ease-in-out 0s 1 forwards,mb-idle 2s ease-in-out 2.8s infinite alternate;}
     @keyframes mb-flash{0%,74%{opacity:0;}78%{opacity:0.85;}82%{opacity:0;}86%{opacity:0.6;}90%{opacity:0;}94%{opacity:0.4;}100%{opacity:0;}}
     @keyframes mb-idle{0%{transform:translateY(0);}100%{transform:translateY(-5px);}}
-    /* apply idle to wrap too after bounce */
-    .mb-wrap{animation:mb-bounce 2.6s ease-in-out 0s 1 forwards;}
-    /* second animation for idle on wrap - use delay */
-    .mb-wrap-idle{animation:mb-idle 2s ease-in-out 2.8s infinite alternate;}
-
     /* Progress */
     .prog-wrap{width:100%;max-width:min(1100px,calc(100vw - 64px));margin-bottom:28px;}
     .prog-label{font-size:10px;color:var(--gray);margin-bottom:8px;font-family:'Press Start 2P',monospace;letter-spacing:1px;}
@@ -87,7 +82,7 @@
     .dd-sp{display:flex;flex-direction:column;align-items:center;min-width:26px;}
     .dd-sp-lbl{font-size:6px;color:var(--gray);font-family:'Press Start 2P',monospace;line-height:1;}
     .dd-sp-val{font-size:10px;font-weight:700;line-height:1.3;}
-    .dd-bst{font-size:9px;color:var(--gray);font-weight:600;white-space:nowrap;padding-left:4px;border-left:1px solid rgba(255,255,255,.15);}
+    
     .dex{font-size:9px;color:var(--gray);white-space:nowrap;flex-shrink:0;}
     .pico{width:56px;height:56px;object-fit:contain;image-rendering:pixelated;flex-shrink:0;}
     .pnm{font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:1;}
@@ -110,17 +105,17 @@
     .g-opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
     .g-btn{flex:1;min-width:100px;padding:11px;text-align:center;background:var(--dark);border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s;}
     .g-btn:hover{border-color:var(--gray);}
-    .g-btn.sm{border-color:#64b5f6;background:rgba(100,181,246,.1);color:#64b5f6;}
-    .g-btn.sf{border-color:#f48fb1;background:rgba(244,143,177,.1);color:#f48fb1;}
+    
+    
     .g-btn.su{border-color:var(--gray);background:rgba(136,146,164,.1);color:var(--gray);}
     .g-btn.sy{border-color:#4caf50;background:rgba(76,175,80,.1);color:#4caf50;}
     .g-btn.sn{border-color:#E3350D;background:rgba(227,53,13,.1);color:#E3350D;}
 
     /* OT */
-    .ot-row{display:flex;gap:8px;margin-bottom:10px;}
-    .ot-btn{padding:8px 16px;border-radius:8px;border:2px solid var(--border);background:var(--dark);cursor:pointer;font-size:13px;font-weight:600;transition:all .2s;color:var(--gray);}
-    .ot-btn.am{border-color:#64b5f6;color:#64b5f6;background:rgba(100,181,246,.08);}
-    .ot-btn.af{border-color:#f48fb1;color:#f48fb1;background:rgba(244,143,177,.08);}
+    
+    
+    
+    
     .ot-preview{font-size:16px;font-weight:700;margin-top:6px;min-height:24px;transition:color .2s;}
     .ot-preview.mc{color:#64b5f6;} .ot-preview.fc{color:#f48fb1;}
 
@@ -138,7 +133,7 @@
     .cust-sect{margin-top:14px;padding:16px;background:rgba(0,0,0,.25);border-radius:10px;border:1px solid var(--border);}
     .cust-h{font-size:10px;color:var(--pl);font-family:'Press Start 2P',monospace;margin-bottom:10px;}
     .cust-info{font-size:12px;color:var(--gray);margin-bottom:8px;font-style:italic;}
-    .cust-div{height:1px;background:var(--border);margin:16px 0;}
+    
     .sg{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:6px;}
     @media(max-width:600px){.sg{grid-template-columns:repeat(3,1fr);}}
     .sc label{font-size:11px;color:var(--gray);display:block;margin-bottom:3px;font-weight:600;}
@@ -263,12 +258,6 @@
     .team-slot-name{font-size:7px;color:var(--gray);text-align:center;max-width:52px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
     .team-slot-num{font-size:7px;font-family:'Press Start 2P',monospace;color:rgba(255,255,255,.2);}
     .team-slot-empty-ico{font-size:18px;line-height:40px;color:rgba(255,255,255,.15);}
-    .team-add-btn{
-      width:56px;height:64px;border-radius:10px;border:2px dashed rgba(255,255,255,.15);
-      background:transparent;color:rgba(255,255,255,.25);font-size:22px;cursor:pointer;
-      transition:all .2s;display:flex;align-items:center;justify-content:center;
-    }
-    .team-add-btn:hover{border-color:var(--pl);color:var(--pl);background:rgba(206,147,216,.05);}
     /* ── Pokédex Modal ── */
     .pdx-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px);}
     .pdx-modal{background:#0d1117;border:1px solid var(--border);border-radius:16px;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.6);}
@@ -291,10 +280,10 @@
     .pdx-stat-val{font-size:12px;font-weight:700;width:32px;text-align:right;flex-shrink:0;}
     .pdx-stat-bar{flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;}
     .pdx-stat-fill{height:100%;border-radius:4px;transition:width .6s ease;}
-    .pdx-evo-chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-    .pdx-evo-item{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--gray);}
-    .pdx-evo-arrow{color:var(--gray);font-size:12px;display:flex;flex-direction:column;align-items:center;gap:2px;}
-    .pdx-evo-method{font-size:8px;color:var(--pl);}
+    
+    
+    
+    
     .pdx-btn{display:inline-flex;align-items:center;gap:4px;font-size:9px;padding:4px 10px;border-radius:6px;border:1px solid var(--pl);background:rgba(206,147,216,.1);color:var(--pl);cursor:pointer;font-family:'Press Start 2P',monospace;transition:all .2s;}
     .pdx-btn:hover{background:rgba(206,147,216,.2);}
     .pdx-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);position:sticky;top:0;background:#0d1117;z-index:2;}
@@ -303,7 +292,7 @@
     .pdx-tab:hover{color:var(--white);}
     .pdx-tabpage{display:none;}
     .pdx-tabpage.active{display:block;}
-    .pdx-fam-stage{display:flex;flex-direction:column;align-items:center;gap:6px;}
+    
     .pdx-fam-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
     .pdx-fam-card{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px;border-radius:10px;border:2px solid var(--border);background:rgba(255,255,255,.02);cursor:pointer;transition:all .2s;min-width:80px;}
     .pdx-fam-card:hover{border-color:var(--pl);background:rgba(206,147,216,.06);}
@@ -313,12 +302,12 @@
     .pdx-fam-tag{font-size:8px;padding:1px 6px;border-radius:4px;background:rgba(240,198,0,.15);color:#f0c600;}
     .pdx-fam-connector{display:flex;flex-direction:column;align-items:center;color:var(--gray);font-size:9px;gap:2px;}
     .pdx-fam-arrow-down{font-size:16px;}
-    .pdx-fam-branch{display:flex;gap:24px;justify-content:center;}
-    .pdx-fam-branch-col{display:flex;flex-direction:column;align-items:center;gap:6px;}
+    
+    
     .pdx-fam-altforms{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;justify-content:center;}
     .pdx-move-group{margin-bottom:14px;}
     .pdx-move-group-title{font-size:9px;font-family:'Press Start 2P',monospace;color:var(--pl);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-    .pdx-move-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;background:rgba(255,255,255,.02);margin-bottom:4px;font-size:12px;}
+    
     .pdx-move-lvl{font-size:10px;color:var(--gray);min-width:40px;font-family:'Press Start 2P',monospace;}
     .pdx-move-name{flex:1;font-weight:600;}
     .pdx-move-empty{padding:16px;text-align:center;color:var(--gray);font-size:11px;}
@@ -404,8 +393,8 @@
     .overlay-sect{margin-bottom:18px;}
     .overlay-sect-h{font-size:13px;font-weight:700;color:var(--pl);margin-bottom:6px;}
     .overlay-sect p{font-size:12px;color:var(--gray);line-height:1.7;}
-    .overlay-stat-ex{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;}
-    .overlay-stat-ex-item{background:rgba(255,255,255,.04);border-radius:8px;padding:8px;text-align:center;font-size:11px;}
+    
+    
     .info-btn{background:transparent;border:1px solid var(--pl);color:var(--pl);border-radius:6px;padding:4px 10px;font-size:10px;cursor:pointer;margin-left:8px;transition:all .2s;}
     .info-btn:hover{background:rgba(206,147,216,.1);}
   </style>
@@ -430,7 +419,7 @@
 
 <header>
   <div class="mb">
-    <div class="mb-wrap mb-wrap-idle">
+    <div class="mb-wrap">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <circle cx="50" cy="50" r="47" fill="#7B1FA2" stroke="#4a0072" stroke-width="2"/>
         <path d="M3,50 A47,47 0 0,0 97,50 Z" fill="#f0f0f0"/>
@@ -544,221 +533,6 @@ const PKM_BASE2  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/
 const PKM_SHINY1 = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites/';
 const PKM_SHINY2 = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites2/';
 const ITEM_BASE  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
-const SPRITES = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/Sprites/';
-const FORM_SPRITES = {
-  'Unown (B)': `${SPRITES}UNOWN_B.png`,
-  'Unown (C)': `${SPRITES}UNOWN_C.png`,
-  'Unown (D)': `${SPRITES}UNOWN_D.png`,
-  'Unown (E)': `${SPRITES}UNOWN_E.png`,
-  'Unown (F)': `${SPRITES}UNOWN_F.png`,
-  'Unown (G)': `${SPRITES}UNOWN_G.png`,
-  'Unown (H)': `${SPRITES}UNOWN_H.png`,
-  'Unown (I)': `${SPRITES}UNOWN_I.png`,
-  'Unown (J)': `${SPRITES}UNOWN_J.png`,
-  'Unown (K)': `${SPRITES}UNOWN_K.png`,
-  'Unown (L)': `${SPRITES}UNOWN_L.png`,
-  'Unown (M)': `${SPRITES}UNOWN_M.png`,
-  'Unown (N)': `${SPRITES}UNOWN_N.png`,
-  'Unown (O)': `${SPRITES}UNOWN_O.png`,
-  'Unown (P)': `${SPRITES}UNOWN_P.png`,
-  'Unown (Q)': `${SPRITES}UNOWN_Q.png`,
-  'Unown (R)': `${SPRITES}UNOWN_R.png`,
-  'Unown (S)': `${SPRITES}UNOWN_S.png`,
-  'Unown (T)': `${SPRITES}UNOWN_T.png`,
-  'Unown (U)': `${SPRITES}UNOWN_U.png`,
-  'Unown (V)': `${SPRITES}UNOWN_V.png`,
-  'Unown (W)': `${SPRITES}UNOWN_W.png`,
-  'Unown (X)': `${SPRITES}UNOWN_X.png`,
-  'Unown (Y)': `${SPRITES}UNOWN_Y.png`,
-  'Unown (Z)': `${SPRITES}UNOWN_Z.png`,
-  'Unown (!)': `${SPRITES}UNOWN_EXCLAMATION.png`,
-  'Unown (?)': `${SPRITES}UNOWN_QUESTION.png`,
-  'Arceus (Fighting)': `${SPRITES}ARCEUS_FIGHTING.png`,
-  'Arceus (Flying)': `${SPRITES}ARCEUS_FLYING.png`,
-  'Arceus (Poison)': `${SPRITES}ARCEUS_POISON.png`,
-  'Arceus (Ground)': `${SPRITES}ARCEUS_GROUND.png`,
-  'Arceus (Rock)': `${SPRITES}ARCEUS_ROCK.png`,
-  'Arceus (Bug)': `${SPRITES}ARCEUS_BUG.png`,
-  'Arceus (Ghost)': `${SPRITES}ARCEUS_GHOST.png`,
-  'Arceus (Steel)': `${SPRITES}ARCEUS_STEEL.png`,
-  'Arceus (Fire)': `${SPRITES}ARCEUS_FIRE.png`,
-  'Arceus (Water)': `${SPRITES}ARCEUS_WATER.png`,
-  'Arceus (Grass)': `${SPRITES}ARCEUS_GRASS.png`,
-  'Arceus (Electric)': `${SPRITES}ARCEUS_ELECTRIC.png`,
-  'Arceus (Psychic)': `${SPRITES}ARCEUS_PSYCHIC.png`,
-  'Arceus (Ice)': `${SPRITES}ARCEUS_ICE.png`,
-  'Arceus (Dragon)': `${SPRITES}ARCEUS_DRAGON.png`,
-  'Arceus (Dark)': `${SPRITES}ARCEUS_DARK.png`,
-  'Arceus (Fairy)': `${SPRITES}ARCEUS_FAIRY.png`,
-  'Silvally (Fighting)': `${SPRITES}SILVALLY_FIGHTING.png`,
-  'Silvally (Flying)': `${SPRITES}SILVALLY_FLYING.png`,
-  'Silvally (Poison)': `${SPRITES}SILVALLY_POISON.png`,
-  'Silvally (Ground)': `${SPRITES}SILVALLY_GROUND.png`,
-  'Silvally (Rock)': `${SPRITES}SILVALLY_ROCK.png`,
-  'Silvally (Bug)': `${SPRITES}SILVALLY_BUG.png`,
-  'Silvally (Ghost)': `${SPRITES}SILVALLY_GHOST.png`,
-  'Silvally (Steel)': `${SPRITES}SILVALLY_STEEL.png`,
-  'Silvally (Fire)': `${SPRITES}SILVALLY_FIRE.png`,
-  'Silvally (Water)': `${SPRITES}SILVALLY_WATER.png`,
-  'Silvally (Grass)': `${SPRITES}SILVALLY_GRASS.png`,
-  'Silvally (Electric)': `${SPRITES}SILVALLY_ELECTRIC.png`,
-  'Silvally (Psychic)': `${SPRITES}SILVALLY_PSYCHIC.png`,
-  'Silvally (Ice)': `${SPRITES}SILVALLY_ICE.png`,
-  'Silvally (Dragon)': `${SPRITES}SILVALLY_DRAGON.png`,
-  'Silvally (Dark)': `${SPRITES}SILVALLY_DARK.png`,
-  'Silvally (Fairy)': `${SPRITES}SILVALLY_FAIRY.png`,
-  'Rotom (Heat)': `${SPRITES}ROTOM_HEAT.png`,
-  'Rotom (Wash)': `${SPRITES}ROTOM_WASH.png`,
-  'Rotom (Frost)': `${SPRITES}ROTOM_FROST.png`,
-  'Rotom (Fan)': `${SPRITES}ROTOM_FAN.png`,
-  'Rotom (Mow)': `${SPRITES}ROTOM_MOW.png`,
-  'Genesect': `${SPRITES}GENESECT.png`,
-  'Meloetta (Pirouette)': `${SPRITES}MELOETTA_PIROUETTE.png`,
-  'Shaymin (Sky)': `${SPRITES}SHAYMIN_SKY.png`,
-  'Keldeo (Resolute)': `${SPRITES}KELDEO_RESOLUTE.png`,
-  'Giratina (Origin)': `${SPRITES}GIRATINA_ORIGIN.png`,
-  'Dialga (Origin)': `${SPRITES}DIALGA_ORIGIN.png`,
-  'Palkia (Origin)': `${SPRITES}PALKIA_ORIGIN.png`,
-  'Mega-Venusaur': `${SPRITES}MEGA_VENUSAUR.png`,
-  'Mega-Charizard-X': `${SPRITES}MEGA_CHARIZARD_X.png`,
-  'Mega-Charizard-Y': `${SPRITES}MEGA_CHARIZARD_Y.png`,
-  'Mega-Blastoise': `${SPRITES}MEGA_BLASTOISE.png`,
-  'Mega-Alakazam': `${SPRITES}MEGA_ALAKAZAM.png`,
-  'Mega-Gengar': `${SPRITES}MEGA_GENGAR.png`,
-  'Mega-Kangaskhan': `${SPRITES}MEGA_KANGASKHAN.png`,
-  'Mega-Pinsir': `${SPRITES}MEGA_PINSIR.png`,
-  'Mega-Gyarados': `${SPRITES}MEGA_GYARADOS.png`,
-  'Mega-Aerodactyl': `${SPRITES}MEGA_AERODACTYL.png`,
-  'Mega-Mewtwo-X': `${SPRITES}MEGA_MEWTWO_X.png`,
-  'Mega-Mewtwo-Y': `${SPRITES}MEGA_MEWTWO_Y.png`,
-  'Mega-Ampharos': `${SPRITES}MEGA_AMPHAROS.png`,
-  'Mega-Scizor': `${SPRITES}MEGA_SCIZOR.png`,
-  'Mega-Heracross': `${SPRITES}MEGA_HERACROSS.png`,
-  'Mega-Houndoom': `${SPRITES}MEGA_HOUNDOOM.png`,
-  'Mega-Tyranitar': `${SPRITES}MEGA_TYRANITAR.png`,
-  'Mega-Blaziken': `${SPRITES}MEGA_BLAZIKEN.png`,
-  'Mega-Gardevoir': `${SPRITES}MEGA_GARDEVOIR.png`,
-  'Mega-Mawile': `${SPRITES}MEGA_MAWILE.png`,
-  'Mega-Aggron': `${SPRITES}MEGA_AGGRON.png`,
-  'Mega-Medicham': `${SPRITES}MEGA_MEDICHAM.png`,
-  'Mega-Manectric': `${SPRITES}MEGA_MANECTRIC.png`,
-  'Mega-Sableye': `${SPRITES}MEGA_SABLEYE.png`,
-  'Mega-Absol': `${SPRITES}MEGA_ABSOL.png`,
-  'Mega-Glalie': `${SPRITES}MEGA_GLALIE.png`,
-  'Mega-Salamence': `${SPRITES}MEGA_SALAMENCE.png`,
-  'Mega-Metagross': `${SPRITES}MEGA_METAGROSS.png`,
-  'Mega-Latias': `${SPRITES}MEGA_LATIAS.png`,
-  'Mega-Latios': `${SPRITES}MEGA_LATIOS.png`,
-  'Mega-Rayquaza': `${SPRITES}MEGA_RAYQUAZA.png`,
-  'Mega-Beedrill': `${SPRITES}MEGA_BEEDRILL.png`,
-  'Mega-Pidgeot': `${SPRITES}MEGA_PIDGEOT.png`,
-  'Mega-Slowbro': `${SPRITES}MEGA_SLOWBRO.png`,
-  'Mega-Steelix': `${SPRITES}MEGA_STEELIX.png`,
-  'Primal-Kyogre': `${SPRITES}PRIMAL_KYOGRE.png`,
-  'Primal-Groudon': `${SPRITES}PRIMAL_GROUDON.png`,
-  'Alolan-Rattata': `${SPRITES}RATTATA_ALOLAN.png`,
-  'Alolan-Raticate': `${SPRITES}RATICATE_ALOLAN.png`,
-  'Alolan-Raichu': `${SPRITES}RAICHU_ALOLAN.png`,
-  'Alolan-Sandshrew': `${SPRITES}SANDSHREW_ALOLAN.png`,
-  'Alolan-Sandslash': `${SPRITES}SANDSLASH_ALOLAN.png`,
-  'Alolan-Vulpix': `${SPRITES}VULPIX_ALOLAN.png`,
-  'Alolan-Ninetales': `${SPRITES}NINETALES_ALOLAN.png`,
-  'Alolan-Diglett': `${SPRITES}DIGLETT_ALOLAN.png`,
-  'Alolan-Dugtrio': `${SPRITES}DUGTRIO_ALOLAN.png`,
-  'Alolan-Meowth': `${SPRITES}MEOWTH_ALOLAN.png`,
-  'Alolan-Persian': `${SPRITES}PERSIAN_ALOLAN.png`,
-  'Alolan-Geodude': `${SPRITES}GEODUDE_ALOLAN.png`,
-  'Alolan-Graveler': `${SPRITES}GRAVELER_ALOLAN.png`,
-  'Alolan-Golem': `${SPRITES}GOLEM_ALOLAN.png`,
-  'Alolan-Grimer': `${SPRITES}GRIMER_ALOLAN.png`,
-  'Alolan-Muk': `${SPRITES}MUK_ALOLAN.png`,
-  'Alolan-Exeggutor': `${SPRITES}EXEGGUTOR_ALOLAN.png`,
-  'Alolan-Marowak': `${SPRITES}MAROWAK_ALOLAN.png`,
-  'Galarian-Meowth': `${SPRITES}MEOWTH_GALAR.png`,
-  "Galarian-Farfetch'd": `${SPRITES}FARFETCHD_GALAR.png`,
-  'Galarian-Ponyta': `${SPRITES}PONYTA_GALAR.png`,
-  'Galarian-Rapidash': `${SPRITES}RAPIDASH_GALAR.png`,
-  'Galarian-Slowpoke': `${SPRITES}SLOWPOKE_GALAR.png`,
-  'Galarian-Slowbro': `${SPRITES}SLOWBRO_GALAR.png`,
-  'Galarian-Slowking': `${SPRITES}SLOWKING_GALAR.png`,
-  'Galarian-Mr.-Mime': `${SPRITES}MR_MIME_GALAR.png`,
-  'Galarian-Articuno': `${SPRITES}ARTICUNO_GALAR.png`,
-  'Galarian-Zapdos': `${SPRITES}ZAPDOS_GALAR.png`,
-  'Galarian-Moltres': `${SPRITES}MOLTRES_GALAR.png`,
-  'Galarian-Corsola': `${SPRITES}CORSOLA_GALAR.png`,
-  'Galarian-Zigzagoon': `${SPRITES}ZIGZAGOON_GALAR.png`,
-  'Galarian-Linoone': `${SPRITES}LINOONE_GALAR.png`,
-  'Galarian-Darumaka': `${SPRITES}DARUMAKA_GALAR.png`,
-  'Galarian-Darmanitan': `${SPRITES}DARMANITAN_GALAR.png`,
-  'Galarian-Darmanitan (Zen)': `${SPRITES}DARMANITAN_GALAR_ZEN.png`,
-  'Galarian-Stunfisk': `${SPRITES}STUNFISK_GALAR.png`,
-  'Hisuian-Growlithe': `${SPRITES}GROWLITHE_HISUI.png`,
-  'Hisuian-Arcanine': `${SPRITES}ARCANINE_HISUI.png`,
-  'Hisuian-Voltorb': `${SPRITES}VOLTORB_HISUI.png`,
-  'Hisuian-Electrode': `${SPRITES}ELECTRODE_HISUI.png`,
-  'Hisuian-Typhlosion': `${SPRITES}TYPHLOSION_HISUI.png`,
-  'Hisuian-Qwilfish': `${SPRITES}QWILFISH_HISUI.png`,
-  'Hisuian-Sneasel': `${SPRITES}SNEASEL_HISUI.png`,
-  'Hisuian-Samurott': `${SPRITES}SAMUROTT_HISUI.png`,
-  'Hisuian-Lilligant': `${SPRITES}LILLIGANT_HISUI.png`,
-  'Hisuian-Zorua': `${SPRITES}ZORUA_HISUI.png`,
-  'Hisuian-Zoroark': `${SPRITES}ZOROARK_HISUI.png`,
-  'Hisuian-Braviary': `${SPRITES}BRAVIARY_HISUI.png`,
-  'Hisuian-Sliggoo': `${SPRITES}SLIGGOO_HISUI.png`,
-  'Hisuian-Goodra': `${SPRITES}GOODRA_HISUI.png`,
-  'Hisuian-Avalugg': `${SPRITES}AVALUGG_HISUI.png`,
-  'Hisuian-Decidueye': `${SPRITES}DECIDUEYE_HISUI.png`,
-  'GMax-Venusaur': `${SPRITES}VENUSAUR_GMAX.png`,
-  'GMax-Charizard': `${SPRITES}CHARIZARD_GMAX.png`,
-  'GMax-Blastoise': `${SPRITES}BLASTOISE_GMAX.png`,
-  'GMax-Butterfree': `${SPRITES}BUTTERFREE_GMAX.png`,
-  'GMax-Meowth': `${SPRITES}MEOWTH_GMAX.png`,
-  'GMax-Gengar': `${SPRITES}GENGAR_GMAX.png`,
-  'GMax-Eevee': `${SPRITES}EEVEE_GMAX.png`,
-  'GMax-Pikachu': `${SPRITES}PIKACHU_GMAX.png`,
-  'GMax-Snorlax': `${SPRITES}SNORLAX_GMAX.png`,
-  'GMax-Lapras': `${SPRITES}LAPRAS_GMAX.png`,
-  'GMax-Flapple': `${SPRITES}FLAPPLE_GMAX.png`,
-  'GMax-Appletun': `${SPRITES}APPLETUN_GMAX.png`,
-  'GMax-Sandaconda': `${SPRITES}SANDACONDA_GMAX.png`,
-  'GMax-Toxtricity (Amped)': `${SPRITES}TOXTRICITY_GMAX.png`,
-  'GMax-Centiskorch': `${SPRITES}CENTISKORCH_GMAX.png`,
-  'GMax-Hatterene': `${SPRITES}HATTERENE_GMAX.png`,
-  'GMax-Grimmsnarl': `${SPRITES}GRIMMSNARL_GMAX.png`,
-  'GMax-Alcremie': `${SPRITES}ALCREMIE_GMAX.png`,
-  'GMax-Copperajah': `${SPRITES}COPPERAJAH_GMAX.png`,
-  'GMax-Duraludon': `${SPRITES}DURALUDON_GMAX.png`,
-  'GMax-Urshifu (Single Strike)': `${SPRITES}URSHIFU_SINGLE_GMAX.png`,
-  'GMax-Urshifu (Rapid Strike)': `${SPRITES}URSHIFU_RAPID_GMAX.png`,
-  'Pikachu (Original Cap)': `${SPRITES}PIKACHU_ORIGINAL_CAP.png`,
-  'Pikachu (Hoenn Cap)': `${SPRITES}PIKACHU_HOENN_CAP.png`,
-  'Pikachu (Sinnoh Cap)': `${SPRITES}PIKACHU_SINNOH_CAP.png`,
-  'Pikachu (Unova Cap)': `${SPRITES}PIKACHU_UNOVA_CAP.png`,
-  'Pikachu (Kalos Cap)': `${SPRITES}PIKACHU_KALOS_CAP.png`,
-  'Pikachu (Alola Cap)': `${SPRITES}PIKACHU_ALOLA_CAP.png`,
-  'Pikachu (Partner Cap)': `${SPRITES}PIKACHU_PARTNER_CAP.png`,
-  'Pikachu (World Cap)': `${SPRITES}PIKACHU_WORLD_CAP.png`,
-  'GMax-Machamp': `${SPRITES}MACHAMP_GMAX.png`,
-  'GMax-Kingler': `${SPRITES}KINGLER_GMAX.png`,
-  'GMax-Garbodor': `${SPRITES}GARBODOR_GMAX.png`,
-  'GMax-Melmetal': `${SPRITES}MELMETAL_GMAX.png`,
-  'GMax-Rillaboom': `${SPRITES}RILLABOOM_GMAX.png`,
-  'GMax-Cinderace': `${SPRITES}CINDERACE_GMAX.png`,
-  'GMax-Inteleon': `${SPRITES}INTELEON_GMAX.png`,
-  'GMax-Corviknight': `${SPRITES}CORVIKNIGHT_GMAX.png`,
-  'GMax-Orbeetle': `${SPRITES}ORBEETLE_GMAX.png`,
-  'GMax-Drednaw': `${SPRITES}DREDNAW_GMAX.png`,
-  'GMax-Coalossal': `${SPRITES}COALOSSAL_GMAX.png`,
-  'GMax-Toxtricity (Low-Key)': `${SPRITES}TOXTRICITY_LOW_KEY_GMAX.png`,
-  'Pikachu (Libre)': `${SPRITES}PIKACHU_LIBRE.png`,
-  'Pikachu (Cosplay)': `${SPRITES}PIKACHU_COSPLAY.png`,
-  'Pikachu (Belle)': `${SPRITES}PIKACHU_BELLE.png`,
-  'Pikachu (Pop Star)': `${SPRITES}PIKACHU_POP_STAR.png`,
-  'Pikachu (Rock Star)': `${SPRITES}PIKACHU_ROCK_STAR.png`,
-  'Pikachu (PhD)': `${SPRITES}PIKACHU_PHD.png`,
-  'Dialga (Origin)': `${SPRITES}DIALGA_ORIGIN.png`,
-  'Palkia (Origin)': `${SPRITES}PALKIA_ORIGIN.png`,
-};
 
 const SHOWDOWN= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/';
 const ART     = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
@@ -840,10 +614,6 @@ function shinyUrlFallback(img, id, spriteFile) {
     img.src=`${PKM_BASE1}${file}.png`;
     img.onerror=()=>{ img.src=`${PKM_BASE2}${file}.png`; img.onerror=null; };
   }
-}
-function formSpriteUrl(name, id, art) {
-  if(typeof FORM_SPRITES !== 'undefined' && FORM_SPRITES[name]) return FORM_SPRITES[name];
-  return iconUrl(id, art);
 }
 
 // Fallback chain per image type
@@ -1869,7 +1639,7 @@ function updSummary(){
         if(li===0 && a.mon){
           const top=document.createElement('div'); top.style.display='flex'; top.style.alignItems='center'; top.style.gap='8px';
           const ico=document.createElement('img'); ico.className='sum-icon';
-          ico.src=a.mon.isForm?formSpriteUrl(a.mon.name,a.mon.spriteId,a.mon.art):iconUrl(a.mon.spriteId,a.mon.art,a.mon.spriteFile);
+          ico.src=iconUrl(a.mon.spriteId,a.mon.art,a.mon.spriteFile);
           ico.onerror=()=>iconUrlFallback(ico,a.mon.spriteId||a.mon.baseId);
           const nm=document.createElement('span'); nm.style.fontWeight='600'; nm.textContent=a.mon.name; // no displayId suffix
           const badges=document.createElement('div'); badges.className='tbadges';
@@ -1919,7 +1689,7 @@ function updSummary(){
     if(i===1 && a.mon){
       // Q2: Pokémon row — icon + name + type badges + stat bars
       const top=document.createElement('div'); top.style.display='flex'; top.style.alignItems='center'; top.style.gap='8px';
-      const ico=document.createElement('img'); ico.className='sum-icon'; ico.src=a.mon.isForm?formSpriteUrl(a.mon.name,a.mon.spriteId,a.mon.art):iconUrl(a.mon.spriteId,a.mon.art,a.mon.spriteFile); ico.onerror=()=>iconUrlFallback(ico,a.mon.spriteId||a.mon.baseId);
+      const ico=document.createElement('img'); ico.className='sum-icon'; ico.src=iconUrl(a.mon.spriteId,a.mon.art,a.mon.spriteFile); ico.onerror=()=>iconUrlFallback(ico,a.mon.spriteId||a.mon.baseId);
       const nm=document.createElement('span'); nm.style.fontWeight='600'; nm.textContent=a.mon.name;
       const badges=document.createElement('div'); badges.className='tbadges';
       badges.appendChild(tb(a.mon.t1)); if(a.mon.t2) badges.appendChild(tb(a.mon.t2));
@@ -2018,7 +1788,7 @@ function makeAC(ph,list){
     matches.forEach(p=>{
       const item=document.createElement('div'); item.className='dd-item';
       // Sprite
-      const ico=document.createElement('img'); ico.className='pico'; ico.src=p.isForm?formSpriteUrl(p.name,p.spriteId,p.art):iconUrl(p.spriteId,p.art,p.spriteFile); ico.loading='lazy'; ico.onerror=()=>iconUrlFallback(ico,p.spriteId||p.baseId,p.spriteFile);
+      const ico=document.createElement('img'); ico.className='pico'; ico.src=iconUrl(p.spriteId,p.art,p.spriteFile); ico.loading='lazy'; ico.onerror=()=>iconUrlFallback(ico,p.spriteId||p.baseId,p.spriteFile);
       // Right side: 2 lines
       const info=document.createElement('div'); info.className='dd-info';
       // Line 1: name + dex number
@@ -2169,55 +1939,8 @@ function makeAC(ph,list){
 }
 
 // ── Drag list ─────────────────────────────────────────────────────────────────
-function makeDL(items){
-  const el=document.createElement('div'); el.className='dl';
-  let order=[...items],selI=null,src=null;
-  function render(){
-    el.innerHTML='';
-    order.forEach((item,i)=>{
-      const d=document.createElement('div'); d.className='di'+(item===selI?' sel':'');
-      d.draggable=true;
-      d.innerHTML=`<span class="dh">⠿</span><span class="drk">${i+1}.</span><span>${item}</span>`;
-      d.addEventListener('click',()=>{selI=item;render();});
-      d.addEventListener('dragstart',e=>{src=i;e.dataTransfer.effectAllowed='move';setTimeout(()=>d.classList.add('dragging'),0);});
-      d.addEventListener('dragend',()=>render());
-      d.addEventListener('dragover',e=>{e.preventDefault();d.classList.add('drag-over');});
-      d.addEventListener('dragleave',()=>d.classList.remove('drag-over'));
-      d.addEventListener('drop',e=>{e.preventDefault();d.classList.remove('drag-over');if(src===null)return;const tmp=order[src];order.splice(src,1);order.splice(i,0,tmp);src=null;render();});
-      el.appendChild(d);
-    });
-  }
-  render();
-  return{el,getVal:()=>selI||order[0],getOrder:()=>order};
-}
 
 // ── IV/EV Info Overlay ───────────────────────────────────────────────────────
-function showIVEVOverlay(){
-  const backdrop=document.createElement('div'); backdrop.className='overlay-backdrop';
-  backdrop.addEventListener('click',e=>{if(e.target===backdrop)backdrop.remove();});
-  const box=document.createElement('div'); box.className='overlay-box';
-  const closeBtn=document.createElement('button'); closeBtn.className='overlay-close'; closeBtn.textContent='\u2715';
-  closeBtn.addEventListener('click',()=>backdrop.remove());
-  const h=document.createElement('div'); h.className='overlay-h'; h.textContent='IVs & EVs EXPLAINED';
-  box.append(closeBtn,h);
-  const sections=[
-    {title:'What are IVs? (Individual Values)',
-     text:'IVs are hidden numbers from 0 to 31 for each stat. They represent natural talent. A Pokemon with 31 IVs in Attack has the highest natural potential. They cannot be changed in normal gameplay (except Hyper Training at level 100).'},
-    {title:'What are EVs? (Effort Values)',
-     text:'EVs are points earned by battling or using Vitamins (Protein, Iron, etc.). Each stat holds up to 252 EVs, capped at 510 total. Every 4 EVs = +1 stat point at level 100. This lets you customize your Pokemon strengths.'},
-    {title:'How do they affect stats?',
-     text:'At level 100: Stat = ((Base x 2 + IV + EV/4) x Level/100 + 5) x Nature. In practice: 31 vs 0 IVs = ~31 points difference. 252 EVs = +63 to a stat. 0 EVs vs 252 EVs makes a huge competitive difference!'},
-    {title:'Common EV spreads',
-     text:'Physical Attacker: 252 Atk / 252 Spe / 4 HP. Special Attacker: 252 SpA / 252 Spe / 4 HP. Bulky: 252 HP / 128 Def / 128 SpD. You have 510 EVs total to distribute freely.'},
-  ];
-  sections.forEach(s=>{
-    const sect=document.createElement('div'); sect.className='overlay-sect';
-    const sh=document.createElement('div'); sh.className='overlay-sect-h'; sh.textContent=s.title;
-    const sp=document.createElement('p'); sp.textContent=s.text; sp.style.whiteSpace='pre-wrap';
-    sect.append(sh,sp); box.appendChild(sect);
-  });
-  backdrop.appendChild(box); document.body.appendChild(backdrop);
-}
 
 function bpColor(bp){if(!bp||bp===0)return'var(--gray)';if(bp<=60)return'#f0c600';if(bp<=100)return'#ff9800';return'#E3350D';}
 function makeMoveSearch(card, onDone, stepRef) {
@@ -2865,9 +2588,6 @@ function showPokedex(mon) {
   // ── Moves Page (Tab 3) ───────────────────────────────────────────────────
   function buildMovesPage() {
     page3.innerHTML = '';
-    console.log('[Moves Tab] LEARNSETS_DB size:', Object.keys(LEARNSETS_DB).length);
-    console.log('[Moves Tab] fullData.learnset_ref:', fullData.learnset_ref);
-    console.log('[Moves Tab] mon.name:', mon.name);
     // Find learnset by learnset_ref (strip 's' prefix and Learnset-type suffix)
     function resolveLearnsetKey(ref) {
       if(!ref) return null;
@@ -2884,11 +2604,10 @@ function showPokedex(mon) {
       plainName,
       baseName,
     ].filter(Boolean);
-    console.log('[Moves Tab] Trying keys:', candidates);
 
     let learnset = null;
     for(const key of candidates){
-      if(LEARNSETS_DB[key]){ learnset = LEARNSETS_DB[key]; console.log('[Moves Tab] Matched key:', key); break; }
+      if(LEARNSETS_DB[key]){ learnset = LEARNSETS_DB[key]; break; }
     }
 
     if(!learnset){
@@ -3181,19 +2900,15 @@ function renderQ(){
       const sprites=document.createElement('div'); sprites.style.cssText='display:flex;gap:24px;justify-content:center;margin-bottom:16px;';
       const normalW=document.createElement('div'); normalW.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;';
       const normalImg=document.createElement('img'); normalImg.style.cssText='width:80px;height:80px;object-fit:contain;image-rendering:pixelated;';
-      normalImg.src=iconUrl(selMon.spriteId,selMon.art); normalImg.onerror=()=>fallback(normalImg,selMon.spriteId);
+      normalImg.src=iconUrl(selMon.spriteId,selMon.art,getSpriteFile(selMon)); normalImg.onerror=()=>iconUrlFallback(normalImg,selMon.spriteId||selMon.baseId,getSpriteFile(selMon));
       const normalL=document.createElement('div'); normalL.style.cssText='font-size:10px;color:var(--gray);'; normalL.textContent='Normal';
       normalW.append(normalImg,normalL); sprites.appendChild(normalW);
       // Shiny: use cajunavenger Shiny folder
       const shinyW=document.createElement('div'); shinyW.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;';
       const shinyImg=document.createElement('img'); shinyImg.style.cssText='width:80px;height:80px;object-fit:contain;image-rendering:pixelated;';
-      const cajunSlug=CAJUN_NAMES[selMon.baseId]||CAJUN_NAMES[selMon.spriteId];
-      if(cajunSlug){
-        shinyImg.src=`https://cajunavenger.github.io/Shiny/${cajunSlug}.png`;
-        shinyImg.onerror=()=>{ shinyImg.src=iconUrl(selMon.spriteId,selMon.art); shinyImg.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)'; shinyImg.onerror=()=>fallback(shinyImg,selMon.spriteId); };
-      } else {
-        shinyImg.src=iconUrl(selMon.spriteId,selMon.art); shinyImg.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';
-      }
+      const shinyFileQ4 = getShinyFile(selMon);
+      shinyImg.src = shinyUrl(shinyFileQ4, selMon.baseId||selMon.spriteId);
+      shinyImg.onerror = ()=>shinyUrlFallback(shinyImg, selMon.baseId||selMon.spriteId, shinyFileQ4);
       const shinyL=document.createElement('div'); shinyL.style.cssText='font-size:10px;color:#ffd700;'; shinyL.textContent='✨ Shiny';
       shinyW.append(shinyImg,shinyL); sprites.appendChild(shinyW);
       card.appendChild(sprites);
@@ -3581,8 +3296,8 @@ async function loadPanelForMon(mon) {
   // ── Basic info section ──────────────────────────────────────────────────────
   const basicSect = document.createElement('div'); basicSect.className='sp-sect';
   const sprite = document.createElement('img'); sprite.className='sp-sprite';
-  sprite.src = iconUrl(mon.spriteId, mon.art);
-  sprite.onerror = ()=>fallback(sprite, mon.spriteId);
+  sprite.src = iconUrl(mon.spriteId, mon.art, getSpriteFile(mon));
+  sprite.onerror = ()=>iconUrlFallback(sprite, mon.spriteId||mon.baseId, getSpriteFile(mon));
   const nameEl = document.createElement('div'); nameEl.className='sp-name'; nameEl.textContent=mon.name;
   const dexEl = document.createElement('div'); dexEl.className='sp-dex'; dexEl.textContent=`#${mon.displayId}`;
   const typesEl = document.createElement('div'); typesEl.className='sp-types';
@@ -3590,7 +3305,7 @@ async function loadPanelForMon(mon) {
   basicSect.append(sprite, nameEl, dexEl, typesEl);
 
   // ── Stats section ───────────────────────────────────────────────────────────
-  const stats = BASE_STATS[mon.baseId] || BASE_STATS[mon.spriteId];
+  const stats = getBaseStats(mon);
   let statSect = null;
   if(stats){
     statSect = document.createElement('div'); statSect.className='sp-sect';
@@ -3611,8 +3326,10 @@ async function loadPanelForMon(mon) {
     bstRow.textContent=`BST: ${bst}`; statSect.appendChild(bstRow);
   }
 
-  // ── Alternate forms section ─────────────────────────────────────────────────
-  const altForms = POKEMON_FORMS.filter(f=>f.baseId===mon.baseId);
+  // ── Alternate forms section (from JSON alternate_forms field) ───────────────
+  const fullMonData = mon._full || (POKEMON.find(p=>p.name.toLowerCase()===mon.name.toLowerCase())||{})._full;
+  const altFormNames = (fullMonData && fullMonData.alternate_forms) || [];
+  const altForms = altFormNames.map(n => POKEMON.find(p=>p.name.toLowerCase()===n.toLowerCase())).filter(Boolean);
   let formSect = null;
   if(altForms.length){
     formSect = document.createElement('div'); formSect.className='sp-sect';
@@ -3621,15 +3338,16 @@ async function loadPanelForMon(mon) {
     altForms.forEach(f=>{
       const row=document.createElement('div'); row.className='sp-form';
       const ico=document.createElement('img'); ico.className='sp-form-ico';
-      ico.src=iconUrl(f.spriteId,f.art!==false); ico.onerror=()=>fallback(ico,f.spriteId);
+      ico.src=iconUrl(f.id,true,getSpriteFile(f)); ico.onerror=()=>iconUrlFallback(ico,f.id,getSpriteFile(f));
       const info=document.createElement('div'); info.className='sp-form-info';
       const nm=document.createElement('div'); nm.className='sp-form-name'; nm.textContent=f.name;
       const types=document.createElement('div'); types.className='sp-form-types';
       types.appendChild(tb(f.t1)); if(f.t2)types.appendChild(tb(f.t2));
-      // Tag Mega/GMax/Regional
+      // Tag Mega/GMax/Regional based on the form's own JSON group/name
+      const fFull = f._full || {};
       let tag='';
-      if(f.name.startsWith('Mega-')) tag='MEGA';
-      else if(f.name.startsWith('GMax-')) tag='GMAX';
+      if(fFull.group==='Mega'||f.name.startsWith('Mega-')) tag='MEGA';
+      else if(fFull.group==='GMax'||f.name.startsWith('GMax-')) tag='GMAX';
       else if(f.name.startsWith('Primal-')) tag='PRIMAL';
       else if(['Alolan-','Galarian-','Hisuian-','Paldean-'].some(p=>f.name.startsWith(p))) tag='REGIONAL';
       else tag='FORM';
@@ -3773,31 +3491,12 @@ let ABILITIES_DB = {};
 let LEARNSETS_DB = {};
 
 // Team state
-let trainerInfo = {};
 let team = [];
 let currentSlot = 0;
 let viewingSlot = -1;  // -1 = building, >=0 = reviewing that slot
 let trainerPhase = 'trainer';
 
-function getTeamPokemonStep() {
-  // Returns the step within pokemon questions (0-11 for Q4-Q15)
-  return step - POKEMON_Q_START;
-}
 
-function saveSlotAnswer(s, r) {
-  if(!team[currentSlot]) team[currentSlot] = {};
-  team[currentSlot][s] = r;
-}
-
-function getSlotAnswer(s) {
-  return team[currentSlot] && team[currentSlot][s];
-}
-const TRAINER_LABELS = [
-  '👤 OT Name','🎨 Trainer Sprite','⚔️ Battle Format','🎮 Pokémon',
-  '📛 Nickname','🌿 Nature','🦋 Ability','💪 IVs & EVs',
-  '🏀 Poké Ball','❤️ Happiness','🌿 Nature (2nd)','✨ Shiny?',
-  '🎮 Pokémon (2nd)','⚡ GMax & Dynamax','🔮 Tera Type','🔄 Can Evolve?'
-];
 
 const TRAINER_SPRITES = [
   'aqua_admin_f',
@@ -4000,8 +3699,8 @@ function renderTeamBar() {
       // Filled slot — show sprite + name
       const img = document.createElement('img'); img.className='team-slot-img';
       const mon = team[i].mon;
-      img.src = mon.isForm ? formSpriteUrl(mon.name,mon.spriteId,mon.art) : iconUrl(mon.spriteId,mon.art,mon.spriteFile);
-      img.onerror = ()=>fallback(img,mon.spriteId);
+      img.src = iconUrl(mon.spriteId,mon.art,mon.spriteFile);
+      img.onerror = ()=>iconUrlFallback(img,mon.spriteId||mon.baseId,mon.spriteFile);
       const name = document.createElement('div'); name.className='team-slot-name';
       // Use nickname if set, else pokemon name
       const nick = team[i].nick || mon.name;
@@ -4079,8 +3778,8 @@ function renderSlotReview(slotIdx, returnToSlot) {
 
   const header=document.createElement('div'); header.style.cssText='display:flex;align-items:center;gap:14px;padding:14px;border-radius:12px;background:rgba(206,147,216,.08);border:1px solid var(--pl);margin-bottom:16px;';
   const img=document.createElement('img'); img.style.cssText='width:72px;height:72px;object-fit:contain;image-rendering:pixelated;';
-  img.src=slot.mon.isForm?formSpriteUrl(slot.mon.name,slot.mon.spriteId,slot.mon.art):iconUrl(slot.mon.spriteId,slot.mon.art,slot.mon.spriteFile);
-  img.onerror=()=>fallback(img,slot.mon.spriteId);
+  img.src=iconUrl(slot.mon.spriteId,slot.mon.art,slot.mon.spriteFile);
+  img.onerror=()=>iconUrlFallback(img,slot.mon.spriteId||slot.mon.baseId,slot.mon.spriteFile);
   const info=document.createElement('div');
   const nm=document.createElement('div'); nm.style.cssText='font-size:18px;font-weight:700;'; nm.textContent=slot.nick||slot.mon.name;
   if(slot.nick&&slot.nick!==slot.mon.name){const sub=document.createElement('div');sub.style.cssText='font-size:11px;color:var(--gray);';sub.textContent=slot.mon.name;info.appendChild(sub);}
@@ -4158,8 +3857,8 @@ function renderAddPokemonPrompt() {
     const preview = document.createElement('div'); preview.style.cssText='display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;background:rgba(206,147,216,.08);border:1px solid var(--pl);margin-bottom:16px;';
     const img = document.createElement('img'); img.style.cssText='width:64px;height:64px;object-fit:contain;image-rendering:pixelated;';
     const mon = slot.mon;
-    img.src = mon.isForm ? formSpriteUrl(mon.name,mon.spriteId,mon.art) : iconUrl(mon.spriteId,mon.art,mon.spriteFile);
-    img.onerror = ()=>fallback(img,mon.spriteId);
+    img.src = iconUrl(mon.spriteId,mon.art,mon.spriteFile);
+    img.onerror = ()=>iconUrlFallback(img,mon.spriteId||mon.baseId,mon.spriteFile);
     const info = document.createElement('div');
     const name = document.createElement('div'); name.style.cssText='font-weight:700;font-size:16px;'; name.textContent=slot.nick||mon.name;
     const types = document.createElement('div'); types.className='tbadges'; types.style.marginTop='4px';
@@ -4174,7 +3873,7 @@ function renderAddPokemonPrompt() {
       if(!team[i]||!team[i].mon) continue;
       const chip = document.createElement('div'); chip.style.cssText='display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);';
       const cimg = document.createElement('img'); cimg.style.cssText='width:32px;height:32px;object-fit:contain;image-rendering:pixelated;';
-      cimg.src = iconUrl(team[i].mon.spriteId, team[i].mon.art); cimg.onerror=()=>fallback(cimg,team[i].mon.spriteId);
+      cimg.src = iconUrl(team[i].mon.spriteId, team[i].mon.art, team[i].mon.spriteFile); cimg.onerror=()=>iconUrlFallback(cimg,team[i].mon.spriteId||team[i].mon.baseId,team[i].mon.spriteFile);
       const cname = document.createElement('span'); cname.style.cssText='font-size:12px;font-weight:600;'; cname.textContent=team[i].nick||team[i].mon.name;
       chip.append(cimg,cname); teamGrid.appendChild(chip);
     }
