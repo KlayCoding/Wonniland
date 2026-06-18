@@ -8489,7 +8489,7 @@
       "sprite": "0081",
       "shiny_sprite": "0081",
       "type1": "Electric",
-      "type2": "Magnemite Family Type2",
+      "type2": "Steel",
       "base_stats": {
         "hp": 25,
         "atk": 35,
@@ -8548,7 +8548,7 @@
       "sprite": "0082",
       "shiny_sprite": "0082",
       "type1": "Electric",
-      "type2": "Magnemite Family Type2",
+      "type2": "Steel",
       "base_stats": {
         "hp": 50,
         "atk": 60,
@@ -9803,7 +9803,7 @@
     },
     {
       "id": 922,
-      "group": "Gen 2",
+      "group": "Mega",
       "dex_number": "0208b",
       "name": "Mega-Steelix",
       "sprite": "0922",
@@ -12935,7 +12935,7 @@
     },
     {
       "id": 124,
-      "group": "Gen 2",
+      "group": "Gen 1",
       "dex_number": "0124",
       "name": "Jynx",
       "sprite": "0124",
@@ -17535,7 +17535,7 @@
     },
     {
       "id": 468,
-      "group": "Gen 2",
+      "group": "Gen 4",
       "dex_number": "0468",
       "name": "Togekiss",
       "sprite": "0468",
@@ -18721,7 +18721,7 @@
     },
     {
       "id": 469,
-      "group": "Gen 2",
+      "group": "Gen 4",
       "dex_number": "0469",
       "name": "Yanmega",
       "sprite": "0469",
@@ -20575,7 +20575,7 @@
     {
       "id": 1049,
       "group": "Gen 2",
-      "dex_number": "0201!",
+      "dex_number": "0201za",
       "name": "Unown (!)",
       "sprite": "1049",
       "shiny_sprite": "1049",
@@ -20626,7 +20626,7 @@
     {
       "id": 1050,
       "group": "Gen 2",
-      "dex_number": "0201?",
+      "dex_number": "0201zb",
       "name": "Unown (?)",
       "sprite": "1050",
       "shiny_sprite": "1050",
@@ -26204,7 +26204,7 @@
       "sprite": "0280",
       "shiny_sprite": "0280",
       "type1": "Psychic",
-      "type2": "Ralts Family Type2",
+      "type2": "Fairy",
       "base_stats": {
         "hp": 28,
         "atk": 25,
@@ -26261,7 +26261,7 @@
       "sprite": "0281",
       "shiny_sprite": "0281",
       "type1": "Psychic",
-      "type2": "Ralts Family Type2",
+      "type2": "Fairy",
       "base_stats": {
         "hp": 38,
         "atk": 35,
@@ -26318,7 +26318,7 @@
       "sprite": "0282",
       "shiny_sprite": "0282",
       "type1": "Psychic",
-      "type2": "Ralts Family Type2",
+      "type2": "Fairy",
       "base_stats": {
         "hp": 68,
         "atk": 65,
@@ -31422,7 +31422,7 @@
     },
     {
       "id": 939,
-      "group": "Gen 3",
+      "group": "Mega",
       "dex_number": "0354b",
       "name": "Mega-Banette",
       "sprite": "0939",
@@ -40932,7 +40932,7 @@
     },
     {
       "id": 494,
-      "group": "Gen 4",
+      "group": "Gen 5",
       "dex_number": "0494",
       "name": "Victini",
       "sprite": "0494",
@@ -44233,7 +44233,7 @@
       "sprite": "0546",
       "shiny_sprite": "0546",
       "type1": "Grass",
-      "type2": "Cottonee Family Type2",
+      "type2": "Fairy",
       "base_stats": {
         "hp": 40,
         "atk": 27,
@@ -44293,7 +44293,7 @@
       "sprite": "0547",
       "shiny_sprite": "0547",
       "type1": "Grass",
-      "type2": "Cottonee Family Type2",
+      "type2": "Fairy",
       "base_stats": {
         "hp": 60,
         "atk": 67,
@@ -45903,7 +45903,7 @@
     },
     {
       "id": 867,
-      "group": "Gen 5",
+      "group": "Gen 8",
       "dex_number": "0867",
       "name": "Runerigus",
       "sprite": "0867",
@@ -69980,7 +69980,7 @@
     },
     {
       "id": 810,
-      "group": "Gen 7",
+      "group": "Gen 8",
       "dex_number": "0810",
       "name": "Grookey",
       "sprite": "0810",
@@ -80191,7 +80191,7 @@
       "group": "Gen 9",
       "dex_number": "0907",
       "name": "Floragato",
-      "sprite": "129",
+      "sprite": "1290",
       "shiny_sprite": "1290",
       "type1": "Grass",
       "type2": null,
@@ -84743,7 +84743,7 @@
     },
     {
       "id": 1569,
-      "group": "Gen 9",
+      "group": "Mega",
       "dex_number": "0978b",
       "name": "Mega-Tatsugiri (Curly)",
       "sprite": "1569",
@@ -84853,7 +84853,7 @@
     },
     {
       "id": 1570,
-      "group": "Gen 9",
+      "group": "Mega",
       "dex_number": "0978d",
       "name": "Mega-Tatsugiri (Droopy)",
       "sprite": "1570",
@@ -84963,7 +84963,7 @@
     },
     {
       "id": 1571,
-      "group": "Gen 9",
+      "group": "Mega",
       "dex_number": "0978f",
       "name": "Mega-Tatsugiri (Stretchy)",
       "sprite": "1571",
