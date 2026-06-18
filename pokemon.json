@@ -55,7 +55,6 @@
       "height": 7,
       "weight": 69,
       "description": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
-      "related_forms": [],
       "learnset_ref": "sBulbasaurLevelUpLearnset",
       "teachable_ref": "sBulbasaurTeachableLearnset",
       "egg_moves_ref": "sBulbasaurEggMoveLearnset",
@@ -118,7 +117,6 @@
       "height": 10,
       "weight": 130,
       "description": "To support its bulb, Ivysaur's legs grow sturdy. If it spends more time lying in the sunlight, the bud will soon bloom into a large flower.",
-      "related_forms": [],
       "learnset_ref": "sIvysaurLevelUpLearnset",
       "teachable_ref": "sIvysaurTeachableLearnset",
       "egg_moves_ref": null,
@@ -183,7 +181,6 @@
       "height": 20,
       "weight": 1000,
       "description": "Venusaur's flower is said to take on vivid colors if it gets plenty of nutrition and sunlight. The flower's aroma soothes the emotions of people.",
-      "related_forms": [],
       "learnset_ref": "sVenusaurLevelUpLearnset",
       "teachable_ref": "sVenusaurTeachableLearnset",
       "egg_moves_ref": null,
@@ -247,7 +244,6 @@
       "height": 24,
       "weight": 1555,
       "description": "In order to support its flower, which has grown larger due to Mega Evolution, its back and legs have become stronger.",
-      "related_forms": [],
       "learnset_ref": "sVenusaurLevelUpLearnset",
       "teachable_ref": "sVenusaurTeachableLearnset",
       "egg_moves_ref": null,
@@ -307,18 +303,20 @@
       "height": 240,
       "weight": 0,
       "description": "Spits big amounts of pollen like a volcano. Breathing too much of it causes fainting. In battle, it swings around two thick vines that can easily topple 10-story buildings.",
-      "related_forms": [],
       "learnset_ref": "sVenusaurLevelUpLearnset",
       "teachable_ref": "sVenusaurTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Bulbasaur Line",
-      "pre_evolution": "Venusaur",
-      "evolves_into": [],
-      "alternate_forms": [
-        "Venusaur",
-        "Mega-Venusaur"
+      "pre_evolution": "Egg",
+      "evolves_into": [
+        {
+          "name": "Charmander",
+          "method": "Level Up",
+          "param": "Lvl. 16"
+        }
       ],
-      "form_requirement": "GMax Factor"
+      "alternate_forms": [],
+      "form_requirement": null
     },
     {
       "id": 4,
@@ -366,15 +364,20 @@
       "height": 6,
       "weight": 85,
       "description": "The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is happy, and blazes when it is enraged.",
-      "related_forms": [],
       "learnset_ref": "sCharmanderLevelUpLearnset",
       "teachable_ref": "sCharmanderTeachableLearnset",
       "egg_moves_ref": "sCharmanderEggMoveLearnset",
-      "evolution_line": "???",
-      "pre_evolution": "???",
-      "evolves_into": [],
+      "evolution_line": "Charmander Line",
+      "pre_evolution": "Egg",
+      "evolves_into": [
+        {
+          "name": "Charmeleon",
+          "method": "Level Up",
+          "param": "Lvl. 16"
+        }
+      ],
       "alternate_forms": [],
-      "form_requirement": "???"
+      "form_requirement": null
     },
     {
       "id": 5,
@@ -423,15 +426,20 @@
       "height": 11,
       "weight": 190,
       "description": "Without pity, its sharp claws destroy foes. If it encounters a strong enemy, it becomes agitated, and the flame on its tail flares with a bluish white color.",
-      "related_forms": [],
       "learnset_ref": "sCharmeleonLevelUpLearnset",
       "teachable_ref": "sCharmeleonTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "???",
-      "pre_evolution": "???",
-      "evolves_into": [],
+      "evolution_line": "Charmander Line",
+      "pre_evolution": "Charmander",
+      "evolves_into": [
+        {
+          "name": "Charizard",
+          "method": "Level Up",
+          "param": "Lvl. 36"
+        }
+      ],
       "alternate_forms": [],
-      "form_requirement": "???"
+      "form_requirement": null
     },
     {
       "id": 6,
@@ -483,11 +491,15 @@
       "learnset_ref": "sCharizardLevelUpLearnset",
       "teachable_ref": "sCharizardTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "???",
-      "pre_evolution": "???",
+      "evolution_line": "Charmander Line",
+      "pre_evolution": "Charmeleon",
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": "???"
+      "alternate_forms": [
+        "Mega-Charizard-X",
+        "Mega-Charizard-Y",
+        "GMax-Charizard"
+      ],
+      "form_requirement": null
     },
     {
       "id": 907,
@@ -539,15 +551,18 @@
       "height": 17,
       "weight": 1105,
       "description": "The overwhelming power that fills its entire body causes it to turn black and creates intense blue flames.",
-      "related_forms": [],
       "learnset_ref": "sCharizardLevelUpLearnset",
       "teachable_ref": "sCharizardTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "???",
-      "pre_evolution": "???",
+      "evolution_line": "Charmander Line",
+      "pre_evolution": "Charizard",
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": "???"
+      "alternate_forms": [
+        "Charizard",
+        "Mega-Charizard-Y
+        "GMax-Charizard"
+      ],
+      "form_requirement": "Charizardite X"
     },
     {
       "id": 908,
@@ -599,15 +614,18 @@
       "height": 17,
       "weight": 1005,
       "description": "Its bond with its Trainer is the source of its power. It boasts speed and maneuverability greater than that of a jet fighter.",
-      "related_forms": [],
       "learnset_ref": "sCharizardLevelUpLearnset",
       "teachable_ref": "sCharizardTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "???",
-      "pre_evolution": "???",
+      "evolution_line": "Charmander Line",
+      "pre_evolution": "Charizard",
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": "???"
+      "alternate_forms": [
+        "Charizard",
+        "Mega-Charizard-X
+        "GMax-Charizard"
+      ],
+      "form_requirement": "Charizardite Y"
     },
     {
       "id": 1491,
@@ -655,16 +673,18 @@
       "height": 280,
       "weight": 0,
       "description": "The flame inside its body burns hotter than 3,600 degrees Fahrenheit. When Charizard roars, that temperature climbs even higher.",
-      "related_forms": [],
       "learnset_ref": "sCharizardLevelUpLearnset",
       "teachable_ref": "sCharizardTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "???",
-      "pre_evolution": "???",
+      "evolution_line": "Charmander Line",
+      "pre_evolution": "Charizard",
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": "???"
-    },
+      "alternate_forms": [
+        "Charizard",
+        "Mega-Charizard-X
+        "Mega-Charizard-Y"
+      ],
+      "form_requirement": "GMax Factor"
     {
       "id": 7,
       "group": "Gen 1",
@@ -8423,7 +8443,7 @@
     },
     {
       "id": 985,
-      "group": "Gen 2",
+      "group": "Regional",
       "dex_number": "0199b",
       "name": "Galarian-Slowking",
       "sprite": "0985",
@@ -18903,12 +18923,12 @@
       "form_requirement": "???"
     },
     {
-      "id": 1406,
+      "id": 1405,
       "group": "Regional",
       "dex_number": "0194b",
       "name": "Paldean-Wooper",
-      "sprite": "1406",
-      "shiny_sprite": "1406",
+      "sprite": "1405",
+      "shiny_sprite": "1405",
       "type1": "Poison",
       "type2": "Ground",
       "base_stats": {
@@ -25154,7 +25174,7 @@
     },
     {
       "id": 987,
-      "group": "Gen 3",
+      "group": "Regional",
       "dex_number": "0263b",
       "name": "Galarian-Zigzagoon",
       "sprite": "0987",
@@ -25213,7 +25233,7 @@
     },
     {
       "id": 988,
-      "group": "Gen 3",
+      "group": "Regional",
       "dex_number": "0264b",
       "name": "Galarian-Linoone",
       "sprite": "0988",
@@ -49754,7 +49774,7 @@
     },
     {
       "id": 992,
-      "group": "Gen 5",
+      "group": "Regional",
       "dex_number": "0618b",
       "name": "Galarian-Stunfisk",
       "sprite": "0992",
