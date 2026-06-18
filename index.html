@@ -322,6 +322,15 @@
     .pdx-move-lvl{font-size:10px;color:var(--gray);min-width:40px;font-family:'Press Start 2P',monospace;}
     .pdx-move-name{flex:1;font-weight:600;}
     .pdx-move-empty{padding:16px;text-align:center;color:var(--gray);font-size:11px;}
+    .pdx-move-card{border-radius:8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);margin-bottom:6px;overflow:hidden;}
+    .pdx-move-card-hdr{display:flex;align-items:center;gap:8px;padding:8px 10px;cursor:pointer;}
+    .pdx-move-card-hdr:hover{background:rgba(255,255,255,.03);}
+    .pdx-move-stats-row{display:flex;gap:10px;padding:0 10px 10px;font-size:10px;color:var(--gray);flex-wrap:wrap;}
+    .pdx-move-stat{display:flex;flex-direction:column;gap:1px;min-width:50px;}
+    .pdx-move-stat-label{font-size:8px;font-family:'Press Start 2P',monospace;opacity:.7;}
+    .pdx-move-stat-val{font-size:12px;font-weight:700;color:var(--white);}
+    .pdx-move-desc-row{padding:0 10px 10px;font-size:11px;color:var(--gray);line-height:1.5;border-top:1px solid rgba(255,255,255,.04);padding-top:8px;margin-top:2px;}
+    .pdx-move-cat-icon{font-size:11px;}
     /* ── Info Side Panel ── */
     .side-panel{
       position:fixed;top:0;left:0;width:360px;max-width:90vw;height:100vh;
@@ -780,6 +789,33 @@ function spriteFileFor(spriteFile, id) {
   // Always returns 4-digit padded filename
   if(spriteFile && spriteFile !== '') return spriteFile;
   return id ? String(id).padStart(4,'0') : '';
+}
+// Central sprite-file resolver — single source of truth for the fallback chain.
+// Accepts any object with the common id-like fields used across ALL_MON / POKEMON / mon objects.
+function getSpriteFile(mon) {
+  if (!mon) return '';
+  const explicit = mon.spriteFile || mon.sprite;
+  if (explicit) return explicit;
+  const anyId = mon.id || mon.spriteId || mon.baseId;
+  return anyId ? String(anyId).padStart(4, '0') : '';
+}
+function getShinyFile(mon) {
+  if (!mon) return '';
+  const explicit = mon.shinyFile || mon.shinySprite;
+  if (explicit) return explicit;
+  return getSpriteFile(mon); // fall back to normal sprite filename
+}
+// Central BASE_STATS lookup — tries numeric id, padded-string id, spriteId, then name.
+// This is the single source of truth for resolving stats for ANY mon-like object
+// (Pokemon Q answers, ALL_MON entries, slot.mon, etc.)
+function getBaseStats(mon) {
+  if (!mon) return null;
+  const sid = mon.baseId || mon.id;
+  return BASE_STATS[sid]
+    || BASE_STATS[sid ? String(sid).padStart(4,'0') : null]
+    || BASE_STATS[mon.spriteId]
+    || BASE_STATS['_n_' + (mon.name || '').toLowerCase()]
+    || null;
 }
 function shinyUrl(spriteFile, id) {
   const file = spriteFileFor(spriteFile, id);
@@ -2024,7 +2060,7 @@ function makeAC(ph,list){
   function pick(p){
     sel=p; inp.value=p.name; inp.classList.add('valid'); dd.innerHTML='';
     // Update sprite — use spriteFile if available
-    const sf=p.spriteFile||String(p.spriteId).padStart(4,'0');
+    const sf=getSpriteFile(p);
     pIco.src=`${PKM_BASE1}${sf}.png`;
     pIco.onerror=()=>iconUrlFallback(pIco,p.spriteId||p.baseId);
     pNm.innerHTML=`${p.name}<br><span style="font-size:11px;opacity:.7;">Game ID: ${p.displayId?'#'+p.displayId:'???'} ${p.dex_number?' · Dex: #'+String(p.dex_number).padStart(4,'0'):''}</span>`;
@@ -2483,7 +2519,7 @@ function showPokedex(mon) {
   // ── Header ────────────────────────────────────────────────────────────────
   const hdr = document.createElement('div'); hdr.className='pdx-header';
   const sprite = document.createElement('img'); sprite.className='pdx-sprite';
-  const sf = mon.spriteFile || String(mon.spriteId||mon.id||1).padStart(4,'0');
+  const sf = getSpriteFile(mon);
   sprite.src = `${PKM_BASE1}${sf}.png`;
   sprite.onerror = () => iconUrlFallback(sprite, mon.spriteId||mon.baseId);
 
@@ -2499,6 +2535,8 @@ function showPokedex(mon) {
 
   const closeBtn = document.createElement('button'); closeBtn.className='pdx-close'; closeBtn.textContent='✕';
   closeBtn.addEventListener('click', ()=>bd.remove());
+  const escHandler = (e) => { if(e.key==='Escape'){ bd.remove(); document.removeEventListener('keydown', escHandler); } };
+  document.addEventListener('keydown', escHandler);
   hdr.append(sprite, titleDiv, closeBtn);
   modal.appendChild(hdr);
 
@@ -2606,11 +2644,41 @@ function showPokedex(mon) {
     const t=document.createElement('div');t.className='pdx-section-title';t.textContent='ABILITIES';
     sec.appendChild(t);
     fullData.abilities.forEach(ab=>{
-      const row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:6px;';
-      const nm=document.createElement('span');nm.style.cssText='font-weight:600;font-size:13px;';nm.textContent=ab.name;
+      const wrap=document.createElement('div');wrap.style.cssText='margin-bottom:8px;border-radius:8px;background:rgba(255,255,255,.02);overflow:hidden;';
+      const row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:8px;padding:8px 10px;cursor:pointer;';
+      const nm=document.createElement('span');nm.style.cssText='font-weight:600;font-size:13px;flex:1;';nm.textContent=ab.name;
       const tag=document.createElement('span');tag.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;font-family:'Press Start 2P',monospace;background:${ab.hidden?'rgba(206,147,216,.15)':'rgba(76,175,80,.12)'};color:${ab.hidden?'var(--pl)':'var(--green)'};`;
       tag.textContent=ab.hidden?'Hidden':'Ability';
-      row.append(nm,tag); sec.appendChild(row);
+      const expandIcon=document.createElement('span');expandIcon.style.cssText='color:var(--gray);font-size:10px;transition:transform .2s;';expandIcon.textContent='▾';
+      row.append(nm,tag,expandIcon);
+
+      const descBox=document.createElement('div');descBox.style.cssText='display:none;padding:0 10px 10px;font-size:11px;color:var(--gray);line-height:1.5;border-top:1px solid rgba(255,255,255,.04);';
+      let loaded=false, expanded=false;
+      row.addEventListener('click',()=>{
+        expanded=!expanded;
+        descBox.style.display=expanded?'block':'none';
+        expandIcon.style.transform=expanded?'rotate(180deg)':'rotate(0deg)';
+        if(expanded && !loaded){
+          const localAb=ABILITIES_DB[ab.name.toLowerCase()]||ABILITIES_DB[ab.name.toLowerCase().replace(/ /g,'-')];
+          if(localAb&&localAb.description){
+            descBox.textContent=localAb.description;
+            if(localAb.ai_rating!==undefined){
+              const rat=document.createElement('div');rat.style.cssText='font-size:9px;color:var(--pl);margin-top:4px;font-family:"Press Start 2P",monospace;';
+              rat.textContent='AI Rating: '+localAb.ai_rating+'/10';descBox.appendChild(rat);
+            }
+            loaded=true;
+          } else {
+            descBox.textContent='Loading...';
+            fetch('https://pokeapi.co/api/v2/ability/'+ab.name.toLowerCase().replace(/ /g,'-')+'/').then(r=>r.json()).then(d=>{
+              const eng=d.flavor_text_entries?.find(e=>e.language.name==='en');
+              const eff=d.effect_entries?.find(e=>e.language.name==='en');
+              descBox.textContent=eng?.flavor_text?.replace(/[\n\f]/g,' ')||eff?.short_effect||'No description available.';
+              loaded=true;
+            }).catch(()=>{descBox.textContent='No description available.';loaded=true;});
+          }
+        }
+      });
+      wrap.append(row,descBox); sec.appendChild(wrap);
     });
     page1.appendChild(sec);
   }
@@ -2639,7 +2707,7 @@ function showPokedex(mon) {
     // Helper to render one Pokemon as a clickable sprite card
     function famCard(member, isCurrent){
       const card=document.createElement('div'); card.className='pdx-fam-card'+(isCurrent?' current':'');
-      const sfile = member.sprite || (member.id && member.id!=='???' ? String(member.id).padStart(4,'0') : '');
+      const sfile = getSpriteFile(member);
       const img=document.createElement('img'); img.className='pdx-fam-sprite';
       img.src = sfile ? `${PKM_BASE1}${sfile}.png` : `${SHOWDOWN}0.gif`;
       img.onerror=()=>iconUrlFallback(img, member.id, sfile);
@@ -2707,6 +2775,12 @@ function showPokedex(mon) {
       stages.push(next);
       currentLevel = next;
     }
+
+    // Preload all family sprites so they appear together instead of popping in one by one
+    members.forEach(member=>{
+      const pf = getSpriteFile(member);
+      if(pf){ const pre = new Image(); pre.src = `${PKM_BASE1}${pf}.png`; }
+    });
 
     // Render stage by stage
     stages.forEach((stage, si)=>{
@@ -2830,21 +2904,55 @@ function showPokedex(mon) {
       return;
     }
 
-    function moveChip(moveName){
+    const CAT_ICON={Physical:'⚔️',Special:'✨',Status:'🔄'};
+    function moveChip(moveName, levelBadge){
       const found = MOVES.find(m=>m.name.toLowerCase()===moveName.toLowerCase());
-      const row=document.createElement('div'); row.className='pdx-move-row';
+      const card=document.createElement('div'); card.className='pdx-move-card';
+
+      const hdr=document.createElement('div'); hdr.className='pdx-move-card-hdr';
+      if(levelBadge){
+        const lvlB=document.createElement('div'); lvlB.className='pdx-move-lvl'; lvlB.textContent=levelBadge;
+        hdr.appendChild(lvlB);
+      }
       if(found){
         const tChip=tb(found.type); tChip.style.fontSize='8px'; tChip.style.padding='1px 6px';
-        row.appendChild(tChip);
+        hdr.appendChild(tChip);
+        const catIcon=document.createElement('span'); catIcon.className='pdx-move-cat-icon'; catIcon.textContent=CAT_ICON[found.cat]||'';
+        hdr.appendChild(catIcon);
       }
       const nm=document.createElement('div'); nm.className='pdx-move-name'; nm.textContent=moveName;
-      row.appendChild(nm);
+      hdr.appendChild(nm);
       if(found){
-        const bp=document.createElement('div'); bp.style.cssText='font-size:10px;color:'+bpColor(found.power)+';font-weight:700;min-width:34px;text-align:right;';
+        const bp=document.createElement('div'); bp.style.cssText='font-size:11px;color:'+bpColor(found.power)+';font-weight:700;min-width:30px;text-align:right;';
         bp.textContent = found.power || '—';
-        row.appendChild(bp);
+        hdr.appendChild(bp);
       }
-      return row;
+      const expandIcon=document.createElement('span'); expandIcon.style.cssText='color:var(--gray);font-size:10px;transition:transform .2s;'; expandIcon.textContent='▾';
+      hdr.appendChild(expandIcon);
+      card.appendChild(hdr);
+
+      if(found){
+        const statsRow=document.createElement('div'); statsRow.className='pdx-move-stats-row'; statsRow.style.display='none';
+        const mk=(label,val)=>{const s=document.createElement('div');s.className='pdx-move-stat';const l=document.createElement('div');l.className='pdx-move-stat-label';l.textContent=label;const v=document.createElement('div');v.className='pdx-move-stat-val';v.textContent=val;s.append(l,v);return s;};
+        statsRow.appendChild(mk('POWER', found.power||'—'));
+        statsRow.appendChild(mk('ACC', found.acc?found.acc+'%':'—'));
+        statsRow.appendChild(mk('PP', found.pp||'—'));
+        statsRow.appendChild(mk('CATEGORY', found.cat||'—'));
+        card.appendChild(statsRow);
+
+        const descRow=document.createElement('div'); descRow.className='pdx-move-desc-row'; descRow.style.display='none';
+        descRow.textContent=found.desc||'No description available.';
+        card.appendChild(descRow);
+
+        let expanded=false;
+        hdr.addEventListener('click',()=>{
+          expanded=!expanded;
+          statsRow.style.display=expanded?'flex':'none';
+          descRow.style.display=expanded?'block':'none';
+          expandIcon.style.transform=expanded?'rotate(180deg)':'rotate(0deg)';
+        });
+      }
+      return card;
     }
 
     // Level-Up moves
@@ -2855,10 +2963,7 @@ function showPokedex(mon) {
     const lvlMoves = learnset.level_up || [];
     if(lvlMoves.length){
       lvlMoves.forEach(lm=>{
-        const row=moveChip(lm.move);
-        const lvlBadge=document.createElement('div'); lvlBadge.className='pdx-move-lvl'; lvlBadge.textContent='Lv.'+lm.level;
-        row.insertBefore(lvlBadge, row.firstChild);
-        lvlGroup.appendChild(row);
+        lvlGroup.appendChild(moveChip(lm.move, 'Lv.'+lm.level));
       });
     } else {
       const e=document.createElement('div'); e.className='pdx-move-empty'; e.textContent='No level-up moves listed.';
@@ -3984,11 +4089,7 @@ function renderSlotReview(slotIdx, returnToSlot) {
   info.prepend(nm); info.appendChild(badges);
   // Stat bars under name+types
   const statsId=slot.mon.baseId||slot.mon.id;
-  const statsArr=BASE_STATS[statsId]
-    ||BASE_STATS[statsId?String(statsId).padStart(4,'0'):null]
-    ||BASE_STATS[slot.mon.spriteId]
-    ||BASE_STATS['_n_'+(slot.mon.name||'').toLowerCase()]
-    ||null;
+  const statsArr=getBaseStats(slot.mon);
   if(statsArr){
     const bars=document.createElement('div'); bars.className='stat-bars'; bars.style.marginTop='8px';
     SLBLS.forEach((sl,si)=>{
@@ -4558,14 +4659,15 @@ function renderTrainerQ() {
       const spritesS=document.createElement('div'); spritesS.style.cssText='display:flex;gap:24px;justify-content:center;margin-bottom:16px;';
       const nWS=document.createElement('div'); nWS.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;';
       const nImgS=document.createElement('img'); nImgS.style.cssText='width:80px;height:80px;object-fit:contain;image-rendering:pixelated;';
-      const sfN=selMonS.spriteFile||String(selMonS.spriteId||selMonS.baseId||1).padStart(4,'0');
+      const sfN=getSpriteFile(selMonS);
       nImgS.src=`${PKM_BASE1}${sfN}.png`; nImgS.onerror=()=>iconUrlFallback(nImgS,selMonS.spriteId||selMonS.baseId,sfN);
       const nLS=document.createElement('div'); nLS.style.cssText='font-size:10px;color:var(--gray);'; nLS.textContent='Normal';
       nWS.append(nImgS,nLS); spritesS.appendChild(nWS);
       const sWS=document.createElement('div'); sWS.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;';
       const sImgS=document.createElement('img'); sImgS.style.cssText='width:80px;height:80px;object-fit:contain;image-rendering:pixelated;';
-      const cajunSlugS=CAJUN_NAMES[selMonS.baseId]||CAJUN_NAMES[selMonS.spriteId];
-      if(cajunSlugS){sImgS.src=`${PKM_SHINY1}${String(selMonS.baseId||selMonS.spriteId).padStart(4,'0')}.png`;sImgS.onerror=()=>shinyUrlFallback(sImgS,selMonS.baseId||selMonS.spriteId,shinyFileS);;}else{sImgS.src=iconUrl(selMonS.spriteId,selMonS.art);sImgS.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';}
+      const shinyFileS2=getShinyFile(selMonS);
+      sImgS.src=shinyUrl(shinyFileS2,selMonS.baseId||selMonS.spriteId);
+      sImgS.onerror=()=>shinyUrlFallback(sImgS,selMonS.baseId||selMonS.spriteId,shinyFileS2);
       const sLS=document.createElement('div'); sLS.style.cssText='font-size:10px;color:#ffd700;'; sLS.textContent='✨ Shiny';
       sWS.append(sImgS,sLS); spritesS.appendChild(sWS); card.appendChild(spritesS);
     }

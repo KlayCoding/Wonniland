@@ -12237,6 +12237,20 @@
       "hold_effect": null,
       "hold_effect_param": null,
       "battle_use": null
+    },
+    {
+      "item_id": 875,
+      "key": "GMAX_FACTOR",
+      "name": "GMax Factor",
+      "icon_sprite": "gmax_factor",
+      "pocket": "Key Items",
+      "category": "Key Item",
+      "use_type": "Battle Only",
+      "price": 0,
+      "description": "A special factor that allows certain Pokémon species to Gigantamax during battle.",
+      "hold_effect": null,
+      "hold_effect_param": null,
+      "battle_use": null
     }
   ]
 }
