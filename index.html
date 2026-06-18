@@ -45,11 +45,14 @@
     .s-male{color:#64b5f6;} .s-female{color:#f48fb1;}
 
     /* Stat mini-bars in summary */
-    .stat-bars{display:flex;gap:4px;align-items:center;flex-wrap:wrap;margin-top:4px;}
-    .stat-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:32px;}
+    .stat-bars{display:flex;gap:5px;align-items:flex-end;flex-wrap:wrap;margin-top:6px;}
+    .stat-bars-header{display:flex;justify-content:space-between;align-items:center;margin-top:6px;margin-bottom:3px;}
+    .stat-bars-bst-lbl{font-size:8px;color:var(--gray);font-family:'Press Start 2P',monospace;}
+    .stat-bars-bst-val{font-size:13px;font-weight:800;color:var(--pl);}
+    .stat-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:34px;}
     .stat-bar-lbl{font-size:8px;color:var(--gray);font-family:'Press Start 2P',monospace;}
-    .stat-bar-val{font-size:9px;font-weight:700;}
-    .stat-bar-bg{width:28px;height:60px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;}
+    .stat-bar-val{font-size:10px;font-weight:800;}
+    .stat-bar-bg{width:30px;height:65px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);}
     .stat-bar-fill{width:100%;border-radius:4px;transition:height .6s cubic-bezier(.4,0,.2,1);}
 
     /* Card */
@@ -286,6 +289,11 @@
     
     .pdx-btn{display:inline-flex;align-items:center;gap:4px;font-size:9px;padding:4px 10px;border-radius:6px;border:1px solid var(--pl);background:rgba(206,147,216,.1);color:var(--pl);cursor:pointer;font-family:'Press Start 2P',monospace;transition:all .2s;}
     .pdx-btn:hover{background:rgba(206,147,216,.2);}
+    .pdx-matchup-group{margin-bottom:10px;}
+    .pdx-matchup-title{font-size:9px;font-family:'Press Start 2P',monospace;margin-bottom:6px;}
+    .pdx-matchup-chips{display:flex;flex-wrap:wrap;gap:5px;}
+    .pdx-matchup-chip{display:flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;}
+    .pdx-matchup-mult{font-size:9px;font-family:'Press Start 2P',monospace;opacity:.85;}
     .pdx-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);position:sticky;top:0;background:#0d1117;z-index:2;}
     .pdx-tab{flex:1;padding:12px;text-align:center;font-size:10px;font-family:'Press Start 2P',monospace;color:var(--gray);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;}
     .pdx-tab.active{color:var(--pl);border-bottom-color:var(--pl);}
@@ -320,6 +328,8 @@
     .pdx-move-stat-val{font-size:12px;font-weight:700;color:var(--white);}
     .pdx-move-desc-row{padding:0 10px 10px;font-size:11px;color:var(--gray);line-height:1.5;border-top:1px solid rgba(255,255,255,.04);padding-top:8px;margin-top:2px;}
     .pdx-move-cat-icon{font-size:11px;}
+    .stab-badge{font-size:8px;padding:2px 6px;border-radius:4px;background:linear-gradient(135deg,rgba(240,198,0,.25),rgba(206,147,216,.25));color:#f0c600;font-family:'Press Start 2P',monospace;border:1px solid rgba(240,198,0,.4);animation:stab-pulse 2s ease-in-out infinite alternate;}
+    @keyframes stab-pulse{0%{box-shadow:0 0 4px rgba(240,198,0,.3);}100%{box-shadow:0 0 10px rgba(240,198,0,.7),0 0 3px rgba(206,147,216,.4);}}
     /* ── Info Side Panel ── */
     .side-panel{
       position:fixed;top:0;left:0;width:360px;max-width:90vw;height:100vh;
@@ -1651,6 +1661,10 @@ function updSummary(){
         ||BASE_STATS['_n_'+(a.mon.name||'').toLowerCase()]
         ||null;
           if(stats){
+            const bstH=document.createElement('div'); bstH.className='stat-bars-header';
+            const bstHl=document.createElement('span'); bstHl.className='stat-bars-bst-lbl'; bstHl.textContent='BST';
+            const bstHv=document.createElement('span'); bstHv.className='stat-bars-bst-val'; bstHv.textContent=stats.reduce((a,b)=>a+b,0);
+            bstH.append(bstHl,bstHv);
             const bars=document.createElement('div'); bars.className='stat-bars';
             SLBLS.forEach((lbl2,idx)=>{
               const v=stats[idx];
@@ -1658,11 +1672,11 @@ function updSummary(){
               const ll=document.createElement('div'); ll.className='stat-bar-lbl'; ll.textContent=lbl2;
               const vl=document.createElement('div'); vl.className='stat-bar-val'; vl.style.color=statColor(v); vl.textContent=v;
               const bg=document.createElement('div'); bg.className='stat-bar-bg';
-              const fill=document.createElement('div'); fill.className='stat-bar-fill'; fill.style.background=statColor(v); fill.style.height='0%';
+              const fill=document.createElement('div'); fill.className='stat-bar-fill'; fill.style.background=statColor(v); fill.style.boxShadow='0 0 8px '+statColor(v)+'99'; fill.style.height='0%';
               bg.appendChild(fill); wr.append(ll,bg,vl); bars.appendChild(wr);
               setTimeout(()=>{fill.style.height=Math.min(100,Math.round(v/255*100))+'%';},50+idx*60);
             });
-            val.append(top,bars);
+            val.append(top,bstH,bars);
           } else { val.appendChild(top); }
         } else {
           const v=document.createElement('span'); v.className='sum-val'; v.textContent=a.value; val.appendChild(v);
@@ -1700,6 +1714,10 @@ function updSummary(){
         ||BASE_STATS['_n_'+(a.mon.name||'').toLowerCase()]
         ||null;
       if(stats){
+        const bstH2=document.createElement('div'); bstH2.className='stat-bars-header';
+        const bstH2l=document.createElement('span'); bstH2l.className='stat-bars-bst-lbl'; bstH2l.textContent='BST';
+        const bstH2v=document.createElement('span'); bstH2v.className='stat-bars-bst-val'; bstH2v.textContent=stats.reduce((a,b)=>a+b,0);
+        bstH2.append(bstH2l,bstH2v);
         const bars=document.createElement('div'); bars.className='stat-bars';
         SLBLS.forEach((lbl2,idx)=>{
           const v=stats[idx];
@@ -1708,12 +1726,12 @@ function updSummary(){
           const vl=document.createElement('div'); vl.className='stat-bar-val'; vl.style.color=statColor(v); vl.textContent=v;
           const bg=document.createElement('div'); bg.className='stat-bar-bg';
           const fill=document.createElement('div'); fill.className='stat-bar-fill';
-          fill.style.background=statColor(v);
+          fill.style.background=statColor(v); fill.style.boxShadow='0 0 8px '+statColor(v)+'99';
           fill.style.height='0%';
           bg.appendChild(fill); wrap.append(l,bg,vl); bars.appendChild(wrap);
           setTimeout(()=>{fill.style.height=Math.min(100,Math.round(v/255*100))+'%';},50+idx*60);
         });
-        val.append(top,bars);
+        val.append(top,bstH2,bars);
       } else { val.appendChild(top); }
       row.append(lbl,val);
     } else if(i===0 && a.otGender){
@@ -1834,6 +1852,18 @@ function makeAC(ph,list){
     pIco.src=`${PKM_BASE1}${sf}.png`;
     pIco.onerror=()=>iconUrlFallback(pIco,p.spriteId||p.baseId);
     pNm.innerHTML=`${p.name}<br><span style="font-size:11px;opacity:.7;">Game ID: ${p.displayId?'#'+p.displayId:'???'} ${p.dex_number?' · Dex: #'+String(p.dex_number).padStart(4,'0'):''}</span>`;
+    // BST bar in preview
+    const oldBstBar=prev.querySelector('.prev-bst-row'); if(oldBstBar) oldBstBar.remove();
+    const bst=p.bst||p._full?.bst||null;
+    if(bst){
+      const bstRow=document.createElement('div'); bstRow.className='prev-bst-row'; bstRow.style.cssText='display:flex;align-items:center;gap:8px;margin-top:6px;';
+      const bstLbl=document.createElement('div'); bstLbl.style.cssText='font-size:9px;font-family:"Press Start 2P",monospace;color:var(--gray);min-width:32px;'; bstLbl.textContent='BST';
+      const bstVal=document.createElement('div'); bstVal.style.cssText='font-size:11px;font-weight:700;color:'+bpColor(bst>600?bst:null)+';min-width:30px;'; bstVal.textContent=bst;
+      const bstBarWrap=document.createElement('div'); bstBarWrap.style.cssText='flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;';
+      const bstFill=document.createElement('div'); bstFill.style.cssText='height:100%;border-radius:3px;background:linear-gradient(90deg,#4f90d3,#ce93d8);transition:width .5s ease;width:0%;';
+      bstBarWrap.appendChild(bstFill); bstRow.append(bstLbl,bstVal,bstBarWrap); prev.appendChild(bstRow);
+      setTimeout(()=>{bstFill.style.width=Math.min(100,Math.round(bst/720*100))+'%';},50);
+    }
     pBdg.innerHTML=''; pBdg.appendChild(tb(p.t1)); if(p.t2)pBdg.appendChild(tb(p.t2));
     // Gender toggle — only show if female sprite exists
     const gToggle=prev.querySelector('.gender-toggle');
@@ -1891,8 +1921,8 @@ function makeAC(ph,list){
   // Gen/form filter
   const gLbl=document.createElement('div');gLbl.style.cssText='font-size:8px;font-family:"Press Start 2P",monospace;color:var(--gray);';gLbl.textContent='FILTER';
   const gBtns=document.createElement('div');gBtns.style.cssText='display:flex;flex-wrap:wrap;gap:4px;';
-  ['Gen 1','Gen 2','Gen 3','Gen 4','Gen 5','Gen 6','Gen 7','Gen 8','Gen 9','⚡ Mega','🌀 GMax'].forEach(label=>{
-    const key=label.replace('⚡ ','').replace('🌀 ','');
+  ['Gen 1','Gen 2','Gen 3','Gen 4','Gen 5','Gen 6','Gen 7','Gen 8','Gen 9','⚡ Mega','🌀 GMax','🗾 Regional','🏆 Totem'].forEach(label=>{
+    const key=label.replace('⚡ ','').replace('🌀 ','').replace('🗾 ','').replace('🏆 ','');
     const b=document.createElement('button');b.type='button';
     b.style.cssText='font-size:8px;padding:3px 8px;border-radius:5px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);cursor:pointer;white-space:nowrap;';
     b.textContent=label;
@@ -2227,6 +2257,58 @@ function makeMoveSearch(card, onDone, stepRef) {
   };
 }
 
+// ── Static Gen 6+ type effectiveness chart ────────────────────────────────────
+// Chart[attacking][defending] = multiplier (0, 0.5, 1, 2)
+const TYPE_CHART = (()=>{
+  const TYPES=['Normal','Fire','Water','Grass','Electric','Ice','Fighting','Poison',
+                'Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
+  const T=TYPES;
+  // Row = attacker, Column = defender
+  // Values: 0=immune, .5=not very effective, 1=normal (omitted = 1), 2=super effective
+  const data = {
+    Normal:  {Rock:.5,Ghost:0,Steel:.5},
+    Fire:    {Fire:.5,Water:.5,Grass:2,Ice:2,Bug:2,Rock:.5,Dragon:.5,Steel:2},
+    Water:   {Fire:2,Water:.5,Grass:.5,Ground:2,Rock:2,Dragon:.5},
+    Grass:   {Fire:.5,Water:2,Grass:.5,Poison:.5,Ground:2,Flying:.5,Bug:.5,Rock:2,Dragon:.5,Steel:.5},
+    Electric:{Water:2,Grass:.5,Electric:.5,Ground:0,Flying:2,Dragon:.5},
+    Ice:     {Fire:.5,Water:.5,Grass:2,Ice:.5,Ground:2,Flying:2,Dragon:2,Steel:.5},
+    Fighting:{Normal:2,Ice:2,Poison:.5,Flying:.5,Psychic:.5,Bug:.5,Rock:2,Ghost:0,Dark:2,Steel:2,Fairy:.5},
+    Poison:  {Grass:2,Poison:.5,Ground:.5,Rock:.5,Ghost:.5,Steel:0,Fairy:2},
+    Ground:  {Fire:2,Electric:2,Grass:.5,Poison:2,Flying:0,Bug:.5,Rock:2,Steel:2},
+    Flying:  {Electric:.5,Grass:2,Fighting:2,Bug:2,Rock:.5,Steel:.5},
+    Psychic: {Fighting:2,Poison:2,Psychic:.5,Dark:0,Steel:.5},
+    Bug:     {Fire:.5,Grass:2,Fighting:.5,Flying:.5,Psychic:2,Ghost:.5,Dark:2,Steel:.5,Fairy:.5},
+    Rock:    {Fire:2,Ice:2,Fighting:.5,Ground:.5,Flying:2,Bug:2,Steel:.5},
+    Ghost:   {Normal:0,Psychic:2,Ghost:2,Dark:.5},
+    Dragon:  {Dragon:2,Steel:.5,Fairy:0},
+    Dark:    {Fighting:.5,Psychic:2,Ghost:2,Dark:.5,Fairy:.5},
+    Steel:   {Fire:.5,Water:.5,Electric:.5,Ice:2,Rock:2,Steel:.5,Fairy:2},
+    Fairy:   {Fire:.5,Fighting:2,Poison:.5,Dragon:2,Dark:2,Steel:.5},
+  };
+  return data;
+})();
+
+function calcTypeMatchups(type1, type2) {
+  // Returns {weak: [{type, mult}], resist: [{type, mult}], immune: [type]}
+  const TYPES=['Normal','Fire','Water','Grass','Electric','Ice','Fighting','Poison',
+               'Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
+  const effectiveness = {};
+  TYPES.forEach(atk=>{
+    let mult = 1;
+    if(TYPE_CHART[atk] && TYPE_CHART[atk][type1] !== undefined) mult *= TYPE_CHART[atk][type1];
+    if(type2 && TYPE_CHART[atk] && TYPE_CHART[atk][type2] !== undefined) mult *= TYPE_CHART[atk][type2];
+    effectiveness[atk] = mult;
+  });
+  const weak=[], resist=[], immune=[];
+  TYPES.forEach(atk=>{
+    const m=effectiveness[atk];
+    if(m===0) immune.push(atk);
+    else if(m>=2) weak.push({type:atk,mult:m});
+    else if(m<1) resist.push({type:atk,mult:m});
+  });
+  return {weak,resist,immune};
+}
+
 // ── Pokédex Modal ─────────────────────────────────────────────────────────────
 function showPokedex(mon) {
   // Find full data from POKEMON list
@@ -2385,10 +2467,6 @@ function showPokedex(mon) {
           const localAb=ABILITIES_DB[ab.name.toLowerCase()]||ABILITIES_DB[ab.name.toLowerCase().replace(/ /g,'-')];
           if(localAb&&localAb.description){
             descBox.textContent=localAb.description;
-            if(localAb.ai_rating!==undefined){
-              const rat=document.createElement('div');rat.style.cssText='font-size:9px;color:var(--pl);margin-top:4px;font-family:"Press Start 2P",monospace;';
-              rat.textContent='AI Rating: '+localAb.ai_rating+'/10';descBox.appendChild(rat);
-            }
             loaded=true;
           } else {
             descBox.textContent='Loading...';
@@ -2404,6 +2482,43 @@ function showPokedex(mon) {
       wrap.append(row,descBox); sec.appendChild(wrap);
     });
     page1.appendChild(sec);
+  }
+
+  // ── Type Matchups ─────────────────────────────────────────────────────────
+  const t1 = fullData.type1 || mon.t1;
+  const t2 = fullData.type2 || mon.t2 || null;
+  if(t1){
+    const matchups = calcTypeMatchups(t1, t2);
+    const mSec=document.createElement('div'); mSec.className='pdx-section';
+    const mTitle=document.createElement('div'); mTitle.className='pdx-section-title'; mTitle.textContent='TYPE MATCHUPS';
+    mSec.appendChild(mTitle);
+
+    function matchupGroup(label, entries, labelColor) {
+      if(!entries.length) return;
+      const g=document.createElement('div'); g.className='pdx-matchup-group';
+      const tl=document.createElement('div'); tl.className='pdx-matchup-title'; tl.style.color=labelColor; tl.textContent=label;
+      const chips=document.createElement('div'); chips.className='pdx-matchup-chips';
+      entries.forEach(entry=>{
+        const chip=document.createElement('div'); chip.className='pdx-matchup-chip';
+        chip.style.background='rgba(255,255,255,.04)';
+        const typeName = typeof entry==='string' ? entry : entry.type;
+        const tBadge=tb(typeName); tBadge.style.cssText='font-size:9px;padding:1px 6px;';
+        chip.appendChild(tBadge);
+        if(typeof entry!=='string'){
+          const mult=document.createElement('span'); mult.className='pdx-matchup-mult';
+          mult.textContent = entry.mult===4?'4×':entry.mult===2?'2×':entry.mult===0.5?'½×':entry.mult===0.25?'¼×':'?×';
+          mult.style.color = entry.mult>=2?'#E3350D':'#4caf50';
+          chip.appendChild(mult);
+        }
+        chips.appendChild(chip);
+      });
+      g.append(tl,chips); mSec.appendChild(g);
+    }
+
+    matchupGroup('⚠️  WEAK TO', matchups.weak, '#E3350D');
+    matchupGroup('🛡️  RESISTS', matchups.resist, '#4caf50');
+    if(matchups.immune.length) matchupGroup('✦  IMMUNE TO', matchups.immune, '#888');
+    page1.appendChild(mSec);
   }
 
   // ── Evolution Family Page (Tab 2) ───────────────────────────────────────────
@@ -2624,6 +2739,8 @@ function showPokedex(mon) {
     }
 
     const CAT_ICON={Physical:'⚔️',Special:'✨',Status:'🔄'};
+    const monType1 = (fullData.type1||'').toLowerCase();
+    const monType2 = (fullData.type2||'').toLowerCase();
     function moveChip(moveName, levelBadge){
       const found = MOVES.find(m=>m.name.toLowerCase()===moveName.toLowerCase());
       const card=document.createElement('div'); card.className='pdx-move-card';
@@ -2642,6 +2759,13 @@ function showPokedex(mon) {
       const nm=document.createElement('div'); nm.className='pdx-move-name'; nm.textContent=moveName;
       hdr.appendChild(nm);
       if(found){
+        // STAB check — move type matches Pokémon type
+        const isSTAB = found.type && found.cat !== 'Status' &&
+          (found.type.toLowerCase()===monType1 || found.type.toLowerCase()===monType2);
+        if(isSTAB){
+          const stabBadge=document.createElement('span'); stabBadge.className='stab-badge'; stabBadge.textContent='STAB';
+          hdr.appendChild(stabBadge);
+        }
         const bp=document.createElement('div'); bp.style.cssText='font-size:11px;color:'+bpColor(found.power)+';font-weight:700;min-width:30px;text-align:right;';
         bp.textContent = found.power || '—';
         hdr.appendChild(bp);
@@ -2973,10 +3097,6 @@ function renderQ(){
   const localAb=ABILITIES_DB[ab.name.toLowerCase()]||ABILITIES_DB[ab.name.toLowerCase().replace(/ /g,'-')];
   if(localAb&&localAb.description){
     di.textContent=localAb.description;
-    if(localAb.ai_rating!==undefined){
-      const rat=document.createElement('div');rat.style.cssText='font-size:9px;color:var(--pl);margin-top:4px;font-family:"Press Start 2P",monospace;';
-      rat.textContent='AI Rating: '+localAb.ai_rating+'/10';di.appendChild(rat);
-    }
     loaded=true;
   } else {
     // Fallback to PokeAPI
@@ -3990,14 +4110,14 @@ function renderTrainerQ() {
       const img=document.createElement('img'); img.src=`${TRAINER_BASE}${name}.png`;
       img.style.cssText='width:56px;height:56px;object-fit:contain;image-rendering:pixelated;';
       img.onerror=()=>{cell.style.display='none';};
-      const lbl=document.createElement('span'); lbl.style.cssText='font-size:8px;color:var(--gray);text-align:center;word-break:break-all;'; lbl.textContent=name.replace(/_frlg$/,'').replace(/_rs$/,'').replace(/_/g,' ');
+      const lbl=document.createElement('span'); lbl.style.cssText='font-size:8px;color:var(--gray);text-align:center;word-break:break-all;'; lbl.textContent=name.replace(/_frlg$/,'').replace(/_rs$/,'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
       cell.append(img,lbl);
       cell.addEventListener('click',()=>{
         selSprite=name;
         grid.querySelectorAll('div[data-sprite]').forEach(c=>{c.style.borderColor='transparent';c.style.background='rgba(255,255,255,.03)';});
         cell.style.borderColor='var(--pl)'; cell.style.background='rgba(206,147,216,.1)';
         previewImg.src=`${TRAINER_BASE}${name}.png`;
-        previewName.textContent=name.replace(/_/g,' '); previewName.style.color='var(--white)';
+        previewName.textContent=name.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); previewName.style.color='var(--white)';
       });
       cell.dataset.sprite=name; grid.appendChild(cell);
     });
