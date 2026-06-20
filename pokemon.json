@@ -732,15 +732,20 @@
       "height": 5,
       "weight": 90,
       "description": "Its shell is not just for protection. Its rounded shape and the grooves on its surface minimize resistance in water, enabling Squirtle to swim at high speeds.",
-      "related_forms": [],
       "learnset_ref": "sSquirtleLevelUpLearnset",
       "teachable_ref": "sSquirtleTeachableLearnset",
       "egg_moves_ref": "sSquirtleEggMoveLearnset",
-      "evolution_line": "???",
-      "pre_evolution": "???",
-      "evolves_into": [],
+      "evolution_line": "Squirtle Line",
+      "pre_evolution": "Egg",
+      "evolves_into": [
+        {
+          "name": "Wartortle",
+          "method": "Level Up",
+          "param": "Lvl. 16"
+        }
+      ],
       "alternate_forms": [],
-      "form_requirement": "???"
+      "form_requirement": null
     },
     {
       "id": 8,
@@ -789,15 +794,20 @@
       "height": 10,
       "weight": 225,
       "description": "Its large tail is covered with rich, thick fur that deepens in color with age. The scratches on its shell are evidence of this Pokémon's toughness in battle.",
-      "related_forms": [],
       "learnset_ref": "sWartortleLevelUpLearnset",
       "teachable_ref": "sWartortleTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "???",
-      "pre_evolution": "???",
-      "evolves_into": [],
+      "evolution_line": "Squirtle Line",
+      "pre_evolution": "Squirtle",
+      "evolves_into": [
+        {
+          "name": "Blastoise",
+          "method": "Level Up",
+          "param": "Lvl. 36"
+        }
+      ],
       "alternate_forms": [],
-      "form_requirement": "???"
+      "form_requirement": null
     },
     {
       "id": 9,
@@ -845,15 +855,17 @@
       "height": 16,
       "weight": 855,
       "description": "The waterspouts that protrude from its shell are highly accurate. Their bullets of water can precisely nail tin cans from a distance of over 160 feet.",
-      "related_forms": [],
       "learnset_ref": "sBlastoiseLevelUpLearnset",
       "teachable_ref": "sBlastoiseTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "???",
-      "pre_evolution": "???",
+      "evolution_line": "Squirtle Line",
+      "pre_evolution": "Wartortle",
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": "???"
+      "alternate_forms": [
+        "Mega-Blastoise",
+        "GMax-Blastoise"
+      ],
+      "form_requirement": null
     },
     {
       "id": 909,
@@ -905,15 +917,17 @@
       "height": 16,
       "weight": 1011,
       "description": "The cannon on its back is as powerful as a tank gun. Its tough legs and back enable it to withstand the recoil from firing the cannon.",
-      "related_forms": [],
       "learnset_ref": "sBlastoiseLevelUpLearnset",
       "teachable_ref": "sBlastoiseTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "???",
-      "pre_evolution": "???",
+      "evolution_line": "Squirtle Line",
+      "pre_evolution": "Blastoise",
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": "???"
+      "alternate_forms": [
+        "Blastoise",
+        "GMax-Blastoise"
+      ],
+      "form_requirement": "Blastoisinite"
     },
     {
       "id": 1490,
@@ -961,15 +975,17 @@
       "height": 250,
       "weight": 0,
       "description": "It's not very good at precision shooting. When attacking, it just fires its 31 cannons over and over and over.",
-      "related_forms": [],
       "learnset_ref": "sBlastoiseLevelUpLearnset",
       "teachable_ref": "sBlastoiseTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "???",
-      "pre_evolution": "???",
+      "evolution_line": "Squirtle Line",
+      "pre_evolution": "Blastoise",
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": "???"
+      "alternate_forms": [
+        "Blastoise",
+        "Mega-Blastoise"
+      ],
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 10,
