@@ -2563,7 +2563,7 @@ function showPokedex(mon) {
       bar.appendChild(fill); row.append(lbl,val,bar); sec.appendChild(row);
       setTimeout(()=>{ fill.style.width=Math.min(100,Math.round(v/255*100))+'%'; }, 80);
     });
-    page4.appendChild(sec);
+    page1.appendChild(sec);
   }
 
   // ── Info Grid ─────────────────────────────────────────────────────────────
@@ -2614,10 +2614,12 @@ function showPokedex(mon) {
         descBox.style.display=expanded?'block':'none';
         expandIcon.style.transform=expanded?'rotate(180deg)':'rotate(0deg)';
         if(expanded && !loaded){
+          // Try: enriched description (from abilities.json) → ABILITIES_DB → PokeAPI
+          const inlineDesc = ab.description;
           const localAb=ABILITIES_DB[ab.name.toLowerCase()]||ABILITIES_DB[ab.name.toLowerCase().replace(/ /g,'-')];
-          if(localAb&&localAb.description){
-            descBox.textContent=localAb.description;
-            loaded=true;
+          const desc = inlineDesc || (localAb&&localAb.description);
+          if(desc){
+            descBox.textContent=desc; loaded=true;
           } else {
             descBox.textContent='Loading...';
             fetch('https://pokeapi.co/api/v2/ability/'+ab.name.toLowerCase().replace(/ /g,'-')+'/').then(r=>r.json()).then(d=>{
@@ -2631,7 +2633,7 @@ function showPokedex(mon) {
       });
       wrap.append(row,descBox); sec.appendChild(wrap);
     });
-    page4.appendChild(sec);
+    page1.appendChild(sec);
   }
 
   // ── Type Matchups ─────────────────────────────────────────────────────────
@@ -2670,7 +2672,7 @@ function showPokedex(mon) {
     matchupGroup('⚠️  WEAK TO', matchups.weak, '#E3350D');
     matchupGroup('🛡️  RESISTS', matchups.resist, '#4caf50');
     if(matchups.immune.length) matchupGroup('✦  IMMUNE TO', matchups.immune, '#888');
-    page4.appendChild(mSec);
+    page1.appendChild(mSec);
   }
 
   // ── Evolution Family Page (Tab 2) ───────────────────────────────────────────
@@ -3007,7 +3009,21 @@ function showPokedex(mon) {
     eSec.appendChild(eGroup); page3.appendChild(eSec);
   }
 
-  // buildSpeciesPage is a no-op since page4 is built eagerly above
+  // ── EV Yield on Species tab (page4) ──────────────────────────────────────
+  const evY = fullData.ev_yield || {};
+  const evEntries = Object.entries(evY).filter(([,v])=>v>0);
+  if(evEntries.length){
+    const evSec=document.createElement('div'); evSec.className='pdx-section';
+    const evT=document.createElement('div'); evT.className='pdx-section-title'; evT.textContent='EV YIELD';
+    evSec.appendChild(evT);
+    const statLabels3={hp:'HP',atk:'Atk',def:'Def',spa:'SpA',spd:'SpD',spe:'Spe'};
+    const evRow=document.createElement('div'); evRow.style.cssText='display:flex;gap:10px;flex-wrap:wrap;';
+    evEntries.forEach(([k,v])=>{
+      const chip=document.createElement('span'); chip.style.cssText='font-size:11px;padding:3px 10px;border-radius:6px;background:rgba(206,147,216,.12);color:var(--pl);';
+      chip.textContent=`+${v} ${statLabels3[k]||k}`; evRow.appendChild(chip);
+    });
+    evSec.appendChild(evRow); page4.appendChild(evSec);
+  }
   function buildSpeciesPage(){ /* page4 populated during showPokedex init */ }
 
   bd.appendChild(modal);
@@ -3035,6 +3051,16 @@ async function loadPokemonData() {
     if(ra && ra.ok){
       const ad = await ra.json();
       (ad.abilities||[]).forEach(ab=>{ ABILITIES_DB[ab.name.toLowerCase()]=ab; });
+      // Enrich all _full.abilities with descriptions so Pokédex works even without network
+      POKEMON.forEach(p=>{
+        const full = p._full;
+        if(full && full.abilities){
+          full.abilities.forEach(ab=>{
+            const info = ABILITIES_DB[ab.name.toLowerCase()];
+            if(info && info.description) ab.description = info.description;
+          });
+        }
+      });
       console.log(`✓ Loaded ${Object.keys(ABILITIES_DB).length} abilities`);
     }
     // Load items
