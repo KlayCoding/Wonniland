@@ -2383,11 +2383,12 @@ function makeMoveSearch(card, onDone, stepRef) {
     b.textContent=label; b.dataset.fattr=flag;
     b.addEventListener('click',()=>{
       if(activeAttrs.has(flag)){
-        activeAttrs.delete(flag); b.style.background=attrCol+'11'; b.style.borderColor=attrCol+'44'; b.style.fontWeight='';
+        activeAttrs.delete(flag);
+        b.style.background=attrCol+'11'; b.style.borderColor=attrCol+'44'; b.style.fontWeight=''; b.style.boxShadow='';
       } else {
         activeAttrs.add(flag);
-        attrBtns.querySelectorAll('[data-fattr]').forEach(x=>{x.style.background=attrCol+'11';x.style.borderColor=attrCol+'44';x.style.fontWeight='';x.style.boxShadow='';});
         b.style.background=attrCol+'44'; b.style.borderColor=attrCol; b.style.fontWeight='700';
+        b.style.boxShadow=`0 0 8px ${attrCol}66`;
       }
       filterToggle.style.borderColor=activeType||activeCat||activeSort||hideZMoves||hideDynaMax||activeAttrs.size?'var(--pl)':'var(--border)';
       refreshAllDD();
@@ -3475,9 +3476,12 @@ function renderQ(){
       });
     }
     if(selMon){
-      const an=selMon.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+      // Strip form suffix in parens: 'Arceus (Flying)' → 'arceus', 'Calyrex (Shadow Rider)' → 'calyrex'
+      const baseName=selMon.name.replace(/\s*\([^)]*\)/g,'').trim();
+      const an=baseName.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
       const bp=POKEMON.find(p=>p.id===selMon.baseId);
-      const tryNames=[an]; if(bp&&bp.name.toLowerCase()!==an)tryNames.push(bp.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''));
+      const bpSlug=bp?bp.name.replace(/\s*\([^)]*\)/g,'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''):null;
+      const tryNames=[an]; if(bpSlug&&bpSlug!==an)tryNames.push(bpSlug);
       (async()=>{for(const n of tryNames){try{const r=await fetch('https://pokeapi.co/api/v2/pokemon/'+n);if(!r.ok)continue;const d=await r.json();renderAbilityBtnsP(d.abilities.map(a=>({name:a.ability.name,isHidden:a.is_hidden})).sort((a,b)=>a.isHidden-b.isHidden));return;}catch(e){}}renderAbilityBtnsP([]);})();
     }else{loadingElP.textContent='No Pokemon selected in Q2 — type manually:';const inp=document.createElement('input');inp.type='text';inp.placeholder='Ability name…';inp.addEventListener('input',()=>{selectedAbility=inp.value.trim()||null;});abilityWrap.appendChild(inp);}
     getV=()=>selectedAbility?{value:selectedAbility}:null;
@@ -3489,34 +3493,36 @@ function renderQ(){
     const TC={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0',Stellar:'#9966cc'};
     const grid=document.createElement('div'); grid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-top:8px;';
     let selTera=null;
+    function selectTera(type){
+      selTera=type; const col=TC[type]||'#888';
+      grid.querySelectorAll('[data-tera]').forEach(b=>{const c=TC[b.dataset.tera]||'#888';b.style.borderColor=b.dataset.tera===type?c:'transparent';b.style.background=b.dataset.tera===type?`${c}44`:`${c}22`;});
+    }
     ALL_TERA.forEach(type=>{
       const col=TC[type]||'#888';
       const btn=document.createElement('div'); btn.style.cssText=`display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 6px;border-radius:10px;border:2px solid transparent;background:${col}22;cursor:pointer;transition:all .2s;`;
       const ico=document.createElement('div'); ico.innerHTML=`<svg width="28" height="28" viewBox="0 0 28 28"><polygon points="14,2 24,8 24,20 14,26 4,20 4,8" fill="${col}" opacity="0.9" stroke="${col}" stroke-width="1.5"/><polygon points="14,6 20,10 20,18 14,22 8,18 8,10" fill="white" opacity="0.25"/></svg>`;
       const lbl=document.createElement('span'); lbl.style.cssText=`font-size:10px;font-weight:700;color:${col};text-align:center;`; lbl.textContent=type;
       btn.append(ico,lbl);
-      btn.addEventListener('click',()=>{selTera=type;grid.querySelectorAll('[data-tera]').forEach(b=>{b.style.borderColor='transparent';b.style.background=`${TC[b.dataset.tera]||'#888'}22`;});btn.style.borderColor=col;btn.style.background=`${col}44`;});
+      btn.addEventListener('click',()=>selectTera(type));
       btn.dataset.tera=type; grid.appendChild(btn);
     });
-    // "Use Default Type" button
-    const defTypeBtn=document.createElement('button'); defTypeBtn.type='button'; defTypeBtn.className='rand-btn'; defTypeBtn.style.cssText='margin-top:12px;width:100%;min-height:38px;';
-    defTypeBtn.textContent='🎯 Use Default Type (from Pokémon)';
+    // Button row: Randomize + Default Type — fixed height to prevent layout shift
+    const teraActions=document.createElement('div'); teraActions.style.cssText='display:flex;gap:8px;margin-top:12px;min-height:44px;';
+    const randTeraBtn=document.createElement('button'); randTeraBtn.type='button'; randTeraBtn.className='rand-btn';
+    randTeraBtn.style.cssText='flex:1;'; randTeraBtn.textContent='🎲 Randomize!';
+    randTeraBtn.addEventListener('click',()=>selectTera(ALL_TERA[Math.floor(Math.random()*ALL_TERA.length)]));
+    const defTypeBtn=document.createElement('button'); defTypeBtn.type='button'; defTypeBtn.className='rand-btn';
+    defTypeBtn.style.cssText='flex:2;'; defTypeBtn.textContent='🎯 Use Default Type';
     defTypeBtn.addEventListener('click',()=>{
       const selMon=ans[1]&&ans[1].mon;
       if(!selMon){showToast('Please select a Pokémon in Q2 first!', true);return;}
-      // If dual type, pick randomly between t1 and t2
       let chosenType=selMon.t1;
       if(selMon.t2 && selMon.t2!==selMon.t1){ chosenType=Math.random()<0.5?selMon.t1:selMon.t2; }
-      selTera=chosenType;
-      // Highlight the chosen type in the grid
-      grid.querySelectorAll('[data-tera]').forEach(b=>{
-        const t=b.dataset.tera; const c=TC[t]||'#888';
-        b.style.borderColor=t===chosenType?c:'transparent';
-        b.style.background=t===chosenType?`${c}44`:`${c}22`;
-      });
-      defTypeBtn.textContent=`✓ Using ${chosenType} Tera (${selMon.name})`;
+      selectTera(chosenType);
+      defTypeBtn.textContent=`✓ Using ${chosenType} (${selMon.name})`;
     });
-    card.append(grid,defTypeBtn);
+    teraActions.append(randTeraBtn,defTypeBtn);
+    card.append(grid,teraActions);
     getV=()=>selTera?{value:selTera}:null;
 
   // Q8 ── GMax Factor + Dynamax Level
@@ -3542,48 +3548,24 @@ function renderQ(){
     gmaxSVG.style.cssText='display:flex;justify-content:center;margin-bottom:4px;';
     gmaxIconWrap.innerHTML=''; gmaxIconWrap.appendChild(gmaxSVG);
     gmaxIconWrap.appendChild(gmaxImg); card.appendChild(gmaxIconWrap);
-    // GMax Pokémon list
+    // GMax Pokémon list — derived from pokemon.json group field (no hardcoding)
     const gmaxNote=document.createElement('div'); gmaxNote.className='q-sub';
     gmaxNote.textContent='Gigantamaxing changes the appearance and move of your Pokémon. Only these species can GMax:';
-    // GMax Pokémon with their cajunavenger BW sprites
-    // Map: name -> cajunavenger slug (uppercase)
-    const gmaxMons=[
-      {name:'Venusaur',slug:'VENUSAUR'},{name:'Charizard',slug:'CHARIZARD'},
-      {name:'Blastoise',slug:'BLASTOISE'},{name:'Butterfree',slug:'BUTTERFREE'},
-      {name:'Pikachu',slug:'PIKACHU'},{name:'Meowth',slug:'MEOWTH'},
-      {name:'Eevee',slug:'EEVEE'},{name:'Snorlax',slug:'SNORLAX'},
-      {name:'Gengar',slug:'GENGAR'},{name:'Lapras',slug:'LAPRAS'},
-      {name:'Flapple',slug:'FLAPPLE'},{name:'Appletun',slug:'APPLETUN'},
-      {name:'Sandaconda',slug:'SANDACONDA'},{name:'Toxtricity',id:849},{name:'Toxtricity\n(Low-Key)',id:1213},
-      {name:'Centiskorch',slug:'CENTISKORCH'},{name:'Hatterene',slug:'HATTERENE'},
-      {name:'Grimmsnarl',slug:'GRIMMSNARL'},{name:'Alcremie',slug:'ALCREMIE'},
-      {name:'Copperajah',slug:'COPPERAJAH'},{name:'Duraludon',slug:'DURALUDON'},
-      {name:'Urshifu',slug:'URSHIFU'},
-      {name:'Machamp',slug:'MACHAMP'},{name:'Kingler',slug:'KINGLER'},
-      {name:'Garbodor',slug:'GARBODOR'},{name:'Melmetal',slug:'MELMETAL'},
-      {name:'Rillaboom',slug:'RILLABOOM'},{name:'Cinderace',slug:'CINDERACE'},
-      {name:'Inteleon',slug:'INTELEON'},{name:'Corviknight',slug:'CORVIKNIGHT'},
-      {name:'Orbeetle',slug:'ORBEETLE'},{name:'Drednaw',slug:'DREDNAW'},
-      {name:'Coalossal',slug:'COALOSSAL'},
-    ];
+    // Collect all GMax base species from POKEMON data (exclude the GMax- forms themselves)
+    const gmaxMons=POKEMON.filter(p=>p.group==='GMax'&&!p.name.startsWith('GMax-'))
+      .sort((a,b)=>a.id-b.id);
     const gmaxGrid=document.createElement('div'); gmaxGrid.style.cssText='display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;';
-    gmaxMons.forEach(({name,slug,id})=>{
+    gmaxMons.forEach(p=>{
       const chip=document.createElement('div');
       chip.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;border-radius:8px;background:rgba(123,31,162,.15);border:1px solid rgba(206,147,216,.25);min-width:60px;';
       const img=document.createElement('img');
-      if(id){
-        // Use pokemon.json sprite via iconUrl
-        const mon=POKEMON.find(p=>p.id===id);
-        if(mon){ img.src=iconUrl(mon.spriteId,false,mon.spriteFile||null); img.onerror=()=>iconUrlFallback(img,mon.spriteId); }
-        else { img.src=`${PKM_BASE1}${id}.png`; img.onerror=()=>{ img.style.display='none'; }; }
-      } else {
-        img.src=`https://cajunavenger.github.io/Front/${slug}.png`;
-        img.onerror=()=>{ img.style.display='none'; };
-      }
+      img.src=iconUrl(p.spriteId,false,p.spriteFile||null);
+      img.onerror=()=>iconUrlFallback(img,p.spriteId);
       img.style.cssText='width:48px;height:48px;object-fit:contain;image-rendering:pixelated;';
       const lbl=document.createElement('span');
       lbl.style.cssText='font-size:9px;color:var(--pl);text-align:center;white-space:pre-line;';
-      lbl.textContent=name;
+      // Shorten name: strip "Toxtricity" → keep as-is, just break long names
+      lbl.textContent=p.name.replace(' (','\n(');
       chip.append(img,lbl); gmaxGrid.appendChild(chip);
     });
     card.append(gmaxNote,gmaxGrid);
@@ -3631,6 +3613,15 @@ function renderQ(){
   
 }else if(step===8){
     addT(card,'How strong do you want your Pokémon to be?');
+    // IV/EV info button next to question title
+    const ivEvTitleRow=card.querySelector('.q-title');
+    if(ivEvTitleRow){
+      const ivEvInfoBtn=document.createElement('button');ivEvInfoBtn.type='button';ivEvInfoBtn.className='info-btn';ivEvInfoBtn.textContent='ℹ IVs & EVs?';
+      makeInfoPopup(ivEvInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
+      const titleWrap=document.createElement('div');titleWrap.style.cssText='display:flex;align-items:center;gap:10px;';
+      ivEvTitleRow.parentNode.insertBefore(titleWrap,ivEvTitleRow);
+      titleWrap.append(ivEvTitleRow,ivEvInfoBtn);
+    }
     const EV_MAX=510; const ivD={hp:31,atk:31,def:31,spa:31,spd:31,spe:31}; const evD={hp:0,atk:0,def:0,spa:0,spd:0,spe:0}; const ivInputs={},evInputs={}; let currentPreset='Custom';
     const presetWrap=document.createElement('div'); presetWrap.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;';
     function recalcEVT(){const sum=SKEYS.reduce((a,k)=>a+(evD[k]||0),0);const rem=EV_MAX-sum;totValT.textContent=`${sum} / 510`;totValT.className='ev-total-val'+(sum>EV_MAX?' over':'');remValT.textContent=rem>=0?rem:'0';remValT.style.color=rem<=0?'#E3350D':rem<=50?'#ff9800':'var(--pl)';}
@@ -4787,9 +4778,11 @@ function renderTrainerQ() {
       if(fullMonT&&fullMonT.abilities&&fullMonT.abilities.length){
         renderAbilityBtnsT(fullMonT.abilities.map(a=>({name:a.name,isHidden:a.hidden||false})));
       } else {
-        const an=selMon.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        const baseName=selMon.name.replace(/\s*\([^)]*\)/g,'').trim();
+        const an=baseName.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
         const bp=POKEMON.find(p=>p.id===selMon.baseId);
-        const tryNames=[an]; if(bp&&bp.name.toLowerCase()!==an)tryNames.push(bp.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''));
+        const bpSlug=bp?bp.name.replace(/\s*\([^)]*\)/g,'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''):null;
+        const tryNames=[an]; if(bpSlug&&bpSlug!==an)tryNames.push(bpSlug);
         (async()=>{for(const n of tryNames){try{const r=await fetch(`https://pokeapi.co/api/v2/pokemon/${n}`);if(!r.ok)continue;const d=await r.json();renderAbilityBtnsT(d.abilities.map(a=>({name:a.ability.name,isHidden:a.is_hidden})).sort((a,b)=>a.isHidden-b.isHidden));return;}catch(e){}}renderAbilityBtnsT([]);})();
       }
     }else{loadingEl.textContent='No Pokemon selected in Q4 — type manually:';const inp=document.createElement('input');inp.type='text';inp.placeholder='Ability name…';inp.addEventListener('input',()=>{selectedAbility=inp.value.trim()||null;});abilityWrap.appendChild(inp);}
@@ -4797,6 +4790,15 @@ function renderTrainerQ() {
 
   // ── TQ8: IVs & EVs ───────────────────────────────────
   }else if(step===8){
+    // IV/EV info button next to question title
+    const ivEvTitleRow=card.querySelector('.q-title');
+    if(ivEvTitleRow){
+      const ivEvInfoBtn=document.createElement('button');ivEvInfoBtn.type='button';ivEvInfoBtn.className='info-btn';ivEvInfoBtn.textContent='ℹ IVs & EVs?';
+      makeInfoPopup(ivEvInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
+      const titleWrap=document.createElement('div');titleWrap.style.cssText='display:flex;align-items:center;gap:10px;';
+      ivEvTitleRow.parentNode.insertBefore(titleWrap,ivEvTitleRow);
+      titleWrap.append(ivEvTitleRow,ivEvInfoBtn);
+    }
     addT(card,'How strong do you want your Pokémon to be?');
     const EV_MAX=510; const ivD={hp:31,atk:31,def:31,spa:31,spd:31,spe:31}; const evD={hp:0,atk:0,def:0,spa:0,spd:0,spe:0}; const ivInputs={},evInputs={}; let currentPreset='Custom';
     const presetWrap=document.createElement('div'); presetWrap.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;';
@@ -5015,26 +5017,33 @@ function renderTrainerQ() {
     const TC2={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0',Stellar:'#9966cc'};
     const grid2=document.createElement('div'); grid2.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-top:8px;';
     let selTera2=null;
+    function selectTera2(type){
+      selTera2=type;
+      grid2.querySelectorAll('[data-tera2]').forEach(b=>{const c=TC2[b.dataset.tera2]||'#888';b.style.borderColor=b.dataset.tera2===type?c:'transparent';b.style.background=b.dataset.tera2===type?`${c}44`:`${c}22`;});
+    }
     ALL_TERA2.forEach(type=>{
       const col=TC2[type]||'#888';
       const btn2=document.createElement('div'); btn2.style.cssText=`display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 6px;border-radius:10px;border:2px solid transparent;background:${col}22;cursor:pointer;transition:all .2s;`;
       const ico2=document.createElement('div'); ico2.innerHTML=`<svg width="28" height="28" viewBox="0 0 28 28"><polygon points="14,2 24,8 24,20 14,26 4,20 4,8" fill="${col}" opacity="0.9" stroke="${col}" stroke-width="1.5"/><polygon points="14,6 20,10 20,18 14,22 8,18 8,10" fill="white" opacity="0.25"/></svg>`;
       const lbl2=document.createElement('span'); lbl2.style.cssText=`font-size:10px;font-weight:700;color:${col};text-align:center;`; lbl2.textContent=type;
       btn2.append(ico2,lbl2);
-      btn2.addEventListener('click',()=>{selTera2=type;grid2.querySelectorAll('[data-tera2]').forEach(b=>{b.style.borderColor='transparent';b.style.background=`${TC2[b.dataset.tera2]||'#888'}22`;});btn2.style.borderColor=col;btn2.style.background=`${col}44`;});
+      btn2.addEventListener('click',()=>selectTera2(type));
       btn2.dataset.tera2=type; grid2.appendChild(btn2);
     });
-    const defTypeBtn2=document.createElement('button'); defTypeBtn2.type='button'; defTypeBtn2.className='rand-btn'; defTypeBtn2.style.cssText='margin-top:12px;width:100%;';
-    defTypeBtn2.textContent='🎯 Use Default Type (from Pokemon)';
+    const teraActions2=document.createElement('div'); teraActions2.style.cssText='display:flex;gap:8px;margin-top:12px;min-height:44px;';
+    const randTeraBtn2=document.createElement('button'); randTeraBtn2.type='button'; randTeraBtn2.className='rand-btn';
+    randTeraBtn2.style.flex='1'; randTeraBtn2.textContent='🎲 Randomize!';
+    randTeraBtn2.addEventListener('click',()=>selectTera2(ALL_TERA2[Math.floor(Math.random()*ALL_TERA2.length)]));
+    const defTypeBtn2=document.createElement('button'); defTypeBtn2.type='button'; defTypeBtn2.className='rand-btn';
+    defTypeBtn2.style.flex='2'; defTypeBtn2.textContent='🎯 Use Default Type';
     defTypeBtn2.addEventListener('click',()=>{
       const sm=(team[currentSlot]&&team[currentSlot][4]&&team[currentSlot][4].mon)||null;
       if(!sm){showToast('Please select a Pokémon first!', true);return;}
       let ct=sm.t1; if(sm.t2&&sm.t2!==sm.t1){ct=Math.random()<0.5?sm.t1:sm.t2;}
-      selTera2=ct;
-      grid2.querySelectorAll('[data-tera2]').forEach(b=>{const t=b.dataset.tera2;const c=TC2[t]||'#888';b.style.borderColor=t===ct?c:'transparent';b.style.background=t===ct?`${c}44`:`${c}22`;});
-      defTypeBtn2.textContent=`Using ${ct} (default)`;
+      selectTera2(ct); defTypeBtn2.textContent=`✓ Using ${ct} (${sm.name})`;
     });
-    card.append(grid2,defTypeBtn2); getV=()=>selTera2?{value:selTera2}:null;
+    teraActions2.append(randTeraBtn2,defTypeBtn2);
+    card.append(grid2,teraActions2); getV=()=>selTera2?{value:selTera2}:null;
 
   // ── TQ15 step===15: Moves ─────────────────────────────────────────────────
   }else if(step===15){
