@@ -1665,14 +1665,27 @@ function updSummary(){
         const val=document.createElement('div'); val.style.flex='1'; val.style.overflow='hidden';
         // Pokemon entry with sprite + stat bars
         if(li===0 && a.mon){
-          const top=document.createElement('div'); top.style.display='flex'; top.style.alignItems='center'; top.style.gap='8px';
+          const top=document.createElement('div'); top.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap;';
           const ico=document.createElement('img'); ico.className='sum-icon';
           ico.src=iconUrl(a.mon.spriteId,a.mon.art,a.mon.spriteFile);
           ico.onerror=()=>iconUrlFallback(ico,a.mon.spriteId||a.mon.baseId);
-          const nm=document.createElement('span'); nm.style.fontWeight='600'; nm.textContent=a.mon.name; // no displayId suffix
+          const nm=document.createElement('span'); nm.style.fontWeight='600'; nm.textContent=a.mon.name;
           const badges=document.createElement('div'); badges.className='tbadges';
           badges.appendChild(tb(a.mon.t1)); if(a.mon.t2) badges.appendChild(tb(a.mon.t2));
-          top.append(ico,nm,badges);
+          // Group chip next to name
+          const monFull=a.mon._full||(POKEMON.find(p=>p.name===a.mon.name)||{});
+          const monGroup=a.mon.group||monFull.group||null;
+          if(monGroup){
+            const gc={'Mega':'#64b5f6','GMax':'#ce93d8','Regional':'#81c784','Totem':'#ffb74d'}[monGroup]||(monGroup.startsWith('Gen')?'#aaa':'#888');
+            const grpEl=document.createElement('span');
+            grpEl.style.cssText=`font-size:8px;font-family:'Press Start 2P',monospace;padding:2px 7px;border-radius:5px;color:${gc};border:1px solid ${gc}44;background:${gc}11;`;
+            grpEl.textContent=monGroup; nm.insertAdjacentElement('afterend',grpEl); top.append(ico,nm,grpEl,badges);
+          } else { top.append(ico,nm,badges); }
+          // Pokédex button top-right
+          const pdxBtnTop=document.createElement('button'); pdxBtnTop.type='button';
+          pdxBtnTop.style.cssText='margin-left:auto;font-size:10px;padding:3px 9px;border-radius:6px;border:1px solid var(--pl);background:rgba(123,31,162,.15);color:var(--pl);cursor:pointer;white-space:nowrap;';
+          pdxBtnTop.innerHTML='📖 Pokédex'; pdxBtnTop.addEventListener('click',()=>showPokedex(a.mon));
+          top.appendChild(pdxBtnTop);
           const sid=a.mon.baseId||a.mon.spriteId;
           const stats=BASE_STATS[sid]
         ||BASE_STATS[sid?String(sid).padStart(4,'0'):null]
@@ -1725,12 +1738,25 @@ function updSummary(){
 
     if(i===1 && a.mon){
       // Q2: Pokémon row — icon + name + type badges + stat bars
-      const top=document.createElement('div'); top.style.display='flex'; top.style.alignItems='center'; top.style.gap='8px';
+      const top=document.createElement('div'); top.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap;';
       const ico=document.createElement('img'); ico.className='sum-icon'; ico.src=iconUrl(a.mon.spriteId,a.mon.art,a.mon.spriteFile); ico.onerror=()=>iconUrlFallback(ico,a.mon.spriteId||a.mon.baseId);
       const nm=document.createElement('span'); nm.style.fontWeight='600'; nm.textContent=a.mon.name;
       const badges=document.createElement('div'); badges.className='tbadges';
       badges.appendChild(tb(a.mon.t1)); if(a.mon.t2) badges.appendChild(tb(a.mon.t2));
-      top.append(ico,nm,badges);
+      // Group chip next to name
+      const monFull2=a.mon._full||(POKEMON.find(p=>p.name===a.mon.name)||{});
+      const monGroup2=a.mon.group||monFull2.group||null;
+      if(monGroup2){
+        const gc2={'Mega':'#64b5f6','GMax':'#ce93d8','Regional':'#81c784','Totem':'#ffb74d'}[monGroup2]||(monGroup2.startsWith('Gen')?'#aaa':'#888');
+        const grpEl2=document.createElement('span');
+        grpEl2.style.cssText=`font-size:8px;font-family:'Press Start 2P',monospace;padding:2px 7px;border-radius:5px;color:${gc2};border:1px solid ${gc2}44;background:${gc2}11;`;
+        grpEl2.textContent=monGroup2; top.append(ico,nm,grpEl2,badges);
+      } else { top.append(ico,nm,badges); }
+      // Pokédex button top-right
+      const pdxBtnTop2=document.createElement('button'); pdxBtnTop2.type='button';
+      pdxBtnTop2.style.cssText='margin-left:auto;font-size:10px;padding:3px 9px;border-radius:6px;border:1px solid var(--pl);background:rgba(123,31,162,.15);color:var(--pl);cursor:pointer;white-space:nowrap;';
+      pdxBtnTop2.innerHTML='📖 Pokédex'; pdxBtnTop2.addEventListener('click',()=>showPokedex(a.mon));
+      top.appendChild(pdxBtnTop2);
       const sid=a.mon.baseId; const stats=BASE_STATS[sid]
         ||BASE_STATS[sid?String(sid).padStart(4,'0'):null]
         ||BASE_STATS[a.mon.spriteId]
