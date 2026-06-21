@@ -102,9 +102,26 @@
     .tb.type-Steel{background:#8e9bb3;}.tb.type-Fairy{background:#d980a0;}
 
     /* Preview */
-    .sel-prev{display:none;align-items:center;gap:10px;margin-top:7px;background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);border-radius:8px;padding:7px 11px;font-size:13px;color:var(--green);}
+    .sel-prev{display:none;flex-direction:column;margin-top:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:13px;color:var(--text);}
     .sel-prev.vis{display:flex;}
-    .sel-prev .pico{width:80px;height:80px;image-rendering:pixelated;}
+    .sel-prev .pico{width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;}
+    .sel-prev-top{display:flex;align-items:center;gap:12px;padding:10px 14px 8px;}
+    .sel-prev-identity{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0;}
+    .sel-prev-name{font-size:16px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .sel-prev-chips{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+    .sel-prev-bst-row{display:flex;align-items:center;gap:10px;padding:0 14px 6px;}
+    .sel-prev-bst-tile{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:6px;flex-shrink:0;}
+    .sel-prev-bst-lbl{font-size:7px;font-family:'Press Start 2P',monospace;opacity:.7;}
+    .sel-prev-bst-val{font-size:15px;font-weight:800;letter-spacing:.5px;}
+    .sel-prev-bst-bar{flex:1;height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;}
+    .sel-prev-bst-fill{height:100%;border-radius:3px;transition:width .5s ease;}
+    .sel-prev-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:6px 14px 12px;}
+    .sel-prev-stat-col{display:flex;flex-direction:column;align-items:center;gap:3px;}
+    .sel-prev-stat-lbl{font-size:7px;font-family:'Press Start 2P',monospace;color:var(--gray);}
+    .sel-prev-stat-bar-bg{width:100%;height:60px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;display:flex;align-items:flex-end;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);}
+    .sel-prev-stat-bar-fill{width:100%;border-radius:5px;transition:height .5s cubic-bezier(.4,0,.2,1);}
+    .sel-prev-stat-val{font-size:10px;font-weight:700;}
+    .sel-prev-footer{padding:0 14px 10px;display:flex;align-items:center;gap:8px;}
 
     /* Gender */
     .g-opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
@@ -1878,8 +1895,15 @@ function makeAC(ph,list){
   const dd=document.createElement('div'); dd.className='dd';
   const prev=document.createElement('div'); prev.className='sel-prev';
   const pIco=document.createElement('img'); pIco.className='pico';
-  const pNm=document.createElement('span'); const pBdg=document.createElement('div'); pBdg.className='tbadges';
-  prev.append(pIco,pNm,pBdg);
+  // Top row
+  const prevTop=document.createElement('div'); prevTop.className='sel-prev-top';
+  const prevIdent=document.createElement('div'); prevIdent.className='sel-prev-identity';
+  const pNm=document.createElement('div'); pNm.className='sel-prev-name';
+  const prevChips=document.createElement('div'); prevChips.className='sel-prev-chips';
+  const pBdg=document.createElement('div'); pBdg.className='tbadges'; pBdg.style.gap='4px';
+  prevIdent.append(pNm, prevChips);
+  prevTop.append(pIco, prevIdent);
+  prev.appendChild(prevTop);
   let sel=null,ai=-1;
   let _acGroups=new Set(), _acSort=null;
   function build(q){
@@ -1959,40 +1983,30 @@ function makeAC(ph,list){
   }
   function pick(p){
     sel=p; inp.value=p.name; inp.classList.add('valid'); dd.innerHTML='';
-    // Update sprite — use spriteFile if available
+    // --- Sprite ---
     const sf=getSpriteFile(p);
     pIco.src=`${PKM_BASE1}${sf}.png`;
     pIco.onerror=()=>iconUrlFallback(pIco,p.spriteId||p.baseId);
-    pNm.innerHTML=`${p.name}${p.dex_number?`<br><span style="font-size:11px;opacity:.5;font-family:'Press Start 2P',monospace;">#${String(p.dex_number).padStart(4,'0')}</span>`:''}`;
-    // BST tile + Group chip row in preview
-    const oldBstBar=prev.querySelector('.prev-bst-row'); if(oldBstBar) oldBstBar.remove();
-    const bst=p.bst||p._full?.bst||null;
-    {
-      const chipRow=document.createElement('div'); chipRow.className='prev-bst-row';
-      chipRow.style.cssText='display:flex;align-items:center;gap:6px;margin-top:7px;flex-wrap:wrap;';
-      if(bst){
-        const bstCol=bst>=600?'#E3350D':bst>=500?'#ff9800':bst>=400?'#f0c600':'#4caf50';
-        const bstTile=document.createElement('div');
-        bstTile.style.cssText=`display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:7px;border:1px solid ${bstCol}55;background:${bstCol}18;`;
-        const bstLbl=document.createElement('span'); bstLbl.style.cssText=`font-size:8px;font-family:'Press Start 2P',monospace;color:${bstCol};opacity:.75;`; bstLbl.textContent='BST';
-        const bstVal=document.createElement('span'); bstVal.style.cssText=`font-size:14px;font-weight:800;color:${bstCol};letter-spacing:.5px;`; bstVal.textContent=bst;
-        bstTile.append(bstLbl,bstVal); chipRow.appendChild(bstTile);
-      }
-      if(p.group){
-        const grpColor={'Mega':'#64b5f6','GMax':'#ce93d8','Regional':'#81c784','Totem':'#ffb74d'}[p.group]||(p.group.startsWith('Gen')?'#aaa':'#888');
-        const gc=document.createElement('div'); gc.className='prev-grp';
-        gc.style.cssText=`font-size:9px;font-family:'Press Start 2P',monospace;padding:4px 10px;border-radius:7px;display:inline-block;color:${grpColor};border:1px solid ${grpColor}44;background:${grpColor}11;`;
-        gc.textContent=p.group; chipRow.appendChild(gc);
-      }
-      if(chipRow.children.length) prev.appendChild(chipRow);
+    pIco.style.cursor='pointer'; pIco.title='Open Pokédex';
+    pIco.onclick=()=>showPokedex(p);
+    // --- Name ---
+    pNm.textContent=p.name;
+    pNm.style.cursor='pointer'; pNm.title='Open Pokédex';
+    pNm.onclick=()=>showPokedex(p);
+    // --- Chips row: types + group ---
+    prevChips.innerHTML='';
+    prevChips.appendChild(tb(p.t1)); if(p.t2) prevChips.appendChild(tb(p.t2));
+    if(p.group){
+      const gc=p.group; const grpCol={'Mega':'#64b5f6','GMax':'#ce93d8','Regional':'#81c784','Totem':'#ffb74d'}[gc]||(gc.startsWith('Gen')?'#aaa':'#888');
+      const grpEl=document.createElement('span');
+      grpEl.style.cssText=`font-size:8px;font-family:'Press Start 2P',monospace;padding:3px 8px;border-radius:5px;color:${grpCol};border:1px solid ${grpCol}44;background:${grpCol}11;`;
+      grpEl.textContent=gc; prevChips.appendChild(grpEl);
     }
-    pBdg.innerHTML=''; pBdg.appendChild(tb(p.t1)); if(p.t2)pBdg.appendChild(tb(p.t2));
-    // Gender toggle — only show if female sprite exists
-    const gToggle=prev.querySelector('.gender-toggle');
-    if(gToggle) gToggle.remove();
+    // --- Gender toggle (if female sprite) ---
+    const oldGt=prev.querySelector('.gender-toggle'); if(oldGt) oldGt.remove();
     if(p.spriteFemale){
       const gt=document.createElement('div'); gt.className='gender-toggle';
-      gt.style.cssText='display:flex;gap:6px;margin-top:6px;';
+      gt.style.cssText='display:flex;gap:6px;padding:0 14px 6px;';
       const mBtn=document.createElement('button'); mBtn.type='button';
       mBtn.style.cssText='font-size:10px;padding:3px 10px;border-radius:6px;border:2px solid #64b5f6;background:rgba(100,181,246,.15);color:#64b5f6;cursor:pointer;';
       mBtn.textContent='♂ Male';
@@ -2009,39 +2023,54 @@ function makeAC(ph,list){
         fBtn.style.cssText='font-size:10px;padding:3px 10px;border-radius:6px;border:2px solid #f48fb1;background:rgba(244,143,177,.15);color:#f48fb1;cursor:pointer;';
         mBtn.style.cssText='font-size:10px;padding:3px 10px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--gray);cursor:pointer;';
       });
-      gt.append(mBtn,fBtn); prev.appendChild(gt);
+      gt.append(mBtn,fBtn);
+      // Insert gender toggle after prevTop
+      prevTop.after(gt);
     }
-    // Make sprite + name clickable to open Pokédex
-    pIco.style.cursor='pointer'; pIco.title='Open Pokédex';
-    pIco.addEventListener('click', ()=>showPokedex(p));
-    pNm.style.cursor='pointer'; pNm.title='Open Pokédex';
-    pNm.addEventListener('click', ()=>showPokedex(p));
-    // Keep the explicit button too for discoverability
-    const oldPdxBtn = prev.querySelector('.pdx-btn');
-    if(oldPdxBtn) oldPdxBtn.remove();
-    const pdxBtn = document.createElement('button'); pdxBtn.type='button'; pdxBtn.className='pdx-btn';
-    pdxBtn.style.marginTop='8px'; pdxBtn.innerHTML='📖 Pokédex';
-    pdxBtn.addEventListener('click', ()=>showPokedex(p));
-    prev.appendChild(pdxBtn);
-    // Group label — shown inline after BST tile (see badge row below)
-    // Mini stat bars
-    const oldSb=prev.querySelector('.prev-stat-mini'); if(oldSb) oldSb.remove();
+    // --- BST row (tile + bar) ---
+    const oldBstRow=prev.querySelector('.sel-prev-bst-row'); if(oldBstRow) oldBstRow.remove();
+    const bst=p.bst||p._full?.bst||null;
+    if(bst){
+      const bstCol=bst>=600?'#E3350D':bst>=500?'#ff9800':bst>=400?'#f0c600':'#4caf50';
+      const bstRow=document.createElement('div'); bstRow.className='sel-prev-bst-row';
+      const bstTile=document.createElement('div'); bstTile.className='sel-prev-bst-tile';
+      bstTile.style.cssText=`border:1px solid ${bstCol}55;background:${bstCol}18;display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:6px;flex-shrink:0;`;
+      const bstLbl=document.createElement('span'); bstLbl.className='sel-prev-bst-lbl'; bstLbl.style.color=bstCol; bstLbl.textContent='BST';
+      const bstVal=document.createElement('span'); bstVal.className='sel-prev-bst-val'; bstVal.style.color=bstCol; bstVal.textContent=bst;
+      bstTile.append(bstLbl,bstVal);
+      const bstBar=document.createElement('div'); bstBar.className='sel-prev-bst-bar';
+      const bstFill=document.createElement('div'); bstFill.className='sel-prev-bst-fill'; bstFill.style.cssText=`background:${bstCol};width:0%;`;
+      bstBar.appendChild(bstFill); bstRow.append(bstTile,bstBar);
+      // Insert before stats
+      prev.querySelector('.sel-prev-stats')?.before(bstRow) || prev.appendChild(bstRow);
+      setTimeout(()=>{bstFill.style.width=Math.min(100,Math.round(bst/720*100))+'%';},50);
+    }
+    // --- Stat columns (vertical bars) ---
+    const oldStats=prev.querySelector('.sel-prev-stats'); if(oldStats) oldStats.remove();
     const stats=getBaseStats(p);
     if(stats){
-      const sbWrap=document.createElement('div'); sbWrap.className='prev-stat-mini'; sbWrap.style.cssText='margin-top:8px;display:flex;flex-direction:column;gap:3px;';
       const SL=['HP','Atk','Def','SpA','SpD','Spe'];
       const SC=['#E3350D','#e8622a','#f0c600','#4f90d3','#4caf50','#db3c6c'];
+      const grid=document.createElement('div'); grid.className='sel-prev-stats';
       stats.forEach((v,i)=>{
-        const row=document.createElement('div'); row.style.cssText='display:flex;align-items:center;gap:5px;';
-        const lbl=document.createElement('span'); lbl.style.cssText=`font-size:8px;font-family:'Press Start 2P',monospace;color:var(--gray);width:26px;flex-shrink:0;`; lbl.textContent=SL[i];
-        const val=document.createElement('span'); val.style.cssText=`font-size:9px;font-weight:700;color:${SC[i]};width:26px;text-align:right;flex-shrink:0;`; val.textContent=v;
-        const bg=document.createElement('div'); bg.style.cssText='flex:1;height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;';
-        const fill=document.createElement('div'); fill.style.cssText=`height:100%;border-radius:3px;background:${SC[i]};width:0%;transition:width .4s ease;`;
-        bg.appendChild(fill); row.append(lbl,val,bg); sbWrap.appendChild(row);
-        setTimeout(()=>{fill.style.width=Math.min(100,Math.round(v/255*100))+'%';},30+i*25);
+        const col=document.createElement('div'); col.className='sel-prev-stat-col';
+        const lbl=document.createElement('div'); lbl.className='sel-prev-stat-lbl'; lbl.textContent=SL[i];
+        const bg=document.createElement('div'); bg.className='sel-prev-stat-bar-bg';
+        const fill=document.createElement('div'); fill.className='sel-prev-stat-bar-fill';
+        fill.style.cssText=`background:${SC[i]};box-shadow:0 0 6px ${SC[i]}88;height:0%;`;
+        bg.appendChild(fill);
+        const val=document.createElement('div'); val.className='sel-prev-stat-val'; val.style.color=SC[i]; val.textContent=v;
+        col.append(lbl,bg,val); grid.appendChild(col);
+        setTimeout(()=>{fill.style.height=Math.min(100,Math.round(v/255*100))+'%';},50+i*30);
       });
-      prev.appendChild(sbWrap);
+      prev.appendChild(grid);
     }
+    // --- Footer: Pokédex button ---
+    const oldFoot=prev.querySelector('.sel-prev-footer'); if(oldFoot) oldFoot.remove();
+    const footer=document.createElement('div'); footer.className='sel-prev-footer';
+    const pdxBtn=document.createElement('button'); pdxBtn.type='button'; pdxBtn.className='pdx-btn';
+    pdxBtn.innerHTML='📖 Pokédex'; pdxBtn.addEventListener('click',()=>showPokedex(p));
+    footer.appendChild(pdxBtn); prev.appendChild(footer);
     prev.classList.add('vis');
   }
   inp.addEventListener('input',()=>{sel=null;inp.classList.remove('valid');prev.classList.remove('vis');build(inp.value.trim());});
