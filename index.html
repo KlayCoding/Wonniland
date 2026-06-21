@@ -1918,8 +1918,14 @@ function makeAC(ph,list){
       // Line 1: name + dex number
       const top=document.createElement('div'); top.className='dd-top';
       const nm=document.createElement('span'); nm.className='pnm'; nm.textContent=p.name;
-      const num=document.createElement('span'); num.className='dex'; num.textContent='#'+p.displayId;
-      top.append(nm,num);
+      // Group chip instead of Game ID
+      const grpChip=document.createElement('span');
+      if(p.group){
+        const gc={'Mega':'#64b5f6','GMax':'#ce93d8','Regional':'#81c784','Totem':'#ffb74d'}[p.group]||(p.group.startsWith('Gen')?'#aaa':'#888');
+        grpChip.style.cssText=`font-size:7px;font-family:'Press Start 2P',monospace;padding:2px 6px;border-radius:4px;color:${gc};border:1px solid ${gc}44;background:${gc}11;flex-shrink:0;`;
+        grpChip.textContent=p.group;
+      }
+      top.append(nm,grpChip);
       // Line 2: type badges + stat pills + BST
       const bot=document.createElement('div'); bot.className='dd-bot';
       const bdg=document.createElement('div'); bdg.className='tbadges'; bdg.appendChild(tb(p.t1)); if(p.t2)bdg.appendChild(tb(p.t2));
@@ -1957,18 +1963,28 @@ function makeAC(ph,list){
     const sf=getSpriteFile(p);
     pIco.src=`${PKM_BASE1}${sf}.png`;
     pIco.onerror=()=>iconUrlFallback(pIco,p.spriteId||p.baseId);
-    pNm.innerHTML=`${p.name}<br><span style="font-size:11px;opacity:.7;">Game ID: ${p.displayId?'#'+p.displayId:'???'} ${p.dex_number?' · Dex: #'+String(p.dex_number).padStart(4,'0'):''}</span>`;
-    // BST bar in preview
+    pNm.innerHTML=`${p.name}${p.dex_number?`<br><span style="font-size:11px;opacity:.5;font-family:'Press Start 2P',monospace;">#${String(p.dex_number).padStart(4,'0')}</span>`:''}`;
+    // BST tile + Group chip row in preview
     const oldBstBar=prev.querySelector('.prev-bst-row'); if(oldBstBar) oldBstBar.remove();
     const bst=p.bst||p._full?.bst||null;
-    if(bst){
-      const bstRow=document.createElement('div'); bstRow.className='prev-bst-row'; bstRow.style.cssText='display:flex;align-items:center;gap:8px;margin-top:6px;';
-      const bstLbl=document.createElement('div'); bstLbl.style.cssText='font-size:9px;font-family:"Press Start 2P",monospace;color:var(--gray);min-width:32px;'; bstLbl.textContent='BST';
-      const bstVal=document.createElement('div'); bstVal.style.cssText='font-size:11px;font-weight:700;color:'+bpColor(bst>600?bst:null)+';min-width:30px;'; bstVal.textContent=bst;
-      const bstBarWrap=document.createElement('div'); bstBarWrap.style.cssText='flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;';
-      const bstFill=document.createElement('div'); bstFill.style.cssText='height:100%;border-radius:3px;background:linear-gradient(90deg,#4f90d3,#ce93d8);transition:width .5s ease;width:0%;';
-      bstBarWrap.appendChild(bstFill); bstRow.append(bstLbl,bstVal,bstBarWrap); prev.appendChild(bstRow);
-      setTimeout(()=>{bstFill.style.width=Math.min(100,Math.round(bst/720*100))+'%';},50);
+    {
+      const chipRow=document.createElement('div'); chipRow.className='prev-bst-row';
+      chipRow.style.cssText='display:flex;align-items:center;gap:6px;margin-top:7px;flex-wrap:wrap;';
+      if(bst){
+        const bstCol=bst>=600?'#E3350D':bst>=500?'#ff9800':bst>=400?'#f0c600':'#4caf50';
+        const bstTile=document.createElement('div');
+        bstTile.style.cssText=`display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:7px;border:1px solid ${bstCol}55;background:${bstCol}18;`;
+        const bstLbl=document.createElement('span'); bstLbl.style.cssText=`font-size:8px;font-family:'Press Start 2P',monospace;color:${bstCol};opacity:.75;`; bstLbl.textContent='BST';
+        const bstVal=document.createElement('span'); bstVal.style.cssText=`font-size:14px;font-weight:800;color:${bstCol};letter-spacing:.5px;`; bstVal.textContent=bst;
+        bstTile.append(bstLbl,bstVal); chipRow.appendChild(bstTile);
+      }
+      if(p.group){
+        const grpColor={'Mega':'#64b5f6','GMax':'#ce93d8','Regional':'#81c784','Totem':'#ffb74d'}[p.group]||(p.group.startsWith('Gen')?'#aaa':'#888');
+        const gc=document.createElement('div'); gc.className='prev-grp';
+        gc.style.cssText=`font-size:9px;font-family:'Press Start 2P',monospace;padding:4px 10px;border-radius:7px;display:inline-block;color:${grpColor};border:1px solid ${grpColor}44;background:${grpColor}11;`;
+        gc.textContent=p.group; chipRow.appendChild(gc);
+      }
+      if(chipRow.children.length) prev.appendChild(chipRow);
     }
     pBdg.innerHTML=''; pBdg.appendChild(tb(p.t1)); if(p.t2)pBdg.appendChild(tb(p.t2));
     // Gender toggle — only show if female sprite exists
@@ -2007,14 +2023,7 @@ function makeAC(ph,list){
     pdxBtn.style.marginTop='8px'; pdxBtn.innerHTML='📖 Pokédex';
     pdxBtn.addEventListener('click', ()=>showPokedex(p));
     prev.appendChild(pdxBtn);
-    // Group label in preview
-    const oldGrp=prev.querySelector('.prev-grp'); if(oldGrp) oldGrp.remove();
-    if(p.group){
-      const gc=document.createElement('div'); gc.className='prev-grp'; gc.style.cssText='margin-top:4px;';
-      const grpColor={'Mega':'#64b5f6','GMax':'#ce93d8','Regional':'#81c784','Totem':'#ffb74d'}[p.group]||(p.group.startsWith('Gen')?'#9e9e9e':'#888');
-      gc.style.cssText=`margin-top:4px;font-size:9px;font-family:'Press Start 2P',monospace;padding:2px 8px;border-radius:5px;display:inline-block;color:${grpColor};border:1px solid ${grpColor}44;background:${grpColor}11;`;
-      gc.textContent=p.group; prev.appendChild(gc);
-    }
+    // Group label — shown inline after BST tile (see badge row below)
     // Mini stat bars
     const oldSb=prev.querySelector('.prev-stat-mini'); if(oldSb) oldSb.remove();
     const stats=getBaseStats(p);
