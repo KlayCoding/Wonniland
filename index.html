@@ -2019,16 +2019,27 @@ function makeAC(ph,list){
     pNm.textContent=p.name;
     pNm.style.cursor='pointer'; pNm.title='Open Pokédex';
     pNm.onclick=()=>showPokedex(p);
-    // --- Chips row: types + group ---
+    // --- Identity: name+group row, then types row ---
     prevChips.innerHTML='';
-    prevChips.appendChild(tb(p.t1)); if(p.t2) prevChips.appendChild(tb(p.t2));
+    const nameGrpRow=document.createElement('div');
+    nameGrpRow.style.cssText='display:flex;align-items:center;gap:7px;flex-wrap:wrap;';
+    nameGrpRow.appendChild(pNm);
     if(p.group){
       const gc=p.group; const grpCol={'Mega':'#64b5f6','GMax':'#ce93d8','Regional':'#81c784','Totem':'#ffb74d'}[gc]||(gc.startsWith('Gen')?'#aaa':'#888');
       const grpEl=document.createElement('span');
-      grpEl.style.cssText=`font-size:8px;font-family:'Press Start 2P',monospace;padding:3px 8px;border-radius:5px;color:${grpCol};border:1px solid ${grpCol}44;background:${grpCol}11;`;
-      grpEl.textContent=gc; prevChips.appendChild(grpEl);
+      grpEl.style.cssText=`font-size:8px;font-family:'Press Start 2P',monospace;padding:3px 8px;border-radius:5px;color:${grpCol};border:1px solid ${grpCol}44;background:${grpCol}11;white-space:nowrap;`;
+      grpEl.textContent=gc; nameGrpRow.appendChild(grpEl);
     }
-    // --- Gender toggle (if female sprite) ---
+    const typeChipRow=document.createElement('div');
+    typeChipRow.style.cssText='display:flex;align-items:center;gap:5px;margin-top:3px;';
+    typeChipRow.appendChild(tb(p.t1)); if(p.t2) typeChipRow.appendChild(tb(p.t2));
+    prevChips.append(nameGrpRow, typeChipRow);
+    // --- Pokédex button top-right in top row ---
+    const oldPdxTopBtn=prevTop.querySelector('.pdx-top-btn'); if(oldPdxTopBtn) oldPdxTopBtn.remove();
+    const pdxTopBtn=document.createElement('button'); pdxTopBtn.type='button'; pdxTopBtn.className='pdx-top-btn pdx-btn';
+    pdxTopBtn.style.cssText='margin-left:auto;align-self:flex-start;font-size:10px;';
+    pdxTopBtn.innerHTML='📖 Pokédex'; pdxTopBtn.addEventListener('click',()=>showPokedex(p));
+    prevTop.appendChild(pdxTopBtn);
     const oldGt=prev.querySelector('.gender-toggle'); if(oldGt) oldGt.remove();
     if(p.spriteFemale){
       const gt=document.createElement('div'); gt.className='gender-toggle';
@@ -2091,12 +2102,8 @@ function makeAC(ph,list){
       });
       prev.appendChild(grid);
     }
-    // --- Footer: Pokédex button ---
+    // --- Footer removed: Pokédex button is now top-right in the header ---
     const oldFoot=prev.querySelector('.sel-prev-footer'); if(oldFoot) oldFoot.remove();
-    const footer=document.createElement('div'); footer.className='sel-prev-footer';
-    const pdxBtn=document.createElement('button'); pdxBtn.type='button'; pdxBtn.className='pdx-btn';
-    pdxBtn.innerHTML='📖 Pokédex'; pdxBtn.addEventListener('click',()=>showPokedex(p));
-    footer.appendChild(pdxBtn); prev.appendChild(footer);
     prev.classList.add('vis');
   }
   inp.addEventListener('input',()=>{sel=null;inp.classList.remove('valid');prev.classList.remove('vis');build(inp.value.trim());});
@@ -2316,7 +2323,7 @@ function makeMoveSearch(card, onDone, stepRef) {
   sortRow.append(sortLabel,sortBtns);
 
   // Toggle row: Z-Moves, Dynamax
-  let hideZMoves=false, hideDynaMax=false;
+  let hideZMoves=false, hideDynaMax=false, activeAttr=null;
   const toggleRow=document.createElement('div'); toggleRow.style.cssText='display:flex;gap:8px;flex-wrap:wrap;';
   const toggleLabel=document.createElement('div'); toggleLabel.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:var(--gray);margin-bottom:4px;'; toggleLabel.textContent='HIDE';
   const zBtn=document.createElement('button'); zBtn.type='button';
@@ -2345,27 +2352,58 @@ function makeMoveSearch(card, onDone, stepRef) {
   const toggleSect=document.createElement('div'); toggleSect.style.cssText='display:flex;flex-direction:column;gap:6px;';
   toggleSect.append(toggleLabel,toggleRow);
 
+  // Attributes filter
+  const ATTR_FLAGS=[
+    {label:'Ballistic',flag:'ballistic_move'},{label:'Biting',flag:'biting_move'},{label:'Dance',flag:'dance_move'},
+    {label:'Healing',flag:'healing_move'},{label:'Powder',flag:'powder_move'},{label:'Pulse',flag:'pulse_move'},
+    {label:'Punching',flag:'punching_move'},{label:'Slicing',flag:'slicing_move'},{label:'Wind',flag:'wind_move'},
+    {label:'Contact',flag:'makes_contact'},{label:'Multi-Hit',flag:'multi_hit'},
+  ];
+  const attrRow=document.createElement('div'); attrRow.style.cssText='display:flex;flex-direction:column;gap:6px;';
+  const attrLabel=document.createElement('div'); attrLabel.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:var(--gray);'; attrLabel.textContent='ATTRIBUTES';
+  const attrBtns=document.createElement('div'); attrBtns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';
+  const attrCol='#64b5f6';
+  ATTR_FLAGS.forEach(({label,flag})=>{
+    const b=document.createElement('button'); b.type='button';
+    b.style.cssText=`font-size:9px;padding:3px 9px;border-radius:5px;border:1px solid ${attrCol}44;background:${attrCol}11;color:${attrCol};cursor:pointer;transition:all .15s;`;
+    b.textContent=label; b.dataset.fattr=flag;
+    b.addEventListener('click',()=>{
+      if(activeAttr===flag){
+        activeAttr=null; b.style.background=attrCol+'11'; b.style.borderColor=attrCol+'44'; b.style.fontWeight='';
+      } else {
+        activeAttr=flag;
+        attrBtns.querySelectorAll('[data-fattr]').forEach(x=>{x.style.background=attrCol+'11';x.style.borderColor=attrCol+'44';x.style.fontWeight='';});
+        b.style.background=attrCol+'44'; b.style.borderColor=attrCol; b.style.fontWeight='700';
+      }
+      filterToggle.style.borderColor=activeType||activeCat||activeSort||hideZMoves||hideDynaMax||activeAttr?'var(--pl)':'var(--border)';
+      refreshAllDD();
+    });
+    attrBtns.appendChild(b);
+  });
+  attrRow.append(attrLabel,attrBtns);
+
   // Clear all
   const clearBtn=document.createElement('button'); clearBtn.type='button'; clearBtn.className='del-btn';
   clearBtn.style.cssText='width:100%;margin-top:2px;'; clearBtn.textContent='✕ Clear All Filters';
   clearBtn.addEventListener('click',()=>{
-    activeType=null;activeCat=null;activeSort=null;hideZMoves=false;hideDynaMax=false;
+    activeType=null;activeCat=null;activeSort=null;hideZMoves=false;hideDynaMax=false;activeAttr=null;
     typeGrid.querySelectorAll('[data-ftype]').forEach(x=>{const c=MTCOL[x.dataset.ftype]||'#888';x.style.background=c+'22';x.style.borderColor=c+'66';});
     catBtns.querySelectorAll('[data-fcat]').forEach(x=>{const c=MCCOL[x.dataset.fcat]||'#888';x.style.background=c+'22';x.style.borderColor=c+'66';});
     sortBtns.querySelectorAll('button').forEach(x=>{x.style.background='rgba(255,255,255,.04)';x.style.borderColor='var(--border)';x.style.color='var(--gray)';});
+    attrBtns.querySelectorAll('[data-fattr]').forEach(x=>{x.style.background=attrCol+'11';x.style.borderColor=attrCol+'44';x.style.fontWeight='';});
     zBtn.style.background='rgba(255,255,255,.04)';zBtn.style.borderColor='var(--border)';zBtn.style.color='var(--gray)';
     dynaBtn.style.background='rgba(255,255,255,.04)';dynaBtn.style.borderColor='var(--border)';dynaBtn.style.color='var(--gray)';
     filterToggle.style.borderColor='var(--border)';
     refreshAllDD();
   });
 
-  filterInner.append(typeRow,catRow,sortRow,toggleSect,clearBtn);
+  filterInner.append(typeRow,catRow,sortRow,toggleSect,attrRow,clearBtn);
   filterPanel.appendChild(filterInner);
 
   let filterOpen=false;
   filterToggle.addEventListener('click',()=>{
     filterOpen=!filterOpen;
-    filterPanel.style.maxHeight=filterOpen?'500px':'0';
+    filterPanel.style.maxHeight=filterOpen?'700px':'0';
     filterToggle.querySelector('#ftArrow').textContent=filterOpen?'▲':'▼';
   });
   card.append(filterToggle,filterPanel);
@@ -2395,6 +2433,7 @@ function makeMoveSearch(card, onDone, stepRef) {
         let matches=q?MOVES.filter(m=>m.name.toLowerCase().includes(q2)||m.type.toLowerCase().includes(q2)||m.cat.toLowerCase().includes(q2)||String(m.id).includes(q2)):[...MOVES];
         if(filterType) matches=matches.filter(m=>m.type===filterType);
         if(filterCat) matches=matches.filter(m=>m.cat===filterCat);
+        if(activeAttr) matches=matches.filter(m=>m.flags&&m.flags.includes(activeAttr));
         if(hideZMoves) matches=matches.filter(m=>!m.name.startsWith('[Z]')&&!(m.flags&&m.flags.includes('z_move')));
         if(hideDynaMax) matches=matches.filter(m=>!m.name.startsWith('Max ')&&!m.name.startsWith('G-Max '));
         if(sortMode==='bp_desc') matches.sort((a,b)=>(b.power||0)-(a.power||0));
@@ -3496,7 +3535,7 @@ function renderQ(){
     card.append(gmaxH,gmaxSub,gmaxImg,gmaxRow);
     const div=document.createElement('div'); div.style.cssText='height:1px;background:var(--border);margin:20px 0;'; card.appendChild(div);
     const dxH=document.createElement('div'); dxH.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; dxH.textContent='Choose your Dynamax Level:';
-    const dxSub=document.createElement('div'); dxSub.className='q-sub'; dxSub.textContent='0 = No Dynamaxing · 10 = Fully Dynamax ready';
+    const dxSub=document.createElement('div'); dxSub.className='q-sub'; dxSub.textContent='0 = No Dynamaxing · 10 = max Dynamax boost';
     const slider=document.createElement('input'); slider.type='range'; slider.min=0; slider.max=10; slider.value=10; slider.style.cssText='width:100%;accent-color:var(--purple);cursor:pointer;margin-top:8px;';
     const sliderLbl=document.createElement('div'); sliderLbl.style.cssText='display:flex;justify-content:space-between;align-items:center;margin-top:6px;';
     const sliderVal=document.createElement('div'); sliderVal.style.cssText='font-family:"Press Start 2P",monospace;font-size:12px;color:var(--yellow);';
@@ -3518,6 +3557,9 @@ function renderQ(){
     card.appendChild(presetWrap);
     const ivSect=document.createElement('div');ivSect.className='cust-sect';
     const ivH=document.createElement('div');ivH.className='cust-h';ivH.textContent='IVs (0-31)';
+    const ivInfoBtn=document.createElement('button');ivInfoBtn.type='button';ivInfoBtn.className='info-btn';ivInfoBtn.textContent='ℹ IVs & EVs?';
+    makeInfoPopup(ivInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
+    const ivHRow=document.createElement('div');ivHRow.style.cssText='display:flex;align-items:center;gap:10px;margin-bottom:4px;';ivHRow.append(ivH,ivInfoBtn);
     const ivRB=document.createElement('button');ivRB.type='button';ivRB.className='rand-btn';ivRB.style.marginBottom='10px';ivRB.textContent='🎲 Randomize IVs';
     ivRB.addEventListener('click',()=>{SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});});
     const ivG=document.createElement('div');ivG.className='sg';
@@ -4682,6 +4724,9 @@ function renderTrainerQ() {
     card.appendChild(presetWrap);
     const ivSect=document.createElement('div');ivSect.className='cust-sect';
     const ivH=document.createElement('div');ivH.className='cust-h';ivH.textContent='IVs (0-31)';
+    const ivInfoBtn=document.createElement('button');ivInfoBtn.type='button';ivInfoBtn.className='info-btn';ivInfoBtn.textContent='ℹ IVs & EVs?';
+    makeInfoPopup(ivInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
+    const ivHRow=document.createElement('div');ivHRow.style.cssText='display:flex;align-items:center;gap:10px;margin-bottom:4px;';ivHRow.append(ivH,ivInfoBtn);
     const ivRB=document.createElement('button');ivRB.type='button';ivRB.className='rand-btn';ivRB.style.marginBottom='10px';ivRB.textContent='🎲 Randomize IVs';
     ivRB.addEventListener('click',()=>{SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});});
     const ivG=document.createElement('div');ivG.className='sg';
@@ -4870,7 +4915,7 @@ function renderTrainerQ() {
     card.appendChild(gmaxRow2);
     const div2=document.createElement('div'); div2.style.cssText='height:1px;background:var(--border);margin:20px 0;'; card.appendChild(div2);
     const dxH2=document.createElement('div'); dxH2.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; dxH2.textContent='Choose your Dynamax Level:';
-    const dxSub2=document.createElement('div'); dxSub2.className='q-sub'; dxSub2.textContent='0 = No Dynamaxing · 10 = Fully Dynamax ready';
+    const dxSub2=document.createElement('div'); dxSub2.className='q-sub'; dxSub2.textContent='0 = No Dynamaxing · 10 = max Dynamax boost';
     const slider2=document.createElement('input'); slider2.type='range'; slider2.min=0; slider2.max=10; slider2.value=10; slider2.style.cssText='width:100%;accent-color:var(--purple);cursor:pointer;margin-top:8px;';
     const sliderLbl2=document.createElement('div'); sliderLbl2.style.cssText='display:flex;justify-content:space-between;align-items:center;margin-top:6px;';
     const sliderVal2=document.createElement('div'); sliderVal2.style.cssText='font-family:"Press Start 2P",monospace;font-size:12px;color:var(--yellow);';
