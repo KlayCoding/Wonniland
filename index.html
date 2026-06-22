@@ -3902,8 +3902,7 @@ async function loadPanelForMon(mon) {
   } else {
     const fb=document.createElement('div'); fb.style.cssText='color:var(--gray);font-size:12px;'; fb.textContent='No ability data available.'; abSect.appendChild(fb);
   }
-
-// ── Hook panel into makeAC pick for Q1 only ──────────────────────────────────
+} // end loadPanelForMon
 // Panel is loaded manually via ac._pick override in Q1 render
 
 let currentMode = null;
