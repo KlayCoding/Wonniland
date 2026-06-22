@@ -2732,21 +2732,10 @@ function showPokedex(mon) {
         descBox.style.display=expanded?'block':'none';
         expandIcon.style.transform=expanded?'rotate(180deg)':'rotate(0deg)';
         if(expanded && !loaded){
-          // Try: enriched description (from abilities.json) → ABILITIES_DB → PokeAPI
-          const inlineDesc = ab.description;
-          const localAb=ABILITIES_DB[ab.name.toLowerCase()]||ABILITIES_DB[ab.name.toLowerCase().replace(/ /g,'-')];
-          const desc = inlineDesc || (localAb&&localAb.description);
-          if(desc){
-            descBox.textContent=desc; loaded=true;
-          } else {
-            descBox.textContent='Loading...';
-            fetch('https://pokeapi.co/api/v2/ability/'+ab.name.toLowerCase().replace(/ /g,'-')+'/').then(r=>r.json()).then(d=>{
-              const eng=d.flavor_text_entries?.find(e=>e.language.name==='en');
-              const eff=d.effect_entries?.find(e=>e.language.name==='en');
-              descBox.textContent=eng?.flavor_text?.replace(/[\n\f]/g,' ')||eff?.short_effect||'No description available.';
-              loaded=true;
-            }).catch(()=>{descBox.textContent='No description available.';loaded=true;});
-          }
+          const key=ab.name.toLowerCase();
+          const localAb=ABILITIES_DB[key]||ABILITIES_DB[key.replace(/ /g,'-')]||ABILITIES_DB[key.replace(/-/g,' ')];
+          const desc=ab.description||localAb?.description||localAb?.effect||'No description available.';
+          descBox.textContent=desc; loaded=true;
         }
       });
       wrap.append(row,descBox); sec.appendChild(wrap);
@@ -3460,15 +3449,11 @@ function renderQ(){
         const di=document.createElement('div'); di.style.cssText='padding:10px 16px;font-size:12px;color:var(--gray);line-height:1.5;'; di.textContent='Loading…'; dp.appendChild(di);
         let loaded=false,open=false;
         ib.addEventListener('click',e=>{e.stopPropagation();open=!open;if(open){if(!loaded){
-  // Try local abilities.json first
-  const localAb=ABILITIES_DB[ab.name.toLowerCase()]||ABILITIES_DB[ab.name.toLowerCase().replace(/ /g,'-')];
-  if(localAb&&localAb.description){
-    di.textContent=localAb.description;
-    loaded=true;
-  } else {
-    // Fallback to PokeAPI
-    fetch('https://pokeapi.co/api/v2/ability/'+ab.name.toLowerCase().replace(/ /g,'-')+'/').then(r=>r.json()).then(d=>{const eng=d.flavor_text_entries?.find(e=>e.language.name==='en');const eff=d.effect_entries?.find(e=>e.language.name==='en');di.textContent=eng?.flavor_text?.replace(/[\n\f]/g,' ')||eff?.short_effect||'No description available.';loaded=true;}).catch(()=>{di.textContent='No description available.';loaded=true;});
-  }
+  // Look up description in abilities.json (ABILITIES_DB)
+  const key=ab.name.toLowerCase();
+  const localAb=ABILITIES_DB[key]||ABILITIES_DB[key.replace(/ /g,'-')]||ABILITIES_DB[key.replace(/-/g,' ')];
+  di.textContent=localAb?.description||localAb?.effect||'No description available.';
+  loaded=true;
 }dp.style.maxHeight='120px';ib.style.background='rgba(206,147,216,.2)';ib.style.color='var(--pl)';}else{dp.style.maxHeight='0';ib.style.background='rgba(255,255,255,.08)';ib.style.color='var(--gray)';}});
         btn.append(nm,tag,ib);
         btn.addEventListener('click',()=>{abilityWrap.querySelectorAll('[data-awrap]').forEach(w=>w.style.borderColor='var(--border)');wrap.style.borderColor=ab.isHidden?'var(--pl)':'var(--green)';selectedAbility=dn+(ab.isHidden?' (Hidden)':'');});
@@ -3476,13 +3461,15 @@ function renderQ(){
       });
     }
     if(selMon){
-      // Strip form suffix in parens: 'Arceus (Flying)' → 'arceus', 'Calyrex (Shadow Rider)' → 'calyrex'
-      const baseName=selMon.name.replace(/\s*\([^)]*\)/g,'').trim();
-      const an=baseName.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-      const bp=POKEMON.find(p=>p.id===selMon.baseId);
-      const bpSlug=bp?bp.name.replace(/\s*\([^)]*\)/g,'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''):null;
-      const tryNames=[an]; if(bpSlug&&bpSlug!==an)tryNames.push(bpSlug);
-      (async()=>{for(const n of tryNames){try{const r=await fetch('https://pokeapi.co/api/v2/pokemon/'+n);if(!r.ok)continue;const d=await r.json();renderAbilityBtnsP(d.abilities.map(a=>({name:a.ability.name,isHidden:a.is_hidden})).sort((a,b)=>a.isHidden-b.isHidden));return;}catch(e){}}renderAbilityBtnsP([]);})();
+      // Load abilities directly from pokemon.json (no API needed)
+      // Walk up to base form if needed: selMon → baseId → POKEMON entry → abilities[]
+      const fullMon=POKEMON.find(p=>p.id===selMon.id)||POKEMON.find(p=>p.id===selMon.baseId)||null;
+      const abilitiesRaw=(fullMon&&fullMon.abilities)||(selMon._full&&selMon._full.abilities)||[];
+      if(abilitiesRaw.length){
+        renderAbilityBtnsP(abilitiesRaw.map(a=>({name:a.name,isHidden:!!a.hidden})));
+      } else {
+        renderAbilityBtnsP([]);
+      }
     }else{loadingElP.textContent='No Pokemon selected in Q2 — type manually:';const inp=document.createElement('input');inp.type='text';inp.placeholder='Ability name…';inp.addEventListener('input',()=>{selectedAbility=inp.value.trim()||null;});abilityWrap.appendChild(inp);}
     getV=()=>selectedAbility?{value:selectedAbility}:null;
 
@@ -3548,24 +3535,22 @@ function renderQ(){
     gmaxSVG.style.cssText='display:flex;justify-content:center;margin-bottom:4px;';
     gmaxIconWrap.innerHTML=''; gmaxIconWrap.appendChild(gmaxSVG);
     gmaxIconWrap.appendChild(gmaxImg); card.appendChild(gmaxIconWrap);
-    // GMax Pokémon list — derived from pokemon.json group field (no hardcoding)
+    // GMax Pokémon list — derived from ALL_MON where group === 'GMax', sorted by id
     const gmaxNote=document.createElement('div'); gmaxNote.className='q-sub';
     gmaxNote.textContent='Gigantamaxing changes the appearance and move of your Pokémon. Only these species can GMax:';
-    // Collect all GMax base species from POKEMON data (exclude the GMax- forms themselves)
-    const gmaxMons=POKEMON.filter(p=>p.group==='GMax'&&!p.name.startsWith('GMax-'))
-      .sort((a,b)=>a.id-b.id);
+    const gmaxMons=ALL_MON.filter(p=>(p.group||p._full?.group)==='GMax').sort((a,b)=>a.id-b.id);
     const gmaxGrid=document.createElement('div'); gmaxGrid.style.cssText='display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;';
     gmaxMons.forEach(p=>{
       const chip=document.createElement('div');
-      chip.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;border-radius:8px;background:rgba(123,31,162,.15);border:1px solid rgba(206,147,216,.25);min-width:60px;';
+      chip.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;border-radius:8px;background:rgba(123,31,162,.15);border:1px solid rgba(206,147,216,.25);min-width:60px;max-width:72px;';
       const img=document.createElement('img');
-      img.src=iconUrl(p.spriteId,false,p.spriteFile||null);
-      img.onerror=()=>iconUrlFallback(img,p.spriteId);
+      img.src=`${PKM_BASE1}${p.spriteFile||String(p.id).padStart(4,'0')}.png`;
+      img.onerror=()=>iconUrlFallback(img, p.id, p.spriteFile);
       img.style.cssText='width:48px;height:48px;object-fit:contain;image-rendering:pixelated;';
       const lbl=document.createElement('span');
-      lbl.style.cssText='font-size:9px;color:var(--pl);text-align:center;white-space:pre-line;';
-      // Shorten name: strip "Toxtricity" → keep as-is, just break long names
-      lbl.textContent=p.name.replace(' (','\n(');
+      lbl.style.cssText='font-size:8px;color:var(--pl);text-align:center;white-space:pre-line;line-height:1.3;';
+      // Strip "GMax-" prefix for display, break before "("
+      lbl.textContent=p.name.replace(/^GMax-/,'').replace(/^Eternamax-/,'').replace(' (','\n(');
       chip.append(img,lbl); gmaxGrid.appendChild(chip);
     });
     card.append(gmaxNote,gmaxGrid);
@@ -3612,16 +3597,12 @@ function renderQ(){
   // Q10 ── Moves with search
   
 }else if(step===8){
-    addT(card,'How strong do you want your Pokémon to be?');
-    // IV/EV info button next to question title
-    const ivEvTitleRow=card.querySelector('.q-title');
-    if(ivEvTitleRow){
-      const ivEvInfoBtn=document.createElement('button');ivEvInfoBtn.type='button';ivEvInfoBtn.className='info-btn';ivEvInfoBtn.textContent='ℹ IVs & EVs?';
-      makeInfoPopup(ivEvInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
-      const titleWrap=document.createElement('div');titleWrap.style.cssText='display:flex;align-items:center;gap:10px;';
-      ivEvTitleRow.parentNode.insertBefore(titleWrap,ivEvTitleRow);
-      titleWrap.append(ivEvTitleRow,ivEvInfoBtn);
-    }
+    // Question title + IV/EV info button inline
+    const ivEvTitleRow2=document.createElement('div');ivEvTitleRow2.style.cssText='display:flex;align-items:center;gap:10px;margin-bottom:6px;';
+    const ivEvTitleEl=document.createElement('div');ivEvTitleEl.className='q-title';ivEvTitleEl.textContent='How strong do you want your Pokémon to be?';
+    const ivEvInfoBtn=document.createElement('button');ivEvInfoBtn.type='button';ivEvInfoBtn.className='info-btn';ivEvInfoBtn.textContent='ℹ IVs & EVs?';
+    makeInfoPopup(ivEvInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
+    ivEvTitleRow2.append(ivEvTitleEl,ivEvInfoBtn);card.appendChild(ivEvTitleRow2);
     const EV_MAX=510; const ivD={hp:31,atk:31,def:31,spa:31,spd:31,spe:31}; const evD={hp:0,atk:0,def:0,spa:0,spd:0,spe:0}; const ivInputs={},evInputs={}; let currentPreset='Custom';
     const presetWrap=document.createElement('div'); presetWrap.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;';
     function recalcEVT(){const sum=SKEYS.reduce((a,k)=>a+(evD[k]||0),0);const rem=EV_MAX-sum;totValT.textContent=`${sum} / 510`;totValT.className='ev-total-val'+(sum>EV_MAX?' over':'');remValT.textContent=rem>=0?rem:'0';remValT.style.color=rem<=0?'#E3350D':rem<=50?'#ff9800':'var(--pl)';}
@@ -3899,46 +3880,28 @@ async function loadPanelForMon(mon) {
   panelBody.appendChild(abSect);
   if(formSect) panelBody.appendChild(formSect);
 
-  // Fetch abilities async
-  const apiName = mon.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  const basePoke = POKEMON.find(p=>p.id===mon.baseId);
-  const tryNames = [apiName];
-  if(basePoke && basePoke.name.toLowerCase()!==apiName) tryNames.push(basePoke.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''));
-
-  async function fetchAbilityDesc(abilityName){
-    try{
-      const r = await fetch(`https://pokeapi.co/api/v2/ability/${abilityName}`);
-      if(!r.ok) return null;
-      const d = await r.json();
-      const entry = d.flavor_text_entries?.find(e=>e.language.name==='en');
-      return entry?.flavor_text?.replace(/\n|\f/g,' ') || d.effect_entries?.find(e=>e.language.name==='en')?.short_effect || null;
-    }catch(e){ return null; }
+  // Load abilities from pokemon.json (no API needed)
+  const fullPoke=POKEMON.find(p=>p.id===mon.id)||POKEMON.find(p=>p.id===mon.baseId)||null;
+  const abilitiesData=(fullPoke&&fullPoke.abilities)||(mon._full&&mon._full.abilities)||[];
+  abLoad.remove();
+  if(abilitiesData.length){
+    abilitiesData.forEach(a=>{
+      const abDiv=document.createElement('div'); abDiv.className='sp-ability'+(a.hidden?' hidden':'');
+      const nameRow=document.createElement('div');
+      const nm=document.createElement('span'); nm.className='sp-ability-name';
+      nm.textContent=a.name.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+      const tag=document.createElement('span'); tag.className='sp-ability-tag';
+      tag.textContent=a.hidden?'HIDDEN':'ABILITY';
+      nameRow.append(nm,tag);
+      const desc=document.createElement('div'); desc.className='sp-ability-desc';
+      const key=a.name.toLowerCase();
+      const localAb=ABILITIES_DB[key]||ABILITIES_DB[key.replace(/ /g,'-')]||ABILITIES_DB[key.replace(/-/g,' ')];
+      desc.textContent=localAb?.description||localAb?.effect||'No description available.';
+      abDiv.append(nameRow,desc); abSect.appendChild(abDiv);
+    });
+  } else {
+    const fb=document.createElement('div'); fb.style.cssText='color:var(--gray);font-size:12px;'; fb.textContent='No ability data available.'; abSect.appendChild(fb);
   }
-
-  for(const name of tryNames){
-    try{
-      const r = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-      if(!r.ok) continue;
-      const d = await r.json();
-      abLoad.remove();
-      const abilities = d.abilities.sort((a,b)=>a.is_hidden-b.is_hidden);
-      for(const a of abilities){
-        const abDiv=document.createElement('div'); abDiv.className='sp-ability'+(a.is_hidden?' hidden':'');
-        const nameRow=document.createElement('div');
-        const nm=document.createElement('span'); nm.className='sp-ability-name';
-        nm.textContent=a.ability.name.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-        const tag=document.createElement('span'); tag.className='sp-ability-tag';
-        tag.textContent=a.is_hidden?'HIDDEN':'ABILITY';
-        nameRow.append(nm,tag);
-        const desc=document.createElement('div'); desc.className='sp-ability-desc'; desc.textContent='Loading…';
-        abDiv.append(nameRow,desc); abSect.appendChild(abDiv);
-        // Load description async
-        fetchAbilityDesc(a.ability.name).then(text=>{ desc.textContent=text||'No description available.'; });
-      }
-      break;
-    }catch(e){}
-  }
-}
 
 // ── Hook panel into makeAC pick for Q1 only ──────────────────────────────────
 // Panel is loaded manually via ac._pick override in Q1 render
@@ -4740,17 +4703,11 @@ function renderTrainerQ() {
         const descInner=document.createElement('div'); descInner.style.cssText='padding:10px 16px;font-size:12px;color:var(--gray);line-height:1.5;';
         descInner.textContent='Loading…'; descPanel.appendChild(descInner);
         let descLoaded=false; let descOpen=false;
-        async function loadDesc(){
+        function loadDesc(){
           if(descLoaded) return;
-          try{
-            const slug=ab.name.toLowerCase().replace(/ /g,'-');
-            const r=await fetch('https://pokeapi.co/api/v2/ability/'+slug+'/');
-            if(!r.ok) throw new Error();
-            const d=await r.json();
-            const eng=d.flavor_text_entries?.find(e=>e.language.name==='en');
-            const effect=d.effect_entries?.find(e=>e.language.name==='en');
-            descInner.textContent=eng?.flavor_text?.replace(/\n|\f/g,' ')||effect?.short_effect||'No description available.';
-          } catch(e){ descInner.textContent='No description available.'; }
+          const key=ab.name.toLowerCase();
+          const localAb=ABILITIES_DB[key]||ABILITIES_DB[key.replace(/ /g,'-')]||ABILITIES_DB[key.replace(/-/g,' ')];
+          descInner.textContent=localAb?.description||localAb?.effect||'No description available.';
           descLoaded=true;
         }
         infoBtn.addEventListener('click',e=>{
@@ -4774,32 +4731,25 @@ function renderTrainerQ() {
         wrap.append(btn,descPanel); wrap.dataset.awrap='1'; abilityWrap.appendChild(wrap);
       });    }
     if(selMon){
-      const fullMonT=selMon._full||(POKEMON.find(p=>p.name.toLowerCase()===selMon.name.toLowerCase())||{})?._full;
-      if(fullMonT&&fullMonT.abilities&&fullMonT.abilities.length){
-        renderAbilityBtnsT(fullMonT.abilities.map(a=>({name:a.name,isHidden:a.hidden||false})));
+      // Load abilities from pokemon.json — works for all forms incl. Arceus/Calyrex variants
+      const fullMonT=POKEMON.find(p=>p.id===selMon.id)||POKEMON.find(p=>p.id===selMon.baseId)||null;
+      const abilitiesRawT=(fullMonT&&fullMonT.abilities)||(selMon._full&&selMon._full.abilities)||[];
+      if(abilitiesRawT.length){
+        renderAbilityBtnsT(abilitiesRawT.map(a=>({name:a.name,isHidden:!!a.hidden})));
       } else {
-        const baseName=selMon.name.replace(/\s*\([^)]*\)/g,'').trim();
-        const an=baseName.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-        const bp=POKEMON.find(p=>p.id===selMon.baseId);
-        const bpSlug=bp?bp.name.replace(/\s*\([^)]*\)/g,'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''):null;
-        const tryNames=[an]; if(bpSlug&&bpSlug!==an)tryNames.push(bpSlug);
-        (async()=>{for(const n of tryNames){try{const r=await fetch(`https://pokeapi.co/api/v2/pokemon/${n}`);if(!r.ok)continue;const d=await r.json();renderAbilityBtnsT(d.abilities.map(a=>({name:a.ability.name,isHidden:a.is_hidden})).sort((a,b)=>a.isHidden-b.isHidden));return;}catch(e){}}renderAbilityBtnsT([]);})();
+        renderAbilityBtnsT([]);
       }
     }else{loadingEl.textContent='No Pokemon selected in Q4 — type manually:';const inp=document.createElement('input');inp.type='text';inp.placeholder='Ability name…';inp.addEventListener('input',()=>{selectedAbility=inp.value.trim()||null;});abilityWrap.appendChild(inp);}
     getV=()=>selectedAbility?{value:selectedAbility}:null;
 
   // ── TQ8: IVs & EVs ───────────────────────────────────
   }else if(step===8){
-    // IV/EV info button next to question title
-    const ivEvTitleRow=card.querySelector('.q-title');
-    if(ivEvTitleRow){
-      const ivEvInfoBtn=document.createElement('button');ivEvInfoBtn.type='button';ivEvInfoBtn.className='info-btn';ivEvInfoBtn.textContent='ℹ IVs & EVs?';
-      makeInfoPopup(ivEvInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
-      const titleWrap=document.createElement('div');titleWrap.style.cssText='display:flex;align-items:center;gap:10px;';
-      ivEvTitleRow.parentNode.insertBefore(titleWrap,ivEvTitleRow);
-      titleWrap.append(ivEvTitleRow,ivEvInfoBtn);
-    }
-    addT(card,'How strong do you want your Pokémon to be?');
+    // Question title + IV/EV info button inline
+    const ivEvTitleRow2=document.createElement('div');ivEvTitleRow2.style.cssText='display:flex;align-items:center;gap:10px;margin-bottom:6px;';
+    const ivEvTitleEl=document.createElement('div');ivEvTitleEl.className='q-title';ivEvTitleEl.textContent='How strong do you want your Pokémon to be?';
+    const ivEvInfoBtn=document.createElement('button');ivEvInfoBtn.type='button';ivEvInfoBtn.className='info-btn';ivEvInfoBtn.textContent='ℹ IVs & EVs?';
+    makeInfoPopup(ivEvInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
+    ivEvTitleRow2.append(ivEvTitleEl,ivEvInfoBtn);card.appendChild(ivEvTitleRow2);
     const EV_MAX=510; const ivD={hp:31,atk:31,def:31,spa:31,spd:31,spe:31}; const evD={hp:0,atk:0,def:0,spa:0,spd:0,spe:0}; const ivInputs={},evInputs={}; let currentPreset='Custom';
     const presetWrap=document.createElement('div'); presetWrap.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;';
     function recalcEVT(){const sum=SKEYS.reduce((a,k)=>a+(evD[k]||0),0);const rem=EV_MAX-sum;totValT.textContent=`${sum} / 510`;totValT.className='ev-total-val'+(sum>EV_MAX?' over':'');remValT.textContent=rem>=0?rem:'0';remValT.style.color=rem<=0?'#E3350D':rem<=50?'#ff9800':'var(--pl)';}
