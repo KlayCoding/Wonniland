@@ -3740,17 +3740,79 @@ function renderQ(){
     const EV_MAX=510; const ivD={hp:31,atk:31,def:31,spa:31,spd:31,spe:31}; const evD={hp:0,atk:0,def:0,spa:0,spd:0,spe:0}; const ivInputs={},evInputs={}; let currentPreset='Custom';
     const presetWrap=document.createElement('div'); presetWrap.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;';
     function recalcEVT(){const sum=SKEYS.reduce((a,k)=>a+(evD[k]||0),0);const rem=EV_MAX-sum;totValT.textContent=`${sum} / 510`;totValT.className='ev-total-val'+(sum>EV_MAX?' over':'');remValT.textContent=rem>=0?rem:'0';remValT.style.color=rem<=0?'#E3350D':rem<=50?'#ff9800':'var(--pl)';}
-    function applyPresetT(key){currentPreset=key;presetWrap.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));presetWrap.querySelector(`[data-preset="${key}"]`)?.classList.add('active');if(key==='phys'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.atk=252;evInputs.atk.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='spec'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.spa=252;evInputs.spa.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='weak'){SKEYS.forEach(k=>{ivD[k]=0;ivInputs[k].value=0;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}else if(key==='rand'){SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});}else{SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}recalcEVT();}
+    function applyPresetT(key){currentPreset=key;presetWrap.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));presetWrap.querySelector(`[data-preset="${key}"]`)?.classList.add('active');if(key==='phys'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.atk=252;evInputs.atk.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='spec'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.spa=252;evInputs.spa.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='weak'){SKEYS.forEach(k=>{ivD[k]=0;ivInputs[k].value=0;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}else if(key==='rand'){SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});}else{SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}recalcEVT();updateIvEvPreview();}
     [['💪 Max (Physical)','phys'],['✨ Max (Special)','spec'],['🐛 Min (Weakest)','weak'],['🎲 Randomize!','rand'],['✏️ Custom','custom']].forEach(([label,key])=>{const b=document.createElement('button');b.type='button';b.className='rand-btn preset-btn'+(key==='custom'?' active':'');b.style.cssText='flex:1;min-width:140px;';b.textContent=label;b.dataset.preset=key;b.addEventListener('click',()=>applyPresetT(key));presetWrap.appendChild(b);});
     card.appendChild(presetWrap);
+    // ── Split layout: inputs left, stat preview right ──────────────────────
+    const splitWrap=document.createElement('div'); splitWrap.style.cssText='display:grid;grid-template-columns:1fr 220px;gap:16px;align-items:start;';
+    const inputCol=document.createElement('div'); inputCol.style.cssText='display:flex;flex-direction:column;gap:12px;';
+    // Stat preview sidebar
+    const prevCol=document.createElement('div'); prevCol.style.cssText='position:sticky;top:12px;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:12px;padding:14px;';
+    const prevHdr=document.createElement('div'); prevHdr.style.cssText='display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--border);';
+    const prevIco=document.createElement('img'); prevIco.style.cssText='width:52px;height:52px;image-rendering:pixelated;flex-shrink:0;';
+    const prevInfo=document.createElement('div'); prevInfo.style.cssText='display:flex;flex-direction:column;gap:3px;min-width:0;';
+    const prevName=document.createElement('div'); prevName.style.cssText='font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
+    const prevSub=document.createElement('div'); prevSub.style.cssText='font-size:9px;color:var(--gray);';
+    prevInfo.append(prevName,prevSub); prevHdr.append(prevIco,prevInfo); prevCol.appendChild(prevHdr);
+    // Stat bars
+    const prevBars=document.createElement('div'); prevBars.style.cssText='display:flex;flex-direction:column;gap:7px;';
+    const PREV_STAT_COLS=['#E3350D','#e8622a','#f0c600','#4f90d3','#4caf50','#db3c6c'];
+    const prevBarEls=[];
+    SKEYS.forEach((k,i)=>{
+      const row=document.createElement('div'); row.style.cssText='display:grid;grid-template-columns:26px 1fr 36px;gap:5px;align-items:center;';
+      const lbl=document.createElement('span'); lbl.style.cssText='font-size:7px;font-family:"Press Start 2P",monospace;color:'+PREV_STAT_COLS[i]+';'; lbl.textContent=SLBLS[i];
+      const bg=document.createElement('div'); bg.style.cssText='position:relative;height:8px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden;';
+      // Layer 1: base (dimmed)
+      const f1=document.createElement('div'); f1.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';opacity:.25;transition:width .4s ease;width:0%;';
+      // Layer 2: +IV (medium)
+      const f2=document.createElement('div'); f2.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';opacity:.55;transition:width .4s ease;width:0%;';
+      // Layer 3: +EV (full)
+      const f3=document.createElement('div'); f3.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';transition:width .4s ease;width:0%;box-shadow:0 0 6px '+PREV_STAT_COLS[i]+'66;';
+      bg.append(f1,f2,f3);
+      const val=document.createElement('span'); val.style.cssText='font-size:11px;font-weight:700;color:'+PREV_STAT_COLS[i]+';text-align:right;';
+      row.append(lbl,bg,val); prevBars.appendChild(row);
+      prevBarEls.push({f1,f2,f3,val});
+    });
+    prevCol.appendChild(prevBars);
+    // Legend
+    const legend=document.createElement('div'); legend.style.cssText='display:flex;gap:8px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--border);';
+    [['Base','opacity:.25'],['+ IVs','opacity:.55'],['+ EVs','opacity:1']].forEach(([lbl,op])=>{const it=document.createElement('div');it.style.cssText='display:flex;align-items:center;gap:4px;font-size:9px;color:var(--gray);';const dot=document.createElement('div');dot.style.cssText='width:8px;height:8px;border-radius:2px;background:#9575cd;'+op;it.append(dot,document.createTextNode(lbl));legend.appendChild(it);});
+    prevCol.appendChild(legend);
+    splitWrap.append(inputCol,prevCol);
+    card.appendChild(splitWrap);
+
+    // Lv.50 stat calculator (neutral nature)
+    function calcFinalStat(base,iv,ev,isHp){ if(isHp)return Math.floor((2*base+iv+Math.floor(ev/4))*50/100)+60; return Math.floor((Math.floor((2*base+iv+Math.floor(ev/4))*50/100)+5)); }
+    function updateIvEvPreview(){
+      const selMon=ans[1]&&ans[1].mon;
+      if(!selMon){ prevName.textContent='No Pokémon selected'; prevSub.textContent='Select one in Q2'; prevBarEls.forEach(({f1,f2,f3,val})=>{f1.style.width='0%';f2.style.width='0%';f3.style.width='0%';val.textContent='–';}); return; }
+      const baseStats=getBaseStats(selMon);
+      if(!baseStats){ prevBarEls.forEach(({f1,f2,f3,val})=>{f1.style.width='0%';f2.style.width='0%';f3.style.width='0%';val.textContent='–';}); return; }
+      prevName.textContent=selMon.name;
+      prevSub.textContent='Lv. 50 · Neutral';
+      prevIco.src=`${PKM_BASE1}${getSpriteFile(selMon)}.png`; prevIco.onerror=()=>iconUrlFallback(prevIco,selMon.id);
+      const MAX_STAT=420;
+      SKEYS.forEach((k,i)=>{
+        const isHp=i===0; const base=baseStats[i];
+        const withBase=calcFinalStat(base,0,0,isHp);
+        const withIv=calcFinalStat(base,ivD[k]||0,0,isHp);
+        const withAll=calcFinalStat(base,ivD[k]||0,evD[k]||0,isHp);
+        const {f1,f2,f3,val}=prevBarEls[i];
+        f1.style.width=Math.min(100,withBase/MAX_STAT*100)+'%';
+        f2.style.width=Math.min(100,withIv/MAX_STAT*100)+'%';
+        f3.style.width=Math.min(100,withAll/MAX_STAT*100)+'%';
+        val.textContent=withAll;
+      });
+    }
+
     const ivSect=document.createElement('div');ivSect.className='cust-sect';
     const ivH=document.createElement('div');ivH.className='cust-h';ivH.textContent='IVs (0-31)';
     const ivRB=document.createElement('button');ivRB.type='button';ivRB.className='rand-btn';ivRB.style.marginBottom='10px';ivRB.textContent='🎲 Randomize IVs';
-    ivRB.addEventListener('click',()=>{SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});});
+    ivRB.addEventListener('click',()=>{SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});updateIvEvPreview();});
     const ivG=document.createElement('div');ivG.className='sg';
-    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=31;inp.value=ivD[k];ivInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(31,Math.max(0,parseInt(inp.value)||0));ivD[k]=v;inp.value=v;});col.append(lbl,inp);ivG.appendChild(col);});
-    ivSect.append(ivH,ivRB,ivG);card.appendChild(ivSect);
-    const divider=document.createElement('div');divider.style.height='12px';card.appendChild(divider);
+    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=31;inp.value=ivD[k];ivInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(31,Math.max(0,parseInt(inp.value)||0));ivD[k]=v;inp.value=v;if(typeof updateIvEvPreview!=='undefined')updateIvEvPreview();});col.append(lbl,inp);ivG.appendChild(col);});
+    ivSect.append(ivH,ivRB,ivG);inputCol.appendChild(ivSect);
+    const divider=document.createElement('div');divider.style.height='12px';inputCol.appendChild(divider);
     const evSect=document.createElement('div');evSect.className='cust-sect';
     const evH=document.createElement('div');evH.className='cust-h';evH.textContent='EVs (510 total)';
     const evInfo=document.createElement('div');evInfo.className='cust-info';evInfo.textContent='Max. 252 per stat, 510 in total.';
@@ -3762,10 +3824,10 @@ function renderQ(){
     const remValT=document.createElement('span');remValT.className='ev-remain-val';remValT.textContent='510';
     totDiv.append(totLblT,totValT,remLblT,remValT);
     const evG=document.createElement('div');evG.className='sg';
-    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=252;inp.value=evD[k];evInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(252,Math.max(0,parseInt(inp.value)||0));const others=SKEYS.filter(x=>x!==k).reduce((a,x)=>a+(evD[x]||0),0);v=Math.min(v,EV_MAX-others);evD[k]=v;inp.value=v;recalcEVT();});col.append(lbl,inp);evG.appendChild(col);});
-    evRB.addEventListener('click',()=>{let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});recalcEVT();});
-    evSect.append(evH,evInfo,evRB,evG,totDiv);card.appendChild(evSect);
-    applyPresetT('custom');
+    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=252;inp.value=evD[k];evInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(252,Math.max(0,parseInt(inp.value)||0));const others=SKEYS.filter(x=>x!==k).reduce((a,x)=>a+(evD[x]||0),0);v=Math.min(v,EV_MAX-others);evD[k]=v;inp.value=v;recalcEVT();if(typeof updateIvEvPreview!=='undefined')updateIvEvPreview();});col.append(lbl,inp);evG.appendChild(col);});
+    evRB.addEventListener('click',()=>{let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});recalcEVT();updateIvEvPreview();});
+    evSect.append(evH,evInfo,evRB,evG,totDiv);inputCol.appendChild(evSect);
+    applyPresetT('custom'); updateIvEvPreview();
     getV=()=>{const pn={'phys':'Max Physical Attacker','spec':'Max Special Attacker','weak':'Minimum','rand':'Randomized','custom':'Custom'};return{value:`${pn[currentPreset]||currentPreset} | IVs: ${SKEYS.map(k=>ivD[k]).join('/')} | EVs: ${SKEYS.map(k=>evD[k]).join('/')}`};};
 
   // ── TQ9: Poké Ball (items 0001-0027) ──────────────────────────────────────
@@ -4883,17 +4945,79 @@ function renderTrainerQ() {
     const EV_MAX=510; const ivD={hp:31,atk:31,def:31,spa:31,spd:31,spe:31}; const evD={hp:0,atk:0,def:0,spa:0,spd:0,spe:0}; const ivInputs={},evInputs={}; let currentPreset='Custom';
     const presetWrap=document.createElement('div'); presetWrap.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;';
     function recalcEVT(){const sum=SKEYS.reduce((a,k)=>a+(evD[k]||0),0);const rem=EV_MAX-sum;totValT.textContent=`${sum} / 510`;totValT.className='ev-total-val'+(sum>EV_MAX?' over':'');remValT.textContent=rem>=0?rem:'0';remValT.style.color=rem<=0?'#E3350D':rem<=50?'#ff9800':'var(--pl)';}
-    function applyPresetT(key){currentPreset=key;presetWrap.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));presetWrap.querySelector(`[data-preset="${key}"]`)?.classList.add('active');if(key==='phys'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.atk=252;evInputs.atk.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='spec'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.spa=252;evInputs.spa.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='weak'){SKEYS.forEach(k=>{ivD[k]=0;ivInputs[k].value=0;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}else if(key==='rand'){SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});}else{SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}recalcEVT();}
+    function applyPresetT(key){currentPreset=key;presetWrap.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));presetWrap.querySelector(`[data-preset="${key}"]`)?.classList.add('active');if(key==='phys'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.atk=252;evInputs.atk.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='spec'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.spa=252;evInputs.spa.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='weak'){SKEYS.forEach(k=>{ivD[k]=0;ivInputs[k].value=0;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}else if(key==='rand'){SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});}else{SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}recalcEVT();updateIvEvPreview();}
     [['💪 Max (Physical)','phys'],['✨ Max (Special)','spec'],['🐛 Min (Weakest)','weak'],['🎲 Randomize!','rand'],['✏️ Custom','custom']].forEach(([label,key])=>{const b=document.createElement('button');b.type='button';b.className='rand-btn preset-btn'+(key==='custom'?' active':'');b.style.cssText='flex:1;min-width:140px;';b.textContent=label;b.dataset.preset=key;b.addEventListener('click',()=>applyPresetT(key));presetWrap.appendChild(b);});
     card.appendChild(presetWrap);
+    // ── Split layout: inputs left, stat preview right ──────────────────────
+    const splitWrap=document.createElement('div'); splitWrap.style.cssText='display:grid;grid-template-columns:1fr 220px;gap:16px;align-items:start;';
+    const inputCol=document.createElement('div'); inputCol.style.cssText='display:flex;flex-direction:column;gap:12px;';
+    // Stat preview sidebar
+    const prevCol=document.createElement('div'); prevCol.style.cssText='position:sticky;top:12px;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:12px;padding:14px;';
+    const prevHdr=document.createElement('div'); prevHdr.style.cssText='display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--border);';
+    const prevIco=document.createElement('img'); prevIco.style.cssText='width:52px;height:52px;image-rendering:pixelated;flex-shrink:0;';
+    const prevInfo=document.createElement('div'); prevInfo.style.cssText='display:flex;flex-direction:column;gap:3px;min-width:0;';
+    const prevName=document.createElement('div'); prevName.style.cssText='font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
+    const prevSub=document.createElement('div'); prevSub.style.cssText='font-size:9px;color:var(--gray);';
+    prevInfo.append(prevName,prevSub); prevHdr.append(prevIco,prevInfo); prevCol.appendChild(prevHdr);
+    // Stat bars
+    const prevBars=document.createElement('div'); prevBars.style.cssText='display:flex;flex-direction:column;gap:7px;';
+    const PREV_STAT_COLS=['#E3350D','#e8622a','#f0c600','#4f90d3','#4caf50','#db3c6c'];
+    const prevBarEls=[];
+    SKEYS.forEach((k,i)=>{
+      const row=document.createElement('div'); row.style.cssText='display:grid;grid-template-columns:26px 1fr 36px;gap:5px;align-items:center;';
+      const lbl=document.createElement('span'); lbl.style.cssText='font-size:7px;font-family:"Press Start 2P",monospace;color:'+PREV_STAT_COLS[i]+';'; lbl.textContent=SLBLS[i];
+      const bg=document.createElement('div'); bg.style.cssText='position:relative;height:8px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden;';
+      // Layer 1: base (dimmed)
+      const f1=document.createElement('div'); f1.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';opacity:.25;transition:width .4s ease;width:0%;';
+      // Layer 2: +IV (medium)
+      const f2=document.createElement('div'); f2.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';opacity:.55;transition:width .4s ease;width:0%;';
+      // Layer 3: +EV (full)
+      const f3=document.createElement('div'); f3.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';transition:width .4s ease;width:0%;box-shadow:0 0 6px '+PREV_STAT_COLS[i]+'66;';
+      bg.append(f1,f2,f3);
+      const val=document.createElement('span'); val.style.cssText='font-size:11px;font-weight:700;color:'+PREV_STAT_COLS[i]+';text-align:right;';
+      row.append(lbl,bg,val); prevBars.appendChild(row);
+      prevBarEls.push({f1,f2,f3,val});
+    });
+    prevCol.appendChild(prevBars);
+    // Legend
+    const legend=document.createElement('div'); legend.style.cssText='display:flex;gap:8px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--border);';
+    [['Base','opacity:.25'],['+ IVs','opacity:.55'],['+ EVs','opacity:1']].forEach(([lbl,op])=>{const it=document.createElement('div');it.style.cssText='display:flex;align-items:center;gap:4px;font-size:9px;color:var(--gray);';const dot=document.createElement('div');dot.style.cssText='width:8px;height:8px;border-radius:2px;background:#9575cd;'+op;it.append(dot,document.createTextNode(lbl));legend.appendChild(it);});
+    prevCol.appendChild(legend);
+    splitWrap.append(inputCol,prevCol);
+    card.appendChild(splitWrap);
+
+    // Lv.50 stat calculator (neutral nature)
+    function calcFinalStat(base,iv,ev,isHp){ if(isHp)return Math.floor((2*base+iv+Math.floor(ev/4))*50/100)+60; return Math.floor((Math.floor((2*base+iv+Math.floor(ev/4))*50/100)+5)); }
+    function updateIvEvPreview(){
+      const selMon=ans[1]&&ans[1].mon;
+      if(!selMon){ prevName.textContent='No Pokémon selected'; prevSub.textContent='Select one in Q2'; prevBarEls.forEach(({f1,f2,f3,val})=>{f1.style.width='0%';f2.style.width='0%';f3.style.width='0%';val.textContent='–';}); return; }
+      const baseStats=getBaseStats(selMon);
+      if(!baseStats){ prevBarEls.forEach(({f1,f2,f3,val})=>{f1.style.width='0%';f2.style.width='0%';f3.style.width='0%';val.textContent='–';}); return; }
+      prevName.textContent=selMon.name;
+      prevSub.textContent='Lv. 50 · Neutral';
+      prevIco.src=`${PKM_BASE1}${getSpriteFile(selMon)}.png`; prevIco.onerror=()=>iconUrlFallback(prevIco,selMon.id);
+      const MAX_STAT=420;
+      SKEYS.forEach((k,i)=>{
+        const isHp=i===0; const base=baseStats[i];
+        const withBase=calcFinalStat(base,0,0,isHp);
+        const withIv=calcFinalStat(base,ivD[k]||0,0,isHp);
+        const withAll=calcFinalStat(base,ivD[k]||0,evD[k]||0,isHp);
+        const {f1,f2,f3,val}=prevBarEls[i];
+        f1.style.width=Math.min(100,withBase/MAX_STAT*100)+'%';
+        f2.style.width=Math.min(100,withIv/MAX_STAT*100)+'%';
+        f3.style.width=Math.min(100,withAll/MAX_STAT*100)+'%';
+        val.textContent=withAll;
+      });
+    }
+
     const ivSect=document.createElement('div');ivSect.className='cust-sect';
     const ivH=document.createElement('div');ivH.className='cust-h';ivH.textContent='IVs (0-31)';
     const ivRB=document.createElement('button');ivRB.type='button';ivRB.className='rand-btn';ivRB.style.marginBottom='10px';ivRB.textContent='🎲 Randomize IVs';
-    ivRB.addEventListener('click',()=>{SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});});
+    ivRB.addEventListener('click',()=>{SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});updateIvEvPreview();});
     const ivG=document.createElement('div');ivG.className='sg';
-    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=31;inp.value=ivD[k];ivInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(31,Math.max(0,parseInt(inp.value)||0));ivD[k]=v;inp.value=v;});col.append(lbl,inp);ivG.appendChild(col);});
-    ivSect.append(ivH,ivRB,ivG);card.appendChild(ivSect);
-    const divider=document.createElement('div');divider.style.height='12px';card.appendChild(divider);
+    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=31;inp.value=ivD[k];ivInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(31,Math.max(0,parseInt(inp.value)||0));ivD[k]=v;inp.value=v;if(typeof updateIvEvPreview!=='undefined')updateIvEvPreview();});col.append(lbl,inp);ivG.appendChild(col);});
+    ivSect.append(ivH,ivRB,ivG);inputCol.appendChild(ivSect);
+    const divider=document.createElement('div');divider.style.height='12px';inputCol.appendChild(divider);
     const evSect=document.createElement('div');evSect.className='cust-sect';
     const evH=document.createElement('div');evH.className='cust-h';evH.textContent='EVs (510 total)';
     const evInfo=document.createElement('div');evInfo.className='cust-info';evInfo.textContent='Max. 252 per stat, 510 in total.';
@@ -4905,10 +5029,10 @@ function renderTrainerQ() {
     const remValT=document.createElement('span');remValT.className='ev-remain-val';remValT.textContent='510';
     totDiv.append(totLblT,totValT,remLblT,remValT);
     const evG=document.createElement('div');evG.className='sg';
-    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=252;inp.value=evD[k];evInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(252,Math.max(0,parseInt(inp.value)||0));const others=SKEYS.filter(x=>x!==k).reduce((a,x)=>a+(evD[x]||0),0);v=Math.min(v,EV_MAX-others);evD[k]=v;inp.value=v;recalcEVT();});col.append(lbl,inp);evG.appendChild(col);});
-    evRB.addEventListener('click',()=>{let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});recalcEVT();});
-    evSect.append(evH,evInfo,evRB,evG,totDiv);card.appendChild(evSect);
-    applyPresetT('custom');
+    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=252;inp.value=evD[k];evInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(252,Math.max(0,parseInt(inp.value)||0));const others=SKEYS.filter(x=>x!==k).reduce((a,x)=>a+(evD[x]||0),0);v=Math.min(v,EV_MAX-others);evD[k]=v;inp.value=v;recalcEVT();if(typeof updateIvEvPreview!=='undefined')updateIvEvPreview();});col.append(lbl,inp);evG.appendChild(col);});
+    evRB.addEventListener('click',()=>{let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});recalcEVT();updateIvEvPreview();});
+    evSect.append(evH,evInfo,evRB,evG,totDiv);inputCol.appendChild(evSect);
+    applyPresetT('custom'); updateIvEvPreview();
     getV=()=>{const pn={'phys':'Max Physical Attacker','spec':'Max Special Attacker','weak':'Minimum','rand':'Randomized','custom':'Custom'};return{value:`${pn[currentPreset]||currentPreset} | IVs: ${SKEYS.map(k=>ivD[k]).join('/')} | EVs: ${SKEYS.map(k=>evD[k]).join('/')}`};};
 
   // ── TQ9: Poké Ball (items 0001-0027) ──────────────────────────────────────
