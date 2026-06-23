@@ -6113,6 +6113,66 @@ function initEncBrowser(){
     }
   }
 
+  // ── Robust SPECIES_ → ALL_MON index ─────────────────────────────────────
+  const SPECIES_INDEX=(()=>{
+    const idx={};
+    const norm=s=>s.toLowerCase().replace(/[''\.♀♂:]/g,'').replace(/\s+/g,'_').replace(/-/g,'_').replace(/[()]/g,'');
+    ALL_MON.forEach(m=>{
+      idx[norm(m.name)]=m;
+      const base=m.name.replace(/\s*\([^)]*\)/g,'').replace(/^(Mega|GMax|Galarian|Hisuian|Alolan|Paldean)-/i,'').trim();
+      if(!idx[norm(base)]) idx[norm(base)]=m;
+    });
+    const OVERRIDES={
+      'SPECIES_NIDORAN_F':'Nidoran♀','SPECIES_NIDORAN_M':'Nidoran♂',
+      'SPECIES_FARFETCHD':'Farfetch\'d','SPECIES_FARFETCHD_GALAR':'Galarian-Farfetch\'d',
+      'SPECIES_MIME_JR':'Mime Jr.','SPECIES_JANGMO_O':'Jangmo-o',
+      'SPECIES_TYPE_NULL':'Type: Null','SPECIES_MR_MIME':'Mr. Mime',
+      'SPECIES_MR_RIME':'Mr. Rime','SPECIES_MR_MIME_GALAR':'Mr. Mime (Galarian)',
+      'SPECIES_FLABEBE':'Flabébé','SPECIES_FLABEBE_BLUE':'Flabébé',
+      'SPECIES_FLABEBE_RED':'Flabébé','SPECIES_FLABEBE_YELLOW':'Flabébé',
+      'SPECIES_FLABEBE_WHITE':'Flabébé','SPECIES_FLABEBE_ORANGE':'Flabébé',
+      'SPECIES_BASCULIN_RED_STRIPED':'Basculin (Red)','SPECIES_BASCULIN_BLUE_STRIPED':'Basculin (Blue)',
+      'SPECIES_SHELLOS_WEST':'Shellos (West Sea)','SPECIES_SHELLOS_EAST':'Shellos (East Sea)',
+      'SPECIES_GASTRODON_WEST':'Gastrodon (West Sea)','SPECIES_GASTRODON_EAST':'Gastrodon (East Sea)',
+      'SPECIES_GRENINJA':'Greninja (Normal)','SPECIES_GRENINJA_ASH':'Greninja (Ash)',
+      'SPECIES_KELDEO':'Keldeo (Ordianry)','SPECIES_KELDEO_RESOLUTE':'Keldeo (Resolute)',
+      'SPECIES_SHAYMIN':'Shaymin (Land)','SPECIES_SHAYMIN_SKY':'Shaymin (Sky)',
+      'SPECIES_SILVALLY':'Silvally (Normal)',
+      'SPECIES_MORPEKO_FULL_BELLY':'Morpeko (Full Belly)','SPECIES_MORPEKO_HANGRY':'Morpeko (Hangry)',
+      'SPECIES_WISHIWASHI_SOLO':'Wishiwashi (Solo)','SPECIES_WISHIWASHI_SCHOOL':'Wishiwashi (School)',
+      'SPECIES_OGERPON_TEAL':'Ogerpon (Teal)',
+    };
+    const FAMILY_FALLBACKS={
+      'ALCREMIE':'Alcremie','UNOWN':'Unown (A)','SCATTERBUG':'Scatterbug (Icy Snow)',
+      'PIKACHU_COSPLAY':'Pikachu','PIKACHU_HOENN':'Pikachu','PIKACHU_KALOS':'Pikachu',
+      'PIKACHU_SINNOH':'Pikachu','PIKACHU_UNOVA':'Pikachu','PIKACHU_WORLD':'Pikachu',
+      'PIKACHU_PARTNER':'Pikachu','PICHU_SPIKY_EARED':'Pichu',
+      'BURMY_SANDY':'Burmy','BURMY_TRASH':'Burmy',
+      'DEERLING_SUMMER':'Deerling','DEERLING_AUTUMN':'Deerling','DEERLING_WINTER':'Deerling',
+    };
+    return (species)=>{
+      if(!species||species==='SPECIES_NONE') return null;
+      if(OVERRIDES[species]){
+        const name=OVERRIDES[species];
+        return ALL_MON.find(x=>x.name===name)||ALL_MON.find(x=>x.name.startsWith(name.split(' ')[0]))||null;
+      }
+      const raw=species.replace('SPECIES_','');
+      for(const [key,name] of Object.entries(FAMILY_FALLBACKS)){
+        if(raw===key||raw.startsWith(key+'_')){
+          return ALL_MON.find(x=>x.name===name)||null;
+        }
+      }
+      const n=norm(raw.replace(/_/g,' '));
+      if(idx[n]) return idx[n];
+      const parts=raw.split('_');
+      for(let i=parts.length;i>0;i--){
+        const attempt=norm(parts.slice(0,i).join(' '));
+        if(idx[attempt]) return idx[attempt];
+      }
+      return null;
+    };
+  })();
+
   function speciesNameToMon(species){
     const mon=SPECIES_INDEX(species);
     if(mon) return {mon, displayName:mon.name};
