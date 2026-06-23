@@ -2721,8 +2721,6 @@ function calcTypeMatchups(type1, type2) {
 
 // ── Pokédex Modal ─────────────────────────────────────────────────────────────
 function showPokedex(mon) {
-  // Find full data from POKEMON list
-  // Use cached full JSON data if available, else find in POKEMON array
   const _monFull = mon._full || (POKEMON.find(p => p.name.toLowerCase()===mon.name.toLowerCase()) || {})._full || mon;
   const fullData = _monFull;
 
@@ -2733,10 +2731,75 @@ function showPokedex(mon) {
 
   // ── Header ────────────────────────────────────────────────────────────────
   const hdr = document.createElement('div'); hdr.className='pdx-header';
+
+  // Sprite + controls column
+  const spriteCol = document.createElement('div');
+  spriteCol.style.cssText='display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0;';
+
   const sprite = document.createElement('img'); sprite.className='pdx-sprite';
   const sf = getSpriteFile(mon);
   sprite.src = `${PKM_BASE1}${sf}.png`;
   sprite.onerror = () => iconUrlFallback(sprite, mon.spriteId||mon.baseId);
+
+  // Determine available variants
+  const hasShiny = !!(mon.shinyFile||mon.shinyFemale||fullData.shiny_sprite||fullData.shiny_sprite_female);
+  const hasFemale = !!(mon.spriteFemale||fullData.sprite_female);
+  const hasShinFemale = !!(mon.shinyFemale||fullData.shiny_sprite_female);
+
+  let spriteState = {shiny:false, female:false};
+
+  function updateSprite(){
+    const {shiny, female} = spriteState;
+    if(shiny){
+      const sf2 = female && hasShinFemale
+        ? (mon.shinyFemale||fullData.shiny_sprite_female||mon.shinyFile||fullData.shiny_sprite||sf)
+        : (mon.shinyFile||fullData.shiny_sprite||sf);
+      sprite.src = `${PKM_SHINY1}${sf2}.png`;
+      sprite.onerror = () => shinyUrlFallback(sprite, mon.spriteId||mon.baseId, sf2);
+    } else {
+      const sf3 = female && hasFemale
+        ? (mon.spriteFemale||fullData.sprite_female||sf)
+        : sf;
+      sprite.src = `${PKM_BASE1}${sf3}.png`;
+      sprite.onerror = () => iconUrlFallback(sprite, mon.spriteId||mon.baseId);
+    }
+    // Shiny sparkle filter
+    sprite.style.filter = shiny ? 'drop-shadow(0 0 8px #f0c60088) drop-shadow(0 0 3px #ffffffcc)' : '';
+  }
+
+  // Sprite control pills
+  const spriteControls = document.createElement('div');
+  spriteControls.style.cssText='display:flex;gap:5px;flex-wrap:wrap;justify-content:center;';
+
+  const mkToggle = (label, emoji, activeCol, onToggle) => {
+    const btn = document.createElement('button'); btn.type='button';
+    btn.style.cssText=`font-size:10px;padding:3px 8px;border-radius:5px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:var(--gray);cursor:pointer;transition:all .2s;`;
+    btn.innerHTML=`${emoji} ${label}`;
+    let active=false;
+    btn.addEventListener('click',()=>{
+      active=!active;
+      btn.style.background=active?activeCol+'33':'rgba(255,255,255,.06)';
+      btn.style.borderColor=active?activeCol:'rgba(255,255,255,.15)';
+      btn.style.color=active?activeCol:'var(--gray)';
+      btn.style.fontWeight=active?'700':'400';
+      onToggle(active);
+    });
+    return btn;
+  };
+
+  const shinyBtn = mkToggle('Shiny','✨','#f0c600', active => {
+    spriteState.shiny=active; updateSprite();
+  });
+  spriteControls.appendChild(shinyBtn);
+
+  if(hasFemale){
+    const femBtn = mkToggle('♀ Female','','#f48fb1', active => {
+      spriteState.female=active; updateSprite();
+    });
+    spriteControls.appendChild(femBtn);
+  }
+
+  spriteCol.append(sprite, spriteControls);
 
   const titleDiv = document.createElement('div'); titleDiv.className='pdx-title';
   const nameDiv = document.createElement('div'); nameDiv.className='pdx-name'; nameDiv.textContent = mon.name;
@@ -2746,7 +2809,6 @@ function showPokedex(mon) {
   numDiv.style.cssText='display:flex;flex-direction:column;gap:2px;';
   if(gameId){ const gi=document.createElement('span'); gi.style.cssText='font-size:11px;color:#64b5f6;'; gi.textContent='Game ID: #'+gameId; numDiv.appendChild(gi); }
   if(dexNum){ const dn2=document.createElement('span'); dn2.style.cssText='font-size:11px;color:#81c784;'; dn2.textContent='Dex: #'+dexNum; numDiv.appendChild(dn2); }
-  // Type badges
   const bdg = document.createElement('div'); bdg.className='tbadges'; bdg.style.marginTop='6px';
   bdg.appendChild(tb(mon.t1||fullData.t1||'Normal'));
   if(mon.t2||fullData.t2) bdg.appendChild(tb(mon.t2||fullData.t2));
@@ -2756,7 +2818,7 @@ function showPokedex(mon) {
   closeBtn.addEventListener('click', ()=>bd.remove());
   const escHandler = (e) => { if(e.key==='Escape'){ bd.remove(); document.removeEventListener('keydown', escHandler); } };
   document.addEventListener('keydown', escHandler);
-  hdr.append(sprite, titleDiv, closeBtn);
+  hdr.append(spriteCol, titleDiv, closeBtn);
   modal.appendChild(hdr);
 
   // ── Tabs ──────────────────────────────────────────────────────────────────
@@ -5824,12 +5886,20 @@ function initEncBrowser(){
   const RATES_HIDDEN=[100,100,100,100,100,100,100,100,100,100,100,100];
   const TIME_LABELS=['Morning','Day','Evening','Night'];
   const TIME_ICONS={'Morning':'🌅','Day':'☀️','Evening':'🌆','Night':'🌙'};
+  // Fishing rods: slots 0-1=Old Rod, 2-4=Good Rod, 5-9=Super Rod
+  const ROD_POOLS={
+    old_rod:  {slots:[0,1],  rates:[70,30],          label:'Old Rod',   icon:'🎣',col:'#90caf9'},
+    good_rod: {slots:[2,3,4],rates:[60,20,20],        label:'Good Rod',  icon:'🎣',col:'#42a5f5'},
+    super_rod:{slots:[5,6,7,8,9],rates:[40,20,20,15,5],label:'Super Rod',icon:'🎣',col:'#1565c0'},
+  };
   const METHOD_META={
-    land_mons:{label:'Land',icon:'🌿',col:'#4caf50',rates:RATES_LAND},
-    water_mons:{label:'Surfing',icon:'🌊',col:'#4f90d3',rates:RATES_WATER},
-    fishing_mons:{label:'Fishing',icon:'🎣',col:'#64b5f6',rates:RATES_FISH},
+    land_mons:  {label:'Land',     icon:'🌿',col:'#4caf50',rates:RATES_LAND},
+    water_mons: {label:'Surfing',  icon:'🌊',col:'#4f90d3',rates:RATES_WATER},
+    old_rod:    {label:'Old Rod',  icon:'🎣',col:'#90caf9',rates:[70,30],    isFishing:true,slots:[0,1]},
+    good_rod:   {label:'Good Rod', icon:'🎣',col:'#42a5f5',rates:[60,20,20], isFishing:true,slots:[2,3,4]},
+    super_rod:  {label:'Super Rod',icon:'🎣',col:'#1565c0',rates:[40,20,20,15,5],isFishing:true,slots:[5,6,7,8,9]},
     rock_smash_mons:{label:'Rock Smash',icon:'🪨',col:'#b29a3c',rates:RATES_ROCK},
-    hidden_mons:{label:'Hidden',icon:'🍂',col:'#81c784',rates:RATES_HIDDEN},
+    hidden_mons:{label:'Hidden',   icon:'🍂',col:'#81c784',rates:RATES_HIDDEN},
   };
   const METHODS_ALL=Object.keys(METHOD_META);
   const activeMethods=new Set(METHODS_ALL); // all on by default
@@ -5945,9 +6015,18 @@ function initEncBrowser(){
       if(e.map.includes('_FR_')||e.map.includes('_LG_')) return;
       const timeLabel=e.base_label.split('_').pop(); // Morning/Day/Evening/Night
       METHODS_ALL.forEach(method=>{
-        const data=e[method];
-        if(!data||!data.mons) return;
-        data.mons.forEach((mon,idx)=>{
+        const meta=METHOD_META[method];
+        let monsWithIdx=[];
+        if(meta.isFishing){
+          const fishData=e['fishing_mons'];
+          if(!fishData||!fishData.mons) return;
+          monsWithIdx=meta.slots.map((slot,i)=>({mon:fishData.mons[slot],rate:meta.rates[i]})).filter(x=>x.mon);
+        } else {
+          const data=e[method];
+          if(!data||!data.mons) return;
+          monsWithIdx=data.mons.map((mon,i)=>({mon,rate:meta.rates[i]||'?'}));
+        }
+        monsWithIdx.forEach(({mon,rate})=>{
           const {mon:monData,displayName}=speciesNameToMon(mon.species);
           if(!displayName.toLowerCase().includes(q2)&&!(monData&&monData.name.toLowerCase().includes(q2))) return;
           const rates=METHOD_META[method].rates;
@@ -5957,7 +6036,7 @@ function initEncBrowser(){
           // Check if already added this species+method combo (just add time)
           const existing=mapResult.hits.find(h=>h.species===mon.species&&h.method===method);
           if(existing){ if(!existing.times.includes(timeLabel)) existing.times.push(timeLabel); }
-          else{ mapResult.hits.push({species:mon.species,displayName,monData,method,times:[timeLabel],minLevel:mon.min_level,maxLevel:mon.max_level,rate:rates[idx]||'?'}); }
+          else{ mapResult.hits.push({species:mon.species,displayName,monData,method,times:[timeLabel],minLevel:mon.min_level,maxLevel:mon.max_level,rate}); }
         });
       });
     });
@@ -6040,13 +6119,24 @@ function initEncBrowser(){
   function renderDetail(timeEntries){
     detail.innerHTML='';
     if(!timeEntries.length) return;
-    // Map image at top
     const mapKey=timeEntries[0].map;
+    // Map image
     const mapImg=document.createElement('img');
     mapImg.src=mapImgUrl(mapKey);
     mapImg.style.cssText='width:100%;border-radius:10px;margin-bottom:14px;display:block;max-height:240px;object-fit:cover;';
     mapImg.onerror=()=>mapImg.style.display='none';
     detail.appendChild(mapImg);
+
+    // Header row: location name + chart button
+    const detailHdr=document.createElement('div');
+    detailHdr.style.cssText='display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;';
+    const locTitle=document.createElement('div');locTitle.style.cssText='font-size:14px;font-weight:700;';locTitle.textContent=mapToName(mapKey);
+    const chartBtn=document.createElement('button');chartBtn.type='button';
+    chartBtn.style.cssText='font-size:10px;padding:5px 12px;border-radius:7px;border:1px solid rgba(100,181,246,.4);background:rgba(100,181,246,.1);color:#64b5f6;cursor:pointer;transition:all .2s;font-family:"Press Start 2P",monospace;';
+    chartBtn.textContent='📊 Types';
+    chartBtn.addEventListener('click',()=>showTypeChart(timeEntries));
+    detailHdr.append(locTitle,chartBtn);
+    detail.appendChild(detailHdr);
     // Get available times
     const availTimes=timeEntries.map(e=>{ const lbl=e.base_label; for(const t of TIME_LABELS){if(lbl.endsWith('_'+t)||lbl.includes('_'+t+'_'))return t;} return 'Day'; });
     const uniqueTimes=[...new Set(availTimes.length?availTimes:['Day'])];
@@ -6080,17 +6170,29 @@ function initEncBrowser(){
     let hasAny=false;
     METHODS_ALL.forEach(method=>{
       if(!activeMethods.has(method)) return;
-      const data=entry[method];
-      if(!data||!data.mons||!data.mons.length) return;
-      hasAny=true;
       const meta=METHOD_META[method];
+      let mons=[];
+      if(meta.isFishing){
+        // Extract rod-specific slots from fishing_mons
+        const fishData=entry['fishing_mons'];
+        if(!fishData||!fishData.mons) return;
+        mons=meta.slots.map((slot,i)=>fishData.mons[slot]).filter(Boolean).map((mon,i)=>({
+          ...mon, _rate:meta.rates[i]
+        }));
+      } else {
+        const data=entry[method];
+        if(!data||!data.mons||!data.mons.length) return;
+        mons=data.mons.map((mon,i)=>({...mon,_rate:meta.rates[i]||'?'}));
+      }
+      if(!mons.length) return;
+      hasAny=true;
       const sect=document.createElement('div');sect.className='enc-method-section';
-      const title=document.createElement('div');title.className='enc-method-title';
+      const title=document.createElement('div');
       title.style.cssText=`background:${meta.col}18;color:${meta.col};border:1px solid ${meta.col}33;font-family:'Press Start 2P',monospace;font-size:9px;padding:5px 10px;border-radius:6px;margin-bottom:8px;display:inline-block;`;
       title.textContent=`${meta.icon} ${meta.label}`;
       const monGrid=document.createElement('div');monGrid.className='enc-mon-grid';
-      data.mons.forEach((mon,idx)=>{
-        const rate=meta.rates[idx]||'?';
+      mons.forEach(mon=>{
+        const rate=mon._rate||'?';
         const {mon:monData,displayName}=speciesNameToMon(mon.species);
         const chip=document.createElement('div');chip.className='enc-mon-chip';chip.style.borderColor=meta.col+'33';
         const img=document.createElement('img');
@@ -6109,7 +6211,8 @@ function initEncBrowser(){
       sect.append(title,monGrid); container.appendChild(sect);
     });
     if(!hasAny){
-      const empty=document.createElement('div');empty.style.cssText='color:var(--gray);font-size:12px;padding:20px;text-align:center;';empty.textContent='No encounter data for this location / filter.';container.appendChild(empty);
+      const empty=document.createElement('div');empty.style.cssText='color:var(--gray);font-size:12px;padding:20px;text-align:center;';
+      empty.textContent='No encounter data for this location / filter.';container.appendChild(empty);
     }
   }
 
@@ -6172,6 +6275,75 @@ function initEncBrowser(){
       return null;
     };
   })();
+
+  function showTypeChart(timeEntries){
+    // Collect all unique mons across active methods and all times
+    const TYPE_COLS={'Normal':'#9099a1','Fire':'#e8622a','Water':'#4f90d3','Electric':'#f0c600','Grass':'#4caf50','Ice':'#5fd8d8','Fighting':'#d1425a','Poison':'#a040a0','Ground':'#d68b23','Flying':'#7d8bca','Psychic':'#db3c6c','Bug':'#8da12e','Rock':'#b29a3c','Ghost':'#5d5e9d','Dragon':'#5b61cf','Dark':'#5c4c3e','Steel':'#8e9bb3','Fairy':'#d980a0'};
+    const typeCounts={};
+    const seenSpecies=new Set();
+    timeEntries.forEach(e=>{
+      METHODS_ALL.forEach(method=>{
+        if(!activeMethods.has(method)) return;
+        const meta=METHOD_META[method];
+        let mons=[];
+        if(meta.isFishing){
+          const fd=e['fishing_mons'];
+          if(!fd||!fd.mons) return;
+          mons=meta.slots.map(s=>fd.mons[s]).filter(Boolean);
+        } else {
+          const data=e[method];
+          if(!data||!data.mons) return;
+          mons=data.mons;
+        }
+        mons.forEach(mon=>{
+          if(seenSpecies.has(mon.species)) return;
+          seenSpecies.add(mon.species);
+          const {mon:monData}=speciesNameToMon(mon.species);
+          if(!monData) return;
+          [monData.t1,monData.t2].filter(Boolean).forEach(t=>{
+            typeCounts[t]=(typeCounts[t]||0)+1;
+          });
+        });
+      });
+    });
+
+    const sorted=Object.entries(typeCounts).sort((a,b)=>b[1]-a[1]);
+    const total=sorted.reduce((s,[,n])=>s+n,0);
+    const mapName=mapToName(timeEntries[0].map);
+
+    // Build popup
+    const overlay=document.createElement('div');
+    overlay.style.cssText='position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;';
+    overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
+    const box=document.createElement('div');
+    box.style.cssText='background:#13192a;border:2px solid rgba(100,181,246,.3);border-radius:14px;width:100%;max-width:480px;max-height:80vh;overflow:hidden;display:flex;flex-direction:column;';
+    // Popup header
+    const ph=document.createElement('div');
+    ph.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border);background:rgba(100,181,246,.06);flex-shrink:0;';
+    const ptitle=document.createElement('div');ptitle.style.cssText='font-size:12px;font-weight:700;';ptitle.textContent='Type Distribution — '+mapName;
+    const pcl=document.createElement('button');pcl.type='button';pcl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';pcl.textContent='✕';
+    pcl.addEventListener('click',()=>overlay.remove());
+    ph.append(ptitle,pcl); box.appendChild(ph);
+    // Chart body
+    const pb=document.createElement('div');pb.style.cssText='padding:16px;overflow-y:auto;';
+    const subline=document.createElement('div');subline.style.cssText='font-size:11px;color:var(--gray);margin-bottom:14px;';
+    subline.textContent=`${seenSpecies.size} unique Pokémon · ${sorted.length} types · count includes dual types`;
+    pb.appendChild(subline);
+    sorted.forEach(([type,count])=>{
+      const col=TYPE_COLS[type]||'#888';
+      const pct=Math.round(count/total*100);
+      const row=document.createElement('div');row.style.cssText='display:grid;grid-template-columns:80px 1fr 36px;gap:8px;align-items:center;margin-bottom:10px;';
+      const lbl=document.createElement('div');lbl.style.cssText=`font-size:9px;font-family:'Press Start 2P',monospace;padding:3px 6px;border-radius:4px;background:${col}22;color:${col};border:1px solid ${col}44;text-align:center;`;lbl.textContent=type;
+      const barBg=document.createElement('div');barBg.style.cssText='background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;height:18px;';
+      const barFill=document.createElement('div');barFill.style.cssText=`height:100%;border-radius:4px;background:${col};width:0%;transition:width .6s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;padding-left:6px;font-size:9px;font-weight:700;color:#fff;`;
+      barFill.textContent=count;
+      barBg.appendChild(barFill);
+      const pctEl=document.createElement('div');pctEl.style.cssText=`font-size:10px;font-weight:700;color:${col};text-align:right;`;pctEl.textContent=pct+'%';
+      row.append(lbl,barBg,pctEl); pb.appendChild(row);
+      setTimeout(()=>{barFill.style.width=Math.max(8,Math.round(count/sorted[0][1]*100))+'%';},30);
+    });
+    box.appendChild(pb); overlay.appendChild(box); document.body.appendChild(overlay);
+  }
 
   function speciesNameToMon(species){
     const mon=SPECIES_INDEX(species);
