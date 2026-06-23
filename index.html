@@ -101,8 +101,53 @@
     .tb.type-Ghost{background:#5d5e9d;}.tb.type-Dragon{background:#5b61cf;}.tb.type-Dark{background:#5c4c3e;}
     .tb.type-Steel{background:#8e9bb3;}.tb.type-Fairy{background:#d980a0;}
 
-    /* Preview */
-    .sel-prev{display:none;flex-direction:column;margin-top:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:13px;color:var(--text);}
+    /* ── Pokédex Browser ─────────────────────────────────────────────────── */
+    #dex-browser{width:100%;max-width:min(1100px,calc(100vw - 64px));margin-bottom:32px;animation:fadeUp .5s ease .1s both;}
+    #dex-browser-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;border-radius:14px;border:2px solid rgba(206,147,216,.3);background:linear-gradient(135deg,rgba(206,147,216,.08),rgba(149,117,205,.04));cursor:pointer;transition:all .25s;width:100%;font-family:'Press Start 2P',monospace;font-size:11px;color:#ce93d8;letter-spacing:.5px;}
+    #dex-browser-btn:hover{border-color:#ce93d8;background:rgba(206,147,216,.12);transform:translateY(-2px);}
+    #dex-panel{display:none;margin-top:12px;background:#111827;border:1px solid rgba(206,147,216,.2);border-radius:14px;overflow:hidden;}
+    #dex-panel-header{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--border);background:rgba(206,147,216,.05);}
+    #dex-search{flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;transition:border-color .2s;}
+    #dex-search:focus{border-color:var(--pl);}
+    #dex-type-filter{display:flex;flex-wrap:wrap;gap:4px;padding:10px 18px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.01);}
+    #dex-group-filter{display:flex;flex-wrap:wrap;gap:4px;padding:8px 18px;border-bottom:1px solid var(--border);}
+    .dex-filter-chip{font-size:8px;padding:3px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:'Press Start 2P',monospace;border:1px solid transparent;}
+    #dex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;padding:16px;max-height:65vh;overflow-y:auto;}
+    .dex-tile{display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 6px 8px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);cursor:pointer;transition:all .2s;position:relative;}
+    .dex-tile:hover{border-color:var(--pl);background:rgba(206,147,216,.08);transform:translateY(-2px);}
+    .dex-tile img{width:64px;height:64px;image-rendering:pixelated;}
+    .dex-tile .dex-name{font-size:10px;font-weight:700;text-align:center;line-height:1.3;word-break:break-word;}
+    .dex-tile .dex-types{display:flex;gap:3px;flex-wrap:wrap;justify-content:center;}
+    .dex-tile .dex-group-chip{font-size:7px;font-family:'Press Start 2P',monospace;padding:1px 5px;border-radius:3px;margin-top:2px;}
+    #dex-count{font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;}
+    /* ── Encounter Browser ───────────────────────────────────────────────── */
+    #enc-browser{width:100%;max-width:min(1100px,calc(100vw - 64px));margin-bottom:24px;animation:fadeUp .5s ease .15s both;}
+    #enc-browser-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;border-radius:14px;border:2px solid rgba(100,181,246,.3);background:linear-gradient(135deg,rgba(100,181,246,.06),rgba(79,144,211,.02));cursor:pointer;transition:all .25s;width:100%;font-family:'Press Start 2P',monospace;font-size:11px;color:#64b5f6;letter-spacing:.5px;}
+    #enc-browser-btn:hover{border-color:#64b5f6;background:rgba(100,181,246,.1);transform:translateY(-2px);}
+    #enc-panel{display:none;margin-top:12px;background:#111827;border:1px solid rgba(100,181,246,.2);border-radius:14px;overflow:hidden;}
+    #enc-panel-header{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--border);background:rgba(100,181,246,.04);}
+    #enc-map-search{flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;transition:border-color .2s;}
+    #enc-map-search:focus{border-color:#64b5f6;}
+    #enc-map-list{width:220px;min-width:220px;border-right:1px solid var(--border);overflow-y:auto;max-height:70vh;flex-shrink:0;}
+    #enc-detail{flex:1;overflow-y:auto;max-height:70vh;padding:16px;}
+    #enc-body{display:flex;}
+    .enc-map-item{padding:10px 14px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;transition:background .15s;line-height:1.4;}
+    .enc-map-item:hover{background:rgba(100,181,246,.07);}
+    .enc-map-item.active{background:rgba(100,181,246,.12);border-left:3px solid #64b5f6;color:#64b5f6;font-weight:700;}
+    .enc-map-group-header{font-family:'Press Start 2P',monospace;font-size:8px;color:var(--gray);padding:10px 14px 4px;background:rgba(255,255,255,.02);border-bottom:1px solid var(--border);}
+    .enc-time-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:14px;}
+    .enc-time-tab{flex:1;padding:8px;font-size:9px;font-family:'Press Start 2P',monospace;cursor:pointer;border:none;background:transparent;color:var(--gray);border-bottom:2px solid transparent;transition:all .2s;}
+    .enc-time-tab.active{color:#64b5f6;border-bottom-color:#64b5f6;}
+    .enc-method-section{margin-bottom:16px;}
+    .enc-method-title{font-family:'Press Start 2P',monospace;font-size:9px;padding:6px 10px;border-radius:6px;margin-bottom:8px;display:inline-block;}
+    .enc-mon-grid{display:flex;flex-wrap:wrap;gap:6px;}
+    .enc-mon-chip{display:flex;align-items:center;gap:7px;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);cursor:pointer;transition:all .15s;min-width:140px;}
+    .enc-mon-chip:hover{background:rgba(100,181,246,.1);border-color:#64b5f6;}
+    .enc-mon-chip img{width:36px;height:36px;image-rendering:pixelated;flex-shrink:0;}
+    .enc-mon-info{display:flex;flex-direction:column;gap:2px;}
+    .enc-mon-name{font-size:11px;font-weight:700;}
+    .enc-mon-sub{font-size:9px;color:var(--gray);}
+    .enc-rate-pill{font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(240,198,0,.15);color:#f0c600;font-family:'Press Start 2P',monospace;flex-shrink:0;margin-left:auto;}background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:13px;color:var(--text);}
     .sel-prev.vis{display:flex;}
     .sel-prev .pico{width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;}
     .sel-prev-top{display:flex;align-items:center;gap:12px;padding:10px 14px 8px;}
@@ -472,6 +517,35 @@
   <h1>WONNILAND<br/>CREATION</h1>
   <p>Create a Pokémon for Wonni's Pokémon Wonniland version adventure!</p>
 </header>
+
+<!-- ── Pokédex Browser ──────────────────────────────────────────────────── -->
+<div id="dex-browser">
+  <button id="dex-browser-btn">📖 POKÉDEX BROWSER &nbsp;▼</button>
+  <div id="dex-panel">
+    <div id="dex-panel-header">
+      <input id="dex-search" placeholder="Search Pokémon…" autocomplete="off"/>
+      <span id="dex-count">—</span>
+      <button id="dex-close-btn" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">✕</button>
+    </div>
+    <div id="dex-type-filter"></div>
+    <div id="dex-group-filter"></div>
+    <div id="dex-grid"></div>
+  </div>
+</div>
+<!-- ── Encounter Browser ─────────────────────────────────────────────────── -->
+<div id="enc-browser">
+  <button id="enc-browser-btn">🌿 WILD ENCOUNTER BROWSER &nbsp;▼</button>
+  <div id="enc-panel">
+    <div id="enc-panel-header">
+      <input id="enc-map-search" placeholder="Search location…" autocomplete="off"/>
+      <button id="enc-close-btn" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">✕</button>
+    </div>
+    <div id="enc-body">
+      <div id="enc-map-list"></div>
+      <div id="enc-detail"><div style="color:var(--gray);font-size:12px;padding:40px;text-align:center;">← Select a location to see encounters</div></div>
+    </div>
+  </div>
+</div>
 
 <div id="mode-selector">
   <div class="mode-card pokemon-card" id="modePokeCard">
@@ -5647,11 +5721,298 @@ const trainerCard=document.getElementById('modeTrainerCard');
 // ── Load Pokemon data on startup ──────────────────────────────────────────────
 loadPokemonData().then(()=>{
   document.getElementById('loadingScreen')?.remove();
+  initDexBrowser();
+  initEncBrowser();
   console.log('✓ Wonniland Creation ready!');
 }).catch(e=>{
   document.getElementById('loadingScreen')?.remove();
   console.warn('Data load failed, using built-in fallback:', e);
 });
+
+// ── POKÉDEX BROWSER ───────────────────────────────────────────────────────────
+function initDexBrowser(){
+  const btn=document.getElementById('dex-browser-btn');
+  const panel=document.getElementById('dex-panel');
+  const searchEl=document.getElementById('dex-search');
+  const countEl=document.getElementById('dex-count');
+  const grid=document.getElementById('dex-grid');
+  const typeFilter=document.getElementById('dex-type-filter');
+  const groupFilter=document.getElementById('dex-group-filter');
+  let open=false, activeTypes=new Set(), activeGroups=new Set();
+
+  btn.addEventListener('click',()=>{
+    open=!open; panel.style.display=open?'block':'none';
+    btn.textContent=open?'📖 POKÉDEX BROWSER  ▲':'📖 POKÉDEX BROWSER  ▼';
+    if(open&&!grid.children.length) renderDex();
+  });
+  document.getElementById('dex-close-btn').addEventListener('click',()=>{
+    open=false;panel.style.display='none';btn.textContent='📖 POKÉDEX BROWSER  ▼';
+  });
+
+  // Build type filter chips
+  const ALL_TYPES=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
+  ALL_TYPES.forEach(t=>{
+    const chip=document.createElement('button');chip.type='button';chip.className='dex-filter-chip tb type-'+t.toLowerCase();
+    chip.textContent=t;chip.dataset.val=t;
+    chip.style.cssText=`background:var(--type-${t.toLowerCase()},rgba(255,255,255,.1));opacity:.5;`;
+    chip.addEventListener('click',()=>{
+      if(activeTypes.has(t)){activeTypes.delete(t);chip.style.opacity='.5';}
+      else{activeTypes.add(t);chip.style.opacity='1';chip.style.transform='scale(1.1)';}
+      setTimeout(()=>chip.style.transform='',150);
+      renderDex();
+    });
+    typeFilter.appendChild(chip);
+  });
+
+  // Build group filter chips
+  const allGroups=[...new Set(ALL_MON.map(m=>m.group||m._full?.group).filter(Boolean))].sort();
+  allGroups.forEach(g=>{
+    const col=GROUP_COLORS[g]||'#888';
+    const chip=document.createElement('button');chip.type='button';chip.className='dex-filter-chip';
+    chip.style.cssText=`border:1px solid ${col}55;background:${col}11;color:${col};opacity:.55;`;
+    chip.textContent=g;chip.dataset.val=g;
+    chip.addEventListener('click',()=>{
+      if(activeGroups.has(g)){activeGroups.delete(g);chip.style.opacity='.55';chip.style.fontWeight='';}
+      else{activeGroups.add(g);chip.style.opacity='1';chip.style.fontWeight='700';}
+      renderDex();
+    });
+    groupFilter.appendChild(chip);
+  });
+
+  searchEl.addEventListener('input',()=>renderDex());
+
+  function renderDex(){
+    const q=searchEl.value.toLowerCase().trim();
+    let mons=ALL_MON;
+    if(q) mons=mons.filter(m=>m.name.toLowerCase().includes(q));
+    if(activeTypes.size) mons=mons.filter(m=>[m.t1,m.t2].some(t=>activeTypes.has(t)));
+    if(activeGroups.size) mons=mons.filter(m=>activeGroups.has(m.group||m._full?.group));
+    countEl.textContent=mons.length+' Pokémon';
+    grid.innerHTML='';
+    mons.forEach(m=>{
+      const tile=document.createElement('div');tile.className='dex-tile';
+      const img=document.createElement('img');
+      img.src=`${PKM_BASE1}${getSpriteFile(m)}.png`;
+      img.loading='lazy'; img.onerror=()=>iconUrlFallback(img,m.id,m.spriteFile);
+      const name=document.createElement('div');name.className='dex-name';name.textContent=m.name;
+      const types=document.createElement('div');types.className='dex-types';
+      types.appendChild(tb(m.t1)); if(m.t2) types.appendChild(tb(m.t2));
+      tile.append(img,name,types);
+      const grp=m.group||m._full?.group;
+      if(grp){ tile.appendChild(groupChip(grp,{fontSize:'7px',padding:'1px 5px'})); }
+      tile.addEventListener('click',()=>showPokedex(m));
+      grid.appendChild(tile);
+    });
+  }
+}
+
+// ── ENCOUNTER BROWSER ─────────────────────────────────────────────────────────
+let WILD_ENC=null;
+function initEncBrowser(){
+  const btn=document.getElementById('enc-browser-btn');
+  const panel=document.getElementById('enc-panel');
+  const mapSearch=document.getElementById('enc-map-search');
+  const mapList=document.getElementById('enc-map-list');
+  const detail=document.getElementById('enc-detail');
+  let open=false, encData=null, currentMap=null, currentTime='Morning';
+  const RATES_LAND=[15,10,10,10,10,10,10,5,5,5,5,5];
+  const RATES_WATER=[50,20,15,10,5];
+  const RATES_FISH=[70,30,60,20,20];
+  const RATES_ROCK=[100,100];
+  const RATES_HIDDEN=[100,100,100,100,100,100,100,100,100,100,100,100];
+  const TIME_LABELS=['Morning','Day','Evening','Night'];
+  const TIME_ICONS={'Morning':'🌅','Day':'☀️','Evening':'🌆','Night':'🌙'};
+  const METHOD_META={
+    land_mons:{label:'Land',icon:'🌿',col:'#4caf50',rates:RATES_LAND},
+    water_mons:{label:'Surfing',icon:'🌊',col:'#4f90d3',rates:RATES_WATER},
+    fishing_mons:{label:'Fishing',icon:'🎣',col:'#64b5f6',rates:RATES_FISH},
+    rock_smash_mons:{label:'Rock Smash',icon:'🪨',col:'#b29a3c',rates:RATES_ROCK},
+    hidden_mons:{label:'Hidden',icon:'🍂',col:'#81c784',rates:RATES_HIDDEN},
+  };
+
+  btn.addEventListener('click',()=>{
+    open=!open; panel.style.display=open?'block':'none';
+    btn.textContent=open?'🌿 WILD ENCOUNTER BROWSER  ▲':'🌿 WILD ENCOUNTER BROWSER  ▼';
+    if(open&&!encData) loadEncData();
+  });
+  document.getElementById('enc-close-btn').addEventListener('click',()=>{
+    open=false;panel.style.display='none';btn.textContent='🌿 WILD ENCOUNTER BROWSER  ▼';
+  });
+
+  async function loadEncData(){
+    mapList.innerHTML='<div style="padding:20px;color:var(--gray);font-size:11px;">Loading…</div>';
+    try{
+      const r=await fetch('wild_encounters.json');
+      const d=await r.json();
+      encData=d.wild_encounter_groups[0].encounters;
+      WILD_ENC=encData;
+      buildMapList(encData);
+    }catch(e){
+      mapList.innerHTML='<div style="padding:20px;color:#e57373;font-size:11px;">Failed to load encounters.</div>';
+    }
+  }
+
+  function mapToName(m){
+    return m.replace('MAP_','').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  }
+
+  function buildMapList(enc){
+    // Group by unique map, preserve order
+    const seen=new Map();
+    enc.forEach(e=>{ if(!seen.has(e.map)) seen.set(e.map,e); });
+    const entries=[...seen.entries()];
+
+    // Group into sections
+    const sections=[
+      {label:'ROUTES',filter:m=>m.includes('ROUTE')&&!m.includes('SAFARI')},
+      {label:'CITIES & TOWNS',filter:m=>m.includes('CITY')||m.includes('TOWN')},
+      {label:'CAVES & TUNNELS',filter:m=>m.includes('CAVE')||m.includes('TUNNEL')||m.includes('CAVERN')},
+      {label:'WATER & ISLANDS',filter:m=>m.includes('ISLAND')||m.includes('OCEAN')||m.includes('SEA')},
+      {label:'SAFARI & SPECIAL',filter:m=>m.includes('SAFARI')||m.includes('BATTLE')||m.includes('RESORT')},
+      {label:'DUNGEONS & TOWERS',filter:m=>m.includes('TOWER')||m.includes('DUNGEON')||m.includes('RUIN')||m.includes('TOMB')},
+      {label:'OTHER AREAS',filter:()=>true},
+    ];
+    const assigned=new Set();
+    mapList.innerHTML='';
+
+    function addItem(mapKey){
+      const item=document.createElement('div');item.className='enc-map-item';
+      item.textContent=mapToName(mapKey);item.dataset.map=mapKey;
+      item.addEventListener('click',()=>{
+        mapList.querySelectorAll('.enc-map-item').forEach(i=>i.classList.remove('active'));
+        item.classList.add('active');
+        currentMap=mapKey;currentTime='Morning';
+        renderDetail(enc.filter(e=>e.map===mapKey));
+      });
+      mapList.appendChild(item);
+    }
+
+    sections.forEach(({label,filter})=>{
+      const inSection=entries.filter(([k])=>!assigned.has(k)&&filter(k));
+      if(!inSection.length) return;
+      const hdr=document.createElement('div');hdr.className='enc-map-group-header';hdr.textContent=label;
+      mapList.appendChild(hdr);
+      inSection.forEach(([k])=>{assigned.add(k);addItem(k);});
+    });
+  }
+
+  mapSearch.addEventListener('input',()=>{
+    const q=mapSearch.value.toLowerCase();
+    mapList.querySelectorAll('.enc-map-item').forEach(item=>{
+      const visible=item.textContent.toLowerCase().includes(q);
+      item.style.display=visible?'':'none';
+    });
+    mapList.querySelectorAll('.enc-map-group-header').forEach(hdr=>{
+      let next=hdr.nextElementSibling;let anyVisible=false;
+      while(next&&next.classList.contains('enc-map-item')){if(next.style.display!=='none')anyVisible=true;next=next.nextElementSibling;}
+      hdr.style.display=anyVisible?'':'none';
+    });
+  });
+
+  function speciesNameToMon(species){
+    // SPECIES_ZIGZAGOON_GALAR → try matching "Zigzagoon (Galar)" or "Zigzagoon-Galar"
+    const raw=species.replace(/^SPECIES_/,'');
+    // Try direct lookup by transforming to name
+    // Known suffixes that become parenthetical
+    const FORM_SUFFIXES=['GALAR','HISUI','ALOLA','PALDEA','MEGA','GMAX','SHADOW_RIDER','ICE_RIDER',
+      'AMPED','LOW_KEY','BLUE','RED','GREEN','YELLOW','WHITE','BLACK','STRIPED','FANCY','POKEBALL',
+      'ORIGINAL','THERIAN','INCARNATE','ARIA','PIROUETTE','BAILE','PA_THE_PATH','SINGLE_STRIKE',
+      'RAPID_STRIKE','STARTER','ETERNAMAX','CROWNED'];
+    let basePart=raw, formPart='';
+    for(const suf of FORM_SUFFIXES){
+      if(raw.endsWith('_'+suf)){basePart=raw.slice(0,raw.length-suf.length-1);formPart=suf;break;}
+    }
+    const baseName=basePart.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    const formName=formPart.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    const fullSearch=formName?`${baseName} (${formName})`:`${baseName}`;
+    // Try ALL_MON lookup
+    let mon=ALL_MON.find(m=>m.name.toLowerCase()===fullSearch.toLowerCase());
+    if(!mon) mon=ALL_MON.find(m=>m.name.toLowerCase()===baseName.toLowerCase());
+    if(!mon) mon=ALL_MON.find(m=>m.name.toLowerCase().includes(baseName.toLowerCase()));
+    return {mon, displayName:mon?mon.name:(fullSearch)};
+  }
+
+  function renderDetail(timeEntries){
+    detail.innerHTML='';
+    // Time tabs
+    const tabs=document.createElement('div');tabs.className='enc-time-tabs';
+    // Get available times
+    const availTimes=timeEntries.map(e=>{
+      const lbl=e.base_label;
+      for(const t of TIME_LABELS){if(lbl.endsWith('_'+t)||lbl.includes('_'+t+'_'))return t;}
+      return 'Day';
+    });
+    const uniqueTimes=[...new Set(availTimes.length?availTimes:['Day'])];
+    if(uniqueTimes.length<=1&&uniqueTimes[0]==='Day'){
+      // No time variation, just show all
+      renderMethods(timeEntries[0]||{});
+      return;
+    }
+    uniqueTimes.forEach(t=>{
+      const tab=document.createElement('button');tab.type='button';tab.className='enc-time-tab';
+      tab.textContent=TIME_ICONS[t]||''+'  '+t; tab.dataset.time=t;
+      if(t===currentTime) tab.classList.add('active');
+      tab.addEventListener('click',()=>{
+        currentTime=t;
+        tabs.querySelectorAll('.enc-time-tab').forEach(b=>b.classList.toggle('active',b.dataset.time===t));
+        methods.innerHTML='';
+        const entry=timeEntries[availTimes.indexOf(t)]||timeEntries[0];
+        renderMethods(entry);
+      });
+      tabs.appendChild(tab);
+    });
+    detail.appendChild(tabs);
+    const methods=document.createElement('div');detail.appendChild(methods);
+    const firstEntry=timeEntries[availTimes.indexOf(currentTime)]||timeEntries[0];
+    function renderMethods(entry){ methods.innerHTML=''; buildMethodSections(entry,methods); }
+    renderMethods(firstEntry);
+  }
+
+  function buildMethodSections(entry,container){
+    const METHODS=['land_mons','water_mons','fishing_mons','rock_smash_mons','hidden_mons'];
+    let hasAny=false;
+    METHODS.forEach(method=>{
+      const data=entry[method];
+      if(!data||!data.mons||!data.mons.length) return;
+      hasAny=true;
+      const meta=METHOD_META[method];
+      const sect=document.createElement('div');sect.className='enc-method-section';
+      const title=document.createElement('div');title.className='enc-method-title';
+      title.style.cssText=`background:${meta.col}18;color:${meta.col};border:1px solid ${meta.col}33;font-family:'Press Start 2P',monospace;font-size:9px;padding:5px 10px;border-radius:6px;margin-bottom:8px;display:inline-block;`;
+      title.textContent=`${meta.icon} ${meta.label}`;
+      const monGrid=document.createElement('div');monGrid.className='enc-mon-grid';
+      data.mons.forEach((mon,idx)=>{
+        const rate=meta.rates[idx]||'?';
+        const {mon:monData,displayName}=speciesNameToMon(mon.species);
+        const chip=document.createElement('div');chip.className='enc-mon-chip';
+        chip.style.borderColor=meta.col+'33';
+        const img=document.createElement('img');
+        if(monData){
+          img.src=`${PKM_BASE1}${getSpriteFile(monData)}.png`;
+          img.onerror=()=>iconUrlFallback(img,monData.id);
+        } else {
+          img.style.cssText='width:36px;height:36px;opacity:.3;';
+          img.src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+        }
+        const info=document.createElement('div');info.className='enc-mon-info';
+        const name=document.createElement('div');name.className='enc-mon-name';name.textContent=displayName;
+        const sub=document.createElement('div');sub.className='enc-mon-sub';
+        sub.textContent=`Lv. ${mon.min_level}${mon.min_level!==mon.max_level?'–'+mon.max_level:''}`;
+        const ratePill=document.createElement('div');ratePill.className='enc-rate-pill';ratePill.textContent=rate+'%';
+        info.append(name,sub); chip.append(img,info,ratePill);
+        if(monData) chip.addEventListener('click',()=>showPokedex(monData));
+        monGrid.appendChild(chip);
+      });
+      sect.append(title,monGrid); container.appendChild(sect);
+    });
+    if(!hasAny){
+      const empty=document.createElement('div');
+      empty.style.cssText='color:var(--gray);font-size:12px;padding:20px;text-align:center;';
+      empty.textContent='No encounter data for this location.';
+      container.appendChild(empty);
+    }
+  }
+}
 
 // Load Emerald protagonists sprite — use official Brendan artwork
 document.getElementById('trainerImg').src='https://i.redd.it/l4tso05j2p0e1.gif';
