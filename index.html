@@ -136,17 +136,17 @@
     .enc-map-item.active{background:rgba(100,181,246,.12);border-left:3px solid #64b5f6;color:#64b5f6;font-weight:700;}
     .enc-map-group-header{font-family:'Press Start 2P',monospace;font-size:8px;color:var(--gray);padding:10px 14px 4px;background:rgba(255,255,255,.02);border-bottom:1px solid var(--border);}
     .enc-time-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:14px;}
-    .enc-time-tab{flex:1;padding:8px;font-size:9px;font-family:'Press Start 2P',monospace;cursor:pointer;border:none;background:transparent;color:var(--gray);border-bottom:2px solid transparent;transition:all .2s;}
+    .enc-time-tab{flex:1;padding:14px 8px;font-size:18px;cursor:pointer;border:none;background:transparent;color:var(--gray);border-bottom:3px solid transparent;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:4px;}
     .enc-time-tab.active{color:#64b5f6;border-bottom-color:#64b5f6;}
     .enc-method-section{margin-bottom:16px;}
     .enc-method-title{font-family:'Press Start 2P',monospace;font-size:9px;padding:6px 10px;border-radius:6px;margin-bottom:8px;display:inline-block;}
     .enc-mon-grid{display:flex;flex-wrap:wrap;gap:6px;}
-    .enc-mon-chip{display:flex;align-items:center;gap:7px;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);cursor:pointer;transition:all .15s;min-width:140px;}
+    .enc-mon-chip{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);cursor:pointer;transition:all .15s;min-width:160px;}
     .enc-mon-chip:hover{background:rgba(100,181,246,.1);border-color:#64b5f6;}
-    .enc-mon-chip img{width:36px;height:36px;image-rendering:pixelated;flex-shrink:0;}
+    .enc-mon-chip img{width:52px;height:52px;image-rendering:pixelated;flex-shrink:0;}
     .enc-mon-info{display:flex;flex-direction:column;gap:2px;}
-    .enc-mon-name{font-size:11px;font-weight:700;}
-    .enc-mon-sub{font-size:9px;color:var(--gray);}
+    .enc-mon-name{font-size:13px;font-weight:700;margin-bottom:2px;}
+    .enc-mon-sub{font-size:10px;color:var(--gray);margin-bottom:3px;}
     .enc-rate-pill{font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(240,198,0,.15);color:#f0c600;font-family:'Press Start 2P',monospace;flex-shrink:0;margin-left:auto;}background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:13px;color:var(--text);}
     .sel-prev.vis{display:flex;}
     .sel-prev .pico{width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;}
@@ -5751,14 +5751,16 @@ function initDexBrowser(){
 
   // Build type filter chips
   const ALL_TYPES=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
+  // Type color map matching the game's palette
+  const TYPE_COLORS={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
   ALL_TYPES.forEach(t=>{
-    const chip=document.createElement('button');chip.type='button';chip.className='dex-filter-chip tb type-'+t.toLowerCase();
+    const chip=document.createElement('button');chip.type='button';chip.className='dex-filter-chip';
+    const col=TYPE_COLORS[t]||'#888';
+    chip.style.cssText=`background:${col}22;color:${col};border-color:${col}55;opacity:.65;font-size:9px;padding:4px 10px;font-family:'Press Start 2P',monospace;transition:all .15s;`;
     chip.textContent=t;chip.dataset.val=t;
-    chip.style.cssText=`background:var(--type-${t.toLowerCase()},rgba(255,255,255,.1));opacity:.5;`;
     chip.addEventListener('click',()=>{
-      if(activeTypes.has(t)){activeTypes.delete(t);chip.style.opacity='.5';}
-      else{activeTypes.add(t);chip.style.opacity='1';chip.style.transform='scale(1.1)';}
-      setTimeout(()=>chip.style.transform='',150);
+      if(activeTypes.has(t)){activeTypes.delete(t);chip.style.opacity='.65';chip.style.fontWeight='';}
+      else{activeTypes.add(t);chip.style.opacity='1';chip.style.fontWeight='700';chip.style.background=col+'55';chip.style.borderColor=col;}
       renderDex();
     });
     typeFilter.appendChild(chip);
@@ -5859,7 +5861,8 @@ function initEncBrowser(){
   function buildMapList(enc){
     // Group by unique map, preserve order
     const seen=new Map();
-    enc.forEach(e=>{ if(!seen.has(e.map)) seen.set(e.map,e); });
+    // Exclude FRLG maps
+    enc.filter(e=>!e.map.includes('_FR_')&&!e.map.includes('_LG_')&&!e.map.includes('FRLG')&&!e.base_label.includes('_FR_')&&!e.base_label.includes('_LG_')).forEach(e=>{ if(!seen.has(e.map)) seen.set(e.map,e); });
     const entries=[...seen.entries()];
 
     // Group into sections
@@ -5909,27 +5912,90 @@ function initEncBrowser(){
     });
   });
 
+  // Build robust SPECIES_ → ALL_MON lookup once
+  const SPECIES_INDEX=(()=>{
+    const idx={};
+    // Index by normalized name: remove punctuation, lowercase, spaces→underscore
+    const norm=s=>s.toLowerCase().replace(/[''\.♀♂:]/g,'').replace(/\s+/g,'_').replace(/-/g,'_').replace(/[()]/g,'');
+    ALL_MON.forEach(m=>{
+      idx[norm(m.name)]=m;
+      // Also index without form suffix for fallback
+      const base=m.name.replace(/\s*\([^)]*\)/g,'').replace(/^(Mega|GMax|Galarian|Hisuian|Alolan|Paldean)-/i,'').trim();
+      if(!idx[norm(base)]) idx[norm(base)]=m; // only first match as fallback
+    });
+    // Manual overrides for tricky cases
+    const OVERRIDES={
+      'SPECIES_NIDORAN_F':'Nidoran♀','SPECIES_NIDORAN_M':'Nidoran♂',
+      'SPECIES_FARFETCHD':'Farfetch\'d','SPECIES_FARFETCHD_GALAR':'Galarian-Farfetch\'d',
+      'SPECIES_MIME_JR':'Mime Jr.','SPECIES_JANGMO_O':'Jangmo-o',
+      'SPECIES_TYPE_NULL':'Type: Null','SPECIES_MR_MIME':'Mr. Mime',
+      'SPECIES_MR_RIME':'Mr. Rime','SPECIES_MR_MIME_GALAR':'Mr. Mime (Galarian)',
+      'SPECIES_FLABEBE_BLUE':'Flabébé (Blue)','SPECIES_FLABEBE_RED':'Flabébé (Red)',
+      'SPECIES_FLABEBE_YELLOW':'Flabébé (Yellow)','SPECIES_FLABEBE_WHITE':'Flabébé (White)',
+      'SPECIES_FLABEBE_ORANGE':'Flabébé (Orange)',
+      'SPECIES_BASCULIN_RED_STRIPED':'Basculin (Red)','SPECIES_BASCULIN_BLUE_STRIPED':'Basculin (Blue)',
+      'SPECIES_SHELLOS_WEST':'Shellos (West Sea)','SPECIES_SHELLOS_EAST':'Shellos (East Sea)',
+      'SPECIES_GASTRODON_WEST':'Gastrodon (West Sea)','SPECIES_GASTRODON_EAST':'Gastrodon (East Sea)',
+      'SPECIES_GRENINJA':'Greninja (Normal)','SPECIES_GRENINJA_ASH':'Greninja (Ash)',
+      'SPECIES_GRENINJA_BATTLE_BOND':'Greninja (Battle Bond)',
+      'SPECIES_GENESECT':'Genesect (Normal)',
+      'SPECIES_KELDEO':'Keldeo (Ordianry)','SPECIES_KELDEO_RESOLUTE':'Keldeo (Resolute)',
+      'SPECIES_SHAYMIN':'Shaymin (Land)','SPECIES_SHAYMIN_SKY':'Shaymin (Sky)',
+      'SPECIES_SILVALLY':'Silvally (Normal)',
+      'SPECIES_MORPEKO_FULL_BELLY':'Morpeko (Full Belly)','SPECIES_MORPEKO_HANGRY':'Morpeko (Hangry)',
+      'SPECIES_WISHIWASHI_SOLO':'Wishiwashi (Solo)','SPECIES_WISHIWASHI_SCHOOL':'Wishiwashi (School)',
+      'SPECIES_OGERPON_TEAL':'Ogerpon (Teal)','SPECIES_OGERPON_WELLSPRING':'Ogerpon (Wellspring Mask)',
+      'SPECIES_OGERPON_HEARTHFLAME':'Ogerpon (Hearthflame Mask)','SPECIES_OGERPON_CORNERSTONE':'Ogerpon (Cornerstone Mask)',
+      'SPECIES_TAUROS_PALDEA_COMBAT':'Paldean-Tauros-Combat','SPECIES_TAUROS_PALDEA_BLAZE':'Paldean-Tauros-Blaze',
+      'SPECIES_TAUROS_PALDEA_AQUA':'Paldean-Tauros-Aqua',
+    };
+    // Alcremie variants → all map to base Alcremie
+    // Unown variants → all map to Unown (A)
+    // Scatterbug variants → Scatterbug
+    // Pikachu cap variants → Pikachu
+    const FAMILY_FALLBACKS={
+      'ALCREMIE':'Alcremie','UNOWN':'Unown (A)','SCATTERBUG':'Scatterbug (Icy Snow)',
+      'PIKACHU_COSPLAY':'Pikachu','PIKACHU_HOENN':'Pikachu','PIKACHU_KALOS':'Pikachu',
+      'PIKACHU_SINNOH':'Pikachu','PIKACHU_UNOVA':'Pikachu','PIKACHU_WORLD':'Pikachu',
+      'PIKACHU_PARTNER':'Pikachu','PICHU_SPIKY_EARED':'Pichu',
+      'BURMY_SANDY':'Burmy','BURMY_TRASH':'Burmy',
+      'DEERLING_SUMMER':'Deerling','DEERLING_AUTUMN':'Deerling','DEERLING_WINTER':'Deerling',
+      'FLOETTE_ETERNAL':'Floette','FLABEBE_BLUE':'Flabébé','FLABEBE_ORANGE':'Flabébé',
+    };
+    // Return lookup function
+    return (species)=>{
+      if(species==='SPECIES_NONE') return null;
+      if(OVERRIDES[species]){
+        const name=OVERRIDES[species];
+        const m=ALL_MON.find(x=>x.name===name)||ALL_MON.find(x=>x.name.includes(name.split(' ')[0]));
+        return m||null;
+      }
+      const raw=species.replace('SPECIES_','');
+      // Check family fallbacks
+      for(const [key,name] of Object.entries(FAMILY_FALLBACKS)){
+        if(raw===key||raw.startsWith(key+'_')){
+          return ALL_MON.find(x=>x.name===name)||null;
+        }
+      }
+      // Try normalized lookup
+      const n=norm(raw.replace(/_/g,' '));
+      if(idx[n]) return idx[n];
+      // Try base name only (strip trailing word if form)
+      const parts=raw.split('_');
+      for(let i=parts.length;i>0;i--){
+        const attempt=norm(parts.slice(0,i).join(' '));
+        if(idx[attempt]) return idx[attempt];
+      }
+      return null;
+    };
+  })();
+
   function speciesNameToMon(species){
-    // SPECIES_ZIGZAGOON_GALAR → try matching "Zigzagoon (Galar)" or "Zigzagoon-Galar"
-    const raw=species.replace(/^SPECIES_/,'');
-    // Try direct lookup by transforming to name
-    // Known suffixes that become parenthetical
-    const FORM_SUFFIXES=['GALAR','HISUI','ALOLA','PALDEA','MEGA','GMAX','SHADOW_RIDER','ICE_RIDER',
-      'AMPED','LOW_KEY','BLUE','RED','GREEN','YELLOW','WHITE','BLACK','STRIPED','FANCY','POKEBALL',
-      'ORIGINAL','THERIAN','INCARNATE','ARIA','PIROUETTE','BAILE','PA_THE_PATH','SINGLE_STRIKE',
-      'RAPID_STRIKE','STARTER','ETERNAMAX','CROWNED'];
-    let basePart=raw, formPart='';
-    for(const suf of FORM_SUFFIXES){
-      if(raw.endsWith('_'+suf)){basePart=raw.slice(0,raw.length-suf.length-1);formPart=suf;break;}
-    }
-    const baseName=basePart.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-    const formName=formPart.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-    const fullSearch=formName?`${baseName} (${formName})`:`${baseName}`;
-    // Try ALL_MON lookup
-    let mon=ALL_MON.find(m=>m.name.toLowerCase()===fullSearch.toLowerCase());
-    if(!mon) mon=ALL_MON.find(m=>m.name.toLowerCase()===baseName.toLowerCase());
-    if(!mon) mon=ALL_MON.find(m=>m.name.toLowerCase().includes(baseName.toLowerCase()));
-    return {mon, displayName:mon?mon.name:(fullSearch)};
+    const mon=SPECIES_INDEX(species);
+    if(mon) return {mon, displayName:mon.name};
+    // Fallback display name
+    const raw=species.replace('SPECIES_','').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    return {mon:null, displayName:raw};
   }
 
   function renderDetail(timeEntries){
@@ -5950,7 +6016,9 @@ function initEncBrowser(){
     }
     uniqueTimes.forEach(t=>{
       const tab=document.createElement('button');tab.type='button';tab.className='enc-time-tab';
-      tab.textContent=TIME_ICONS[t]||''+'  '+t; tab.dataset.time=t;
+      const tabIcon=document.createElement('div');tabIcon.style.cssText='font-size:24px;line-height:1;';tabIcon.textContent=TIME_ICONS[t]||'🕐';
+      const tabLbl=document.createElement('div');tabLbl.style.cssText='font-size:8px;font-family:"Press Start 2P",monospace;';tabLbl.textContent=t;
+      tab.append(tabIcon,tabLbl); tab.dataset.time=t;
       if(t===currentTime) tab.classList.add('active');
       tab.addEventListener('click',()=>{
         currentTime=t;
@@ -5998,8 +6066,11 @@ function initEncBrowser(){
         const name=document.createElement('div');name.className='enc-mon-name';name.textContent=displayName;
         const sub=document.createElement('div');sub.className='enc-mon-sub';
         sub.textContent=`Lv. ${mon.min_level}${mon.min_level!==mon.max_level?'–'+mon.max_level:''}`;
+        // Type badges
+        const typeRow=document.createElement('div');typeRow.style.cssText='display:flex;gap:3px;flex-wrap:wrap;';
+        if(monData){typeRow.appendChild(tb(monData.t1));if(monData.t2)typeRow.appendChild(tb(monData.t2));}
         const ratePill=document.createElement('div');ratePill.className='enc-rate-pill';ratePill.textContent=rate+'%';
-        info.append(name,sub); chip.append(img,info,ratePill);
+        info.append(name,sub,typeRow); chip.append(img,info,ratePill);
         if(monData) chip.addEventListener('click',()=>showPokedex(monData));
         monGrid.appendChild(chip);
       });
