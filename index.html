@@ -3876,14 +3876,76 @@ function renderQ(){
     const delBtn=document.createElement('button');delBtn.type='button';delBtn.className='del-btn';delBtn.style.cssText='flex:0 0 auto;';delBtn.textContent='✕ Clear';
     const randB=document.createElement('button');randB.type='button';randB.className='rand-btn';randB.style.flex='1';randB.textContent='🎲 Randomize Item!';
     itemBtnRow.append(delBtn,randB); card.appendChild(itemBtnRow);
-        const wrap=document.createElement('div');wrap.className='ac-wrap';
+
+    // ── Item Filter Panel ─────────────────────────────────────────────────
+    // Collect unique values from ITEMS
+    const ITEM_POCKETS=[...new Set(ITEMS.map(i=>i.pocket).filter(Boolean))].sort();
+    const ITEM_CATS=[...new Set(ITEMS.map(i=>i.category).filter(Boolean))].sort();
+    const ITEM_USE_LABELS={'Battle Only':'Battle','Catching':'Catching','Field Use':'Field','Party Use':'Party','Usable':'Usable','B_X_ITEMS_CROSSUSE':'X-Item','EVO_HELD_ITEM_TYPE':'Evo Hold','ITEM_USE_MAIL':'Mail','ITEM_USE_PARTY_MENU_MOVES':'Move Use','ITEM_USE_PBLOCK_CASE':'Poffin'};
+    const ITEM_USES=[...new Set(ITEMS.map(i=>i.uses).filter(Boolean))].sort();
+    const activePockets=new Set(), activeCats=new Set();
+    // Toggle button
+    const itemFilterToggle=document.createElement('button');itemFilterToggle.type='button';
+    itemFilterToggle.style.cssText='display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);font-size:11px;cursor:pointer;margin-bottom:8px;transition:all .2s;width:100%;';
+    itemFilterToggle.innerHTML='<span style="font-family:\'Press Start 2P\',monospace;font-size:9px;">FILTER</span> <span id="iftArrow">▼</span>';
+    const itemFilterPanel=document.createElement('div');itemFilterPanel.style.cssText='overflow:hidden;max-height:0;transition:max-height .3s ease;margin-bottom:8px;';
+    const itemFilterInner=document.createElement('div');itemFilterInner.style.cssText='display:flex;flex-direction:column;gap:10px;padding:12px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:10px;';
+    let itemFilterOpen=false;
+    itemFilterToggle.addEventListener('click',()=>{
+      itemFilterOpen=!itemFilterOpen;
+      itemFilterPanel.style.maxHeight=itemFilterOpen?'500px':'0';
+      itemFilterToggle.querySelector('#iftArrow').textContent=itemFilterOpen?'▲':'▼';
+      itemFilterToggle.style.borderColor=itemFilterOpen?'var(--pl)':'var(--border)';
+    });
+    const mkItemFilterSection=(title,values,activeSet,colorFn)=>{
+      const sec=document.createElement('div');
+      const lbl=document.createElement('div');lbl.style.cssText='font-size:9px;font-family:"Press Start 2P",monospace;color:var(--gray);margin-bottom:6px;';lbl.textContent=title;
+      const btns=document.createElement('div');btns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';
+      values.forEach(v=>{
+        const col=colorFn(v);
+        const b=document.createElement('button');b.type='button';
+        b.style.cssText=`font-size:9px;padding:3px 9px;border-radius:5px;border:1px solid ${col}44;background:${col}11;color:${col};cursor:pointer;transition:all .15s;`;
+        b.textContent=v; b.dataset.val=v;
+        b.addEventListener('click',()=>{
+          if(activeSet.has(v)){activeSet.delete(v);b.style.background=col+'11';b.style.borderColor=col+'44';b.style.fontWeight='';}
+          else{activeSet.add(v);b.style.background=col+'44';b.style.borderColor=col;b.style.fontWeight='700';}
+          itemFilterToggle.style.borderColor=activePockets.size||activeCats.size?'var(--pl)':'var(--border)';
+          buildIDD(inp.value.trim());
+        });
+        btns.appendChild(b);
+      });
+      sec.append(lbl,btns); return sec;
+    };
+    const pocketColors={'Berries':'#4caf50','Items':'#64b5f6','Key Items':'#f0c600','Poké Balls':'#e8622a','TMs & HMs':'#ce93d8'};
+    const catColor=()=>'#9575cd';
+    itemFilterInner.append(
+      mkItemFilterSection('POCKET',ITEM_POCKETS,activePockets,v=>pocketColors[v]||'#888'),
+      mkItemFilterSection('CATEGORY',ITEM_CATS,activeCats,catColor),
+    );
+    // Clear filters btn
+    const clearItemFilter=document.createElement('button');clearItemFilter.type='button';
+    clearItemFilter.style.cssText='font-size:9px;padding:4px 12px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--gray);cursor:pointer;align-self:flex-start;margin-top:2px;';
+    clearItemFilter.textContent='✕ Clear Filters';
+    clearItemFilter.addEventListener('click',()=>{
+      activePockets.clear();activeCats.clear();
+      itemFilterInner.querySelectorAll('button[data-val]').forEach(b=>{
+        const col=b.style.color; b.style.background=col+'11'; b.style.borderColor=col+'44'; b.style.fontWeight='';
+      });
+      itemFilterToggle.style.borderColor='var(--border)';
+      buildIDD(inp.value.trim());
+    });
+    itemFilterInner.appendChild(clearItemFilter);
+    itemFilterPanel.appendChild(itemFilterInner);
+    card.appendChild(itemFilterToggle); card.appendChild(itemFilterPanel);
+
+    const wrap=document.createElement('div');wrap.className='ac-wrap';
     const inp=document.createElement('input');inp.type='text';inp.placeholder='Search items by name or description…';inp.autocomplete='off';inp.spellcheck=false;
     const dd=document.createElement('div');dd.className='dd';dd.style.maxHeight='60vh';
     const prev=document.createElement('div');prev.className='sel-prev';prev.style.cssText='display:none;flex-direction:column;gap:0;margin-bottom:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;overflow:hidden;';
     // Top row: sprite + name + info btn
     const pTop=document.createElement('div');pTop.style.cssText='display:flex;align-items:center;gap:12px;padding:12px 14px;';
     const pIco=document.createElement('img');pIco.className='pico';
-    pIco.style.cssText='width:52px;height:52px;image-rendering:pixelated;flex-shrink:0;mix-blend-mode:multiply;filter:drop-shadow(0 0 1px rgba(255,255,255,.1));';
+    pIco.style.cssText='width:44px;height:44px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:8px;padding:4px;box-sizing:border-box;';
     const pMain=document.createElement('div');pMain.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;';
     const pName=document.createElement('div');pName.style.cssText='font-size:15px;font-weight:700;';
     const pChips=document.createElement('div');pChips.style.cssText='display:flex;gap:5px;flex-wrap:wrap;';
@@ -3903,7 +3965,7 @@ function renderQ(){
     ipBox.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:14px;width:100%;max-width:480px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);';
     // popup header
     const ipHdr=document.createElement('div');ipHdr.style.cssText='display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(149,117,205,.1);border-bottom:1px solid rgba(149,117,205,.2);';
-    const ipIco=document.createElement('img');ipIco.style.cssText='width:40px;height:40px;image-rendering:pixelated;mix-blend-mode:multiply;filter:drop-shadow(0 0 1px rgba(255,255,255,.15));';
+    const ipIco=document.createElement('img');ipIco.style.cssText='width:36px;height:36px;image-rendering:pixelated;background:#fff;border-radius:7px;padding:3px;box-sizing:border-box;';
     const ipTitle=document.createElement('span');ipTitle.style.cssText='font-size:16px;font-weight:700;flex:1;';
     const ipClose=document.createElement('button');ipClose.type='button';
     ipClose.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';
@@ -3960,11 +4022,13 @@ function renderQ(){
     });
     function buildIDD(q){
       dd.innerHTML='';iai=-1;const q2=q.toLowerCase();
-      const matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;
+      let matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;
+      if(activePockets.size) matches=matches.filter(it=>activePockets.has(it.pocket));
+      if(activeCats.size) matches=matches.filter(it=>activeCats.has(it.category));
       matches.forEach(it=>{
         const item=document.createElement('div');item.className='dd-item';
         const ico=document.createElement('img');
-        ico.style.cssText='width:32px;height:32px;object-fit:contain;image-rendering:pixelated;flex-shrink:0;mix-blend-mode:multiply;filter:drop-shadow(0 0 1px rgba(255,255,255,.08));';
+        ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:6px;padding:2px;box-sizing:border-box;';
         ico.src=iUrl(it.slug);ico.loading='lazy';ico.onerror=()=>iFb(ico,it.slug);
         const info=document.createElement('div');info.className='dd-info';
         const top=document.createElement('div');top.className='dd-top';
@@ -4914,13 +4978,33 @@ function renderTrainerQ() {
     const del6=document.createElement('button');del6.type='button';del6.className='del-btn';del6.style.cssText='flex:0 0 auto;';del6.textContent='✕ Clear';
     const rand6=document.createElement('button');rand6.type='button';rand6.className='rand-btn';rand6.style.flex='1';rand6.textContent='🎲 Randomize Item!';
     t6BtnRow.append(del6,rand6); card.appendChild(t6BtnRow);
+
+    // ── Item Filter Panel (Trainer mode) ──────────────────────────────────
+    const activePockets6=new Set(), activeCats6=new Set();
+    const ift6Toggle=document.createElement('button');ift6Toggle.type='button';
+    ift6Toggle.style.cssText='display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);font-size:11px;cursor:pointer;margin-bottom:8px;transition:all .2s;width:100%;';
+    ift6Toggle.innerHTML='<span style="font-family:\'Press Start 2P\',monospace;font-size:9px;">FILTER</span> <span id="ift6Arrow">▼</span>';
+    const ift6Panel=document.createElement('div');ift6Panel.style.cssText='overflow:hidden;max-height:0;transition:max-height .3s ease;margin-bottom:8px;';
+    const ift6Inner=document.createElement('div');ift6Inner.style.cssText='display:flex;flex-direction:column;gap:10px;padding:12px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:10px;';
+    let ift6Open=false;
+    ift6Toggle.addEventListener('click',()=>{ift6Open=!ift6Open;ift6Panel.style.maxHeight=ift6Open?'500px':'0';ift6Toggle.querySelector('#ift6Arrow').textContent=ift6Open?'▲':'▼';ift6Toggle.style.borderColor=ift6Open?'var(--pl)':'var(--border)';});
+    const pocketColors6={'Berries':'#4caf50','Items':'#64b5f6','Key Items':'#f0c600','Poké Balls':'#e8622a','TMs & HMs':'#ce93d8'};
+    const ITEM_POCKETS6=[...new Set(ITEMS.map(i=>i.pocket).filter(Boolean))].sort();
+    const ITEM_CATS6=[...new Set(ITEMS.map(i=>i.category).filter(Boolean))].sort();
+    const mkIFS6=(title,values,activeSet,colorFn)=>{const sec=document.createElement('div');const lbl=document.createElement('div');lbl.style.cssText='font-size:9px;font-family:"Press Start 2P",monospace;color:var(--gray);margin-bottom:6px;';lbl.textContent=title;const btns=document.createElement('div');btns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';values.forEach(v=>{const col=colorFn(v);const b=document.createElement('button');b.type='button';b.style.cssText=`font-size:9px;padding:3px 9px;border-radius:5px;border:1px solid ${col}44;background:${col}11;color:${col};cursor:pointer;transition:all .15s;`;b.textContent=v;b.dataset.val=v;b.addEventListener('click',()=>{if(activeSet.has(v)){activeSet.delete(v);b.style.background=col+'11';b.style.borderColor=col+'44';b.style.fontWeight='';}else{activeSet.add(v);b.style.background=col+'44';b.style.borderColor=col;b.style.fontWeight='700';}ift6Toggle.style.borderColor=activePockets6.size||activeCats6.size?'var(--pl)':'var(--border)';buildIDD6(inp6.value.trim());});btns.appendChild(b);});sec.append(lbl,btns);return sec;};
+    ift6Inner.append(mkIFS6('POCKET',ITEM_POCKETS6,activePockets6,v=>pocketColors6[v]||'#888'),mkIFS6('CATEGORY',ITEM_CATS6,activeCats6,()=>'#9575cd'));
+    const clearIF6=document.createElement('button');clearIF6.type='button';clearIF6.style.cssText='font-size:9px;padding:4px 12px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--gray);cursor:pointer;align-self:flex-start;margin-top:2px;';clearIF6.textContent='✕ Clear Filters';
+    clearIF6.addEventListener('click',()=>{activePockets6.clear();activeCats6.clear();ift6Inner.querySelectorAll('button[data-val]').forEach(b=>{const col=b.style.color;b.style.background=col+'11';b.style.borderColor=col+'44';b.style.fontWeight='';});ift6Toggle.style.borderColor='var(--border)';buildIDD6(inp6.value.trim());});
+    ift6Inner.appendChild(clearIF6);ift6Panel.appendChild(ift6Inner);
+    card.appendChild(ift6Toggle);card.appendChild(ift6Panel);
+
     const wrap6=document.createElement('div');wrap6.className='ac-wrap';
     const inp6=document.createElement('input');inp6.type='text';inp6.placeholder='Search items by name or description…';inp6.autocomplete='off';inp6.spellcheck=false;
     const dd6=document.createElement('div');dd6.className='dd';dd6.style.maxHeight='60vh';
     // Preview card
     const prev6=document.createElement('div');prev6.style.cssText='display:none;flex-direction:column;gap:0;margin-bottom:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;overflow:hidden;';
     const p6Top=document.createElement('div');p6Top.style.cssText='display:flex;align-items:center;gap:12px;padding:12px 14px;';
-    const pIco6=document.createElement('img');pIco6.style.cssText='width:52px;height:52px;image-rendering:pixelated;flex-shrink:0;mix-blend-mode:multiply;filter:drop-shadow(0 0 1px rgba(255,255,255,.1));';
+    const pIco6=document.createElement('img');pIco6.style.cssText='width:44px;height:44px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:8px;padding:4px;box-sizing:border-box;';
     const p6Main=document.createElement('div');p6Main.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;';
     const pName6=document.createElement('div');pName6.style.cssText='font-size:15px;font-weight:700;';
     const p6Chips=document.createElement('div');p6Chips.style.cssText='display:flex;gap:5px;flex-wrap:wrap;';
@@ -4935,7 +5019,7 @@ function renderTrainerQ() {
     const ip6Popup=document.createElement('div');ip6Popup.style.cssText='display:none;position:fixed;inset:0;z-index:1200;align-items:center;justify-content:center;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);padding:16px;';
     const ip6Box=document.createElement('div');ip6Box.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:14px;width:100%;max-width:480px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);';
     const ip6Hdr=document.createElement('div');ip6Hdr.style.cssText='display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(149,117,205,.1);border-bottom:1px solid rgba(149,117,205,.2);';
-    const ip6Ico=document.createElement('img');ip6Ico.style.cssText='width:40px;height:40px;image-rendering:pixelated;mix-blend-mode:multiply;';
+    const ip6Ico=document.createElement('img');ip6Ico.style.cssText='width:36px;height:36px;image-rendering:pixelated;background:#fff;border-radius:7px;padding:3px;box-sizing:border-box;';
     const ip6Title=document.createElement('span');ip6Title.style.cssText='font-size:16px;font-weight:700;flex:1;';
     const ip6Close=document.createElement('button');ip6Close.type='button';ip6Close.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';ip6Close.textContent='✕';
     ip6Close.addEventListener('click',()=>{ip6Popup.style.display='none';document.body.style.overflow='';});
@@ -4949,7 +5033,7 @@ function renderTrainerQ() {
     document.body.appendChild(ip6Popup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
     let selItem6=null,iai6=-1;
-    function buildIDD6(q){dd6.innerHTML='';iai6=-1;const q2=q.toLowerCase();const matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;object-fit:contain;image-rendering:pixelated;flex-shrink:0;mix-blend-mode:multiply;';ico.src=iUrl6(it.slug);ico.loading='lazy';ico.onerror=()=>iFb6(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText=`font-size:8px;padding:1px 5px;border-radius:4px;font-family:"Press Start 2P",monospace;flex-shrink:0;background:${it.pocket==='Poké Balls'?'rgba(240,198,0,.15)':it.hold_effect?'rgba(76,175,80,.15)':'rgba(100,181,246,.15)'};color:${it.pocket==='Poké Balls'?'#f0c600':it.hold_effect?'var(--green)':'#64b5f6'}`;uB.textContent=it.pocket==='Poké Balls'?'Ball':it.hold_effect?'Hold':'Item';top.append(nm,idB,uB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI6(it);});dd6.appendChild(item);});}
+    function buildIDD6(q){dd6.innerHTML='';iai6=-1;const q2=q.toLowerCase();let matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;if(activePockets6.size)matches=matches.filter(it=>activePockets6.has(it.pocket));if(activeCats6.size)matches=matches.filter(it=>activeCats6.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl6(it.slug);ico.loading='lazy';ico.onerror=()=>iFb6(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText=`font-size:8px;padding:1px 5px;border-radius:4px;font-family:"Press Start 2P",monospace;flex-shrink:0;background:${it.pocket==='Poké Balls'?'rgba(240,198,0,.15)':it.hold_effect?'rgba(76,175,80,.15)':'rgba(100,181,246,.15)'};color:${it.pocket==='Poké Balls'?'#f0c600':it.hold_effect?'var(--green)':'#64b5f6'}`;uB.textContent=it.pocket==='Poké Balls'?'Ball':it.hold_effect?'Hold':'Item';top.append(nm,idB,uB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI6(it);});dd6.appendChild(item);});}
     function pickI6(it){
       selItem6=it;inp6.value=it.name;inp6.classList.add('valid');dd6.innerHTML='';
       pIco6.src=iUrl6(it.slug);pIco6.onerror=()=>iFb6(pIco6,it.slug);
