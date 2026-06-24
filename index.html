@@ -2015,6 +2015,7 @@ function makeAC(ph,list){
   const inp=document.createElement('input'); inp.type='text'; inp.placeholder=ph; inp.autocomplete='off'; inp.spellcheck=false;
   const dd=document.createElement('div'); dd.className='dd';
   const prev=document.createElement('div'); prev.className='sel-prev';
+  prev.style.display='none'; // hidden until pick()
   const pIco=document.createElement('img'); pIco.className='pico';
   // Top row
   const prevTop=document.createElement('div'); prevTop.className='sel-prev-top';
@@ -2192,9 +2193,9 @@ function makeAC(ph,list){
     }
     // --- Footer removed: Pokédex button is now top-right in the header ---
     const oldFoot=prev.querySelector('.sel-prev-footer'); if(oldFoot) oldFoot.remove();
-    prev.classList.add('vis');
+    prev.classList.add('vis'); prev.style.display='flex';
   }
-  inp.addEventListener('input',()=>{sel=null;inp.classList.remove('valid');prev.classList.remove('vis');build(inp.value.trim());});
+  inp.addEventListener('input',()=>{sel=null;inp.classList.remove('valid');prev.classList.remove('vis');prev.style.display='none';build(inp.value.trim());});
   inp.addEventListener('focus',()=>{if(!dd.children.length)build(inp.value.trim());});
   inp.addEventListener('click',()=>{if(!dd.children.length)build(inp.value.trim());});
   inp.addEventListener('keydown',e=>{
@@ -2399,11 +2400,11 @@ function makeMoveSearch(card, onDone, stepRef) {
         tabPanes[2].appendChild(h);
         const grid=document.createElement('div');grid.style.cssText='display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;';
         learners.sort((a,b)=>a.name.localeCompare(b.name)).forEach(({name,id,mon,level})=>{
-          const chip=document.createElement('div');chip.style.cssText='display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 6px;border-radius:7px;background:'+col+'11;border:1px solid '+col+'33;min-width:56px;cursor:default;transition:background .15s;';chip.title=name+(level?' (Lv.'+level+')':'');
-          const img=document.createElement('img');img.style.cssText='width:40px;height:40px;image-rendering:pixelated;';
+          const chip=document.createElement('div');chip.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 9px;border-radius:8px;background:'+col+'11;border:1px solid '+col+'33;min-width:70px;cursor:default;transition:background .15s;';chip.title=name+(level?' (Lv.'+level+')':'');
+          const img=document.createElement('img');img.style.cssText='width:52px;height:52px;image-rendering:pixelated;';
           if(mon){img.src=`${PKM_BASE1}${getSpriteFile(mon)}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);}
           else{img.style.cssText+='display:none;';}
-          const lbl=document.createElement('span');lbl.style.cssText='font-size:8px;color:var(--text);text-align:center;line-height:1.2;max-width:56px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';lbl.textContent=name;
+          const lbl=document.createElement('span');lbl.style.cssText='font-size:10px;font-weight:600;color:var(--text);text-align:center;line-height:1.3;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';lbl.textContent=name;
           if(level){const lvlTag=document.createElement('span');lvlTag.style.cssText='font-size:7px;color:'+col+';';lvlTag.textContent='Lv.'+level;chip.append(img,lbl,lvlTag);}
           else chip.append(img,lbl);
           grid.appendChild(chip);
@@ -2764,7 +2765,7 @@ function showPokedex(mon) {
       sprite.onerror = () => iconUrlFallback(sprite, mon.spriteId||mon.baseId);
     }
     // Shiny sparkle filter
-    sprite.style.filter = shiny ? 'drop-shadow(0 0 8px #f0c60088) drop-shadow(0 0 3px #ffffffcc)' : '';
+    sprite.style.filter = '';
   }
 
   // Sprite control pills
@@ -3834,25 +3835,28 @@ function renderQ(){
     updateGmaxIndicator();
 
     const gmaxRow=document.createElement('div'); gmaxRow.className='g-opts'; let gmax=null;
-    [['⚡ Yes — GMax Factor!','Yes','sy'],['No','No','sn']].forEach(([l,k,c])=>{const b=document.createElement('div');b.className='g-btn';b.textContent=l;b.addEventListener('click',()=>{
-      gmax=k;gmaxRow.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn');b.className=`g-btn ${c}`;
-      // Update preview sprite to GMax form if Yes, else revert
-      const gmaxPreview=card.querySelector('.gmax-sprite-preview');
-      if(k==='Yes'){
-        const selMon=ans[1]&&ans[1].mon;
-        if(selMon){
-          const gmaxName='GMax-'+selMon.name;
-          const gmaxMon=ALL_MON.find(m=>m.name.toLowerCase()===gmaxName.toLowerCase());
-          if(gmaxPreview && gmaxMon){
-            const sf=getSpriteFile(gmaxMon);
-            gmaxPreview.src=`${PKM_BASE1}${sf}.png`;
-            gmaxPreview.onerror=()=>iconUrlFallback(gmaxPreview,gmaxMon.id,sf);
-            gmaxPreview.style.opacity='1';
-            gmaxPreview.title=gmaxName;
-          } else if(gmaxPreview){ gmaxPreview.style.opacity='.3'; }
-        }
-      } else if(gmaxPreview){ gmaxPreview.style.opacity='.3'; }
-    });gmaxRow.appendChild(b);});
+    const gmaxBtns=[];
+    [['⚡ Yes — GMax Factor!','Yes','sy'],['No','No','sn']].forEach(([l,k,c])=>{
+      const b=document.createElement('div');b.className='g-btn';b.textContent=l;
+      b.addEventListener('click',()=>{
+        if(b.dataset.disabled==='1') return;
+        gmax=k;gmaxRow.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn');b.className=`g-btn ${c}`;
+      });
+      gmaxRow.appendChild(b); gmaxBtns.push({btn:b,key:k,cls:c});
+    });
+    function applyGmaxEligibility(){
+      const selMon=ans[1]&&ans[1].mon;
+      const canGMax=selMon?!!ALL_MON.find(m=>m.name.toLowerCase()===('gmax-'+selMon.name).toLowerCase()):true;
+      const [yBtn,nBtn]=gmaxBtns;
+      if(!canGMax){
+        yBtn.btn.style.cssText='opacity:.3;cursor:not-allowed;pointer-events:none;filter:grayscale(1);';
+        yBtn.btn.dataset.disabled='1';
+        if(gmax!=='No'){ gmax='No'; gmaxRow.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn'); nBtn.btn.className='g-btn sn'; }
+      } else {
+        yBtn.btn.style.cssText=''; yBtn.btn.dataset.disabled='';
+      }
+    }
+    applyGmaxEligibility();
     card.append(gmaxH,gmaxSub,gmaxImg,gmaxRow);
     const div=document.createElement('div'); div.style.cssText='height:1px;background:var(--border);margin:20px 0;'; card.appendChild(div);
     const dxH=document.createElement('div'); dxH.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; dxH.textContent='Choose your Dynamax Level:';
@@ -3936,9 +3940,14 @@ function renderQ(){
         const withIv=calcFinalStat(base,ivD[k]||0,0,isHp);
         const withAll=calcFinalStat(base,ivD[k]||0,evD[k]||0,isHp);
         const {f1,f2,f3,val}=prevBarEls[i];
-        f1.style.width=Math.min(100,withBase/MAX_STAT*100)+'%';
-        f2.style.width=Math.min(100,withIv/MAX_STAT*100)+'%';
-        f3.style.width=Math.min(100,withAll/MAX_STAT*100)+'%';
+        // Stacked segments: f1=base width, f2=base+IV width (f2-f1 is the IV addition), f3=full
+        // All start at left=0 and stack by opacity, so visual layering shows contributions
+        const basePct=Math.min(100,withBase/MAX_STAT*100);
+        const ivPct=Math.min(100,withIv/MAX_STAT*100);
+        const allPct=Math.min(100,withAll/MAX_STAT*100);
+        f1.style.width=basePct+'%';   // base: dim
+        f2.style.width=ivPct+'%';     // +IVs: medium (overlaps base, makes that section brighter)
+        f3.style.width=allPct+'%';    // +EVs: full (overlaps previous two)
         val.textContent=withAll;
       });
     }
@@ -4007,7 +4016,7 @@ function renderQ(){
     const IB='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
     const IF='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/';
     const iUrl=slug=>`${IB}${slug}.png`;
-    const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=null;img.style.visibility='hidden';};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else{img.onerror=null;img.style.visibility='hidden';}};
+    const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.style.opacity='.3';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.style.opacity='.3';}};
     const itemBtnRow=document.createElement('div');itemBtnRow.style.cssText='display:flex;gap:8px;margin-bottom:10px;';
     const delBtn=document.createElement('button');delBtn.type='button';delBtn.className='del-btn';delBtn.style.cssText='flex:0 0 auto;';delBtn.textContent='✕ Clear';
     const randB=document.createElement('button');randB.type='button';randB.className='rand-btn';randB.style.flex='1';randB.textContent='🎲 Randomize Item!';
@@ -5109,7 +5118,7 @@ function renderTrainerQ() {
     const IB6='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
     const IF6='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/';
     const iUrl6=slug=>`${IB6}${slug}.png`;
-    const iFb6=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=null;img.style.visibility='hidden';};img.src=`${IF6}${slug.replace(/_/g,'-')}.png`;}else{img.onerror=null;img.style.visibility='hidden';}};
+    const iFb6=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.style.opacity='.3';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF6}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.style.opacity='.3';}};
     const t6BtnRow=document.createElement('div');t6BtnRow.style.cssText='display:flex;gap:8px;margin-bottom:10px;';
     const del6=document.createElement('button');del6.type='button';del6.className='del-btn';del6.style.cssText='flex:0 0 auto;';del6.textContent='✕ Clear';
     const rand6=document.createElement('button');rand6.type='button';rand6.className='rand-btn';rand6.style.flex='1';rand6.textContent='🎲 Randomize Item!';
@@ -5335,9 +5344,14 @@ function renderTrainerQ() {
         const withIv=calcFinalStat(base,ivD[k]||0,0,isHp);
         const withAll=calcFinalStat(base,ivD[k]||0,evD[k]||0,isHp);
         const {f1,f2,f3,val}=prevBarEls[i];
-        f1.style.width=Math.min(100,withBase/MAX_STAT*100)+'%';
-        f2.style.width=Math.min(100,withIv/MAX_STAT*100)+'%';
-        f3.style.width=Math.min(100,withAll/MAX_STAT*100)+'%';
+        // Stacked segments: f1=base width, f2=base+IV width (f2-f1 is the IV addition), f3=full
+        // All start at left=0 and stack by opacity, so visual layering shows contributions
+        const basePct=Math.min(100,withBase/MAX_STAT*100);
+        const ivPct=Math.min(100,withIv/MAX_STAT*100);
+        const allPct=Math.min(100,withAll/MAX_STAT*100);
+        f1.style.width=basePct+'%';   // base: dim
+        f2.style.width=ivPct+'%';     // +IVs: medium (overlaps base, makes that section brighter)
+        f3.style.width=allPct+'%';    // +EVs: full (overlaps previous two)
         val.textContent=withAll;
       });
     }
@@ -5374,7 +5388,7 @@ function renderTrainerQ() {
     const IB='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
     const IF='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/';
     const iUrl=slug=>`${IB}${slug}.png`;
-    const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=null;img.style.visibility='hidden';};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else{img.onerror=null;img.style.visibility='hidden';}};
+    const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.style.opacity='.3';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.style.opacity='.3';}};
     let selBall=null;
     const prev=document.createElement('div'); prev.className='sel-prev';
     const pIco=document.createElement('img'); pIco.className='pico'; pIco.style.cssText='width:36px;height:36px;image-rendering:pixelated;';
