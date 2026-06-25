@@ -841,75 +841,88 @@ const QLBLS=['👤 OT Name','🎮 Pokémon','📛 Nickname','✨ Shiny?','🌿 N
 function updPokemonCard(){
   const panel=document.getElementById('pokemon-card-panel');
   if(!panel) return;
-  // Only show in Pokemon creation mode with at least Q2 (species) answered
   const isPkmMode=currentMode==='pokemon'||(currentMode==='trainer'&&trainerPhase==='pokemon');
-  const slot = currentMode==='trainer' ? (team[currentSlot]||{}) : ans;
-  const monAns = currentMode==='trainer' ? slot[POKEMON_Q_START] : ans[1];
-  const mon = monAns?.mon;
-  if(!mon || !isPkmMode){ panel.style.display='none'; return; }
+  const slot=currentMode==='trainer'?(team[currentSlot]||{}):ans;
+  const mon=(currentMode==='trainer'?slot[POKEMON_Q_START]:ans[1])?.mon;
+  if(!mon||!isPkmMode){panel.style.display='none';return;}
   panel.style.display='block';
 
-  // Gather answers
-  const getA = (i) => currentMode==='trainer' ? slot[POKEMON_Q_START+i]?.value : ans[i+1]?.value;
-  const nickname = getA(1)||'';
-  const ability  = getA(3)||'';
-  const natureTxt= getA(4)||'';
-  const shiny    = getA(5)||'';
-  const item     = currentMode==='trainer' ? slot[POKEMON_Q_START+2]?.value : ans[3]?.value;
-  const teraType = getA(10)||'';
-  const movesAns = currentMode==='trainer' ? slot[POKEMON_Q_START+11]?.moves : ans[12]?.moves;
-  const gmaxAns  = currentMode==='trainer' ? slot[POKEMON_Q_START+9]?.value : ans[10]?.value;
+  // ── Read answers with correct step indices (Pokemon mode) ──────────────────
+  // ans[1]=species, ans[2]=nickname, ans[3]=shiny, ans[4]=ability,
+  // ans[5]=nature, ans[6]=tera, ans[7]=gmax, ans[8]=ivev, ans[9]=ivev_custom
+  // ans[10]=item, ans[11]=moves
+  const ga=i=>currentMode==='trainer'?slot[POKEMON_Q_START+i-1]?.value:ans[i]?.value;
+  const nickname = ga(2)||'';
+  const shinyVal = ga(3)||'';
+  const ability  = ga(4)||'';
+  const natureTxt= ga(5)||'';
+  const teraType = ga(6)||'';
+  const gmaxAns  = ga(7)||'';
+  const ivevAns  = currentMode==='trainer'?slot[POKEMON_Q_START+7]:ans[8];
+  const itemVal  = ga(10)||'';
+  const movesAns = (currentMode==='trainer'?slot[POKEMON_Q_START+10]:ans[11])?.moves||[];
 
-  const isShiny = shiny.toLowerCase().includes('yes')||shiny==='✨ Yes';
-  const sf = getSpriteFile(mon);
-  const bst = mon.bst||0;
-  const baseStats = getBaseStats(mon);
-  const STAT_LBLS2=['HP','Atk','Def','SpA','SpD','Spe'];
-  const STAT_COLS2=['#E3350D','#e8622a','#f0c600','#4f90d3','#4caf50','#db3c6c'];
+  const isShiny=shinyVal.toLowerCase().includes('yes')||shinyVal.includes('✨');
+  const sf=getSpriteFile(mon);
+  const bst=mon.bst||0;
+  const baseStats=getBaseStats(mon);
+  const SLBLS=['HP','Atk','Def','SpA','SpD','Spe'];
+  const SCOLS=['#E3350D','#e8622a','#f0c600','#4f90d3','#4caf50','#db3c6c'];
+  const TYPE_COL={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
+  const typeColor=TYPE_COL[mon.t1]||'#9575cd';
+  const grp=mon.group||mon._full?.group||'';
 
-  // Nature mods
-  const natEntry = NATURES.find(n=>natureTxt.startsWith(n.name));
-  const typeColor = {Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'}[mon.t1]||'#9575cd';
-  const grp = mon.group||mon._full?.group||'';
-  const grpCol = GROUP_COLORS[grp]||'#888';
+  // Nature stat modifiers
+  const natEntry=NATURES.find(n=>natureTxt.startsWith(n.name));
+  const NAT_MAP={'Atk':1,'Def':2,'SpA':3,'SpD':4,'Spe':5};
+  const upIdx=natEntry?.up?NAT_MAP[natEntry.up]??-1:-1;
+  const dnIdx=natEntry?.dn?NAT_MAP[natEntry.dn]??-1:-1;
 
-  // Count answered questions
-  const totalQ = currentMode==='trainer' ? 12 : 12;
-  let answered=0;
-  for(let i=1;i<=12;i++){
-    const a=currentMode==='trainer'?slot[POKEMON_Q_START+i-1]:ans[i];
-    if(a) answered++;
+  // IV/EV values (from ivevAns object if preset, or ivD/evD from custom)
+  const ivArr=[31,31,31,31,31,31]; // defaults
+  const evArr=[0,0,0,0,0,0];
+  if(ivevAns){
+    const raw=typeof ivevAns==='object'?ivevAns:null;
+    if(raw?.ivs) SKEYS.forEach((k,i)=>{ivArr[i]=raw.ivs[k]??31;});
+    if(raw?.evs) SKEYS.forEach((k,i)=>{evArr[i]=raw.evs[k]??0;});
+    // Try ivD/evD globals (custom mode)
+    if(typeof ivD!=='undefined') SKEYS.forEach((k,i)=>{ivArr[i]=ivD[k]??31;evArr[i]=evD[k]??0;});
   }
-  const pct=Math.round(answered/totalQ*100);
+
+  // Item lookup
+  const itemName=itemVal.split(' (#')[0];
+  const itemData=ITEMS.find(it=>it.name===itemName)||null;
+
+  // Progress count
+  let answered=0;
+  for(let i=1;i<=11;i++){const a=currentMode==='trainer'?slot[POKEMON_Q_START+i-1]:ans[i];if(a)answered++;}
+  const pct=Math.round(answered/11*100);
 
   panel.innerHTML='';
-  // Card
   const card=document.createElement('div');
   card.style.cssText=`background:linear-gradient(160deg,#1a2235,#141b2d);border:2px solid ${typeColor}44;border-radius:14px;overflow:hidden;box-shadow:0 0 20px ${typeColor}10,0 8px 32px rgba(0,0,0,.4);`;
 
-  // Header: sprite + identity
+  // ── Header ──────────────────────────────────────────────────────────────────
   const hdr=document.createElement('div');
   hdr.style.cssText=`display:flex;align-items:center;gap:12px;padding:14px 16px 10px;background:linear-gradient(135deg,${typeColor}12,rgba(255,255,255,.01));border-bottom:1px solid rgba(255,255,255,.06);position:relative;`;
   const spr=document.createElement('img');
   spr.style.cssText='width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;';
-  if(isShiny){ spr.src=`${PKM_SHINY1}${sf}.png`; spr.onerror=()=>shinyUrlFallback(spr,mon.id,sf); }
-  else { spr.src=`${PKM_BASE1}${sf}.png`; spr.onerror=()=>iconUrlFallback(spr,mon.id); }
-  const ident=document.createElement('div');ident.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;';
+  if(isShiny){spr.src=`${PKM_SHINY1}${sf}.png`;spr.onerror=()=>shinyUrlFallback(spr,mon.id,sf);}
+  else{spr.src=`${PKM_BASE1}${sf}.png`;spr.onerror=()=>iconUrlFallback(spr,mon.id);}
+  const ident=document.createElement('div');ident.style.cssText='display:flex;flex-direction:column;gap:3px;flex:1;min-width:0;';
   const dispName=document.createElement('div');dispName.style.cssText='font-size:15px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
   dispName.textContent=nickname||mon.name;
-  const speciesSub=document.createElement('div');speciesSub.style.cssText='font-size:10px;color:var(--gray);';
-  speciesSub.textContent=nickname?mon.name:''+(isShiny?' ✨ Shiny':'');
-  if(isShiny&&!nickname) speciesSub.textContent='✨ Shiny';
-  const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:4px;flex-wrap:wrap;margin-top:2px;';
-  typesRow.appendChild(tb(mon.t1)); if(mon.t2) typesRow.appendChild(tb(mon.t2));
-  if(grp){ const gc=groupChip(grp,{fontSize:'6px',padding:'1px 5px'}); typesRow.appendChild(gc); }
-  ident.append(dispName,speciesSub,typesRow);
-  const dexLbl=document.createElement('div');
-  dexLbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#333;position:absolute;top:10px;right:12px;';
-  if(mon.id) dexLbl.textContent='#'+String(mon.id).padStart(4,'0');
-  hdr.append(spr,ident,dexLbl); card.appendChild(hdr);
+  const sub=document.createElement('div');sub.style.cssText='font-size:10px;color:var(--gray);';
+  sub.textContent=(nickname?mon.name+' · ':'')+(isShiny?'✨ Shiny':'');
+  const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:4px;flex-wrap:wrap;margin-top:1px;';
+  typesRow.appendChild(tb(mon.t1));if(mon.t2)typesRow.appendChild(tb(mon.t2));
+  if(grp)typesRow.appendChild(groupChip(grp,{fontSize:'6px',padding:'1px 5px'}));
+  ident.append(dispName,sub,typesRow);
+  const dexN=document.createElement('div');dexN.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#333;position:absolute;top:10px;right:12px;';
+  if(mon.id)dexN.textContent='#'+String(mon.id).padStart(4,'0');
+  hdr.append(spr,ident,dexN);card.appendChild(hdr);
 
-  // BST row
+  // ── BST ─────────────────────────────────────────────────────────────────────
   if(bst){
     const bstCol=bst>=600?'#E3350D':bst>=500?'#ff9800':bst>=400?'#f0c600':'#4caf50';
     const bstRow=document.createElement('div');bstRow.style.cssText='display:flex;align-items:center;gap:8px;padding:8px 14px;border-bottom:1px solid rgba(255,255,255,.04);';
@@ -917,64 +930,106 @@ function updPokemonCard(){
     const bstL=document.createElement('span');bstL.style.cssText=`font-family:'Press Start 2P',monospace;font-size:7px;color:${bstCol};opacity:.7;`;bstL.textContent='BST';
     const bstV=document.createElement('span');bstV.style.cssText=`font-size:14px;font-weight:900;color:${bstCol};`;bstV.textContent=bst;
     bstTile.append(bstL,bstV);
-    const bstBarBg=document.createElement('div');bstBarBg.style.cssText='flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden;';
-    const bstFill=document.createElement('div');bstFill.style.cssText=`height:100%;border-radius:3px;background:${bstCol};width:0%;transition:width .5s ease;`;
-    bstBarBg.appendChild(bstFill); bstRow.append(bstTile,bstBarBg); card.appendChild(bstRow);
-    setTimeout(()=>bstFill.style.width=Math.min(100,Math.round(bst/720*100))+'%',50);
+    const bstBg=document.createElement('div');bstBg.style.cssText='flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden;';
+    const bstFl=document.createElement('div');bstFl.style.cssText=`height:100%;border-radius:3px;background:${bstCol};width:0%;transition:width .5s ease;`;
+    bstBg.appendChild(bstFl);bstRow.append(bstTile,bstBg);card.appendChild(bstRow);
+    setTimeout(()=>bstFl.style.width=Math.min(100,Math.round(bst/720*100))+'%',50);
   }
 
-  // Stat bars
+  // ── Stat bars with Nature coloring + IV/EV final values ─────────────────────
   if(baseStats){
-    const statsGrid=document.createElement('div');statsGrid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:8px 12px 10px;border-bottom:1px solid rgba(255,255,255,.04);';
-    baseStats.forEach((v,i)=>{
-      const col=STAT_COLS2[i];
+    const sg=document.createElement('div');sg.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:8px 12px 10px;border-bottom:1px solid rgba(255,255,255,.04);';
+    baseStats.forEach((base,i)=>{
+      const isHp=i===0;
+      const isUp=i===upIdx, isDn=i===dnIdx;
+      const mod=isUp?1.1:isDn?0.9:1.0;
+      // Lv50 stat with IVs+EVs
+      const finalStat=isHp
+        ?Math.floor((2*base+ivArr[i]+Math.floor(evArr[i]/4))*50/100)+60
+        :Math.floor((Math.floor((2*base+ivArr[i]+Math.floor(evArr[i]/4))*50/100)+5)*mod);
+      const barCol=isUp?'#4caf50':isDn?'#E3350D':SCOLS[i];
       const sc=document.createElement('div');sc.style.cssText='display:flex;flex-direction:column;align-items:center;gap:2px;';
-      const sl=document.createElement('div');sl.style.cssText=`font-family:'Press Start 2P',monospace;font-size:6px;color:${col};`;sl.textContent=STAT_LBLS2[i];
-      const bg=document.createElement('div');bg.style.cssText='width:100%;height:44px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;';
-      const fill=document.createElement('div');fill.style.cssText=`width:100%;border-radius:4px;background:${col};height:0%;transition:height .5s cubic-bezier(.4,0,.2,1);`;
-      bg.appendChild(fill);
-      const sv=document.createElement('div');sv.style.cssText=`font-size:9px;font-weight:800;color:${col};`;sv.textContent=v;
-      sc.append(sl,bg,sv); statsGrid.appendChild(sc);
-      setTimeout(()=>fill.style.height=Math.min(100,Math.round(v/255*100))+'%',60+i*20);
+      const sl=document.createElement('div');sl.style.cssText=`font-family:'Press Start 2P',monospace;font-size:6px;color:${barCol};`;sl.textContent=SLBLS[i];
+      const bg=document.createElement('div');bg.style.cssText='width:100%;height:48px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;position:relative;';
+      // Base layer (dim)
+      const f1=document.createElement('div');f1.style.cssText=`position:absolute;bottom:0;left:0;width:100%;border-radius:4px;background:${barCol};opacity:.2;height:0%;transition:height .5s cubic-bezier(.4,0,.2,1);`;
+      // Final fill
+      const f3=document.createElement('div');f3.style.cssText=`position:absolute;bottom:0;left:0;width:100%;border-radius:4px;background:${barCol};${isUp?'box-shadow:0 0 6px '+barCol+'99;':isDn?'':''}height:0%;transition:height .5s cubic-bezier(.4,0,.2,1);`;
+      bg.append(f1,f3);
+      // Nature arrow indicator
+      if(isUp||isDn){
+        const arrow=document.createElement('div');arrow.style.cssText=`position:absolute;top:2px;right:3px;font-size:10px;line-height:1;z-index:2;`;
+        arrow.textContent=isUp?'▲':'▼'; bg.appendChild(arrow);
+      }
+      const sv=document.createElement('div');
+      sv.style.cssText=`font-size:9px;font-weight:800;color:${isUp?'#4caf50':isDn?'#E3350D':SCOLS[i]};`;
+      sv.textContent=finalStat;
+      sc.append(sl,bg,sv);sg.appendChild(sc);
+      const basePct=Math.min(100,Math.round(base/255*100));
+      const finalPct=Math.min(100,Math.round(finalStat/(isHp?500:400)*100));
+      setTimeout(()=>{f1.style.height=basePct+'%';f3.style.height=finalPct+'%';},60+i*20);
     });
-    card.appendChild(statsGrid);
+    card.appendChild(sg);
   }
 
-  // Details
-  const details=document.createElement('div');details.style.cssText='display:flex;flex-direction:column;';
-  const mkDR=(lbl,val,col)=>{
-    if(!val) return null;
+  // ── Details ─────────────────────────────────────────────────────────────────
+  const details=document.createElement('div');
+  const mkDR=(lbl,val,col,html)=>{
+    if(!val&&!html)return null;
     const row=document.createElement('div');row.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';
-    const l=document.createElement('span');l.style.cssText='color:var(--gray);flex-shrink:0;';l.textContent=lbl;
+    const l=document.createElement('span');l.style.cssText='color:var(--gray);flex-shrink:0;margin-right:8px;';l.textContent=lbl;
+    if(html){row.append(l,html);return row;}
     const v=document.createElement('span');v.style.cssText='font-weight:700;text-align:right;color:'+(col||'var(--white)')+';max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';v.textContent=val;
-    row.append(l,v); return row;
+    row.append(l,v);return row;
   };
-  const natMods=natEntry?(natEntry.up?` (+${natEntry.up}/-${natEntry.dn})`:''):'';
-  [mkDR('Ability',ability),mkDR('Nature',natureTxt.split(' (')[0]+natMods,natEntry?.up?'#e8eaf6':null),mkDR('Item',item?.split(' (#')[0]||''),mkDR('Tera',teraType,'#ce93d8'),gmaxAns&&mkDR('GMax',gmaxAns,gmaxAns==='Yes'?'#ce93d8':'var(--gray)')].filter(Boolean).forEach(r=>details.appendChild(r));
+  // Item with icon
+  let itemEl=null;
+  if(itemName){
+    const ie=document.createElement('div');ie.style.cssText='display:flex;align-items:center;gap:6px;justify-content:flex-end;';
+    if(itemData){
+      const iIco=document.createElement('img');
+      const IB='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
+      iIco.src=`${IB}${itemData.slug}.png`;
+      iIco.style.cssText='width:22px;height:22px;image-rendering:pixelated;background:#fff;border-radius:4px;padding:2px;box-sizing:border-box;';
+      iIco.onerror=()=>iIco.style.display='none';
+      ie.appendChild(iIco);
+    }
+    const iName=document.createElement('span');iName.style.cssText='font-weight:700;';iName.textContent=itemName;
+    ie.appendChild(iName);itemEl=ie;
+  }
+  const natTxt=natureTxt.split(' (')[0];
+  const natMods=natEntry?.up?` +${natEntry.up}/-${natEntry.dn}`:'';
+  const natCol=natEntry?.up?'var(--white)':null;
+  [mkDR('Ability',ability),
+   mkDR('Nature',natTxt+natMods,natCol),
+   itemEl?mkDR('Item',null,null,itemEl):null,
+   mkDR('Tera',teraType,'#ce93d8'),
+   gmaxAns?mkDR('GMax',gmaxAns,gmaxAns==='Yes'?'#ce93d8':'var(--gray)'):null,
+  ].filter(Boolean).forEach(r=>details.appendChild(r));
 
   // Moves
-  if(movesAns&&movesAns.length){
-    const movesRow=document.createElement('div');movesRow.style.cssText='padding:8px 14px;display:flex;flex-wrap:wrap;gap:4px;border-top:1px solid rgba(255,255,255,.04);';
+  if(movesAns.length){
+    const mRow=document.createElement('div');mRow.style.cssText='padding:8px 14px;display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid rgba(255,255,255,.04);';
     movesAns.forEach(mv=>{
-      const mvData=MOVES.find(m=>m.name===mv)||{type:'Normal'};
-      const col=({Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'})[mvData.type]||'#888';
-      const chip=document.createElement('div');chip.style.cssText=`display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:5px;background:${col}18;border:1px solid ${col}33;font-size:10px;font-weight:600;`;
-      const dot=document.createElement('span');dot.style.cssText=`width:6px;height:6px;border-radius:50%;background:${col};flex-shrink:0;`;
-      chip.append(dot,document.createTextNode(mv)); movesRow.appendChild(chip);
+      const mvD=MOVES.find(m=>m.name===mv)||{type:'Normal'};
+      const c=TYPE_COL[mvD.type]||'#888';
+      const chip=document.createElement('div');chip.style.cssText=`display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:5px;background:${c}18;border:1px solid ${c}33;font-size:10px;font-weight:600;`;
+      const dot=document.createElement('span');dot.style.cssText=`width:6px;height:6px;border-radius:50%;background:${c};flex-shrink:0;`;
+      chip.append(dot,document.createTextNode(mv));mRow.appendChild(chip);
     });
-    details.appendChild(movesRow);
+    details.appendChild(mRow);
   }
   card.appendChild(details);
 
-  // Progress footer
+  // ── Progress footer ──────────────────────────────────────────────────────────
   const foot=document.createElement('div');foot.style.cssText='padding:8px 14px;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.04);';
   const pbg=document.createElement('div');pbg.style.cssText='height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin-bottom:5px;';
   const pfl=document.createElement('div');pfl.style.cssText=`height:100%;background:linear-gradient(90deg,${typeColor},#9575cd);border-radius:2px;width:${pct}%;transition:width .4s ease;`;
   pbg.appendChild(pfl);
   const plbl=document.createElement('div');plbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;display:flex;justify-content:space-between;';
-  const pl1=document.createElement('span');pl1.textContent=answered+' / '+totalQ+' answered';
+  const pl1=document.createElement('span');pl1.textContent=answered+' / 11 answered';
   const pl2=document.createElement('span');pl2.style.color=typeColor;pl2.textContent=pct+'%';
-  plbl.append(pl1,pl2); foot.append(pbg,plbl); card.appendChild(foot);
+  plbl.append(pl1,pl2);foot.append(pbg,plbl);card.appendChild(foot);
   panel.appendChild(card);
 }
 
@@ -3171,43 +3226,9 @@ function renderQ(){
     function applyPresetT(key){currentPreset=key;presetWrap.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));presetWrap.querySelector(`[data-preset="${key}"]`)?.classList.add('active');if(key==='phys'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.atk=252;evInputs.atk.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='spec'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.spa=252;evInputs.spa.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='weak'){SKEYS.forEach(k=>{ivD[k]=0;ivInputs[k].value=0;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}else if(key==='rand'){SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});}else{SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}recalcEVT();updateIvEvPreview();}
     [['💪 Max (Physical)','phys'],['✨ Max (Special)','spec'],['🐛 Min (Weakest)','weak'],['🎲 Randomize!','rand'],['✏️ Custom','custom']].forEach(([label,key])=>{const b=document.createElement('button');b.type='button';b.className='rand-btn preset-btn'+(key==='custom'?' active':'');b.style.cssText='flex:1;min-width:140px;';b.textContent=label;b.dataset.preset=key;b.addEventListener('click',()=>applyPresetT(key));presetWrap.appendChild(b);});
     card.appendChild(presetWrap);
-    // ── Split layout: inputs left, stat preview right ──────────────────────
-    const splitWrap=document.createElement('div'); splitWrap.style.cssText='display:grid;grid-template-columns:1fr 280px;gap:16px;align-items:start;';
+    // Inputs only (preview now in pokemon card panel)
     const inputCol=document.createElement('div'); inputCol.style.cssText='display:flex;flex-direction:column;gap:12px;';
-    // Stat preview sidebar
-    const prevCol=document.createElement('div'); prevCol.style.cssText='position:sticky;top:12px;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:12px;padding:14px;';
-    const prevHdr=document.createElement('div'); prevHdr.style.cssText='display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--border);';
-    const prevIco=document.createElement('img'); prevIco.style.cssText='width:60px;height:60px;image-rendering:pixelated;flex-shrink:0;';
-    const prevInfo=document.createElement('div'); prevInfo.style.cssText='display:flex;flex-direction:column;gap:3px;min-width:0;';
-    const prevName=document.createElement('div'); prevName.style.cssText='font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
-    const prevSub=document.createElement('div'); prevSub.style.cssText='font-size:9px;color:var(--gray);';
-    prevInfo.append(prevName,prevSub); prevHdr.append(prevIco,prevInfo); prevCol.appendChild(prevHdr);
-    // Stat bars
-    const prevBars=document.createElement('div'); prevBars.style.cssText='display:flex;flex-direction:column;gap:7px;';
-    const PREV_STAT_COLS=['#E3350D','#e8622a','#f0c600','#4f90d3','#4caf50','#db3c6c'];
-    const prevBarEls=[];
-    SKEYS.forEach((k,i)=>{
-      const row=document.createElement('div'); row.style.cssText='display:grid;grid-template-columns:30px 1fr 40px;gap:6px;align-items:center;';
-      const lbl=document.createElement('span'); lbl.style.cssText='font-size:7px;font-family:"Press Start 2P",monospace;color:'+PREV_STAT_COLS[i]+';'; lbl.textContent=SLBLS[i];
-      const bg=document.createElement('div'); bg.style.cssText='position:relative;height:10px;border-radius:5px;background:rgba(255,255,255,.06);overflow:hidden;';
-      // Layer 1: base (dimmed)
-      const f1=document.createElement('div'); f1.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';opacity:.25;transition:width .4s ease;width:0%;';
-      // Layer 2: +IV (medium)
-      const f2=document.createElement('div'); f2.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';opacity:.55;transition:width .4s ease;width:0%;';
-      // Layer 3: +EV (full)
-      const f3=document.createElement('div'); f3.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';transition:width .4s ease;width:0%;box-shadow:0 0 6px '+PREV_STAT_COLS[i]+'66;';
-      bg.append(f1,f2,f3);
-      const val=document.createElement('span'); val.style.cssText='font-size:13px;font-weight:800;color:'+PREV_STAT_COLS[i]+';text-align:right;';
-      row.append(lbl,bg,val); prevBars.appendChild(row);
-      prevBarEls.push({f1,f2,f3,val});
-    });
-    prevCol.appendChild(prevBars);
-    // Legend
-    const legend=document.createElement('div'); legend.style.cssText='display:flex;gap:8px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--border);';
-    [['Base','opacity:.25'],['+ IVs','opacity:.55'],['+ EVs','opacity:1']].forEach(([lbl,op])=>{const it=document.createElement('div');it.style.cssText='display:flex;align-items:center;gap:4px;font-size:9px;color:var(--gray);';const dot=document.createElement('div');dot.style.cssText='width:8px;height:8px;border-radius:2px;background:#9575cd;'+op;it.append(dot,document.createTextNode(lbl));legend.appendChild(it);});
-    prevCol.appendChild(legend);
-    splitWrap.append(inputCol,prevCol);
-    card.appendChild(splitWrap);
+    card.appendChild(inputCol);
 
     // Lv.50 stat calculator (neutral nature)
     function calcFinalStat(base,iv,ev,isHp){ if(isHp)return Math.floor((2*base+iv+Math.floor(ev/4))*50/100)+60; return Math.floor((Math.floor((2*base+iv+Math.floor(ev/4))*50/100)+5)); }
@@ -3517,23 +3538,61 @@ function renderResult(){
   clearPokemonDraft();
   updProg(); updSummary();
   const app=document.getElementById('app'); app.innerHTML='';
+
+  // Hide old summary rows — card is the visual summary now
+  const sumEl=document.getElementById('summary'); if(sumEl) sumEl.style.display='none';
+
+  // Make pokemon card panel full-width for final result
+  const cardPanel=document.getElementById('pokemon-card-panel');
+  if(cardPanel){
+    cardPanel.style.display='block';
+    cardPanel.style.width='100%';
+    cardPanel.style.position='static';
+    cardPanel.style.maxWidth='420px';
+    cardPanel.style.margin='0 auto 16px';
+  }
+  const wizLayout=document.getElementById('wizard-layout');
+  if(wizLayout) wizLayout.style.display='block';
+
   const lines=QLBLS.map((l,i)=>`${l}: ${(ans[i]&&ans[i].value)||'—'}`);
   const out=lines.join('\n');
-  const card=document.createElement('div'); card.className='res-card';
-  const title=document.createElement('div'); title.className='res-title'; title.textContent='✓ WONNILAND PROFILE'; card.appendChild(title);
-  const box=document.createElement('div'); box.className='res-box'; box.textContent=out; card.appendChild(box);
+
+  // Result card with hidden text block (for copy/paste) + buttons
+  const resCard=document.createElement('div'); resCard.className='res-card';
+  const title=document.createElement('div'); title.className='res-title'; title.textContent='✓ WONNILAND PROFILE';
+  resCard.appendChild(title);
+
+  // Collapsible text output
+  const textToggle=document.createElement('button'); textToggle.className='rand-btn';
+  textToggle.style.cssText='margin-bottom:8px;font-size:10px;width:100%;';
+  textToggle.textContent='📄 Show Text Summary';
+  const box=document.createElement('div'); box.className='res-box'; box.textContent=out;
+  box.style.display='none';
+  textToggle.addEventListener('click',()=>{
+    const open=box.style.display!=='none';
+    box.style.display=open?'none':'block';
+    textToggle.textContent=open?'📄 Show Text Summary':'📄 Hide Text Summary';
+  });
+  resCard.append(textToggle, box);
+
   const cb=document.createElement('button'); cb.className='copy-btn'; cb.textContent='📋 COPY TO CLIPBOARD';
   cb.addEventListener('click',()=>{navigator.clipboard.writeText(out).then(()=>{cb.textContent='✓ COPIED!';cb.classList.add('copied');setTimeout(()=>{cb.textContent='📋 COPY TO CLIPBOARD';cb.classList.remove('copied');},2000);});});
-  card.appendChild(cb);
+  resCard.appendChild(cb);
   const rb=document.createElement('button'); rb.className='restart-btn'; rb.textContent='↺ START OVER';
-  rb.addEventListener('click',()=>{clearPokemonDraft();step=0;Object.keys(ans).forEach(k=>delete ans[k]);renderQ();});
-  card.appendChild(rb);
+  rb.addEventListener('click',()=>{
+    clearPokemonDraft();step=0;Object.keys(ans).forEach(k=>delete ans[k]);
+    if(sumEl) sumEl.style.display='';
+    if(wizLayout) wizLayout.style.display='';
+    if(cardPanel){cardPanel.style.width='280px';cardPanel.style.position='sticky';cardPanel.style.top='12px';cardPanel.style.margin='';cardPanel.style.maxWidth='';}
+    renderQ();
+  });
+  resCard.appendChild(rb);
   const sBtnP=document.createElement('button'); sBtnP.className='btn'; sBtnP.style.cssText='margin-top:10px;background:linear-gradient(135deg,#4285f4,#34a853);border:none;';
   sBtnP.textContent='📝 Submit via Google Forms';
   sBtnP.addEventListener('click',()=>{navigator.clipboard.writeText(out).then(()=>{window.open('https://docs.google.com/forms/d/e/1FAIpQLSefq0WRQ9wZYycz1PX8xFxxh9-0Z0-U7ugoAdIEN58_hdQKwQ/viewform','_blank');setTimeout(()=>showToast('✓ Copied! Paste into Google Form.'),300);}).catch(()=>window.open('https://docs.google.com/forms/d/e/1FAIpQLSefq0WRQ9wZYycz1PX8xFxxh9-0Z0-U7ugoAdIEN58_hdQKwQ/viewform','_blank'));});
   const hP=document.createElement('div');hP.style.cssText='font-size:11px;color:var(--gray);text-align:center;margin-top:6px;';
   hP.textContent='Your data will be copied automatically — just paste it into the form!';
-  card.append(sBtnP,hP); app.appendChild(card);
+  resCard.append(sBtnP,hP); app.appendChild(resCard);
 }
 
 // ── Pokédex Side Panel ───────────────────────────────────────────────────────
@@ -4575,43 +4634,9 @@ function renderTrainerQ() {
     function applyPresetT(key){currentPreset=key;presetWrap.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));presetWrap.querySelector(`[data-preset="${key}"]`)?.classList.add('active');if(key==='phys'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.atk=252;evInputs.atk.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='spec'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.spa=252;evInputs.spa.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='weak'){SKEYS.forEach(k=>{ivD[k]=0;ivInputs[k].value=0;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}else if(key==='rand'){SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});}else{SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}recalcEVT();updateIvEvPreview();}
     [['💪 Max (Physical)','phys'],['✨ Max (Special)','spec'],['🐛 Min (Weakest)','weak'],['🎲 Randomize!','rand'],['✏️ Custom','custom']].forEach(([label,key])=>{const b=document.createElement('button');b.type='button';b.className='rand-btn preset-btn'+(key==='custom'?' active':'');b.style.cssText='flex:1;min-width:140px;';b.textContent=label;b.dataset.preset=key;b.addEventListener('click',()=>applyPresetT(key));presetWrap.appendChild(b);});
     card.appendChild(presetWrap);
-    // ── Split layout: inputs left, stat preview right ──────────────────────
-    const splitWrap=document.createElement('div'); splitWrap.style.cssText='display:grid;grid-template-columns:1fr 280px;gap:16px;align-items:start;';
+    // Inputs only (preview in pokemon card panel)
     const inputCol=document.createElement('div'); inputCol.style.cssText='display:flex;flex-direction:column;gap:12px;';
-    // Stat preview sidebar
-    const prevCol=document.createElement('div'); prevCol.style.cssText='position:sticky;top:12px;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:12px;padding:14px;';
-    const prevHdr=document.createElement('div'); prevHdr.style.cssText='display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--border);';
-    const prevIco=document.createElement('img'); prevIco.style.cssText='width:60px;height:60px;image-rendering:pixelated;flex-shrink:0;';
-    const prevInfo=document.createElement('div'); prevInfo.style.cssText='display:flex;flex-direction:column;gap:3px;min-width:0;';
-    const prevName=document.createElement('div'); prevName.style.cssText='font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
-    const prevSub=document.createElement('div'); prevSub.style.cssText='font-size:9px;color:var(--gray);';
-    prevInfo.append(prevName,prevSub); prevHdr.append(prevIco,prevInfo); prevCol.appendChild(prevHdr);
-    // Stat bars
-    const prevBars=document.createElement('div'); prevBars.style.cssText='display:flex;flex-direction:column;gap:7px;';
-    const PREV_STAT_COLS=['#E3350D','#e8622a','#f0c600','#4f90d3','#4caf50','#db3c6c'];
-    const prevBarEls=[];
-    SKEYS.forEach((k,i)=>{
-      const row=document.createElement('div'); row.style.cssText='display:grid;grid-template-columns:30px 1fr 40px;gap:6px;align-items:center;';
-      const lbl=document.createElement('span'); lbl.style.cssText='font-size:7px;font-family:"Press Start 2P",monospace;color:'+PREV_STAT_COLS[i]+';'; lbl.textContent=SLBLS[i];
-      const bg=document.createElement('div'); bg.style.cssText='position:relative;height:10px;border-radius:5px;background:rgba(255,255,255,.06);overflow:hidden;';
-      // Layer 1: base (dimmed)
-      const f1=document.createElement('div'); f1.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';opacity:.25;transition:width .4s ease;width:0%;';
-      // Layer 2: +IV (medium)
-      const f2=document.createElement('div'); f2.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';opacity:.55;transition:width .4s ease;width:0%;';
-      // Layer 3: +EV (full)
-      const f3=document.createElement('div'); f3.style.cssText='position:absolute;top:0;left:0;height:100%;border-radius:4px;background:'+PREV_STAT_COLS[i]+';transition:width .4s ease;width:0%;box-shadow:0 0 6px '+PREV_STAT_COLS[i]+'66;';
-      bg.append(f1,f2,f3);
-      const val=document.createElement('span'); val.style.cssText='font-size:13px;font-weight:800;color:'+PREV_STAT_COLS[i]+';text-align:right;';
-      row.append(lbl,bg,val); prevBars.appendChild(row);
-      prevBarEls.push({f1,f2,f3,val});
-    });
-    prevCol.appendChild(prevBars);
-    // Legend
-    const legend=document.createElement('div'); legend.style.cssText='display:flex;gap:8px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--border);';
-    [['Base','opacity:.25'],['+ IVs','opacity:.55'],['+ EVs','opacity:1']].forEach(([lbl,op])=>{const it=document.createElement('div');it.style.cssText='display:flex;align-items:center;gap:4px;font-size:9px;color:var(--gray);';const dot=document.createElement('div');dot.style.cssText='width:8px;height:8px;border-radius:2px;background:#9575cd;'+op;it.append(dot,document.createTextNode(lbl));legend.appendChild(it);});
-    prevCol.appendChild(legend);
-    splitWrap.append(inputCol,prevCol);
-    card.appendChild(splitWrap);
+    card.appendChild(inputCol);
 
     // Lv.50 stat calculator (neutral nature)
     function calcFinalStat(base,iv,ev,isHp){ if(isHp)return Math.floor((2*base+iv+Math.floor(ev/4))*50/100)+60; return Math.floor((Math.floor((2*base+iv+Math.floor(ev/4))*50/100)+5)); }
