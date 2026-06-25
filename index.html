@@ -575,6 +575,7 @@
   <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
 </div>
 <div id="wizard-layout" style="display:flex;gap:16px;align-items:flex-start;width:100%;max-width:min(900px,calc(100vw - 48px));">
+  <div id="trainer-card-panel" style="display:none;width:240px;flex-shrink:0;position:sticky;top:12px;"></div>
   <div style="flex:1;min-width:0;">
     <div id="summary"></div>
     <div id="app"></div>
@@ -837,6 +838,91 @@ const QLBLS=['👤 OT Name','🎮 Pokémon','📛 Nickname','✨ Shiny?','🌿 N
 // ── Progress ──────────────────────────────────────────────────────────────────
 // updProg defined below near panel code
 
+// ── Trainer Card Panel ────────────────────────────────────────────────────────
+function updTrainerCard(){
+  const panel=document.getElementById('trainer-card-panel');
+  if(!panel) return;
+
+  // Pokemon mode: show species sprite + name mini-card
+  if(currentMode==='pokemon'){
+    const mon=ans[1]?.mon;
+    if(!mon){panel.style.display='none';return;}
+    panel.style.display='block';
+    panel.innerHTML='';
+    const card=document.createElement('div');
+    card.style.cssText='background:linear-gradient(160deg,#1a2235,#141b2d);border:2px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;';
+    const lbl=document.createElement('div');lbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;padding:10px 14px 6px;';lbl.textContent='TRAINER';
+    const trainerName=ans[0]?.value||'???';
+    const sprCol=document.createElement('div');sprCol.style.cssText='display:flex;flex-direction:column;align-items:center;padding:8px 14px 14px;gap:8px;';
+    // Trainer sprite placeholder
+    const trSpr=document.createElement('img');trSpr.style.cssText='width:72px;height:72px;image-rendering:pixelated;opacity:.6;';
+    trSpr.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/trainer/ethan.png';
+    trSpr.onerror=()=>trSpr.style.display='none';
+    const trName=document.createElement('div');trName.style.cssText='font-size:14px;font-weight:900;text-align:center;';trName.textContent=trainerName;
+    const trSub=document.createElement('div');trSub.style.cssText='font-size:10px;color:var(--gray);text-align:center;';trSub.textContent='Pokémon Creation';
+    sprCol.append(trSpr,trName,trSub);
+    card.append(lbl,sprCol);panel.appendChild(card);
+    return;
+  }
+
+  // Trainer mode
+  if(currentMode!=='trainer'){panel.style.display='none';return;}
+  // Read trainer-level answers (these are in trainerAns or the first batch before team slots)
+  const trName=typeof trainerAns!=='undefined'?trainerAns[1]?.value:(ans[1]?.value||'');
+  const trGender=typeof trainerAns!=='undefined'?trainerAns[2]?.value:'';
+  const trStyle=typeof trainerAns!=='undefined'?trainerAns[3]?.value:'';
+  const trRival=typeof trainerAns!=='undefined'?trainerAns[4]?.value:'';
+  const trHome=typeof trainerAns!=='undefined'?trainerAns[5]?.value:'';
+  if(!trName){panel.style.display='none';return;}
+  panel.style.display='block';
+  panel.innerHTML='';
+
+  const card=document.createElement('div');
+  card.style.cssText='background:linear-gradient(160deg,#1a2235,#141b2d);border:2px solid rgba(149,117,205,.3);border-radius:14px;overflow:hidden;';
+
+  // Header with trainer sprite
+  const hdr=document.createElement('div');
+  hdr.style.cssText='display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(149,117,205,.06);border-bottom:1px solid rgba(255,255,255,.06);';
+  const trSprImg=document.createElement('img');
+  trSprImg.style.cssText='width:64px;height:64px;image-rendering:pixelated;flex-shrink:0;';
+  // Try to use selected trainer sprite
+  const isF=trGender?.toLowerCase().includes('female')||trGender?.toLowerCase().includes('girl');
+  trSprImg.src=isF
+    ?'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/trainer/lyra.png'
+    :'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/trainer/ethan.png';
+  trSprImg.onerror=()=>trSprImg.style.display='none';
+  const trIdent=document.createElement('div');trIdent.style.cssText='display:flex;flex-direction:column;gap:4px;';
+  const trNameEl=document.createElement('div');trNameEl.style.cssText='font-size:16px;font-weight:900;';trNameEl.textContent=trName;
+  const trSubEl=document.createElement('div');trSubEl.style.cssText='font-size:10px;color:var(--gray);';trSubEl.textContent='Trainer';
+  if(trGender){const tg=document.createElement('span');tg.style.cssText='font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(149,117,205,.15);color:#ce93d8;margin-top:2px;display:inline-block;';tg.textContent=trGender;trSubEl.appendChild(tg);}
+  trIdent.append(trNameEl,trSubEl);hdr.append(trSprImg,trIdent);card.appendChild(hdr);
+
+  // Details
+  const mkTR=(lbl,val)=>{if(!val)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const l=document.createElement('span');l.style.cssText='color:var(--gray);';l.textContent=lbl;const v=document.createElement('span');v.style.cssText='font-weight:700;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right;';v.textContent=val;r.append(l,v);return r;};
+  const details=document.createElement('div');
+  [mkTR('Style',trStyle),mkTR('Rival',trRival),mkTR('Hometown',trHome)].filter(Boolean).forEach(r=>details.appendChild(r));
+  card.appendChild(details);
+
+  // Team slots preview
+  if(typeof team!=='undefined'&&team.length){
+    const teamRow=document.createElement('div');teamRow.style.cssText='display:flex;flex-wrap:wrap;gap:4px;padding:10px 14px;border-top:1px solid rgba(255,255,255,.06);';
+    const tLbl=document.createElement('div');tLbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;width:100%;margin-bottom:4px;';tLbl.textContent='TEAM';
+    teamRow.appendChild(tLbl);
+    for(let i=0;i<6;i++){
+      const slot=team[i];
+      const monAns=slot?slot[POKEMON_Q_START]:null;
+      const mon=monAns?.mon;
+      const slotEl=document.createElement('div');
+      slotEl.style.cssText=`width:36px;height:36px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;overflow:hidden;${i===currentSlot?'border-color:#9575cd;background:rgba(149,117,205,.12);':''}`;
+      if(mon){const img=document.createElement('img');img.style.cssText='width:36px;height:36px;image-rendering:pixelated;';img.src=`${PKM_BASE1}${getSpriteFile(mon)}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);slotEl.appendChild(img);}
+      else{const ph=document.createElement('span');ph.style.cssText='font-size:16px;opacity:.2;';ph.textContent='?';slotEl.appendChild(ph);}
+      teamRow.appendChild(slotEl);
+    }
+    card.appendChild(teamRow);
+  }
+  panel.appendChild(card);
+}
+
 // ── Pokémon Card Panel ────────────────────────────────────────────────────────
 function updPokemonCard(){
   const panel=document.getElementById('pokemon-card-panel');
@@ -854,8 +940,8 @@ function updPokemonCard(){
   const ga=i=>currentMode==='trainer'?slot[POKEMON_Q_START+i-1]?.value:ans[i]?.value;
   const nickname = ga(2)||'';
   const shinyVal = ga(3)||'';
-  const ability  = ga(4)||'';
-  const natureTxt= ga(5)||'';
+  const natureTxt= ga(4)||'';  // step 4 = Nature
+  const ability  = ga(5)||'';  // step 5 = Ability
   const teraType = ga(6)||'';
   const gmaxAns  = ga(7)||'';
   const ivevAns  = currentMode==='trainer'?slot[POKEMON_Q_START+7]:ans[8];
@@ -1037,6 +1123,7 @@ function updPokemonCard(){
 function updSummary(){
   const el=document.getElementById('summary'); el.innerHTML='';
   updPokemonCard();
+  updTrainerCard();
 
   // ── Trainer mode: show trainer Q1-Q3 from ans, then current slot pokemon ──
   if(currentMode==='trainer'){
@@ -3262,9 +3349,9 @@ function renderQ(){
     const ivSect=document.createElement('div');ivSect.className='cust-sect';
     const ivH=document.createElement('div');ivH.className='cust-h';ivH.textContent='IVs (0-31)';
     const ivRB=document.createElement('button');ivRB.type='button';ivRB.className='rand-btn';ivRB.style.marginBottom='10px';ivRB.textContent='🎲 Randomize IVs';
-    ivRB.addEventListener('click',()=>{SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});updateIvEvPreview();});
+    ivRB.addEventListener('click',()=>{SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});updPokemonCard();});
     const ivG=document.createElement('div');ivG.className='sg';
-    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=31;inp.value=ivD[k];ivInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(31,Math.max(0,parseInt(inp.value)||0));ivD[k]=v;inp.value=v;if(typeof updateIvEvPreview!=='undefined')updateIvEvPreview();});col.append(lbl,inp);ivG.appendChild(col);});
+    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=31;inp.value=ivD[k];ivInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(31,Math.max(0,parseInt(inp.value)||0));ivD[k]=v;inp.value=v;updPokemonCard();});col.append(lbl,inp);ivG.appendChild(col);});
     ivSect.append(ivH,ivRB,ivG);inputCol.appendChild(ivSect);
     const divider=document.createElement('div');divider.style.height='12px';inputCol.appendChild(divider);
     const evSect=document.createElement('div');evSect.className='cust-sect';
@@ -3278,43 +3365,18 @@ function renderQ(){
     const remValT=document.createElement('span');remValT.className='ev-remain-val';remValT.textContent='510';
     totDiv.append(totLblT,totValT,remLblT,remValT);
     const evG=document.createElement('div');evG.className='sg';
-    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=252;inp.value=evD[k];evInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(252,Math.max(0,parseInt(inp.value)||0));const others=SKEYS.filter(x=>x!==k).reduce((a,x)=>a+(evD[x]||0),0);v=Math.min(v,EV_MAX-others);evD[k]=v;inp.value=v;recalcEVT();if(typeof updateIvEvPreview!=='undefined')updateIvEvPreview();});col.append(lbl,inp);evG.appendChild(col);});
-    evRB.addEventListener('click',()=>{let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});recalcEVT();updateIvEvPreview();});
+    SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=252;inp.value=evD[k];evInputs[k]=inp;inp.addEventListener('input',()=>{let v=Math.min(252,Math.max(0,parseInt(inp.value)||0));const others=SKEYS.filter(x=>x!==k).reduce((a,x)=>a+(evD[x]||0),0);v=Math.min(v,EV_MAX-others);evD[k]=v;inp.value=v;recalcEVT();updPokemonCard();});col.append(lbl,inp);evG.appendChild(col);});
+    evRB.addEventListener('click',()=>{let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});recalcEVT();updPokemonCard();});
     evSect.append(evH,evInfo,evRB,evG,totDiv);inputCol.appendChild(evSect);
-    applyPresetT('custom'); updateIvEvPreview();
-    getV=()=>{const pn={'phys':'Max Physical Attacker','spec':'Max Special Attacker','weak':'Minimum','rand':'Randomized','custom':'Custom'};return{value:`${pn[currentPreset]||currentPreset} | IVs: ${SKEYS.map(k=>ivD[k]).join('/')} | EVs: ${SKEYS.map(k=>evD[k]).join('/')}`};};
+    applyPresetT('custom'); updPokemonCard();
+    getV=()=>{const pn={'phys':'Max Physical Attacker','spec':'Max Special Attacker','weak':'Minimum','rand':'Randomized','custom':'Custom'};return{value:`${pn[currentPreset]||currentPreset} | IVs: ${SKEYS.map(k=>ivD[k]).join('/')} | EVs: ${SKEYS.map(k=>evD[k]).join('/')}`,ivs:{...ivD},evs:{...evD}};};
 
-  // ── TQ9: Poké Ball (items 0001-0027) ──────────────────────────────────────
-  
-}else if(step===9){
+  }else if(step===9){
     addT(card,'Which Moves would you like to give to your Pokémon?');
     const defMoveBtn=document.createElement('button');defMoveBtn.type='button';defMoveBtn.className='rand-btn';defMoveBtn.style.cssText='width:100%;margin-bottom:14px;';defMoveBtn.textContent='⚡ Use Default Moveset';
     defMoveBtn.addEventListener('click',()=>{ans[step]={value:'Default Moveset'};step++;step>=TOTAL?renderResult():renderQ();});
     card.appendChild(defMoveBtn);
     const ms=makeMoveSearch(card);focEl=ms.focEl;getV=ms.getV;
-  }else if(step===9){
-    addT(card,'Which Moves would you like to give to your Pokémon?');
-    addS(card,'Move database will be defined later — type the move name for now.');
-    // "Use Default Moveset" button
-    const defMoveBtn=document.createElement('button'); defMoveBtn.type='button'; defMoveBtn.className='rand-btn'; defMoveBtn.style.cssText='width:100%;margin-bottom:12px;';
-    defMoveBtn.textContent='⚡ Use Default Moveset';
-    defMoveBtn.addEventListener('click',()=>{
-      ans[step]={value:'Default Moveset'}; step++; step>=TOTAL?renderResult():renderQ();
-    });
-    card.appendChild(defMoveBtn);
-    const PM=['Tackle','Growl','Scratch','Ember','Water Gun','Thunder Shock','Vine Whip','Quick Attack','Hyper Beam','Giga Impact','Earthquake','Surf','Flamethrower','Ice Beam','Thunderbolt','Psychic','Shadow Ball','Dark Pulse','Dragon Claw','Close Combat','Swords Dance','Calm Mind','Recover','Protect','Toxic'];
-    const mv=document.createElement('div');mv.className='mv-slots';const slots=[];
-    for(let i=1;i<=4;i++){
-      const sw=document.createElement('div');sw.style.cssText='display:flex;flex-direction:column;gap:4px;';
-      const row=document.createElement('div');row.style.cssText='display:flex;gap:6px;align-items:center;';
-      const inp=document.createElement('input');inp.type='text';inp.placeholder=`Move ${i}…`;inp.style.flex='1';
-      const db=document.createElement('button');db.type='button';db.className='del-btn';db.textContent='✕';db.addEventListener('click',()=>{inp.value='';inp.focus();});
-      const rb=document.createElement('button');rb.type='button';rb.className='rand-btn';rb.style.cssText='font-size:8px;padding:5px 10px;margin-top:0;width:100%;';rb.textContent=`🎲 Randomize Move ${i}`;
-      rb.addEventListener('click',()=>{inp.value=PM[Math.floor(Math.random()*PM.length)];});
-      row.append(inp,db);sw.append(row,rb);mv.appendChild(sw);slots.push(inp);
-    }
-    card.appendChild(mv);focEl={focus:()=>slots[0].focus()};
-    getV=()=>({value:slots.map(s=>s.value.trim()||'—').join(' / ')});
 
   // Q11 ── Held Item (full database, unlimited scroll)
   }else if(step===10){
