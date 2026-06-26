@@ -578,7 +578,7 @@
     <div id="pokemon-card-panel"></div>
   </div>
   <div style="flex:1;min-width:0;">
-    <div id="summary"></div>
+    <div id="summary" style="display:none;"></div>
     <div id="app"></div>
   </div>
 </div>
@@ -842,8 +842,8 @@ function updTrainerCard(){
   const panel=document.getElementById('trainer-card-panel');
   const leftCol=document.getElementById('left-cards-col');
   if(!panel) return;
-  const BRENDAN=`${PKM_BASE1}../trainer-sprites/brendan.png`;
-  const MAY=`${PKM_BASE1}../trainer-sprites/may.png`;
+  const BRENDAN='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer-sprites/brendan.png';
+  const MAY='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer-sprites/may.png';
   // Fallbacks from GitHub raw
   const BRENDAN_FB='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/trainer/brendan.png';
   const MAY_FB='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/trainer/may.png';
@@ -994,10 +994,11 @@ function updPokemonCard(){
   dispName.textContent=nickname||mon.name;
   const sub=document.createElement('div');sub.style.cssText='font-size:10px;color:var(--gray);';
   sub.textContent=(nickname?mon.name+' · ':'')+(isShiny?'✨ Shiny':'');
-  const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:4px;flex-wrap:wrap;margin-top:1px;';
+  const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:4px;flex-wrap:wrap;margin-top:2px;';
   typesRow.appendChild(tb(mon.t1));if(mon.t2)typesRow.appendChild(tb(mon.t2));
-  if(grp)typesRow.appendChild(groupChip(grp,{fontSize:'6px',padding:'1px 5px'}));
-  ident.append(dispName,sub,typesRow);
+  const grpRow=document.createElement('div');grpRow.style.cssText='margin-top:3px;';
+  if(grp)grpRow.appendChild(groupChip(grp,{fontSize:'6px',padding:'1px 5px'}));
+  ident.append(dispName,sub,typesRow,grpRow);
   const dexN=document.createElement('div');dexN.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#333;position:absolute;top:10px;right:12px;';
   if(mon.id)dexN.textContent='#'+String(mon.id).padStart(4,'0');
   hdr.append(spr,ident,dexN);card.appendChild(hdr);
@@ -1018,7 +1019,8 @@ function updPokemonCard(){
 
   // ── Stat bars with Nature coloring + IV/EV final values ─────────────────────
   if(baseStats){
-    const sg=document.createElement('div');sg.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:8px 12px 10px;border-bottom:1px solid rgba(255,255,255,.04);';
+    const lv50lbl=document.createElement('div');lv50lbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;padding:6px 14px 0;';lv50lbl.textContent='LV. 50 BASE STATS';card.appendChild(lv50lbl);
+    const sg=document.createElement('div');sg.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:6px 12px 10px;border-bottom:1px solid rgba(255,255,255,.04);';
     baseStats.forEach((base,i)=>{
       const isHp=i===0;
       const isUp=i===upIdx, isDn=i===dnIdx;
@@ -1115,170 +1117,9 @@ function updPokemonCard(){
 
 // ── Summary ───────────────────────────────────────────────────────────────────
 function updSummary(){
-  const el=document.getElementById('summary'); el.innerHTML='';
+  // Progress is shown via Trainer/Pokemon cards — no summary rows needed
   updPokemonCard();
   updTrainerCard();
-
-  // ── Trainer mode: show trainer Q1-Q3 from ans, then current slot pokemon ──
-  if(currentMode==='trainer'){
-    // Trainer phase labels (Q1-Q3)
-    const trainerLbls=['👤 OT Name','🎨 Trainer Sprite','⚔️ Battle Format','💬 Trainer Phrases'];
-    for(let i=0;i<4&&i<step;i++){
-      const a=ans[i]; if(!a) continue;
-      const row=document.createElement('div'); row.className='sum-row';
-      const lbl=document.createElement('span'); lbl.className='sum-lbl'; lbl.textContent=trainerLbls[i]+':';
-      const val=document.createElement('div'); val.style.flex='1'; val.style.overflow='hidden';
-      if(i===0 && a.otGender){
-        val.textContent=a.value; val.className='sum-val '+(a.otGender==='Male'?'s-male':'s-female');
-      } else {
-        const v=document.createElement('span'); v.className='sum-val'; v.textContent=a.value; val.appendChild(v);
-      }
-      const editBtn=document.createElement('button'); editBtn.className='sum-edit'; editBtn.type='button'; editBtn.textContent='✎ Edit';
-      editBtn.addEventListener('click',()=>{ step=i; trainerPhase='trainer'; document.getElementById('app').innerHTML=''; renderTrainerQ(); });
-      row.append(lbl,val,editBtn); el.appendChild(row);
-    }
-    // Pokemon phase: show current slot answers
-    const displaySlot=viewingSlot>=0?viewingSlot:currentSlot;
-      if((trainerPhase==='pokemon'||viewingSlot>=0) && team[displaySlot]){
-      const pokeLbls=['🎮 Pokémon','📛 Nickname','🎒 Held Item','🦋 Ability','💪 IVs & EVs','🏀 Poké Ball','❤️ Happiness','🌿 Nature','✨ Shiny?','⚡ GMax & Dynamax','🔮 Tera Type','⚔️ Moves'];
-      const slot=team[displaySlot];
-      for(let li=0; li<pokeLbls.length; li++){
-        const stepIdx=POKEMON_Q_START+li;
-        const a=slot[stepIdx]; if(!a) continue;
-        const row=document.createElement('div'); row.className='sum-row';
-        const lbl=document.createElement('span'); lbl.className='sum-lbl'; lbl.textContent=pokeLbls[li]+':';
-        const val=document.createElement('div'); val.style.flex='1'; val.style.overflow='hidden';
-        // Pokemon entry with sprite + stat bars
-        if(li===0 && a.mon){
-          const top=document.createElement('div'); top.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap;';
-          const ico=document.createElement('img'); ico.className='sum-icon';
-          ico.src=iconUrl(a.mon.spriteId,a.mon.art,a.mon.spriteFile);
-          ico.onerror=()=>iconUrlFallback(ico,a.mon.spriteId||a.mon.baseId);
-          const nm=document.createElement('span'); nm.style.fontWeight='600'; nm.textContent=a.mon.name;
-          const badges=document.createElement('div'); badges.className='tbadges';
-          badges.appendChild(tb(a.mon.t1)); if(a.mon.t2) badges.appendChild(tb(a.mon.t2));
-          // Group chip next to name
-          const monFull=a.mon._full||(POKEMON.find(p=>p.name===a.mon.name)||{});
-          const monGroup=a.mon.group||monFull.group||null;
-          if(monGroup){
-            const grpEl=groupChip(monGroup); nm.insertAdjacentElement('afterend',grpEl); top.append(ico,nm,grpEl,badges);
-          } else { top.append(ico,nm,badges); }
-          // Pokédex button top-right
-          const pdxBtnTop=document.createElement('button'); pdxBtnTop.type='button';
-          pdxBtnTop.style.cssText='margin-left:auto;font-size:10px;padding:3px 9px;border-radius:6px;border:1px solid var(--pl);background:rgba(123,31,162,.15);color:var(--pl);cursor:pointer;white-space:nowrap;';
-          pdxBtnTop.innerHTML='📖 Pokédex'; pdxBtnTop.addEventListener('click',()=>showPokedex(a.mon));
-          top.appendChild(pdxBtnTop);
-          const sid=a.mon.baseId||a.mon.spriteId;
-          const stats=BASE_STATS[sid]
-        ||BASE_STATS[sid?String(sid).padStart(4,'0'):null]
-        ||BASE_STATS['_n_'+(a.mon.name||'').toLowerCase()]
-        ||null;
-          if(stats){
-            const _bstTot=stats.reduce((a,b)=>a+b,0);
-            const _bstCol=_bstTot>=600?'#E3350D':_bstTot>=500?'#ff9800':_bstTot>=400?'#f0c600':'#4caf50';
-            const bstH=document.createElement('div'); bstH.className='stat-bars-header';
-            const bstHl=document.createElement('span'); bstHl.className='stat-bars-bst-lbl'; bstHl.textContent='BST';
-            const bstHv=document.createElement('span'); bstHv.className='stat-bars-bst-val'; bstHv.style.color=_bstCol; bstHv.textContent=_bstTot;
-            const bstHbar=document.createElement('div'); bstHbar.className='stat-bars-bst-bar';
-            const bstHfill=document.createElement('div'); bstHfill.className='stat-bars-bst-fill'; bstHfill.style.background=_bstCol; bstHfill.style.width='0%';
-            bstHbar.appendChild(bstHfill); bstH.append(bstHl,bstHv,bstHbar);
-            setTimeout(()=>{bstHfill.style.width=Math.min(100,Math.round(_bstTot/720*100))+'%';},30);
-            const bars=document.createElement('div'); bars.className='stat-bars';
-            SLBLS.forEach((lbl2,idx)=>{
-              const v=stats[idx];
-              const wr=document.createElement('div'); wr.className='stat-bar-wrap';
-              const ll=document.createElement('div'); ll.className='stat-bar-lbl'; ll.textContent=lbl2;
-              const vl=document.createElement('div'); vl.className='stat-bar-val'; vl.style.color=statColor(v); vl.textContent=v;
-              const bg=document.createElement('div'); bg.className='stat-bar-bg';
-              const fill=document.createElement('div'); fill.className='stat-bar-fill'; fill.style.background=statColor(v); fill.style.boxShadow='0 0 8px '+statColor(v)+'99'; fill.style.height='0%';
-              bg.appendChild(fill); wr.append(ll,bg,vl); bars.appendChild(wr);
-              setTimeout(()=>{fill.style.height=Math.min(100,Math.round(v/255*100))+'%';},50+idx*60);
-            });
-            val.append(top,bstH,bars);
-          } else { val.appendChild(top); }
-        } else {
-          const v=document.createElement('span'); v.className='sum-val'; v.textContent=a.value; val.appendChild(v);
-        }
-        const editBtn=document.createElement('button'); editBtn.className='sum-edit'; editBtn.type='button'; editBtn.textContent='✎ Edit';
-        editBtn.addEventListener('click',()=>{
-          if(viewingSlot>=0){currentSlot=viewingSlot; viewingSlot=-1;}
-          step=stepIdx; trainerPhase='pokemon';
-          document.getElementById('app').innerHTML=''; renderTrainerQ();
-        });
-        row.append(lbl,val,editBtn); el.appendChild(row);
-      }
-    }
-    return;
-  }
-
-  // ── Pokemon Creation mode (original logic) ────────────────────────────────
-  for(let i=0;i<step;i++){
-    const a=ans[i]; if(!a) continue;
-    const row=document.createElement('div'); row.className='sum-row';
-    const lbl=document.createElement('span'); lbl.className='sum-lbl'; lbl.textContent=QLBLS[i]+':';
-    const val=document.createElement('div'); val.style.flex='1'; val.style.overflow='hidden';
-
-    if(i===1 && a.mon){
-      // Q2: Pokémon row — icon + name + type badges + stat bars
-      const top=document.createElement('div'); top.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap;';
-      const ico=document.createElement('img'); ico.className='sum-icon'; ico.src=iconUrl(a.mon.spriteId,a.mon.art,a.mon.spriteFile); ico.onerror=()=>iconUrlFallback(ico,a.mon.spriteId||a.mon.baseId);
-      const nm=document.createElement('span'); nm.style.fontWeight='600'; nm.textContent=a.mon.name;
-      const badges=document.createElement('div'); badges.className='tbadges';
-      badges.appendChild(tb(a.mon.t1)); if(a.mon.t2) badges.appendChild(tb(a.mon.t2));
-      // Group chip next to name
-      const monFull2=a.mon._full||(POKEMON.find(p=>p.name===a.mon.name)||{});
-      const monGroup2=a.mon.group||monFull2.group||null;
-      if(monGroup2){
-        const grpEl2=groupChip(monGroup2); top.append(ico,nm,grpEl2,badges);
-      } else { top.append(ico,nm,badges); }
-      // Pokédex button top-right
-      const pdxBtnTop2=document.createElement('button'); pdxBtnTop2.type='button';
-      pdxBtnTop2.style.cssText='margin-left:auto;font-size:10px;padding:3px 9px;border-radius:6px;border:1px solid var(--pl);background:rgba(123,31,162,.15);color:var(--pl);cursor:pointer;white-space:nowrap;';
-      pdxBtnTop2.innerHTML='📖 Pokédex'; pdxBtnTop2.addEventListener('click',()=>showPokedex(a.mon));
-      top.appendChild(pdxBtnTop2);
-      const sid=a.mon.baseId; const stats=BASE_STATS[sid]
-        ||BASE_STATS[sid?String(sid).padStart(4,'0'):null]
-        ||BASE_STATS[a.mon.spriteId]
-        ||BASE_STATS['_n_'+(a.mon.name||'').toLowerCase()]
-        ||null;
-      if(stats){
-        const _bstTot2=stats.reduce((a,b)=>a+b,0);
-        const _bstCol2=_bstTot2>=600?'#E3350D':_bstTot2>=500?'#ff9800':_bstTot2>=400?'#f0c600':'#4caf50';
-        const bstH2=document.createElement('div'); bstH2.className='stat-bars-header';
-        const bstH2l=document.createElement('span'); bstH2l.className='stat-bars-bst-lbl'; bstH2l.textContent='BST';
-        const bstH2v=document.createElement('span'); bstH2v.className='stat-bars-bst-val'; bstH2v.style.color=_bstCol2; bstH2v.textContent=_bstTot2;
-        const bstH2bar=document.createElement('div'); bstH2bar.className='stat-bars-bst-bar';
-        const bstH2fill=document.createElement('div'); bstH2fill.className='stat-bars-bst-fill'; bstH2fill.style.background=_bstCol2; bstH2fill.style.width='0%';
-        bstH2bar.appendChild(bstH2fill); bstH2.append(bstH2l,bstH2v,bstH2bar);
-        setTimeout(()=>{bstH2fill.style.width=Math.min(100,Math.round(_bstTot2/720*100))+'%';},30);
-        const bars=document.createElement('div'); bars.className='stat-bars';
-        SLBLS.forEach((lbl2,idx)=>{
-          const v=stats[idx];
-          const wrap=document.createElement('div'); wrap.className='stat-bar-wrap';
-          const l=document.createElement('div'); l.className='stat-bar-lbl'; l.textContent=lbl2;
-          const vl=document.createElement('div'); vl.className='stat-bar-val'; vl.style.color=statColor(v); vl.textContent=v;
-          const bg=document.createElement('div'); bg.className='stat-bar-bg';
-          const fill=document.createElement('div'); fill.className='stat-bar-fill';
-          fill.style.background=statColor(v); fill.style.boxShadow='0 0 8px '+statColor(v)+'99';
-          fill.style.height='0%';
-          bg.appendChild(fill); wrap.append(l,bg,vl); bars.appendChild(wrap);
-          setTimeout(()=>{fill.style.height=Math.min(100,Math.round(v/255*100))+'%';},50+idx*60);
-        });
-        val.append(top,bstH2,bars);
-      } else { val.appendChild(top); }
-      row.append(lbl,val);
-    } else if(i===0 && a.otGender){
-      val.textContent=a.value; val.className='sum-val '+(a.otGender==='Male'?'s-male':'s-female');
-      row.append(lbl,val);
-    } else {
-      const v=document.createElement('span'); v.className='sum-val'; v.textContent=a.value;
-      row.append(lbl,v);
-    }
-    const editBtn=document.createElement('button'); editBtn.className='sum-edit'; editBtn.type='button'; editBtn.textContent='✎ Edit';
-    editBtn.addEventListener('click',()=>{ step=i; document.getElementById('app').innerHTML=''; renderQ(); });
-    row.appendChild(editBtn);
-    el.appendChild(row);
-  }
 }
 
 // ── Toast notification ───────────────────────────────────────────────────────
@@ -3117,7 +2958,6 @@ function renderQ(){
 
 }else if(step===6){
     addT(card,'Which Tera Type do you want your Pokémon to have?');
-    addS(card,'Terastallization changes your Pokémon\'s type in battle.');
     const teraInfoBtn=document.createElement('button');teraInfoBtn.type='button';teraInfoBtn.className='info-btn';teraInfoBtn.style.marginBottom='10px';teraInfoBtn.textContent='ℹ What is Terastallization?';
     makeInfoPopup(teraInfoBtn,'Terastallization',`<b>Terastallization</b> is a mechanic from Pokémon Scarlet & Violet.<br><br>When activated in battle, your Pokémon changes its type to the chosen <b>Tera Type</b> for the rest of the battle. STAB bonuses apply to the new type.<br><br><b>Duration:</b> Lasts the entire battle once activated — cannot be reversed.<br><br><b>Strategy:</b> Choose a type that covers your Pokémon's weaknesses, or double-down on an existing STAB type for extra power.<br><br><b>Stellar Tera:</b> A special type that boosts all moves used for the first time — unique to Terapagos.`);
     card.appendChild(teraInfoBtn);
@@ -4868,7 +4708,6 @@ function renderTrainerQ() {
   // ── TQ14 step===14: Tera Type ─────────────────────────────────────────────
   }else if(step===14){
     addT(card,'Which Tera Type do you want your Pokemon to have?');
-    addS(card,'Terastallization changes your Pokemon type in battle.');
     const ALL_TERA2=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy','Stellar'];
     const TC2={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0',Stellar:'#9966cc'};
     const grid2=document.createElement('div'); grid2.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-top:8px;';
@@ -5131,7 +4970,7 @@ function initDexBrowser(){
   const dexControls=document.createElement('div');
   dexControls.style.cssText='display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:8px 18px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.01);';
   // Sort buttons
-  const SORTS=[['#','id'],['A–Z','name'],['BST↑','bst_desc'],['BST↓','bst_asc'],['Type','type']];
+  const SORTS=[['Game ID#','id'],['Dex#','dex'],['A–Z','name'],['BST↑','bst_desc'],['BST↓','bst_asc'],['Type','type']];
   const sortBtns=SORTS.map(([lbl,key])=>{
     const b=document.createElement('button');b.type='button';
     b.style.cssText=`font-size:9px;padding:4px 10px;border-radius:5px;border:1px solid ${key==='id'?'var(--pl)':'var(--border)'};background:${key==='id'?'rgba(149,117,205,.15)':'rgba(255,255,255,.04)'};color:${key==='id'?'var(--pl)':'var(--gray)'};cursor:pointer;font-family:'Press Start 2P',monospace;transition:all .15s;`;
@@ -5217,10 +5056,11 @@ function initDexBrowser(){
     if(activeGroups.size) mons=mons.filter(m=>activeGroups.has(m.group||m._full?.group));
     // Sort
     if(dexSort==='name') mons.sort((a,b)=>a.name.localeCompare(b.name));
+    else if(dexSort==='dex') mons.sort((a,b)=>(parseInt(a._full?.dex_number||a.dex_number||9999))-(parseInt(b._full?.dex_number||b.dex_number||9999)));
     else if(dexSort==='bst_desc') mons.sort((a,b)=>(b.bst||0)-(a.bst||0));
     else if(dexSort==='bst_asc') mons.sort((a,b)=>(a.bst||0)-(b.bst||0));
     else if(dexSort==='type') mons.sort((a,b)=>(a.t1||'').localeCompare(b.t1||''));
-    else mons.sort((a,b)=>(a.id||9999)-(b.id||9999)); // default: id
+    else mons.sort((a,b)=>(a.id||9999)-(b.id||9999)); // default: game id
     countEl.textContent=mons.length+' Pokémon';
     grid.innerHTML='';
     mons.forEach(m=>{
