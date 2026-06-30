@@ -862,7 +862,7 @@ function updTrainerCard(){
     spr.onerror=()=>{spr.onerror=null;spr.style.visibility='hidden';};
     const info=document.createElement('div');
     const nm=document.createElement('div');nm.style.cssText='font-size:13px;font-weight:800;';nm.textContent=trName;
-    const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);margin-top:2px;';sub.textContent='Pokémon Creation';
+    const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);margin-top:2px;';sub.textContent='OG Trainer';
     info.append(nm,sub);hdr.append(spr,info);card.appendChild(hdr);
     panel.appendChild(card); return;
   }
