@@ -146,7 +146,8 @@
     .enc-mon-info{display:flex;flex-direction:column;gap:2px;}
     .enc-mon-name{font-size:13px;font-weight:700;margin-bottom:2px;}
     .enc-mon-sub{font-size:10px;color:var(--gray);margin-bottom:3px;}
-    .enc-rate-pill{font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(240,198,0,.15);color:#f0c600;font-family:'Press Start 2P',monospace;flex-shrink:0;margin-left:auto;}background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:13px;color:var(--text);}
+    .enc-rate-pill{font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(240,198,0,.15);color:#f0c600;font-family:'Press Start 2P',monospace;flex-shrink:0;margin-left:auto;}
+    .sel-prev{display:none;flex-direction:column;margin-top:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:13px;color:var(--text);}
     .sel-prev.vis{display:flex;}
     .sel-prev .pico{width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;}
     .sel-prev-top{display:flex;align-items:center;gap:12px;padding:10px 14px 8px;}
@@ -845,18 +846,20 @@ function updTrainerCard(){
   // Fallbacks from GitHub raw
 
   if(currentMode==='pokemon'){
-    // Show trainer name from Q1 + Brendan or May based on Q0 (if exists)
-    const trName=ans[0]?.value||'Trainer';
-    const genderAns=ans[0]?.gender||'';
-    const useF=genderAns.toLowerCase().includes('girl')||genderAns.toLowerCase().includes('female');
-    if(!trName&&trName!=='Trainer'){panel.innerHTML='';return;}
+    // Trainer name + gender come from Q1 combined answer: {value:"Name (Male)", otGender:"Male"}
+    const rawName=ans[0]?.value||'';
+    const trName=rawName.split(' (')[0]||'Trainer';
+    const otGender=ans[0]?.otGender||'';
+    if(!rawName){panel.innerHTML='';return;}
     if(leftCol) leftCol.style.display='flex';
     panel.innerHTML='';
     const card=document.createElement('div');
     card.style.cssText='background:linear-gradient(160deg,#1a2235,#141b2d);border:2px solid rgba(149,117,205,.25);border-radius:12px;overflow:hidden;';
     const hdr=document.createElement('div');hdr.style.cssText='display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(149,117,205,.05);border-bottom:1px solid rgba(255,255,255,.05);';
     const spr=document.createElement('img');spr.style.cssText='width:52px;height:52px;image-rendering:pixelated;flex-shrink:0;';
-    spr.style.visibility='hidden';
+    const spriteFile=otGender==='Female'?'may':'brendan';
+    spr.src=`${TRAINER_BASE}${spriteFile}.png`;
+    spr.onerror=()=>{spr.onerror=null;spr.style.visibility='hidden';};
     const info=document.createElement('div');
     const nm=document.createElement('div');nm.style.cssText='font-size:13px;font-weight:800;';nm.textContent=trName;
     const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);margin-top:2px;';sub.textContent='Pokémon Creation';
@@ -1386,22 +1389,21 @@ function makeAC(ph,list){
     const grpRow2=document.createElement('div');grpRow2.style.marginTop='4px';
     if(p.group) grpRow2.appendChild(groupChip(p.group,{fontSize:'7px',padding:'2px 7px'}));
     prevChips.appendChild(grpRow2);
-    // Pokédex button: appended to prevTop (right side via margin-left:auto)
+    // Pokédex button is placed beside the stat bars (see stats section below)
     const oldPdxTopBtn=prevTop.querySelector('.pdx-top-btn'); if(oldPdxTopBtn) oldPdxTopBtn.remove();
-    const pdxTopBtn=document.createElement('button'); pdxTopBtn.type='button'; pdxTopBtn.className='pdx-top-btn pdx-btn';
-    pdxTopBtn.style.cssText='margin-left:auto;align-self:flex-start;font-size:10px;flex-shrink:0;';
-    pdxTopBtn.innerHTML='📖 Pokédex'; pdxTopBtn.addEventListener('click',()=>showPokedex(p));
-    prevTop.appendChild(pdxTopBtn);
     // Remove old gender toggle
     const oldGt=prev.querySelector('.gender-toggle'); if(oldGt) oldGt.remove();
     // BST removed from preview (shown in Pokémon card)
-    // --- Stat columns (vertical bars) ---
-    const oldStats=prev.querySelector('.sel-prev-stats'); if(oldStats) oldStats.remove();
+    // --- Stat columns (vertical bars) + Pokédex button to the right ─────────
+    const oldStatsRow=prev.querySelector('.sel-prev-stats-row'); if(oldStatsRow) oldStatsRow.remove();
     const stats=getBaseStats(p);
     if(stats){
       const SL=['HP','Atk','Def','SpA','SpD','Spe'];
       const SC=['#E3350D','#e8622a','#f0c600','#4f90d3','#4caf50','#db3c6c'];
+      const statsRow=document.createElement('div'); statsRow.className='sel-prev-stats-row';
+      statsRow.style.cssText='display:flex;align-items:center;gap:10px;padding:6px 14px 12px;';
       const grid=document.createElement('div'); grid.className='sel-prev-stats';
+      grid.style.cssText='flex:1;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:0;';
       stats.forEach((v,i)=>{
         const col=document.createElement('div'); col.className='sel-prev-stat-col';
         const lbl=document.createElement('div'); lbl.className='sel-prev-stat-lbl'; lbl.textContent=SL[i];
@@ -1413,7 +1415,11 @@ function makeAC(ph,list){
         col.append(lbl,bg,val); grid.appendChild(col);
         setTimeout(()=>{fill.style.height=Math.min(100,Math.round(v/255*100))+'%';},50+i*30);
       });
-      prev.appendChild(grid);
+      const pdxSideBtn=document.createElement('button'); pdxSideBtn.type='button'; pdxSideBtn.className='pdx-btn';
+      pdxSideBtn.style.cssText='flex-shrink:0;font-size:10px;align-self:center;';
+      pdxSideBtn.innerHTML='📖 Pokédex'; pdxSideBtn.addEventListener('click',()=>showPokedex(p));
+      statsRow.append(grid,pdxSideBtn);
+      prev.appendChild(statsRow);
     }
     // --- Footer removed: Pokédex button is now top-right in the header ---
     const oldFoot=prev.querySelector('.sel-prev-footer'); if(oldFoot) oldFoot.remove();
