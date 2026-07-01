@@ -87247,7 +87247,7 @@
       "alternate_forms": [
         "Tatsugiri (Curly)"
       ],
-      "form_requirement": "Tatsugiri (Curly)ite"
+      "form_requirement": "Tatsugirinite"
     },
     {
       "id": 1368,
@@ -87357,7 +87357,7 @@
       "alternate_forms": [
         "Tatsugiri (Droopy)"
       ],
-      "form_requirement": "Tatsugiri (Droopy)ite"
+      "form_requirement": "Tatsugirinite"
     },
     {
       "id": 1369,
@@ -87467,7 +87467,7 @@
       "alternate_forms": [
         "Tatsugiri (Stretchy)"
       ],
-      "form_requirement": "Tatsugiri (Stretchy)ite"
+      "form_requirement": "Tatsugirinite"
     },
     {
       "id": 1376,
@@ -87517,7 +87517,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1377,
@@ -87567,7 +87567,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1378,
@@ -87617,7 +87617,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1379,
@@ -87669,7 +87669,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1380,
@@ -87719,7 +87719,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1381,
@@ -87769,7 +87769,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1382,
@@ -87819,7 +87819,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1383,
@@ -87869,7 +87869,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1384,
@@ -87919,7 +87919,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1385,
@@ -87969,7 +87969,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1386,
@@ -88019,7 +88019,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1387,
@@ -88069,7 +88069,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1388,
@@ -88715,7 +88715,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1399,
@@ -88765,7 +88765,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1400,
@@ -88915,7 +88915,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1407,
@@ -88965,7 +88965,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1409,
@@ -89810,7 +89810,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1428,
@@ -89860,7 +89860,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1429,
@@ -89910,7 +89910,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1430,
@@ -89960,7 +89960,7 @@
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [],
-      "form_requirement": null
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1431,
@@ -90009,7 +90009,10 @@
       "evolution_line": "Terapagos",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Terapagos (Terastal)",
+        "Terapagos (Stellar)"
+      ],
       "form_requirement": null
     },
     {
@@ -90060,8 +90063,11 @@
       "evolution_line": "Terapagos",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": null
+      "alternate_forms": [
+        "Terapagos (Normal)",
+        "Terapagos (Stellar)"
+      ],
+      "form_requirement": "Battle Form (via Tera Shift)"
     },
     {
       "id": 1433,
@@ -90110,8 +90116,11 @@
       "evolution_line": "Terapagos",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": null
+      "alternate_forms": [
+        "Terapagos (Terastal)",
+        "Terapagos (Normal)"
+      ],
+      "form_requirement": "Terastallization"
     },
     {
       "id": 1434,
