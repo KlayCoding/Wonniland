@@ -1941,7 +1941,7 @@
       "category": "Mouse",
       "height": 7,
       "weight": 255,
-      "description": null,
+      "description": "It forms a group of Rattata, which it assumes command of. Each group has its own territory, and disputes over food happen often.",
       "learnset_ref": "sRaticateAlolaLevelUpLearnset",
       "teachable_ref": "sRaticateAlolaTeachableLearnset",
       "egg_moves_ref": null,
@@ -1991,7 +1991,7 @@
       "category": "Mouse",
       "height": 14,
       "weight": 1050,
-      "description": null,
+      "description": "It forms a group of Rattata, which it assumes command of. Each group has its own territory, and disputes over food happen often.",
       "learnset_ref": "sRaticateAlolaLevelUpLearnset",
       "teachable_ref": "sRaticateAlolaTeachableLearnset",
       "egg_moves_ref": null,
@@ -2283,7 +2283,7 @@
       "category": "Tiny Mouse",
       "height": 3,
       "weight": 20,
-      "description": null,
+      "description": "It is still inept at retaining electricity. When it is startled, it discharges power accidentally. It gets better at holding power as it grows older.",
       "learnset_ref": "sPichuLevelUpLearnset",
       "teachable_ref": "sPichuTeachableLearnset",
       "egg_moves_ref": "sPichuEggMoveLearnset",
@@ -2339,7 +2339,7 @@
       "category": "Tiny Mouse",
       "height": 3,
       "weight": 20,
-      "description": null,
+      "description": "It is still inept at retaining electricity. When it is startled, it discharges power accidentally. It gets better at holding power as it grows older.",
       "learnset_ref": "sPichuLevelUpLearnset",
       "teachable_ref": "sPichuTeachableLearnset",
       "egg_moves_ref": "sPichuEggMoveLearnset",
@@ -2396,7 +2396,7 @@
       "category": "Mouse",
       "height": 4,
       "weight": 60,
-      "description": null,
+      "description": "It stores electricity in the electric sacs on its cheeks. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt.",
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
       "egg_moves_ref": null,
@@ -2458,7 +2458,7 @@
       "category": "Mouse",
       "height": 4,
       "weight": 60,
-      "description": null,
+      "description": "It stores electricity in the electric sacs on its cheeks. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt.",
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
       "egg_moves_ref": null,
@@ -2512,7 +2512,7 @@
       "category": "Mouse",
       "height": 4,
       "weight": 60,
-      "description": null,
+      "description": "It stores electricity in the electric sacs on its cheeks. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt.",
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
       "egg_moves_ref": null,
@@ -2566,7 +2566,7 @@
       "category": "Mouse",
       "height": 4,
       "weight": 60,
-      "description": null,
+      "description": "It stores electricity in the electric sacs on its cheeks. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt.",
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
       "egg_moves_ref": null,
@@ -2620,7 +2620,7 @@
       "category": "Mouse",
       "height": 4,
       "weight": 60,
-      "description": null,
+      "description": "It stores electricity in the electric sacs on its cheeks. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt.",
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
       "egg_moves_ref": null,
@@ -2674,7 +2674,7 @@
       "category": "Mouse",
       "height": 4,
       "weight": 60,
-      "description": null,
+      "description": "It stores electricity in the electric sacs on its cheeks. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt.",
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
       "egg_moves_ref": null,
@@ -2728,7 +2728,7 @@
       "category": "Mouse",
       "height": 4,
       "weight": 60,
-      "description": null,
+      "description": "It stores electricity in the electric sacs on its cheeks. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt.",
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
       "egg_moves_ref": null,
@@ -3271,7 +3271,7 @@
       "category": "Mouse",
       "height": 4,
       "weight": 60,
-      "description": null,
+      "description": "It stores electricity in the electric sacs on its cheeks. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt.",
       "learnset_ref": "sPikachuLevelUpLearnset",
       "teachable_ref": "sPikachuTeachableLearnset",
       "egg_moves_ref": null,
@@ -11128,7 +11128,7 @@
       "category": "Bone Keeper",
       "height": 10,
       "weight": 340,
-      "description": null,
+      "description": "The cursed flames that light up the bone carried by this Pokémon are said to cause both mental and physical pain that will never fade.",
       "learnset_ref": "sMarowakAlolaLevelUpLearnset",
       "teachable_ref": "sMarowakAlolaTeachableLearnset",
       "egg_moves_ref": null,
@@ -11180,7 +11180,7 @@
       "category": "Bone Keeper",
       "height": 17,
       "weight": 980,
-      "description": null,
+      "description": "The cursed flames that light up the bone carried by this Pokémon are said to cause both mental and physical pain that will never fade.",
       "learnset_ref": "sMarowakAlolaLevelUpLearnset",
       "teachable_ref": "sMarowakAlolaTeachableLearnset",
       "egg_moves_ref": null,
@@ -14584,7 +14584,7 @@
       "category": "Evolution",
       "height": 3,
       "weight": 65,
-      "description": null,
+      "description": "An Eevee has an unstable genetic makeup that suddenly mutates due to its environment. Radiation from various Stones causes this Pokémon to evolve.",
       "learnset_ref": "sEeveeLevelUpLearnset",
       "teachable_ref": "sEeveeTeachableLearnset",
       "egg_moves_ref": "sEeveeEggMoveLearnset",
@@ -14732,7 +14732,7 @@
       "category": "Evolution",
       "height": 3,
       "weight": 65,
-      "description": null,
+      "description": "An Eevee has an unstable genetic makeup that suddenly mutates due to its environment. Radiation from various Stones causes this Pokémon to evolve.",
       "learnset_ref": "sEeveeLevelUpLearnset",
       "teachable_ref": "sEeveeTeachableLearnset",
       "egg_moves_ref": "sEeveeEggMoveLearnset",
@@ -20000,9 +20000,10 @@
         }
       ],
       "catch_rate": 225,
-      "exp_yield": 61,
+      "exp_yield": 118,
       "ev_yield": {
-        "spa": 1
+        "spa": 1,
+        "atk": 1
       },
       "gender_ratio": "Genderless",
       "egg_cycles": 40,
@@ -20015,14 +20016,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20065,14 +20094,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20099,30 +20156,48 @@
           "hidden": false
         }
       ],
-      "catch_rate": 225,
-      "exp_yield": 61,
-      "ev_yield": {
-        "spa": 1
-      },
-      "gender_ratio": "Genderless",
-      "egg_cycles": 40,
-      "egg_groups": [
-        "Undiscovered"
-      ],
       "friendship": 70,
       "growth_rate": "Medium Fast",
       "body_color": "Black",
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20165,14 +20240,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20215,14 +20318,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20265,14 +20396,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20315,14 +20474,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20365,14 +20552,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20415,14 +20630,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20465,14 +20708,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20515,14 +20786,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20565,14 +20864,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20615,14 +20942,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20665,14 +21020,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20715,14 +21098,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20765,14 +21176,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20815,14 +21254,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20865,14 +21332,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20915,14 +21410,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -20965,14 +21488,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -21015,14 +21566,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -21065,14 +21644,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -21115,14 +21722,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -21165,14 +21800,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -21215,14 +21878,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Z)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -21265,14 +21956,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (!)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -21315,14 +22034,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (?)"
+      ],
       "form_requirement": null
     },
     {
@@ -21365,14 +22112,42 @@
       "category": "Symbol",
       "height": 5,
       "weight": 50,
-      "description": "Its flat body is always in the shape of a letter. Researchers are mystified.",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "description": "This Pokémon is shaped like ancient text characters. Although research is ongoing, it is a mystery as to which came first, the ancient writings or the various Unown.",
+      "learnset_ref": "sUnownLevelUpLearnset",
+      "teachable_ref": "sUnownTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Unown",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Unown (A)",
+        "Unown (B)",
+        "Unown (C)",
+        "Unown (D)",
+        "Unown (E)",
+        "Unown (F)",
+        "Unown (G)",
+        "Unown (H)",
+        "Unown (I)",
+        "Unown (J)",
+        "Unown (K)",
+        "Unown (L)",
+        "Unown (M)",
+        "Unown (N)",
+        "Unown (O)",
+        "Unown (P)",
+        "Unown (Q)",
+        "Unown (R)",
+        "Unown (S)",
+        "Unown (T)",
+        "Unown (U)",
+        "Unown (V)",
+        "Unown (W)",
+        "Unown (X)",
+        "Unown (Y)",
+        "Unown (Z)",
+        "Unown (!)"
+      ],
       "form_requirement": null
     },
     {
@@ -36834,12 +37609,12 @@
       "pre_evolution": "Egg",
       "evolves_into": [
         {
-          "name": "Wormadam",
+          "name": "Wormadam (Plant)",
           "method": "Level Up",
           "param": "Lvl. 20 (Female)"
         },
         {
-          "name": "Mothim",
+          "name": "Mothim (Plant)",
           "method": "Level Up",
           "param": "Lvl. 20 (Male)"
         }
@@ -36899,12 +37674,12 @@
       "pre_evolution": "Egg",
       "evolves_into": [
         {
-          "name": "Wormadam",
+          "name": "Wormadam (Sandy)",
           "method": "Level Up",
           "param": "Lvl. 20 (Female)"
         },
         {
-          "name": "Mothim",
+          "name": "Mothim (Sandy)",
           "method": "Level Up",
           "param": "Lvl. 20 (Male)"
         }
@@ -36964,12 +37739,12 @@
       "pre_evolution": "Egg",
       "evolves_into": [
         {
-          "name": "Wormadam",
+          "name": "Wormadam (Trash)",
           "method": "Level Up",
           "param": "Lvl. 20 (Female)"
         },
         {
-          "name": "Mothim",
+          "name": "Mothim (Trash)",
           "method": "Level Up",
           "param": "Lvl. 20 (Male)"
         }
@@ -37026,9 +37801,15 @@
       "teachable_ref": "sWormadamPlantTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Burmy Line",
-      "pre_evolution": "Burmy",
+      "pre_evolution": "Burmy (Plant)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Mothim (Plant)",
+        "Mothim (Sandy)",
+        "Mothim (Trash)",
+        "Wormadam (Sandy)",
+        "Wormadam (Trash)"
+      ],
       "form_requirement": null
     },
     {
@@ -37080,9 +37861,15 @@
       "teachable_ref": "sWormadamSandyTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Burmy Line",
-      "pre_evolution": "Burmy",
+      "pre_evolution": "Burmy (Sandy)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Mothim (Sandy)",
+        "Mothim (Plant)",
+        "Mothim (Trash)",
+        "Wormadam (Plant)",
+        "Wormadam (Trash)"
+      ],
       "form_requirement": null
     },
     {
@@ -37137,9 +37924,15 @@
       "teachable_ref": "sWormadamTrashTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Burmy Line",
-      "pre_evolution": "Burmy",
+      "pre_evolution": "Burmy (Trash)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Mothim (Sandy)",
+        "Mothim (Plant)",
+        "Mothim (Trash)",
+        "Wormadam (Plant)",
+        "Wormadam (Sandy)"
+      ],
       "form_requirement": null
     },
     {
@@ -37170,26 +37963,37 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 45,
+      "exp_yield": 148,
+      "ev_yield": {
+        "atk": 1,
+        "spa": 1
+      },
+      "gender_ratio": "100% Male",
+      "egg_cycles": 15,
+      "egg_groups": [
+        "Bug"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Yellow",
+      "category": "Moth",
+      "height": 9,
+      "weight": 233,
+      "description": "It does not keep a nest. While it loves floral honey, it won't gather any itself. Instead, it plots to steal honey collected by Combee.",
+      "learnset_ref": "sMothimLevelUpLearnset",
+      "teachable_ref": "sMothimTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Burmy Line",
-      "pre_evolution": "Burmy",
+      "pre_evolution": "Burmy (Plant)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Mothim (Sandy)",
+        "Mothim (Trash)",
+        "Wormadam (Plant)",
+        "Wormadam (Sandy)",
+        "Wormadam (Trash)"
+      ],
       "form_requirement": null
     },
     {
@@ -37220,26 +38024,37 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 45,
+      "exp_yield": 148,
+      "ev_yield": {
+        "atk": 1,
+        "spa": 1
+      },
+      "gender_ratio": "100% Male",
+      "egg_cycles": 15,
+      "egg_groups": [
+        "Bug"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Yellow",
+      "category": "Moth",
+      "height": 9,
+      "weight": 233,
+      "description": "It does not keep a nest. While it loves floral honey, it won't gather any itself. Instead, it plots to steal honey collected by Combee.",
+      "learnset_ref": "sMothimLevelUpLearnset",
+      "teachable_ref": "sMothimTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Burmy Line",
-      "pre_evolution": "Burmy",
+      "pre_evolution": "Burmy (Sandy)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Mothim (Plant)",
+        "Mothim (Trash)",
+        "Wormadam (Plant)",
+        "Wormadam (Sandy)",
+        "Wormadam (Trash)"
+      ],
       "form_requirement": null
     },
     {
@@ -37270,26 +38085,37 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 45,
+      "exp_yield": 148,
+      "ev_yield": {
+        "atk": 1,
+        "spa": 1
+      },
+      "gender_ratio": "100% Male",
+      "egg_cycles": 15,
+      "egg_groups": [
+        "Bug"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Yellow",
+      "category": "Moth",
+      "height": 9,
+      "weight": 233,
+      "description": "It does not keep a nest. While it loves floral honey, it won't gather any itself. Instead, it plots to steal honey collected by Combee.",
+      "learnset_ref": "sMothimLevelUpLearnset",
+      "teachable_ref": "sMothimTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Burmy Line",
-      "pre_evolution": "Burmy",
+      "pre_evolution": "Burmy (Trash)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Mothim (Sandy)",
+        "Mothim (Plant)",
+        "Wormadam (Plant)",
+        "Wormadam (Sandy)",
+        "Wormadam (Trash)"
+      ],
       "form_requirement": null
     },
     {
@@ -76603,21 +77429,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -76625,7 +77456,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1235,
@@ -76655,21 +77486,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -76677,7 +77513,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1244,
@@ -76707,21 +77543,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -76729,7 +77570,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1253,
@@ -76759,21 +77600,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -76781,7 +77627,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1262,
@@ -76811,21 +77657,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -76833,7 +77684,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1271,
@@ -76863,21 +77714,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -76885,7 +77741,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1280,
@@ -76915,21 +77771,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -76937,7 +77798,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1216,
@@ -76967,21 +77828,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -76989,7 +77855,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1236,
@@ -77019,21 +77885,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77041,7 +77912,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1245,
@@ -77071,21 +77942,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77093,7 +77969,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1254,
@@ -77123,21 +77999,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77145,7 +78026,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1263,
@@ -77175,21 +78056,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77197,7 +78083,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1272,
@@ -77227,21 +78113,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77249,7 +78140,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1281,
@@ -77279,21 +78170,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77301,7 +78197,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1217,
@@ -77331,21 +78227,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77353,7 +78254,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1237,
@@ -77383,21 +78284,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77405,7 +78311,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1246,
@@ -77435,21 +78341,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77457,7 +78368,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1255,
@@ -77487,21 +78398,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77509,7 +78425,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1264,
@@ -77539,21 +78455,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77561,7 +78482,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1273,
@@ -77591,21 +78512,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77613,7 +78539,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1282,
@@ -77643,21 +78569,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77665,7 +78596,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1218,
@@ -77695,21 +78626,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77717,7 +78653,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1238,
@@ -77747,21 +78683,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77769,7 +78710,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1247,
@@ -77799,21 +78740,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77821,7 +78767,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1256,
@@ -77851,21 +78797,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77873,7 +78824,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1265,
@@ -77903,21 +78854,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77925,7 +78881,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1274,
@@ -77955,21 +78911,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -77977,7 +78938,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1283,
@@ -78007,21 +78968,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78029,7 +78995,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1219,
@@ -78059,21 +79025,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78081,7 +79052,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1239,
@@ -78111,21 +79082,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78133,7 +79109,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1248,
@@ -78163,21 +79139,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78185,7 +79166,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1257,
@@ -78215,21 +79196,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78237,7 +79223,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1266,
@@ -78267,21 +79253,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78289,7 +79280,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1275,
@@ -78319,21 +79310,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78341,7 +79337,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1284,
@@ -78371,21 +79367,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78393,7 +79394,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1220,
@@ -78423,21 +79424,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78445,7 +79451,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1240,
@@ -78475,21 +79481,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78497,7 +79508,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1249,
@@ -78527,21 +79538,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78549,7 +79565,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1258,
@@ -78579,21 +79595,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78601,7 +79622,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1267,
@@ -78631,21 +79652,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78653,7 +79679,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1276,
@@ -78683,21 +79709,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78705,7 +79736,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1285,
@@ -78735,21 +79766,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78757,7 +79793,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1221,
@@ -78787,21 +79823,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78809,7 +79850,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1241,
@@ -78839,21 +79880,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78861,7 +79907,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1250,
@@ -78891,21 +79937,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78913,7 +79964,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1259,
@@ -78943,21 +79994,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -78965,7 +80021,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1268,
@@ -78995,21 +80051,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79017,7 +80078,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1277,
@@ -79047,21 +80108,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79069,7 +80135,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1286,
@@ -79099,21 +80165,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79121,7 +80192,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1222,
@@ -79151,21 +80222,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79173,7 +80249,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1242,
@@ -79203,21 +80279,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79225,7 +80306,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1251,
@@ -79255,21 +80336,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79277,7 +80363,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1260,
@@ -79307,21 +80393,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79329,7 +80420,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1269,
@@ -79359,21 +80450,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79381,7 +80477,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1278,
@@ -79411,21 +80507,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79433,7 +80534,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1287,
@@ -79463,21 +80564,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79485,7 +80591,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1223,
@@ -79515,21 +80621,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79537,7 +80648,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1243,
@@ -79567,21 +80678,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79589,7 +80705,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1252,
@@ -79619,21 +80735,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79641,7 +80762,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1261,
@@ -79671,21 +80792,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79693,7 +80819,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1270,
@@ -79723,21 +80849,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79745,7 +80876,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1279,
@@ -79775,21 +80906,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79797,7 +80933,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1288,
@@ -79827,21 +80963,26 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "If Alcremie is content, the secreted cream from its hands becomes sweeter and richer. When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
       "pre_evolution": "Milcery",
@@ -79849,7 +80990,7 @@
       "alternate_forms": [
         "GMax-Alcremie"
       ],
-      "form_requirement": null
+      "form_requirement": "GMax Factor"
     },
     {
       "id": 1518,
@@ -79879,27 +81020,32 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 100,
+      "exp_yield": 173,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy",
+        "Amorphous"
+      ],
+      "friendship": 70,
+      "growth_rate": "Medium Fast",
+      "body_color": "Color",
+      "category": "Cream",
+      "height": 3,
+      "weight": 5,
+      "description": "It launches swarms of missiles, each made of cream and loaded with 100,000 kilocalories. Get hit by one of these, and your head will swim.",
+      "learnset_ref": "sAlcremieLevelUpLearnset",
+      "teachable_ref": "sAlcremieTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Milcery Line",
-      "pre_evolution": "Alcremie",
+      "pre_evolution": "Milcery",
       "evolves_into": [],
       "alternate_forms": [
-        "Alcremie"
+        "GMax-Alcremie"
       ],
       "form_requirement": "GMax Factor"
     },
