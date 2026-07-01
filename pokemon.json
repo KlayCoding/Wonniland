@@ -87516,7 +87516,10 @@
       "evolution_line": "Great Tusk Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Donphan",
+        "Iron Treads"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -87566,7 +87569,9 @@
       "evolution_line": "Scream Tail Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Jigglypuff"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -87616,7 +87621,9 @@
       "evolution_line": "Brute Bonnet Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Amoonguss"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -87668,7 +87675,9 @@
       "evolution_line": "Flutter Mane Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Misdreavus"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -87718,7 +87727,10 @@
       "evolution_line": "Slither Wing Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Volcarona",
+        "Iron Moth"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -87768,7 +87780,9 @@
       "evolution_line": "Sandy Shocks Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Magneton"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -87818,7 +87832,10 @@
       "evolution_line": "Iron Treads Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Great Tusk",
+        "Donphan"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -87868,7 +87885,9 @@
       "evolution_line": "Iron Bundle Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Delibird"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -87918,7 +87937,9 @@
       "evolution_line": "Iron Hands Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Hariyama"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -87968,7 +87989,9 @@
       "evolution_line": "Iron Jugulis Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Hydreigon"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -88018,7 +88041,10 @@
       "evolution_line": "Iron Moth Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Volcarona",
+        "Slither Wing"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -88068,7 +88094,9 @@
       "evolution_line": "Iron Thorns Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Tyranitar"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -88714,7 +88742,10 @@
       "evolution_line": "Roaring Moon Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Salamence",
+        "Mega-Salamence"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -88764,7 +88795,9 @@
       "evolution_line": "Iron Valiant Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Gallade"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -88814,8 +88847,11 @@
       "evolution_line": "Box Legendaries",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": null
+      "alternate_forms": [
+        "Cyclizar",
+        "Miraidon"
+      ],
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1401,
@@ -88864,8 +88900,11 @@
       "evolution_line": "Box Legendaries",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
-      "form_requirement": null
+      "alternate_forms": [
+        "Cyclizar",
+        "Koraidon"
+      ],
+      "form_requirement": "Paradox Version"
     },
     {
       "id": 1406,
@@ -88914,7 +88953,9 @@
       "evolution_line": "Walking Wake Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Suicune"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -88964,7 +89005,9 @@
       "evolution_line": "Iron Leaves Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Virizion"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -89809,7 +89852,9 @@
       "evolution_line": "Gouging Fire Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Entei"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -89859,7 +89904,9 @@
       "evolution_line": "Raging Bolt Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Raikou"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -89909,7 +89956,9 @@
       "evolution_line": "Iron Boulder Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Terrakion"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
@@ -89959,7 +90008,9 @@
       "evolution_line": "Iron Crown Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Cobalion"
+      ],
       "form_requirement": "Paradox Version"
     },
     {
