@@ -1426,12 +1426,12 @@
         "atk": 2,
         "spd": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Bug"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Poison Bee",
@@ -1486,12 +1486,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Tiny Bird",
@@ -1550,12 +1550,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Bird",
@@ -1614,12 +1614,12 @@
       "ev_yield": {
         "spe": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Bird",
@@ -1674,12 +1674,12 @@
       "ev_yield": {
         "spe": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Bird",
@@ -1736,12 +1736,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Purple",
       "category": "Mouse",
@@ -1760,7 +1760,9 @@
           "param": "Lvl. 20"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Alolan-Rattata"
+      ],
       "form_requirement": null
     },
     {
@@ -1802,12 +1804,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Mouse",
@@ -1820,7 +1822,10 @@
       "evolution_line": "Rattata Line",
       "pre_evolution": "Rattata",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Alolan-Raticate",
+        "Alolan-Raticate (Totem)"
+      ],
       "form_requirement": null
     },
     {
@@ -1860,12 +1865,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Black",
       "category": "Mouse",
@@ -1884,7 +1889,9 @@
           "param": "Lvl. 20"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Rattata"
+      ],
       "form_requirement": null
     },
     {
@@ -1924,12 +1931,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Black",
       "category": "Mouse",
@@ -1942,7 +1949,10 @@
       "evolution_line": "Rattata Line",
       "pre_evolution": "Alolan-Rattata",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Raticate",
+        "Alolan-Raticate (Totem)"
+      ],
       "form_requirement": null
     },
     {
@@ -1974,12 +1984,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Black",
       "category": "Mouse",
@@ -1992,7 +2002,10 @@
       "evolution_line": "Alolan-Raticate Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Raticate",
+        "Alolan-Raticate"
+      ],
       "form_requirement": null
     },
     {
@@ -2028,12 +2041,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Tiny Bird",
@@ -2088,12 +2101,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Beak",
@@ -2146,13 +2159,13 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field",
         "Dragon"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Purple",
       "category": "Snake",
@@ -2211,13 +2224,13 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field",
         "Dragon"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Purple",
       "category": "Cobra",
@@ -2266,12 +2279,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Tiny Mouse",
@@ -2290,7 +2303,9 @@
           "param": ""
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Spiky-Ear-Pichu"
+      ],
       "form_requirement": null
     },
     {
@@ -2322,12 +2337,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Tiny Mouse",
@@ -2340,7 +2355,9 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pichu"
+      ],
       "form_requirement": null
     },
     {
@@ -2374,17 +2391,17 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Field",
         "Fairy"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2404,7 +2421,22 @@
         }
       ],
       "alternate_forms": [
-        "GMax-Pikachu"
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
       ],
       "form_requirement": null
     },
@@ -2437,7 +2469,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2446,7 +2478,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2459,14 +2491,31 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
       "id": 1010,
       "group": "Gen 1",
       "dex_number": "0025c",
-      "name": "Rockstar-Pikachu",
+      "name": "Rock-Star-Pikachu",
       "sprite": "1010",
       "shiny_sprite": "1010",
       "type1": "Electric",
@@ -2491,7 +2540,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 11,
       "ev_yield": {
         "spe": 2
       },
@@ -2500,7 +2549,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2513,7 +2562,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -2545,7 +2611,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2554,7 +2620,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2567,7 +2633,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -2599,7 +2682,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2608,7 +2691,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2621,7 +2704,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -2653,7 +2753,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2662,7 +2762,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2675,7 +2775,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -2707,7 +2824,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2716,7 +2833,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2729,7 +2846,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -2761,7 +2895,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2770,7 +2904,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2783,7 +2917,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -2815,7 +2966,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2824,7 +2975,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2837,7 +2988,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -2869,7 +3037,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2878,7 +3046,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2891,7 +3059,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -2923,7 +3108,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2932,7 +3117,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2945,7 +3130,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -2977,7 +3179,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -2986,7 +3188,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -2999,7 +3201,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -3031,7 +3250,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -3040,7 +3259,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3053,7 +3272,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -3085,7 +3321,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -3094,7 +3330,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3107,7 +3343,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -3139,7 +3392,7 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
@@ -3148,7 +3401,7 @@
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3161,7 +3414,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "GMax-Pikachu",
+        "Starter-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -3193,17 +3463,17 @@
         }
       ],
       "catch_rate": 190,
-      "exp_yield": 0,
+      "exp_yield": 112,
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Field",
         "Fairy"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3217,7 +3487,22 @@
       "pre_evolution": "Pikachu",
       "evolves_into": [],
       "alternate_forms": [
-        "Pikachu"
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "Starter-Pikachu"
       ],
       "form_requirement": "GMax Factor"
     },
@@ -3254,12 +3539,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "No Eggs Discovered"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3272,7 +3557,24 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": null,
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Pikachu",
+        "Cosplay-Pikachu",
+        "Rock-Star-Pikachu",
+        "Belle-Pikachu",
+        "Pop-Star-Pikachu",
+        "PHD-Pikachu",
+        "Libre-Pikachu",
+        "Original-Pikachu",
+        "Hoenn-Pikachu",
+        "Sinnoh-Pikachu",
+        "Unova-Pikachu",
+        "Kalos-Pikachu",
+        "Alola-Pikachu",
+        "Partner-Pikachu",
+        "World-Pikachu",
+        "GMax-Pikachu"
+      ],
       "form_requirement": null
     },
     {
@@ -3306,17 +3608,17 @@
         }
       ],
       "catch_rate": 75,
-      "exp_yield": 0,
+      "exp_yield": 243,
       "ev_yield": {
         "spe": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Field",
         "Fairy"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3329,7 +3631,11 @@
       "evolution_line": "Pikachu Line",
       "pre_evolution": "Pikachu",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Alolan-Raichu",
+        "Mega-Raichu-X",
+        "Mega-Raichu-Y"
+      ],
       "form_requirement": null
     },
     {
@@ -3367,7 +3673,7 @@
         "Field",
         "Fairy"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Mouse",
@@ -3381,7 +3687,9 @@
       "pre_evolution": "Pikachu",
       "evolves_into": [],
       "alternate_forms": [
-        "Raichu"
+        "Raichu",
+        "Mega-Raichu-X",
+        "Mega-Raichu-Y"
       ],
       "form_requirement": null
     },
@@ -3414,7 +3722,7 @@
         }
       ],
       "catch_rate": 75,
-      "exp_yield": 0,
+      "exp_yield": 243,
       "ev_yield": {
         "spe": 3
       },
@@ -3424,7 +3732,7 @@
         "Field",
         "Fairy"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3438,9 +3746,11 @@
       "pre_evolution": "Raichu",
       "evolves_into": [],
       "alternate_forms": [
-        "Raichu"
+        "Alolan-Raichu",
+        "Raichu",
+        "Mega-Raichu-Y"
       ],
-      "form_requirement": "Raichu-Xite"
+      "form_requirement": "Raichunite X"
     },
     {
       "id": 1554,
@@ -3471,7 +3781,7 @@
         }
       ],
       "catch_rate": 75,
-      "exp_yield": 0,
+      "exp_yield": 243,
       "ev_yield": {
         "spe": 3
       },
@@ -3481,7 +3791,7 @@
         "Field",
         "Fairy"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3495,9 +3805,11 @@
       "pre_evolution": "Raichu",
       "evolves_into": [],
       "alternate_forms": [
-        "Raichu"
+        "Alolan-Raichu",
+        "Mega-Raichu-X",
+        "Raichu
       ],
-      "form_requirement": "Raichu-Yite"
+      "form_requirement": "Raichunite Y"
     },
     {
       "id": 27,
@@ -3532,12 +3844,12 @@
       "ev_yield": {
         "def": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3556,7 +3868,9 @@
           "param": "Lvl. 22"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Alolan-Sandshrew"
+      ],
       "form_requirement": null
     },
     {
@@ -3592,12 +3906,12 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Mouse",
@@ -3610,7 +3924,9 @@
       "evolution_line": "Sandshrew Line",
       "pre_evolution": "Sandshrew",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Alolan-Sandslash"
+      ],
       "form_requirement": null
     },
     {
@@ -3646,12 +3962,12 @@
       "ev_yield": {
         "def": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Blue",
       "category": "Mouse",
@@ -3670,7 +3986,9 @@
           "param": "Ice Stone"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Sandshrew"
+      ],
       "form_requirement": null
     },
     {
@@ -3706,12 +4024,12 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female, 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Blue",
       "category": "Mouse",
@@ -3724,7 +4042,9 @@
       "evolution_line": "Sandshrew Line",
       "pre_evolution": "Alolan-Sandshrew",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Sandslash"
+      ],
       "form_requirement": null
     },
     {
