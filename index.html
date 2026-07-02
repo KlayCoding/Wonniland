@@ -862,7 +862,7 @@ function updTrainerCard(){
     spr.onerror=()=>{spr.onerror=null;spr.style.visibility='hidden';};
     const info=document.createElement('div');
     const nm=document.createElement('div');nm.style.cssText='font-size:13px;font-weight:800;';nm.textContent=trName;
-    const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);margin-top:2px;';sub.textContent='OG Trainer';
+    const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);margin-top:2px;';sub.textContent='Pokémon Creation';
     info.append(nm,sub);hdr.append(spr,info);card.appendChild(hdr);
     panel.appendChild(card); return;
   }
@@ -1045,41 +1045,109 @@ function updPokemonCard(){
     setTimeout(()=>bstFl.style.width=Math.min(100,Math.round(bst/720*100))+'%',50);
   }
 
-  // ── Stat bars with Nature coloring + IV/EV final values ─────────────────────
+  // ── Stat bars v4: base + boost segments, breakdown rows, EV footer ──────────
   if(baseStats){
-    const lv50lbl=document.createElement('div');lv50lbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;padding:6px 14px 0;';lv50lbl.textContent='LV. 50 BASE STATS';card.appendChild(lv50lbl);
-    const sg=document.createElement('div');sg.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:6px 12px 10px;border-bottom:1px solid rgba(255,255,255,.04);';
+    const BASE_COL='#4f6f8f';   // muted steel blue for base segment
+    const BOOST_COL='#4db6ac';  // teal for boost segment
+    const lv50hdr=document.createElement('div');
+    lv50hdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;padding:8px 14px 4px;display:flex;justify-content:space-between;align-items:center;';
+    lv50hdr.textContent='LV. 50 BASE STATS';
+    if(currentMode==='pokemon'){
+      const eb=document.createElement('button');eb.type='button';
+      eb.style.cssText='font-size:8px;padding:2px 7px;border-radius:4px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#8892a4;cursor:pointer;transition:all .15s;';
+      eb.textContent='✎ Edit IV/EV';
+      eb.addEventListener('click',()=>{step=8;renderQ();});
+      eb.addEventListener('mouseenter',()=>{eb.style.borderColor='var(--pl)';eb.style.color='var(--pl)';});
+      eb.addEventListener('mouseleave',()=>{eb.style.borderColor='rgba(255,255,255,.12)';eb.style.color='#8892a4';});
+      lv50hdr.appendChild(eb);
+    }
+    card.appendChild(lv50hdr);
+
+    // Legend
+    const legend=document.createElement('div');legend.style.cssText='display:flex;gap:8px;padding:0 14px 6px;flex-wrap:wrap;';
+    [{col:BASE_COL,lbl:'Base'},{col:BOOST_COL,lbl:'+ Boost'},{col:'#e57373',lbl:'Malus',op:'.6'}].forEach(({col,lbl,op})=>{
+      const item=document.createElement('div');item.style.cssText='display:flex;align-items:center;gap:4px;font-size:7px;color:#6b8cad;';
+      const dot=document.createElement('div');dot.style.cssText=`width:7px;height:7px;border-radius:2px;background:${col};${op?'opacity:'+op:''}`;
+      const txt=document.createTextNode(lbl);item.append(dot,txt);legend.appendChild(item);
+    });
+    card.appendChild(legend);
+
+    // Stat grid
+    const sg=document.createElement('div');sg.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:4px 12px 6px;';
     baseStats.forEach((base,i)=>{
-      const isHp=i===0;
-      const isUp=i===upIdx, isDn=i===dnIdx;
+      const isHp=i===0, isUp=i===upIdx, isDn=i===dnIdx;
       const mod=isUp?1.1:isDn?0.9:1.0;
-      // Lv50 stat with IVs+EVs
+      const baseOnly=isHp?Math.floor((2*base+0+0)*50/100)+60:Math.floor((Math.floor((2*base)*50/100)+5));
       const finalStat=isHp
         ?Math.floor((2*base+ivArr[i]+Math.floor(evArr[i]/4))*50/100)+60
         :Math.floor((Math.floor((2*base+ivArr[i]+Math.floor(evArr[i]/4))*50/100)+5)*mod);
-      const barCol=isUp?'#4caf50':isDn?'#E3350D':SCOLS[i];
-      const sc=document.createElement('div');sc.style.cssText='display:flex;flex-direction:column;align-items:center;gap:2px;';
-      const sl=document.createElement('div');sl.style.cssText=`font-family:'Press Start 2P',monospace;font-size:6px;color:${barCol};`;sl.textContent=SLBLS[i];
-      const bg=document.createElement('div');bg.style.cssText='width:100%;height:48px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;position:relative;';
-      // Base layer (dim)
-      const f1=document.createElement('div');f1.style.cssText=`position:absolute;bottom:0;left:0;width:100%;border-radius:4px;background:${barCol};opacity:.2;height:0%;transition:height .5s cubic-bezier(.4,0,.2,1);`;
-      // Final fill
-      const f3=document.createElement('div');f3.style.cssText=`position:absolute;bottom:0;left:0;width:100%;border-radius:4px;background:${barCol};${isUp?'box-shadow:0 0 6px '+barCol+'99;':isDn?'':''}height:0%;transition:height .5s cubic-bezier(.4,0,.2,1);`;
-      bg.append(f1,f3);
-      // Nature arrow indicator
-      if(isUp||isDn){
-        const arrow=document.createElement('div');arrow.style.cssText=`position:absolute;top:2px;right:3px;font-size:10px;line-height:1;z-index:2;`;
-        arrow.textContent=isUp?'▲':'▼'; bg.appendChild(arrow);
+      const sc=document.createElement('div');sc.style.cssText='display:flex;flex-direction:column;align-items:center;gap:1px;';
+      const sl=document.createElement('div');sl.style.cssText='font-family:"Press Start 2P",monospace;font-size:6px;color:#6b8cad;';sl.textContent=SLBLS[i];
+      const bg=document.createElement('div');bg.style.cssText='width:100%;height:52px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;display:flex;flex-direction:column-reverse;position:relative;';
+      const baseSeg=document.createElement('div');baseSeg.style.cssText=`width:100%;border-radius:0 0 4px 4px;background:${BASE_COL};height:0%;transition:height .5s cubic-bezier(.4,0,.2,1);`;
+      let topSeg;
+      if(finalStat>=baseOnly){
+        topSeg=document.createElement('div');topSeg.style.cssText=`width:100%;background:${BOOST_COL};box-shadow:0 0 8px ${BOOST_COL}99;height:0%;transition:height .5s cubic-bezier(.4,0,.2,1);`;
+        if(isUp) topSeg.style.boxShadow=`0 0 10px ${BOOST_COL}cc`;
+      } else {
+        topSeg=document.createElement('div');topSeg.style.cssText='width:100%;border-radius:4px 4px 0 0;height:0%;transition:height .5s cubic-bezier(.4,0,.2,1);background:repeating-linear-gradient(45deg,rgba(229,115,115,.2),rgba(229,115,115,.2) 3px,rgba(229,115,115,.45) 3px,rgba(229,115,115,.45) 6px);border-top:1px dashed #e57373;';
       }
-      const sv=document.createElement('div');
-      sv.style.cssText=`font-size:9px;font-weight:800;color:${isUp?'#4caf50':isDn?'#E3350D':SCOLS[i]};`;
-      sv.textContent=finalStat;
-      sc.append(sl,bg,sv);sg.appendChild(sc);
-      const basePct=Math.min(100,Math.round(base/255*100));
-      const finalPct=Math.min(100,Math.round(finalStat/(isHp?400:350)*100));
-      setTimeout(()=>{f1.style.height=basePct+'%';f3.style.height=finalPct+'%';},60+i*20);
+      bg.append(baseSeg,topSeg);
+      if(isUp||isDn){const ar=document.createElement('div');ar.style.cssText=`position:absolute;top:1px;right:2px;font-size:8px;z-index:3;color:${isUp?BOOST_COL:'#e57373'};`;ar.textContent=isUp?'▲':'▼';bg.appendChild(ar);}
+      const fv=document.createElement('div');fv.style.cssText=`font-size:10px;font-weight:800;color:${isUp?BOOST_COL:isDn?'#e57373':'#e8eaf6'};margin-top:2px;`;fv.textContent=finalStat;
+      const bv=document.createElement('div');bv.style.cssText='font-size:7px;color:#444;font-weight:600;';bv.textContent='('+base+')';
+      sc.append(sl,bg,fv,bv);sg.appendChild(sc);
+      const mx=isHp?400:350;
+      setTimeout(()=>{
+        const bp=Math.min(100,Math.round(baseOnly/mx*100));
+        const fp=Math.min(100,Math.round(finalStat/mx*100));
+        baseSeg.style.height=Math.min(bp,fp)+'%';
+        topSeg.style.height=Math.max(0,fp-bp)+'%';
+      },60+i*25);
     });
     card.appendChild(sg);
+
+    // Breakdown rows: IV / EV / Nature
+    const mkEditBtn=(stepN,label)=>{
+      if(currentMode!=='pokemon') return document.createElement('span');
+      const eb=document.createElement('button');eb.type='button';
+      eb.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#555;cursor:pointer;transition:all .15s;';
+      eb.textContent='✎';eb.title='Edit '+label;
+      eb.addEventListener('click',()=>{step=stepN;renderQ();});
+      eb.addEventListener('mouseenter',()=>{eb.style.borderColor='var(--pl)';eb.style.color='var(--pl)';});
+      eb.addEventListener('mouseleave',()=>{eb.style.borderColor='rgba(255,255,255,.1)';eb.style.color='#555';});
+      return eb;
+    };
+    const bdWrap=document.createElement('div');bdWrap.style.cssText='padding:4px 12px 2px;border-top:1px solid rgba(255,255,255,.04);';
+    const mkBdr=(lbl,lblCol,pills,editStep,editLabel)=>{
+      const row=document.createElement('div');row.style.cssText='display:grid;grid-template-columns:42px repeat(6,1fr) 24px;align-items:center;gap:3px;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.03);';
+      const l=document.createElement('div');l.style.cssText=`font-family:'Press Start 2P',monospace;font-size:7px;color:${lblCol};`;l.textContent=lbl;row.appendChild(l);
+      pills.forEach(p=>row.appendChild(p));
+      row.appendChild(mkEditBtn(editStep,editLabel));
+      return row;
+    };
+    const mkIVPill=(v)=>{const p=document.createElement('div');p.style.cssText=`font-size:9px;font-weight:${v===31?900:700};text-align:center;padding:2px 0;border-radius:3px;background:${v===31?'rgba(149,117,205,.28)':'rgba(149,117,205,.1)'};color:${v===31?'#ce93d8':'#b39ddb'};`;p.textContent=v;return p;};
+    const mkEVPill=(v)=>{const p=document.createElement('div');p.style.cssText=`font-size:9px;font-weight:${v>=252?900:700};text-align:center;padding:2px 0;border-radius:3px;background:${v>=252?'rgba(77,182,172,.25)':v===0?'transparent':'rgba(77,182,172,.08)'};color:${v===0?'#333':'#4db6ac'};`;p.textContent=v;return p;};
+    const mkNatPill=(i)=>{const p=document.createElement('div');p.style.cssText='font-size:11px;text-align:center;';if(i===upIdx){p.textContent='▲';p.style.color=BOOST_COL;}else if(i===dnIdx){p.textContent='▼';p.style.color='#e57373';}else{p.textContent='–';p.style.color='#333';}return p;};
+    const SKEYS2=['hp','atk','def','spa','spd','spe'];
+    bdWrap.append(
+      mkBdr('IV','#b39ddb',SKEYS2.map((_,i)=>mkIVPill(ivArr[i])),8,'IVs & EVs'),
+      mkBdr('EV','#4db6ac',SKEYS2.map((_,i)=>mkEVPill(evArr[i])),8,'IVs & EVs'),
+      mkBdr('NAT','#f0c600',baseStats.map((_,i)=>mkNatPill(i)),4,'Nature')
+    );
+    card.appendChild(bdWrap);
+
+    // EV budget footer
+    const totalEV=SKEYS2.reduce((s,_,i)=>s+(evArr[i]||0),0);
+    const evFoot=document.createElement('div');evFoot.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 14px 8px;';
+    const evFootLbl=document.createElement('span');evFootLbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;flex-shrink:0;';evFootLbl.textContent='EV';
+    const evFootBg=document.createElement('div');evFootBg.style.cssText='flex:1;height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;';
+    const evFootFill=document.createElement('div');evFootFill.style.cssText=`height:100%;background:${BOOST_COL};border-radius:2px;width:0%;transition:width .5s ease;`;
+    evFootBg.appendChild(evFootFill);
+    const evFootVal=document.createElement('span');evFootVal.style.cssText=`font-size:10px;font-weight:700;color:${BOOST_COL};flex-shrink:0;`;evFootVal.textContent=totalEV+'/510';
+    evFoot.append(evFootLbl,evFootBg,evFootVal);
+    card.appendChild(evFoot);
+    setTimeout(()=>{evFootFill.style.width=Math.round(totalEV/510*100)+'%';},150);
   }
 
   // ── Details ─────────────────────────────────────────────────────────────────
