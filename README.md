@@ -1,16 +1,18 @@
 # Wonniland Creation
 
-A Pokémon creator tool for Wonni's Pokémon Wonniland Version ROM hack.
+Help shape Wonni's own adventure in Pokémon Wonniland Version.
 
 ## Features
-- Pokémon Creation (10 questions)
-- Trainer Creation (8 questions)  
-- Full Pokédex with 1025+ Pokémon + 261 alternate forms
-- Live ability data from PokéAPI
-- 878 item database
-- BW-style sprites from cajunavenger.github.io
+- Pokémon Creation Mode (12 questions)
+- Trainer Creation Mode (17 questions)  
+- Full Pokédex Browser with 1025+ Pokémon (total: 1571)
+- Wild Encounters Browser (WIP)
+- 878 Items database
+- 847 Moves database
+- BW-style sprites
+- Detailed database for Pokémon, Items, Moves, etc.
 
 ## Credits
-- Pokémon sprites: [cajunavenger.github.io](https://cajunavenger.github.io)
-- Data: [PokéAPI](https://pokeapi.co)
+- Pokémon sprites: https://www.smogon.com/forums/threads/smogon-sprite-project.3647722/
+- Data based on Pokémon Emerald Expansion 1.16.2
 - Pokémon © Nintendo / Game Freak
