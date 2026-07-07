@@ -1047,6 +1047,8 @@ function updPokemonCard(){
 
   // ── Stat bars v4: base + boost segments, breakdown rows, EV footer ──────────
   if(baseStats){
+    const q4answered=!!(natureTxt);
+    const q8answered=!!(ans[8]?.value||ivevAns);
     const BASE_COL='#4f6f8f';   // muted steel blue for base segment
     const BOOST_COL='#4db6ac';  // teal for boost segment
     const lv50hdr=document.createElement('div');
@@ -1078,9 +1080,12 @@ function updPokemonCard(){
       const isHp=i===0, isUp=i===upIdx, isDn=i===dnIdx;
       const mod=isUp?1.1:isDn?0.9:1.0;
       const baseOnly=isHp?Math.floor((2*base+0+0)*50/100)+60:Math.floor((Math.floor((2*base)*50/100)+5));
+      const useIVEV=q8answered; const useNature=q4answered;
+      const ivVal=useIVEV?ivArr[i]:0; const evVal=useIVEV?evArr[i]:0;
+      const natMod2=useNature?mod:1.0;
       const finalStat=isHp
-        ?Math.floor((2*base+ivArr[i]+Math.floor(evArr[i]/4))*50/100)+60
-        :Math.floor((Math.floor((2*base+ivArr[i]+Math.floor(evArr[i]/4))*50/100)+5)*mod);
+        ?Math.floor((2*base+ivVal+Math.floor(evVal/4))*50/100)+60
+        :Math.floor((Math.floor((2*base+ivVal+Math.floor(evVal/4))*50/100)+5)*natMod2);
       const sc=document.createElement('div');sc.style.cssText='display:flex;flex-direction:column;align-items:center;gap:1px;';
       const sl=document.createElement('div');sl.style.cssText='font-family:"Press Start 2P",monospace;font-size:6px;color:#6b8cad;';sl.textContent=SLBLS[i];
       const bg=document.createElement('div');bg.style.cssText='width:100%;height:52px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;display:flex;flex-direction:column-reverse;position:relative;';
@@ -1130,14 +1135,19 @@ function updPokemonCard(){
     const mkEVPill=(v)=>{const p=document.createElement('div');p.style.cssText=`font-size:9px;font-weight:${v>=252?900:700};text-align:center;padding:2px 0;border-radius:3px;background:${v>=252?'rgba(77,182,172,.25)':v===0?'transparent':'rgba(77,182,172,.08)'};color:${v===0?'#333':'#4db6ac'};`;p.textContent=v;return p;};
     const mkNatPill=(i)=>{const p=document.createElement('div');p.style.cssText='font-size:11px;text-align:center;';if(i===upIdx){p.textContent='▲';p.style.color=BOOST_COL;}else if(i===dnIdx){p.textContent='▼';p.style.color='#e57373';}else{p.textContent='–';p.style.color='#333';}return p;};
     const SKEYS2=['hp','atk','def','spa','spd','spe'];
-    bdWrap.append(
-      mkBdr('IV','#b39ddb',SKEYS2.map((_,i)=>mkIVPill(ivArr[i])),8,'IVs & EVs'),
-      mkBdr('EV','#4db6ac',SKEYS2.map((_,i)=>mkEVPill(evArr[i])),8,'IVs & EVs'),
-      mkBdr('NAT','#f0c600',baseStats.map((_,i)=>mkNatPill(i)),4,'Nature')
-    );
-    card.appendChild(bdWrap);
+    if(q4answered||q8answered){
+      if(q8answered){
+        bdWrap.appendChild(mkBdr('IV','#b39ddb',SKEYS2.map((_,i)=>mkIVPill(ivArr[i])),8,'IVs & EVs'));
+        bdWrap.appendChild(mkBdr('EV','#4db6ac',SKEYS2.map((_,i)=>mkEVPill(evArr[i])),8,'IVs & EVs'));
+      }
+      if(q4answered){
+        bdWrap.appendChild(mkBdr(natEntry?natEntry.name:'NAT','#f0c600',baseStats.map((_,i)=>mkNatPill(i)),4,'Nature'));
+      }
+      card.appendChild(bdWrap);
+    }
 
-    // EV budget footer
+    // EV budget footer — only when IV/EV answered
+    if(q8answered){
     const totalEV=SKEYS2.reduce((s,_,i)=>s+(evArr[i]||0),0);
     const evFoot=document.createElement('div');evFoot.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 14px 8px;';
     const evFootLbl=document.createElement('span');evFootLbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;flex-shrink:0;';evFootLbl.textContent='EV';
@@ -1148,6 +1158,7 @@ function updPokemonCard(){
     evFoot.append(evFootLbl,evFootBg,evFootVal);
     card.appendChild(evFoot);
     setTimeout(()=>{evFootFill.style.width=Math.round(totalEV/510*100)+'%';},150);
+    } // end q8answered
   }
 
   // ── Details ─────────────────────────────────────────────────────────────────
@@ -1189,7 +1200,6 @@ function updPokemonCard(){
   const natMods=natEntry?.up?` +${natEntry.up}/-${natEntry.dn}`:'';
   const natCol=natEntry?.up?'var(--white)':null;
   [mkDR('Ability',ability,null,null,5),
-   mkDR('Nature',natTxt+natMods,natCol,null,4),
    itemEl?mkDR('Item',null,null,itemEl,10):null,
    mkDR('Tera',teraType,'#ce93d8',null,6),
    gmaxAns?mkDR('GMax',gmaxAns,gmaxAns==='Yes'?'#ce93d8':'var(--gray)',null,7):null,
