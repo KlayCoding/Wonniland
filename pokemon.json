@@ -6096,12 +6096,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Scratch Cat",
@@ -6161,12 +6161,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Classy Cat",
@@ -6220,12 +6220,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Gray",
       "category": "Scratch Cat",
@@ -6285,12 +6285,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Gray",
       "category": "Classy Cat",
@@ -6344,12 +6344,12 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Scratch Cat",
@@ -6408,12 +6408,12 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Viking",
@@ -6453,12 +6453,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Scratch Cat",
@@ -6514,13 +6514,13 @@
       "ev_yield": {
         "spa": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Water 1",
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Duck",
@@ -6579,13 +6579,13 @@
       "ev_yield": {
         "spa": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Water 1",
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Blue",
       "category": "Duck",
@@ -6638,12 +6638,12 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Pig Monkey",
@@ -6702,12 +6702,12 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Pig Monkey",
@@ -6766,12 +6766,12 @@
       "ev_yield": {
         "atk": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Gray",
       "category": "Rage Monkey",
@@ -6824,12 +6824,12 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Slow",
       "body_color": "Brown",
       "category": "Puppy",
@@ -6888,12 +6888,12 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Slow",
       "body_color": "Brown",
       "category": "Legendary",
@@ -6946,12 +6946,12 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Slow",
       "body_color": "Brown",
       "category": "Scout",
@@ -7010,12 +7010,12 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Slow",
       "body_color": "Brown",
       "category": "Legendary",
@@ -7068,12 +7068,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Blue",
       "category": "Tadpole",
@@ -7132,7 +7132,7 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Water 1"
@@ -7202,12 +7202,12 @@
       "ev_yield": {
         "def": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Blue",
       "category": "Tadpole",
@@ -7263,12 +7263,12 @@
       "ev_yield": {
         "spd": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Green",
       "category": "Frog",
@@ -7322,12 +7322,12 @@
       "ev_yield": {
         "spa": 1
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Human Like"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Psi",
@@ -7389,12 +7389,12 @@
       "ev_yield": {
         "spa": 2
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Human Like"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Psi",
@@ -7456,12 +7456,12 @@
       "ev_yield": {
         "spa": 3
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Human Like"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Psi",
@@ -7517,12 +7517,12 @@
       "ev_yield": {
         "spa": 3
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Human Like"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Psi",
@@ -7578,12 +7578,12 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Human Like"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Gray",
       "category": "Superpower",
@@ -7643,12 +7643,12 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Human Like"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Gray",
       "category": "Superpower",
@@ -7704,16 +7704,16 @@
         }
       ],
       "catch_rate": 45,
-      "exp_yield": 0,
+      "exp_yield": 253,
       "ev_yield": {
         "atk": 3
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Human Like"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Gray",
       "category": "Superpower",
@@ -7765,16 +7765,16 @@
         }
       ],
       "catch_rate": 45,
-      "exp_yield": 0,
+      "exp_yield": 253,
       "ev_yield": {
         "atk": 3
       },
-      "gender_ratio": "25% Female",
+      "gender_ratio": "25% Female | 75% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Human Like"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Gray",
       "category": "Superpower",
@@ -7826,12 +7826,12 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Grass"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Green",
       "category": "Flower",
@@ -7886,12 +7886,12 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Grass"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Green",
       "category": "Flycatcher",
@@ -7946,12 +7946,12 @@
       "ev_yield": {
         "atk": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Grass"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Green",
       "category": "Flycatcher",
@@ -8004,12 +8004,12 @@
       "ev_yield": {
         "atk": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Grass"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Green",
       "category": "Flycatcher",
@@ -8064,12 +8064,12 @@
       "ev_yield": {
         "spd": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Water 3"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Slow",
       "body_color": "Blue",
       "category": "Jellyfish",
@@ -8129,12 +8129,12 @@
       "ev_yield": {
         "spd": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Water 3"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Slow",
       "body_color": "Blue",
       "category": "Jellyfish",
@@ -8188,12 +8188,12 @@
       "ev_yield": {
         "def": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Mineral"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Rock",
@@ -8253,12 +8253,12 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Mineral"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Rock",
@@ -8318,12 +8318,12 @@
       "ev_yield": {
         "def": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Mineral"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Megaton",
@@ -8377,12 +8377,12 @@
       "ev_yield": {
         "def": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Mineral"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Rock",
@@ -8442,12 +8442,12 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Mineral"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Rock",
@@ -8507,12 +8507,12 @@
       "ev_yield": {
         "def": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Mineral"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Slow",
       "body_color": "Brown",
       "category": "Megaton",
@@ -62042,32 +62042,41 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null,
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spd": 1
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 1,
+      "weight": 1,
+      "description": "This Flabébé rides a red flower. Immediately after birth, this Pokémon begins flying around in search of a flower it likes.",
+      "learnset_ref": "sFlabebeLevelUpLearnset",
+      "teachable_ref": "sFlabebeTeachableLearnset",
+      "egg_moves_ref": "sFlabebeEggMoveLearnset",
       "evolution_line": "Flabébé Line",
       "pre_evolution": "Egg",
       "evolves_into": [
         {
-          "name": "Floette",
+          "name": "Floette (Red)",
           "method": "Level Up",
           "param": "Lvl. 19"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Flabébé (Yellow)",
+        "Flabébé (Orange)",
+        "Flabébé (Blue)",
+        "Flabébé (White)"
+      ],
       "form_requirement": null
     },
     {
@@ -62098,32 +62107,41 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null,
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spd": 1
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 1,
+      "weight": 1,
+      "description": "It unleashes a variety of moves by drawing forth the power hidden within flowers. This Pokémon is particularly fond of yellow flowers.",
+      "learnset_ref": "sFlabebeLevelUpLearnset",
+      "teachable_ref": "sFlabebeTeachableLearnset",
+      "egg_moves_ref": "sFlabebeEggMoveLearnset",
       "evolution_line": "Flabébé Line",
       "pre_evolution": "Egg",
       "evolves_into": [
         {
-          "name": "Floette",
+          "name": "Floette (Yellow)",
           "method": "Level Up",
           "param": "Lvl. 19"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Flabébé (Red)",
+        "Flabébé (Orange)",
+        "Flabébé (Blue)",
+        "Flabébé (White)"
+      ],
       "form_requirement": null
     },
     {
@@ -62154,32 +62172,41 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null,
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spd": 1
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 1,
+      "weight": 1,
+      "description": "It receives strength from flowers and gives them some of its energy in return. This Pokémon likes orange flowers best of all.",
+      "learnset_ref": "sFlabebeLevelUpLearnset",
+      "teachable_ref": "sFlabebeTeachableLearnset",
+      "egg_moves_ref": "sFlabebeEggMoveLearnset",
       "evolution_line": "Flabébé Line",
       "pre_evolution": "Egg",
       "evolves_into": [
         {
-          "name": "Floette",
+          "name": "Floette (Orange)",
           "method": "Level Up",
           "param": "Lvl. 19"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Flabébé (Red)",
+        "Flabébé (Yellow)",
+        "Flabébé (Blue)",
+        "Flabébé (White)"
+      ],
       "form_requirement": null
     },
     {
@@ -62210,32 +62237,41 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null,
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spd": 1
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 1,
+      "weight": 1,
+      "description": "This Pokémon likes blue flowers best of all. It floats upward using the power emanating from its flower and bobs along lightly through the air.",
+      "learnset_ref": "sFlabebeLevelUpLearnset",
+      "teachable_ref": "sFlabebeTeachableLearnset",
+      "egg_moves_ref": "sFlabebeEggMoveLearnset",
       "evolution_line": "Flabébé Line",
       "pre_evolution": "Egg",
       "evolves_into": [
         {
-          "name": "Floette",
+          "name": "Floette (Blue)",
           "method": "Level Up",
           "param": "Lvl. 19"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Flabébé (Red)",
+        "Flabébé (Yellow)",
+        "Flabébé (Orange)",
+        "Flabébé (White)"
+      ],
       "form_requirement": null
     },
     {
@@ -62266,32 +62302,41 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
-      "egg_moves_ref": null,
+      "catch_rate": 225,
+      "exp_yield": 61,
+      "ev_yield": {
+        "spd": 1
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 1,
+      "weight": 1,
+      "description": "When evening falls, it searches out a place blooming with flowers of the same white color as itself, and then it goes to sleep.",
+      "learnset_ref": "sFlabebeLevelUpLearnset",
+      "teachable_ref": "sFlabebeTeachableLearnset",
+      "egg_moves_ref": "sFlabebeEggMoveLearnset",
       "evolution_line": "Flabébé Line",
       "pre_evolution": "Egg",
       "evolves_into": [
         {
-          "name": "Floette",
+          "name": "Floette (White)",
           "method": "Level Up",
           "param": "Lvl. 19"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Flabébé (Red)",
+        "Flabébé (Yellow)",
+        "Flabébé (Orange)",
+        "Flabébé (Blue)"
+      ],
       "form_requirement": null
     },
     {
@@ -62322,32 +62367,42 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 120,
+      "exp_yield": 130,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 2,
+      "weight": 9,
+      "description": "This Pokémon uses red wavelengths of light to pour its own energy into flowers and draw forth their latent potential.",
+      "learnset_ref": "sFloetteLevelUpLearnset",
+      "teachable_ref": "sFloetteTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Flabébé",
+      "pre_evolution": "Flabébé (Red)",
       "evolves_into": [
         {
-          "name": "Florges",
+          "name": "Florges (Red)",
           "method": "Use Item",
           "param": "Shiny Stone"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Floette (Yellow)",
+        "Floette (Orange)",
+        "Floette (Blue)",
+        "Floette (White)",
+        "Floette (Eternal)"
+      ],
       "form_requirement": null
     },
     {
@@ -62378,32 +62433,42 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 120,
+      "exp_yield": 130,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 2,
+      "weight": 9,
+      "description": "This Pokémon can draw forth the power hidden within yellow flowers. This power then becomes the moves Floette uses to protect itself.",
+      "learnset_ref": "sFloetteLevelUpLearnset",
+      "teachable_ref": "sFloetteTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Flabébé",
+      "pre_evolution": "Flabébé (Yellow)",
       "evolves_into": [
         {
-          "name": "Florges",
+          "name": "Florges (Yellow)",
           "method": "Use Item",
           "param": "Shiny Stone"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Floette (Red)",
+        "Floette (Orange)",
+        "Floette (Blue)",
+        "Floette (White)",
+        "Floette (Eternal)"
+      ],
       "form_requirement": null
     },
     {
@@ -62434,32 +62499,42 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 120,
+      "exp_yield": 130,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 2,
+      "weight": 9,
+      "description": "This Pokémon can draw forth the most power when in sync with orange flowers, compared to flowers of other colors.",
+      "learnset_ref": "sFloetteLevelUpLearnset",
+      "teachable_ref": "sFloetteTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Flabébé",
+      "pre_evolution": "Flabébé (Orange)",
       "evolves_into": [
         {
-          "name": "Florges",
+          "name": "Florges (Orange)",
           "method": "Use Item",
           "param": "Shiny Stone"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Floette (Red)",
+        "Floette (Yellow)",
+        "Floette (Blue)",
+        "Floette (White)",
+        "Floette (Eternal)"
+      ],
       "form_requirement": null
     },
     {
@@ -62490,32 +62565,42 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 120,
+      "exp_yield": 130,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 2,
+      "weight": 9,
+      "description": "Whenever this Pokémon finds flowering plants that are withering, it will bring them back to its territory and care for them.",
+      "learnset_ref": "sFloetteLevelUpLearnset",
+      "teachable_ref": "sFloetteTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Flabébé",
+      "pre_evolution": "Flabébé (Blue)",
       "evolves_into": [
         {
-          "name": "Florges",
+          "name": "Florges (Blue)",
           "method": "Use Item",
           "param": "Shiny Stone"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Floette (Red)",
+        "Floette (Yellow)",
+        "Floette (Orange)",
+        "Floette (White)",
+        "Floette (Eternal)"
+      ],
       "form_requirement": null
     },
     {
@@ -62546,32 +62631,42 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 120,
+      "exp_yield": 130,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 2,
+      "weight": 9,
+      "description": "If it finds someone messing up a flower bed, it will attack them without mercy. This Floette takes particularly good care of white flowers.",
+      "learnset_ref": "sFloetteLevelUpLearnset",
+      "teachable_ref": "sFloetteTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Flabébé",
+      "pre_evolution": "Flabébé (White)",
       "evolves_into": [
         {
-          "name": "Florges",
+          "name": "Florges (White)",
           "method": "Use Item",
           "param": "Shiny Stone"
         }
       ],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Floette (Red)",
+        "Floette (Yellow)",
+        "Floette (Orange)",
+        "Floette (Blue)",
+        "Floette (Eternal)"
+      ],
       "form_requirement": null
     },
     {
@@ -62602,32 +62697,36 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 120,
+      "exp_yield": 243,
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "No Eggs Discovered"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Single Bloom",
+      "height": 2,
+      "weight": 9,
+      "description": "The flower it's holding can no longer be found blooming anywhere. It's also thought to contain terrifying power.",
+      "learnset_ref": "sFloetteEternalLevelUpLearnset",
+      "teachable_ref": "sFloetteEternalTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Flabébé",
-      "evolves_into": [
-        {
-          "name": "Florges",
-          "method": "Use Item",
-          "param": "Shiny Stone"
-        }
+      "pre_evolution": [],
+      "evolves_into": [],
+      "alternate_forms": [
+        "Floette (Red)",
+        "Floette (Yellow)",
+        "Floette (Orange)",
+        "Floette (Blue)",
+        "Floette (White)"
       ],
-      "alternate_forms": [],
       "form_requirement": null
     },
     {
@@ -62714,26 +62813,35 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 45,
+      "exp_yield": 276,
+      "ev_yield": {
+        "spd": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Garden",
+      "height": 11,
+      "weight": 100,
+      "description": "This Pokémon creates an impressive flower garden in its territory. It draws forth the power of the red flowers around its neck.",
+      "learnset_ref": "sFlorgesLevelUpLearnset",
+      "teachable_ref": "sFlorgesTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Floette",
+      "pre_evolution": "Floette (Red)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Florges (Yellow)",
+        "Florges (Orange)",
+        "Florges (Blue)",
+        "Florges (White)"
+      ],
       "form_requirement": null
     },
     {
@@ -62764,26 +62872,35 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 45,
+      "exp_yield": 276,
+      "ev_yield": {
+        "spd": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Garden",
+      "height": 11,
+      "weight": 100,
+      "description": "This Pokémon battles by drawing forth the power of yellow flowers. It ruthlessly punishes anyone who tramples on flowering plants.",
+      "learnset_ref": "sFlorgesLevelUpLearnset",
+      "teachable_ref": "sFlorgesTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Floette",
+      "pre_evolution": "Floette (Yellow)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Florges (Red)",
+        "Florges (Orange)",
+        "Florges (Blue)",
+        "Florges (White)"
+      ],
       "form_requirement": null
     },
     {
@@ -62814,26 +62931,35 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 45,
+      "exp_yield": 276,
+      "ev_yield": {
+        "spd": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Garden",
+      "height": 11,
+      "weight": 100,
+      "description": "In times long past, castle governors would lovingly raise Florges to care for their castles' exquisite gardens.",
+      "learnset_ref": "sFlorgesLevelUpLearnset",
+      "teachable_ref": "sFlorgesTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Floette",
+      "pre_evolution": "Floette (Orange)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Florges (Red)",
+        "Florges (Yellow)",
+        "Florges (Blue)",
+        "Florges (White)"
+      ],
       "form_requirement": null
     },
     {
@@ -62864,26 +62990,35 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 45,
+      "exp_yield": 276,
+      "ev_yield": {
+        "spd": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Garden",
+      "height": 11,
+      "weight": 100,
+      "description": "Blue pigments were tremendously expensive in the past, so paintings of blue Florges are highly valuable.",
+      "learnset_ref": "sFlorgesLevelUpLearnset",
+      "teachable_ref": "sFlorgesTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Floette",
+      "pre_evolution": "Floette (Blue)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Florges (Red)",
+        "Florges (Yellow)",
+        "Florges (Orange)",
+        "Florges (White)"
+      ],
       "form_requirement": null
     },
     {
@@ -62914,26 +63049,35 @@
           "hidden": true
         }
       ],
-      "catch_rate": null,
-      "exp_yield": null,
-      "ev_yield": {},
-      "gender_ratio": null,
-      "egg_cycles": null,
-      "egg_groups": [],
-      "friendship": null,
-      "growth_rate": null,
-      "body_color": null,
-      "category": null,
-      "height": null,
-      "weight": null,
-      "description": "",
-      "learnset_ref": null,
-      "teachable_ref": null,
+      "catch_rate": 45,
+      "exp_yield": 276,
+      "ev_yield": {
+        "spd": 3
+      },
+      "gender_ratio": "100% Female",
+      "egg_cycles": 20,
+      "egg_groups": [
+        "Fairy"
+      ],
+      "friendship": 50,
+      "growth_rate": "Medium Fast",
+      "body_color": "White",
+      "category": "Garden",
+      "height": 11,
+      "weight": 100,
+      "description": "A flower garden made by a white-flowered Florges will be beautifully decorated with flowering plants of many different colors.",
+      "learnset_ref": "sFlorgesLevelUpLearnset",
+      "teachable_ref": "sFlorgesTeachableLearnset",
       "egg_moves_ref": null,
       "evolution_line": "Flabébé Line",
-      "pre_evolution": "Floette",
+      "pre_evolution": "Floette (White)",
       "evolves_into": [],
-      "alternate_forms": [],
+      "alternate_forms": [
+        "Florges (Red)",
+        "Florges (Yellow)",
+        "Florges (Orange)",
+        "Florges (Blue)"
+      ],
       "form_requirement": null
     },
     {
@@ -93555,7 +93699,7 @@
       "learnset_ref": "sKoraidonLevelUpLearnset",
       "teachable_ref": "sKoraidonTeachableLearnset",
       "egg_moves_ref": null,
-      "evolution_line": "Box Legendaries",
+      "evolution_line": "Koraidon line",
       "pre_evolution": null,
       "evolves_into": [],
       "alternate_forms": [
