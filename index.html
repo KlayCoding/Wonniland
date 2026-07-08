@@ -977,12 +977,12 @@ function updPokemonCard(){
   // IV/EV values (from ivevAns object if preset, or ivD/evD from custom)
   const ivArr=[31,31,31,31,31,31]; // defaults
   const evArr=[0,0,0,0,0,0];
-  if(ivevAns){
+  // Always try ivD/evD globals first (updated live on every keystroke in Q8)
+  if(typeof ivD!=='undefined') SKEYS.forEach((k,i)=>{ivArr[i]=ivD[k]??31;evArr[i]=evD[k]??0;});
+  else if(ivevAns){
     const raw=typeof ivevAns==='object'?ivevAns:null;
     if(raw?.ivs) SKEYS.forEach((k,i)=>{ivArr[i]=raw.ivs[k]??31;});
     if(raw?.evs) SKEYS.forEach((k,i)=>{evArr[i]=raw.evs[k]??0;});
-    // Try ivD/evD globals (custom mode)
-    if(typeof ivD!=='undefined') SKEYS.forEach((k,i)=>{ivArr[i]=ivD[k]??31;evArr[i]=evD[k]??0;});
   }
 
   // Item lookup
@@ -1079,13 +1079,20 @@ function updPokemonCard(){
     baseStats.forEach((base,i)=>{
       const isHp=i===0, isUp=i===upIdx, isDn=i===dnIdx;
       const mod=isUp?1.1:isDn?0.9:1.0;
-      const baseOnly=isHp?Math.floor((2*base+0+0)*50/100)+60:Math.floor((Math.floor((2*base)*50/100)+5));
+      const baseOnly=(!useIVEV&&!useNature)?base:(isHp?Math.floor(2*base*50/100)+60:Math.floor(2*base*50/100)+5);
       const useIVEV=q8answered; const useNature=q4answered;
-      const ivVal=useIVEV?ivArr[i]:0; const evVal=useIVEV?evArr[i]:0;
-      const natMod2=useNature?mod:1.0;
-      const finalStat=isHp
-        ?Math.floor((2*base+ivVal+Math.floor(evVal/4))*50/100)+60
-        :Math.floor((Math.floor((2*base+ivVal+Math.floor(evVal/4))*50/100)+5)*natMod2);
+      // Before any customisation: show raw Pokédex base stat
+      // After Q4 (nature) / Q8 (IV/EV): calculate Lv50 final stat
+      let finalStat, displayBase=base;
+      if(!useIVEV&&!useNature){
+        finalStat=base; // show raw base stat before questions answered
+      } else {
+        const ivVal=useIVEV?ivArr[i]:0; const evVal=useIVEV?evArr[i]:0;
+        const natMod2=useNature?mod:1.0;
+        finalStat=isHp
+          ?Math.floor((2*base+ivVal+Math.floor(evVal/4))*50/100)+60
+          :Math.floor((Math.floor((2*base+ivVal+Math.floor(evVal/4))*50/100)+5)*natMod2);
+      }
       const sc=document.createElement('div');sc.style.cssText='display:flex;flex-direction:column;align-items:center;gap:1px;';
       const sl=document.createElement('div');sl.style.cssText='font-family:"Press Start 2P",monospace;font-size:6px;color:#6b8cad;';sl.textContent=SLBLS[i];
       const bg=document.createElement('div');bg.style.cssText='width:100%;height:52px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;display:flex;flex-direction:column-reverse;position:relative;';
@@ -1102,7 +1109,7 @@ function updPokemonCard(){
       const fv=document.createElement('div');fv.style.cssText=`font-size:10px;font-weight:800;color:${isUp?BOOST_COL:isDn?'#e57373':'#e8eaf6'};margin-top:2px;`;fv.textContent=finalStat;
       const bv=document.createElement('div');bv.style.cssText='font-size:7px;color:#444;font-weight:600;';bv.textContent='('+base+')';
       sc.append(sl,bg,fv,bv);sg.appendChild(sc);
-      const mx=isHp?400:350;
+      const mx=(!useIVEV&&!useNature)?255:(isHp?400:350);
       setTimeout(()=>{
         const bp=Math.min(100,Math.round(baseOnly/mx*100));
         const fp=Math.min(100,Math.round(finalStat/mx*100));
@@ -2174,7 +2181,32 @@ function showPokedex(mon) {
     const sec = document.createElement('div'); sec.className='pdx-section';
     const desc = document.createElement('div'); desc.className='pdx-desc'; desc.textContent=fullData.description;
     if(fullData.category){const cat=document.createElement('div');cat.style.cssText='font-size:10px;color:var(--pl);margin-bottom:6px;';cat.textContent=`The "${fullData.category}" Pokémon`;sec.appendChild(cat);}
-    sec.appendChild(desc); page1.appendChild(sec);
+    sec.appendChild(desc);
+    // ── Wild Held Items ──────────────────────────────────────────────────────
+    const ITEM_BASE2='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
+    const rareItem=fullData.rare_item||mon.rare_item;
+    const commonItem=fullData.common_item||mon.common_item;
+    if(rareItem||commonItem){
+      const heldHdr=document.createElement('div');heldHdr.style.cssText='font-size:9px;font-family:"Press Start 2P",monospace;color:var(--gray);margin:12px 0 6px;';heldHdr.textContent='WILD HELD ITEMS';
+      sec.appendChild(heldHdr);
+      const heldRow=document.createElement('div');heldRow.style.cssText='display:flex;gap:8px;flex-wrap:wrap;';
+      [[rareItem,'#f0c600'],[commonItem,'#9575cd']].forEach(([itemStr,col])=>{
+        if(!itemStr) return;
+        const name=itemStr.replace(/\s*\([^)]*\)$/,'').trim();
+        const pct=itemStr.match(/\(([^)]+)\)/)?.[1];
+        const itemData=ITEMS.find(it=>it.name.toLowerCase()===name.toLowerCase());
+        const slug=itemData?.slug||name.toLowerCase().replace(/\s+/g,'_');
+        const chip=document.createElement('div');chip.style.cssText=`display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;background:${col}10;border:1px solid ${col}33;`;
+        const ico=document.createElement('img');ico.style.cssText='width:24px;height:24px;image-rendering:pixelated;background:#fff;border-radius:4px;padding:2px;box-sizing:border-box;flex-shrink:0;';
+        ico.src=`${ITEM_BASE2}${slug}.png`;ico.onerror=()=>ico.style.display='none';
+        const info=document.createElement('div');
+        const iname=document.createElement('div');iname.style.cssText=`font-size:11px;font-weight:700;color:${col};`;iname.textContent=name;
+        const ipct=document.createElement('div');ipct.style.cssText='font-size:10px;color:var(--gray);';ipct.textContent=pct||(col==='#f0c600'?'5%':'50%');
+        info.append(iname,ipct);chip.append(ico,info);heldRow.appendChild(chip);
+      });
+      sec.appendChild(heldRow);
+    }
+    page1.appendChild(sec);
   }
 
   // ── Base Stats ────────────────────────────────────────────────────────────
@@ -2309,173 +2341,185 @@ function showPokedex(mon) {
       const empty = document.createElement('div');
       empty.style.cssText='padding:30px 20px;text-align:center;color:var(--gray);font-size:12px;';
       empty.textContent='No evolution family data available for this Pokémon yet.';
-      page2.appendChild(empty);
-      return;
+      page2.appendChild(empty); return;
     }
 
     const sec = document.createElement('div'); sec.className='pdx-section';
     const t = document.createElement('div'); t.className='pdx-section-title'; t.textContent=famName.toUpperCase();
     sec.appendChild(t);
 
-    // Gather all members of this evolution_line from POKEMON
     const members = POKEMON.map(pp=>pp._full).filter(f=>f && f.evolution_line===famName);
+    const ITEM_BASE_EVO='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
 
-    // Helper to render one Pokemon as a clickable sprite card
-    function famCard(member, isCurrent){
-      const card=document.createElement('div'); card.className='pdx-fam-card'+(isCurrent?' current':'');
-      const sfile = getSpriteFile(member);
-      const img=document.createElement('img'); img.className='pdx-fam-sprite';
-      img.src = sfile ? `${PKM_BASE1}${sfile}.png` : `${SHOWDOWN}0.gif`;
-      img.onerror=()=>iconUrlFallback(img, member.id, sfile);
-      const nm=document.createElement('div'); nm.className='pdx-fam-name'; nm.textContent=member.name;
-      card.append(img,nm);
-      // Type badges
-      if(member.type1){
-        const typeRow=document.createElement('div'); typeRow.style.cssText='display:flex;gap:3px;';
-        const t1b=tb(member.type1); t1b.style.fontSize='8px'; t1b.style.padding='1px 6px';
-        typeRow.appendChild(t1b);
-        if(member.type2){ const t2b=tb(member.type2); t2b.style.fontSize='8px'; t2b.style.padding='1px 6px'; typeRow.appendChild(t2b); }
-        card.appendChild(typeRow);
-      }
-      if(member.group==='Mega'||member.group==='GMax'||member.name.startsWith('Mega')||member.name.startsWith('GMax')){
-        const tag=document.createElement('span'); tag.className='pdx-fam-tag'; tag.textContent=member.group||'Temp';
-        card.appendChild(tag);
-      }
-      if(!isCurrent){
-        card.addEventListener('click', ()=>{
-          const altMon = ALL_MON.find(m=>m.name.toLowerCase()===member.name.toLowerCase());
-          if(altMon){ bd.remove(); showPokedex(altMon); }
-        });
-      }
+    const isAltForm = (m) => m.group==='Mega'||m.group==='GMax'||/^(Mega|GMax)[- ]/.test(m.name);
+    const stageMembers = members.filter(m=>!isAltForm(m));
+    const byName = {}; members.forEach(m=>{ byName[m.name.toLowerCase()] = m; });
+
+    // ── Node builder ──────────────────────────────────────────────────────────
+    function mkNode(member){
+      const isCurrent = member.name.toLowerCase()===mon.name.toLowerCase();
+      const card=document.createElement('div');
+      card.style.cssText=`display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;border-radius:10px;background:${isCurrent?'rgba(149,117,205,.12)':'rgba(255,255,255,.03)'};border:1px solid ${isCurrent?'rgba(149,117,205,.6)':'rgba(255,255,255,.08)'};min-width:80px;max-width:88px;cursor:${isCurrent?'default':'pointer'};transition:all .2s;`;
+      if(!isCurrent) card.addEventListener('mouseenter',()=>{card.style.borderColor='#9575cd';card.style.background='rgba(149,117,205,.08)';});
+      if(!isCurrent) card.addEventListener('mouseleave',()=>{card.style.borderColor='rgba(255,255,255,.08)';card.style.background='rgba(255,255,255,.03)';});
+      if(!isCurrent) card.addEventListener('click',()=>{const altMon=ALL_MON.find(m=>m.name.toLowerCase()===member.name.toLowerCase());if(altMon){bd.remove();showPokedex(altMon);}});
+      const sfile=getSpriteFile(member);
+      const img=document.createElement('img');img.style.cssText='width:56px;height:56px;image-rendering:pixelated;';
+      img.src=sfile?`${PKM_BASE1}${sfile}.png`:`${SHOWDOWN}0.gif`;img.onerror=()=>iconUrlFallback(img,member.id,sfile);
+      const nm=document.createElement('div');nm.style.cssText='font-size:10px;font-weight:700;text-align:center;line-height:1.3;';nm.textContent=member.name;
+      const typeRow=document.createElement('div');typeRow.style.cssText='display:flex;gap:3px;flex-wrap:wrap;justify-content:center;';
+      if(member.type1){const t1=tb(member.type1);t1.style.fontSize='8px';t1.style.padding='1px 5px';typeRow.appendChild(t1);}
+      if(member.type2){const t2=tb(member.type2);t2.style.fontSize='8px';t2.style.padding='1px 5px';typeRow.appendChild(t2);}
+      if(member.group==='Mega'||member.group==='GMax'){const tag=document.createElement('span');tag.className='pdx-fam-tag';tag.textContent=member.group;card.appendChild(tag);}
+      card.append(img,nm,typeRow);
       return card;
     }
 
-    // Group members by "base stage" (those without alternate-form siblings pointing TO them)
-    // Strategy: find evolutionary stages by following pre_evolution chains, then attach
-    // alternate_forms (Mega/GMax) as siblings under their base stage.
-
-    // Identify true evolutionary stages (exclude pure alt-forms like Mega/GMax themselves,
-    // since those will be attached to their base stage instead)
-    const isAltForm = (m) => (m.group==='Mega'||m.group==='GMax'||/^(Mega|GMax)[- ]/.test(m.name));
-    const stageMembers = members.filter(m=>!isAltForm(m));
-
-    // Build stage order via pre_evolution chain
-    const byName = {}; members.forEach(m=>{ byName[m.name.toLowerCase()] = m; });
-    const stages = []; // array of arrays (for branches at same level)
-    const visited = new Set();
-
-    // Find root(s): stage members whose pre_evolution is Egg/??? or not in this family
-    const roots = stageMembers.filter(m=>{
-      const pre = m.pre_evolution;
-      return !pre || pre==='???' || pre==='Egg' || !byName[pre.toLowerCase()];
-    });
-
-    function collectNext(currentNames){
-      const next = [];
-      stageMembers.forEach(m=>{
-        if(visited.has(m.name)) return;
-        const pre=(m.pre_evolution||'').toLowerCase();
-        if(currentNames.some(cn=>cn.toLowerCase()===pre)){ next.push(m); }
-      });
-      return next;
+    // ── Method pill builder (with item sprite) ────────────────────────────────
+    function mkMethodPill(method, param){
+      const pill=document.createElement('div');
+      pill.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);min-width:80px;max-width:110px;';
+      // Item sprite or rare candy for level up
+      const isLevelUp=method&&method.toLowerCase().includes('level');
+      const matchedItem=ITEMS.find(it=>it.name&&param&&it.name.toLowerCase()===param.toLowerCase());
+      const rareCandyItem=ITEMS.find(it=>it.name&&it.name.toLowerCase()==='rare candy');
+      const slugToUse=matchedItem?.slug||(isLevelUp&&rareCandyItem?.slug)||null;
+      if(slugToUse){
+        const ico=document.createElement('img');ico.style.cssText='width:24px;height:24px;image-rendering:pixelated;background:#fff;border-radius:4px;padding:2px;box-sizing:border-box;';
+        ico.src=`${ITEM_BASE_EVO}${slugToUse}.png`;ico.onerror=()=>ico.style.display='none';
+        pill.appendChild(ico);
+      }
+      const arrow=document.createElement('div');arrow.style.cssText='font-size:12px;color:#555;line-height:1;';arrow.textContent='↓';
+      const mName=document.createElement('div');mName.style.cssText='font-size:8px;font-weight:700;color:#8892a4;text-align:center;';mName.textContent=method||'?';
+      pill.append(arrow,mName);
+      if(param){const pEl=document.createElement('div');pEl.style.cssText='font-size:9px;font-weight:700;color:#e8eaf6;text-align:center;';pEl.textContent=param;pill.appendChild(pEl);}
+      return pill;
     }
 
-    let currentLevel = roots;
+    // ── Build stages ──────────────────────────────────────────────────────────
+    const visited=new Set();
+    const roots=stageMembers.filter(m=>{const pre=m.pre_evolution;return !pre||pre==='???'||pre==='Egg'||!byName[pre.toLowerCase()];});
+    const stages=[];
+    let cur=roots;
     roots.forEach(r=>visited.add(r.name));
-    stages.push(currentLevel);
-    while(currentLevel.length){
-      const names = currentLevel.map(m=>m.name);
-      const next = collectNext(names);
+    stages.push(cur);
+    while(cur.length){
+      const names=cur.map(m=>m.name);
+      const next=stageMembers.filter(m=>!visited.has(m.name)&&names.some(n=>n.toLowerCase()===(m.pre_evolution||'').toLowerCase()));
       if(!next.length) break;
       next.forEach(n=>visited.add(n.name));
       stages.push(next);
-      currentLevel = next;
+      cur=next;
+    }
+    if(stages.every(s=>!s.length)||!stages.length){
+      const flatRow=document.createElement('div');flatRow.className='pdx-fam-row';
+      stageMembers.forEach(m=>flatRow.appendChild(mkNode(m)));
+      sec.appendChild(flatRow);page2.appendChild(sec);return;
     }
 
-    // Preload all family sprites so they appear together instead of popping in one by one
-    members.forEach(member=>{
-      const pf = getSpriteFile(member);
-      if(pf){ const pre = new Image(); pre.src = `${PKM_BASE1}${pf}.png`; }
-    });
+    // ── Render: each transition as "source | [method→target]" rows ────────────
+    const REGIONAL_WORDS=['Galarian','Hisuian','Alolan','Paldean'];
+    const isRegional=m=>REGIONAL_WORDS.some(r=>m.name.startsWith(r));
 
-    // Render stage by stage
-    stages.forEach((stage, si)=>{
-      const row = document.createElement('div'); row.className='pdx-fam-row';
-      stage.forEach(member=>{
-        const col = document.createElement('div'); col.style.cssText='display:flex;flex-direction:column;align-items:center;gap:6px;';
-        const isCurrent = member.name.toLowerCase()===mon.name.toLowerCase();
-        col.appendChild(famCard(member, isCurrent));
+    // Separate main line from regional forms at root level
+    const mainRoots=roots.filter(m=>!isRegional(m));
+    const regionalRoots=roots.filter(m=>isRegional(m));
+    const allRootGroups=mainRoots.length?[{label:null,roots:mainRoots}]:[];
+    if(regionalRoots.length) allRootGroups.push({label:'REGIONAL FORMS',roots:regionalRoots});
 
-        // Attach alternate forms (Mega/GMax) directly below this member
-        const altForms = (member.alternate_forms||[]).map(n=>byName[n.toLowerCase()]).filter(Boolean).filter(isAltForm);
-        if(altForms.length){
-          const altRow = document.createElement('div'); altRow.className='pdx-fam-altforms';
-          altForms.forEach(af=>{
-            const altCol = document.createElement('div'); altCol.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;';
-            const isCurrentAlt = af.name.toLowerCase()===mon.name.toLowerCase();
-            const smallCard = famCard(af, isCurrentAlt);
-            smallCard.style.transform='scale(0.8)'; smallCard.style.opacity='0.9';
-            altCol.appendChild(smallCard);
-            // Show form requirement (e.g. Mega Stone) if present
-            if(af.form_requirement){
-              const reqBadge=document.createElement('div'); reqBadge.style.cssText='display:flex;align-items:center;gap:3px;font-size:8px;color:var(--gray);';
-              const matchedItem = ITEMS.find(it=>it.name && it.name.toLowerCase()===af.form_requirement.toLowerCase());
-              if(matchedItem && matchedItem.slug){
-                const ri=document.createElement('img'); ri.style.cssText='width:14px;height:14px;object-fit:contain;image-rendering:pixelated;';
-                ri.src=`${ITEM_BASE}${matchedItem.slug}.png`; ri.onerror=()=>{ri.style.display='none';};
-                reqBadge.appendChild(ri);
-              }
-              const reqTxt=document.createElement('span'); reqTxt.textContent=af.form_requirement;
-              reqBadge.appendChild(reqTxt);
-              altCol.appendChild(reqBadge);
-            }
-            altRow.appendChild(altCol);
-          });
-          col.appendChild(altRow);
-        }
-        row.appendChild(col);
-      });
-      sec.appendChild(row);
-
-      // Connector arrow + method between stages
-      if(si < stages.length-1){
-        const nextStage = stages[si+1];
-        const connector = document.createElement('div'); connector.className='pdx-fam-connector';
-        const arrow = document.createElement('div'); arrow.className='pdx-fam-arrow-down'; arrow.textContent='↓';
-        connector.appendChild(arrow);
-        // Show method(s) from current stage to next — with item sprite if applicable
-        stage.forEach(m=>{
-          (m.evolves_into||[]).forEach(evo=>{
-            const methodWrap = document.createElement('div');
-            methodWrap.style.cssText='display:flex;align-items:center;gap:5px;';
-            // Check if the param matches a known item name (for Mega Stones, etc.)
-            const matchedItem = ITEMS.find(it=>it.name && evo.param && it.name.toLowerCase()===evo.param.toLowerCase());
-            if(matchedItem && matchedItem.slug){
-              const itemImg=document.createElement('img');
-              itemImg.style.cssText='width:20px;height:20px;object-fit:contain;image-rendering:pixelated;';
-              itemImg.src=`${ITEM_BASE}${matchedItem.slug}.png`;
-              itemImg.onerror=()=>{itemImg.style.display='none';};
-              methodWrap.appendChild(itemImg);
-            }
-            const methodTxt = document.createElement('span');
-            methodTxt.textContent = evo.param ? `${evo.method} (${evo.param})` : evo.method;
-            methodWrap.appendChild(methodTxt);
-            connector.appendChild(methodWrap);
-          });
-        });
-        sec.appendChild(connector);
+    // For each root group, render its stage chain
+    allRootGroups.forEach(({label,roots:grpRoots},gi)=>{
+      if(label){
+        const div=document.createElement('div');div.style.cssText='display:flex;align-items:center;gap:8px;margin:16px 0 10px;color:#555;font-size:8px;font-family:"Press Start 2P",monospace;';
+        const line1=document.createElement('div');line1.style.cssText='flex:1;height:1px;background:rgba(255,255,255,.06);';
+        const line2=document.createElement('div');line2.style.cssText='flex:1;height:1px;background:rgba(255,255,255,.06);';
+        div.append(line1,document.createTextNode(label),line2);sec.appendChild(div);
       }
-    });
 
-    // If no stages were resolved (e.g. data incomplete), show flat list fallback
-    if(stages.every(s=>s.length===0) || stages.length===0){
-      const flatRow = document.createElement('div'); flatRow.className='pdx-fam-row';
-      members.filter(m=>!isAltForm(m)).forEach(m=>flatRow.appendChild(famCard(m, m.name.toLowerCase()===mon.name.toLowerCase())));
-      sec.appendChild(flatRow);
-    }
+      // Build mini-stages for this root group
+      const grpVisited=new Set(grpRoots.map(r=>r.name));
+      const grpStages=[grpRoots];
+      let grpCur=grpRoots;
+      while(grpCur.length){
+        const names=grpCur.map(m=>m.name);
+        const next=stageMembers.filter(m=>!visited.has(m.name)&&names.some(n=>n.toLowerCase()===(m.pre_evolution||'').toLowerCase()));
+        if(!next.length) break;
+        next.forEach(n=>{visited.add(n.name);grpVisited.add(n.name);});
+        grpStages.push(next);
+        grpCur=next;
+      }
+
+      grpStages.forEach((stage,si)=>{
+        // Render each source node with its evolutions branching to the right
+        stage.forEach(source=>{
+          const isCur=source.name.toLowerCase()===mon.name.toLowerCase();
+          const evos=(source.evolves_into||[]).filter(evo=>{
+            const target=byName[(evo.target||'').toLowerCase()];
+            return target&&!isAltForm(target);
+          });
+          // Also get alt forms (Mega/GMax) for this member
+          const altForms=(source.alternate_forms||[]).map(n=>byName[n.toLowerCase()]).filter(Boolean).filter(isAltForm);
+
+          if(!evos.length&&si===grpStages.length-1){
+            // Final stage: just show the node (+ alts below)
+            const nodeWrap=document.createElement('div');nodeWrap.style.cssText='display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:12px;';
+            nodeWrap.appendChild(mkNode(source));
+            if(altForms.length){
+              const altRow=document.createElement('div');altRow.style.cssText='display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:4px;';
+              altForms.forEach(af=>{
+                const altWrap=document.createElement('div');altWrap.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;';
+                const aCard=mkNode(af);aCard.style.transform='scale(0.85)';aCard.style.opacity='.9';
+                altWrap.appendChild(aCard);
+                if(af.form_requirement){
+                  const req=document.createElement('div');req.style.cssText='display:flex;align-items:center;gap:4px;font-size:8px;color:var(--gray);';
+                  const rItem=ITEMS.find(it=>it.name&&it.name.toLowerCase()===af.form_requirement.toLowerCase());
+                  if(rItem?.slug){const ri=document.createElement('img');ri.style.cssText='width:16px;height:16px;background:#fff;border-radius:3px;padding:1px;';ri.src=`${ITEM_BASE_EVO}${rItem.slug}.png`;ri.onerror=()=>ri.style.display='none';req.appendChild(ri);}
+                  req.appendChild(document.createTextNode(af.form_requirement));altWrap.appendChild(req);
+                }
+                altRow.appendChild(altWrap);
+              });
+              nodeWrap.appendChild(altRow);
+            }
+            sec.appendChild(nodeWrap);
+            return;
+          }
+
+          // Has evolutions — show as source | [method→target] column
+          const transRow=document.createElement('div');transRow.style.cssText='display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;';
+          transRow.appendChild(mkNode(source));
+          const branchCol=document.createElement('div');branchCol.style.cssText='display:flex;flex-direction:column;gap:10px;';
+          evos.forEach(evo=>{
+            const target=byName[(evo.target||'').toLowerCase()];
+            if(!target) return;
+            const branchRow=document.createElement('div');branchRow.style.cssText='display:flex;align-items:center;gap:10px;';
+            branchRow.appendChild(mkMethodPill(evo.method,evo.param));
+            branchRow.appendChild(mkNode(target));
+            // Alt forms of target
+            const tAlts=(target.alternate_forms||[]).map(n=>byName[n.toLowerCase()]).filter(Boolean).filter(isAltForm);
+            if(tAlts.length){
+              const tAltCol=document.createElement('div');tAltCol.style.cssText='display:flex;flex-direction:column;gap:6px;';
+              tAlts.forEach(af=>{
+                const afWrap=document.createElement('div');afWrap.style.cssText='display:flex;align-items:center;gap:6px;';
+                const aCard=mkNode(af);aCard.style.transform='scale(0.8)';aCard.style.opacity='.85';
+                if(af.form_requirement){
+                  const rItem=ITEMS.find(it=>it.name&&it.name.toLowerCase()===af.form_requirement.toLowerCase());
+                  afWrap.appendChild(mkMethodPill('Use Item',rItem?.name||af.form_requirement));
+                }
+                afWrap.appendChild(aCard);tAltCol.appendChild(afWrap);
+              });
+              branchRow.appendChild(tAltCol);
+            }
+            branchCol.appendChild(branchRow);
+          });
+          transRow.appendChild(branchCol);
+          sec.appendChild(transRow);
+        });
+      });
+    });
 
     page2.appendChild(sec);
   }
+
 
 
   // ── Moves Page (Tab 3) ───────────────────────────────────────────────────
@@ -3510,7 +3554,11 @@ function renderQ(){
             const mvInfoB=document.createElement('button');mvInfoB.type='button';
             mvInfoB.style.cssText='font-size:10px;padding:2px 7px;border-radius:5px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--gray);cursor:pointer;flex-shrink:0;';
             mvInfoB.textContent='ℹ';mvInfoB.title='Move Info';
-            mvInfoB.addEventListener('click',(e)=>{e.stopPropagation();openMoveInfoPopup(mv);});
+            mvInfoB.addEventListener('click',(e)=>{
+            e.stopPropagation();
+            if(typeof openMoveInfoPopup==='function') openMoveInfoPopup(mv);
+            else console.error('openMoveInfoPopup not found');
+          });
             row.append(dot,nm,typeLbl,catLbl,ppLbl,bpLbl,mvInfoB);
           }
           list.appendChild(row);
