@@ -147,6 +147,38 @@
     .enc-mon-name{font-size:13px;font-weight:700;margin-bottom:2px;}
     .enc-mon-sub{font-size:10px;color:var(--gray);margin-bottom:3px;}
     .enc-rate-pill{font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(240,198,0,.15);color:#f0c600;font-family:'Press Start 2P',monospace;flex-shrink:0;margin-left:auto;}
+    /* ── Pokémon HoF Browser ──────────────────────────────────────────────── */
+    .pkm-hof-tile{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px 10px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);cursor:pointer;transition:all .2s;position:relative;}
+    .pkm-hof-tile:hover{border-color:#f0c600;background:rgba(240,198,0,.07);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.4);}
+    .pkm-hof-tile img.ht-spr{width:64px;height:64px;image-rendering:pixelated;}
+    .pkm-hof-tile .ht-nick{font-size:11px;font-weight:800;text-align:center;}
+    .pkm-hof-tile .ht-species{font-size:9px;color:var(--gray);text-align:center;}
+    .pkm-hof-tile .ht-owner{display:flex;align-items:center;gap:4px;font-size:8px;color:#555;}
+    .pkm-hof-tile .ht-owner img{width:14px;height:14px;image-rendering:pixelated;}
+    .pkm-hof-tile .ht-shiny{position:absolute;top:6px;right:6px;font-size:10px;}
+    /* ── Trainer HoF Browser ──────────────────────────────────────────────── */
+    .trainer-hof-row{display:flex;align-items:stretch;gap:0;border-bottom:1px solid rgba(255,255,255,.05);transition:background .15s;cursor:pointer;}
+    .trainer-hof-row:hover{background:rgba(255,255,255,.03);}
+    .thr-left{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:14px 16px;background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.05);min-width:108px;flex-shrink:0;}
+    .thr-left img{width:56px;height:56px;image-rendering:pixelated;}
+    .thr-left .tl-name{font-size:11px;font-weight:800;text-align:center;}
+    .thr-left .tl-class{font-family:'Press Start 2P',monospace;font-size:6px;color:#555;text-align:center;}
+    .thr-team{flex:1;display:grid;grid-template-columns:repeat(6,1fr);gap:0;}
+    .thr-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 4px;border-right:1px solid rgba(255,255,255,.04);}
+    .thr-slot:last-child{border:none;}
+    .thr-slot img{width:40px;height:40px;image-rendering:pixelated;}
+    .thr-slot .ts-nick{font-size:8px;font-weight:700;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52px;}
+    .thr-slot .ts-shiny{font-size:8px;}
+    .thr-slot .ts-empty{width:36px;height:36px;border:2px dashed rgba(255,255,255,.08);border-radius:50%;opacity:.25;}
+    .thr-right{display:flex;flex-direction:column;justify-content:center;gap:4px;padding:12px 14px;min-width:88px;flex-shrink:0;border-left:1px solid rgba(255,255,255,.05);}
+    .thr-right .tr-lbl{font-family:'Press Start 2P',monospace;font-size:6px;color:#555;}
+    .thr-right .tr-val{font-size:10px;font-weight:700;}
+    .hof-filter-chip{font-size:8px;padding:4px 10px;border-radius:5px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#8892a4;cursor:pointer;font-family:'Press Start 2P',monospace;transition:all .15s;}
+    .hof-filter-chip.active{border-color:#e8622a;background:rgba(232,98,42,.12);color:#e8622a;}
+    .thp-team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+    .thp-pokemon-card{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 8px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);}
+    .thp-pokemon-card img{width:52px;height:52px;image-rendering:pixelated;}
+    /* ── sel-prev ──────────────────────────────────────────────────────────── */
     .sel-prev{display:none;flex-direction:column;margin-top:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:13px;color:var(--text);}
     .sel-prev.vis{display:flex;}
     .sel-prev .pico{width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;}
@@ -543,6 +575,37 @@
       <div id="enc-map-list"></div>
       <div id="enc-detail"><div style="color:var(--gray);font-size:12px;padding:40px;text-align:center;">← Select a location to see encounters</div></div>
     </div>
+  </div>
+</div>
+
+<!-- ── Pokémon Hall of Fame Browser ─────────────────────────────────────── -->
+<div id="pkm-hof-browser" style="width:100%;max-width:min(1100px,calc(100vw - 64px));margin-bottom:24px;animation:fadeUp .5s ease .2s both;">
+  <button id="pkm-hof-btn" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;border-radius:14px;border:2px solid rgba(240,198,0,.3);background:linear-gradient(135deg,rgba(240,198,0,.06),rgba(240,198,0,.02));cursor:pointer;transition:all .25s;width:100%;font-family:'Press Start 2P',monospace;font-size:11px;color:#f0c600;letter-spacing:.5px;">⭐ POKÉMON HALL OF FAME &nbsp;▼</button>
+  <div id="pkm-hof-panel" style="display:none;margin-top:12px;background:#111827;border:1px solid rgba(240,198,0,.2);border-radius:14px;overflow:hidden;">
+    <div id="pkm-hof-header" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(240,198,0,.04);">
+      <input id="pkm-hof-search" placeholder="Search Pokémon, nickname, trainer…" autocomplete="off" style="flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;transition:border-color .2s;"/>
+      <span id="pkm-hof-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span>
+      <button id="pkm-hof-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">✕</button>
+    </div>
+    <div id="pkm-hof-filters" style="display:flex;gap:6px;padding:10px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap;"></div>
+    <div id="pkm-hof-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;padding:14px;max-height:65vh;overflow-y:auto;"></div>
+  </div>
+</div>
+
+<!-- ── Trainer Hall of Fame Browser ─────────────────────────────────────── -->
+<div id="trainer-hof-browser" style="width:100%;max-width:min(1100px,calc(100vw - 64px));margin-bottom:24px;animation:fadeUp .5s ease .25s both;">
+  <button id="trainer-hof-btn" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;border-radius:14px;border:2px solid rgba(232,98,42,.3);background:linear-gradient(135deg,rgba(232,98,42,.06),rgba(232,98,42,.02));cursor:pointer;transition:all .25s;width:100%;font-family:'Press Start 2P',monospace;font-size:11px;color:#e8622a;letter-spacing:.5px;">🏆 TRAINER HALL OF FAME &nbsp;▼</button>
+  <div id="trainer-hof-panel" style="display:none;margin-top:12px;background:#111827;border:1px solid rgba(232,98,42,.2);border-radius:14px;overflow:hidden;">
+    <div id="trainer-hof-header" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(232,98,42,.04);">
+      <input id="trainer-hof-search" placeholder="Search trainer, Pokémon, move…" autocomplete="off" style="flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;"/>
+      <select id="trainer-hof-map" style="background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:12px;padding:8px 10px;outline:none;cursor:pointer;">
+        <option value="">All Maps</option>
+      </select>
+      <span id="trainer-hof-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span>
+      <button id="trainer-hof-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">✕</button>
+    </div>
+    <div id="trainer-hof-filters" style="display:flex;gap:6px;padding:10px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap;"></div>
+    <div id="trainer-hof-list" style="display:flex;flex-direction:column;gap:0;max-height:65vh;overflow-y:auto;"></div>
   </div>
 </div>
 
@@ -5351,15 +5414,270 @@ const trainerCard=document.getElementById('modeTrainerCard');
   c.addEventListener('click',()=>launchMode(c===pokeCard?'pokemon':'trainer'));
 });
 
+// ── Pokémon Hall of Fame Browser ─────────────────────────────────────────────
+function initPkmHofBrowser(){
+  const btn=document.getElementById('pkm-hof-btn');
+  const panel=document.getElementById('pkm-hof-panel');
+  const searchEl=document.getElementById('pkm-hof-search');
+  const countEl=document.getElementById('pkm-hof-count');
+  const grid=document.getElementById('pkm-hof-grid');
+  const filtersEl=document.getElementById('pkm-hof-filters');
+  let open=false, hofData=null, activeTypeFilter=null, activeChapter=null;
+  const TRAINER_BASE_HOF='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer-sprites/';
+  const TYPE_COL={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
+
+  btn.addEventListener('click',()=>{open=!open;panel.style.display=open?'block':'none';btn.textContent=open?'⭐ POKÉMON HALL OF FAME  ▲':'⭐ POKÉMON HALL OF FAME  ▼';if(open&&!hofData)loadHofData();});
+  document.getElementById('pkm-hof-close').addEventListener('click',()=>{open=false;panel.style.display='none';btn.textContent='⭐ POKÉMON HALL OF FAME  ▼';});
+
+  async function loadHofData(){
+    grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
+    try{const r=await fetch('hof.json');hofData=await r.json();buildFilters();renderGrid();}
+    catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load hof.json — make sure it is in the same folder as index.html.</div>';}
+  }
+
+  function buildFilters(){
+    filtersEl.innerHTML='';
+    // Chapter chips
+    const chapters=[...new Set((hofData.pokemon||[]).map(p=>p.chapter).filter(Boolean))].sort((a,b)=>a-b);
+    if(chapters.length>1){
+      const allChip=document.createElement('button');allChip.type='button';allChip.className='hof-filter-chip active';allChip.textContent='All Chapters';allChip.dataset.chapter='';
+      allChip.addEventListener('click',()=>{activeChapter=null;filtersEl.querySelectorAll('[data-chapter]').forEach(b=>{b.classList.toggle('active',b.dataset.chapter==='');});renderGrid();});
+      filtersEl.appendChild(allChip);
+      chapters.forEach(ch=>{const b=document.createElement('button');b.type='button';b.className='hof-filter-chip';b.textContent='Ch. '+ch;b.dataset.chapter=ch;
+        b.addEventListener('click',()=>{activeChapter=ch;filtersEl.querySelectorAll('[data-chapter]').forEach(x=>x.classList.toggle('active',x.dataset.chapter==ch));renderGrid();});
+        filtersEl.appendChild(b);});
+    }
+  }
+
+  function renderGrid(){
+    const q=searchEl.value.toLowerCase().trim();
+    let pkms=(hofData?.pokemon||[]);
+    if(q) pkms=pkms.filter(p=>p.nickname?.toLowerCase().includes(q)||p.species?.toLowerCase().includes(q)||p.owner_name?.toLowerCase().includes(q)||p.nature?.toLowerCase().includes(q)||(p.moves||[]).some(m=>m.toLowerCase().includes(q)));
+    if(activeChapter) pkms=pkms.filter(p=>p.chapter==activeChapter);
+    countEl.textContent=pkms.length+' Pokémon';
+    grid.innerHTML='';
+    pkms.forEach(p=>{
+      const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+      const tile=document.createElement('div');tile.className='pkm-hof-tile';
+      if(p.shiny){const s=document.createElement('span');s.className='ht-shiny';s.textContent='✨';tile.appendChild(s);}
+      const img=document.createElement('img');img.className='ht-spr';
+      if(mon){const sf=getSpriteFile(mon);img.src=p.shiny?`${PKM_SHINY1}${sf}.png`:`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);}
+      else img.style.cssText='width:64px;height:64px;opacity:.2;';
+      const nick=document.createElement('div');nick.className='ht-nick';nick.textContent=p.nickname||p.species||'?';
+      const spec=document.createElement('div');spec.className='ht-species';spec.textContent=p.species||'';
+      // Type badges
+      const typeRow=document.createElement('div');typeRow.style.cssText='display:flex;gap:3px;flex-wrap:wrap;justify-content:center;';
+      if(mon){typeRow.appendChild(tb(mon.t1));if(mon.t2)typeRow.appendChild(tb(mon.t2));}
+      // Owner mini-sprite
+      const ownerRow=document.createElement('div');ownerRow.className='ht-owner';
+      const ownerSpr=document.createElement('img');ownerSpr.src=`${TRAINER_BASE_HOF}${p.owner_sprite||'brendan'}.png`;ownerSpr.onerror=()=>ownerSpr.style.display='none';
+      const ownerName=document.createTextNode(p.owner_name||'');
+      ownerRow.append(ownerSpr,ownerName);
+      tile.append(img,nick,spec,typeRow,ownerRow);
+      tile.addEventListener('click',()=>openPkmHofPopup(p,mon));
+      grid.appendChild(tile);
+    });
+    if(!pkms.length){grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);font-size:12px;">No Pokémon found.</div>';}
+  }
+  searchEl.addEventListener('input',()=>renderGrid());
+
+  function openPkmHofPopup(p,mon){
+    const overlay=document.createElement('div');overlay.style.cssText='position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;';
+    overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
+    const typeColor=mon?TYPE_COL[mon.t1]||'#f0c600':'#f0c600';
+    const box=document.createElement('div');box.style.cssText=`background:#13192a;border:2px solid ${typeColor}55;border-radius:16px;width:100%;max-width:380px;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.6);`;
+    // Header: sprite + name + types
+    const hdr=document.createElement('div');hdr.style.cssText=`display:flex;align-items:center;gap:14px;padding:16px 20px;background:${typeColor}12;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;`;
+    const spr=document.createElement('img');spr.style.cssText='width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;';
+    if(mon){const sf=getSpriteFile(mon);spr.src=p.shiny?`${PKM_SHINY1}${sf}.png`:`${PKM_BASE1}${sf}.png`;spr.onerror=()=>iconUrlFallback(spr,mon.id);}
+    const ident=document.createElement('div');ident.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;';
+    const nm=document.createElement('div');nm.style.cssText='font-size:18px;font-weight:900;';nm.textContent=p.nickname||p.species;
+    const sub=document.createElement('div');sub.style.cssText='font-size:11px;color:var(--gray);';sub.textContent=(p.nickname?p.species+' · ':'')+( p.shiny?'✨ Shiny':'');
+    const types=document.createElement('div');types.style.cssText='display:flex;gap:5px;margin-top:2px;';
+    if(mon){types.appendChild(tb(mon.t1));if(mon.t2)types.appendChild(tb(mon.t2));}
+    ident.append(nm,sub,types);
+    const cl=document.createElement('button');cl.type='button';cl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;align-self:flex-start;';cl.textContent='✕';cl.addEventListener('click',()=>overlay.remove());
+    hdr.append(spr,ident,cl);box.appendChild(hdr);
+    // Body: details
+    const body=document.createElement('div');body.style.cssText='overflow-y:auto;padding:14px 18px;display:flex;flex-direction:column;gap:0;';
+    const mkRow=(l,v,col)=>{if(!v&&v!==0)return;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.cssText='color:var(--gray);';le.textContent=l;const ve=document.createElement('span');ve.style.cssText='font-weight:700;text-align:right;color:'+(col||'var(--white)')+';';ve.textContent=v;r.append(le,ve);body.appendChild(r);};
+    mkRow('Trainer',p.owner_name);mkRow('Nature',p.nature);mkRow('Ability',p.ability);mkRow('Held Item',p.held_item,'#f0c600');mkRow('Tera Type',p.tera_type,'#ce93d8');mkRow('Chapter',p.chapter?'Chapter '+p.chapter:null);
+    // IVs
+    if(p.ivs){const ivKeys=['hp','atk','def','spa','spd','spe'];const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.cssText='color:var(--gray);';le.textContent='IVs';const ve=document.createElement('span');ve.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#b39ddb;';ve.textContent=ivKeys.map(k=>p.ivs[k]??'?').join('/');r.append(le,ve);body.appendChild(r);}
+    // EVs
+    if(p.evs){const ivKeys=['hp','atk','def','spa','spd','spe'];const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.cssText='color:var(--gray);';le.textContent='EVs';const ve=document.createElement('span');ve.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#4db6ac;';ve.textContent=ivKeys.map(k=>p.evs[k]??0).join('/');r.append(le,ve);body.appendChild(r);}
+    // Moves
+    if(p.moves?.length){const mHdr=document.createElement('div');mHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin:10px 0 6px;';mHdr.textContent='MOVES';body.appendChild(mHdr);const mRow=document.createElement('div');mRow.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';p.moves.forEach(mv=>{const mvData=MOVES.find(m=>m.name===mv)||{type:'Normal'};const col=TYPE_COL[mvData.type]||'#888';const chip=document.createElement('div');chip.style.cssText=`font-size:10px;font-weight:600;padding:3px 8px;border-radius:5px;background:${col}18;border:1px solid ${col}33;color:${col};`;chip.textContent=mv;mRow.appendChild(chip);});body.appendChild(mRow);}
+    // Pokédex link
+    if(mon){const pdxBtn=document.createElement('button');pdxBtn.type='button';pdxBtn.style.cssText='margin-top:14px;width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--gray);font-size:11px;cursor:pointer;transition:all .2s;';pdxBtn.textContent='📖 Open Pokédex';pdxBtn.addEventListener('click',()=>{overlay.remove();showPokedex(mon);});body.appendChild(pdxBtn);}
+    box.appendChild(body);overlay.appendChild(box);document.body.appendChild(overlay);
+    document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'){overlay.remove();document.removeEventListener('keydown',esc);}});
+  }
+}
+
+// ── Trainer Hall of Fame Browser ──────────────────────────────────────────────
+function initTrainerHofBrowser(){
+  const btn=document.getElementById('trainer-hof-btn');
+  const panel=document.getElementById('trainer-hof-panel');
+  const searchEl=document.getElementById('trainer-hof-search');
+  const mapSel=document.getElementById('trainer-hof-map');
+  const countEl=document.getElementById('trainer-hof-count');
+  const list=document.getElementById('trainer-hof-list');
+  const filtersEl=document.getElementById('trainer-hof-filters');
+  let open=false,hofData=null,activeCategory=null,activeChapter=null;
+  const TRAINER_BASE_HOF='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer-sprites/';
+  const CAT_COLS={Route:'#4caf50',City:'#64b5f6',Dungeon:'#b29a3c',Gym:'#f0c600',Special:'#ce93d8'};
+
+  btn.addEventListener('click',()=>{open=!open;panel.style.display=open?'block':'none';btn.textContent=open?'🏆 TRAINER HALL OF FAME  ▲':'🏆 TRAINER HALL OF FAME  ▼';if(open&&!hofData)loadHofData();});
+  document.getElementById('trainer-hof-close').addEventListener('click',()=>{open=false;panel.style.display='none';btn.textContent='🏆 TRAINER HALL OF FAME  ▼';});
+
+  async function loadHofData(){
+    list.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
+    try{const r=await fetch('hof.json');hofData=await r.json();buildFiltersAndMaps();renderList();}
+    catch(e){list.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load hof.json</div>';}
+  }
+
+  function mapToName(m){return m?m.replace('MAP_','').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()):'Unknown';}
+
+  function buildFiltersAndMaps(){
+    filtersEl.innerHTML='';
+    const trainers=hofData?.trainers||[];
+    // Map dropdown
+    const maps=[...new Set(trainers.map(t=>t.map).filter(Boolean))].sort();
+    maps.forEach(m=>{const opt=document.createElement('option');opt.value=m;opt.textContent=mapToName(m);mapSel.appendChild(opt);});
+    mapSel.addEventListener('change',renderList);
+    // Category chips
+    const cats=[...new Set(trainers.map(t=>t.category).filter(Boolean))].sort();
+    if(cats.length){
+      const allC=document.createElement('button');allC.type='button';allC.className='hof-filter-chip active';allC.textContent='All';allC.dataset.cat='';
+      allC.addEventListener('click',()=>{activeCategory=null;filtersEl.querySelectorAll('[data-cat]').forEach(b=>b.classList.toggle('active',b.dataset.cat===''));renderList();});
+      filtersEl.appendChild(allC);
+      cats.forEach(cat=>{const col=CAT_COLS[cat]||'#888';const b=document.createElement('button');b.type='button';b.className='hof-filter-chip';b.style.borderColor=col+'44';b.textContent=cat;b.dataset.cat=cat;
+        b.addEventListener('click',()=>{activeCategory=cat;filtersEl.querySelectorAll('[data-cat]').forEach(x=>{x.classList.toggle('active',x.dataset.cat===cat);});renderList();});
+        filtersEl.appendChild(b);});
+      // Chapter chips
+      const sep=document.createElement('span');sep.style.cssText='color:#333;align-self:center;';sep.textContent='|';filtersEl.appendChild(sep);
+      const chapters=[...new Set(trainers.map(t=>t.chapter).filter(Boolean))].sort((a,b)=>a-b);
+      chapters.forEach(ch=>{const b=document.createElement('button');b.type='button';b.className='hof-filter-chip';b.textContent='Ch.'+ch;b.dataset.chap=ch;
+        b.addEventListener('click',()=>{activeChapter=activeChapter==ch?null:ch;filtersEl.querySelectorAll('[data-chap]').forEach(x=>x.classList.toggle('active',x.dataset.chap==ch));renderList();});
+        filtersEl.appendChild(b);});
+    }
+  }
+
+  function renderList(){
+    const q=searchEl.value.toLowerCase().trim();
+    const mapFilter=mapSel.value;
+    let trainers=hofData?.trainers||[];
+    if(q) trainers=trainers.filter(t=>t.name?.toLowerCase().includes(q)||t.class?.toLowerCase().includes(q)||(t.team||[]).some(p=>p.species?.toLowerCase().includes(q)||p.nickname?.toLowerCase().includes(q)||(p.moves||[]).some(m=>m.toLowerCase().includes(q))));
+    if(mapFilter) trainers=trainers.filter(t=>t.map===mapFilter);
+    if(activeCategory) trainers=trainers.filter(t=>t.category===activeCategory);
+    if(activeChapter) trainers=trainers.filter(t=>t.chapter==activeChapter);
+    countEl.textContent=trainers.length+' Trainers';
+    list.innerHTML='';
+    trainers.forEach(t=>list.appendChild(mkTrainerRow(t)));
+    if(!trainers.length){list.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);font-size:12px;">No trainers found.</div>';}
+  }
+  searchEl.addEventListener('input',renderList);
+
+  function mkTrainerRow(t){
+    const row=document.createElement('div');row.className='trainer-hof-row';
+    // Left: trainer info
+    const left=document.createElement('div');left.className='thr-left';
+    const spr=document.createElement('img');spr.src=`${TRAINER_BASE_HOF}${t.sprite||'brendan'}.png`;spr.onerror=()=>spr.style.visibility='hidden';
+    const nm=document.createElement('div');nm.className='tl-name';nm.textContent=t.name;
+    const cls=document.createElement('div');cls.className='tl-class';cls.textContent=t.class||'';
+    const mapLbl=document.createElement('div');mapLbl.style.cssText='font-size:9px;color:#555;text-align:center;margin-top:2px;';
+    mapLbl.textContent=mapToName(t.map).slice(0,14);
+    const chpTag=document.createElement('div');
+    if(t.chapter){chpTag.style.cssText='font-family:"Press Start 2P",monospace;font-size:6px;color:#9575cd;';chpTag.textContent='Ch.'+t.chapter;}
+    left.append(spr,nm,cls,mapLbl,chpTag);
+    // Team slots
+    const team=document.createElement('div');team.className='thr-team';
+    for(let i=0;i<6;i++){
+      const slot=document.createElement('div');slot.className='thr-slot';
+      const p=t.team?.[i];
+      if(p){
+        const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+        const img=document.createElement('img');
+        if(mon){const sf=getSpriteFile(mon);img.src=p.shiny?`${PKM_SHINY1}${sf}.png`:`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);}
+        else{img.style.cssText='width:40px;height:40px;opacity:.2;';}
+        const nick=document.createElement('div');nick.className='ts-nick';nick.textContent=p.nickname||p.species||'';
+        if(p.shiny){const sh=document.createElement('div');sh.className='ts-shiny';sh.textContent='✨';slot.appendChild(sh);}
+        slot.append(img,nick);
+      } else {
+        const empty=document.createElement('div');empty.className='ts-empty';slot.appendChild(empty);
+      }
+      team.appendChild(slot);
+    }
+    // Right: meta
+    const right=document.createElement('div');right.className='thr-right';
+    const cat=t.category||'';const catCol=CAT_COLS[cat]||'#888';
+    if(cat){right.innerHTML=`<div class="tr-lbl">CATEGORY</div><div class="tr-val" style="color:${catCol}">${cat}</div>`;}
+    if(t.rival){right.innerHTML+=`<div class="tr-lbl" style="margin-top:5px">RIVAL</div><div class="tr-val">${t.rival}</div>`;}
+    row.append(left,team,right);
+    row.addEventListener('click',()=>openTrainerPopup(t));
+    return row;
+  }
+
+  function openTrainerPopup(t){
+    const overlay=document.createElement('div');overlay.style.cssText='position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;';
+    overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
+    const box=document.createElement('div');box.style.cssText='background:#13192a;border:2px solid rgba(232,98,42,.3);border-radius:16px;width:100%;max-width:580px;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.6);';
+    // Header
+    const hdr=document.createElement('div');hdr.style.cssText='display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(232,98,42,.06);border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;';
+    const spr=document.createElement('img');spr.style.cssText='width:68px;height:68px;image-rendering:pixelated;flex-shrink:0;';spr.src=`${TRAINER_BASE_HOF}${t.sprite||'brendan'}.png`;spr.onerror=()=>spr.style.visibility='hidden';
+    const ident=document.createElement('div');ident.style.cssText='flex:1;';
+    const nm=document.createElement('div');nm.style.cssText='font-size:18px;font-weight:900;';nm.textContent=t.name;
+    const subl=document.createElement('div');subl.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#e8622a;margin-top:3px;';subl.textContent=(t.class||'')+(t.map?' · '+mapToName(t.map):'');
+    const chips=document.createElement('div');chips.style.cssText='display:flex;gap:6px;margin-top:7px;flex-wrap:wrap;';
+    [[t.gender,'var(--gray)'],[t.category,CAT_COLS[t.category]||'#888'],['Ch.'+t.chapter,'#9575cd'],[t.battle_format,'#4db6ac']].filter(([v])=>v).forEach(([v,c])=>{const s=document.createElement('span');s.style.cssText=`font-size:9px;padding:2px 8px;border-radius:5px;background:${c}15;color:${c};border:1px solid ${c}33;`;s.textContent=v;chips.appendChild(s);});
+    ident.append(nm,subl,chips);
+    const cl=document.createElement('button');cl.type='button';cl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;align-self:flex-start;';cl.textContent='✕';cl.addEventListener('click',()=>overlay.remove());
+    hdr.append(spr,ident,cl);box.appendChild(hdr);
+    // Body
+    const body=document.createElement('div');body.style.cssText='overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px;';
+    // Trainer info row
+    const infoGrid=document.createElement('div');infoGrid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:8px;';
+    [[' Rival',t.rival],[' Hometown',t.hometown],[' Intro',t.intro_phrase],[' Defeat',t.defeat_phrase]].filter(([,v])=>v).forEach(([l,v])=>{const c=document.createElement('div');c.style.cssText='padding:8px 10px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);';const lEl=document.createElement('div');lEl.style.cssText='font-size:8px;color:var(--gray);margin-bottom:3px;';lEl.textContent=l;const vEl=document.createElement('div');vEl.style.cssText='font-size:11px;font-weight:600;font-style:italic;';vEl.textContent=v;c.append(lEl,vEl);infoGrid.appendChild(c);});
+    if(infoGrid.children.length) body.appendChild(infoGrid);
+    // Team grid
+    if(t.team?.length){
+      const tHdr=document.createElement('div');tHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;';tHdr.textContent='POKÉMON TEAM';body.appendChild(tHdr);
+      const tGrid=document.createElement('div');tGrid.className='thp-team-grid';
+      t.team.forEach(p=>{
+        const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+        const card=document.createElement('div');card.className='thp-pokemon-card';
+        const img=document.createElement('img');if(mon){const sf=getSpriteFile(mon);img.src=p.shiny?`${PKM_SHINY1}${sf}.png`:`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);}
+        const nick=document.createElement('div');nick.style.cssText='font-size:11px;font-weight:800;text-align:center;';nick.textContent=(p.shiny?'✨ ':'')+( p.nickname||p.species);
+        const spec=document.createElement('div');spec.style.cssText='font-size:9px;color:var(--gray);text-align:center;';spec.textContent=p.nickname?p.species:'';
+        const typs=document.createElement('div');typs.style.cssText='display:flex;gap:3px;flex-wrap:wrap;justify-content:center;margin:2px 0;';
+        if(mon){const t1=tb(mon.t1);t1.style.fontSize='8px';typs.appendChild(t1);if(mon.t2){const t2=tb(mon.t2);t2.style.fontSize='8px';typs.appendChild(t2);}}
+        const abil=document.createElement('div');abil.style.cssText='font-size:9px;color:#8892a4;';abil.textContent=p.ability||'';
+        const item=document.createElement('div');item.style.cssText='font-size:9px;color:#f0c600;';item.textContent=p.held_item||'';
+        // Moves
+        const movesWrap=document.createElement('div');movesWrap.style.cssText='display:flex;flex-wrap:wrap;gap:3px;justify-content:center;margin-top:3px;';
+        (p.moves||[]).forEach(mv=>{const mvData=MOVES.find(m=>m.name===mv)||{type:'Normal'};const TYPE_COL2={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};const c=TYPE_COL2[mvData.type]||'#888';const m2=document.createElement('span');m2.style.cssText=`font-size:8px;padding:1px 5px;border-radius:3px;background:${c}15;color:${c};border:1px solid ${c}30;`;m2.textContent=mv;movesWrap.appendChild(m2);});
+        card.append(img,nick,spec,typs,abil,item,movesWrap);
+        tGrid.appendChild(card);
+      });
+      body.appendChild(tGrid);
+    }
+    box.appendChild(body);overlay.appendChild(box);document.body.appendChild(overlay);
+    document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'){overlay.remove();document.removeEventListener('keydown',esc);}});
+  }
+}
+
 // ── Load Pokemon data on startup ──────────────────────────────────────────────
 loadPokemonData().then(()=>{
   document.getElementById('loadingScreen')?.remove();
   initDexBrowser();
   initEncBrowser();
+  initPkmHofBrowser();
+  initTrainerHofBrowser();
   console.log('✓ Wonniland Creation ready!');
 }).catch(e=>{
   document.getElementById('loadingScreen')?.remove();
-  console.warn('Data load failed, using built-in fallback:', e);
+  console.warn('Data load failed:', e);
 });
 
 // ── POKÉDEX BROWSER ───────────────────────────────────────────────────────────
