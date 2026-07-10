@@ -1,0 +1,51 @@
+{
+  "_info": {
+    "version": "1.0",
+    "description": "Wonniland — Pokémon Hall of Fame",
+    "note": "One entry per created Pokémon from Pokemon Creation Mode"
+  },
+  "pokemon": [
+    {
+      "id": "pkm_001",
+      "owner_name": "Wonni",
+      "owner_sprite": "brendan",
+      "species": "Charizard",
+      "species_id": 6,
+      "nickname": "Blaze",
+      "shiny": false,
+      "ability": "Blaze",
+      "nature": "Adamant",
+      "tera_type": "Fire",
+      "gmax": false,
+      "held_item": "Life Orb",
+      "poke_ball": "Poke Ball",
+      "happiness": 255,
+      "ivs": { "hp": 31, "atk": 31, "def": 28, "spa": 31, "spd": 31, "spe": 31 },
+      "evs": { "hp": 0, "atk": 252, "def": 0, "spa": 0, "spd": 4, "spe": 252 },
+      "moves": ["Flare Blitz", "Dragon Dance", "Earthquake", "Roost"],
+      "map": "MAP_ROUTE101",
+      "chapter": 1
+    },
+    {
+      "id": "pkm_002",
+      "owner_name": "Klay",
+      "owner_sprite": "may",
+      "species": "Espeon",
+      "species_id": 196,
+      "nickname": "Psyche",
+      "shiny": false,
+      "ability": "Magic Bounce",
+      "nature": "Timid",
+      "tera_type": "Psychic",
+      "gmax": false,
+      "held_item": "Leftovers",
+      "poke_ball": "Poke Ball",
+      "happiness": 255,
+      "ivs": { "hp": 31, "atk": 0, "def": 31, "spa": 31, "spd": 31, "spe": 31 },
+      "evs": { "hp": 4, "atk": 0, "def": 0, "spa": 252, "spd": 0, "spe": 252 },
+      "moves": ["Psychic", "Shadow Ball", "Calm Mind", "Stored Power"],
+      "map": "MAP_RUSTBORO_CITY",
+      "chapter": 1
+    }
+  ]
+}

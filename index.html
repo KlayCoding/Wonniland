@@ -1140,10 +1140,10 @@ function updPokemonCard(){
     // Stat grid
     const sg=document.createElement('div');sg.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:4px 12px 6px;';
     baseStats.forEach((base,i)=>{
+      const useIVEV=q8answered; const useNature=q4answered;
       const isHp=i===0, isUp=i===upIdx, isDn=i===dnIdx;
       const mod=isUp?1.1:isDn?0.9:1.0;
       const baseOnly=(!useIVEV&&!useNature)?base:(isHp?Math.floor(2*base*50/100)+60:Math.floor(2*base*50/100)+5);
-      const useIVEV=q8answered; const useNature=q4answered;
       // Before any customisation: show raw Pokédex base stat
       // After Q4 (nature) / Q8 (IV/EV): calculate Lv50 final stat
       let finalStat, displayBase=base;
@@ -2426,13 +2426,15 @@ function showPokedex(mon) {
       if(!isCurrent) card.addEventListener('mouseenter',()=>{card.style.borderColor='#9575cd';card.style.background='rgba(149,117,205,.08)';});
       if(!isCurrent) card.addEventListener('mouseleave',()=>{card.style.borderColor='rgba(255,255,255,.08)';card.style.background='rgba(255,255,255,.03)';});
       if(!isCurrent) card.addEventListener('click',()=>{const altMon=ALL_MON.find(m=>m.name.toLowerCase()===member.name.toLowerCase());if(altMon){bd.remove();showPokedex(altMon);}});
-      const sfile=getSpriteFile(member);
+      const monEntry=ALL_MON.find(m=>m.name.toLowerCase()===member.name.toLowerCase())||member;
+      const sfile=getSpriteFile(monEntry);
       const img=document.createElement('img');img.style.cssText='width:56px;height:56px;image-rendering:pixelated;';
       img.src=sfile?`${PKM_BASE1}${sfile}.png`:`${SHOWDOWN}0.gif`;img.onerror=()=>iconUrlFallback(img,member.id,sfile);
       const nm=document.createElement('div');nm.style.cssText='font-size:10px;font-weight:700;text-align:center;line-height:1.3;';nm.textContent=member.name;
       const typeRow=document.createElement('div');typeRow.style.cssText='display:flex;gap:3px;flex-wrap:wrap;justify-content:center;';
-      if(member.type1){const t1=tb(member.type1);t1.style.fontSize='8px';t1.style.padding='1px 5px';typeRow.appendChild(t1);}
-      if(member.type2){const t2=tb(member.type2);t2.style.fontSize='8px';t2.style.padding='1px 5px';typeRow.appendChild(t2);}
+      const mt1=member.type1||member.t1; const mt2=member.type2||member.t2;
+      if(mt1){const t1=tb(mt1);t1.style.fontSize='8px';t1.style.padding='1px 5px';typeRow.appendChild(t1);}
+      if(mt2){const t2=tb(mt2);t2.style.fontSize='8px';t2.style.padding='1px 5px';typeRow.appendChild(t2);}
       if(member.group==='Mega'||member.group==='GMax'){const tag=document.createElement('span');tag.className='pdx-fam-tag';tag.textContent=member.group;card.appendChild(tag);}
       card.append(img,nm,typeRow);
       return card;
@@ -2517,7 +2519,7 @@ function showPokedex(mon) {
         stage.forEach(source=>{
           const isCur=source.name.toLowerCase()===mon.name.toLowerCase();
           const evos=(source.evolves_into||[]).filter(evo=>{
-            const target=byName[(evo.target||'').toLowerCase()];
+            const target=byName[(evo.name||'').toLowerCase()];
             return target&&!isAltForm(target);
           });
           // Also get alt forms (Mega/GMax) for this member
@@ -2552,7 +2554,7 @@ function showPokedex(mon) {
           transRow.appendChild(mkNode(source));
           const branchCol=document.createElement('div');branchCol.style.cssText='display:flex;flex-direction:column;gap:10px;';
           evos.forEach(evo=>{
-            const target=byName[(evo.target||'').toLowerCase()];
+            const target=byName[(evo.name||'').toLowerCase()];
             if(!target) return;
             const branchRow=document.createElement('div');branchRow.style.cssText='display:flex;align-items:center;gap:10px;';
             branchRow.appendChild(mkMethodPill(evo.method,evo.param));
@@ -5431,7 +5433,7 @@ function initPkmHofBrowser(){
 
   async function loadHofData(){
     grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
-    try{const r=await fetch('hof.json');hofData=await r.json();buildFilters();renderGrid();}
+    try{const r=await fetch('pkm_hof.json');hofData=await r.json();buildFilters();renderGrid();}
     catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load hof.json — make sure it is in the same folder as index.html.</div>';}
   }
 
@@ -5533,7 +5535,7 @@ function initTrainerHofBrowser(){
 
   async function loadHofData(){
     list.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
-    try{const r=await fetch('hof.json');hofData=await r.json();buildFiltersAndMaps();renderList();}
+    try{const r=await fetch('trainer_hof.json');hofData=await r.json();buildFiltersAndMaps();renderList();}
     catch(e){list.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load hof.json</div>';}
   }
 

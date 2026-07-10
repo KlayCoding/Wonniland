@@ -1,0 +1,111 @@
+{
+  "_info": {
+    "version": "1.0",
+    "description": "Wonniland — Trainer Hall of Fame",
+    "note": "One entry per created Trainer from Trainer Creation Mode. Place this file as trainer_hof.json next to index.html on GitHub."
+  },
+  "trainers": [
+    {
+      "id": "trainer_001",
+      "name": "Wonni",
+      "gender": "Male",
+      "sprite": "brendan",
+      "class": "Pokémon Trainer",
+      "battle_format": "Singles",
+      "intro_phrase": "Let's see what you've got!",
+      "defeat_phrase": "Incredible... I'll be back stronger!",
+      "rival": "Klay",
+      "hometown": "Littleroot Town",
+      "map": "MAP_ROUTE101",
+      "category": "Route",
+      "chapter": 1,
+      "team": [
+        {
+          "slot": 1,
+          "species": "Charizard",
+          "species_id": 6,
+          "nickname": "Blaze",
+          "shiny": false,
+          "ability": "Blaze",
+          "nature": "Adamant",
+          "tera_type": "Fire",
+          "gmax": false,
+          "held_item": "Life Orb",
+          "poke_ball": "Poke Ball",
+          "happiness": 255,
+          "ivs": { "hp": 31, "atk": 31, "def": 28, "spa": 31, "spd": 31, "spe": 31 },
+          "evs": { "hp": 0, "atk": 252, "def": 0, "spa": 0, "spd": 4, "spe": 252 },
+          "moves": ["Flare Blitz", "Dragon Dance", "Earthquake", "Roost"]
+        },
+        {
+          "slot": 2,
+          "species": "Blastoise",
+          "species_id": 9,
+          "nickname": "Tide",
+          "shiny": true,
+          "ability": "Torrent",
+          "nature": "Modest",
+          "tera_type": "Water",
+          "gmax": false,
+          "held_item": "Choice Specs",
+          "poke_ball": "Great Ball",
+          "happiness": 200,
+          "ivs": { "hp": 31, "atk": 0, "def": 31, "spa": 31, "spd": 31, "spe": 31 },
+          "evs": { "hp": 4, "atk": 0, "def": 0, "spa": 252, "spd": 0, "spe": 252 },
+          "moves": ["Surf", "Ice Beam", "Dark Pulse", "Flash Cannon"]
+        },
+        {
+          "slot": 3,
+          "species": "Dragonite",
+          "species_id": 149,
+          "nickname": "Drake",
+          "shiny": false,
+          "ability": "Multiscale",
+          "nature": "Jolly",
+          "tera_type": "Dragon",
+          "gmax": false,
+          "held_item": null,
+          "poke_ball": "Poke Ball",
+          "happiness": 255,
+          "ivs": { "hp": 31, "atk": 31, "def": 31, "spa": 31, "spd": 31, "spe": 31 },
+          "evs": { "hp": 0, "atk": 252, "def": 4, "spa": 0, "spd": 0, "spe": 252 },
+          "moves": ["Extreme Speed", "Dragon Dance", "Fire Punch", "Outrage"]
+        }
+      ]
+    },
+    {
+      "id": "trainer_002",
+      "name": "Klay",
+      "gender": "Female",
+      "sprite": "may",
+      "class": "Ace Trainer",
+      "battle_format": "Doubles",
+      "intro_phrase": "Prepare yourself!",
+      "defeat_phrase": "You're amazing... but I won't give up!",
+      "rival": "Wonni",
+      "hometown": "Petalburg City",
+      "map": "MAP_RUSTBORO_CITY",
+      "category": "City",
+      "chapter": 1,
+      "team": [
+        {
+          "slot": 1,
+          "species": "Espeon",
+          "species_id": 196,
+          "nickname": "Psyche",
+          "shiny": false,
+          "ability": "Magic Bounce",
+          "nature": "Timid",
+          "tera_type": "Psychic",
+          "gmax": false,
+          "held_item": "Leftovers",
+          "poke_ball": "Poke Ball",
+          "happiness": 255,
+          "ivs": { "hp": 31, "atk": 0, "def": 31, "spa": 31, "spd": 31, "spe": 31 },
+          "evs": { "hp": 4, "atk": 0, "def": 0, "spa": 252, "spd": 0, "spe": 252 },
+          "moves": ["Psychic", "Shadow Ball", "Calm Mind", "Stored Power"]
+        }
+      ]
+    }
+  ]
+}
