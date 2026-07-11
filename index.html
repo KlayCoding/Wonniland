@@ -5434,7 +5434,7 @@ function initPkmHofBrowser(){
   async function loadHofData(){
     grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
     try{const r=await fetch('pkm_hof.json');hofData=await r.json();buildFilters();renderGrid();}
-    catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load hof.json — make sure it is in the same folder as index.html.</div>';}
+    catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json — make sure it is in the same folder as index.html.</div>';}
   }
 
   function buildFilters(){
@@ -5536,7 +5536,7 @@ function initTrainerHofBrowser(){
   async function loadHofData(){
     list.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
     try{const r=await fetch('trainer_hof.json');hofData=await r.json();buildFiltersAndMaps();renderList();}
-    catch(e){list.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load hof.json</div>';}
+    catch(e){list.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load trainer_hof.json</div>';}
   }
 
   function mapToName(m){return m?m.replace('MAP_','').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()):'Unknown';}
