@@ -166,7 +166,7 @@
           "ivs": { "hp": 31, "atk": 31, "def": 31, "spa": 31, "spd": 31, "spe": 31 },
           "evs": { "hp": 252, "atk": 0, "def": 128, "spa": 0, "spd": 128, "spe": 2 },
           "moves": ["Heal Bell", "Present", "Heal Pulse", "Lunar Blessing"]
-        },
+        }
       ]
     },
     {
