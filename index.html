@@ -1648,30 +1648,21 @@ function makeAC(ph,list){
 // ── IV/EV Info Overlay ───────────────────────────────────────────────────────
 
 function bpColor(bp){if(!bp||bp===0)return'var(--gray)';if(bp<=60)return'#f0c600';if(bp<=100)return'#ff9800';return'#E3350D';}
+
+// ── Global move type/cat chip builders (used by makeMoveSearch + openMoveInfoPopup) ──
+const MOVE_TYPE_COL={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
+const MOVE_CAT_COL={Physical:'#e8622a',Special:'#4f90d3',Status:'#4caf50'};
+function typeChip(type){const col=MOVE_TYPE_COL[type]||'#888';const chip=document.createElement('span');chip.style.cssText='display:inline-flex;align-items:center;gap:3px;font-size:9px;padding:2px 7px;border-radius:4px;font-weight:700;background:'+col+'33;color:'+col+';border:1px solid '+col+'66;';chip.textContent=type;return chip;}
+function catChip(cat){const col=MOVE_CAT_COL[cat]||'#888';const ico={Physical:'⚔️',Special:'✨',Status:'🔄'}[cat]||'';const chip=document.createElement('span');chip.style.cssText='display:inline-flex;align-items:center;gap:3px;font-size:9px;padding:2px 7px;border-radius:4px;background:'+col+'22;color:'+col+';border:1px solid '+col+'44;';chip.textContent=ico+' '+cat;return chip;}
+
 function makeMoveSearch(card, onDone, stepRef) {
-  const MTCOL={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
-  const MCCOL={Physical:'#e8622a',Special:'#4f90d3',Status:'#4caf50'};
   const MCICO={Physical:'⚔️',Special:'✨',Status:'🔄'};
   const MCAT_SPRITE_BASE='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/move-damage-class/';
-  function typeChip(type){
-    const col=MTCOL[type]||'#888';
-    const chip=document.createElement('span');
-    chip.style.cssText='display:inline-flex;align-items:center;gap:3px;font-size:9px;padding:2px 7px;border-radius:4px;font-weight:700;background:'+col+'33;color:'+col+';border:1px solid '+col+'66;';
-    chip.textContent=type;
-    return chip;
-  }
-  function catChip(cat){
-    const col=MCCOL[cat]||'#888';
-    const ico={Physical:'⚔️',Special:'✨',Status:'🔄'}[cat]||'';
-    const chip=document.createElement('span');
-    chip.style.cssText='display:inline-flex;align-items:center;gap:3px;font-size:9px;padding:2px 7px;border-radius:4px;background:'+col+'22;color:'+col+';border:1px solid '+col+'44;';
-    chip.textContent=ico+' '+cat;
-    return chip;
-  }
-  // ── Global move info popup (Info / Contest / Pokémon tabs) ────────────────────
+
+
+// ── Global Move Info Popup ────────────────────────────────────────────────────
 function openMoveInfoPopup(mv){
-  const MTCOL2={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
-  const typeCol=MTCOL2[mv.type]||'#888';
+  const typeCol=MOVE_TYPE_COL[mv.type]||'#888';
   const popup=document.createElement('div');
   popup.style.cssText='position:fixed;inset:0;z-index:1300;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);padding:16px;';
   popup.addEventListener('click',e=>{if(e.target===popup)popup.remove();});
@@ -1683,79 +1674,50 @@ function openMoveInfoPopup(mv){
   popClose.addEventListener('click',()=>popup.remove());
   popHdr.append(popTitle,typeChip(mv.type),catChip(mv.cat),popClose);
   const tabBar=document.createElement('div');tabBar.style.cssText='display:flex;border-bottom:1px solid var(--border);flex-shrink:0;';
-  const tabs=['Info','Contest','Pokémon'];
   const tabBtns=[];const tabPanes=[];
-  tabs.forEach((t,i)=>{
+  ['Info','Contest','Pokémon'].forEach((t,i)=>{
     const btn=document.createElement('button');btn.type='button';
     btn.style.cssText='flex:1;padding:10px;font-size:11px;font-family:"Press Start 2P",monospace;border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;color:var(--gray);';
     btn.textContent=t;
     btn.addEventListener('click',()=>{tabBtns.forEach((b,j)=>{b.style.borderBottomColor=j===i?typeCol:'transparent';b.style.color=j===i?typeCol:'var(--gray)';});tabPanes.forEach((p,j)=>p.style.display=j===i?'block':'none');});
-    tabBar.appendChild(btn); tabBtns.push(btn);
+    tabBar.appendChild(btn);tabBtns.push(btn);
     const pane=document.createElement('div');pane.style.cssText='display:none;padding:14px 16px;overflow-y:auto;max-height:calc(80vh - 130px);';
     tabPanes.push(pane);
   });
-  tabBtns[0].style.borderBottomColor=typeCol; tabBtns[0].style.color=typeCol; tabPanes[0].style.display='block';
+  tabBtns[0].style.borderBottomColor=typeCol;tabBtns[0].style.color=typeCol;tabPanes[0].style.display='block';
   const bpVal=mv.power||0;
   const FL_ALL={'makes_contact':'Contact','multi_hit':'Multi-Hit','punching_move':'Punching','biting_move':'Biting','sound_move':'Sound','dance_move':'Dance','ballistic_move':'Ballistic','slicing_move':'Slicing','wind_move':'Wind','healing_move':'Healing','powder_move':'Powder','pulse_move':'Pulse','snatch_affected':'Snatch','magic_coat_affected':'Magic Coat','thaws_user':'Thaws User','minimize_double_damage':'Minimize ×2','ignores_protect':'Bypasses Protect','ignores_substitute':'Bypasses Sub','ignores_kings_rock':'No Flinch','ignores_target_ability':'Ignores Ability','cant_use_twice':'No Repeat','assist_banned':'No Assist','copycat_banned':'No Copycat','encore_banned':'No Encore','gravity_banned':'No Gravity','instruct_banned':'No Instruct','me_first_banned':'No Me First','metronome_banned':'No Metronome','mimic_banned':'No Mimic','mirror_move_banned':'No Mirror','sketch_banned':'No Sketch','sleep_talk_banned':'No Sleep Talk','apprentice_move':'Learnable','parental_bond_banned':'No Parental Bond'};
-  const mkInfoRow=(label,val,col)=>{if(!val&&val!==0)return null;const row=document.createElement('div');row.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);';const l=document.createElement('span');l.style.cssText='font-size:11px;color:var(--gray);';l.textContent=label;const v=document.createElement('span');v.style.cssText='font-size:12px;font-weight:600;color:'+(col||'var(--white)')+';text-align:right;';v.textContent=val;row.append(l,v);return row;};
-  [mkInfoRow('Base Power',bpVal||'—',bpColor(bpVal)),mkInfoRow('Accuracy',(mv.acc||'—')+(mv.acc?'%':'')),mkInfoRow('PP',mv.pp),mkInfoRow('Type',mv.type),mkInfoRow('Category',mv.cat),mkInfoRow('Target',mv.target||'Selected'),mkInfoRow('Priority',(mv.priority>0?'+':'')+mv.priority,mv.priority>0?'#4caf50':mv.priority<0?'#e57373':null),mv.strike>1?mkInfoRow('Strike Count',mv.strike+'×','#4caf50'):null,mv.crit>0?mkInfoRow('Crit Stage','+'+mv.crit,'#f0c600'):null,mv.addEff&&mv.addEff!=='False'&&mv.addEff!==false?mkInfoRow('Additional Effect',mv.addEff,'#f0c600'):null,mv.effect&&mv.effect!=='Hit'?mkInfoRow('Effect',mv.effect,'var(--pl)'):null].filter(Boolean).forEach(r=>tabPanes[0].appendChild(r));
+  const mkR=(label,val,col)=>{if(!val&&val!==0)return null;const row=document.createElement('div');row.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);';const l=document.createElement('span');l.style.cssText='font-size:11px;color:var(--gray);';l.textContent=label;const v=document.createElement('span');v.style.cssText='font-size:12px;font-weight:600;color:'+(col||'var(--white)')+';text-align:right;';v.textContent=val;row.append(l,v);return row;};
+  [mkR('Base Power',bpVal||'—',bpColor(bpVal)),mkR('Accuracy',(mv.acc||'—')+(mv.acc?'%':'')),mkR('PP',mv.pp),mkR('Type',mv.type),mkR('Category',mv.cat),mkR('Target',mv.target||'Selected'),mkR('Priority',(mv.priority>0?'+':'')+mv.priority,mv.priority>0?'#4caf50':mv.priority<0?'#e57373':null),mv.strike>1?mkR('Strike Count',mv.strike+'×','#4caf50'):null,mv.crit>0?mkR('Crit Stage','+'+mv.crit,'#f0c600'):null,mv.addEff&&mv.addEff!=='False'&&mv.addEff!==false?mkR('Additional Effect',mv.addEff,'#f0c600'):null,mv.effect&&mv.effect!=='Hit'?mkR('Effect',mv.effect,'var(--pl)'):null].filter(Boolean).forEach(r=>tabPanes[0].appendChild(r));
   if(mv.flags&&mv.flags.length){const atH=document.createElement('div');atH.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:var(--gray);margin:12px 0 6px;';atH.textContent='ATTRIBUTES';tabPanes[0].appendChild(atH);const atWrap=document.createElement('div');atWrap.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';mv.flags.forEach(f=>{const isBan=f.endsWith('_banned');const tag=document.createElement('span');tag.style.cssText='font-size:9px;padding:2px 8px;border-radius:4px;background:'+(isBan?'rgba(227,53,13,.15)':'rgba(100,181,246,.12)')+';color:'+(isBan?'#E3350D':'#64b5f6')+';border:1px solid '+(isBan?'rgba(227,53,13,.3)':'rgba(100,181,246,.25)')+';';tag.textContent=FL_ALL[f]||f.replace(/_/g,' ');atWrap.appendChild(tag);});tabPanes[0].appendChild(atWrap);}
   if(mv.desc){const d=document.createElement('div');d.style.cssText='margin-top:12px;font-size:12px;color:var(--gray);line-height:1.6;font-style:italic;';d.textContent=mv.desc;tabPanes[0].appendChild(d);}
-  const noContest=!mv.contestEff&&!mv.contestCat;
-  if(noContest){const nc=document.createElement('div');nc.style.cssText='color:var(--gray);font-size:12px;padding:20px 0;text-align:center;';nc.textContent='No contest data available for this move.';tabPanes[1].appendChild(nc);}
-  else{[mkInfoRow('Contest Effect',mv.contestEff),mkInfoRow('Contest Category',mv.contestCat,'#f06292')].filter(Boolean).forEach(r=>tabPanes[1].appendChild(r));}
+  if(!mv.contestEff&&!mv.contestCat){const nc=document.createElement('div');nc.style.cssText='color:var(--gray);font-size:12px;padding:20px 0;text-align:center;';nc.textContent='No contest data available.';tabPanes[1].appendChild(nc);}
+  else{[mkR('Contest Effect',mv.contestEff),mkR('Contest Category',mv.contestCat,'#f06292')].filter(Boolean).forEach(r=>tabPanes[1].appendChild(r));}
   tabPanes[2].innerHTML='<div style="color:var(--gray);font-size:11px;padding:10px 0;">Loading learners…</div>';
   const popBody=document.createElement('div');popBody.style.cssText='overflow-y:auto;flex:1;';
-  popBody.append(tabBar,...tabPanes);
-  popBox.append(popHdr,popBody);
-  popup.appendChild(popBox);
-  document.body.appendChild(popup);
+  popBody.append(tabBar,...tabPanes);popBox.append(popHdr,popBody);popup.appendChild(popBox);document.body.appendChild(popup);
   document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'){popup.remove();document.removeEventListener('keydown',esc);}});
-
   // Build Pokémon tab
   tabPanes[2].innerHTML='';
-  const lvlLearners=[],eggLearners=[],teachLearners=[];
+  const lvlL=[],eggL=[],teachL=[];
   Object.entries(LEARNSETS_DB).forEach(([key,ls])=>{
-    const lvlMoves=ls.level_up||[];
-    const eggMoves=ls.egg_moves||[];
-    const teachMoves=ls.teachable||[];
-    const moveName=mv.name;
-    const hasLvl=lvlMoves.some(e=>typeof e==='object'?e.move===moveName:e===moveName);
-    const hasEgg=eggMoves.includes(moveName);
-    const hasTeach=teachMoves.includes(moveName);
+    const lvlMoves=ls.level_up||[]; const eggMoves=ls.egg_moves||[]; const teachMoves=ls.teachable||[];
+    const hasLvl=lvlMoves.some(e=>typeof e==='object'?e.move===mv.name:e===mv.name);
+    const hasEgg=eggMoves.includes(mv.name); const hasTeach=teachMoves.includes(mv.name);
     const mon=ALL_MON.find(m=>{const k=m.name.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-');return k===key||m.name.toLowerCase()===key;});
-    const monName=mon?mon.name:key.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-    const monId=mon?mon.id:null;
-    if(hasLvl){const lvl=typeof lvlMoves.find(e=>typeof e==='object'&&e.move===moveName)==='object'?lvlMoves.find(e=>typeof e==='object'&&e.move===moveName).level:null;lvlLearners.push({name:monName,id:monId,mon,level:lvl});}
-    if(hasEgg) eggLearners.push({name:monName,id:monId,mon});
-    if(hasTeach) teachLearners.push({name:monName,id:monId,mon});
+    const monName=mon?mon.name:key.replace(/-/g,' ').replace(/\w/g,c=>c.toUpperCase());
+    if(hasLvl){const lvl=typeof lvlMoves.find(e=>typeof e==='object'&&e.move===mv.name)==='object'?lvlMoves.find(e=>typeof e==='object'&&e.move===mv.name).level:null;lvlL.push({name:monName,mon,level:lvl});}
+    if(hasEgg) eggL.push({name:monName,mon});
+    if(hasTeach) teachL.push({name:monName,mon});
   });
-  const mkSection=(title,col,learners)=>{
-    if(!learners.length) return;
-    const h=document.createElement('div');h.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:'+col+';margin:10px 0 6px;';h.textContent=title+' ('+learners.length+')';
-    tabPanes[2].appendChild(h);
-    const grid=document.createElement('div');grid.style.cssText='display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;';
-    learners.sort((a,b)=>a.name.localeCompare(b.name)).forEach(({name,id,mon,level})=>{
-      const chip=document.createElement('div');chip.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 9px;border-radius:8px;background:'+col+'11;border:1px solid '+col+'33;min-width:70px;cursor:default;transition:background .15s;';chip.title=name+(level?' (Lv.'+level+')':'');
-      const img=document.createElement('img');img.style.cssText='width:52px;height:52px;image-rendering:pixelated;';
-      if(mon){img.src=`${PKM_BASE1}${getSpriteFile(mon)}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);}
-      else{img.style.cssText+='display:none;';}
-      const lbl=document.createElement('span');lbl.style.cssText='font-size:10px;font-weight:600;color:var(--text);text-align:center;line-height:1.3;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';lbl.textContent=name;
-      if(level){const lvlTag=document.createElement('span');lvlTag.style.cssText='font-size:7px;color:'+col+';';lvlTag.textContent='Lv.'+level;chip.append(img,lbl,lvlTag);}
-      else chip.append(img,lbl);
-      grid.appendChild(chip);
-    });
-    tabPanes[2].appendChild(grid);
-  };
-  mkSection('LEVEL-UP','#4caf50',lvlLearners);
-  mkSection('EGG MOVE','#f06292',eggLearners);
-  mkSection('TEACHABLE','#64b5f6',teachLearners);
-  if(!lvlLearners.length&&!eggLearners.length&&!teachLearners.length){const empty=document.createElement('div');empty.style.cssText='color:var(--gray);font-size:12px;padding:20px 0;text-align:center;';empty.textContent='No Pokémon found in learnsets data.';tabPanes[2].appendChild(empty);}
+  const mkSec=(title,col,learners)=>{if(!learners.length)return;const h=document.createElement('div');h.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:'+col+';margin:10px 0 6px;';h.textContent=title+' ('+learners.length+')';tabPanes[2].appendChild(h);const grid=document.createElement('div');grid.style.cssText='display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;';learners.sort((a,b)=>a.name.localeCompare(b.name)).forEach(({name,mon,level})=>{const chip=document.createElement('div');chip.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 9px;border-radius:8px;background:'+col+'11;border:1px solid '+col+'33;min-width:70px;cursor:default;';chip.title=name+(level?' (Lv.'+level+')':'');const img=document.createElement('img');img.style.cssText='width:52px;height:52px;image-rendering:pixelated;';if(mon){img.src=`${PKM_BASE1}${getSpriteFile(mon)}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);}else img.style.display='none';const lbl=document.createElement('span');lbl.style.cssText='font-size:10px;font-weight:600;color:var(--text);text-align:center;line-height:1.3;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';lbl.textContent=name;if(level){const lt=document.createElement('span');lt.style.cssText='font-size:7px;color:'+col+';';lt.textContent='Lv.'+level;chip.append(img,lbl,lt);}else chip.append(img,lbl);grid.appendChild(chip);});tabPanes[2].appendChild(grid);};
+  mkSec('LEVEL-UP','#4caf50',lvlL);mkSec('EGG MOVE','#f06292',eggL);mkSec('TEACHABLE','#64b5f6',teachL);
+  if(!lvlL.length&&!eggL.length&&!teachL.length){const empty=document.createElement('div');empty.style.cssText='color:var(--gray);font-size:12px;padding:20px 0;text-align:center;';empty.textContent='No Pokémon found in learnsets data.';tabPanes[2].appendChild(empty);}
 }
 
 function moveCard(mv){
-    const typeCol=MTCOL[mv.type]||'#888';
-    const catCol=MCCOL[mv.cat]||'#888';
+    const typeCol=MOVE_TYPE_COL[mv.type]||'#888';
+    const catCol=MOVE_CAT_COL[mv.cat]||'#888';
     const c=document.createElement('div');
     c.style.cssText='border-radius:10px;border:2px solid '+typeCol+'66;background:linear-gradient(135deg,'+typeCol+'18,rgba(255,255,255,.02));overflow:hidden;';
     // Header bar
@@ -1802,13 +1764,13 @@ function moveCard(mv){
   const typeGrid=document.createElement('div'); typeGrid.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';
   const ALL_TYPES2=ALL_TYPES; // use global
   ALL_TYPES2.forEach(type=>{
-    const col=MTCOL[type]||'#888';
+    const col=MOVE_TYPE_COL[type]||'#888';
     const b=document.createElement('button'); b.type='button';
     b.style.cssText='font-size:9px;padding:3px 8px;border-radius:5px;border:1px solid '+col+'66;background:'+col+'22;color:'+col+';cursor:pointer;transition:all .15s;font-weight:600;';
     b.textContent=type; b.dataset.ftype=type;
     b.addEventListener('click',()=>{
       if(activeType===type){activeType=null;b.style.background=col+'22';b.style.borderColor=col+'66';}
-      else{activeType=type;typeGrid.querySelectorAll('[data-ftype]').forEach(x=>{const c2=MTCOL[x.dataset.ftype]||'#888';x.style.background=c2+'22';x.style.borderColor=c2+'66';});b.style.background=col+'88';b.style.borderColor=col;}
+      else{activeType=type;typeGrid.querySelectorAll('[data-ftype]').forEach(x=>{const c2=MOVE_TYPE_COL[x.dataset.ftype]||'#888';x.style.background=c2+'22';x.style.borderColor=c2+'66';});b.style.background=col+'88';b.style.borderColor=col;}
       filterToggle.style.borderColor=activeType||activeCat||activeSort?'var(--pl)':'var(--border)';
       refreshAllDD();
     });
@@ -1826,7 +1788,7 @@ function moveCard(mv){
     b.innerHTML=ico+' '+cat; b.dataset.fcat=cat;
     b.addEventListener('click',()=>{
       if(activeCat===cat){activeCat=null;b.style.background=col+'22';b.style.borderColor=col+'66';}
-      else{activeCat=cat;catBtns.querySelectorAll('[data-fcat]').forEach(x=>{const c2=MCCOL[x.dataset.fcat]||'#888';x.style.background=c2+'22';x.style.borderColor=c2+'66';});b.style.background=col+'88';b.style.borderColor=col;}
+      else{activeCat=cat;catBtns.querySelectorAll('[data-fcat]').forEach(x=>{const c2=MOVE_CAT_COL[x.dataset.fcat]||'#888';x.style.background=c2+'22';x.style.borderColor=c2+'66';});b.style.background=col+'88';b.style.borderColor=col;}
       filterToggle.style.borderColor=activeType||activeCat||activeSort?'var(--pl)':'var(--border)';
       refreshAllDD();
     });
@@ -1927,8 +1889,8 @@ function moveCard(mv){
   clearBtn.style.cssText='width:100%;margin-top:2px;'; clearBtn.textContent='✕ Clear All Filters';
   clearBtn.addEventListener('click',()=>{
     activeType=null;activeCat=null;activeSort=null;hideZMoves=false;hideDynaMax=false;activeAttrs=new Set();
-    typeGrid.querySelectorAll('[data-ftype]').forEach(x=>{const c=MTCOL[x.dataset.ftype]||'#888';x.style.background=c+'22';x.style.borderColor=c+'66';});
-    catBtns.querySelectorAll('[data-fcat]').forEach(x=>{const c=MCCOL[x.dataset.fcat]||'#888';x.style.background=c+'22';x.style.borderColor=c+'66';});
+    typeGrid.querySelectorAll('[data-ftype]').forEach(x=>{const c=MOVE_TYPE_COL[x.dataset.ftype]||'#888';x.style.background=c+'22';x.style.borderColor=c+'66';});
+    catBtns.querySelectorAll('[data-fcat]').forEach(x=>{const c=MOVE_CAT_COL[x.dataset.fcat]||'#888';x.style.background=c+'22';x.style.borderColor=c+'66';});
     sortBtns.querySelectorAll('button').forEach(x=>{x.style.background='rgba(255,255,255,.04)';x.style.borderColor='var(--border)';x.style.color='var(--gray)';});
     attrBtns.querySelectorAll('[data-fattr]').forEach(x=>{x.style.background=attrCol+'11';x.style.borderColor=attrCol+'44';x.style.fontWeight='';x.style.boxShadow='';});
     zBtn.style.background='rgba(255,255,255,.04)';zBtn.style.borderColor='var(--border)';zBtn.style.color='var(--gray)';
@@ -2507,7 +2469,7 @@ function showPokedex(mon) {
       let grpCur=grpRoots;
       while(grpCur.length){
         const names=grpCur.map(m=>m.name);
-        const next=stageMembers.filter(m=>!visited.has(m.name)&&names.some(n=>n.toLowerCase()===(m.pre_evolution||'').toLowerCase()));
+        const next=stageMembers.filter(m=>!grpVisited.has(m.name)&&names.some(n=>n.toLowerCase()===(m.pre_evolution||'').toLowerCase()));
         if(!next.length) break;
         next.forEach(n=>{visited.add(n.name);grpVisited.add(n.name);});
         grpStages.push(next);
@@ -5434,7 +5396,7 @@ function initPkmHofBrowser(){
   async function loadHofData(){
     grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
     try{const r=await fetch('pkm_hof.json');hofData=await r.json();buildFilters();renderGrid();}
-    catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json — make sure it is in the same folder as index.html.</div>';}
+    catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load hof.json — make sure it is in the same folder as index.html.</div>';}
   }
 
   function buildFilters(){
@@ -5536,7 +5498,7 @@ function initTrainerHofBrowser(){
   async function loadHofData(){
     list.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
     try{const r=await fetch('trainer_hof.json');hofData=await r.json();buildFiltersAndMaps();renderList();}
-    catch(e){list.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load trainer_hof.json</div>';}
+    catch(e){list.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load hof.json</div>';}
   }
 
   function mapToName(m){return m?m.replace('MAP_','').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()):'Unknown';}
