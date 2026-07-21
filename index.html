@@ -654,7 +654,7 @@
   </div>
 </div>
 <style>@keyframes loadbar{0%{width:0%;margin-left:0}50%{width:60%;margin-left:20%}100%{width:0%;margin-left:100%}}</style>
-<div id="app"></div>
+
 
 <script>
 // POKEMON loaded from pokemon.json — see loadPokemonData()
@@ -1655,10 +1655,6 @@ const MOVE_CAT_COL={Physical:'#e8622a',Special:'#4f90d3',Status:'#4caf50'};
 function typeChip(type){const col=MOVE_TYPE_COL[type]||'#888';const chip=document.createElement('span');chip.style.cssText='display:inline-flex;align-items:center;gap:3px;font-size:9px;padding:2px 7px;border-radius:4px;font-weight:700;background:'+col+'33;color:'+col+';border:1px solid '+col+'66;';chip.textContent=type;return chip;}
 function catChip(cat){const col=MOVE_CAT_COL[cat]||'#888';const ico={Physical:'⚔️',Special:'✨',Status:'🔄'}[cat]||'';const chip=document.createElement('span');chip.style.cssText='display:inline-flex;align-items:center;gap:3px;font-size:9px;padding:2px 7px;border-radius:4px;background:'+col+'22;color:'+col+';border:1px solid '+col+'44;';chip.textContent=ico+' '+cat;return chip;}
 
-function makeMoveSearch(card, onDone, stepRef) {
-  const MCICO={Physical:'⚔️',Special:'✨',Status:'🔄'};
-  const MCAT_SPRITE_BASE='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/move-damage-class/';
-
 
 // ── Global Move Info Popup ────────────────────────────────────────────────────
 function openMoveInfoPopup(mv){
@@ -1705,7 +1701,7 @@ function openMoveInfoPopup(mv){
     const hasLvl=lvlMoves.some(e=>typeof e==='object'?e.move===mv.name:e===mv.name);
     const hasEgg=eggMoves.includes(mv.name); const hasTeach=teachMoves.includes(mv.name);
     const mon=ALL_MON.find(m=>{const k=m.name.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-');return k===key||m.name.toLowerCase()===key;});
-    const monName=mon?mon.name:key.replace(/-/g,' ').replace(/\w/g,c=>c.toUpperCase());
+    const monName=mon?mon.name:key.replace(/-/g,' ').replace(/\w/g,c=>c.toUpperCase());
     if(hasLvl){const lvl=typeof lvlMoves.find(e=>typeof e==='object'&&e.move===mv.name)==='object'?lvlMoves.find(e=>typeof e==='object'&&e.move===mv.name).level:null;lvlL.push({name:monName,mon,level:lvl});}
     if(hasEgg) eggL.push({name:monName,mon});
     if(hasTeach) teachL.push({name:monName,mon});
@@ -1714,6 +1710,12 @@ function openMoveInfoPopup(mv){
   mkSec('LEVEL-UP','#4caf50',lvlL);mkSec('EGG MOVE','#f06292',eggL);mkSec('TEACHABLE','#64b5f6',teachL);
   if(!lvlL.length&&!eggL.length&&!teachL.length){const empty=document.createElement('div');empty.style.cssText='color:var(--gray);font-size:12px;padding:20px 0;text-align:center;';empty.textContent='No Pokémon found in learnsets data.';tabPanes[2].appendChild(empty);}
 }
+
+function makeMoveSearch(card, onDone, stepRef) {
+  const MCICO={Physical:'⚔️',Special:'✨',Status:'🔄'};
+  const MCAT_SPRITE_BASE='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/move-damage-class/';
+
+
 
 function moveCard(mv){
     const typeCol=MOVE_TYPE_COL[mv.type]||'#888';
