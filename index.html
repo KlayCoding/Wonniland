@@ -1421,15 +1421,11 @@ function updPokemonCard(){
   // ── Coverage + Reset buttons ────────────────────────────────────────────────
   if(currentMode==='pokemon'&&mon){
     const actionRow=document.createElement('div');actionRow.style.cssText='display:flex;gap:6px;padding:8px 14px 0;';
-    const covBtn=document.createElement('button');covBtn.type='button';
-    covBtn.style.cssText='flex:1;font-size:8px;padding:6px;border-radius:7px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);cursor:pointer;font-family:"Press Start 2P",monospace;transition:all .2s;';
-    covBtn.textContent='⚔️ Type Coverage';covBtn.title='Analyse type coverage of your moveset';
-    covBtn.addEventListener('click',showTypeCoveragePopup);
     const resetBtn=document.createElement('button');resetBtn.type='button';
     resetBtn.style.cssText='font-size:8px;padding:6px 10px;border-radius:7px;border:1px solid rgba(229,115,115,.3);background:rgba(229,115,115,.06);color:#e57373;cursor:pointer;font-family:"Press Start 2P",monospace;transition:all .2s;';
-    resetBtn.textContent='🗑';resetBtn.title='Reset all saved data';
+    resetBtn.textContent='🗑 Reset';resetBtn.title='Reset all saved data';
     resetBtn.addEventListener('click',()=>{if(confirm('Reset all saved data? This cannot be undone.')){lsClearPkm();localStorage.removeItem(LS_FAV_KEY);showToast('✓ All data cleared');}});
-    actionRow.append(covBtn,resetBtn);card.appendChild(actionRow);
+    actionRow.append(resetBtn);card.appendChild(actionRow);
   }
   // ── Progress footer ──────────────────────────────────────────────────────────
   const foot=document.createElement('div');foot.style.cssText='padding:8px 14px;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.04);';
@@ -3294,11 +3290,13 @@ function renderQ(){
     ALL_TERA.forEach(type=>{
       const col=TC[type]||'#888';
       const btn=document.createElement('div'); btn.style.cssText=`display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 6px;border-radius:10px;border:2px solid transparent;background:${col}22;cursor:pointer;transition:all .2s;`;
-      const icoWrap=document.createElement('div');icoWrap.style.cssText='width:36px;height:36px;display:flex;align-items:center;justify-content:center;';
+      const icoWrap=document.createElement('div');icoWrap.style.cssText='display:flex;align-items:center;justify-content:center;';
+      const TERA_TYPE_IDS={"Normal": 1, "Fighting": 2, "Flying": 3, "Poison": 4, "Ground": 5, "Rock": 6, "Bug": 7, "Ghost": 8, "Steel": 9, "Fire": 10, "Water": 11, "Grass": 12, "Electric": 13, "Psychic": 14, "Ice": 15, "Dragon": 16, "Dark": 17, "Fairy": 18, "Stellar": 19};
+      const teraTid=TERA_TYPE_IDS[type];
       const icoImg=document.createElement('img');
-      icoImg.src=`${TERA_ICON_BASE}tera_${type.toLowerCase()}.png`;
-      icoImg.style.cssText='width:32px;height:32px;image-rendering:pixelated;';
-      icoImg.onerror=()=>{icoWrap.innerHTML=`<svg width="28" height="28" viewBox="0 0 28 28"><polygon points="14,2 24,8 24,20 14,26 4,20 4,8" fill="${col}" opacity="0.9"/></svg>`;};
+      icoImg.src=teraTid?`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${teraTid}.png`:'';
+      icoImg.style.cssText='height:24px;image-rendering:pixelated;';
+      icoImg.onerror=()=>{icoWrap.innerHTML=`<svg width="24" height="24" viewBox="0 0 24 24"><polygon points="12,2 20,7 20,17 12,22 4,17 4,7" fill="${col}" opacity="0.9"/></svg>`;icoImg.style.display='none';};
       icoWrap.appendChild(icoImg);
       const lbl=document.createElement('span'); lbl.style.cssText=`font-size:10px;font-weight:700;color:${col};text-align:center;`; lbl.textContent=type;
       btn.append(icoWrap,lbl);
@@ -3747,8 +3745,7 @@ function renderQ(){
           }
           // Top row: dot + name + compat badge + type + cat + pp + bp + info
           const topRow=document.createElement('div');topRow.style.cssText='display:flex;align-items:center;gap:7px;';
-          const dot=document.createElement('span');dot.style.cssText=`width:10px;height:10px;border-radius:50%;background:${tc};flex-shrink:0;box-shadow:0 0 5px ${tc}77;`;
-          // Gen9 type icon before name
+          // Gen9 type icon before name (no dot needed with type sprite)
           const MOVE_TYPE_IDS2={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
           const mvTid=MOVE_TYPE_IDS2[mv.type];
           if(mvTid&&!isDisabled){
@@ -3784,14 +3781,14 @@ function renderQ(){
           }
           const typeLbl=document.createElement('span');typeLbl.style.cssText=`font-size:9px;padding:2px 7px;border-radius:4px;background:${tc}25;color:${tc};border:1px solid ${tc}55;flex-shrink:0;font-weight:700;`;typeLbl.textContent=mv.type;
           const catLbl=document.createElement('span');catLbl.style.cssText=`font-size:9px;padding:2px 7px;border-radius:4px;background:${cc}15;color:${cc};flex-shrink:0;`;catLbl.textContent=mv.cat;
-          const ppLbl=document.createElement('span');ppLbl.style.cssText='font-size:10px;color:#555;flex-shrink:0;';ppLbl.textContent=mv.pp?mv.pp+'PP':'';
-          const bpLbl=document.createElement('span');bpLbl.style.cssText='font-size:12px;font-weight:800;flex-shrink:0;min-width:52px;text-align:right;';
-          if(mv.power){bpLbl.textContent=mv.power+'BP';bpLbl.style.color=mv.power>=100?'#e8622a':mv.power>=60?'#f0c600':'#8892a4';}
+          const ppLbl=document.createElement('span');ppLbl.style.cssText='font-size:10px;color:#555;flex-shrink:0;min-width:38px;text-align:right;';ppLbl.textContent=mv.pp?mv.pp+' PP':'';
+          const bpLbl=document.createElement('span');bpLbl.style.cssText='font-size:11px;font-weight:800;flex-shrink:0;min-width:70px;text-align:right;';
+          if(mv.power){bpLbl.textContent=mv.power+' Power';bpLbl.style.color=mv.power>=100?'#e8622a':mv.power>=60?'#f0c600':'#8892a4';}
           else{bpLbl.textContent='—';bpLbl.style.color='#444';}
           if(isDisabled){
             const tag=document.createElement('span');tag.style.cssText='font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,.06);color:#555;flex-shrink:0;';
             tag.textContent=mv.flags?.includes('z_move')?'Z-Move':mv.flags?.includes('max_move')?'Max Move':'Special';
-            topRow.append(dot,nm,typeLbl,catLbl,tag);
+            topRow.append(nm,typeLbl,catLbl,tag);
           } else {
             const mvInfoB=document.createElement('button');mvInfoB.type='button';
             mvInfoB.style.cssText=`width:24px;height:24px;border-radius:50%;border:1px solid ${tc}44;background:${tc}0d;color:${tc};cursor:pointer;flex-shrink:0;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all .15s;`;
@@ -3799,7 +3796,7 @@ function renderQ(){
             mvInfoB.addEventListener('mouseenter',()=>{mvInfoB.style.background=tc+'33';mvInfoB.style.borderColor=tc;});
             mvInfoB.addEventListener('mouseleave',()=>{mvInfoB.style.background=tc+'0d';mvInfoB.style.borderColor=tc+'44';});
             mvInfoB.addEventListener('click',(e)=>{e.stopPropagation();if(typeof openMoveInfoPopup==='function')openMoveInfoPopup(mv);});
-            topRow.append(dot,nm,typeLbl,catLbl,ppLbl,bpLbl,mvInfoB);
+            topRow.append(nm,typeLbl,catLbl,ppLbl,bpLbl,mvInfoB);
           }
           row.appendChild(topRow);
           // Description line
@@ -4120,10 +4117,12 @@ function renderResult(){
     pkSect.appendChild(clone);
   }
 
-  // Moves section in end card
+  body.appendChild(pkSect);
+
+  // Moves section — BELOW Pokemon Card
   const movesList=ans[9]?.moves||[];
   if(movesList.length){
-    const movesSection=document.createElement('div');movesSection.style.cssText='padding:10px 16px 0;';
+    const movesSection=document.createElement('div');movesSection.style.cssText='padding:10px 16px 12px;';
     const mHdr=document.createElement('div');mHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin-bottom:8px;';mHdr.textContent='MOVES';
     movesSection.appendChild(mHdr);
     const mGrid=document.createElement('div');mGrid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:6px;';
@@ -4133,17 +4132,16 @@ function renderResult(){
       const mvData=MOVES.find(m=>m.name===mvName)||{type:'Normal',cat:'Status',power:null};
       const col=TYPE_COL_RES[mvData.type]||'#888';
       const tid=MOVE_TYPE_IDS_RES[mvData.type];
-      const chip=document.createElement('div');chip.style.cssText=`display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:8px;background:${col}12;border:1px solid ${col}33;`;
-      if(tid){const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid}.png`;ti.style.cssText='height:15px;image-rendering:pixelated;flex-shrink:0;';ti.onerror=()=>ti.style.display='none';chip.appendChild(ti);}
+      const chip=document.createElement('div');chip.style.cssText=`display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:${col}12;border:1px solid ${col}33;`;
+      if(tid){const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid}.png`;ti.style.cssText='height:16px;image-rendering:pixelated;flex-shrink:0;';ti.onerror=()=>ti.style.display='none';chip.appendChild(ti);}
       const mNm=document.createElement('span');mNm.style.cssText='font-size:11px;font-weight:700;flex:1;';mNm.textContent=mvName;
-      const bpEl=document.createElement('span');bpEl.style.cssText=`font-size:10px;font-weight:700;color:${mvData.power>=100?'#e8622a':mvData.power>=60?'#f0c600':'#555'};`;
-      bpEl.textContent=mvData.power?mvData.power+'BP':'Status';
-      chip.append(mNm,bpEl);mGrid.appendChild(chip);
+      const pwrEl=document.createElement('span');pwrEl.style.cssText=`font-size:10px;font-weight:700;color:${mvData.power>=100?'#e8622a':mvData.power>=60?'#f0c600':'#555'};`;
+      pwrEl.textContent=mvData.power?mvData.power+' Power':'Status';
+      chip.append(mNm,pwrEl);mGrid.appendChild(chip);
     });
     movesSection.appendChild(mGrid);
     body.appendChild(movesSection);
   }
-  body.appendChild(pkSect);
 
   // Action buttons
   const actions=document.createElement('div');actions.style.cssText='display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0;';
