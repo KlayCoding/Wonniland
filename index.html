@@ -1037,10 +1037,17 @@ function updTrainerCard(){
     const spriteFile=otGender==='Female'?'may':'brendan';
     spr.src=`${TRAINER_BASE}${spriteFile}.png`;
     spr.onerror=()=>{spr.onerror=null;spr.style.visibility='hidden';};
-    const info=document.createElement('div');
+    const info=document.createElement('div');info.style.cssText='display:flex;flex-direction:column;gap:3px;flex:1;';
     const nm=document.createElement('div');nm.style.cssText=`font-size:13px;font-weight:800;color:${otGender==='Female'?'#f48fb1':'#64b5f6'};`;nm.textContent=trName;
     const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);margin-top:2px;';sub.textContent='OG Trainer';
-    info.append(nm,sub);hdr.append(spr,info);card.appendChild(hdr);
+    info.append(nm,sub);
+    const editTrBtn=document.createElement('button');editTrBtn.type='button';
+    editTrBtn.style.cssText='font-size:8px;padding:2px 7px;border-radius:5px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:var(--gray);cursor:pointer;transition:all .15s;align-self:flex-start;';
+    editTrBtn.textContent='✎';editTrBtn.title='Edit OT Name';
+    editTrBtn.addEventListener('mouseenter',()=>{editTrBtn.style.borderColor='var(--pl)';editTrBtn.style.color='var(--pl)';});
+    editTrBtn.addEventListener('mouseleave',()=>{editTrBtn.style.borderColor='rgba(255,255,255,.12)';editTrBtn.style.color='var(--gray)';});
+    editTrBtn.addEventListener('click',()=>{step=0;renderQ();});
+    hdr.append(spr,info,editTrBtn);card.appendChild(hdr);
     panel.appendChild(card); return;
   }
 
@@ -3263,6 +3270,7 @@ function renderQ(){
 
 }else if(step===6){
     addT(card,'Which Tera Type do you want your Pokémon to have?');
+    const TERA_ICON_BASE='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/';
     const teraInfoBtn=document.createElement('button');teraInfoBtn.type='button';teraInfoBtn.className='info-btn';teraInfoBtn.style.marginBottom='10px';teraInfoBtn.textContent='ℹ What is Terastallization?';
     makeInfoPopup(teraInfoBtn,'Terastallization',`<b>Terastallization</b> is a mechanic from Pokémon Scarlet & Violet.<br><br>When activated in battle, your Pokémon changes its type to the chosen <b>Tera Type</b> for the rest of the battle. STAB bonuses apply to the new type.<br><br><b>Duration:</b> Lasts the entire battle once activated — cannot be reversed.<br><br><b>Strategy:</b> Choose a type that covers your Pokémon's weaknesses, or double-down on an existing STAB type for extra power.<br><br><b>Stellar Tera:</b> A special type that boosts all moves used for the first time — unique to Terapagos.`);
     card.appendChild(teraInfoBtn);
@@ -3277,9 +3285,14 @@ function renderQ(){
     ALL_TERA.forEach(type=>{
       const col=TC[type]||'#888';
       const btn=document.createElement('div'); btn.style.cssText=`display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 6px;border-radius:10px;border:2px solid transparent;background:${col}22;cursor:pointer;transition:all .2s;`;
-      const ico=document.createElement('div'); ico.innerHTML=`<svg width="28" height="28" viewBox="0 0 28 28"><polygon points="14,2 24,8 24,20 14,26 4,20 4,8" fill="${col}" opacity="0.9" stroke="${col}" stroke-width="1.5"/><polygon points="14,6 20,10 20,18 14,22 8,18 8,10" fill="white" opacity="0.25"/></svg>`;
+      const icoWrap=document.createElement('div');icoWrap.style.cssText='width:36px;height:36px;display:flex;align-items:center;justify-content:center;';
+      const icoImg=document.createElement('img');
+      icoImg.src=`${TERA_ICON_BASE}tera_${type.toLowerCase()}.png`;
+      icoImg.style.cssText='width:32px;height:32px;image-rendering:pixelated;';
+      icoImg.onerror=()=>{icoWrap.innerHTML=`<svg width="28" height="28" viewBox="0 0 28 28"><polygon points="14,2 24,8 24,20 14,26 4,20 4,8" fill="${col}" opacity="0.9"/></svg>`;};
+      icoWrap.appendChild(icoImg);
       const lbl=document.createElement('span'); lbl.style.cssText=`font-size:10px;font-weight:700;color:${col};text-align:center;`; lbl.textContent=type;
-      btn.append(ico,lbl);
+      btn.append(icoWrap,lbl);
       btn.addEventListener('click',()=>selectTera(type));
       btn.dataset.tera=type; grid.appendChild(btn);
     });
@@ -3605,7 +3618,7 @@ function renderQ(){
         const tid=MOVE_TYPE_ICON_IDS[t];
         const chip=document.createElement('button');chip.type='button';
         chip.style.cssText=`padding:2px 4px;border-radius:5px;background:${c}18;border:1px solid ${c}33;cursor:pointer;transition:all .12s;display:inline-flex;align-items:center;opacity:.75;`;
-        if(tid){const img=document.createElement('img');img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-viii/sword-shield/${tid}.png`;img.alt=t;img.title=t;img.style.cssText='height:18px;image-rendering:pixelated;display:block;';img.onerror=()=>{img.style.display='none';const fb=document.createElement('span');fb.style.cssText=`font-size:8px;color:${c};font-family:'Press Start 2P',monospace;padding:1px 3px;`;fb.textContent=t;chip.appendChild(fb);};chip.appendChild(img);}
+        if(tid){const img=document.createElement('img');img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid}.png`;img.alt=t;img.title=t;img.style.cssText='height:18px;image-rendering:pixelated;display:block;';img.onerror=()=>{img.style.display='none';const fb=document.createElement('span');fb.style.cssText=`font-size:8px;color:${c};font-family:'Press Start 2P',monospace;padding:1px 3px;`;fb.textContent=t;chip.appendChild(fb);};chip.appendChild(img);}
         else{const fb=document.createElement('span');fb.style.cssText=`font-size:8px;color:${c};font-family:'Press Start 2P',monospace;padding:1px 3px;`;fb.textContent=t;chip.appendChild(fb);}
         chip.addEventListener('click',()=>{
           if(activePopTypes.has(t)){activePopTypes.delete(t);chip.style.opacity='.75';chip.style.background=c+'18';chip.style.boxShadow='';}
@@ -3724,6 +3737,16 @@ function renderQ(){
           // Top row: dot + name + compat badge + type + cat + pp + bp + info
           const topRow=document.createElement('div');topRow.style.cssText='display:flex;align-items:center;gap:7px;';
           const dot=document.createElement('span');dot.style.cssText=`width:10px;height:10px;border-radius:50%;background:${tc};flex-shrink:0;box-shadow:0 0 5px ${tc}77;`;
+          // Gen9 type icon before name
+          const MOVE_TYPE_IDS2={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
+          const mvTid=MOVE_TYPE_IDS2[mv.type];
+          if(mvTid&&!isDisabled){
+            const tIco=document.createElement('img');
+            tIco.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${mvTid}.png`;
+            tIco.style.cssText='height:16px;image-rendering:pixelated;flex-shrink:0;';
+            tIco.onerror=()=>tIco.style.display='none';
+            topRow.appendChild(tIco);
+          }
           const nm=document.createElement('span');nm.style.cssText='font-weight:700;font-size:13px;flex:1;';nm.textContent=mv.name;
           // Learnset badge
           if(!isDisabled){
@@ -4072,12 +4095,42 @@ function renderResult(){
 
   // Pokemon card section (clone of updPokemonCard output)
   const pkSect=document.createElement('div');pkSect.style.cssText='padding:12px 16px 0;';
-  // Just re-render the pokemon card panel content into here
-  const tempPanel=document.createElement('div');tempPanel.id='__temp_pkm_panel';
   const oldPanel=document.getElementById('pokemon-card-panel');
   if(oldPanel&&oldPanel.innerHTML){
-    const clone=oldPanel.cloneNode(true);clone.id='';clone.style.cssText='';
+    const clone=oldPanel.cloneNode(true);clone.id='';
+    // Fix all edit buttons in clone to close overlay then navigate
+    clone.querySelectorAll('button').forEach(btn=>{
+      const origClick=btn.onclick;
+      // Find step number from click handler text (we re-wire via dataset)
+      if(btn.title&&(btn.title.startsWith('Edit')||btn.textContent==='✎')){
+        btn.addEventListener('click',(e)=>{e.stopPropagation();overlay.remove();});
+      }
+    });
     pkSect.appendChild(clone);
+  }
+
+  // Moves section in end card
+  const movesList=ans[11]?.moves||[];
+  if(movesList.length){
+    const movesSection=document.createElement('div');movesSection.style.cssText='padding:10px 16px 0;';
+    const mHdr=document.createElement('div');mHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin-bottom:8px;';mHdr.textContent='MOVES';
+    movesSection.appendChild(mHdr);
+    const mGrid=document.createElement('div');mGrid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:6px;';
+    const TYPE_COL_RES={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
+    const MOVE_TYPE_IDS_RES={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
+    movesList.forEach(mvName=>{
+      const mvData=MOVES.find(m=>m.name===mvName)||{type:'Normal',cat:'Status',power:null};
+      const col=TYPE_COL_RES[mvData.type]||'#888';
+      const tid=MOVE_TYPE_IDS_RES[mvData.type];
+      const chip=document.createElement('div');chip.style.cssText=`display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:8px;background:${col}12;border:1px solid ${col}33;`;
+      if(tid){const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid}.png`;ti.style.cssText='height:15px;image-rendering:pixelated;flex-shrink:0;';ti.onerror=()=>ti.style.display='none';chip.appendChild(ti);}
+      const mNm=document.createElement('span');mNm.style.cssText='font-size:11px;font-weight:700;flex:1;';mNm.textContent=mvName;
+      const bpEl=document.createElement('span');bpEl.style.cssText=`font-size:10px;font-weight:700;color:${mvData.power>=100?'#e8622a':mvData.power>=60?'#f0c600':'#555'};`;
+      bpEl.textContent=mvData.power?mvData.power+'BP':'Status';
+      chip.append(mNm,bpEl);mGrid.appendChild(chip);
+    });
+    movesSection.appendChild(mGrid);
+    body.appendChild(movesSection);
   }
   body.appendChild(pkSect);
 
@@ -5945,7 +5998,7 @@ function initDexBrowser(){
   // Type color map matching the game's palette
   const TYPE_COLORS={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
   const TYPE_ICON_IDS={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
-  const TYPE_ICON_BASE='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-viii/sword-shield/';
+  const TYPE_ICON_BASE='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/';
   ALL_TYPES.forEach(t=>{
     const col=TYPE_COLORS[t]||'#888';
     const chip=document.createElement('button');chip.type='button';chip.className='dex-filter-chip';
