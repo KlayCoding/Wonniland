@@ -3008,6 +3008,15 @@ async function loadPokemonData() {
 }
 
 
+
+// ── Preload Tera Type Icons ───────────────────────────────────────────────────
+function preloadTeraIcons(){
+  const TERA_TYPES=['normal','fire','water','electric','grass','ice','fighting','poison','ground','flying','psychic','bug','rock','ghost','dragon','dark','steel','fairy','stellar'];
+  TERA_TYPES.forEach(t=>{
+    const img=new Image();
+    img.src=`https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/tera_${t}.png`;
+  });
+}
 // ── Keyboard navigation ───────────────────────────────────────────────────────
 document.addEventListener('keydown',(e)=>{
   // Only when in creation mode (not when typing in an input/textarea)
@@ -3329,14 +3338,16 @@ function renderQ(){
     const gmaxImg=document.createElement('img');
     // GMax factor icon — inline SVG crystal G symbol
     gmaxImg.style.display='none'; // hide img, use SVG instead
-    const gmaxSVG=document.createElement('div');
-    gmaxSVG.innerHTML=`<svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="36,4 62,18 62,54 36,68 10,54 10,18" fill="#7B1FA2" stroke="#CE93D8" stroke-width="2" opacity="0.9"/>
-      <polygon points="36,12 54,22 54,50 36,60 18,50 18,22" fill="white" opacity="0.12"/>
-      <text x="36" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="32" fill="#CE93D8">G</text>
-    </svg>`;
-    gmaxSVG.style.cssText='display:flex;justify-content:center;margin-bottom:4px;';
-    gmaxIconWrap.innerHTML=''; gmaxIconWrap.appendChild(gmaxSVG);
+    const gmaxIconImg=document.createElement('img');
+    gmaxIconImg.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/gmax_factor.png';
+    gmaxIconImg.style.cssText='width:72px;height:72px;image-rendering:pixelated;display:block;margin:0 auto 4px;';
+    gmaxIconImg.onerror=()=>{
+      // fallback to purple G SVG if icon not found
+      const fb=document.createElement('div');
+      fb.innerHTML=`<svg width="72" height="72" viewBox="0 0 72 72"><polygon points="36,4 62,18 62,54 36,68 10,54 10,18" fill="#7B1FA2" stroke="#CE93D8" stroke-width="2"/><text x="36" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="32" fill="#CE93D8">G</text></svg>`;
+      gmaxIconImg.replaceWith(fb);
+    };
+    gmaxIconWrap.innerHTML=''; gmaxIconWrap.appendChild(gmaxIconImg);
     gmaxIconWrap.appendChild(gmaxImg); card.appendChild(gmaxIconWrap);
     // GMax Pokémon list — derived from ALL_MON where group === 'GMax', sorted by id
     const gmaxNote=document.createElement('div'); gmaxNote.className='q-sub';
@@ -4110,7 +4121,7 @@ function renderResult(){
   }
 
   // Moves section in end card
-  const movesList=ans[11]?.moves||[];
+  const movesList=ans[9]?.moves||[];
   if(movesList.length){
     const movesSection=document.createElement('div');movesSection.style.cssText='padding:10px 16px 0;';
     const mHdr=document.createElement('div');mHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin-bottom:8px;';mHdr.textContent='MOVES';
@@ -4154,6 +4165,19 @@ function renderResult(){
   sBtnP.addEventListener('click',()=>{navigator.clipboard.writeText(out).then(()=>{window.open('https://docs.google.com/forms/d/e/1FAIpQLSefq0WRQ9wZYycz1PX8xFxxh9-0Z0-U7ugoAdIEN58_hdQKwQ/viewform','_blank');setTimeout(()=>showToast('✓ Copied! Paste into Google Form.'),300);}).catch(()=>window.open('https://docs.google.com/forms/d/e/1FAIpQLSefq0WRQ9wZYycz1PX8xFxxh9-0Z0-U7ugoAdIEN58_hdQKwQ/viewform','_blank'));});
   const hP=document.createElement('div');hP.style.cssText='font-size:11px;color:var(--gray);text-align:center;';hP.textContent='Your data will be copied automatically — just paste it into the form!';
   actions.append(sBtnP,hP);
+
+  // Back to Edit button
+  const backBtn=document.createElement('button');backBtn.type='button';
+  backBtn.style.cssText='width:100%;padding:10px;border-radius:9px;border:1px solid rgba(149,117,205,.35);background:rgba(149,117,205,.08);color:var(--pl);font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;';
+  backBtn.textContent='← Back & Edit Answers';
+  backBtn.addEventListener('mouseenter',()=>{backBtn.style.background='rgba(149,117,205,.18)';});
+  backBtn.addEventListener('mouseleave',()=>{backBtn.style.background='rgba(149,117,205,.08)';});
+  backBtn.addEventListener('click',()=>{
+    overlay.remove();
+    // Go back to the last question so user can edit
+    step=TOTAL-1; renderQ();
+  });
+  actions.appendChild(backBtn);
 
   // Start Over button
   const rb=document.createElement('button');rb.className='restart-btn';rb.textContent='↺ START OVER';
@@ -5913,6 +5937,7 @@ loadPokemonData().then(()=>{
   initEncBrowser();
   initPkmHofBrowser();
   initTrainerHofBrowser();
+  preloadTeraIcons();
   console.log('✓ Wonniland Creation ready!');
 }).catch(e=>{
   document.getElementById('loadingScreen')?.remove();
