@@ -1422,24 +1422,27 @@ function updPokemonCard(){
       else{const ts=document.createElement('span');ts.style.cssText='font-weight:700;color:#ce93d8;';ts.textContent=teraType;tEl.appendChild(ts);}
       return mkDR('Tera',null,null,tEl,6);
    })(),
-   (()=>{
-      if(!gmaxAns) return null;
-      const parts=gmaxAns.split('|').map(s=>s.trim());
-      const factorVal=parts[0]?.replace('GMax Factor:','').trim()||gmaxAns;
-      const dynVal=parts[1]?.replace('Dynamax Level:','').trim()||null;
-      const ICON_BASE_GM='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/';
-      const gEl=document.createElement('div');gEl.style.cssText='display:flex;align-items:center;gap:5px;';
-      const gIco=document.createElement('img');gIco.src=ICON_BASE_GM+'gmax_factor.png';
-      gIco.style.cssText='width:18px;height:18px;image-rendering:pixelated;flex-shrink:0;';
-      gIco.onerror=()=>gIco.style.display='none';
-      const gTxt=document.createElement('span');gTxt.style.cssText='font-weight:700;color:'+(factorVal==='Yes'?'#ce93d8':'var(--gray)')+';';gTxt.textContent=factorVal;
-      gEl.append(gIco,gTxt);
-      const rows=document.createDocumentFragment();
-      rows.appendChild(mkDR('GMax Factor',null,null,gEl,7));
-      if(dynVal) rows.appendChild(mkDR('Dynamax Lvl',dynVal,'var(--white)',null,7));
-      return rows;
-   })(),
-  ].filter(Boolean).forEach(r=>details.appendChild(r));
+  ].filter(Boolean).forEach(r=>{
+    if(r.nodeType===11){// DocumentFragment — append children individually
+      while(r.firstChild) details.appendChild(r.firstChild);
+    } else { details.appendChild(r); }
+  });
+
+  // GMax rows (separate, after main details loop to avoid DocumentFragment issues)
+  if(gmaxAns){
+    const parts2=gmaxAns.split('|').map(s=>s.trim());
+    const factorVal2=parts2[0]?.replace('GMax Factor:','').trim()||gmaxAns;
+    const dynVal2=parts2[1]?.replace('Dynamax Level:','').trim()||null;
+    const ICON_BASE_GM='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/';
+    const gEl2=document.createElement('div');gEl2.style.cssText='display:flex;align-items:center;gap:5px;';
+    const gIco2=document.createElement('img');gIco2.src=ICON_BASE_GM+'gmax_factor.png';
+    gIco2.style.cssText='width:18px;height:18px;image-rendering:pixelated;flex-shrink:0;';
+    gIco2.onerror=()=>gIco2.style.display='none';
+    const gTxt2=document.createElement('span');gTxt2.style.cssText='font-weight:700;color:'+(factorVal2==='Yes'?'#ce93d8':'var(--gray)')+';';gTxt2.textContent=factorVal2;
+    gEl2.append(gIco2,gTxt2);
+    const gmR1=mkDR('GMax Factor',null,null,gEl2,7);if(gmR1)details.appendChild(gmR1);
+    if(dynVal2){const gmR2=mkDR('Dynamax Lvl',dynVal2,'var(--white)',null,7);if(gmR2)details.appendChild(gmR2);}
+  }
 
   // Moves with PokeAPI type sprite + category + power
   if(movesAns.length){
@@ -5831,8 +5834,8 @@ function initPkmRoulette(){
 
   async function loadData(){
     grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
-    try{const r=await fetch('pkm_hof.json');hofData=await r.json();renderGrid();}
-    catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json</div>';}
+    try{const r=await fetch('pkm_hof.json');if(!r.ok)throw new Error(`HTTP ${r.status} ${r.statusText}`);hofData=await r.json();renderGrid();}
+    catch(e){grid.innerHTML=`<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json: ${e.message}. Make sure the file is in the same folder as index.html on GitHub.</div>`;}
   }
 
   function getUnlocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true);}
@@ -5926,8 +5929,8 @@ function initPkmHofBrowser(){
 
   async function loadHofData(){
     grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
-    try{const r=await fetch('pkm_hof.json');hofData=await r.json();buildFilters();renderGrid();}
-    catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json — make sure it is in the same folder as index.html.</div>';}
+    try{const r=await fetch('pkm_hof.json');if(!r.ok)throw new Error(`HTTP ${r.status} ${r.statusText}`);hofData=await r.json();buildFilters();renderGrid();}
+    catch(e){grid.innerHTML=`<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json: ${e.message}</div>`;}
   }
 
   function buildFilters(){
@@ -6031,8 +6034,8 @@ function initTrainerHofBrowser(){
 
   async function loadHofData(){
     list.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
-    try{const r=await fetch('trainer_hof.json');hofData=await r.json();buildFiltersAndMaps();renderList();}
-    catch(e){list.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load trainer_hof.json</div>';}
+    try{const r=await fetch('trainer_hof.json');if(!r.ok)throw new Error(`HTTP ${r.status} ${r.statusText}`);hofData=await r.json();buildFiltersAndMaps();renderList();}
+    catch(e){list.innerHTML=`<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load trainer_hof.json: ${e.message}</div>`;}
   }
 
   function mapToName(m){return m?m.replace('MAP_','').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()):'Unknown';}
