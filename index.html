@@ -1038,8 +1038,8 @@ function updTrainerCard(){
     spr.src=`${TRAINER_BASE}${spriteFile}.png`;
     spr.onerror=()=>{spr.onerror=null;spr.style.visibility='hidden';};
     const info=document.createElement('div');
-    const nm=document.createElement('div');nm.style.cssText='font-size:13px;font-weight:800;';nm.textContent=trName;
-    const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);margin-top:2px;';sub.textContent='Pokémon Creation';
+    const nm=document.createElement('div');nm.style.cssText=`font-size:13px;font-weight:800;color:${otGender==='Female'?'#f48fb1':'#64b5f6'};`;nm.textContent=trName;
+    const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);margin-top:2px;';sub.textContent='OG Trainer';
     info.append(nm,sub);hdr.append(spr,info);card.appendChild(hdr);
     panel.appendChild(card); return;
   }
@@ -1298,7 +1298,7 @@ function updPokemonCard(){
 
     // Breakdown rows: IV / EV / Nature
     const mkEditBtn=(stepN,label)=>{
-      if(currentMode!=='pokemon') return document.createElement('span');
+      if(stepN===undefined||currentMode!=='pokemon') return document.createElement('span');
       const eb=document.createElement('button');eb.type='button';
       eb.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#555;cursor:pointer;transition:all .15s;';
       eb.textContent='✎';eb.title='Edit '+label;
@@ -1321,8 +1321,8 @@ function updPokemonCard(){
     const SKEYS2=['hp','atk','def','spa','spd','spe'];
     if(q4answered||q8answered){
       if(q8answered){
-        bdWrap.appendChild(mkBdr('IV','#b39ddb',SKEYS2.map((_,i)=>mkIVPill(ivArr[i])),8,'IVs & EVs'));
-        bdWrap.appendChild(mkBdr('EV','#4db6ac',SKEYS2.map((_,i)=>mkEVPill(evArr[i])),8,'IVs & EVs'));
+        bdWrap.appendChild(mkBdr('IV','#b39ddb',SKEYS2.map((_,i)=>mkIVPill(ivArr[i])),undefined,'IVs & EVs'));
+        bdWrap.appendChild(mkBdr('EV','#4db6ac',SKEYS2.map((_,i)=>mkEVPill(evArr[i])),undefined,'IVs & EVs'));
       }
       if(q4answered){
         bdWrap.appendChild(mkBdr(natEntry?natEntry.name:'NAT','#f0c600',baseStats.map((_,i)=>mkNatPill(i)),4,'Nature'));
@@ -1386,7 +1386,15 @@ function updPokemonCard(){
   [mkDR('Ability',ability,null,null,5),
    itemEl?mkDR('Item',null,null,itemEl,10):null,
    mkDR('Tera',teraType,'#ce93d8',null,6),
-   gmaxAns?mkDR('GMax',gmaxAns,gmaxAns==='Yes'?'#ce93d8':'var(--gray)',null,7):null,
+   (()=>{
+      if(!gmaxAns) return null;
+      const gEl=document.createElement('div');gEl.style.cssText='display:flex;align-items:center;gap:5px;';
+      const gIco=document.createElement('img');gIco.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/gmax_factor.png';
+      gIco.style.cssText='width:18px;height:18px;image-rendering:pixelated;flex-shrink:0;';
+      gIco.onerror=()=>gIco.style.display='none';
+      const gTxt=document.createElement('span');gTxt.style.cssText='font-weight:700;color:'+(gmaxAns==='Yes'?'#ce93d8':'var(--gray)')+';';gTxt.textContent=gmaxAns;
+      gEl.append(gIco,gTxt);return mkDR('GMax',null,null,gEl,7);
+   })(),
   ].filter(Boolean).forEach(r=>details.appendChild(r));
 
   // Moves
@@ -3591,14 +3599,17 @@ function renderQ(){
       const TYPE_COL2={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
       const CAT_COL2={Physical:'#e8622a',Special:'#4f90d3',Status:'#8892a4'};
       const activePopTypes=new Set();
+      const MOVE_TYPE_ICON_IDS={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
       ALL_TYPES.forEach(t=>{
         const c=TYPE_COL2[t]||'#888';
+        const tid=MOVE_TYPE_ICON_IDS[t];
         const chip=document.createElement('button');chip.type='button';
-        chip.style.cssText=`font-size:8px;padding:2px 8px;border-radius:4px;background:${c}22;color:${c};border:1px solid ${c}44;cursor:pointer;transition:all .12s;`;
-        chip.textContent=t;
+        chip.style.cssText=`padding:2px 4px;border-radius:5px;background:${c}18;border:1px solid ${c}33;cursor:pointer;transition:all .12s;display:inline-flex;align-items:center;opacity:.75;`;
+        if(tid){const img=document.createElement('img');img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-viii/sword-shield/${tid}.png`;img.alt=t;img.title=t;img.style.cssText='height:18px;image-rendering:pixelated;display:block;';img.onerror=()=>{img.style.display='none';const fb=document.createElement('span');fb.style.cssText=`font-size:8px;color:${c};font-family:'Press Start 2P',monospace;padding:1px 3px;`;fb.textContent=t;chip.appendChild(fb);};chip.appendChild(img);}
+        else{const fb=document.createElement('span');fb.style.cssText=`font-size:8px;color:${c};font-family:'Press Start 2P',monospace;padding:1px 3px;`;fb.textContent=t;chip.appendChild(fb);}
         chip.addEventListener('click',()=>{
-          if(activePopTypes.has(t)){activePopTypes.delete(t);chip.style.background=c+'22';chip.style.fontWeight='';}
-          else{activePopTypes.add(t);chip.style.background=c+'55';chip.style.fontWeight='700';}
+          if(activePopTypes.has(t)){activePopTypes.delete(t);chip.style.opacity='.75';chip.style.background=c+'18';chip.style.boxShadow='';}
+          else{activePopTypes.add(t);chip.style.opacity='1';chip.style.background=c+'44';chip.style.boxShadow=`0 0 6px ${c}66`;}
           popFilterType=activePopTypes.size?[...activePopTypes]:null;
           buildMoveList(popQuery);
         });
@@ -4017,55 +4028,90 @@ function renderResult(){
   lsClearPkm();
   updProg(); updSummary();
   const app=document.getElementById('app'); app.innerHTML='';
-
-  // Hide old summary rows — card is the visual summary now
   const sumEl=document.getElementById('summary'); if(sumEl) sumEl.style.display='none';
-
-  // Make pokemon card panel full-width for final result
-  const cardPanel=document.getElementById('pokemon-card-panel');
   const leftCol=document.getElementById('left-cards-col');
-  if(leftCol){
-    leftCol.style.width='300px';
-  }
+  if(leftCol) leftCol.style.width='300px';
 
   const lines=QLBLS.map((l,i)=>`${l}: ${(ans[i]&&ans[i].value)||'—'}`);
   const out=lines.join('\n');
 
-  // Result card with hidden text block (for copy/paste) + buttons
-  const resCard=document.createElement('div'); resCard.className='res-card';
-  const title=document.createElement('div'); title.className='res-title'; title.textContent='✓ WONNILAND PROFILE';
-  resCard.appendChild(title);
+  // ── Result popup overlay ──────────────────────────────────────────────────
+  const overlay=document.createElement('div');
+  overlay.style.cssText='position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;';
 
-  // Collapsible text output
-  const textToggle=document.createElement('button'); textToggle.className='rand-btn';
-  textToggle.style.cssText='margin-bottom:8px;font-size:10px;width:100%;';
-  textToggle.textContent='📄 Show Text Summary';
-  const box=document.createElement('div'); box.className='res-box'; box.textContent=out;
-  box.style.display='none';
-  textToggle.addEventListener('click',()=>{
-    const open=box.style.display!=='none';
-    box.style.display=open?'none':'block';
-    textToggle.textContent=open?'📄 Show Text Summary':'📄 Hide Text Summary';
-  });
-  resCard.append(textToggle, box);
+  const popup=document.createElement('div');
+  popup.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.7);';
 
-  const cb=document.createElement('button'); cb.className='copy-btn'; cb.textContent='📋 COPY TO CLIPBOARD';
+  // Header
+  const hdr=document.createElement('div');
+  hdr.style.cssText='padding:14px 18px;background:rgba(149,117,205,.08);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;';
+  const htitle=document.createElement('div');htitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:10px;color:var(--pl);';htitle.textContent='✓ WONNILAND PROFILE';
+  const warn=document.createElement('div');warn.style.cssText='font-size:9px;color:#f0c600;';warn.textContent='⚠ Not yet submitted';
+  hdr.append(htitle,warn);popup.appendChild(hdr);
+
+  // Body: scrollable
+  const body=document.createElement('div');body.style.cssText='overflow-y:auto;flex:1;';
+
+  // Trainer card section
+  const trSect=document.createElement('div');trSect.style.cssText='padding:14px 16px 0;';
+  const trainerName=ans[0]?.value||'Trainer';
+  const otGender=ans[0]?.otGender||'';
+  const spriteFile=otGender==='Female'?'may':'brendan';
+  const TRAINER_BASE_RES='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer/';
+  const trRow=document.createElement('div');trRow.style.cssText='display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(149,117,205,.06);border-radius:10px;border:1px solid rgba(149,117,205,.15);';
+  const trSpr=document.createElement('img');trSpr.style.cssText='width:64px;height:64px;image-rendering:pixelated;flex-shrink:0;';
+  trSpr.src=`${TRAINER_BASE_RES}${spriteFile}.png`;trSpr.onerror=()=>trSpr.style.visibility='hidden';
+  const trInfo=document.createElement('div');trInfo.style.cssText='display:flex;flex-direction:column;gap:3px;';
+  const trNm=document.createElement('div');trNm.style.cssText=`font-size:18px;font-weight:900;color:${otGender==='Female'?'#f48fb1':'#64b5f6'};`;trNm.textContent=trainerName;
+  const trSub=document.createElement('div');trSub.style.cssText='font-size:9px;color:var(--gray);font-family:"Press Start 2P",monospace;';trSub.textContent='OG TRAINER';
+  trInfo.append(trNm,trSub);trRow.append(trSpr,trInfo);trSect.appendChild(trRow);body.appendChild(trSect);
+
+  // Pokemon card section (clone of updPokemonCard output)
+  const pkSect=document.createElement('div');pkSect.style.cssText='padding:12px 16px 0;';
+  // Just re-render the pokemon card panel content into here
+  const tempPanel=document.createElement('div');tempPanel.id='__temp_pkm_panel';
+  const oldPanel=document.getElementById('pokemon-card-panel');
+  if(oldPanel&&oldPanel.innerHTML){
+    const clone=oldPanel.cloneNode(true);clone.id='';clone.style.cssText='';
+    pkSect.appendChild(clone);
+  }
+  body.appendChild(pkSect);
+
+  // Action buttons
+  const actions=document.createElement('div');actions.style.cssText='display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0;';
+
+  // Text summary toggle
+  const textToggle=document.createElement('button');textToggle.className='rand-btn';textToggle.style.cssText='font-size:10px;width:100%;';textToggle.textContent='📄 Show Text Summary';
+  const box=document.createElement('div');box.className='res-box';box.textContent=out;box.style.display='none';box.style.marginTop='6px';
+  textToggle.addEventListener('click',()=>{const open=box.style.display!=='none';box.style.display=open?'none':'block';textToggle.textContent=open?'📄 Show Text Summary':'📄 Hide Text Summary';});
+  actions.append(textToggle,box);
+
+  // Copy button
+  const cb=document.createElement('button');cb.className='copy-btn';cb.textContent='📋 COPY TO CLIPBOARD';
   cb.addEventListener('click',()=>{navigator.clipboard.writeText(out).then(()=>{cb.textContent='✓ COPIED!';cb.classList.add('copied');setTimeout(()=>{cb.textContent='📋 COPY TO CLIPBOARD';cb.classList.remove('copied');},2000);});});
-  resCard.appendChild(cb);
-  const rb=document.createElement('button'); rb.className='restart-btn'; rb.textContent='↺ START OVER';
+  actions.appendChild(cb);
+
+  // Google Forms submit
+  const sBtnP=document.createElement('button');sBtnP.className='btn';sBtnP.style.cssText='background:linear-gradient(135deg,#4285f4,#34a853);border:none;';
+  sBtnP.textContent='📝 Submit via Google Forms';
+  sBtnP.addEventListener('click',()=>{navigator.clipboard.writeText(out).then(()=>{window.open('https://docs.google.com/forms/d/e/1FAIpQLSefq0WRQ9wZYycz1PX8xFxxh9-0Z0-U7ugoAdIEN58_hdQKwQ/viewform','_blank');setTimeout(()=>showToast('✓ Copied! Paste into Google Form.'),300);}).catch(()=>window.open('https://docs.google.com/forms/d/e/1FAIpQLSefq0WRQ9wZYycz1PX8xFxxh9-0Z0-U7ugoAdIEN58_hdQKwQ/viewform','_blank'));});
+  const hP=document.createElement('div');hP.style.cssText='font-size:11px;color:var(--gray);text-align:center;';hP.textContent='Your data will be copied automatically — just paste it into the form!';
+  actions.append(sBtnP,hP);
+
+  // Start Over button
+  const rb=document.createElement('button');rb.className='restart-btn';rb.textContent='↺ START OVER';
   rb.addEventListener('click',()=>{
+    overlay.remove();
     clearPokemonDraft();step=0;Object.keys(ans).forEach(k=>delete ans[k]);
     if(sumEl) sumEl.style.display='';
     if(leftCol) leftCol.style.width='260px';
     renderQ();
   });
-  resCard.appendChild(rb);
-  const sBtnP=document.createElement('button'); sBtnP.className='btn'; sBtnP.style.cssText='margin-top:10px;background:linear-gradient(135deg,#4285f4,#34a853);border:none;';
-  sBtnP.textContent='📝 Submit via Google Forms';
-  sBtnP.addEventListener('click',()=>{navigator.clipboard.writeText(out).then(()=>{window.open('https://docs.google.com/forms/d/e/1FAIpQLSefq0WRQ9wZYycz1PX8xFxxh9-0Z0-U7ugoAdIEN58_hdQKwQ/viewform','_blank');setTimeout(()=>showToast('✓ Copied! Paste into Google Form.'),300);}).catch(()=>window.open('https://docs.google.com/forms/d/e/1FAIpQLSefq0WRQ9wZYycz1PX8xFxxh9-0Z0-U7ugoAdIEN58_hdQKwQ/viewform','_blank'));});
-  const hP=document.createElement('div');hP.style.cssText='font-size:11px;color:var(--gray);text-align:center;margin-top:6px;';
-  hP.textContent='Your data will be copied automatically — just paste it into the form!';
-  resCard.append(sBtnP,hP); app.appendChild(resCard);
+  actions.appendChild(rb);
+
+  popup.append(body,actions);overlay.appendChild(popup);
+  document.body.appendChild(overlay);
+  document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'&&!ev.defaultPrevented){/*keep open - don't close result popup on ESC*/}});
 }
 
 // ── Pokédex Side Panel ───────────────────────────────────────────────────────
