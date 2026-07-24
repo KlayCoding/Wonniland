@@ -3715,15 +3715,17 @@ function renderQ(){
           const isSelected=slots[slotIdx]===mv.name;
           const isDisabled=mv.id>847;
           const row=document.createElement('div');
-          row.style.cssText=`display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;cursor:${isDisabled?'default':'pointer'};transition:background .12s;border:1px solid ${isSelected?'rgba(149,117,205,.4)':'transparent'};background:${isSelected?'rgba(149,117,205,.12)':isDisabled?'rgba(255,255,255,.01)':'transparent'};opacity:${isDisabled?.4:1};`;
+          row.style.cssText=`display:flex;flex-direction:column;gap:3px;padding:9px 12px;border-radius:10px;cursor:${isDisabled?'default':'pointer'};transition:all .15s;border:1px solid ${isSelected?tc+'55':'transparent'};background:${isSelected?tc+'12':isDisabled?'rgba(255,255,255,.01)':'transparent'};opacity:${isDisabled?.4:1};margin-bottom:2px;`;
           if(!isDisabled){
-            row.addEventListener('mouseenter',()=>{if(!isSelected)row.style.background='rgba(255,255,255,.04)';});
-            row.addEventListener('mouseleave',()=>{if(!isSelected)row.style.background='';});
+            row.addEventListener('mouseenter',()=>{if(!isSelected){row.style.background=tc+'0d';row.style.borderColor=tc+'33';}});
+            row.addEventListener('mouseleave',()=>{if(!isSelected){row.style.background='transparent';row.style.borderColor='transparent';}});
             row.addEventListener('click',()=>{slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
           }
-          const dot=document.createElement('span');dot.style.cssText=`width:10px;height:10px;border-radius:50%;background:${tc};flex-shrink:0;`;
+          // Top row: dot + name + compat badge + type + cat + pp + bp + info
+          const topRow=document.createElement('div');topRow.style.cssText='display:flex;align-items:center;gap:7px;';
+          const dot=document.createElement('span');dot.style.cssText=`width:10px;height:10px;border-radius:50%;background:${tc};flex-shrink:0;box-shadow:0 0 5px ${tc}77;`;
           const nm=document.createElement('span');nm.style.cssText='font-weight:700;font-size:13px;flex:1;';nm.textContent=mv.name;
-          // Learnset compatibility badge
+          // Learnset badge
           if(!isDisabled){
             const selMon=ans[1]?.mon||null;
             if(selMon&&typeof LEARNSETS_DB!=='undefined'){
@@ -3732,46 +3734,48 @@ function renderQ(){
               const lsKey=resLSKey2(fullData.learnset_ref)||selMon.name.replace(/[^a-zA-Z]/g,'');
               const ls=LEARNSETS_DB[lsKey]||null;
               if(ls){
-                const lvlMoves=ls.level_up||[];
-                const teachMoves=ls.teachable||[];
-                const eggMoves=ls.egg_moves||[];
+                const lvlMoves=ls.level_up||[];const teachMoves=ls.teachable||[];const eggMoves=ls.egg_moves||[];
                 const isLvl=lvlMoves.some(e=>typeof e==='object'?e.move===mv.name:e===mv.name);
-                const isTeach=teachMoves.includes(mv.name);
-                const isEgg=eggMoves.includes(mv.name);
+                const isTeach=teachMoves.includes(mv.name);const isEgg=eggMoves.includes(mv.name);
                 if(isLvl||isTeach||isEgg){
                   const badge=document.createElement('span');
                   const lvlEntry=lvlMoves.find(e=>typeof e==='object'&&e.move===mv.name);
                   if(isLvl){badge.style.cssText='font-size:8px;padding:1px 6px;border-radius:3px;background:rgba(76,175,80,.2);color:#4caf50;border:1px solid rgba(76,175,80,.4);flex-shrink:0;font-family:"Press Start 2P",monospace;';badge.textContent='Lv.'+(lvlEntry?.level||'?');}
                   else if(isTeach){badge.style.cssText='font-size:8px;padding:1px 6px;border-radius:3px;background:rgba(100,181,246,.15);color:#64b5f6;border:1px solid rgba(100,181,246,.35);flex-shrink:0;font-family:"Press Start 2P",monospace;';badge.textContent='TM';}
                   else{badge.style.cssText='font-size:8px;padding:1px 6px;border-radius:3px;background:rgba(240,98,146,.15);color:#f06292;border:1px solid rgba(240,98,146,.35);flex-shrink:0;font-family:"Press Start 2P",monospace;';badge.textContent='EGG';}
-                  row.insertBefore(badge,row.children[2]);
+                  nm.after(badge);
                 }
               }
             }
           }
-          const typeLbl=document.createElement('span');typeLbl.style.cssText=`font-size:9px;padding:2px 6px;border-radius:4px;background:${tc}22;color:${tc};border:1px solid ${tc}44;flex-shrink:0;`;typeLbl.textContent=mv.type;
-          const catLbl=document.createElement('span');catLbl.style.cssText=`font-size:9px;padding:2px 6px;border-radius:4px;background:${cc}18;color:${cc};flex-shrink:0;`;catLbl.textContent=mv.cat;
-          const ppLbl=document.createElement('span');ppLbl.style.cssText='font-size:10px;color:var(--gray);flex-shrink:0;min-width:32px;text-align:right;';ppLbl.textContent=mv.pp?mv.pp+'PP':'';
-          const bpLbl=document.createElement('span');bpLbl.style.cssText='font-size:11px;font-weight:700;flex-shrink:0;min-width:44px;text-align:right;';
-          if(mv.power){bpLbl.textContent=mv.power+'BP';bpLbl.style.color=mv.power>=100?'#e8622a':mv.power>=60?'#f0c600':'var(--gray)';}
-          else{bpLbl.textContent='—';bpLbl.style.color='#555';}
+          const typeLbl=document.createElement('span');typeLbl.style.cssText=`font-size:9px;padding:2px 7px;border-radius:4px;background:${tc}25;color:${tc};border:1px solid ${tc}55;flex-shrink:0;font-weight:700;`;typeLbl.textContent=mv.type;
+          const catLbl=document.createElement('span');catLbl.style.cssText=`font-size:9px;padding:2px 7px;border-radius:4px;background:${cc}15;color:${cc};flex-shrink:0;`;catLbl.textContent=mv.cat;
+          const ppLbl=document.createElement('span');ppLbl.style.cssText='font-size:10px;color:#555;flex-shrink:0;';ppLbl.textContent=mv.pp?mv.pp+'PP':'';
+          const bpLbl=document.createElement('span');bpLbl.style.cssText='font-size:12px;font-weight:800;flex-shrink:0;min-width:52px;text-align:right;';
+          if(mv.power){bpLbl.textContent=mv.power+'BP';bpLbl.style.color=mv.power>=100?'#e8622a':mv.power>=60?'#f0c600':'#8892a4';}
+          else{bpLbl.textContent='—';bpLbl.style.color='#444';}
           if(isDisabled){
             const tag=document.createElement('span');tag.style.cssText='font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,.06);color:#555;flex-shrink:0;';
             tag.textContent=mv.flags?.includes('z_move')?'Z-Move':mv.flags?.includes('max_move')?'Max Move':'Special';
-            row.append(dot,nm,typeLbl,catLbl,tag);
+            topRow.append(dot,nm,typeLbl,catLbl,tag);
           } else {
             const mvInfoB=document.createElement('button');mvInfoB.type='button';
-            mvInfoB.style.cssText='font-size:10px;padding:2px 7px;border-radius:5px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--gray);cursor:pointer;flex-shrink:0;';
+            mvInfoB.style.cssText=`width:24px;height:24px;border-radius:50%;border:1px solid ${tc}44;background:${tc}0d;color:${tc};cursor:pointer;flex-shrink:0;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all .15s;`;
             mvInfoB.textContent='ℹ';mvInfoB.title='Move Info';
-            mvInfoB.addEventListener('click',(e)=>{
-            e.stopPropagation();
-            if(typeof openMoveInfoPopup==='function') openMoveInfoPopup(mv);
-            else console.error('openMoveInfoPopup not found');
-          });
-            row.append(dot,nm,typeLbl,catLbl,ppLbl,bpLbl,mvInfoB);
+            mvInfoB.addEventListener('mouseenter',()=>{mvInfoB.style.background=tc+'33';mvInfoB.style.borderColor=tc;});
+            mvInfoB.addEventListener('mouseleave',()=>{mvInfoB.style.background=tc+'0d';mvInfoB.style.borderColor=tc+'44';});
+            mvInfoB.addEventListener('click',(e)=>{e.stopPropagation();if(typeof openMoveInfoPopup==='function')openMoveInfoPopup(mv);});
+            topRow.append(dot,nm,typeLbl,catLbl,ppLbl,bpLbl,mvInfoB);
+          }
+          row.appendChild(topRow);
+          // Description line
+          if(mv.desc&&!isDisabled){
+            const desc=document.createElement('div');desc.style.cssText='font-size:10px;color:#6b7fa0;line-height:1.45;padding-left:17px;margin-top:1px;';
+            desc.textContent=mv.desc;row.appendChild(desc);
           }
           list.appendChild(row);
         });
+
         listCountEl.textContent=moves.length+' moves';
       }
       buildMoveList('');
