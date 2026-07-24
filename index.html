@@ -578,6 +578,20 @@
   </div>
 </div>
 
+<!-- ── Pokémon Roulette ───────────────────────────────────────────────────── -->
+<div id="pkm-roulette-browser" style="width:100%;max-width:min(1100px,calc(100vw - 64px));margin-bottom:24px;animation:fadeUp .5s ease .15s both;">
+  <button id="pkm-roulette-btn" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;border-radius:14px;border:2px solid rgba(77,182,172,.3);background:linear-gradient(135deg,rgba(77,182,172,.06),rgba(77,182,172,.02));cursor:pointer;transition:all .25s;width:100%;font-family:'Press Start 2P',monospace;font-size:11px;color:#4db6ac;letter-spacing:.5px;">🎲 POKÉMON ROULETTE &nbsp;▼</button>
+  <div id="pkm-roulette-panel" style="display:none;margin-top:12px;background:#111827;border:1px solid rgba(77,182,172,.2);border-radius:14px;overflow:hidden;">
+    <div id="pkm-roulette-result" style="display:none;padding:16px;border-bottom:1px solid var(--border);"></div>
+    <div id="pkm-roulette-header" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(77,182,172,.04);">
+      <input id="pkm-roulette-search" placeholder="Search unlocked Pokémon..." autocomplete="off" style="flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;"/>
+      <span id="pkm-roulette-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span>
+      <button id="pkm-roulette-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">X</button>
+    </div>
+    <div id="pkm-roulette-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;padding:14px;max-height:65vh;overflow-y:auto;"></div>
+  </div>
+</div>
+
 <!-- ── Pokémon Hall of Fame Browser ─────────────────────────────────────── -->
 <div id="pkm-hof-browser" style="width:100%;max-width:min(1100px,calc(100vw - 64px));margin-bottom:24px;animation:fadeUp .5s ease .2s both;">
   <button id="pkm-hof-btn" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;border-radius:14px;border:2px solid rgba(240,198,0,.3);background:linear-gradient(135deg,rgba(240,198,0,.06),rgba(240,198,0,.02));cursor:pointer;transition:all .25s;width:100%;font-family:'Press Start 2P',monospace;font-size:11px;color:#f0c600;letter-spacing:.5px;">⭐ POKÉMON HALL OF FAME &nbsp;▼</button>
@@ -4152,7 +4166,34 @@ function renderResult(){
     // Detail rows
     const mkFR=(l,v,col)=>{if(!v)return;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.cssText='color:var(--gray);';le.textContent=l;const ve=document.createElement('span');ve.style.cssText='font-weight:700;color:'+(col||'var(--white)')+';';ve.textContent=v;r.append(le,ve);freshCard.appendChild(r);};
     mkFR('Ability',ans[5]?.value);mkFR('Nature',ans[4]?.value);mkFR('Tera Type',ans[6]?.value,'#ce93d8');mkFR('GMax',ans[7]?.value);
-    if(ans[10]?.value)mkFR('Held Item',ans[10]?.value,'#f0c600');
+    if(ans[10]?.value){
+      const itemData=ITEMS.find(it=>it.name===ans[10].value);
+      const itemEl=document.createElement('div');itemEl.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';
+      const itemLbl=document.createElement('span');itemLbl.style.cssText='color:var(--gray);';itemLbl.textContent='Held Item';
+      const itemVal=document.createElement('div');itemVal.style.cssText='display:flex;align-items:center;gap:6px;font-weight:700;color:#f0c600;';
+      if(itemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${itemData.slug}.png`;ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;background:#fff;border-radius:3px;padding:1px;';ici.onerror=()=>ici.style.display='none';itemVal.appendChild(ici);}
+      itemVal.appendChild(document.createTextNode(ans[10].value));
+      itemEl.append(itemLbl,itemVal);freshCard.appendChild(itemEl);
+    }
+    // IV/EV Summary
+    const ivevAnsR=ans[8];
+    if(ivevAnsR){
+      const SKEYS_R=['hp','atk','def','spa','spd','spe'];
+      const SLBLS_R=['HP','Atk','Def','SpA','SpD','Spe'];
+      const ivs=ivevAnsR.ivs||{};const evs=ivevAnsR.evs||{};
+      const ivevSect=document.createElement('div');ivevSect.style.cssText='padding:6px 14px 2px;border-top:1px solid rgba(255,255,255,.04);';
+      // IV row
+      const ivRow=document.createElement('div');ivRow.style.cssText='display:grid;grid-template-columns:32px repeat(6,1fr);gap:3px;align-items:center;padding:3px 0;';
+      const ivH=document.createElement('span');ivH.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#b39ddb;';ivH.textContent='IV';
+      ivRow.appendChild(ivH);
+      SKEYS_R.forEach((k,i)=>{const v=ivs[k]??31;const p=document.createElement('div');p.style.cssText=`font-size:9px;font-weight:${v===31?900:700};text-align:center;padding:2px 0;border-radius:3px;background:${v===31?'rgba(149,117,205,.28)':'rgba(149,117,205,.1)'};color:${v===31?'#ce93d8':'#b39ddb'};`;p.textContent=v;ivRow.appendChild(p);});
+      // EV row — compact: only invested stats
+      const evRow=document.createElement('div');evRow.style.cssText='display:grid;grid-template-columns:32px repeat(6,1fr);gap:3px;align-items:center;padding:3px 0;';
+      const evH=document.createElement('span');evH.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#4db6ac;';evH.textContent='EV';
+      evRow.appendChild(evH);
+      SKEYS_R.forEach((k,i)=>{const v=evs[k]??0;const p=document.createElement('div');p.style.cssText=`font-size:9px;font-weight:${v>=252?900:700};text-align:center;padding:2px 0;border-radius:3px;background:${v>=252?'rgba(77,182,172,.25)':v>0?'rgba(77,182,172,.08)':'transparent'};color:${v===0?'#333':'#4db6ac'};`;p.textContent=v;evRow.appendChild(p);});
+      ivevSect.append(ivRow,evRow);freshCard.appendChild(ivevSect);
+    }
     pkSect.appendChild(freshCard);
   }
   body.appendChild(pkSect);
@@ -5713,6 +5754,100 @@ const trainerCard=document.getElementById('modeTrainerCard');
   c.addEventListener('click',()=>launchMode(c===pokeCard?'pokemon':'trainer'));
 });
 
+// ── Pokémon Roulette ──────────────────────────────────────────────────────────
+function initPkmRoulette(){
+  const btn=document.getElementById('pkm-roulette-btn');
+  const panel=document.getElementById('pkm-roulette-panel');
+  const searchEl=document.getElementById('pkm-roulette-search');
+  const countEl=document.getElementById('pkm-roulette-count');
+  const grid=document.getElementById('pkm-roulette-grid');
+  const resultEl=document.getElementById('pkm-roulette-result');
+  const TRAINER_BASE_R='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer-sprites/';
+  let open=false,hofData=null;
+
+  btn.addEventListener('click',()=>{open=!open;panel.style.display=open?'block':'none';btn.textContent=open?'🎲 POKÉMON ROULETTE  ▲':'🎲 POKÉMON ROULETTE  ▼';if(open&&!hofData)loadData();});
+  document.getElementById('pkm-roulette-close').addEventListener('click',()=>{open=false;panel.style.display='none';btn.textContent='🎲 POKÉMON ROULETTE  ▼';});
+
+  async function loadData(){
+    grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);">Loading…</div>';
+    try{const r=await fetch('pkm_hof.json');hofData=await r.json();renderGrid();}
+    catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json</div>';}
+  }
+
+  function getUnlocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true);}
+
+  function renderGrid(){
+    const q=searchEl.value.toLowerCase().trim();
+    let pkms=getUnlocked();
+    if(q) pkms=pkms.filter(p=>p.nickname?.toLowerCase().includes(q)||p.species?.toLowerCase().includes(q)||p.owner_name?.toLowerCase().includes(q));
+    countEl.textContent=pkms.length+' unlocked';
+    grid.innerHTML='';
+    pkms.forEach(p=>grid.appendChild(mkTile(p)));
+    if(!pkms.length) grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);font-size:12px;">No unlocked Pokémon found.</div>';
+  }
+  searchEl.addEventListener('input',renderGrid);
+
+  function mkTile(p){
+    const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+    const tile=document.createElement('div');
+    tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;border-radius:12px;background:rgba(77,182,172,.04);border:1px solid rgba(77,182,172,.15);cursor:pointer;transition:all .2s;';
+    tile.addEventListener('mouseenter',()=>{tile.style.borderColor='#4db6ac';tile.style.background='rgba(77,182,172,.1)';tile.style.transform='translateY(-2px)';});
+    tile.addEventListener('mouseleave',()=>{tile.style.borderColor='rgba(77,182,172,.15)';tile.style.background='rgba(77,182,172,.04)';tile.style.transform='';});
+    const img=document.createElement('img');img.style.cssText='width:60px;height:60px;image-rendering:pixelated;';
+    if(mon){const sf=getSpriteFile(mon);img.src=p.shiny?`${PKM_SHINY1}${sf}.png`:`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id,sf);}
+    const nick=document.createElement('div');nick.style.cssText='font-size:10px;font-weight:800;text-align:center;';nick.textContent=(p.shiny?'✨ ':'')+p.nickname;
+    const spec=document.createElement('div');spec.style.cssText='font-size:9px;color:var(--gray);text-align:center;';spec.textContent=p.species;
+    const owner=document.createElement('div');owner.style.cssText='display:flex;align-items:center;gap:3px;font-size:8px;color:#555;';
+    const oSpr=document.createElement('img');oSpr.src=`${TRAINER_BASE_R}${p.owner_sprite||'brendan'}.png`;oSpr.style.cssText='width:14px;height:14px;image-rendering:pixelated;';oSpr.onerror=()=>oSpr.style.display='none';
+    owner.append(oSpr,document.createTextNode(p.owner_name||''));
+    const evoIcon=p.evolution==='Allowed'?'🔄':'🚫';
+    const loc=document.createElement('div');loc.style.cssText='font-size:8px;color:#4db6ac;font-family:"Press Start 2P",monospace;text-align:center;';loc.textContent=p.location||'';
+    const evoEl=document.createElement('div');evoEl.style.cssText='font-size:10px;';evoEl.textContent=evoIcon;
+    tile.append(img,nick,spec,owner,evoEl,loc);
+    return tile;
+  }
+
+  // Random roll button shown in result area header
+  const rollBtn=document.createElement('button');rollBtn.type='button';
+  rollBtn.style.cssText='width:calc(100% - 32px);margin:12px 16px 0;padding:12px;border-radius:10px;border:2px solid #4db6ac;background:rgba(77,182,172,.12);color:#4db6ac;font-family:"Press Start 2P",monospace;font-size:10px;cursor:pointer;transition:all .2s;';
+  rollBtn.textContent='🎲 ROLL RANDOM POKÉMON';
+  rollBtn.addEventListener('mouseenter',()=>{rollBtn.style.background='rgba(77,182,172,.25)';});
+  rollBtn.addEventListener('mouseleave',()=>{rollBtn.style.background='rgba(77,182,172,.12)';});
+  rollBtn.addEventListener('click',()=>{
+    const pool=getUnlocked();
+    if(!pool.length){resultEl.style.display='block';resultEl.innerHTML='<div style="color:var(--gray);text-align:center;font-size:12px;">No unlocked Pokémon available.</div>';return;}
+    const p=pool[Math.floor(Math.random()*pool.length)];
+    // Spin animation then show result
+    resultEl.style.display='block';
+    resultEl.innerHTML='';
+    const spinEl=document.createElement('div');spinEl.style.cssText='text-align:center;font-size:24px;';spinEl.textContent='🎲';
+    resultEl.appendChild(spinEl);
+    let count=0;const interval=setInterval(()=>{
+      const rnd=pool[Math.floor(Math.random()*pool.length)];
+      spinEl.textContent=rnd.nickname||rnd.species;count++;
+      if(count>12){clearInterval(interval);showResult(p);}
+    },80);
+  });
+  // Insert roll button before grid
+  grid.before(rollBtn);
+
+  function showResult(p){
+    resultEl.innerHTML='';
+    const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+    const res=document.createElement('div');res.style.cssText='display:flex;align-items:center;gap:14px;padding:8px;background:rgba(77,182,172,.08);border-radius:10px;border:1px solid rgba(77,182,172,.25);';
+    const img=document.createElement('img');img.style.cssText='width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;';
+    if(mon){const sf=getSpriteFile(mon);img.src=p.shiny?`${PKM_SHINY1}${sf}.png`:`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id,sf);}
+    const info=document.createElement('div');info.style.cssText='display:flex;flex-direction:column;gap:4px;';
+    const rNick=document.createElement('div');rNick.style.cssText='font-size:16px;font-weight:900;';rNick.textContent=(p.shiny?'✨ ':'')+p.nickname;
+    const rSpec=document.createElement('div');rSpec.style.cssText='font-size:11px;color:var(--gray);';rSpec.textContent=p.species;
+    const rMeta=document.createElement('div');rMeta.style.cssText='display:flex;gap:6px;flex-wrap:wrap;';
+    [[p.owner_name,'#8892a4'],[p.evolution==='Allowed'?'🔄 Can Evolve':'🚫 No Evolve',p.evolution==='Allowed'?'#4caf50':'#e57373'],[p.location,'#4db6ac']].forEach(([v,c])=>{if(!v)return;const s=document.createElement('span');s.style.cssText=`font-size:9px;padding:2px 7px;border-radius:4px;background:${c}18;color:${c};border:1px solid ${c}33;`;s.textContent=v;rMeta.appendChild(s);});
+    if(mon){const typeRow=document.createElement('div');typeRow.style.cssText='display:flex;gap:4px;';typeRow.appendChild(tb(mon.t1));if(mon.t2)typeRow.appendChild(tb(mon.t2));info.append(rNick,rSpec,typeRow,rMeta);}
+    else info.append(rNick,rSpec,rMeta);
+    res.append(img,info);resultEl.appendChild(res);
+  }
+}
+
 // ── Pokémon Hall of Fame Browser ─────────────────────────────────────────────
 function initPkmHofBrowser(){
   const btn=document.getElementById('pkm-hof-btn');
@@ -5757,23 +5892,26 @@ function initPkmHofBrowser(){
     grid.innerHTML='';
     pkms.forEach(p=>{
       const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+      const isLocked=p.unlocked===false;
       const tile=document.createElement('div');tile.className='pkm-hof-tile';
-      if(p.shiny){const s=document.createElement('span');s.className='ht-shiny';s.textContent='✨';tile.appendChild(s);}
+      if(p.shiny&&!isLocked){const s=document.createElement('span');s.className='ht-shiny';s.textContent='✨';tile.appendChild(s);}
       const img=document.createElement('img');img.className='ht-spr';
-      if(mon){const sf=getSpriteFile(mon);img.src=p.shiny?`${PKM_SHINY1}${sf}.png`:`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);}
+      if(mon){const sf=getSpriteFile(mon);img.src=p.shiny&&!isLocked?`${PKM_SHINY1}${sf}.png`:`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);}
       else img.style.cssText='width:64px;height:64px;opacity:.2;';
-      const nick=document.createElement('div');nick.className='ht-nick';nick.textContent=p.nickname||p.species||'?';
-      const spec=document.createElement('div');spec.className='ht-species';spec.textContent=p.species||'';
-      // Type badges
+      if(isLocked) img.style.filter='brightness(0)';
+      const nick=document.createElement('div');nick.className='ht-nick';nick.textContent=isLocked?'???':(p.shiny?'✨ ':'')+p.nickname||p.species||'?';
+      const spec=document.createElement('div');spec.className='ht-species';spec.textContent=isLocked?'':(p.species||'');
+      // Type badges (hidden for locked)
       const typeRow=document.createElement('div');typeRow.style.cssText='display:flex;gap:3px;flex-wrap:wrap;justify-content:center;';
-      if(mon){typeRow.appendChild(tb(mon.t1));if(mon.t2)typeRow.appendChild(tb(mon.t2));}
+      if(mon&&!isLocked){typeRow.appendChild(tb(mon.t1));if(mon.t2)typeRow.appendChild(tb(mon.t2));}
       // Owner mini-sprite
-      const ownerRow=document.createElement('div');ownerRow.className='ht-owner';
+      const ownerRow=document.createElement('div');ownerRow.className='ht-owner';if(isLocked){ownerRow.style.display='none';}
       const ownerSpr=document.createElement('img');ownerSpr.src=`${TRAINER_BASE_HOF}${p.owner_sprite||'brendan'}.png`;ownerSpr.onerror=()=>ownerSpr.style.display='none';
       const ownerName=document.createTextNode(p.owner_name||'');
       ownerRow.append(ownerSpr,ownerName);
       tile.append(img,nick,spec,typeRow,ownerRow);
-      tile.addEventListener('click',()=>openPkmHofPopup(p,mon));
+      if(!isLocked) tile.addEventListener('click',()=>openPkmHofPopup(p,mon));
+      else tile.style.cursor='default';
       grid.appendChild(tile);
     });
     if(!pkms.length){grid.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);font-size:12px;">No Pokémon found.</div>';}
@@ -5971,6 +6109,7 @@ loadPokemonData().then(()=>{
   document.getElementById('loadingScreen')?.remove();
   initDexBrowser();
   initEncBrowser();
+  initPkmRoulette();
   initPkmHofBrowser();
   initTrainerHofBrowser();
   preloadTeraIcons();
