@@ -589,6 +589,23 @@
       <button id="pkm-roulette-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">X</button>
     </div>
     <div id="pkm-roulette-grid" style="display:flex;flex-direction:column;max-height:70vh;overflow-y:auto;"></div>
+    <!-- Twitch Integration -->
+    <div id="twitch-integration" style="border-top:1px solid rgba(145,71,255,.2);background:rgba(145,71,255,.04);padding:12px 16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:16px;">🟣</span>
+          <span style="font-family:'Press Start 2P',monospace;font-size:8px;color:#9146ff;">TWITCH CHAT</span>
+          <div id="twitch-status-dot" style="width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0;"></div>
+          <span id="twitch-status-text" style="font-size:10px;color:#555;">Disconnected</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:10px;color:#555;">Channel:</span>
+          <input id="twitch-channel-input" value="wonni" style="background:#0d1117;border:1px solid rgba(145,71,255,.3);border-radius:6px;color:#e8eaf6;font-size:12px;padding:4px 8px;outline:none;width:100px;"/>
+          <button id="twitch-connect-btn" style="padding:5px 12px;border-radius:6px;border:1px solid rgba(145,71,255,.5);background:rgba(145,71,255,.15);color:#9146ff;font-size:10px;font-family:'Press Start 2P',monospace;cursor:pointer;transition:all .2s;">CONNECT</button>
+        </div>
+      </div>
+      <div id="twitch-log" style="margin-top:8px;font-size:10px;color:#555;font-family:monospace;min-height:16px;display:none;"></div>
+    </div>
   </div>
 </div>
 
@@ -6501,6 +6518,166 @@ document.getElementById('trainerImg').src='https://i.redd.it/l4tso05j2p0e1.gif';
 // Note: We use Rayquaza as a dramatic Emerald placeholder since trainer sprites aren't in PokeAPI
 // The Ditto artwork is loaded inline already
 
+// ── Twitch Chat Integration ───────────────────────────────────────────────────
+function initTwitchIntegration(){
+  const connectBtn  = document.getElementById('twitch-connect-btn');
+  const channelInput= document.getElementById('twitch-channel-input');
+  const statusDot   = document.getElementById('twitch-status-dot');
+  const statusText  = document.getElementById('twitch-status-text');
+  const logEl       = document.getElementById('twitch-log');
+  if(!connectBtn) return;
+
+  let ws=null, reconnectTimer=null, connected=false, cooldownUntil=0;
+  const COMMAND = '!roll';
+  const COOLDOWN_MS = 10000; // 10s between rolls from chat
+
+  function setStatus(state, msg){
+    const colors={connecting:'#f0c600', connected:'#4caf50', error:'#e57373', disconnected:'#555'};
+    statusDot.style.background = colors[state]||'#555';
+    statusText.textContent = msg;
+    statusText.style.color = colors[state]||'#555';
+  }
+
+  function addLog(msg, col){
+    logEl.style.display='block';
+    const line=document.createElement('div');
+    line.style.cssText=`color:${col||'#555'};line-height:1.5;`;
+    line.textContent=msg;
+    logEl.appendChild(line);
+    // Keep last 4 lines
+    while(logEl.children.length>4) logEl.removeChild(logEl.firstChild);
+  }
+
+  function parseMessage(raw){
+    // Twitch IRC format:
+    // @badge-info=...;badges=moderator/1;...;display-name=SomeMod :someMod!...@... PRIVMSG #channel :!roll
+    const tagMatch = raw.match(/^@([^ ]+) /);
+    const tags={};
+    if(tagMatch){
+      tagMatch[1].split(';').forEach(pair=>{const [k,v]=pair.split('=');tags[k]=v;});
+    }
+    const msgMatch = raw.match(/PRIVMSG #\S+ :(.+)/);
+    const userMatch = raw.match(/:([^!]+)!/);
+    return{
+      tags,
+      user: tags['display-name'] || userMatch?.[1] || 'unknown',
+      badges: tags['badges']||'',
+      message: msgMatch?.[1]?.trim()||''
+    };
+  }
+
+  function hasPermission(badges){
+    return badges.includes('broadcaster') || badges.includes('moderator');
+  }
+
+  function triggerRoll(requestedBy){
+    const now=Date.now();
+    if(now < cooldownUntil){
+      const secs=Math.ceil((cooldownUntil-now)/1000);
+      addLog(`⏳ ${requestedBy} used !roll — cooldown ${secs}s`, '#f0c600');
+      return;
+    }
+    cooldownUntil = now + COOLDOWN_MS;
+    addLog(`🎲 !roll triggered by @${requestedBy}`, '#4db6ac');
+    // Find and click the roll button
+    const rollBtn=document.querySelector('#pkm-roulette-grid button[style*="ROLL"]') ||
+      [...document.querySelectorAll('#pkm-roulette-grid button')].find(b=>b.textContent.includes('ROLL')||b.textContent.includes('Roll'));
+    if(rollBtn && !rollBtn.disabled){
+      rollBtn.click();
+    } else {
+      addLog('⚠ Roll button not available (already rolling or no pool)', '#e57373');
+    }
+  }
+
+  function connect(){
+    const channel = channelInput.value.trim().toLowerCase().replace(/^#/,'').replace('https://www.twitch.tv/','');
+    if(!channel){setStatus('error','Enter a channel name');return;}
+
+    if(ws){ ws.close(); ws=null; }
+    clearTimeout(reconnectTimer);
+    setStatus('connecting','Connecting...');
+    connectBtn.textContent='DISCONNECT';
+    connectBtn.style.borderColor='rgba(229,115,115,.5)';
+    connectBtn.style.color='#e57373';
+    connectBtn.style.background='rgba(229,115,115,.1)';
+    channelInput.disabled=true;
+
+    ws = new WebSocket('wss://irc-ws.chat.twitch.tv');
+
+    ws.onopen=()=>{
+      // Anonymous login (justinfan = Twitch anonymous prefix)
+      const anonId = Math.floor(Math.random()*99999)+10000;
+      ws.send(`NICK justinfan${anonId}`);
+      ws.send(`JOIN #${channel}`);
+      setStatus('connecting',`Joining #${channel}...`);
+    };
+
+    ws.onmessage=(e)=>{
+      const raw=e.data.trim();
+      // Handle PING/PONG to keep connection alive
+      if(raw.startsWith('PING')){ws.send('PONG :tmi.twitch.tv');return;}
+      // Successful join
+      if(raw.includes('366') || raw.includes('End of /NAMES')){
+        connected=true;
+        setStatus('connected',`#${channel} — listening for ${COMMAND}`);
+        addLog(`✓ Connected to #${channel}`, '#4caf50');
+        addLog(`Listening for: ${COMMAND} (mods & broadcaster only)`, '#8892a4');
+        return;
+      }
+      // Parse chat messages
+      if(raw.includes('PRIVMSG')){
+        const parsed=parseMessage(raw);
+        if(parsed.message===COMMAND){
+          if(hasPermission(parsed.badges)){
+            triggerRoll(parsed.user);
+          } else {
+            addLog(`🚫 @${parsed.user} tried !roll (no permission)`, '#555');
+          }
+        }
+      }
+    };
+
+    ws.onerror=()=>{
+      setStatus('error','Connection error');
+      addLog('❌ WebSocket error', '#e57373');
+    };
+
+    ws.onclose=()=>{
+      connected=false;
+      if(connectBtn.textContent==='DISCONNECT'){
+        // Unexpected close — try to reconnect
+        setStatus('error','Disconnected — reconnecting in 5s...');
+        addLog('⚡ Disconnected, reconnecting...', '#f0c600');
+        reconnectTimer=setTimeout(connect, 5000);
+      }
+    };
+  }
+
+  function disconnect(){
+    clearTimeout(reconnectTimer);
+    if(ws){ ws.onclose=null; ws.close(); ws=null; }
+    connected=false;
+    setStatus('disconnected','Disconnected');
+    connectBtn.textContent='CONNECT';
+    connectBtn.style.borderColor='rgba(145,71,255,.5)';
+    connectBtn.style.color='#9146ff';
+    connectBtn.style.background='rgba(145,71,255,.15)';
+    channelInput.disabled=false;
+    addLog('Disconnected.', '#555');
+  }
+
+  connectBtn.addEventListener('click',()=>{
+    if(connectBtn.textContent==='DISCONNECT') disconnect();
+    else connect();
+  });
+
+  connectBtn.addEventListener('mouseenter',()=>{connectBtn.style.opacity='.8';});
+  connectBtn.addEventListener('mouseleave',()=>{connectBtn.style.opacity='1';});
+
+  // Pre-fill channel from URL or default
+  channelInput.value='wonni';
+}
+
 // ── Load Pokémon data on startup ──────────────────────────────────────────────
 loadPokemonData().then(()=>{
   document.getElementById('loadingScreen')?.remove();
@@ -6510,6 +6687,7 @@ loadPokemonData().then(()=>{
   initPkmHofBrowser();
   initTrainerHofBrowser();
   preloadTeraIcons();
+  initTwitchIntegration();
   if(typeof lsLoad==='function') lsLoad();
   renderQ();
   console.log('\u2713 Wonniland ready');
