@@ -506,6 +506,7 @@
     .info-btn{background:transparent;border:1px solid var(--pl);color:var(--pl);border-radius:6px;padding:4px 10px;font-size:10px;cursor:pointer;transition:all .2s;margin-left:0;}
     .info-btn:hover{background:rgba(206,147,216,.1);}
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
 </head>
 <body>
 <div class="panel-backdrop" id="panelBackdrop"></div>
@@ -6520,169 +6521,107 @@ document.getElementById('trainerImg').src='https://i.redd.it/l4tso05j2p0e1.gif';
 
 // ── Twitch Chat Integration ───────────────────────────────────────────────────
 function initTwitchIntegration(){
-  const connectBtn  = document.getElementById('twitch-connect-btn');
-  const channelInput= document.getElementById('twitch-channel-input');
-  const statusDot   = document.getElementById('twitch-status-dot');
-  const statusText  = document.getElementById('twitch-status-text');
-  const logEl       = document.getElementById('twitch-log');
+  const connectBtn   = document.getElementById('twitch-connect-btn');
+  const channelInput = document.getElementById('twitch-channel-input');
+  const statusDot    = document.getElementById('twitch-status-dot');
+  const statusText   = document.getElementById('twitch-status-text');
+  const logEl        = document.getElementById('twitch-log');
   if(!connectBtn) return;
 
-  let ws=null, reconnectTimer=null, connected=false, cooldownUntil=0;
-  const COMMAND = '!roll';
-  const COOLDOWN_MS = 10000; // 10s between rolls from chat
+  let connected=false, cooldownUntil=0;
+  const COMMAND='!roll', COOLDOWN_MS=10000;
 
-  function setStatus(state, msg){
-    const colors={connecting:'#f0c600', connected:'#4caf50', error:'#e57373', disconnected:'#555'};
-    statusDot.style.background = colors[state]||'#555';
-    statusText.textContent = msg;
-    statusText.style.color = colors[state]||'#555';
+  function setStatus(state,msg){
+    const cols={connecting:'#f0c600',connected:'#4caf50',error:'#e57373',disconnected:'#555'};
+    const col=cols[state]||'#555';
+    if(statusDot){statusDot.style.background=col;statusDot.style.boxShadow=state==='connected'?'0 0 6px '+col:'none';}
+    if(statusText){statusText.textContent=msg;statusText.style.color=col;}
   }
 
-  function addLog(msg, col){
+  function addLog(msg,col){
+    if(!logEl) return;
     logEl.style.display='block';
     const line=document.createElement('div');
-    line.style.cssText=`color:${col||'#555'};line-height:1.5;`;
+    line.style.cssText='color:'+(col||'#555')+';line-height:1.6;';
     line.textContent=msg;
     logEl.appendChild(line);
-    // Keep last 4 lines
     while(logEl.children.length>4) logEl.removeChild(logEl.firstChild);
   }
 
-  function parseMessage(raw){
-    // Twitch IRC format:
-    // @badge-info=...;badges=moderator/1;...;display-name=SomeMod :someMod!...@... PRIVMSG #channel :!roll
-    const tagMatch = raw.match(/^@([^ ]+) /);
-    const tags={};
-    if(tagMatch){
-      tagMatch[1].split(';').forEach(pair=>{const [k,v]=pair.split('=');tags[k]=v;});
-    }
-    const msgMatch = raw.match(/PRIVMSG #\S+ :(.+)/);
-    const userMatch = raw.match(/:([^!]+)!/);
-    return{
-      tags,
-      user: tags['display-name'] || userMatch?.[1] || 'unknown',
-      badges: tags['badges']||'',
-      message: msgMatch?.[1]?.trim()||''
-    };
-  }
-
-  function hasPermission(badges){
-    return badges.includes('broadcaster') || badges.includes('moderator');
-  }
-
-  function triggerRoll(requestedBy){
+  function triggerRoll(user){
     const now=Date.now();
-    if(now < cooldownUntil){
-      const secs=Math.ceil((cooldownUntil-now)/1000);
-      addLog(`⏳ ${requestedBy} used !roll — cooldown ${secs}s`, '#f0c600');
+    if(now<cooldownUntil){
+      addLog('⏳ @'+user+' !roll — cooldown '+(Math.ceil((cooldownUntil-now)/1000))+'s','#f0c600');
       return;
     }
-    cooldownUntil = now + COOLDOWN_MS;
-    addLog(`🎲 !roll triggered by @${requestedBy}`, '#4db6ac');
-    // Find and click the roll button
-    const rollBtn=document.querySelector('#pkm-roulette-grid button[style*="ROLL"]') ||
-      [...document.querySelectorAll('#pkm-roulette-grid button')].find(b=>b.textContent.includes('ROLL')||b.textContent.includes('Roll'));
-    if(rollBtn && !rollBtn.disabled){
-      rollBtn.click();
-    } else {
-      addLog('⚠ Roll button not available (already rolling or no pool)', '#e57373');
-    }
+    cooldownUntil=now+COOLDOWN_MS;
+    addLog('🎲 !roll by @'+user,'#4db6ac');
+    if(typeof window.triggerRouletteRoll==='function') window.triggerRouletteRoll(user);
+    else addLog('⚠ Roulette not ready','#e57373');
   }
 
   function connect(){
-    const channel = channelInput.value.trim().toLowerCase().replace(/^#/,'').replace('https://www.twitch.tv/','');
-    if(!channel){setStatus('error','Enter a channel name');return;}
-
-    if(ws){ ws.close(); ws=null; }
-    clearTimeout(reconnectTimer);
-    setStatus('connecting','Connecting...');
+    const channel=channelInput.value.trim().toLowerCase().replace(/^#/,'').replace('https://www.twitch.tv/','');
+    if(!channel){setStatus('error','Enter channel name');return;}
+    if(typeof ComfyJS==='undefined'){
+      setStatus('error','ComfyJS not loaded — check internet');
+      addLog('❌ ComfyJS library failed to load','#e57373');
+      return;
+    }
+    setStatus('connecting','Connecting to #'+channel+'...');
     connectBtn.textContent='DISCONNECT';
-    connectBtn.style.borderColor='rgba(229,115,115,.5)';
-    connectBtn.style.color='#e57373';
-    connectBtn.style.background='rgba(229,115,115,.1)';
+    connectBtn.style.cssText=connectBtn.style.cssText
+      .replace('rgba(145,71,255,.5)','rgba(229,115,115,.5)')
+      .replace('#9146ff','#e57373')
+      .replace('rgba(145,71,255,.15)','rgba(229,115,115,.1)');
     channelInput.disabled=true;
-
-    ws = new WebSocket('wss://irc-ws.chat.twitch.tv');
-
-    ws.onopen=()=>{
-      // Anonymous login (justinfan = Twitch anonymous prefix)
-      const anonId = Math.floor(Math.random()*99999)+10000;
-      ws.send(`NICK justinfan${anonId}`);
-      ws.send(`JOIN #${channel}`);
-      setStatus('connecting',`Joining #${channel}...`);
-    };
-
-    ws.onmessage=(e)=>{
-      const raw=e.data.trim();
-      // Handle PING/PONG to keep connection alive
-      if(raw.startsWith('PING')){ws.send('PONG :tmi.twitch.tv');return;}
-      // Successful join
-      if(raw.includes('366') || raw.includes('End of /NAMES')){
-        connected=true;
-        setStatus('connected',`#${channel} — listening for ${COMMAND}`);
-        addLog(`✓ Connected to #${channel}`, '#4caf50');
-        addLog(`Listening for: ${COMMAND} (mods & broadcaster only)`, '#8892a4');
-        return;
-      }
-      // Parse chat messages
-      if(raw.includes('PRIVMSG')){
-        const parsed=parseMessage(raw);
-        if(parsed.message===COMMAND){
-          if(hasPermission(parsed.badges)){
-            triggerRoll(parsed.user);
-          } else {
-            addLog(`🚫 @${parsed.user} tried !roll (no permission)`, '#555');
-          }
+    try{
+      ComfyJS.Init(channel);
+      // ComfyJS.onChat fires for every message
+      ComfyJS.onChat=(user,message,flags,self,extra)=>{
+        if(message.trim()===COMMAND){
+          if(flags.mod||flags.broadcaster) triggerRoll(user);
+          else addLog('🚫 @'+user+' tried !roll (no permission)','#555');
         }
-      }
-    };
-
-    ws.onerror=()=>{
-      setStatus('error','Connection error');
-      addLog('❌ WebSocket error', '#e57373');
-    };
-
-    ws.onclose=()=>{
-      connected=false;
-      if(connectBtn.textContent==='DISCONNECT'){
-        // Unexpected close — try to reconnect
-        setStatus('error','Disconnected — reconnecting in 5s...');
-        addLog('⚡ Disconnected, reconnecting...', '#f0c600');
-        reconnectTimer=setTimeout(connect, 5000);
-      }
-    };
+      };
+      ComfyJS.onConnected=(addr,port,isFirstConnect)=>{
+        connected=true;
+        setStatus('connected','#'+channel+' — listening for '+COMMAND);
+        addLog('✅ Connected to #'+channel,'#4caf50');
+        addLog('Mods & broadcaster can use: '+COMMAND,'#8892a4');
+      };
+      ComfyJS.onError=(err)=>{
+        setStatus('error','Error: '+err);
+        addLog('❌ Error: '+err,'#e57373');
+      };
+      ComfyJS.onReconnect=(attempt)=>{
+        setStatus('connecting','Reconnecting... (attempt '+attempt+')');
+        addLog('⚡ Reconnecting...','#f0c600');
+      };
+    } catch(e){
+      setStatus('error','Failed: '+e.message);
+      addLog('❌ '+e.message,'#e57373');
+    }
   }
 
   function disconnect(){
-    clearTimeout(reconnectTimer);
-    if(ws){ ws.onclose=null; ws.close(); ws=null; }
+    if(typeof ComfyJS!=='undefined'){try{ComfyJS.Quit();}catch(e){}}
     connected=false;
     setStatus('disconnected','Disconnected');
     connectBtn.textContent='CONNECT';
-    connectBtn.style.borderColor='rgba(145,71,255,.5)';
-    connectBtn.style.color='#9146ff';
-    connectBtn.style.background='rgba(145,71,255,.15)';
+    connectBtn.style.cssText=connectBtn.style.cssText
+      .replace('rgba(229,115,115,.5)','rgba(145,71,255,.5)')
+      .replace('#e57373','#9146ff')
+      .replace('rgba(229,115,115,.1)','rgba(145,71,255,.15)');
     channelInput.disabled=false;
-    addLog('Disconnected.', '#555');
+    addLog('Disconnected.','#555');
   }
 
   connectBtn.addEventListener('click',()=>{
-    if(connectBtn.textContent==='DISCONNECT') disconnect();
+    if(connected||connectBtn.textContent==='DISCONNECT') disconnect();
     else connect();
   });
-
-  connectBtn.addEventListener('mouseenter',()=>{connectBtn.style.opacity='.8';});
-  connectBtn.addEventListener('mouseleave',()=>{connectBtn.style.opacity='1';});
-
-  // Pre-fill channel from URL or default
-  channelInput.value='wonni';
 }
-
-
-
-// ── O(1) Pokémon lookup map (name→mon) ───────────────────────────────────
-  window.MON_MAP = new Map(ALL_MON.map(m=>[m.name.toLowerCase(), m]));
-  window.MON_ID_MAP = new Map(ALL_MON.filter(m=>m.id).map(m=>[m.id, m]));
 
 // ── Load Pokémon data on startup ──────────────────────────────────────────────
 loadPokemonData().then(()=>{
