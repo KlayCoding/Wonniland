@@ -6549,19 +6549,24 @@ function openHofPopup(p){
 }
 
 // ── Global sprite URL for HoF/Roulette Pokémon entries ───────────────────────
-// species_id in pkm_hof.json == id in pokemon.json == sprite filename padded to 4 digits
+// species_id in pkm_hof.json == id in pokemon.json
+// getSpriteFile(mon) returns the CORRECT filename including form suffixes (e.g. "0888c" for Zacian-Crowned)
 function pkmSpriteUrl(p, shiny){
-  // Priority 1: species_id directly (most reliable — matches sprite filenames exactly)
-  if(p.species_id){
-    const file=String(p.species_id).padStart(4,'0');
-    return shiny?`${PKM_SHINY1}${file}.png`:`${PKM_BASE1}${file}.png`;
+  // Step 1: find mon by species_id (exact numeric ID match via MON_ID_MAP)
+  const mon = p.species_id
+    ? (window.MON_ID_MAP?.get(p.species_id) || ALL_MON.find(m => m.id === p.species_id))
+    : (window.MON_MAP?.get(p.species?.toLowerCase()) || ALL_MON.find(m => m.name.toLowerCase() === p.species?.toLowerCase()));
+
+  if(mon){
+    // Step 2: getSpriteFile/getShinyFile handle form-specific filenames (spriteFile, shinyFile fields)
+    const file = shiny ? getShinyFile(mon) : getSpriteFile(mon);
+    if(file) return shiny ? `${PKM_SHINY1}${file}.png` : `${PKM_BASE1}${file}.png`;
   }
-  // Priority 2: look up mon by species name → use mon.id
-  const mon=(window.MON_MAP?.get(p.species?.toLowerCase()))||
-             ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
-  if(mon?.id){
-    const file=String(mon.id).padStart(4,'0');
-    return shiny?`${PKM_SHINY1}${file}.png`:`${PKM_BASE1}${file}.png`;
+
+  // Step 3: fallback — bare padded species_id (for entries not found in pokemon.json)
+  if(p.species_id){
+    const file = String(p.species_id).padStart(4,'0');
+    return shiny ? `${PKM_SHINY1}${file}.png` : `${PKM_BASE1}${file}.png`;
   }
   return '';
 }
@@ -6587,6 +6592,7 @@ function initPkmRoulette(){
 
   function getUnlocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true);}
   function getLocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===false);}
+  function getRollPool(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true&&p.claimed===false);}
 
   // ── Gewichteter Randomizer: jeder Owner bekommt gleiche Gesamtchance ────────
   function weightedRoll(pool){
@@ -6623,8 +6629,8 @@ function initPkmRoulette(){
     rollBtn.addEventListener('mouseleave',()=>{if(!rolling)rollBtn.style.background='linear-gradient(135deg,rgba(77,182,172,.12),rgba(77,182,172,.04))';});
     rollBtn.addEventListener('click',()=>{
       if(rolling)return;
-      const pool=getUnlocked();
-      if(!pool.length){showToast('No unlocked Pokemon available!',true);return;}
+      const pool=getRollPool();
+      if(!pool.length){showToast('No unclaimed Pokemon in pool!',true);return;}
       rolling=true;rollBtn.disabled=true;rollBtn.textContent='Rolling...';
       spinCard.style.display='flex';spinMeta.innerHTML='';spinTypes.innerHTML='';
       spinCard.querySelector('.spin-info-btn')?.remove();
@@ -6661,29 +6667,29 @@ function initPkmRoulette(){
     rouletteSec.append(spinCard,rollBtn);grid.appendChild(rouletteSec);
 
 
-    // ── Section 2: Team Pool (unlocked) ─────────────────────────────────────
-    const teamSec=document.createElement('div');teamSec.style.cssText='padding:14px;';
-    const teamHdr=document.createElement('div');teamHdr.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:10px;';
-    const tTitle=document.createElement('div');tTitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:9px;color:#4db6ac;white-space:nowrap;';tTitle.textContent='TEAM POOL';
-    const tCount=document.createElement('div');tCount.style.cssText='font-size:10px;color:#555;white-space:nowrap;';tCount.textContent=`(${unlocked.length})`;
-    const tLine=document.createElement('div');tLine.style.cssText='flex:1;height:1px;background:rgba(77,182,172,.2);';
-    teamHdr.append(tTitle,tCount,tLine);teamSec.appendChild(teamHdr);
-    const tGrid=document.createElement('div');tGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:7px;margin-bottom:6px;';
-    unlocked.forEach(p=>tGrid.appendChild(mkTile(p,false)));
-    if(!unlocked.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='No unlocked Pokémon yet.';tGrid.appendChild(e);}
-    teamSec.appendChild(tGrid);grid.appendChild(teamSec);
-
-    // ── Section 3: Pokémon Pool (locked silhouettes) ─────────────────────────
-    const lockSec=document.createElement('div');lockSec.style.cssText='padding:14px;border-top:2px solid rgba(255,255,255,.06);';
+    // ── Section 2: Pokémon Pool (roll candidates) ─────────────────────────
+    const lockSec=document.createElement('div');lockSec.style.cssText='padding:14px;';
     const lockHdr=document.createElement('div');lockHdr.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:10px;';
-    const lTitle=document.createElement('div');lTitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:9px;color:#444;white-space:nowrap;';lTitle.textContent='POKÉMON POOL';
-    const lCount=document.createElement('div');lCount.style.cssText='font-size:10px;color:#444;white-space:nowrap;';lCount.textContent=`(${locked.length})`;
-    const lLine=document.createElement('div');lLine.style.cssText='flex:1;height:1px;background:rgba(255,255,255,.06);';
+    const lTitle=document.createElement('div');lTitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:9px;color:#4db6ac;white-space:nowrap;';lTitle.textContent='POKÉMON POOL';
+    const lCount=document.createElement('div');lCount.style.cssText='font-size:10px;color:#555;white-space:nowrap;';lCount.textContent=`(${locked.length})`;
+    const lLine=document.createElement('div');lLine.style.cssText='flex:1;height:1px;background:rgba(77,182,172,.2);';
     lockHdr.append(lTitle,lCount,lLine);lockSec.appendChild(lockHdr);
-    const lGrid=document.createElement('div');lGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:5px;';
-    locked.forEach(p=>lGrid.appendChild(mkTile(p,true)));
+    const lGrid=document.createElement('div');lGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:5px;';
+    locked.forEach(p=>lGrid.appendChild(mkTile(p,false)));
     if(!locked.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='All Pokémon unlocked! 🎉';lGrid.appendChild(e);}
     lockSec.appendChild(lGrid);grid.appendChild(lockSec);
+
+    // ── Section 3: Team Pool (claimed) ─────────────────────────────────────
+    const teamSec=document.createElement('div');teamSec.style.cssText='padding:14px;border-top:2px solid rgba(255,255,255,.06);';
+    const teamHdr=document.createElement('div');teamHdr.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:10px;';
+    const tTitle=document.createElement('div');tTitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:9px;color:#555;white-space:nowrap;';tTitle.textContent='TEAM POOL';
+    const tCount=document.createElement('div');tCount.style.cssText='font-size:10px;color:#555;white-space:nowrap;';tCount.textContent=`(${unlocked.length})`;
+    const tLine=document.createElement('div');tLine.style.cssText='flex:1;height:1px;background:rgba(255,255,255,.06);';
+    teamHdr.append(tTitle,tCount,tLine);teamSec.appendChild(teamHdr);
+    const tGrid=document.createElement('div');tGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:7px;margin-bottom:6px;';
+    unlocked.forEach(p=>tGrid.appendChild(mkTile(p,true)));
+    if(!unlocked.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='No Pokemon claimed yet.';tGrid.appendChild(e);}
+    teamSec.appendChild(tGrid);grid.appendChild(teamSec);
 
     countEl.textContent=unlocked.length+' unlocked';
   }
