@@ -6548,6 +6548,24 @@ function openHofPopup(p){
   document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'){ov.remove();document.removeEventListener('keydown',esc);}});
 }
 
+// ── Global sprite URL for HoF/Roulette Pokémon entries ───────────────────────
+// species_id in pkm_hof.json == id in pokemon.json == sprite filename padded to 4 digits
+function pkmSpriteUrl(p, shiny){
+  // Priority 1: species_id directly (most reliable — matches sprite filenames exactly)
+  if(p.species_id){
+    const file=String(p.species_id).padStart(4,'0');
+    return shiny?`${PKM_SHINY1}${file}.png`:`${PKM_BASE1}${file}.png`;
+  }
+  // Priority 2: look up mon by species name → use mon.id
+  const mon=(window.MON_MAP?.get(p.species?.toLowerCase()))||
+             ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+  if(mon?.id){
+    const file=String(mon.id).padStart(4,'0');
+    return shiny?`${PKM_SHINY1}${file}.png`:`${PKM_BASE1}${file}.png`;
+  }
+  return '';
+}
+
 function initPkmRoulette(){
   const btn=document.getElementById('pkm-roulette-btn');
   const panel=document.getElementById('pkm-roulette-panel');
@@ -6579,14 +6597,6 @@ function initPkmRoulette(){
     const rand=Math.random();let cum=0;
     for(const {p,weight} of entries){cum+=weight;if(rand<=cum)return p;}
     return entries[entries.length-1].p;
-  }
-
-  function pkmSpriteUrl(p,shiny){
-    // Always use species_id → padded 4-digit filename (most reliable)
-    const sid=p.species_id||(window.MON_ID_MAP?window.MON_ID_MAP.get(p.species?.toLowerCase())?.id:null)||
-      ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase())?.id;
-    if(sid) return shiny?`${PKM_SHINY1}${String(sid).padStart(4,'0')}.png`:`${PKM_BASE1}${String(sid).padStart(4,'0')}.png`;
-    return '';
   }
 
   function renderAll(){
