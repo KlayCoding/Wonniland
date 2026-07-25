@@ -6518,14 +6518,8 @@ loadPokemonData().then(()=>{
   if(ls) ls.innerHTML='<div style="color:#e57373;font-family:\'Press Start 2P\',monospace;font-size:10px;text-align:center;padding:20px;">Failed to load data — check console for details.</div>';
   console.error('Data load failed:', e);
 });
-</script>
-<div style="text-align:center;margin-top:48px;padding:16px;font-size:11px;color:var(--gray);line-height:1.8;">
-  Pokémon sprites courtesy of <a href="https://cajunavenger.github.io" target="_blank" style="color:var(--pl);text-decoration:none;">cajunavenger.github.io</a> · 
-  Data via <a href="https://pokeapi.co" target="_blank" style="color:var(--pl);text-decoration:none;">PokéAPI</a> · 
-  Pokémon © Nintendo / Game Freak · Fan project, not affiliated with Nintendo
-</div>
-</body>
-</html>
+
+
 // ── Global HoF info popup ─────────────────────────────────────────────────────
 function openHofPopup(p){
   const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
@@ -7374,7 +7368,6 @@ function initTrainerHofBrowser(){
 document.getElementById('trainerImg').src='https://i.redd.it/l4tso05j2p0e1.gif';
 // Note: We use Rayquaza as a dramatic Emerald placeholder since trainer sprites aren't in PokeAPI
 // The Ditto artwork is loaded inline already
-
 </script>
 <div style="text-align:center;margin-top:48px;padding:16px;font-size:11px;color:var(--gray);line-height:1.8;">
   Pokémon sprites courtesy of <a href="https://cajunavenger.github.io" target="_blank" style="color:var(--pl);text-decoration:none;">cajunavenger.github.io</a> · 
