@@ -6678,6 +6678,12 @@ function initTwitchIntegration(){
   channelInput.value='wonni';
 }
 
+
+
+// ── O(1) Pokémon lookup map (name→mon) ───────────────────────────────────
+  window.MON_MAP = new Map(ALL_MON.map(m=>[m.name.toLowerCase(), m]));
+  window.MON_ID_MAP = new Map(ALL_MON.filter(m=>m.id).map(m=>[m.id, m]));
+
 // ── Load Pokémon data on startup ──────────────────────────────────────────────
 loadPokemonData().then(()=>{
   document.getElementById('loadingScreen')?.remove();
@@ -6805,6 +6811,23 @@ function initPkmRoulette(){
     rollBtn.textContent='\u1F3B2 ROLL RANDOM POKEMON';
     rollBtn.addEventListener('mouseenter',()=>{if(!rolling)rollBtn.style.background='linear-gradient(135deg,rgba(77,182,172,.28),rgba(77,182,172,.1))';});
     rollBtn.addEventListener('mouseleave',()=>{if(!rolling)rollBtn.style.background='linear-gradient(135deg,rgba(77,182,172,.12),rgba(77,182,172,.04))';});
+    // Global roll trigger — called by Twitch integration (works even when panel is closed)
+    window.triggerRouletteRoll = function(){
+      if(!hofData){loadData().then(()=>window.triggerRouletteRoll());return;}
+      if(!open){
+        open=true;panel.style.display='block';
+        btn.textContent='🎲 POKÉMON ROULETTE  ▲';
+        renderAll();
+      }
+      setTimeout(()=>{
+        const pool=getRollPool();
+        if(!pool.length) return;
+        panel.scrollIntoView({behavior:'smooth',block:'start'});
+        // Find the roll button in the grid
+        const rb=[...grid.querySelectorAll('button')].find(b=>b.textContent.includes('ROLL')||b.textContent.includes('Roll'));
+        if(rb&&!rb.disabled) rb.click();
+      },200);
+    };
     rollBtn.addEventListener('click',()=>{
       if(rolling)return;
       const pool=getRollPool();
@@ -7747,7 +7770,3 @@ document.getElementById('trainerImg').src='https://i.redd.it/l4tso05j2p0e1.gif';
 </div>
 </body>
 </html>
-
-  // ── O(1) Pokémon lookup map (name→mon) ───────────────────────────────────
-  window.MON_MAP = new Map(ALL_MON.map(m=>[m.name.toLowerCase(), m]));
-  window.MON_ID_MAP = new Map(ALL_MON.filter(m=>m.id).map(m=>[m.id, m]));
