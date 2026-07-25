@@ -7,7 +7,8 @@
   "pokemon": [
     {
       "id": "Breloom",
-      "unlocked": false,
+      "unlocked": true,
+      "claimed": true,
       "location": "Pool 1",
       "gender": "female",
       "owner_name": "Rodspln",
@@ -32,6 +33,7 @@
     {
       "id": "Shuckle",
       "unlocked": false,
+      "claimed": false,
       "gender": "female",
       "owner_name": "Thread",
       "owner_sprite": "brendan",
@@ -55,6 +57,7 @@
     {
       "id": "Duskull",
       "unlocked": false,
+      "claimed": false,
       "gender": "female",
       "owner_name": "Thread",
       "owner_sprite": "brendan",
@@ -78,6 +81,7 @@
     {
       "id": "Gliscor",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "Thread",
       "owner_sprite": "brendan",
@@ -101,6 +105,7 @@
     {
       "id": "Malamar",
       "unlocked": false,
+      "claimed": false,w
       "gender": "male",
       "owner_name": "Thread",
       "owner_sprite": "brendan",
@@ -124,6 +129,7 @@
     {
       "id": "Shedinja",
       "unlocked": false,
+      "claimed": false,
       "gender": "Genderless",
       "owner_name": "Thread",
       "owner_sprite": "brendan",
@@ -147,6 +153,7 @@
     {
       "id": "Dunsparce",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "xthalgo",
       "owner_sprite": "brendan",
@@ -170,6 +177,7 @@
     {
       "id": "Electabuzz",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "WannaGo",
       "owner_sprite": "brendan",
@@ -193,6 +201,7 @@
     {
       "id": "Slaking",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "WannaGo",
       "owner_sprite": "brendan",
@@ -216,6 +225,7 @@
     {
       "id": "Chansey",
       "unlocked": false,
+      "claimed": false,
       "gender": "female",
       "owner_name": "WannaGo",
       "owner_sprite": "brendan",
@@ -239,6 +249,7 @@
     {
       "id": "Mega-Lucario",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "WannaGo",
       "owner_sprite": "brendan",
@@ -262,6 +273,7 @@
     {
       "id": "GMax-Charizard",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "Morgan",
       "owner_sprite": "brendan",
@@ -285,6 +297,7 @@
     {
       "id": "Bayleef",
       "unlocked": false,
+      "claimed": false,
       "gender": "female",
       "owner_name": "Witch",
       "owner_sprite": "brendan",
@@ -308,6 +321,7 @@
     {
       "id": "Corphish",
       "unlocked": false,
+      "claimed": false,
       "gender": "female",
       "owner_name": "Wonni",
       "owner_sprite": "may",
@@ -331,6 +345,7 @@
     {
       "id": "Rattata",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "Thauris",
       "owner_sprite": "brendan",
@@ -354,6 +369,7 @@
     {
       "id": "Kingdra",
       "unlocked": false,
+      "claimed": false,
       "gender": "female",
       "owner_name": "izzy",
       "owner_sprite": "brendan",
@@ -377,6 +393,7 @@
     {
       "id": "Quagsire",
       "unlocked": false,
+      "claimed": false,
       "gender": "female",
       "owner_name": "TheChat",
       "owner_sprite": "brendan",
@@ -399,7 +416,8 @@
     },
     {
       "id": "Miltank",
-      "unlocked": false,
+      "unlocked": true,
+      "claimed": true,
       "gender": "female",
       "owner_name": "Jsins",
       "owner_sprite": "may",
@@ -423,6 +441,7 @@
     {
       "id": "Spiritomb",
       "unlocked": false,
+      "claimed": false,
       "gender": "female",
       "owner_name": "Mega",
       "owner_sprite": "brendan",
@@ -446,6 +465,7 @@
     {
       "id": "Trubbish",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "Eman",
       "owner_sprite": "brendan",
@@ -468,7 +488,8 @@
     },
     {
       "id": "Obstagoon",
-      "unlocked": false,
+      "unlocked": true,
+      "claimed": true,
       "gender": "male",
       "owner_name": "Wolfeys",
       "owner_sprite": "brendan",
@@ -492,6 +513,7 @@
     {
       "id": "Grapploct",
       "unlocked": true,
+      "claimed": true,
       "gender": "female",
       "owner_name": "Wolfeys",
       "owner_sprite": "brendan",
@@ -515,6 +537,7 @@
     {
       "id": "Stunky",
       "unlocked": false,
+      "claimed": false,
       "gender": "female",
       "owner_name": "Wolfeys",
       "owner_sprite": "brendan",
@@ -538,6 +561,7 @@
     {
       "id": "Gimmighoul (Chest)",
       "unlocked": false,
+      "claimed": false,
       "gender": "genderless",
       "owner_name": "Wolfeys",
       "owner_sprite": "brendan",
@@ -561,6 +585,7 @@
     {
       "id": "Manaphy",
       "unlocked": false,
+      "claimed": false,
       "gender": "genderless",
       "owner_name": "Wolfeys",
       "owner_sprite": "brendan",
@@ -584,7 +609,8 @@
     {
       "id": "Zacian (Crowned)",
       "unlocked": true,
-      "gender": "genderless",
+      "claimed": true,
+      "gender": "Genderless",
       "owner_name": "Furio",
       "owner_sprite": "may",
       "species": "Zacian (Crowned)",
@@ -607,6 +633,7 @@
     {
       "id": "Mimikyu (Disguised)",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "Ivantbh",
       "owner_sprite": "brendan",
@@ -630,6 +657,7 @@
     {
       "id": "Vileplume",
       "unlocked": false,
+      "claimed": false,
       "gender": "male",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -653,6 +681,7 @@
     {
       "id": "Flareon",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -676,6 +705,7 @@
     {
       "id": "Bayleef",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -699,6 +729,7 @@
     {
       "id": "Ledian",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -722,6 +753,7 @@
     {
       "id": "Altaria",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -745,6 +777,7 @@
     {
       "id": "Gothorita",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -768,6 +801,7 @@
     {
       "id": "Spheal",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -791,6 +825,7 @@
     {
       "id": "Duskull",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -814,6 +849,7 @@
     {
       "id": "Cacnea",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -837,6 +873,7 @@
     {
       "id": "Happiny",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -860,6 +897,7 @@
     {
       "id": "Eevee",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Squeaky",
       "owner_sprite": "brendan",
@@ -883,6 +921,7 @@
     {
       "id": "Eevee",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Destroy",
       "owner_sprite": "brendan",
@@ -906,6 +945,7 @@
     {
       "id": "Raticate",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "LeBon",
       "owner_sprite": "brendan",
@@ -929,6 +969,7 @@
     {
       "id": "Volcarona",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "LAZER",
       "owner_sprite": "brendan",
@@ -952,6 +993,7 @@
     {
       "id": "Mega-Rayquaza",
       "unlocked": false,
+      "claimed": false,
       "gender": "Genderless",
       "owner_name": "ModUnio",
       "owner_sprite": "brendan",
@@ -975,6 +1017,7 @@
     {
       "id": "Gyarados",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Eman",
       "owner_sprite": "brendan",
@@ -998,6 +1041,7 @@
     {
       "id": "Garchomp",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Eman",
       "owner_sprite": "brendan",
@@ -1021,6 +1065,7 @@
     {
       "id": "Metagross",
       "unlocked": false,
+      "claimed": false,
       "gender": "Genderless",
       "owner_name": "Betim",
       "owner_sprite": "may",
@@ -1044,6 +1089,7 @@
     {
       "id": "Castform (Normal)",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Squeaky",
       "owner_sprite": "brendan",
@@ -1067,6 +1113,7 @@
     {
       "id": "Castform (Normal)",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Squeaky",
       "owner_sprite": "brendan",
@@ -1090,6 +1137,7 @@
     {
       "id": "Trubbish",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Squeaky",
       "owner_sprite": "brendan",
@@ -1113,6 +1161,7 @@
     {
       "id": "Rotom (Mow)",
       "unlocked": false,
+      "claimed": false,
       "gender": "Genderless",
       "owner_name": "Squeaky",
       "owner_sprite": "brendan",
@@ -1136,6 +1185,7 @@
     {
       "id": "Chimecho",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Squeaky",
       "owner_sprite": "brendan",
@@ -1159,6 +1209,7 @@
     {
       "id": "Wooper",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Squeaky",
       "owner_sprite": "brendan",
@@ -1182,6 +1233,7 @@
     {
       "id": "Garchomp",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Cynthia",
       "owner_sprite": "may",
@@ -1205,6 +1257,7 @@
     {
       "id": "Dragonite",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Iris",
       "owner_sprite": "may",
@@ -1228,6 +1281,7 @@
     {
       "id": "Greninja (Ash)",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Ash",
       "owner_sprite": "brendan",
@@ -1251,6 +1305,7 @@
     {
       "id": "Croagunk",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Brock",
       "owner_sprite": "brendan",
@@ -1274,6 +1329,7 @@
     {
       "id": "Krookodile",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Ash",
       "owner_sprite": "brendan",
@@ -1297,6 +1353,7 @@
     {
       "id": "Lucario",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "FrryFan",
       "owner_sprite": "brendan",
@@ -1319,7 +1376,8 @@
     },
     {
       "id": "Mega-Sceptile",
-      "unlocked": false,
+      "unlocked": true,
+      "claimed": true,
       "gender": "Male",
       "owner_name": "Teraf",
       "owner_sprite": "brendan",
@@ -1343,6 +1401,7 @@
     {
       "id": "Mega-Mewtwo-X",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -1365,7 +1424,8 @@
     },
     {
       "id": "Shuckle",
-      "unlocked": false,
+      "unlocked": true,
+      "claimed": true,
       "gender": "Female",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -1389,6 +1449,7 @@
     {
       "id": "Deoxys (Attack)",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -1412,6 +1473,7 @@
     {
       "id": "Copperajah",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -1435,6 +1497,7 @@
     {
       "id": "Sprigatito",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Nemorih",
       "owner_sprite": "brendan",
@@ -1458,6 +1521,7 @@
     {
       "id": "Pidgeotto",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -1481,6 +1545,7 @@
     {
       "id": "Poliwhirl",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -1504,6 +1569,7 @@
     {
       "id": "Galarian-Ponyta",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -1527,6 +1593,7 @@
     {
       "id": "Wattrel",
       "unlocked": false,
+      "claimed": false,
       "gender": "Male",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -1550,6 +1617,7 @@
     {
       "id": "Lillipup",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -1573,6 +1641,7 @@
     {
       "id": "Skorupi",
       "unlocked": false,
+      "claimed": false,
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -1595,7 +1664,8 @@
     },
     {
       "id": "Galarian-Zigzagoon",
-      "unlocked": false,
+      "unlocked": true,
+      "claimed": true,
       "gender": "Female",
       "owner_name": "Nemorih",
       "owner_sprite": "brendan",
