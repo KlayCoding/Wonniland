@@ -1186,7 +1186,7 @@ function updPokemonCard(){
   if(!panel) return;
   const isPkmMode=currentMode==='pokemon'||(currentMode==='trainer'&&trainerPhase==='pokemon');
   const slot=currentMode==='trainer'?(team[currentSlot]||{}):ans;
-  const mon=(currentMode==='trainer'?slot[POKEMON_Q_START]:ans[1])?.mon;
+  const mon=currentMode==='trainer'?(team[currentSlot]?.mon||slot[POKEMON_Q_START]?.mon):ans[1]?.mon;
   if(!mon||!isPkmMode){panel.innerHTML='';
     if(leftCol&&!document.getElementById('trainer-card-panel')?.children.length) leftCol.style.display='none';
     return;}
@@ -3561,7 +3561,7 @@ function renderQ(){
     card.appendChild(gmaxIndicator);
 
     function updateGmaxIndicator(){
-      const selMon=(team[currentSlot]?.[POKEMON_Q_START]||team[currentSlot]?.[4])?.mon;
+      const selMon=ans[1]?.mon;
       if(!selMon){ gmaxSelName.textContent='No Pok\u00e9mon selected'; gmaxSelSub.textContent='Please select a Pokémon in Q2 first.'; gmaxBadge.textContent='❓'; gmaxSelIco.src=''; gmaxGMaxIco.style.opacity='0'; return; }
       // Load normal sprite
       gmaxSelIco.src=`${PKM_BASE1}${getSpriteFile(selMon)}.png`;
@@ -5490,7 +5490,7 @@ function renderTrainerQ() {
   }else if(step===7){
     addT(card,'Which Ability would you like to give your Pokémon?');
     // Get selected pokemon from current team slot (step 3 = Q4 pokemon)
-    const selMon=(team[currentSlot]&&team[currentSlot][4]&&team[currentSlot][4].mon)||null;
+    const selMon=team[currentSlot]?.mon||null;
     const abilityWrap=document.createElement('div'); abilityWrap.style.cssText='display:flex;flex-direction:column;gap:10px;margin-top:4px;';
     // Randomize button above ability list
     const randAbBtn=document.createElement('button'); randAbBtn.type='button'; randAbBtn.className='rand-btn'; randAbBtn.style.cssText='width:100%;margin-bottom:10px;'; randAbBtn.textContent='🎲 Randomize Ability!';
@@ -5689,7 +5689,7 @@ function renderTrainerQ() {
     const randBtnN2=document.createElement('button'); randBtnN2.type='button'; randBtnN2.className='rand-btn'; randBtnN2.style.marginBottom='10px'; randBtnN2.textContent='🎲 Randomize Nature!';
     card.appendChild(randBtnN2);
     // Nature stat preview panel
-    const _slot11=team[currentSlot]||{}; const selMon2=(_slot11[POKEMON_Q_START]||_slot11[4])?.mon||null;
+    const selMon2=team[currentSlot]?.mon||null;
     const baseStats2=selMon2?getBaseStats(selMon2):null;
     const natPrev=document.createElement('div'); natPrev.style.cssText='display:none;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px;';
     const NAT_KEYS=['hp','atk','def','spa','spd','spe'];
@@ -5857,7 +5857,7 @@ function renderTrainerQ() {
     card.appendChild(gmaxIndicator);
 
     function updateGmaxIndicator(){
-      const selMon=(team[currentSlot]?.[POKEMON_Q_START]||team[currentSlot]?.[4])?.mon;
+      const selMon=team[currentSlot]?.mon||null;
       if(!selMon){ gmaxSelName.textContent='No Pok\u00e9mon selected'; gmaxSelSub.textContent='Please select a Pokémon in Q2 first.'; gmaxBadge.textContent='❓'; gmaxSelIco.src=''; gmaxGMaxIco.style.opacity='0'; return; }
       // Load normal sprite
       gmaxSelIco.src=`${PKM_BASE1}${getSpriteFile(selMon)}.png`;
@@ -5906,7 +5906,7 @@ function renderTrainerQ() {
       gmaxRowT.appendChild(b); gmaxBtns.push({btn:b,key:k,cls:c});
     });
     function applyGmaxEligibility(){
-      const selMon=(team[currentSlot]?.[POKEMON_Q_START]||team[currentSlot]?.[4])?.mon;
+      const selMon=team[currentSlot]?.mon||null;
       const canGMax=selMon?!!ALL_MON.find(m=>m.name.toLowerCase()===('gmax-'+selMon.name).toLowerCase()):true;
       const [yBtn,nBtn]=gmaxBtns;
       if(!canGMax){
