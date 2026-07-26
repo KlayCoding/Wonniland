@@ -569,7 +569,17 @@
     <div id="twitch-log" style="padding:4px 16px 8px;font-size:10px;color:#555;font-family:monospace;display:none;border-top:1px solid rgba(145,71,255,.1);min-height:0;max-height:80px;overflow-y:auto;"></div>
   </div>
 
-<div id="dex-browser">
+<div id="pkm-roulette-browser" style="width:100%;max-width:min(1100px,calc(100vw - 64px));margin-bottom:24px;animation:fadeUp .5s ease .15s both;">
+  <button id="pkm-roulette-btn" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;border-radius:14px;border:2px solid rgba(77,182,172,.3);background:linear-gradient(135deg,rgba(77,182,172,.06),rgba(77,182,172,.02));cursor:pointer;transition:all .25s;width:100%;font-family:'Press Start 2P',monospace;font-size:11px;color:#4db6ac;letter-spacing:.5px;">🎲 POKÉMON ROULETTE &nbsp;▼</button>
+  <div id="pkm-roulette-panel" style="display:none;margin-top:12px;background:#111827;border:1px solid rgba(77,182,172,.2);border-radius:14px;overflow:hidden;">
+    <div id="pkm-roulette-result" style="display:none;padding:16px;border-bottom:1px solid var(--border);"></div>
+    <div id="pkm-roulette-header" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(77,182,172,.04);">
+      <input id="pkm-roulette-search" placeholder="Search unlocked Pokémon..." autocomplete="off" style="flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;"/>
+      <span id="pkm-roulette-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span><button id="pkm-roulette-refresh" title="Reload Pokemon Pool data" style="background:rgba(77,182,172,.1);border:1px solid rgba(77,182,172,.3);border-radius:6px;color:#4db6ac;font-size:12px;padding:3px 8px;cursor:pointer;" onclick="document.dispatchEvent(new CustomEvent('roulette-refresh'))">↻</button>
+      <button id="pkm-roulette-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">X</button>
+    </div>
+
+  <div id="dex-browser">
   <button id="dex-browser-btn">📖 POKÉDEX BROWSER &nbsp;▼</button>
   <div id="dex-panel">
     <div id="dex-panel-header">
@@ -598,15 +608,7 @@
 </div>
 
 <!-- ── Pokémon Roulette ───────────────────────────────────────────────────── -->
-<div id="pkm-roulette-browser" style="width:100%;max-width:min(1100px,calc(100vw - 64px));margin-bottom:24px;animation:fadeUp .5s ease .15s both;">
-  <button id="pkm-roulette-btn" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;border-radius:14px;border:2px solid rgba(77,182,172,.3);background:linear-gradient(135deg,rgba(77,182,172,.06),rgba(77,182,172,.02));cursor:pointer;transition:all .25s;width:100%;font-family:'Press Start 2P',monospace;font-size:11px;color:#4db6ac;letter-spacing:.5px;">🎲 POKÉMON ROULETTE &nbsp;▼</button>
-  <div id="pkm-roulette-panel" style="display:none;margin-top:12px;background:#111827;border:1px solid rgba(77,182,172,.2);border-radius:14px;overflow:hidden;">
-    <div id="pkm-roulette-result" style="display:none;padding:16px;border-bottom:1px solid var(--border);"></div>
-    <div id="pkm-roulette-header" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(77,182,172,.04);">
-      <input id="pkm-roulette-search" placeholder="Search unlocked Pokémon..." autocomplete="off" style="flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;"/>
-      <span id="pkm-roulette-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span><button id="pkm-roulette-refresh" title="Reload Pokemon Pool data" style="background:rgba(77,182,172,.1);border:1px solid rgba(77,182,172,.3);border-radius:6px;color:#4db6ac;font-size:12px;padding:3px 8px;cursor:pointer;" onclick="document.dispatchEvent(new CustomEvent('roulette-refresh'))">↻</button>
-      <button id="pkm-roulette-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">X</button>
-    </div>
+
     <div id="pkm-roulette-grid" style="display:flex;flex-direction:column;max-height:70vh;overflow-y:auto;"></div>
   </div>
 </div>
@@ -1187,16 +1189,18 @@ function updPokemonCard(){
   // ans[1]=species, ans[2]=nickname, ans[3]=shiny, ans[4]=ability,
   // ans[5]=nature, ans[6]=tera, ans[7]=gmax, ans[8]=ivev, ans[9]=ivev_custom
   // ans[10]=item, ans[11]=moves
-  const ga=i=>currentMode==='trainer'?slot[POKEMON_Q_START+i-1]?.value:ans[i]?.value;
+  // Trainer slot index map: maps pokemon-creation step → trainer slot index
+  const T_IDX={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
+  const ga=i=>{if(currentMode==='trainer'){const si=T_IDX[i]??(POKEMON_Q_START+i-1);return slot[si]?.value;}return ans[i]?.value;};
   const nickname = ga(2)||'';
   const shinyVal = ga(3)||'';
-  const natureTxt= ga(4)||'';  // step 4 = Nature
-  const ability  = ga(5)||'';  // step 5 = Ability
+  const natureTxt= ga(4)||'';  // Nature
+  const ability  = ga(5)||'';  // Ability
   const teraType = ga(6)||'';
   const gmaxAns  = ga(7)||'';
-  const ivevAns  = currentMode==='trainer'?slot[POKEMON_Q_START+7]:ans[8];
+  const ivevAns  = currentMode==='trainer'?slot[8]:ans[8];  // IVs/EVs
   const itemVal  = ga(10)||'';
-  const movesAns = (currentMode==='trainer'?slot[POKEMON_Q_START+10]:ans[11])?.moves||[];
+  const movesAns = (currentMode==='trainer'?slot[15]:ans[11])?.moves||[];
 
   const isShiny=shinyVal.toLowerCase().includes('yes')||shinyVal.includes('✨');
   const sf=getSpriteFile(mon);
@@ -1230,9 +1234,10 @@ function updPokemonCard(){
   const itemData=ITEMS.find(it=>it.name===itemName)||null;
 
   // Progress count
+  const PROG_TOTAL=currentMode==='trainer'?TRAINER_TOTAL:TOTAL;
   let answered=0;
-  for(let i=0;i<TOTAL;i++){const a=currentMode==='trainer'?slot[POKEMON_Q_START+i]:ans[i];if(a)answered++;}
-  const pct=Math.round(answered/TOTAL*100);
+  for(let i=0;i<PROG_TOTAL;i++){const a=currentMode==='trainer'?slot[POKEMON_Q_START+i]:ans[i];if(a)answered++;}
+  const pct=Math.round(answered/PROG_TOTAL*100);
 
   panel.innerHTML='';
   const card=document.createElement('div');
@@ -1526,7 +1531,7 @@ function updPokemonCard(){
   const pfl=document.createElement('div');pfl.style.cssText=`height:100%;background:linear-gradient(90deg,${typeColor},#9575cd);border-radius:2px;width:${pct}%;transition:width .4s ease;`;
   pbg.appendChild(pfl);
   const plbl=document.createElement('div');plbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;display:flex;justify-content:space-between;';
-  const pl1=document.createElement('span');pl1.textContent=answered+' / '+TOTAL+' answered';
+  const pl1=document.createElement('span');pl1.textContent=answered+' / '+PROG_TOTAL+' answered';
   const pl2=document.createElement('span');pl2.style.color=typeColor;pl2.textContent=pct+'%';
   plbl.append(pl1,pl2);foot.append(pbg,plbl);card.appendChild(foot);
   panel.appendChild(card);
@@ -5724,8 +5729,8 @@ function renderTrainerQ() {
     const gmaxInfoBtn2=document.createElement('button'); gmaxInfoBtn2.type='button'; gmaxInfoBtn2.className='info-btn'; gmaxInfoBtn2.textContent='ℹ What is this?';
     makeInfoPopup(gmaxInfoBtn2, 'Dynamax & Gigantamax', `<b>Dynamax</b> temporarily grows your Pokémon to giant size in battle. Every Pokémon can Dynamax.<br><br><b>Gigantamax (GMax)</b> is a special form only for specific species (e.g. GMax-Venusaur). It changes appearance and gives a unique G-Max Move.<br><br><b>Dynamax Level (0-10)</b> determines the HP bonus. Level 10 = max bonus.`);
     gmaxTitleRow2.append(gmaxTitleEl2,gmaxInfoBtn2); card.appendChild(gmaxTitleRow2);
-    const gmaxH2=document.createElement('div'); gmaxH2.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; gmaxH2.textContent='Does your Pokemon have the GMax Factor?';
-    const gmaxSub2=document.createElement('div'); gmaxSub2.className='q-sub'; gmaxSub2.textContent='Gigantamaxing changes the appearance and move of your Pokemon. Only certain species can GMax.';
+    const gmaxH2=document.createElement('div'); gmaxH2.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; gmaxH2.textContent='Do you want your Pok\u00e9mon to have a GMax Factor?';
+    const gmaxSub2=document.createElement('div'); gmaxSub2.className='q-sub'; gmaxSub2.textContent='Selecting Yes means it will be able to Gigantamax. Selecting No means it will only be able to Dynamax and not change its appearance or have access to the GMax Signature Move';
     const gmaxIconWrap2=document.createElement('div'); gmaxIconWrap2.style.cssText='text-align:center;margin-bottom:12px;';
     const gmaxSVG2=document.createElement('div'); gmaxSVG2.innerHTML=`<svg width="72" height="72" viewBox="0 0 72 72"><polygon points="36,4 62,18 62,54 36,68 10,54 10,18" fill="#7B1FA2" stroke="#CE93D8" stroke-width="2" opacity="0.9"/><polygon points="36,12 54,22 54,50 36,60 18,50 18,22" fill="white" opacity="0.12"/><text x="36" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="32" fill="#CE93D8">G</text></svg>`;
     gmaxSVG2.style.cssText='display:flex;justify-content:center;margin-bottom:4px;'; gmaxIconWrap2.appendChild(gmaxSVG2); card.appendChild(gmaxIconWrap2);
@@ -5753,12 +5758,12 @@ function renderTrainerQ() {
     card.appendChild(gmaxRow2);
     const div2=document.createElement('div'); div2.style.cssText='height:1px;background:var(--border);margin:20px 0;'; card.appendChild(div2);
     const dxH2=document.createElement('div'); dxH2.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; dxH2.textContent='Choose your Dynamax Level:';
-    const dxSub2=document.createElement('div'); dxSub2.className='q-sub'; dxSub2.textContent='0 = No Dynamaxing · 10 = max Dynamax boost';
+    const dxSub2=document.createElement('div'); dxSub2.className='q-sub'; dxSub2.textContent='Pick between a 50% and 100% HP boost';
     const slider2=document.createElement('input'); slider2.type='range'; slider2.min=0; slider2.max=10; slider2.value=10; slider2.style.cssText='width:100%;accent-color:var(--purple);cursor:pointer;margin-top:8px;';
     const sliderLbl2=document.createElement('div'); sliderLbl2.style.cssText='display:flex;justify-content:space-between;align-items:center;margin-top:6px;';
     const sliderVal2=document.createElement('div'); sliderVal2.style.cssText='font-family:"Press Start 2P",monospace;font-size:12px;color:var(--yellow);';
     const sliderDesc2=document.createElement('div'); sliderDesc2.style.cssText='font-size:12px;color:var(--gray);';
-    function updateSlider2(){const v=parseInt(slider2.value);sliderVal2.textContent=`Level ${v}`;sliderDesc2.textContent=v===0?'No Dynamaxing':v<=3?'Low potential':v<=6?'Moderate power':v<=9?'High power':'Max ready!';}
+    function updateSlider2(){const v=parseInt(slider2.value);sliderVal2.textContent='Level '+v;const mult=(1.5+v*0.05).toFixed(2).replace(/\.00$/,'').replace(/0$/,'');const pct=Math.round(v*5+50);sliderDesc2.textContent=v===0?'1.5\u00d7 HP (50% boost)':mult+'\u00d7 HP ('+pct+'% boost)'+(v===10?' \u2014 Maximum!':'');}
     slider2.addEventListener('input',updateSlider2); updateSlider2();
     sliderLbl2.append(sliderVal2,sliderDesc2); card.append(dxH2,dxSub2,slider2,sliderLbl2);
     getV=()=>gmax2?{value:`GMax Factor: ${gmax2} | Dynamax Level: ${slider2.value}`}:null;
