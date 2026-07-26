@@ -6526,101 +6526,140 @@ function initTwitchIntegration(){
   const statusDot    = document.getElementById('twitch-status-dot');
   const statusText   = document.getElementById('twitch-status-text');
   const logEl        = document.getElementById('twitch-log');
-  if(!connectBtn) return;
+  if(!connectBtn){console.warn('[Twitch] connectBtn not found');return;}
+  console.log('[Twitch] initTwitchIntegration OK, button found');
 
-  let connected=false, cooldownUntil=0;
-  const COMMAND='!roll', COOLDOWN_MS=10000;
+  let ws=null, connected=false, cooldownUntil=0, reconnTimer=null;
+  const COMMAND='!roll', CD=10000;
 
-  function setStatus(state,msg){
-    const cols={connecting:'#f0c600',connected:'#4caf50',error:'#e57373',disconnected:'#555'};
-    const col=cols[state]||'#555';
-    if(statusDot){statusDot.style.background=col;statusDot.style.boxShadow=state==='connected'?'0 0 6px '+col:'none';}
-    if(statusText){statusText.textContent=msg;statusText.style.color=col;}
-  }
+  const setStatus=(state,msg)=>{
+    const c={connecting:'#f0c600',connected:'#4caf50',error:'#e57373',disconnected:'#555'}[state]||'#555';
+    try{statusDot.style.background=c;}catch(e){}
+    try{statusText.textContent=msg;statusText.style.color=c;}catch(e){}
+  };
 
-  function addLog(msg,col){
-    if(!logEl) return;
-    logEl.style.display='block';
-    const line=document.createElement('div');
-    line.style.cssText='color:'+(col||'#555')+';line-height:1.6;';
-    line.textContent=msg;
-    logEl.appendChild(line);
-    while(logEl.children.length>4) logEl.removeChild(logEl.firstChild);
-  }
-
-  function triggerRoll(user){
-    const now=Date.now();
-    if(now<cooldownUntil){
-      addLog('⏳ @'+user+' !roll — cooldown '+(Math.ceil((cooldownUntil-now)/1000))+'s','#f0c600');
-      return;
-    }
-    cooldownUntil=now+COOLDOWN_MS;
-    addLog('🎲 !roll by @'+user,'#4db6ac');
-    if(typeof window.triggerRouletteRoll==='function') window.triggerRouletteRoll(user);
-    else addLog('⚠ Roulette not ready','#e57373');
-  }
-
-  function connect(){
-    const channel=channelInput.value.trim().toLowerCase().replace(/^#/,'').replace('https://www.twitch.tv/','');
-    if(!channel){setStatus('error','Enter channel name');return;}
-    if(typeof ComfyJS==='undefined'){
-      setStatus('error','ComfyJS not loaded — check internet');
-      addLog('❌ ComfyJS library failed to load','#e57373');
-      return;
-    }
-    setStatus('connecting','Connecting to #'+channel+'...');
-    connectBtn.textContent='DISCONNECT';
-    connectBtn.style.cssText=connectBtn.style.cssText
-      .replace('rgba(145,71,255,.5)','rgba(229,115,115,.5)')
-      .replace('#9146ff','#e57373')
-      .replace('rgba(145,71,255,.15)','rgba(229,115,115,.1)');
-    channelInput.disabled=true;
+  const addLog=(msg,col='#555')=>{
     try{
-      ComfyJS.Init(channel);
-      // ComfyJS.onChat fires for every message
-      ComfyJS.onChat=(user,message,flags,self,extra)=>{
-        if(message.trim()===COMMAND){
-          if(flags.mod||flags.broadcaster) triggerRoll(user);
-          else addLog('🚫 @'+user+' tried !roll (no permission)','#555');
-        }
-      };
-      ComfyJS.onConnected=(addr,port,isFirstConnect)=>{
-        connected=true;
-        setStatus('connected','#'+channel+' — listening for '+COMMAND);
-        addLog('✅ Connected to #'+channel,'#4caf50');
-        addLog('Mods & broadcaster can use: '+COMMAND,'#8892a4');
-      };
-      ComfyJS.onError=(err)=>{
-        setStatus('error','Error: '+err);
-        addLog('❌ Error: '+err,'#e57373');
-      };
-      ComfyJS.onReconnect=(attempt)=>{
-        setStatus('connecting','Reconnecting... (attempt '+attempt+')');
-        addLog('⚡ Reconnecting...','#f0c600');
-      };
-    } catch(e){
-      setStatus('error','Failed: '+e.message);
-      addLog('❌ '+e.message,'#e57373');
-    }
-  }
+      logEl.style.display='block';
+      const d=document.createElement('div');
+      d.style.cssText='color:'+col+';line-height:1.6;font-size:10px;';
+      d.textContent=msg;logEl.appendChild(d);
+      while(logEl.children.length>5)logEl.removeChild(logEl.firstChild);
+    }catch(e){}
+  };
 
-  function disconnect(){
-    if(typeof ComfyJS!=='undefined'){try{ComfyJS.Quit();}catch(e){}}
+  const triggerRoll=(user)=>{
+    const now=Date.now();
+    if(now<cooldownUntil){addLog('⏳ @'+user+' — cooldown '+(Math.ceil((cooldownUntil-now)/1000))+'s','#f0c600');return;}
+    cooldownUntil=now+CD;
+    addLog('🎲 !roll by @'+user,'#4caf50');
+    if(typeof window.triggerRouletteRoll==='function')window.triggerRouletteRoll(user);
+    else addLog('⚠ Roulette not ready','#e57373');
+  };
+
+  const disconnect=()=>{
+    clearTimeout(reconnTimer);
+    if(ws){try{ws.onclose=null;ws.close();}catch(e){}ws=null;}
     connected=false;
     setStatus('disconnected','Disconnected');
     connectBtn.textContent='CONNECT';
-    connectBtn.style.cssText=connectBtn.style.cssText
-      .replace('rgba(229,115,115,.5)','rgba(145,71,255,.5)')
-      .replace('#e57373','#9146ff')
-      .replace('rgba(229,115,115,.1)','rgba(145,71,255,.15)');
+    connectBtn.style.background='rgba(145,71,255,.15)';
+    connectBtn.style.color='#9146ff';
+    connectBtn.style.borderColor='rgba(145,71,255,.5)';
     channelInput.disabled=false;
     addLog('Disconnected.','#555');
-  }
+  };
+
+  const connect=()=>{
+    const ch=channelInput.value.trim().toLowerCase().replace(/^#|https?:\/\/(www\.)?twitch\.tv\//g,'');
+    if(!ch){setStatus('error','Enter channel name');return;}
+    // Visual feedback first — before any async work
+    setStatus('connecting','Connecting to #'+ch+'...');
+    connectBtn.textContent='DISCONNECT';
+    connectBtn.style.background='rgba(229,115,115,.1)';
+    connectBtn.style.color='#e57373';
+    connectBtn.style.borderColor='rgba(229,115,115,.5)';
+    channelInput.disabled=true;
+    addLog('Connecting to #'+ch+'...','#f0c600');
+
+    // Try ComfyJS first, fallback to raw WebSocket
+    if(typeof ComfyJS!=='undefined'){
+      addLog('Using ComfyJS library','#555');
+      try{
+        ComfyJS.Init(ch);
+        ComfyJS.onConnected=()=>{
+          connected=true;
+          setStatus('connected','#'+ch+' — ready for '+COMMAND);
+          addLog('✅ Connected! Mods/broadcaster: type '+COMMAND,'#4caf50');
+        };
+        ComfyJS.onChat=(user,msg,flags)=>{
+          if(msg.trim()===COMMAND){
+            if(flags.mod||flags.broadcaster)triggerRoll(user);
+            else addLog('🚫 @'+user+' no permission','#555');
+          }
+        };
+        ComfyJS.onError=(e)=>{addLog('❌ ComfyJS error: '+e,'#e57373');};
+        ComfyJS.onReconnect=(n)=>{addLog('⚡ Reconnect #'+n,'#f0c600');};
+        return;
+      }catch(e){addLog('ComfyJS failed ('+e.message+'), trying raw IRC...','#f0c600');}
+    } else {
+      addLog('ComfyJS not loaded, using raw WebSocket','#f0c600');
+    }
+
+    // Raw WebSocket fallback
+    try{
+      ws=new WebSocket('wss://irc-ws.chat.twitch.tv:443');
+      ws.onopen=()=>{
+        const id=Math.floor(Math.random()*99999+10000);
+        ws.send('CAP REQ :twitch.tv/tags twitch.tv/commands');
+        ws.send('NICK justinfan'+id);
+        ws.send('JOIN #'+ch);
+        addLog('WebSocket opened, joining #'+ch,'#f0c600');
+      };
+      ws.onmessage=(e)=>{
+        const raw=e.data;
+        if(raw.startsWith('PING')){ws.send('PONG :tmi.twitch.tv');return;}
+        if(raw.includes('366')||raw.includes('End of /NAMES')){
+          connected=true;
+          setStatus('connected','#'+ch+' — ready for '+COMMAND);
+          addLog('✅ Raw IRC connected to #'+ch,'#4caf50');
+          return;
+        }
+        if(raw.includes('PRIVMSG')){
+          const badges=(raw.match(/badges=([^;]*)/)||[])[1]||'';
+          const user=(raw.match(/display-name=([^;]*)/)||[])[1]||
+                     (raw.match(/:([^!]+)!/)||[])[1]||'?';
+          const msg=(raw.match(/PRIVMSG #\S+ :(.+)/)||[])[1]?.trim()||'';
+          if(msg===COMMAND){
+            const ok=badges.includes('broadcaster')||badges.includes('moderator');
+            if(ok)triggerRoll(user);
+            else addLog('🚫 @'+user+' no permission','#555');
+          }
+        }
+      };
+      ws.onerror=(e)=>{addLog('❌ WebSocket error','#e57373');setStatus('error','Connection error');};
+      ws.onclose=()=>{
+        if(connected){
+          connected=false;
+          setStatus('error','Disconnected — retry in 5s');
+          addLog('Connection lost, reconnecting...','#f0c600');
+          reconnTimer=setTimeout(()=>{if(connectBtn.textContent==='DISCONNECT')connect();},5000);
+        }
+      };
+    }catch(e){
+      setStatus('error','WebSocket failed: '+e.message);
+      addLog('❌ '+e.message,'#e57373');
+      disconnect();
+    }
+  };
 
   connectBtn.addEventListener('click',()=>{
-    if(connected||connectBtn.textContent==='DISCONNECT') disconnect();
+    console.log('[Twitch] button clicked, connected='+connected);
+    if(connected||connectBtn.textContent==='DISCONNECT')disconnect();
     else connect();
   });
+
+  console.log('[Twitch] click handler attached to button');
 }
 
 // ── Load Pokémon data on startup ──────────────────────────────────────────────
@@ -6671,28 +6710,48 @@ function openHofPopup(p){
   document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'){ov.remove();document.removeEventListener('keydown',esc);}});
 }
 
-// ── Global sprite URL for HoF/Roulette Pokémon entries ───────────────────────
-// species_id in pkm_hof.json == id in pokemon.json
-// getSpriteFile(mon) returns the CORRECT filename including form suffixes (e.g. "0888c" for Zacian-Crowned)
+// ── Global sprite URL for HoF/Roulette entries ───────────────────────────────
+// Uses p.sprite / p.shiny_sprite directly from pkm_hof.json (no lookup needed)
+// Tries multiple bases if first fails
+const _PKM_BASES=[
+  'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-sprites/',
+  'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-sprites2/'
+];
+const _SHINY_BASES=[
+  'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites/',
+  'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites2/'
+];
 function pkmSpriteUrl(p, shiny){
-  // Step 1: find mon by species_id (exact numeric ID match via MON_ID_MAP)
-  const mon = p.species_id
-    ? (window.MON_ID_MAP?.get(p.species_id) || ALL_MON.find(m => m.id === p.species_id))
-    : (window.MON_MAP?.get(p.species?.toLowerCase()) || ALL_MON.find(m => m.name.toLowerCase() === p.species?.toLowerCase()));
-
-  if(mon){
-    // Step 2: getSpriteFile/getShinyFile handle form-specific filenames (spriteFile, shinyFile fields)
-    const file = shiny ? getShinyFile(mon) : getSpriteFile(mon);
-    if(file) return shiny ? `${PKM_SHINY1}${file}.png` : `${PKM_BASE1}${file}.png`;
+  // Priority 1: direct sprite filename from JSON (most reliable)
+  const file = shiny ? (p.shiny_sprite||p.sprite) : p.sprite;
+  if(file){
+    const bases = shiny ? _SHINY_BASES : _PKM_BASES;
+    return bases[0]+file+'.png'; // onerror handler tries bases[1]
   }
-
-  // Step 3: fallback — bare padded species_id (for entries not found in pokemon.json)
+  // Priority 2: species_id padded (fallback if sprite field missing)
   if(p.species_id){
-    const file = String(p.species_id).padStart(4,'0');
-    return shiny ? `${PKM_SHINY1}${file}.png` : `${PKM_BASE1}${file}.png`;
+    const f2=String(p.species_id).padStart(4,'0');
+    return (shiny?_SHINY_BASES[0]:_PKM_BASES[0])+f2+'.png';
   }
+  // Priority 3: look up via MON_MAP
+  const mon=window.MON_MAP?.get(p.species?.toLowerCase())||
+             ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+  if(mon){const sf=shiny?getShinyFile(mon):getSpriteFile(mon);if(sf)return(shiny?_SHINY_BASES[0]:_PKM_BASES[0])+sf+'.png';}
   return '';
 }
+// Attach fallback to an img: tries secondary base if primary 404s
+function pkmSpriteWithFallback(img, p, shiny){
+  const file=shiny?(p.shiny_sprite||p.sprite):p.sprite;
+  const bases=shiny?_SHINY_BASES:_PKM_BASES;
+  const f2=file||(p.species_id?String(p.species_id).padStart(4,'0'):null);
+  if(!f2){img.style.opacity='.2';return;}
+  img.src=bases[0]+f2+'.png';
+  img.onerror=()=>{
+    if(bases[1]){img.onerror=()=>img.style.opacity='.2';img.src=bases[1]+f2+'.png';}
+    else img.style.opacity='.2';
+  };
+}
+
 
 function initPkmRoulette(){
   const btn=document.getElementById('pkm-roulette-btn');
@@ -6780,7 +6839,7 @@ function initPkmRoulette(){
       let frame=0;const total=22;
       const interval=setInterval(()=>{
         const rnd=pool[Math.floor(Math.random()*pool.length)];
-        spinSpr.src=pkmSpriteUrl(rnd,rnd.shiny);spinSpr.style.opacity='0.7';
+        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.opacity='0.7';
         // Only update sprite during animation, keep ??? name
         frame++;
         if(frame>=total){
@@ -6788,7 +6847,7 @@ function initPkmRoulette(){
           const winner=weightedRoll(pool);
           setTimeout(()=>{
             const wmon=ALL_MON.find(m=>m.name.toLowerCase()===winner.species?.toLowerCase());
-            spinSpr.src=pkmSpriteUrl(winner,winner.shiny);spinSpr.style.opacity='1';spinSpr.onerror=()=>{};
+            spinSpr.style.opacity='1';pkmSpriteWithFallback(spinSpr,winner,winner.shiny);
             spinName.textContent=(winner.shiny?'\u2728 ':'')+winner.nickname;spinName.style.color='#4db6ac';
             spinSpec.textContent=winner.species;spinTypes.innerHTML='';spinMeta.innerHTML='';
             if(wmon){spinTypes.appendChild(tb(wmon.t1));if(wmon.t2)spinTypes.appendChild(tb(wmon.t2));}
@@ -6843,7 +6902,7 @@ function initPkmRoulette(){
     if(!isLocked){tile.addEventListener('mouseenter',()=>{tile.style.borderColor='#4db6ac';tile.style.background='rgba(77,182,172,.09)';tile.style.transform='translateY(-2px)';});tile.addEventListener('mouseleave',()=>{tile.style.borderColor='rgba(77,182,172,.14)';tile.style.background='rgba(255,255,255,.03)';tile.style.transform='';});}
     const imgSz=isLocked?36:52;
     const img=document.createElement('img');img.style.cssText='width:'+imgSz+'px;height:'+imgSz+'px;image-rendering:pixelated;'+(isLocked?'filter:brightness(0);opacity:.55;':'');
-    const url=pkmSpriteUrl(p,p.shiny&&!isLocked);if(url)img.src=url;img.onerror=()=>{img.style.opacity='.2';};
+    pkmSpriteWithFallback(img,p,p.shiny&&!isLocked);
     tile.appendChild(img);
     if(isLocked){
       const lckNick=document.createElement('div');lckNick.style.cssText='font-size:9px;font-weight:700;text-align:center;color:#2a2a2a;';lckNick.textContent='???';tile.appendChild(lckNick);
@@ -6937,14 +6996,14 @@ function initPkmHofBrowser(){
       let frame=0;const total=22;
       const interval=setInterval(()=>{
         const rnd=pool[Math.floor(Math.random()*pool.length)];
-        spinSpr.src=pkmSpriteUrl(rnd,rnd.shiny);spinSpr.style.opacity='0.7';
+        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.opacity='0.7';
         frame++;
         if(frame>=total){
           clearInterval(interval);
           const winner=weightedRoll(pool);
           setTimeout(()=>{
             const wmon=window.MON_MAP?.get(winner.species?.toLowerCase())||ALL_MON.find(m=>m.name.toLowerCase()===winner.species?.toLowerCase());
-            spinSpr.src=pkmSpriteUrl(winner,winner.shiny);spinSpr.style.opacity='1';spinSpr.onerror=()=>{};
+            spinSpr.style.opacity='1';pkmSpriteWithFallback(spinSpr,winner,winner.shiny);
             spinName.textContent=(winner.shiny?'\u2728 ':'')+winner.nickname;spinName.style.color='#f0c600';
             spinSpec.textContent=winner.species;spinTypes.innerHTML='';spinMeta.innerHTML='';
             if(wmon){spinTypes.appendChild(tb(wmon.t1));if(wmon.t2)spinTypes.appendChild(tb(wmon.t2));}
@@ -6995,7 +7054,7 @@ function initPkmHofBrowser(){
     if(p.id) tile.dataset.pkmId=p.id;
     if(!isLocked){tile.addEventListener('mouseenter',()=>{tile.style.borderColor='#f0c600';tile.style.background='rgba(240,198,0,.08)';tile.style.transform='translateY(-2px)';});tile.addEventListener('mouseleave',()=>{tile.style.borderColor='rgba(240,198,0,.18)';tile.style.background='rgba(255,255,255,.03)';tile.style.transform='';});}
     const img=document.createElement('img');img.style.cssText='width:'+(isLocked?36:52)+'px;height:'+(isLocked?36:52)+'px;image-rendering:pixelated;'+(isLocked?'filter:brightness(0);opacity:.55;':'');
-    const url=pkmSpriteUrl(p,p.shiny&&!isLocked);if(url)img.src=url;img.onerror=()=>{img.style.opacity='.2';};
+    pkmSpriteWithFallback(img,p,p.shiny&&!isLocked);
     tile.appendChild(img);
     if(isLocked){
       const lckN=document.createElement('div');lckN.style.cssText='font-size:9px;font-weight:700;text-align:center;color:#2a2a2a;';lckN.textContent='???';tile.appendChild(lckN);
