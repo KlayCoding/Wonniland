@@ -6604,7 +6604,7 @@ function initTwitchIntegration(){
           addLog('✅ Connected! Mods/broadcaster: type '+COMMAND,'#4caf50');
         };
         ComfyJS.onChat=(user,msg,flags)=>{
-          if(msg.trim()===COMMAND){
+          const msgTrim=msg.trim().toLowerCase();if(msgTrim.startsWith(COMMAND.toLowerCase())){
             if(flags.mod||flags.broadcaster)triggerRoll(user);
             else addLog('🚫 @'+user+' no permission','#555');
           }
@@ -6641,10 +6641,13 @@ function initTwitchIntegration(){
           const user=(raw.match(/display-name=([^;]*)/)||[])[1]||
                      (raw.match(/:([^!]+)!/)||[])[1]||'?';
           const msg=(raw.match(/PRIVMSG #\S+ :(.+)/)||[])[1]?.trim()||'';
-          if(msg===COMMAND){
+          // Debug: log every chat message
+          console.log('[Twitch] Chat from @'+user+': "'+msg+'" | badges: '+badges);
+          if(msg.toLowerCase().startsWith(COMMAND.toLowerCase())){
             const ok=badges.includes('broadcaster')||badges.includes('moderator');
+            console.log('[Twitch] !roll detected, ok='+ok+', badges='+badges);
             if(ok)triggerRoll(user);
-            else addLog('🚫 @'+user+' no permission','#555');
+            else addLog('\u{1F6AB} @'+user+' no permission (badges: '+badges+')','#555');
           }
         }
       };
@@ -6684,7 +6687,7 @@ loadPokemonData().then(()=>{
   preloadTeraIcons();
   initTwitchIntegration();
   if(typeof lsLoad==='function') lsLoad();
-  renderQ();
+  // renderQ() only runs after mode selection — not at startup
   console.log('\u2713 Wonniland ready');
 }).catch(e=>{
   const ls=document.getElementById('loadingScreen');
@@ -6850,7 +6853,7 @@ function initPkmRoulette(){
       let frame=0;const total=22;
       const interval=setInterval(()=>{
         const rnd=pool[Math.floor(Math.random()*pool.length)];
-        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.opacity='0.7';
+        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.filter='brightness(0)';spinSpr.style.opacity='0.9';
         // Only update sprite during animation, keep ??? name
         frame++;
         if(frame>=total){
@@ -6858,7 +6861,7 @@ function initPkmRoulette(){
           const winner=weightedRoll(pool);
           setTimeout(()=>{
             const wmon=ALL_MON.find(m=>m.name.toLowerCase()===winner.species?.toLowerCase());
-            spinSpr.style.opacity='1';pkmSpriteWithFallback(spinSpr,winner,winner.shiny);
+            spinSpr.style.filter='';spinSpr.style.opacity='1';pkmSpriteWithFallback(spinSpr,winner,winner.shiny);
             spinName.textContent=(winner.shiny?'\u2728 ':'')+winner.nickname;spinName.style.color='#4db6ac';
             spinSpec.textContent=winner.species;spinTypes.innerHTML='';spinMeta.innerHTML='';
             if(wmon){spinTypes.appendChild(tb(wmon.t1));if(wmon.t2)spinTypes.appendChild(tb(wmon.t2));}
@@ -7010,14 +7013,14 @@ function initPkmHofBrowser(){
       let frame=0;const total=22;
       const interval=setInterval(()=>{
         const rnd=pool[Math.floor(Math.random()*pool.length)];
-        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.opacity='0.7';
+        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.filter='brightness(0)';spinSpr.style.opacity='0.9';
         frame++;
         if(frame>=total){
           clearInterval(interval);
           const winner=weightedRoll(pool);
           setTimeout(()=>{
             const wmon=window.MON_MAP?.get(winner.species?.toLowerCase())||ALL_MON.find(m=>m.name.toLowerCase()===winner.species?.toLowerCase());
-            spinSpr.style.opacity='1';pkmSpriteWithFallback(spinSpr,winner,winner.shiny);
+            spinSpr.style.filter='';spinSpr.style.opacity='1';pkmSpriteWithFallback(spinSpr,winner,winner.shiny);
             spinName.textContent=(winner.shiny?'\u2728 ':'')+winner.nickname;spinName.style.color='#f0c600';
             spinSpec.textContent=winner.species;spinTypes.innerHTML='';spinMeta.innerHTML='';
             if(wmon){spinTypes.appendChild(tb(wmon.t1));if(wmon.t2)spinTypes.appendChild(tb(wmon.t2));}
