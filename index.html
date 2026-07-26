@@ -6785,7 +6785,7 @@ function initPkmRoulette(){
 
   function getUnlocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true);}
   function getLocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===false);}
-  function getRollPool(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true&&p.claimed!==true);}
+  function getRollPool(){return(hofData?.pokemon||[]).filter(p=>p.claimed!==true);}
 
   // ── Gewichteter Randomizer: jeder Owner bekommt gleiche Gesamtchance ────────
   function weightedRoll(pool){
