@@ -5800,79 +5800,98 @@ function renderTrainerQ() {
 
   // ── TQ13 step===13: GMax & Dynamax ────────────────────────────────────────
   }else if(step===13){
-    // ── TQ14: GMax Factor & Dynamax Level (Trainer Mode) ──────────────────────
-    addT(card,'GMax Factor & Dynamax Level');
-    const gmaxInfoBtnTQ=document.createElement('button');gmaxInfoBtnTQ.type='button';gmaxInfoBtnTQ.className='info-btn';gmaxInfoBtnTQ.textContent='ℹ What is this?';
-    makeInfoPopup(gmaxInfoBtnTQ,'Dynamax & Gigantamax','Dynamax/Gigantamax give the Pok\u00e9mon a HP & size boost and access to strong DMax Moves.<br><br>Pok\u00e9mon with a <b>GMax Factor</b> can Gigantamax, which changes their appearance, and grants access to an even stronger GMax Signature Move.<br><br><b>The Dynamax Level</b> determines the HP Multiplier, starting from Level 0 (50% HP boost) to Level 10 (100% HP boost).');
-    card.appendChild(gmaxInfoBtnTQ);
+    // ── TQ14 GMax Factor & Dynamax Level (Trainer Mode) ───────────────────────
+    // IMPORTANT: All variables declared before any usage to avoid TDZ errors
 
-    // GMax species list (same as Q8)
-    const GMAX_NAMES_T=['Eternatus','Venusaur','Blastoise','Charizard','Butterfree','Pikachu','Meowth','Machamp','Gengar','Kingler','Lapras','Eevee','Snorlax','Garbodor','Rillaboom','Cinderace','Inteleon','Corviknight','Orbeetle','Drednaw','Coalossal','Flapple','Appletun','Sandaconda','Toxtricity (Amped)','Toxtricity (Low Key)','Centiskorch','Hatterene','Grimmsnarl','Alcremie','Copperajah','Duraludon','Urshifu (Singe Strike)','Urshifu (Rapid Strike)'];
-    const noteT=document.createElement('div');noteT.className='q-sub';noteT.style.borderLeft='3px solid var(--pl)';noteT.style.paddingLeft='10px';noteT.style.marginBottom='10px';
-    noteT.textContent='Gigantamaxing changes the appearance of your Pok\u00e9mon. It also gains a very strong GMax Signature Move. Only these species can GMax:';
-    card.appendChild(noteT);
-    const gmaxGridT=document.createElement('div');gmaxGridT.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;margin-bottom:12px;max-height:300px;overflow-y:auto;padding:4px;';
-    GMAX_NAMES_T.forEach(name=>{
-      const gm=ALL_MON.find(m=>m.name.toLowerCase()==='gmax-'+name.toLowerCase().replace(/[()]/g,'').replace(/ /g,'-'));
-      const cell=document.createElement('div');cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 4px;border-radius:8px;border:2px solid rgba(206,147,216,.15);background:rgba(255,255,255,.02);cursor:default;';
+    // 1. Get current mon first
+    const curMonTQ=team[currentSlot]?.mon||null;
+
+    // 2. GMax eligible species list
+    const GMAX_TQ=['Eternatus','Venusaur','Blastoise','Charizard','Butterfree','Pikachu',
+      'Meowth','Machamp','Gengar','Kingler','Lapras','Eevee','Snorlax','Garbodor',
+      'Rillaboom','Cinderace','Inteleon','Corviknight','Orbeetle','Drednaw','Coalossal',
+      'Flapple','Appletun','Sandaconda','Toxtricity (Amped)','Toxtricity (Low Key)',
+      'Centiskorch','Hatterene','Grimmsnarl','Alcremie','Copperajah','Duraludon',
+      'Urshifu (Singe Strike)','Urshifu (Rapid Strike)'];
+    const canGMaxTQ=curMonTQ?GMAX_TQ.some(n=>{
+      const gkey='gmax-'+n.toLowerCase().replace(/[()]/g,'').replace(/ /g,'-');
+      return ALL_MON.some(m=>m.name.toLowerCase()===gkey);
+    }):false;
+
+    // 3. Yes/No buttons declared FIRST (referenced in species panel below)
+    let gmaxValTQ=null;
+    const gmaxYesTQ=document.createElement('div');gmaxYesTQ.className='g-btn';
+    gmaxYesTQ.textContent='⚡ Yes — GMax Factor!';
+    if(!canGMaxTQ){gmaxYesTQ.style.cssText+='opacity:.4;pointer-events:none;';}
+    const gmaxNoTQ=document.createElement('div');gmaxNoTQ.className='g-btn';
+    gmaxNoTQ.textContent='No';
+    gmaxYesTQ.addEventListener('click',()=>{gmaxValTQ='Yes';[gmaxYesTQ,gmaxNoTQ].forEach(b=>b.className='g-btn');gmaxYesTQ.className='g-btn sy';});
+    gmaxNoTQ.addEventListener('click',()=>{gmaxValTQ='No';[gmaxYesTQ,gmaxNoTQ].forEach(b=>b.className='g-btn');gmaxNoTQ.className='g-btn sn';});
+
+    // 4. Title row
+    const gmaxTitleRowTQ=document.createElement('div');gmaxTitleRowTQ.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:6px;';
+    const gmaxTitleElTQ=document.createElement('div');gmaxTitleElTQ.className='q-title';gmaxTitleElTQ.textContent='GMax Factor & Dynamax Level';
+    const gmaxInfoBtnTQ=document.createElement('button');gmaxInfoBtnTQ.type='button';gmaxInfoBtnTQ.className='info-btn';gmaxInfoBtnTQ.textContent='ℹ What is this?';
+    makeInfoPopup(gmaxInfoBtnTQ,'Dynamax & Gigantamax','Dynamax/Gigantamax give the Pokémon a HP & size boost and access to strong DMax Moves.<br><br>Pokémon with a <b>GMax Factor</b> can Gigantamax, which changes their appearance, and grants access to an even stronger GMax Signature Move.<br><br><b>The Dynamax Level</b> determines the HP Multiplier, starting from Level 0 (50% HP boost) to Level 10 (100% HP boost).');
+    gmaxTitleRowTQ.append(gmaxTitleElTQ,gmaxInfoBtnTQ);card.appendChild(gmaxTitleRowTQ);
+
+    // 5. Species list
+    const gmaxNoteTQ=document.createElement('div');gmaxNoteTQ.className='q-sub';
+    gmaxNoteTQ.style.cssText+='border-left:3px solid var(--pl);padding-left:10px;margin-bottom:10px;';
+    gmaxNoteTQ.textContent='Gigantamaxing changes the appearance of your Pokémon. It also gains a very strong GMax Signature Move. Only these species can GMax:';
+    card.appendChild(gmaxNoteTQ);
+    const gmaxGridTQ=document.createElement('div');gmaxGridTQ.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;margin-bottom:12px;max-height:300px;overflow-y:auto;padding:4px;';
+    GMAX_TQ.forEach(name=>{
+      const gkey='gmax-'+name.toLowerCase().replace(/[()]/g,'').replace(/ /g,'-');
+      const gm=ALL_MON.find(m=>m.name.toLowerCase()===gkey);
+      const cell=document.createElement('div');cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 4px;border-radius:8px;border:2px solid rgba(206,147,216,.15);background:rgba(255,255,255,.02);';
       const img=document.createElement('img');img.style.cssText='width:56px;height:56px;image-rendering:pixelated;';
       if(gm){const sf=getSpriteFile(gm);img.src=PKM_BASE1+sf+'.png';img.onerror=()=>iconUrlFallback(img,gm.id,sf);}
-      else{img.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';img.style.opacity='.2';}
+      else img.style.opacity='.2';
       const lbl=document.createElement('div');lbl.style.cssText='font-size:8px;text-align:center;color:var(--gray);line-height:1.2;';lbl.textContent=name;
-      cell.append(img,lbl);gmaxGridT.appendChild(cell);
+      cell.append(img,lbl);gmaxGridTQ.appendChild(cell);
     });
-    card.appendChild(gmaxGridT);
+    card.appendChild(gmaxGridTQ);
 
-    // Species check panel
-    const curMonT=team[currentSlot]?.mon||null;
-    const selPanelT=document.createElement('div');selPanelT.style.cssText='display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);margin-bottom:12px;min-height:64px;';
-    const selImgT=document.createElement('img');selImgT.style.cssText='width:56px;height:56px;image-rendering:pixelated;';
-    const selInfoT=document.createElement('div');selInfoT.style.flex='1';
-    const selNameT=document.createElement('div');selNameT.style.cssText='font-weight:700;font-size:13px;';
-    const selSubT=document.createElement('div');selSubT.style.cssText='font-size:11px;color:var(--gray);margin-top:2px;';
-    const selBadgeT=document.createElement('span');selBadgeT.style.cssText='font-size:20px;margin-left:auto;flex-shrink:0;';
-    if(curMonT){
-      const sfT=getSpriteFile(curMonT);selImgT.src=PKM_BASE1+sfT+'.png';selImgT.onerror=()=>iconUrlFallback(selImgT,curMonT.id,sfT);
-      selNameT.textContent=curMonT.name;
-      const canGMaxT=!!GMAX_NAMES_T.find(n=>curMonT.name.toLowerCase()===n.toLowerCase()||ALL_MON.find(m=>m.name.toLowerCase()==='gmax-'+curMonT.name.toLowerCase().replace(/[()]/g,'').replace(/ /g,'-')));
-      if(canGMaxT){selSubT.innerHTML='<span style="color:#4caf50;">\u2705 This Pok\u00e9mon can Gigantamax!</span>';selBadgeT.textContent='\u2705';gmaxYesBtnT.style.opacity='1';gmaxYesBtnT.style.pointerEvents='';}
-      else{selSubT.innerHTML='<span style="color:#e57373;">\u274c This Pok\u00e9mon cannot carry the GMax Factor.</span> It can still Dynamax normally.';selBadgeT.textContent='\u274c';gmaxYesBtnT.style.opacity='.4';gmaxYesBtnT.style.pointerEvents='none';gmaxTQ='No';}
+    // 6. Species check panel (now safe — gmaxYesTQ already declared)
+    const selPanelTQ=document.createElement('div');selPanelTQ.style.cssText='display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);margin-bottom:12px;min-height:64px;';
+    const selImgTQ=document.createElement('img');selImgTQ.style.cssText='width:56px;height:56px;image-rendering:pixelated;';
+    const selInfoTQ=document.createElement('div');selInfoTQ.style.flex='1';
+    const selNameTQ=document.createElement('div');selNameTQ.style.cssText='font-weight:700;font-size:13px;';
+    const selSubTQ=document.createElement('div');selSubTQ.style.cssText='font-size:11px;color:var(--gray);margin-top:2px;';
+    const selBadgeTQ=document.createElement('span');selBadgeTQ.style.cssText='font-size:20px;margin-left:auto;flex-shrink:0;';
+    if(curMonTQ){
+      const sf=getSpriteFile(curMonTQ);selImgTQ.src=PKM_BASE1+sf+'.png';selImgTQ.onerror=()=>iconUrlFallback(selImgTQ,curMonTQ.id,sf);
+      selNameTQ.textContent=curMonTQ.name;
+      if(canGMaxTQ){selSubTQ.innerHTML='<span style="color:#4caf50;">✅ This Pokémon can Gigantamax!</span>';selBadgeTQ.textContent='✅';}
+      else{selSubTQ.innerHTML='<span style="color:#e57373;">❌ Cannot carry GMax Factor.</span> It can still Dynamax normally.';selBadgeTQ.textContent='❌';}
     } else {
-      selImgT.style.opacity='.2';selNameT.textContent='No Pok\u00e9mon selected';selSubT.textContent='Please select a Pok\u00e9mon in Q5 first.';selBadgeT.textContent='\u2753';
+      selImgTQ.style.opacity='.2';selNameTQ.textContent='No Pokémon selected';
+      selSubTQ.textContent='Please select a Pokémon in Q5 first.';selBadgeTQ.textContent='❓';
     }
-    selInfoT.append(selNameT,selSubT);selPanelT.append(selImgT,selInfoT,selBadgeT);
-    card.appendChild(selPanelT);
+    selInfoTQ.append(selNameTQ,selSubTQ);selPanelTQ.append(selImgTQ,selInfoTQ,selBadgeTQ);
+    card.appendChild(selPanelTQ);
 
-    // Yes/No buttons
-    const gmaxHTQ=document.createElement('div');gmaxHTQ.style.cssText='font-size:14px;font-weight:700;margin-bottom:6px;';gmaxHTQ.textContent='Do you want your Pok\u00e9mon to have a GMax Factor?';
+    // 7. Yes/No question
+    const gmaxHTQ=document.createElement('div');gmaxHTQ.style.cssText='font-size:14px;font-weight:700;margin-bottom:6px;';gmaxHTQ.textContent='Do you want your Pokémon to have a GMax Factor?';
     const gmaxSubTQ=document.createElement('div');gmaxSubTQ.className='q-sub';gmaxSubTQ.textContent='Selecting Yes means it will be able to Gigantamax. Selecting No means it will only be able to Dynamax.';
-    let gmaxTQ=null;
     const gmaxRowTQ=document.createElement('div');gmaxRowTQ.className='g-opts';
-    const gmaxYesBtnT=document.createElement('div');gmaxYesBtnT.className='g-btn';gmaxYesBtnT.textContent='\u26a1 Yes \u2014 GMax Factor!';
-    const gmaxNoBtnT=document.createElement('div');gmaxNoBtnT.className='g-btn';gmaxNoBtnT.textContent='No';
-    // Apply species check AFTER buttons created
-    if(curMonT){
-      const canGMaxT2=!!GMAX_NAMES_T.find(n=>{const gname='gmax-'+curMonT.name.toLowerCase().replace(/[()]/g,'').replace(/ /g,'-');return ALL_MON.find(m=>m.name.toLowerCase()===gname);});
-      if(!canGMaxT2){gmaxYesBtnT.style.cssText+='opacity:.4;pointer-events:none;';gmaxTQ='No';}
-    }
-    gmaxYesBtnT.addEventListener('click',()=>{gmaxTQ='Yes';[gmaxYesBtnT,gmaxNoBtnT].forEach(b=>b.className='g-btn');gmaxYesBtnT.className='g-btn sy';});
-    gmaxNoBtnT.addEventListener('click',()=>{gmaxTQ='No';[gmaxYesBtnT,gmaxNoBtnT].forEach(b=>b.className='g-btn');gmaxNoBtnT.className='g-btn sn';});
-    gmaxRowTQ.append(gmaxYesBtnT,gmaxNoBtnT);
+    gmaxRowTQ.append(gmaxYesTQ,gmaxNoTQ);
     card.append(gmaxHTQ,gmaxSubTQ,gmaxRowTQ);
 
-    // Dynamax Level slider
-    const divSepT=document.createElement('div');divSepT.style.cssText='height:1px;background:var(--border);margin:16px 0;';card.appendChild(divSepT);
+    // 8. Dynamax Level slider
+    const divSepTQ=document.createElement('div');divSepTQ.style.cssText='height:1px;background:var(--border);margin:16px 0;';card.appendChild(divSepTQ);
     const dxHTQ=document.createElement('div');dxHTQ.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;';dxHTQ.textContent='Choose your Dynamax Level:';
     const dxSubTQ=document.createElement('div');dxSubTQ.className='q-sub';dxSubTQ.textContent='Pick between a 50% and 100% HP boost';
     const sliderTQ=document.createElement('input');sliderTQ.type='range';sliderTQ.min=0;sliderTQ.max=10;sliderTQ.value=10;sliderTQ.style.cssText='width:100%;accent-color:var(--purple);cursor:pointer;margin-top:8px;';
     const sliderLblTQ=document.createElement('div');sliderLblTQ.style.cssText='display:flex;justify-content:space-between;align-items:center;margin-top:6px;';
     const sliderValTQ=document.createElement('div');sliderValTQ.style.cssText='font-family:"Press Start 2P",monospace;font-size:12px;color:var(--yellow);';
     const sliderDescTQ=document.createElement('div');sliderDescTQ.style.cssText='font-size:12px;color:var(--gray);';
-    const updateSliderTQ=()=>{const v=parseInt(sliderTQ.value);sliderValTQ.textContent='Level '+v;const mult=(1.5+v*0.05).toFixed(2).replace(/\.00$/,'').replace(/0$/,'');sliderDescTQ.textContent=v===0?'1.5\u00d7 HP (50% boost)':mult+'\u00d7 HP ('+Math.round(v*5+50)+'% boost)'+(v===10?' \u2014 Maximum!':'');};
+    const updateSliderTQ=()=>{const v=parseInt(sliderTQ.value);sliderValTQ.textContent='Level '+v;const m=(1.5+v*0.05).toFixed(2).replace(/\.00$/,'').replace(/0$/,'');sliderDescTQ.textContent=v===0?'1.5× HP (50% boost)':m+'× HP ('+(v*5+50)+'% boost)'+(v===10?' — Maximum!':'');};
     sliderTQ.addEventListener('input',updateSliderTQ);updateSliderTQ();
     sliderLblTQ.append(sliderValTQ,sliderDescTQ);card.append(dxHTQ,dxSubTQ,sliderTQ,sliderLblTQ);
-    if(!gmaxTQ)gmaxTQ='No';
-    getV=()=>({value:`GMax Factor: ${gmaxTQ} | Dynamax Level: ${sliderTQ.value}`});
+    if(!gmaxValTQ)gmaxValTQ='No';
+    getV=()=>({value:'GMax Factor: '+gmaxValTQ+' | Dynamax Level: '+sliderTQ.value});
 
 }else if(step===14){
     addT(card,'Which Tera Type do you want your Pokemon to have?');
@@ -7097,13 +7116,13 @@ function initPkmRoulette(){
     spinBody.append(spinName,spinSpec,spinTypes,spinMeta);spinCard.append(spinSprWrap,spinBody);
     const rollBtnPool=document.createElement('button');rollBtnPool.type='button';
     rollBtnPool.style.cssText='width:220px;padding:10px 14px;border-radius:10px;border:2px solid #4db6ac;background:linear-gradient(135deg,rgba(77,182,172,.1),rgba(77,182,172,.03));color:#4db6ac;font-family:"Press Start 2P",monospace;font-size:9px;cursor:pointer;transition:all .2s;';
-    rollBtnPool.textContent='\U0001F3B2 Pok\u00e9mon Pool';
+    rollBtnPool.textContent='🎲 Pokémon Pool';
     const rollBtnParty=document.createElement('button');rollBtnParty.type='button';
     rollBtnParty.style.cssText='width:220px;padding:10px 14px;border-radius:10px;border:2px solid #f0c600;background:linear-gradient(135deg,rgba(240,198,0,.1),rgba(240,198,0,.03));color:#f0c600;font-family:"Press Start 2P",monospace;font-size:9px;cursor:pointer;transition:all .2s;';
-    rollBtnParty.textContent='\U0001F3B2 Party Randomizer';
+    rollBtnParty.textContent='🎲 Party Randomizer';
     const rollBtnRow=document.createElement('div');rollBtnRow.style.cssText='display:flex;gap:8px;flex-wrap:wrap;justify-content:center;';
     rollBtnRow.append(rollBtnPool,rollBtnParty);
-    function doRoll(pool,btnA,btnB,lbl){
+    function doRoll(pool,btnA,btnB,lbl,showSprites){
       if(rolling)return;if(!pool.length){showToast('No Pokemon available!',true);return;}
       rolling=true;if(btnA){btnA.disabled=true;btnA.textContent='Rolling...';}if(btnB)btnB.disabled=true;
       spinCard.style.display='flex';spinMeta.innerHTML='';spinTypes.innerHTML='';
@@ -7112,7 +7131,7 @@ function initPkmRoulette(){
       let frame=0;const total=22;
       const interval=setInterval(()=>{
         const rnd=pool[Math.floor(Math.random()*pool.length)];
-        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.filter='brightness(0)';spinSpr.style.opacity='0.9';
+        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.filter=showSprites?'':'brightness(0)';spinSpr.style.opacity='0.9';
         frame++;
         if(frame>=total){
           clearInterval(interval);
@@ -7137,8 +7156,8 @@ function initPkmRoulette(){
       },75);
     }
     const getClaimedPool=()=>(hofData?.pokemon||[]).filter(p=>p.claimed===true);
-    rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBtnParty,'\U0001F3B2 Pok\u00e9mon Pool'));
-    rollBtnParty.addEventListener('click',()=>doRoll(getClaimedPool(),rollBtnParty,rollBtnPool,'\U0001F3B2 Party Randomizer'));
+    rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBtnParty,'🎲 Pokémon Pool'));
+    rollBtnParty.addEventListener('click',()=>doRoll(getClaimedPool(),rollBtnParty,rollBtnPool,'🎲 Party Randomizer',true));
     window.triggerRouletteRoll = function(){
       if(!hofData){loadData().then(()=>window.triggerRouletteRoll());return;}
       if(!open){
@@ -7151,7 +7170,7 @@ function initPkmRoulette(){
         if(!pool.length) return;
         panel.scrollIntoView({behavior:'smooth',block:'start'});
         // Find the roll button in the grid
-        if(typeof doRoll==='function')doRoll(getRollPool(),rollBtnPool,rollBtnParty,'\U0001F3B2 Pok\u00e9mon Pool');
+        if(typeof doRoll==='function')doRoll(getRollPool(),rollBtnPool,rollBtnParty,'🎲 Pokémon Pool');
       },200);
     };
 
