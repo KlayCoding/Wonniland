@@ -6785,7 +6785,7 @@ function initPkmRoulette(){
 
   function getUnlocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true);}
   function getLocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===false);}
-  function getRollPool(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true&&p.claimed===false);}
+  function getRollPool(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true&&p.claimed!==true);}
 
   // ── Gewichteter Randomizer: jeder Owner bekommt gleiche Gesamtchance ────────
   function weightedRoll(pool){
@@ -6874,7 +6874,8 @@ function initPkmRoulette(){
         }
       },75);
     });
-    rouletteSec.append(spinCard,rollBtn);grid.appendChild(rouletteSec);
+    const rollDesc=document.createElement('div');rollDesc.style.cssText='font-size:10px;color:#555;text-align:center;max-width:280px;line-height:1.5;';rollDesc.textContent="The Randomizer will pick one of the Pok\u00e9mon you haven't claimed yet.";
+    rouletteSec.append(spinCard,rollBtn,rollDesc);grid.appendChild(rouletteSec);
 
 
     // ── Section 2: Pokémon Pool (roll candidates) ─────────────────────────
@@ -6884,8 +6885,9 @@ function initPkmRoulette(){
     const lCount=document.createElement('div');lCount.style.cssText='font-size:10px;color:#555;white-space:nowrap;';lCount.textContent=`(${locked.length})`;
     const lLine=document.createElement('div');lLine.style.cssText='flex:1;height:1px;background:rgba(77,182,172,.2);';
     lockHdr.append(lTitle,lCount,lLine);lockSec.appendChild(lockHdr);
+    const pkDesc=document.createElement('div');pkDesc.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';pkDesc.textContent="All the Pok\u00e9mon you haven't claimed yet";lockSec.appendChild(pkDesc);
     const lGrid=document.createElement('div');lGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:5px;';
-    locked.forEach(p=>lGrid.appendChild(mkTile(p,false)));
+    locked.forEach(p=>lGrid.appendChild(mkTile(p,true)));
     if(!locked.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='All Pokémon unlocked! 🎉';lGrid.appendChild(e);}
     lockSec.appendChild(lGrid);grid.appendChild(lockSec);
 
@@ -6896,8 +6898,9 @@ function initPkmRoulette(){
     const tCount=document.createElement('div');tCount.style.cssText='font-size:10px;color:#555;white-space:nowrap;';tCount.textContent=`(${unlocked.length})`;
     const tLine=document.createElement('div');tLine.style.cssText='flex:1;height:1px;background:rgba(255,255,255,.06);';
     teamHdr.append(tTitle,tCount,tLine);teamSec.appendChild(teamHdr);
-    const tGrid=document.createElement('div');tGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:7px;margin-bottom:6px;';
-    unlocked.forEach(p=>tGrid.appendChild(mkTile(p,true)));
+    const tGrid=document.createElement('div');tGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:7px;margin-bottom:6px;';
+    const tmDesc=document.createElement('div');tmDesc.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';tmDesc.textContent="All the Pok\u00e9mon which are available to you and have been claimed";teamSec.appendChild(tmDesc);
+    unlocked.forEach(p=>tGrid.appendChild(mkTile(p,false)));
     if(!unlocked.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='No Pokemon claimed yet.';tGrid.appendChild(e);}
     teamSec.appendChild(tGrid);grid.appendChild(teamSec);
 
@@ -6931,7 +6934,7 @@ function initPkmRoulette(){
       const oSpr=document.createElement('img');oSpr.src=TRAINER_BASE_R+(p.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';oSpr.style.cssText='width:13px;height:13px;image-rendering:pixelated;';oSpr.onerror=()=>oSpr.style.display='none';
       oRow.append(oSpr,document.createTextNode(p.owner_name||''));tile.appendChild(oRow);
       // Evolution
-      const evoEl=document.createElement('div');evoEl.style.cssText='font-size:10px;';evoEl.textContent=p.evolution==='Allowed'?'\uD83D\uDD04':'\uD83D\uDEAB';evoEl.title=p.evolution==='Allowed'?'Evolution Allowed':'No Evolution';tile.appendChild(evoEl);
+      const evoEl=document.createElement('div');evoEl.style.cssText='font-size:9px;color:'+(p.evolution==='Allowed'?'#4caf50':'#e57373')+';';evoEl.textContent=p.evolution==='Allowed'?'🔄 Evolution Allowed':'🚫 No Evolution';tile.appendChild(evoEl);
       // Info button
       const ib=document.createElement('button');ib.type='button';ib.style.cssText='font-size:7px;padding:2px 6px;border-radius:3px;border:1px solid rgba(77,182,172,.3);background:rgba(77,182,172,.05);color:#4db6ac;cursor:pointer;font-family:"Press Start 2P",monospace;margin-top:2px;';ib.textContent='i Info';ib.addEventListener('click',(e2)=>{e2.stopPropagation();openHofPopup(p);});tile.appendChild(ib);
     }
@@ -7030,7 +7033,8 @@ function initPkmHofBrowser(){
         }
       },75);
     });
-    rollSec.append(spinCard,rollBtn);grid.appendChild(rollSec);
+    const hofRollDesc=document.createElement('div');hofRollDesc.style.cssText='font-size:10px;color:#555;text-align:center;max-width:280px;line-height:1.5;';hofRollDesc.textContent="The Randomizer will pick one of the Pok\u00e9mon you have already claimed. It's a Randomizer for your Pok\u00e9mon Party.";
+    rollSec.append(spinCard,rollBtn,hofRollDesc);grid.appendChild(rollSec);
 
     // ── Section 2: Team Pool (claimed=true) ─────────────────────────────────
     const teamSec=document.createElement('div');teamSec.style.cssText='padding:14px;';
@@ -7039,6 +7043,7 @@ function initPkmHofBrowser(){
     const tCount=document.createElement('div');tCount.style.cssText='font-size:10px;color:#555;white-space:nowrap;';tCount.textContent='('+claimed.length+')';
     const tLine=document.createElement('div');tLine.style.cssText='flex:1;height:1px;background:rgba(240,198,0,.2);';
     tHdr.append(tTitle,tCount,tLine);teamSec.appendChild(tHdr);
+    const tmDesc=document.createElement('div');tmDesc.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';tmDesc.textContent="All the Pok\u00e9mon which are available to you and have been claimed";teamSec.appendChild(tmDesc);
     const tGrid=document.createElement('div');tGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px;';
     claimed.forEach(p=>tGrid.appendChild(mkHofTile(p,false)));
     if(!claimed.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='No claimed Pokemon yet.';tGrid.appendChild(e);}
@@ -7051,7 +7056,8 @@ function initPkmHofBrowser(){
     const aCount=document.createElement('div');aCount.style.cssText='font-size:10px;color:#444;white-space:nowrap;';aCount.textContent='('+unclaimed.length+')';
     const aLine=document.createElement('div');aLine.style.cssText='flex:1;height:1px;background:rgba(255,255,255,.06);';
     aHdr.append(aTitle,aCount,aLine);allSec.appendChild(aHdr);
-    const aGrid=document.createElement('div');aGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:5px;';
+    const aDescEl=document.createElement('div');aDescEl.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';aDescEl.textContent="All the Pok\u00e9mon which the community has created";allSec.appendChild(aDescEl);
+    const aGrid=document.createElement('div');aGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px;';
     unclaimed.forEach(p=>aGrid.appendChild(mkHofTile(p,true)));
     if(!unclaimed.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='All Pokemon claimed!';aGrid.appendChild(e);}
     allSec.appendChild(aGrid);grid.appendChild(allSec);
@@ -7077,7 +7083,7 @@ function initPkmHofBrowser(){
       const oRow=document.createElement('div');oRow.style.cssText='display:flex;align-items:center;gap:3px;font-size:8px;color:#555;';
       const oSpr=document.createElement('img');oSpr.src=TRAINER_BASE_HOF+(p.owner_sprite||'brendan').toLowerCase()+'.png';oSpr.style.cssText='width:13px;height:13px;image-rendering:pixelated;';oSpr.onerror=()=>oSpr.style.display='none';
       oRow.append(oSpr,document.createTextNode(p.owner_name||''));tile.appendChild(oRow);
-      const evoEl=document.createElement('div');evoEl.style.cssText='font-size:10px;';evoEl.textContent=p.evolution==='Allowed'?'\uD83D\uDD04':'\uD83D\uDEAB';tile.appendChild(evoEl);
+      const evoEl=document.createElement('div');evoEl.style.cssText='font-size:9px;color:'+(p.evolution==='Allowed'?'#4caf50':'#e57373')+';';evoEl.textContent=p.evolution==='Allowed'?'\uD83D\uDD04 Evolution Allowed':'\uD83D\uDEAB No Evolution';tile.appendChild(evoEl);
       const ib=document.createElement('button');ib.type='button';ib.style.cssText='font-size:7px;padding:2px 5px;border-radius:3px;border:1px solid rgba(240,198,0,.3);background:rgba(240,198,0,.05);color:#f0c600;cursor:pointer;font-family:"Press Start 2P",monospace;margin-top:2px;';ib.textContent='i Info';ib.addEventListener('click',(e2)=>{e2.stopPropagation();openPkmHofPopup(p,mon);});tile.appendChild(ib);
       tile.addEventListener('click',()=>openPkmHofPopup(p,mon));
     }
