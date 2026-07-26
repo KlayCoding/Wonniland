@@ -551,6 +551,24 @@
 </header>
 
 <!-- ── Pokédex Browser ──────────────────────────────────────────────────── -->
+  <!-- Twitch Integration Panel -->
+  <div id="twitch-top-panel" style="margin-bottom:12px;background:#111827;border:1px solid rgba(145,71,255,.25);border-radius:14px;overflow:hidden;">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="font-size:15px;">🟣</span>
+        <span style="font-family:'Press Start 2P',monospace;font-size:8px;color:#9146ff;">TWITCH CHAT</span>
+        <div id="twitch-status-dot" style="width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0;"></div>
+        <span id="twitch-status-text" style="font-size:10px;color:#555;">Disconnected</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="font-size:10px;color:#555;">Channel:</span>
+        <input id="twitch-channel-input" value="wonni" style="background:#0d1117;border:1px solid rgba(145,71,255,.3);border-radius:6px;color:#e8eaf6;font-size:12px;padding:4px 8px;outline:none;width:90px;"/>
+        <button id="twitch-connect-btn" style="padding:5px 12px;border-radius:6px;border:1px solid rgba(145,71,255,.5);background:rgba(145,71,255,.15);color:#9146ff;font-size:10px;font-family:'Press Start 2P',monospace;cursor:pointer;">CONNECT</button>
+      </div>
+    </div>
+    <div id="twitch-log" style="padding:4px 16px 8px;font-size:10px;color:#555;font-family:monospace;display:none;border-top:1px solid rgba(145,71,255,.1);min-height:0;max-height:80px;overflow-y:auto;"></div>
+  </div>
+
 <div id="dex-browser">
   <button id="dex-browser-btn">📖 POKÉDEX BROWSER &nbsp;▼</button>
   <div id="dex-panel">
@@ -590,23 +608,6 @@
       <button id="pkm-roulette-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">X</button>
     </div>
     <div id="pkm-roulette-grid" style="display:flex;flex-direction:column;max-height:70vh;overflow-y:auto;"></div>
-    <!-- Twitch Integration -->
-    <div id="twitch-integration" style="border-top:1px solid rgba(145,71,255,.2);background:rgba(145,71,255,.04);padding:12px 16px;">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-        <div style="display:flex;align-items:center;gap:8px;">
-          <span style="font-size:16px;">🟣</span>
-          <span style="font-family:'Press Start 2P',monospace;font-size:8px;color:#9146ff;">TWITCH CHAT</span>
-          <div id="twitch-status-dot" style="width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0;"></div>
-          <span id="twitch-status-text" style="font-size:10px;color:#555;">Disconnected</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <span style="font-size:10px;color:#555;">Channel:</span>
-          <input id="twitch-channel-input" value="wonni" style="background:#0d1117;border:1px solid rgba(145,71,255,.3);border-radius:6px;color:#e8eaf6;font-size:12px;padding:4px 8px;outline:none;width:100px;"/>
-          <button id="twitch-connect-btn" style="padding:5px 12px;border-radius:6px;border:1px solid rgba(145,71,255,.5);background:rgba(145,71,255,.15);color:#9146ff;font-size:10px;font-family:'Press Start 2P',monospace;cursor:pointer;transition:all .2s;">CONNECT</button>
-        </div>
-      </div>
-      <div id="twitch-log" style="margin-top:8px;font-size:10px;color:#555;font-family:monospace;min-height:16px;display:none;"></div>
-    </div>
   </div>
 </div>
 
@@ -1831,7 +1832,7 @@ function makeAC(ph,list){
   const fpanel=document.createElement('div');fpanel.style.cssText='max-height:0;overflow:hidden;transition:max-height .35s ease;';
   const fpInner=document.createElement('div');fpInner.style.cssText='padding:8px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:8px;margin-bottom:8px;display:flex;flex-direction:column;gap:8px;';
   let fpOpen=false;
-  fpToggle.addEventListener('click',()=>{fpOpen=!fpOpen;fpanel.style.maxHeight=fpOpen?'350px':'0';fpToggle.style.borderColor=fpOpen?'var(--pl)':'var(--border)';});
+  // fpToggle click handler defined below with fpInner
 
   // Gen/form filter
   const gLbl=document.createElement('div');gLbl.style.cssText='font-size:8px;font-family:"Press Start 2P",monospace;color:var(--gray);';gLbl.textContent='FILTER';
@@ -4708,9 +4709,28 @@ function makeNavBar(opts={}) {
       const p=document.createElement('div');p.style.cssText='font-size:12px;color:var(--gray);margin-bottom:20px;line-height:1.5;';p.textContent='Would you like to keep your current progress or start fresh?';
       const btnRow=document.createElement('div');btnRow.style.cssText='display:flex;flex-direction:column;gap:8px;';
       const resumeB=document.createElement('button');resumeB.type='button';resumeB.style.cssText='padding:10px;border-radius:8px;border:none;background:#4caf50;color:#000;font-weight:700;cursor:pointer;font-size:12px;';resumeB.textContent='\u{1F4BE} Keep Progress (Resume later)';
-      resumeB.addEventListener('click',()=>{ov.remove();goBackToMenu();});
+      resumeB.addEventListener('click',()=>{
+        // Save current progress before leaving
+        if(currentMode==='pokemon'&&typeof lsSave==='function') lsSave();
+        else if(currentMode==='trainer'&&typeof lsSave==='function') lsSave();
+        ov.remove();goBackToMenu();
+      });
       const resetB=document.createElement('button');resetB.type='button';resetB.style.cssText='padding:10px;border-radius:8px;border:1px solid #e57373;background:rgba(229,115,115,.1);color:#e57373;font-weight:700;cursor:pointer;font-size:12px;';resetB.textContent='\u{1F5D1} Reset & Start Over';
-      resetB.addEventListener('click',()=>{ov.remove();if(currentMode==='pokemon'){lsClearPkm();step=0;Object.keys(ans).forEach(k=>delete ans[k]);}else if(typeof clearTrainerDraft!=='undefined'){clearTrainerDraft();team=[];currentSlot=0;viewingSlot=-1;step=0;}goBackToMenu();});
+      resetB.addEventListener('click',()=>{
+        ov.remove();
+        if(currentMode==='pokemon'){
+          lsClearPkm();step=0;Object.keys(ans).forEach(k=>delete ans[k]);
+          launchMode('pokemon');
+        } else {
+          if(typeof clearTrainerDraft!=='undefined') clearTrainerDraft();
+          if(typeof team!=='undefined'){team=[];currentSlot=0;viewingSlot=-1;}step=0;
+          if(typeof trainerAns!=='undefined')trainerAns=[];
+          if(typeof trainerPhase!=='undefined')trainerPhase='trainer';
+          Object.keys(ans).forEach(k=>delete ans[k]);
+          // Use launchMode to properly re-initialize trainer creation
+          launchMode('trainer');
+        }
+      });
       const cancelB=document.createElement('button');cancelB.type='button';cancelB.style.cssText='padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--gray);cursor:pointer;font-size:11px;';cancelB.textContent='\u2190 Cancel (stay here)';
       cancelB.addEventListener('click',()=>ov.remove());
       btnRow.append(resumeB,resetB,cancelB);bx.append(h,p,btnRow);ov.appendChild(bx);document.body.appendChild(ov);
@@ -5012,10 +5032,15 @@ function renderTeamBar() {
   });
   bar.append(lbl, slots, resetBtn);
 
-  // Insert after header, before progress
-  const header = document.querySelector('header');
-  if(header && header.nextSibling) {
-    header.parentNode.insertBefore(bar, header.nextSibling);
+  // Insert inside trainer card panel (bottom section)
+  const tcPanel=document.getElementById('trainer-card-panel');
+  if(tcPanel){
+    const existBar=tcPanel.querySelector('.team-bar');if(existBar)existBar.remove();
+    tcPanel.appendChild(bar);
+  } else {
+    // fallback
+    const header=document.querySelector('header');
+    if(header&&header.nextSibling) header.parentNode.insertBefore(bar,header.nextSibling);
   }
 }
 
@@ -5257,8 +5282,8 @@ function renderTrainerQ() {
       });
       cell.dataset.sprite=name; grid.appendChild(cell);
     });
-    card.appendChild(grid);
-    const q2row=document.createElement('div'); q2row.style.cssText='display:flex;gap:8px;margin-top:10px;';
+    // Buttons ABOVE grid
+    const q2row=document.createElement('div'); q2row.style.cssText='display:flex;gap:8px;margin-bottom:10px;';
     const q2del=document.createElement('button'); q2del.type='button'; q2del.className='del-btn'; q2del.textContent='✕ Clear Selection';
     q2del.addEventListener('click',()=>{
       selSprite=null;
@@ -5271,6 +5296,7 @@ function renderTrainerQ() {
       if(cells.length) cells[Math.floor(Math.random()*cells.length)].click();
     });
     q2row.append(q2del,q2rand); card.appendChild(q2row);
+    card.appendChild(grid);
     getV=()=>selSprite?{value:selSprite}:null;
 
   // ── TQ3: Battle Format ─────────────────────────────────────────────────────
@@ -7139,79 +7165,8 @@ function initPkmHofBrowser(){
     countEl.textContent=claimed.length+' claimed';
     grid.innerHTML='';
 
-    // ── Section 1: Team Randomizer ──────────────────────────────────────────
-    const rollSec=document.createElement('div');rollSec.style.cssText='padding:16px;border-bottom:2px solid rgba(240,198,0,.15);display:flex;flex-direction:column;align-items:center;gap:12px;';
-    // Pre-sized spin card
-    const spinCard=document.createElement('div');spinCard.style.cssText='width:220px;min-height:280px;border-radius:14px;overflow:hidden;border:2px solid rgba(240,198,0,.3);background:#0d1117;display:none;flex-direction:column;align-items:center;';
-    const spinSprWrap=document.createElement('div');spinSprWrap.style.cssText='width:100%;display:flex;justify-content:center;padding:14px 12px 6px;background:rgba(240,198,0,.04);';
-    const spinSpr=document.createElement('img');spinSpr.style.cssText='width:80px;height:80px;image-rendering:pixelated;';spinSprWrap.appendChild(spinSpr);
-    const spinBody=document.createElement('div');spinBody.style.cssText='width:100%;padding:8px 12px 10px;display:flex;flex-direction:column;gap:3px;';
-    const spinName=document.createElement('div');spinName.style.cssText='font-size:15px;font-weight:900;text-align:center;';
-    const spinSpec=document.createElement('div');spinSpec.style.cssText='font-size:10px;color:var(--gray);text-align:center;';
-    const spinTypes=document.createElement('div');spinTypes.style.cssText='display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin:3px 0;';
-    const spinMeta=document.createElement('div');spinMeta.style.cssText='display:flex;flex-direction:column;gap:3px;margin-top:2px;';
-    spinBody.append(spinName,spinSpec,spinTypes,spinMeta);spinCard.append(spinSprWrap,spinBody);
-    // Roll button
-    const rollBtn=document.createElement('button');rollBtn.type='button';
-    rollBtn.style.cssText='width:220px;padding:12px 16px;border-radius:10px;border:2px solid #f0c600;background:linear-gradient(135deg,rgba(240,198,0,.1),rgba(240,198,0,.03));color:#f0c600;font-family:"Press Start 2P",monospace;font-size:10px;cursor:pointer;transition:all .2s;';
-    rollBtn.textContent='\uD83C\uDFB2 ROLL TEAM RANDOMIZER';
-    rollBtn.addEventListener('mouseenter',()=>{if(!rolling)rollBtn.style.background='linear-gradient(135deg,rgba(240,198,0,.22),rgba(240,198,0,.08))';});
-    rollBtn.addEventListener('mouseleave',()=>{if(!rolling)rollBtn.style.background='linear-gradient(135deg,rgba(240,198,0,.1),rgba(240,198,0,.03))';});
-    // Global trigger for Twitch integration
-    window.triggerHofRoll = function(requestedBy){
-      if(!hofData){loadData().then(()=>window.triggerHofRoll(requestedBy));return;}
-      if(!open){
-        open=true;panel.style.display='block';
-        btn.textContent='\u2B50 POK\u00c9MON HALL OF FAME  \u25b2';
-        renderAll();
-      }
-      setTimeout(()=>{
-        const pool=getClaimed();
-        if(!pool.length) return;
-        panel.scrollIntoView({behavior:'smooth',block:'start'});
-        const rb=[...grid.querySelectorAll('button')].find(b=>b.textContent.includes('ROLL'));
-        if(rb&&!rb.disabled) rb.click();
-      },200);
-    };
-    // Global reload for Twitch !reload command
-    window.reloadHofData = function(){
-      hofData=null;loadData();
-    };
-    rollBtn.addEventListener('click',()=>{
-      if(rolling)return;const pool=getClaimed();
-      if(!pool.length){showToast('No claimed Pokemon!',true);return;}
-      rolling=true;rollBtn.disabled=true;rollBtn.textContent='Rolling...';
-      spinCard.style.display='flex';spinMeta.innerHTML='';spinTypes.innerHTML='';
-      spinCard.querySelector('.spin-info-btn')?.remove();
-      spinName.textContent='???';spinName.style.color='#555';spinSpec.textContent='';
-      let frame=0;const total=22;
-      const interval=setInterval(()=>{
-        const rnd=pool[Math.floor(Math.random()*pool.length)];
-        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.filter='brightness(0)';spinSpr.style.opacity='0.9';
-        frame++;
-        if(frame>=total){
-          clearInterval(interval);
-          const winner=weightedRoll(pool);
-          setTimeout(()=>{
-            const wmon=window.MON_MAP?.get(winner.species?.toLowerCase())||ALL_MON.find(m=>m.name.toLowerCase()===winner.species?.toLowerCase());
-            spinSpr.style.filter='';spinSpr.style.opacity='1';pkmSpriteWithFallback(spinSpr,winner,winner.shiny);
-            spinName.textContent=(winner.shiny?'\u2728 ':'')+winner.nickname;spinName.style.color='#f0c600';
-            spinSpec.textContent=winner.species;spinTypes.innerHTML='';spinMeta.innerHTML='';
-            if(wmon){spinTypes.appendChild(tb(wmon.t1));if(wmon.t2)spinTypes.appendChild(tb(wmon.t2));}
-            [['\uD83D\uDDA5 '+(winner.location||''),'#4db6ac'],['\uD83D\uDC64 '+(winner.owner_name||''),'#8892a4'],[winner.evolution==='Allowed'?'\uD83D\uDD04 Evolution Allowed':'\uD83D\uDEAB No Evolution',winner.evolution==='Allowed'?'#4caf50':'#e57373']].filter(([v])=>v&&!v.endsWith(' ')).forEach(([v,col])=>{const r2=document.createElement('div');r2.style.cssText='font-size:10px;color:'+col+';text-align:center;';r2.textContent=v;spinMeta.appendChild(r2);});
-            const ib=document.createElement('button');ib.type='button';ib.className='spin-info-btn';
-            ib.style.cssText='width:100%;padding:7px;font-size:8px;font-family:"Press Start 2P",monospace;border:none;border-top:1px solid rgba(240,198,0,.2);background:rgba(240,198,0,.05);color:#f0c600;cursor:pointer;';
-            ib.textContent='Info';ib.addEventListener('click',()=>openPkmHofPopup(winner,wmon));spinCard.appendChild(ib);
-            grid.querySelectorAll('[data-pkm-id]').forEach(t=>t.style.boxShadow='');
-            const wt=grid.querySelector('[data-pkm-id="'+winner.id+'"]');
-            if(wt){wt.style.boxShadow='0 0 18px #f0c60088';wt.scrollIntoView({behavior:'smooth',block:'nearest'});}
-            rolling=false;rollBtn.disabled=false;rollBtn.textContent='\uD83C\uDFB2 ROLL AGAIN';
-          },300);
-        }
-      },75);
-    });
-    const hofRollDesc=document.createElement('div');hofRollDesc.style.cssText='font-size:10px;color:#555;text-align:center;max-width:280px;line-height:1.5;';hofRollDesc.textContent="The Randomizer will pick one of the Pok\u00e9mon you have already claimed. It's a Randomizer for your Pok\u00e9mon Party.";
-    rollSec.append(spinCard,rollBtn,hofRollDesc);grid.appendChild(rollSec);
+    // Roll section removed — !teamroll via Twitch
+
 
     // ── Section 2: Team Pool (claimed=true) ─────────────────────────────────
     const teamSec=document.createElement('div');teamSec.style.cssText='padding:14px;';
