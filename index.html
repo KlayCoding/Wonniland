@@ -1516,7 +1516,7 @@ function updPokemonCard(){
     const resetBtn=document.createElement('button');resetBtn.type='button';
     resetBtn.style.cssText='font-size:8px;padding:6px 10px;border-radius:7px;border:1px solid rgba(229,115,115,.3);background:rgba(229,115,115,.06);color:#e57373;cursor:pointer;font-family:"Press Start 2P",monospace;transition:all .2s;';
     resetBtn.textContent='🗑 Reset';resetBtn.title='Reset all saved data';
-    resetBtn.addEventListener('click',()=>{if(confirm('Reset all saved data? This cannot be undone.')){lsClearPkm();localStorage.removeItem(LS_FAV_KEY);showToast('✓ All data cleared');}});
+    resetBtn.addEventListener('click',()=>{if(confirm('Reset all saved data? This cannot be undone.')){lsClearPkm();localStorage.removeItem(LS_FAV_KEY);Object.keys(ans).forEach(k=>delete ans[k]);step=0;renderQ();showToast('✓ All data cleared — back to Q1');}});
     actionRow.append(resetBtn);card.appendChild(actionRow);
   }
   // ── Progress footer ──────────────────────────────────────────────────────────
@@ -2733,6 +2733,7 @@ function showPokedex(mon) {
         grpCur=next;
       }
 
+      const alreadyRenderedAsTarget=new Set();
       grpStages.forEach((stage,si)=>{
         // Render each source node with its evolutions branching to the right
         stage.forEach(source=>{
@@ -2741,9 +2742,13 @@ function showPokedex(mon) {
             const target=byName[(evo.name||'').toLowerCase()];
             return target&&!isAltForm(target);
           });
+          // Track all rendered targets to avoid duplicates in final stage
+          evos.forEach(evo=>alreadyRenderedAsTarget.add((evo.name||'').toLowerCase()));
           // Also get alt forms (Mega/GMax) for this member
           const altForms=(source.alternate_forms||[]).map(n=>byName[n.toLowerCase()]).filter(Boolean).filter(isAltForm);
 
+          // Skip final-stage standalone nodes that were already shown as evo targets
+          if(!evos.length&&si===grpStages.length-1&&alreadyRenderedAsTarget.has(source.name.toLowerCase())) return;
           if(!evos.length&&si===grpStages.length-1){
             // Final stage: just show the node (+ alts below)
             const nodeWrap=document.createElement('div');nodeWrap.style.cssText='display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:12px;';
@@ -3448,10 +3453,10 @@ function renderQ(){
     const gmaxTitleRow=document.createElement('div'); gmaxTitleRow.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:6px;';
     const gmaxTitleEl=document.createElement('div'); gmaxTitleEl.className='q-title'; gmaxTitleEl.textContent='GMax Factor & Dynamax Level';
     const gmaxInfoBtn=document.createElement('button'); gmaxInfoBtn.type='button'; gmaxInfoBtn.className='info-btn'; gmaxInfoBtn.textContent='ℹ What is this?';
-    makeInfoPopup(gmaxInfoBtn, 'Dynamax & Gigantamax', `<b>Dynamax</b> temporarily grows your Pokémon to giant size in battle. Every Pokémon can Dynamax.<br><br><b>Gigantamax (GMax)</b> is a special form only for specific species (e.g. GMax-Venusaur). It changes appearance and gives a unique G-Max Move.<br><br><b>Dynamax Level (0-10)</b> determines the HP bonus. Level 10 = max bonus.`);
+    makeInfoPopup(gmaxInfoBtn, 'Dynamax & Gigantamax', `Dynamax/Gigantamax give the Pokémon a HP &amp; size boost and access to strong DMax Moves.<br><br>Pokémon with a <b>GMax Factor</b> can Gigantamax, which changes their appearance, and grants access to an even stronger GMax Signature Move.<br><br><b>The Dynamax Level</b> determines the HP Multiplier, starting from Level 0 (50% HP boost) to Level 10 (100% HP boost).`);
     gmaxTitleRow.append(gmaxTitleEl,gmaxInfoBtn); card.appendChild(gmaxTitleRow);
-    const gmaxH=document.createElement('div'); gmaxH.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; gmaxH.textContent='Does your Pokémon have the GMax Factor?';
-    const gmaxSub=document.createElement('div'); gmaxSub.className='q-sub'; gmaxSub.textContent="Only certain Pokémon species can Gigantamax. If your Pokemon cannot GMax, select No.";
+    const gmaxH=document.createElement('div'); gmaxH.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; gmaxH.textContent='Do you want your Pokémon to have a GMax Factor?';
+    const gmaxSub=document.createElement('div'); gmaxSub.className='q-sub'; gmaxSub.textContent="Selecting Yes means it will be able to Gigantamax. Selecting No means it will only be able to Dynamax and not change its appearance or have access to the GMax Signature Move";
     // GMax icon from DeviantArt (via direct image)
     const gmaxIconWrap=document.createElement('div'); gmaxIconWrap.style.cssText='text-align:center;margin-bottom:12px;';
     const gmaxImg=document.createElement('img');
@@ -3470,7 +3475,7 @@ function renderQ(){
     gmaxIconWrap.appendChild(gmaxImg); card.appendChild(gmaxIconWrap);
     // GMax Pokémon list — derived from ALL_MON where group === 'GMax', sorted by id
     const gmaxNote=document.createElement('div'); gmaxNote.className='q-sub';
-    gmaxNote.textContent='Gigantamaxing changes the appearance and move of your Pokémon. Only these species can GMax:';
+    gmaxNote.textContent='Gigantamaxing changes the appearance of your Pokémon. It also gains a very strong GMax Signature Move. Only these species can GMax:';
     const gmaxMons=ALL_MON.filter(p=>(p.group||p._full?.group)==='GMax').sort((a,b)=>a.id-b.id);
     const gmaxGrid=document.createElement('div'); gmaxGrid.style.cssText='display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;';
     gmaxMons.forEach(p=>{
@@ -3573,12 +3578,18 @@ function renderQ(){
     card.append(gmaxH,gmaxSub,gmaxImg,gmaxRow);
     const div=document.createElement('div'); div.style.cssText='height:1px;background:var(--border);margin:20px 0;'; card.appendChild(div);
     const dxH=document.createElement('div'); dxH.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; dxH.textContent='Choose your Dynamax Level:';
-    const dxSub=document.createElement('div'); dxSub.className='q-sub'; dxSub.textContent='0 = No Dynamaxing · 10 = max Dynamax boost';
+    const dxSub=document.createElement('div'); dxSub.className='q-sub'; dxSub.textContent='Pick between a 50% and 100% HP boost';
     const slider=document.createElement('input'); slider.type='range'; slider.min=0; slider.max=10; slider.value=10; slider.style.cssText='width:100%;accent-color:var(--purple);cursor:pointer;margin-top:8px;';
     const sliderLbl=document.createElement('div'); sliderLbl.style.cssText='display:flex;justify-content:space-between;align-items:center;margin-top:6px;';
     const sliderVal=document.createElement('div'); sliderVal.style.cssText='font-family:"Press Start 2P",monospace;font-size:12px;color:var(--yellow);';
     const sliderDesc=document.createElement('div'); sliderDesc.style.cssText='font-size:12px;color:var(--gray);';
-    function updateSlider(){const v=parseInt(slider.value);sliderVal.textContent=`Level ${v}`;sliderDesc.textContent=v===0?'No Dynamaxing':v<=3?'Low potential':v<=6?'Moderate power':v<=9?'High power':'Max ready 💪';}
+    function updateSlider(){
+    const v=parseInt(slider.value);
+    sliderVal.textContent='Level '+v;
+    const mult=(1.5+v*0.05).toFixed(2).replace(/\.00$/,'').replace(/0$/,'');
+    const pct=Math.round(v*5+50);
+    sliderDesc.textContent=v===0?'1.5× HP (50% boost)':mult+'× HP ('+pct+'% boost)'+( v===10?' — Maximum!':'');
+  }
     slider.addEventListener('input',updateSlider); updateSlider();
     sliderLbl.append(sliderVal,sliderDesc); card.append(dxH,dxSub,slider,sliderLbl);
     getV=()=>gmax?{value:`GMax Factor: ${gmax} | Dynamax Level: ${slider.value}`}:null;
@@ -6655,7 +6666,8 @@ function initTwitchIntegration(){
         const lines=e.data.split(/\r?\n/).filter(l=>l.trim());
         lines.forEach(raw=>{
         if(raw.startsWith('PING')){ws.send('PONG :tmi.twitch.tv');return;}
-        if(raw.includes('PRIVMSG'))console.log('[WS RAW]',raw.slice(0,200));
+        // Log all lines for debugging (remove after fixing)
+        if(!raw.includes(':tmi.twitch.tv 00')&&!raw.includes('CAP *'))console.log('[WS LINE]',raw.slice(0,150));
         if(raw.includes('366')||raw.includes('End of /NAMES')){
           connected=true;
           setStatus('connected','#'+ch+' — ready for '+COMMAND);
