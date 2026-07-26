@@ -586,7 +586,7 @@
     <div id="pkm-roulette-result" style="display:none;padding:16px;border-bottom:1px solid var(--border);"></div>
     <div id="pkm-roulette-header" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(77,182,172,.04);">
       <input id="pkm-roulette-search" placeholder="Search unlocked Pokémon..." autocomplete="off" style="flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;"/>
-      <span id="pkm-roulette-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span>
+      <span id="pkm-roulette-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span><button id="pkm-roulette-refresh" title="Reload pkm_hof.json" style="background:rgba(77,182,172,.1);border:1px solid rgba(77,182,172,.3);border-radius:6px;color:#4db6ac;font-size:12px;padding:3px 8px;cursor:pointer;" onclick="document.dispatchEvent(new CustomEvent('roulette-refresh'))">↻</button>
       <button id="pkm-roulette-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">X</button>
     </div>
     <div id="pkm-roulette-grid" style="display:flex;flex-direction:column;max-height:70vh;overflow-y:auto;"></div>
@@ -6647,7 +6647,7 @@ function initTwitchIntegration(){
             const ok=badges.includes('broadcaster')||badges.includes('moderator');
             console.log('[Twitch] !roll detected, ok='+ok+', badges='+badges);
             if(ok)triggerRoll(user);
-            else addLog('\u{1F6AB} @'+user+' no permission (badges: '+badges+')','#555');
+            else addLog('\uD83D\uDEAB @'+user+' no permission (flags: mod='+flags.mod+', broadcaster='+flags.broadcaster+')','#555');
           }
         }
       };
@@ -6788,7 +6788,11 @@ function initPkmRoulette(){
 
   function getUnlocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===true);}
   function getLocked(){return(hofData?.pokemon||[]).filter(p=>p.unlocked===false);}
-  function getRollPool(){return(hofData?.pokemon||[]).filter(p=>p.claimed!==true);}
+  // Session-claimed: Pokemon rolled this session won't appear again
+  const sessionClaimed=new Set();
+  function getRollPool(){
+    return(hofData?.pokemon||[]).filter(p=>p.claimed!==true&&!sessionClaimed.has(p.id));
+  }
 
   // ── Gewichteter Randomizer: jeder Owner bekommt gleiche Gesamtchance ────────
   function weightedRoll(pool){
@@ -6869,6 +6873,8 @@ function initPkmRoulette(){
             const ib=document.createElement('button');ib.type='button';ib.className='spin-info-btn';
             ib.style.cssText='width:100%;padding:7px;font-size:8px;font-family:"Press Start 2P",monospace;border:none;border-top:1px solid rgba(77,182,172,.2);background:rgba(77,182,172,.06);color:#4db6ac;cursor:pointer;';
             ib.textContent='Info';ib.addEventListener('click',()=>openHofPopup(winner));spinCard.appendChild(ib);
+            // Mark as session-claimed (won't appear in next roll)
+            if(winner.id) sessionClaimed.add(winner.id);
             grid.querySelectorAll('[data-pkm-id]').forEach(t3=>t3.style.boxShadow='');
             const wt=grid.querySelector('[data-pkm-id="'+winner.id+'"]');
             if(wt){wt.style.boxShadow='0 0 18px #4db6ac88';wt.scrollIntoView({behavior:'smooth',block:'nearest'});}
@@ -6910,6 +6916,12 @@ function initPkmRoulette(){
     countEl.textContent=unlocked.length+' unlocked';
   }
   searchEl.addEventListener('input',renderAll);
+  // Refresh button: re-fetch JSON, reset session-claimed, re-render
+  document.addEventListener('roulette-refresh',()=>{
+    hofData=null;sessionClaimed.clear();
+    loadData();
+    countEl.textContent='Refreshing...';
+  });
 
   function mkTile(p,isLocked){
     const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
@@ -7066,6 +7078,12 @@ function initPkmHofBrowser(){
     allSec.appendChild(aGrid);grid.appendChild(allSec);
   }
   searchEl.addEventListener('input',renderAll);
+  // Refresh button: re-fetch JSON, reset session-claimed, re-render
+  document.addEventListener('roulette-refresh',()=>{
+    hofData=null;sessionClaimed.clear();
+    loadData();
+    countEl.textContent='Refreshing...';
+  });
 
   function mkHofTile(p,isLocked){
     const mon=window.MON_MAP?.get(p.species?.toLowerCase())||ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
