@@ -6512,6 +6512,17 @@ function initEncBrowser(){
     if(mon) return {mon, displayName:mon.name};
     const raw=species.replace('SPECIES_','').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
     return {mon:null, displayName:raw};
+  mapSearch.addEventListener('input',()=>{
+    const q=mapSearch.value.trim();
+    if(searchMode==='location'){
+      const ql=q.toLowerCase();
+      mapList.querySelectorAll('.enc-map-item').forEach(item=>{ item.style.display=item.textContent.toLowerCase().includes(ql)?'':'none'; });
+      mapList.querySelectorAll('.enc-map-group-header').forEach(hdr=>{ let next=hdr.nextElementSibling;let any=false; while(next&&next.classList.contains('enc-map-item')){if(next.style.display!=='none')any=true;next=next.nextElementSibling;} hdr.style.display=any?'':'none'; });
+    } else {
+      if(q.length>=2) buildPokemonSearch(q);
+      else{ mapList.innerHTML='<div style="padding:20px;color:var(--gray);font-size:11px;">Type at least 2 letters…</div>'; detail.innerHTML=''; }
+    }
+  });
   }
 }
 // Load Emerald protagonists sprite — use official Brendan artwork
@@ -7508,17 +7519,6 @@ function initTrainerHofBrowser(){
     });
   }
 
-  mapSearch.addEventListener('input',()=>{
-    const q=mapSearch.value.trim();
-    if(searchMode==='location'){
-      const ql=q.toLowerCase();
-      mapList.querySelectorAll('.enc-map-item').forEach(item=>{ item.style.display=item.textContent.toLowerCase().includes(ql)?'':'none'; });
-      mapList.querySelectorAll('.enc-map-group-header').forEach(hdr=>{ let next=hdr.nextElementSibling;let any=false; while(next&&next.classList.contains('enc-map-item')){if(next.style.display!=='none')any=true;next=next.nextElementSibling;} hdr.style.display=any?'':'none'; });
-    } else {
-      if(q.length>=2) buildPokemonSearch(q);
-      else{ mapList.innerHTML='<div style="padding:20px;color:var(--gray);font-size:11px;">Type at least 2 letters…</div>'; detail.innerHTML=''; }
-    }
-  });
 
   function renderDetail(timeEntries){
     detail.innerHTML='';
