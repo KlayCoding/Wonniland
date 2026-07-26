@@ -1447,11 +1447,11 @@ function updPokemonCard(){
   const natCol=natEntry?.up?'var(--white)':null;
   [mkDR('Ability',ability,null,null,5),
    (()=>{
-      if(!heldItem) return null;
-      const itemData=ITEMS.find(it=>it.name===heldItem);
+      if(!itemName) return null;
+      const iItemData=ITEMS.find(it=>it.name===itemName);
       const iEl=document.createElement('div');iEl.style.cssText='display:flex;align-items:center;gap:6px;font-weight:700;color:#f0c600;';
-      if(itemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${itemData.slug}.png`;ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;background:#fff;border-radius:3px;padding:1px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
-      iEl.appendChild(document.createTextNode(heldItem));
+      if(iItemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${iItemData.slug}.png`;ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;background:#fff;border-radius:3px;padding:1px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
+      iEl.appendChild(document.createTextNode(itemName));
       return mkDR('Item',null,null,iEl,10);
    })(),
    (()=>{
@@ -5135,7 +5135,7 @@ function renderTrainerQ() {
     delBtn.addEventListener('click',()=>{inp.value='';prev2.textContent='';ctr.textContent='0 / 7';inp.focus();});
     inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[^a-zA-Z0-9]/g,'');const l=inp.value.length;ctr.textContent=`${l} / 7`;ctr.className='char-ct'+(l>=7?' err':l>=6?' warn':'');prev2.textContent=inp.value||'';});
     inpRow.append(inp,delBtn); card.append(prev2,inpRow,ctr); focEl={focus:()=>inp.focus()};
-    getV=()=>inp.value.trim()?{value:`${inp.value.trim()} (${otG})`,otGender:otG}:null;
+    getV=()=>inp.value.trim()?{value:inp.value.trim(),otGender:otG}:null;
 
   // ── TQ2: Trainer Sprite picker ─────────────────────────────────────────────
   }else if(step===1){
@@ -6655,6 +6655,7 @@ function initTwitchIntegration(){
         const lines=e.data.split(/\r?\n/).filter(l=>l.trim());
         lines.forEach(raw=>{
         if(raw.startsWith('PING')){ws.send('PONG :tmi.twitch.tv');return;}
+        if(raw.includes('PRIVMSG'))console.log('[WS RAW]',raw.slice(0,200));
         if(raw.includes('366')||raw.includes('End of /NAMES')){
           connected=true;
           setStatus('connected','#'+ch+' — ready for '+COMMAND);
@@ -6667,7 +6668,7 @@ function initTwitchIntegration(){
                      (raw.match(/:([^!]+)!/)||[])[1]||'?';
           const msg=(raw.match(/PRIVMSG #\S+ :(.+)/)||[])[1]?.trim()||'';
           // Debug: log every chat message
-          console.log('[Twitch] Chat from @'+user+': "'+msg+'" | badges: '+badges);
+          console.log('[Twitch] MSG from @'+user+': "'+msg+'" badges='+badges+' cmd='+COMMAND+' match='+(msg.toLowerCase().startsWith(COMMAND.toLowerCase())));
           if(msg.toLowerCase().startsWith(COMMAND.toLowerCase())){
             const ok=badges.includes('broadcaster')||badges.includes('moderator');
             console.log('[Twitch] !roll detected, ok='+ok+', badges='+badges);
