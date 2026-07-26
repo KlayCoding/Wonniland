@@ -1086,9 +1086,13 @@ function updTrainerCard(){
   if(currentMode!=='trainer'){panel.innerHTML='';return;}
   // Trainer mode — read trainer-level answers
   const tAns=typeof trainerAns!=='undefined'?trainerAns:ans;
-  const trName=tAns[1]?.value||'';
-  const trGender=tAns[2]?.value||'';
-  const trStyle=tAns[3]?.value||'';
+  const trName=tAns[0]?.value||'';          // Step 0 = OG Trainer name
+  const trBattleFormat=tAns[2]?.value||'';   // Step 2 = Battle format
+  // Derive gender from sprite name
+  const FEMALE_SPRITES=['leaf','may','dawn','lyra','hilda','rosa','serena','selene','gloria','nemona','kris','marnie','iris','skyla','elesa','clair','jasmine','sabrina','misty','wendy','lana','mallow','lillie','nessa','bea','sonia','triss','akari','rei'];
+  const spriteNameForGender=(tAns[1]?.value||'').toLowerCase().replace(/[_\-]/g,'');
+  const trGender=FEMALE_SPRITES.some(f=>spriteNameForGender.includes(f))?'Female':'Male';
+  const trDialogues=tAns[3]?.value||'';
   const trRival=tAns[4]?.value||'';
   const trHome=tAns[5]?.value||'';
   if(!trName){panel.innerHTML='';return;}
@@ -1109,7 +1113,8 @@ function updTrainerCard(){
     spr.style.visibility='hidden';
   }
   const ident=document.createElement('div');ident.style.cssText='display:flex;flex-direction:column;gap:3px;';
-  const nm=document.createElement('div');nm.style.cssText='font-size:15px;font-weight:900;';nm.textContent=trName;
+  const trNameColor=trGender==='Female'?'#f48fb1':'#64b5f6';
+  const nm=document.createElement('div');nm.style.cssText='font-size:15px;font-weight:900;color:'+trNameColor+';';nm.textContent=trName||'Trainer';
   const sub=document.createElement('div');sub.style.cssText='font-size:10px;color:var(--gray);';sub.textContent='Trainer';
   ident.append(nm,sub);hdr.append(spr,ident);
   if(currentMode==='trainer'){
@@ -1125,7 +1130,25 @@ function updTrainerCard(){
 
   const mkR=(l,v)=>{if(!v)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.color='var(--gray)';le.textContent=l;const ve=document.createElement('span');ve.style.fontWeight='700';ve.textContent=v;r.append(le,ve);return r;};
   const det=document.createElement('div');
-  [mkR('Gender',trGender),mkR('Style',trStyle),mkR('Rival',trRival),mkR('Hometown',trHome)].filter(Boolean).forEach(r=>det.appendChild(r));
+    [mkR('Battle Format',trBattleFormat),mkR('Rival',trRival),mkR('Hometown',trHome)].filter(Boolean).forEach(r=>det.appendChild(r));
+  // Dialogues — parse and show each on own line
+  if(trDialogues){
+    const dlgHdr=document.createElement('div');dlgHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;padding:8px 14px 4px;letter-spacing:.5px;';dlgHdr.textContent='DIALOGUES';det.appendChild(dlgHdr);
+    const DLGSEP=/\|/;
+    const parsePhrase=(raw,key)=>{const m=raw.match(new RegExp(key+'[:\\s]*"?([^"|]+)"?'));return m?m[1].trim():'';};
+    const intro=parsePhrase(trDialogues,'Intro')||trDialogues.split('|')[0]?.replace(/Intro:?/i,'').replace(/"/g,'').trim();
+    const defeated=parsePhrase(trDialogues,'Defeated')||trDialogues.split('|')[1]?.replace(/Defeated:?/i,'').replace(/"/g,'').trim();
+    const postmatch=parsePhrase(trDialogues,'Post-Match')||trDialogues.split('|')[2]?.replace(/Post-Match:?/i,'').replace(/"/g,'').trim();
+    [['💬','Intro',intro,'rgba(100,181,246,.06)','#64b5f6'],['😔','Defeated',defeated,'rgba(229,115,115,.04)','#e57373'],['💭','Post-Match',postmatch,'rgba(255,255,255,.03)','#8892a4']].forEach(([ico,lbl,txt,bg,col])=>{
+      if(!txt) return;
+      const el=document.createElement('div');el.style.cssText='padding:5px 14px;border-bottom:1px solid rgba(255,255,255,.04);border-left:2px solid '+col+'44;background:'+bg+';display:flex;gap:6px;align-items:flex-start;';
+      const iEl=document.createElement('span');iEl.style.cssText='font-size:10px;flex-shrink:0;';iEl.textContent=ico;
+      const tEl=document.createElement('div');tEl.style.cssText='flex:1;';
+      const lblEl=document.createElement('div');lblEl.style.cssText='font-size:8px;color:'+col+';font-family:"Press Start 2P",monospace;margin-bottom:2px;';lblEl.textContent=lbl;
+      const txtEl=document.createElement('div');txtEl.style.cssText='font-size:10px;color:#8892a4;font-style:italic;line-height:1.4;';txtEl.textContent=txt;
+      tEl.append(lblEl,txtEl);el.append(iEl,tEl);det.appendChild(el);
+    });
+  }
   if(det.children.length) card.appendChild(det);
 
   // Team mini-grid
@@ -6628,7 +6651,9 @@ function initTwitchIntegration(){
         addLog('WebSocket opened, joining #'+ch,'#f0c600');
       };
       ws.onmessage=(e)=>{
-        const raw=e.data;
+        // Twitch can batch multiple IRC lines — split and handle each
+        const lines=e.data.split(/\r?\n/).filter(l=>l.trim());
+        lines.forEach(raw=>{
         if(raw.startsWith('PING')){ws.send('PONG :tmi.twitch.tv');return;}
         if(raw.includes('366')||raw.includes('End of /NAMES')){
           connected=true;
@@ -6650,6 +6675,7 @@ function initTwitchIntegration(){
             else addLog('\uD83D\uDEAB @'+user+' no permission (flags: mod='+flags.mod+', broadcaster='+flags.broadcaster+')','#555');
           }
         }
+        }); // end lines.forEach
       };
       ws.onerror=(e)=>{addLog('❌ WebSocket error','#e57373');setStatus('error','Connection error');};
       ws.onclose=()=>{
