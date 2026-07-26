@@ -507,6 +507,8 @@
     .info-btn:hover{background:rgba(206,147,216,.1);}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+
+<style>@keyframes loadbar{0%{width:0%;margin-left:0}50%{width:60%;margin-left:20%}100%{width:0%;margin-left:100%}}</style>
 </head>
 <body>
 <div class="panel-backdrop" id="panelBackdrop"></div>
@@ -695,7 +697,6 @@
     <div style="height:100%;background:#CE93D8;animation:loadbar 1.5s ease-in-out infinite;" id="loadBar"></div>
   </div>
 </div>
-<style>@keyframes loadbar{0%{width:0%;margin-left:0}50%{width:60%;margin-left:20%}100%{width:0%;margin-left:100%}}</style>
 
 
 <script>
@@ -7153,45 +7154,7 @@ function initPkmRoulette(){
         if(typeof doRoll==='function')doRoll(getRollPool(),rollBtnPool,rollBtnParty,'\U0001F3B2 Pok\u00e9mon Pool');
       },200);
     };
-    rollBtn.addEventListener('click',()=>{
-      if(rolling)return;
-      const pool=getRollPool();
-      if(!pool.length){showToast('No unclaimed Pokemon in pool!',true);return;}
-      rolling=true;rollBtn.disabled=true;rollBtn.textContent='Rolling...';
-      spinCard.style.display='flex';spinMeta.innerHTML='';spinTypes.innerHTML='';
-      spinCard.querySelector('.spin-info-btn')?.remove();
-      // Show ??? placeholder during spin
-      spinName.textContent='???';spinName.style.color='#555';
-      spinSpec.textContent='';spinTypes.innerHTML='';spinMeta.innerHTML='';
-      let frame=0;const total=22;
-      const interval=setInterval(()=>{
-        const rnd=pool[Math.floor(Math.random()*pool.length)];
-        pkmSpriteWithFallback(spinSpr,rnd,rnd.shiny);spinSpr.style.filter='brightness(0)';spinSpr.style.opacity='0.9';
-        // Only update sprite during animation, keep ??? name
-        frame++;
-        if(frame>=total){
-          clearInterval(interval);
-          const winner=weightedRoll(pool);
-          setTimeout(()=>{
-            const wmon=ALL_MON.find(m=>m.name.toLowerCase()===winner.species?.toLowerCase());
-            spinSpr.style.filter='';spinSpr.style.opacity='1';pkmSpriteWithFallback(spinSpr,winner,winner.shiny);
-            spinName.textContent=(winner.shiny?'\u2728 ':'')+winner.nickname;spinName.style.color='#4db6ac';
-            spinSpec.textContent=winner.species;spinTypes.innerHTML='';spinMeta.innerHTML='';
-            if(wmon){spinTypes.appendChild(tb(wmon.t1));if(wmon.t2)spinTypes.appendChild(tb(wmon.t2));}
-            [['\uD83D\uDDA5 '+winner.location,'#4db6ac'],['\uD83D\uDC64 '+winner.owner_name,'#8892a4'],[winner.evolution==='Allowed'?'\uD83D\uDD04 Evolution Allowed':'\uD83D\uDEAB No Evolution',winner.evolution==='Allowed'?'#4caf50':'#e57373']].filter(([v])=>v&&v!=='\uD83D\uDDA5 null'&&v!=='\uD83D\uDC64 null').forEach(([v,col])=>{const r2=document.createElement('div');r2.style.cssText='font-size:10px;color:'+col+';text-align:center;';r2.textContent=v;spinMeta.appendChild(r2);});
-            const ib=document.createElement('button');ib.type='button';ib.className='spin-info-btn';
-            ib.style.cssText='width:100%;padding:7px;font-size:8px;font-family:"Press Start 2P",monospace;border:none;border-top:1px solid rgba(77,182,172,.2);background:rgba(77,182,172,.06);color:#4db6ac;cursor:pointer;';
-            ib.textContent='Info';ib.addEventListener('click',()=>openHofPopup(winner));spinCard.appendChild(ib);
-            // Mark as session-claimed (won't appear in next roll)
-            if(winner.id) sessionClaimed.add(winner.id);
-            grid.querySelectorAll('[data-pkm-id]').forEach(t3=>t3.style.boxShadow='');
-            const wt=grid.querySelector('[data-pkm-id="'+winner.id+'"]');
-            if(wt){wt.style.boxShadow='0 0 18px #4db6ac88';wt.scrollIntoView({behavior:'smooth',block:'nearest'});}
-            rolling=false;rollBtn.disabled=false;rollBtn.textContent='Roll Again';
-          },300);
-        }
-      },75);
-    });
+
     const rollDesc=document.createElement('div');rollDesc.style.cssText='font-size:10px;color:#555;text-align:center;max-width:280px;line-height:1.5;';rollDesc.textContent='The Randomizer will pick a random Pok\u00e9mon for you';
     rouletteSec.append(spinCard,rollDesc,rollBtnRow);grid.appendChild(rouletteSec);
 
