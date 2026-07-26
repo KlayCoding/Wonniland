@@ -1270,28 +1270,6 @@ function updPokemonCard(){
   const dexN=document.createElement('div');dexN.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#333;position:absolute;top:10px;right:12px;';
   if(mon.id)dexN.textContent='#'+String(mon.id).padStart(4,'0');
   hdr.append(spr,ident,dexN);card.appendChild(hdr);
-  // Edit buttons row below header
-  {
-    const editRow=document.createElement('div');editRow.style.cssText='display:flex;gap:5px;padding:5px 12px 6px;border-bottom:1px solid rgba(255,255,255,.04);flex-wrap:wrap;';
-    const mkEb=(label,pkStep,trStep)=>{const b=document.createElement('button');b.type='button';
-      b.style.cssText='font-size:8px;padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--gray);cursor:pointer;transition:all .15s;';
-      b.textContent='✎ '+label;
-      b.addEventListener('mouseenter',()=>{b.style.borderColor='var(--pl)';b.style.color='var(--pl)';});
-      b.addEventListener('mouseleave',()=>{b.style.borderColor='rgba(255,255,255,.12)';b.style.color='var(--gray)';});
-      b.addEventListener('click',()=>{
-        const stepN=currentMode==='trainer'?(trStep??pkStep):pkStep;
-        step=stepN;
-        if(currentMode==='trainer') renderTrainerQ(); else renderQ();
-      });
-      return b;};
-    if(currentMode==='pokemon'){
-      editRow.append(mkEb('Species',1),mkEb('Nickname',2),mkEb('Shiny',3),mkEb('Nature',4),mkEb('Ability',5),mkEb('Tera',6),mkEb('GMax',7),mkEb('IVs/EVs',8),mkEb('Moves',9),mkEb('Item',10));
-    } else {
-      // Trainer mode: pkStep is unused, trStep is the actual trainer step
-      editRow.append(mkEb('Species',4,4),mkEb('Nickname',5,5),mkEb('Ball',9,9),mkEb('Happiness',10,10),mkEb('Ability',7,7),mkEb('Nature',11,11),mkEb('Shiny',12,12),mkEb('GMax',13,13),mkEb('Tera',14,14),mkEb('Moves',15,15));
-    }
-    card.appendChild(editRow);
-  }
   // ── BST ─────────────────────────────────────────────────────────────────────
   if(bst){
     const bstCol=bst>=600?'#E3350D':bst>=500?'#ff9800':bst>=400?'#f0c600':'#4caf50';
@@ -1438,11 +1416,15 @@ function updPokemonCard(){
     const mid=document.createElement('div');mid.style.cssText='display:flex;align-items:center;gap:6px;flex:1;justify-content:flex-end;';
     if(html){mid.appendChild(html);}
     else{const v=document.createElement('span');v.style.cssText='font-weight:700;text-align:right;color:'+(col||'var(--white)')+';max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';v.textContent=val;mid.appendChild(v);}
-    if(editStep!==undefined&&currentMode==='pokemon'){
+    if(editStep!==undefined){
       const eb=document.createElement('button');eb.type='button';
       eb.style.cssText='font-size:8px;padding:2px 6px;border-radius:4px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--gray);cursor:pointer;flex-shrink:0;transition:all .15s;';
       eb.textContent='✎';eb.title='Edit';
-      eb.addEventListener('click',()=>{step=editStep;renderQ();});
+      eb.addEventListener('click',()=>{
+        const tIdx={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
+        step=currentMode==='trainer'?(tIdx[editStep]??editStep):editStep;
+        if(currentMode==='trainer')renderTrainerQ();else renderQ();
+      });
       eb.addEventListener('mouseenter',()=>{eb.style.borderColor='var(--pl)';eb.style.color='var(--pl)';});
       eb.addEventListener('mouseleave',()=>{eb.style.borderColor='rgba(255,255,255,.12)';eb.style.color='var(--gray)';});
       mid.appendChild(eb);
@@ -5707,7 +5689,7 @@ function renderTrainerQ() {
     const randBtnN2=document.createElement('button'); randBtnN2.type='button'; randBtnN2.className='rand-btn'; randBtnN2.style.marginBottom='10px'; randBtnN2.textContent='🎲 Randomize Nature!';
     card.appendChild(randBtnN2);
     // Nature stat preview panel
-    const selMon2=ans[1]&&ans[1].mon;
+    const _slot11=team[currentSlot]||{}; const selMon2=(_slot11[POKEMON_Q_START]||_slot11[4])?.mon||null;
     const baseStats2=selMon2?getBaseStats(selMon2):null;
     const natPrev=document.createElement('div'); natPrev.style.cssText='display:none;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px;';
     const NAT_KEYS=['hp','atk','def','spa','spd','spe'];
