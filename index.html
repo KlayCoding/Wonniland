@@ -1271,18 +1271,27 @@ function updPokemonCard(){
   if(mon.id)dexN.textContent='#'+String(mon.id).padStart(4,'0');
   hdr.append(spr,ident,dexN);card.appendChild(hdr);
   // Edit buttons row below header
-  if(currentMode==='pokemon'){
+  {
     const editRow=document.createElement('div');editRow.style.cssText='display:flex;gap:5px;padding:5px 12px 6px;border-bottom:1px solid rgba(255,255,255,.04);flex-wrap:wrap;';
-    const mkEb=(label,stepN)=>{const b=document.createElement('button');b.type='button';
+    const mkEb=(label,pkStep,trStep)=>{const b=document.createElement('button');b.type='button';
       b.style.cssText='font-size:8px;padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--gray);cursor:pointer;transition:all .15s;';
       b.textContent='✎ '+label;
       b.addEventListener('mouseenter',()=>{b.style.borderColor='var(--pl)';b.style.color='var(--pl)';});
       b.addEventListener('mouseleave',()=>{b.style.borderColor='rgba(255,255,255,.12)';b.style.color='var(--gray)';});
-      b.addEventListener('click',()=>{step=stepN;renderQ();});return b;};
-    editRow.append(mkEb('Species',1),mkEb('Nickname',2));
+      b.addEventListener('click',()=>{
+        const stepN=currentMode==='trainer'?(trStep??pkStep):pkStep;
+        step=stepN;
+        if(currentMode==='trainer') renderTrainerQ(); else renderQ();
+      });
+      return b;};
+    if(currentMode==='pokemon'){
+      editRow.append(mkEb('Species',1),mkEb('Nickname',2),mkEb('Shiny',3),mkEb('Nature',4),mkEb('Ability',5),mkEb('Tera',6),mkEb('GMax',7),mkEb('IVs/EVs',8),mkEb('Moves',9),mkEb('Item',10));
+    } else {
+      // Trainer mode: pkStep is unused, trStep is the actual trainer step
+      editRow.append(mkEb('Species',4,4),mkEb('Nickname',5,5),mkEb('Ball',9,9),mkEb('Happiness',10,10),mkEb('Ability',7,7),mkEb('Nature',11,11),mkEb('Shiny',12,12),mkEb('GMax',13,13),mkEb('Tera',14,14),mkEb('Moves',15,15));
+    }
     card.appendChild(editRow);
   }
-
   // ── BST ─────────────────────────────────────────────────────────────────────
   if(bst){
     const bstCol=bst>=600?'#E3350D':bst>=500?'#ff9800':bst>=400?'#f0c600':'#4caf50';
@@ -1465,7 +1474,17 @@ function updPokemonCard(){
       const iEl=document.createElement('div');iEl.style.cssText='display:flex;align-items:center;gap:6px;font-weight:700;color:#f0c600;';
       if(iItemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${iItemData.slug}.png`;ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;background:#fff;border-radius:3px;padding:1px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
       iEl.appendChild(document.createTextNode(itemName));
-      return mkDR('Item',null,null,iEl,10);
+      return mkDR('Item',null,null,iEl,currentMode==='trainer'?6:10);
+   const _ballName=slot?.[9]?.value||'';
+   if(currentMode==='trainer'&&_ballName){
+     const _bData=ITEMS.find(it=>it.name===_ballName);
+     const _bEl=document.createElement('div');_bEl.style.cssText='display:flex;align-items:center;gap:6px;color:var(--pl);font-weight:700;';
+     if(_bData?.slug){const _bi=document.createElement('img');_bi.src=ITEM_BASE+_bData.slug+'.png';_bi.style.cssText='width:18px;height:18px;image-rendering:pixelated;flex-shrink:0;';_bi.onerror=()=>_bi.style.display='none';_bEl.appendChild(_bi);}
+     _bEl.appendChild(document.createTextNode(_ballName));
+     const _bRow=mkDR('Pok\u00e9 Ball',null,null,_bEl,9);if(_bRow)det.appendChild(_bRow);
+   }
+   if(currentMode==='trainer'&&slot?.[10]?.value){const _hRow=mkDR('Happiness',slot[10].value,'var(--gray)',null,10);if(_hRow)det.appendChild(_hRow);}
+
    })(),
    (()=>{
       if(!teraType) return null;
@@ -3560,8 +3579,8 @@ function renderQ(){
     card.appendChild(gmaxIndicator);
 
     function updateGmaxIndicator(){
-      const selMon=ans[1]&&ans[1].mon;
-      if(!selMon){ gmaxSelName.textContent='No Pokémon selected'; gmaxSelSub.textContent='Please select a Pokémon in Q2 first.'; gmaxBadge.textContent='❓'; gmaxSelIco.src=''; gmaxGMaxIco.style.opacity='0'; return; }
+      const selMon=(team[currentSlot]?.[POKEMON_Q_START]||team[currentSlot]?.[4])?.mon;
+      if(!selMon){ gmaxSelName.textContent='No Pok\u00e9mon selected'; gmaxSelSub.textContent='Please select a Pokémon in Q2 first.'; gmaxBadge.textContent='❓'; gmaxSelIco.src=''; gmaxGMaxIco.style.opacity='0'; return; }
       // Load normal sprite
       gmaxSelIco.src=`${PKM_BASE1}${getSpriteFile(selMon)}.png`;
       gmaxSelIco.onerror=()=>iconUrlFallback(gmaxSelIco,selMon.id);
@@ -5685,26 +5704,87 @@ function renderTrainerQ() {
   // ── TQ11 step===11: Nature ────────────────────────────────────────────────
   }else if(step===11){
     addT(card,'Which Nature do you want your Pokémon to have?');
-    const randBtnN=document.createElement('button'); randBtnN.type='button'; randBtnN.className='rand-btn'; randBtnN.style.marginBottom='10px'; randBtnN.textContent='🎲 Randomize Nature!';
-    card.appendChild(randBtnN);
-    const wrapN=document.createElement('div'); wrapN.className='ac-wrap';
-    const inpN=document.createElement('input'); inpN.type='text'; inpN.placeholder='Search nature…'; inpN.autocomplete='off';
-    const ddN=document.createElement('div'); ddN.className='dd';
-    const prevN=document.createElement('div'); prevN.className='sel-prev';
-    const pNmN=document.createElement('span'); const pModsN=document.createElement('span'); pModsN.style.marginLeft='8px';
-    prevN.append(pNmN,pModsN); let selNN=null,naiN=-1;
-    function buildNDDN(q){ddN.innerHTML='';naiN=-1;const q2=q.toLowerCase();NATURES.filter(n=>n.name.toLowerCase().includes(q2)||!q).forEach(n=>{const item=document.createElement('div');item.className='dd-item';const nm=document.createElement('span');nm.className='pnm';nm.textContent=n.name;const mods=document.createElement('div');mods.className='tbadges';mods.style.gap='6px';if(n.up){const u=document.createElement('span');u.className='nature-up';u.textContent='+'+n.up;mods.appendChild(u);}if(n.dn){const d=document.createElement('span');d.className='nature-dn';d.textContent='-'+n.dn;mods.appendChild(d);}if(!n.up){const neu=document.createElement('span');neu.className='nature-neu';neu.textContent='Neutral';mods.appendChild(neu);}item.append(nm,mods);item.addEventListener('mousedown',e=>{e.preventDefault();pickNN(n);});ddN.appendChild(item);});}
-    function pickNN(n){selNN=n;inpN.value=n.name;inpN.classList.add('valid');ddN.innerHTML='';pNmN.textContent=n.name;pModsN.innerHTML='';if(n.up){const u=document.createElement('span');u.className='nature-up';u.textContent=' +'+n.up+' ';pModsN.appendChild(u);}if(n.dn){const d=document.createElement('span');d.className='nature-dn';d.textContent='-'+n.dn;pModsN.appendChild(d);}if(!n.up)pModsN.textContent=' (Neutral)';prevN.classList.add('vis');}
-    randBtnN.addEventListener('click',()=>pickNN(NATURES[Math.floor(Math.random()*NATURES.length)]));
-    inpN.addEventListener('input',()=>{selNN=null;inpN.classList.remove('valid');prevN.classList.remove('vis');buildNDDN(inpN.value.trim());});
-    inpN.addEventListener('focus',()=>{if(!ddN.children.length)buildNDDN(inpN.value.trim());});
-    inpN.addEventListener('click',()=>{if(!ddN.children.length)buildNDDN(inpN.value.trim());});
-    inpN.addEventListener('keydown',e=>{const its=ddN.querySelectorAll('.dd-item');if(e.key==='ArrowDown'){e.preventDefault();naiN=Math.min(naiN+1,its.length-1);its.forEach((el,i)=>el.classList.toggle('act',i===naiN));}else if(e.key==='ArrowUp'){e.preventDefault();naiN=Math.max(naiN-1,0);its.forEach((el,i)=>el.classList.toggle('act',i===naiN));}else if(e.key==='Escape')ddN.innerHTML='';});
-    inpN.addEventListener('blur',()=>setTimeout(()=>{ddN.innerHTML='';},160));
-    wrapN.append(prevN,inpN,ddN); card.appendChild(wrapN); focEl={focus:()=>inpN.focus()};
-    getV=()=>selNN?{value:selNN.name+(selNN.up?` (+${selNN.up} / -${selNN.dn})`:' (Neutral)')}:null;
+    const randBtnN2=document.createElement('button'); randBtnN2.type='button'; randBtnN2.className='rand-btn'; randBtnN2.style.marginBottom='10px'; randBtnN2.textContent='🎲 Randomize Nature!';
+    card.appendChild(randBtnN2);
+    // Nature stat preview panel
+    const selMon2=ans[1]&&ans[1].mon;
+    const baseStats2=selMon2?getBaseStats(selMon2):null;
+    const natPrev=document.createElement('div'); natPrev.style.cssText='display:none;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px;';
+    const NAT_KEYS=['hp','atk','def','spa','spd','spe'];
+    const NAT_LBLS=['HP','Atk','Def','SpA','SpD','Spe'];
+    const NAT_COLS=['#E3350D','#e8622a','#f0c600','#4f90d3','#4caf50','#db3c6c'];
+    const NAT_STAT_MAP={'Atk':'atk','Def':'def','SpA':'spa','SpD':'spd','Spe':'spe'};
+    // Nature name + mods row
+    const natNameNRow=document.createElement('div'); natNameNRow.style.cssText='display:flex;align-items:center;gap:10px;margin-bottom:10px;';
+    const natNameNEl=document.createElement('span'); natNameNEl.style.cssText='font-size:15px;font-weight:700;';
+    const natModsEl=document.createElement('span'); natModsEl.style.cssText='display:flex;gap:6px;align-items:center;';
+    natNameNRow.append(natNameNEl, natModsEl);
+    natPrev.appendChild(natNameNRow);
+    // Sprite + stat bars row
+    const natBody=document.createElement('div'); natBody.style.cssText='display:flex;gap:12px;align-items:flex-end;';
+    const natIco=document.createElement('img'); natIco.style.cssText='width:64px;height:64px;image-rendering:pixelated;flex-shrink:0;align-self:center;';
+    if(selMon2){ natIco.src=`${PKM_BASE1}${getSpriteFile(selMon2)}.png`; natIco.onerror=()=>iconUrlFallback(natIco,selMon2.spriteId); }
+    const natBarNGrid=document.createElement('div'); natBarNGrid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:5px;flex:1;';
+    const natBarNEls=[]; // {bg, fill, val}
+    NAT_KEYS.forEach((k,i)=>{
+      const col=document.createElement('div'); col.style.cssText='display:flex;flex-direction:column;align-items:center;gap:2px;';
+      const lbl=document.createElement('div'); lbl.style.cssText=`font-size:7px;font-family:'Press Start 2P',monospace;color:var(--gray);`; lbl.textContent=NAT_LBLS[i];
+      const bg=document.createElement('div'); bg.style.cssText='width:100%;height:60px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);';
+      const fill=document.createElement('div'); fill.style.cssText=`width:100%;border-radius:4px;background:${NAT_COLS[i]};transition:height .35s cubic-bezier(.4,0,.2,1);height:0%;`;
+      bg.appendChild(fill);
+      const val=document.createElement('div'); val.style.cssText=`font-size:9px;font-weight:700;color:${NAT_COLS[i]};transition:color .2s;`; val.textContent='–';
+      col.append(lbl,bg,val); natBarNGrid.appendChild(col);
+      natBarNEls.push({bg,fill,val,lbl,col});
+    });
+    natBody.append(selMon2?natIco:document.createElement('span'), natBarNGrid);
+    natPrev.appendChild(natBody);
+    card.appendChild(natPrev);
+    function updateNatBars(nature){
+      if(!baseStats2){ natPrev.style.display='block'; return; }
+      natPrev.style.display='block';
+      natNameNEl.textContent=nature.name;
+      natModsEl.innerHTML='';
+      if(nature.up){
+        const u=document.createElement('span');u.className='nature-up';u.textContent='+'+nature.up;
+        const d=document.createElement('span');d.className='nature-dn';d.textContent='-'+nature.dn;
+        natModsEl.append(u,d);
+      } else {
+        const neu=document.createElement('span');neu.style.cssText='font-size:10px;color:var(--gray);';neu.textContent='Neutral';natModsEl.appendChild(neu);
+      }
+      const upKey=nature.up?NAT_STAT_MAP[nature.up]:null;
+      const dnKey=nature.dn?NAT_STAT_MAP[nature.dn]:null;
+      NAT_KEYS.forEach((k,i)=>{
+        const base=baseStats2[i];
+        const isUp=upKey===k, isDn=dnKey===k;
+        const mod=isUp?1.1:isDn?0.9:1;
+        const modVal=Math.floor(base*mod);
+        const pct=Math.min(100,Math.round(base/255*100));
+        const {fill,val,col}=natBarNEls[i];
+        const fillCol=isUp?'#4caf50':isDn?'#E3350D':NAT_COLS[i];
+        fill.style.background=fillCol;
+        fill.style.boxShadow=isUp||isDn?`0 0 6px ${fillCol}88`:'none';
+        setTimeout(()=>{ fill.style.height=pct+'%'; },20+i*25);
+        val.textContent=isUp?`${modVal}↑`:isDn?`${modVal}↓`:String(base);
+        val.style.color=isUp?'#4caf50':isDn?'#E3350D':NAT_COLS[i];
+        val.style.fontWeight=isUp||isDn?'900':'700';
+      });
+    }
+    const wrap=document.createElement('div'); wrap.className='ac-wrap';
+    const inp=document.createElement('input'); inp.type='text'; inp.placeholder='Search nature…'; inp.autocomplete='off';
+    const dd=document.createElement('div'); dd.className='dd';
+    let selN=null,nai=-1;
+    function buildNDD(q){ dd.innerHTML=''; nai=-1; const q2=q.toLowerCase(); const matches=q?NATURES.filter(n=>n.name.toLowerCase().includes(q2)):NATURES; matches.forEach(n=>{ const item=document.createElement('div'); item.className='dd-item'; const nm=document.createElement('span'); nm.className='pnm'; nm.textContent=n.name; const mods=document.createElement('div'); mods.className='tbadges'; mods.style.gap='6px'; if(n.up){const u=document.createElement('span');u.className='nature-up';u.textContent='+'+n.up;mods.appendChild(u);} if(n.dn){const d=document.createElement('span');d.className='nature-dn';d.textContent='-'+n.dn;mods.appendChild(d);} if(!n.up){const neu=document.createElement('span');neu.className='nature-neu';neu.textContent='Neutral';mods.appendChild(neu);} item.append(nm,mods); item.addEventListener('mousedown',e=>{e.preventDefault();pickN(n);}); dd.appendChild(item); }); }
+    function pickN(n){ selN=n; inp.value=n.name; inp.classList.add('valid'); dd.innerHTML=''; updateNatBars(n); }
+    randBtnN2.addEventListener('click',()=>pickN(NATURES[Math.floor(Math.random()*NATURES.length)]));
+    inp.addEventListener('input',()=>{selN=null;inp.classList.remove('valid');natPrev.style.display='none';buildNDD(inp.value.trim());});
+    inp.addEventListener('focus',()=>{if(!dd.children.length)buildNDD(inp.value.trim());});
+    inp.addEventListener('click',()=>{if(!dd.children.length)buildNDD(inp.value.trim());});
+    inp.addEventListener('keydown',e=>{ const its=[...dd.querySelectorAll('.dd-item')]; if(e.key==='ArrowDown'){e.preventDefault();nai=Math.min(nai+1,its.length-1);its.forEach((el,i)=>el.classList.toggle('act',i===nai));if(its[nai])its[nai].scrollIntoView({block:'nearest'});}else if(e.key==='ArrowUp'){e.preventDefault();nai=Math.max(nai-1,0);its.forEach((el,i)=>el.classList.toggle('act',i===nai));if(its[nai])its[nai].scrollIntoView({block:'nearest'});}else if(e.key==='Enter'&&nai>=0&&its[nai]){e.preventDefault();its[nai].dispatchEvent(new MouseEvent('mousedown'));}else if(e.key==='Escape'){dd.innerHTML='';} });
+    inp.addEventListener('blur',()=>setTimeout(()=>{dd.innerHTML='';},160));
+    wrap.append(inp,dd); card.appendChild(wrap); focEl={focus:()=>inp.focus()};
+    getV=()=>selN?{value:selN.name+(selN.up?` (+${selN.up} / -${selN.dn})`:' (Neutral)')}:null;
 
-  // ── TQ12 step===12: Shiny? ────────────────────────────────────────────────
+  // Q6 ── Ability (live PokeAPI, refs Q2 for pokemon)
   }else if(step===12){
     addT(card,'Do you want your Pokémon to be Shiny?');
     addS(card,'A shiny Pokemon has an alternate colour palette and is extremely rare in the wild.');
@@ -5795,8 +5875,8 @@ function renderTrainerQ() {
     card.appendChild(gmaxIndicator);
 
     function updateGmaxIndicator(){
-      const selMon=ans[1]&&ans[1].mon;
-      if(!selMon){ gmaxSelName.textContent='No Pokémon selected'; gmaxSelSub.textContent='Please select a Pokémon in Q2 first.'; gmaxBadge.textContent='❓'; gmaxSelIco.src=''; gmaxGMaxIco.style.opacity='0'; return; }
+      const selMon=(team[currentSlot]?.[POKEMON_Q_START]||team[currentSlot]?.[4])?.mon;
+      if(!selMon){ gmaxSelName.textContent='No Pok\u00e9mon selected'; gmaxSelSub.textContent='Please select a Pokémon in Q2 first.'; gmaxBadge.textContent='❓'; gmaxSelIco.src=''; gmaxGMaxIco.style.opacity='0'; return; }
       // Load normal sprite
       gmaxSelIco.src=`${PKM_BASE1}${getSpriteFile(selMon)}.png`;
       gmaxSelIco.onerror=()=>iconUrlFallback(gmaxSelIco,selMon.id);
@@ -5844,7 +5924,7 @@ function renderTrainerQ() {
       gmaxRowT.appendChild(b); gmaxBtns.push({btn:b,key:k,cls:c});
     });
     function applyGmaxEligibility(){
-      const selMon=ans[1]&&ans[1].mon;
+      const selMon=(team[currentSlot]?.[POKEMON_Q_START]||team[currentSlot]?.[4])?.mon;
       const canGMax=selMon?!!ALL_MON.find(m=>m.name.toLowerCase()===('gmax-'+selMon.name).toLowerCase()):true;
       const [yBtn,nBtn]=gmaxBtns;
       if(!canGMax){
@@ -5873,7 +5953,7 @@ function renderTrainerQ() {
   }
     sliderT.addEventListener('input',updateSliderT); updateSliderT();
     sliderTLbl.append(sliderTVal,sliderTDesc); card.append(dxHT,dxSubT,sliderT,sliderTLbl);
-    getV=()=>gmaxT?{value:`GMax Factor: ${gmax} | Dynamax Level: ${sliderT.value}`}:null;
+    if(!gmaxT)gmaxT='No';getV=()=>({value:`GMax Factor: ${gmaxT} | Dynamax Level: ${sliderT.value}`});
 
   // Q10 ── Moves with search
   
