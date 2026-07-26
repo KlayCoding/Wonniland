@@ -586,7 +586,7 @@
     <div id="pkm-roulette-result" style="display:none;padding:16px;border-bottom:1px solid var(--border);"></div>
     <div id="pkm-roulette-header" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(77,182,172,.04);">
       <input id="pkm-roulette-search" placeholder="Search unlocked Pokémon..." autocomplete="off" style="flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;"/>
-      <span id="pkm-roulette-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span><button id="pkm-roulette-refresh" title="Reload pkm_hof.json" style="background:rgba(77,182,172,.1);border:1px solid rgba(77,182,172,.3);border-radius:6px;color:#4db6ac;font-size:12px;padding:3px 8px;cursor:pointer;" onclick="document.dispatchEvent(new CustomEvent('roulette-refresh'))">↻</button>
+      <span id="pkm-roulette-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span><button id="pkm-roulette-refresh" title="Reload Pokemon Pool data" style="background:rgba(77,182,172,.1);border:1px solid rgba(77,182,172,.3);border-radius:6px;color:#4db6ac;font-size:12px;padding:3px 8px;cursor:pointer;" onclick="document.dispatchEvent(new CustomEvent('roulette-refresh'))">↻</button>
       <button id="pkm-roulette-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">X</button>
     </div>
     <div id="pkm-roulette-grid" style="display:flex;flex-direction:column;max-height:70vh;overflow-y:auto;"></div>
@@ -616,7 +616,7 @@
   <div id="pkm-hof-panel" style="display:none;margin-top:12px;background:#111827;border:1px solid rgba(240,198,0,.2);border-radius:14px;overflow:hidden;">
     <div id="pkm-hof-header" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(240,198,0,.04);">
       <input id="pkm-hof-search" placeholder="Search Pokémon, nickname, trainer…" autocomplete="off" style="flex:1;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px 12px;outline:none;transition:border-color .2s;"/>
-      <span id="pkm-hof-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span>
+      <span id="pkm-hof-count" style="font-size:10px;color:var(--gray);font-family:'Press Start 2P',monospace;white-space:nowrap;"></span><button id="pkm-hof-refresh" title="Reload Team Pool data" style="background:rgba(240,198,0,.1);border:1px solid rgba(240,198,0,.3);border-radius:6px;color:#f0c600;font-size:12px;padding:3px 8px;cursor:pointer;" onclick="document.dispatchEvent(new CustomEvent('hof-refresh'))">&#8635;</button>
       <button id="pkm-hof-close" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:13px;padding:4px 10px;cursor:pointer;">✕</button>
     </div>
     <div id="pkm-hof-filters" style="display:flex;gap:6px;padding:10px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap;"></div>
@@ -1671,6 +1671,7 @@ function makeAC(ph,list){
   prev.appendChild(prevTop);
   let sel=null,ai=-1;
   let _acGroups=new Set(), _acSort=null;
+  // _acTypes defined below in filter panel section
   function build(q){
     dd.innerHTML=''; ai=-1;
     const q2=q.toLowerCase();
@@ -1682,6 +1683,15 @@ function makeAC(ph,list){
           if(ag==='Mega'&&(p.name.startsWith('Mega-')||p.name.startsWith('Mega '))) return true;
           if(ag==='GMax'&&(p.name.startsWith('GMax-')||p.name.startsWith('GMax '))) return true;
           if(g===ag) return true;
+        }
+        return false;
+      });
+    }
+    // Type filter (applied after group filter)
+    if(typeof _acTypes!=='undefined'&&_acTypes.size>0){
+      pool=pool.filter(p=>{
+        for(const t of _acTypes){
+          if((p.t1||'').toLowerCase()===t.toLowerCase()||(p.t2||'').toLowerCase()===t.toLowerCase()) return true;
         }
         return false;
       });
@@ -1825,33 +1835,54 @@ function makeAC(ph,list){
 
   // Gen/form filter
   const gLbl=document.createElement('div');gLbl.style.cssText='font-size:8px;font-family:"Press Start 2P",monospace;color:var(--gray);';gLbl.textContent='FILTER';
-  const gBtns=document.createElement('div');gBtns.style.cssText='display:flex;flex-wrap:wrap;gap:4px;';
+  const gBtns=document.createElement('div');gBtns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';
   ['Gen 1','Gen 2','Gen 3','Gen 4','Gen 5','Gen 6','Gen 7','Gen 8','Gen 9','⚡ Mega','🌀 GMax','🗾 Regional','🏆 Totem'].forEach(label=>{
     const key=label.replace('⚡ ','').replace('🌀 ','').replace('🗾 ','').replace('🏆 ','');
     const b=document.createElement('button');b.type='button';
-    b.style.cssText='font-size:8px;padding:3px 8px;border-radius:5px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);cursor:pointer;white-space:nowrap;';
+    b.style.cssText='font-size:10px;padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);cursor:pointer;white-space:nowrap;';
     b.textContent=label;
     b.addEventListener('click',()=>{
       if(_acGroups.has(key)){_acGroups.delete(key);b.style.background='rgba(255,255,255,.04)';b.style.borderColor='var(--border)';b.style.color='var(--gray)';}
       else{_acGroups.add(key);b.style.background='rgba(206,147,216,.2)';b.style.borderColor='var(--pl)';b.style.color='var(--pl)';}
-      fpToggle.style.background=_acGroups.size||_acSort?'rgba(206,147,216,.08)':'rgba(255,255,255,.03)';
+      fpToggle.style.background=_acGroups.size||_acSort||_acTypes.size?'rgba(206,147,216,.08)':'rgba(255,255,255,.03)';
       build(inp.value.trim());
     });
     gBtns.appendChild(b);
   });
 
+  // Type filter with Gen9 PokeAPI sprites
+  const tLbl=document.createElement('div');tLbl.style.cssText='font-size:8px;font-family:"Press Start 2P",monospace;color:var(--gray);';tLbl.textContent='TYPE';
+  const tBtns=document.createElement('div');tBtns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';
+  const _acTypes=new Set();
+  const TYPE_IDS_AC={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
+  const TYPE_COLS_AC={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
+  Object.keys(TYPE_IDS_AC).forEach(type=>{
+    const tid=TYPE_IDS_AC[type];const col=TYPE_COLS_AC[type]||'#888';
+    const b=document.createElement('button');b.type='button';
+    b.style.cssText='display:flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);cursor:pointer;transition:all .15s;';
+    const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid}.png`;ti.style.cssText='height:14px;image-rendering:pixelated;flex-shrink:0;';ti.onerror=()=>ti.style.display='none';
+    b.appendChild(ti);
+    b.addEventListener('click',()=>{
+      if(_acTypes.has(type)){_acTypes.delete(type);b.style.background='rgba(255,255,255,.04)';b.style.borderColor='rgba(255,255,255,.1)';}
+      else{_acTypes.add(type);b.style.background=col+'30';b.style.borderColor=col+'88';}
+      fpToggle.style.background=_acGroups.size||_acSort||_acTypes.size?'rgba(206,147,216,.08)':'rgba(255,255,255,.03)';
+      build(inp.value.trim());
+    });
+    tBtns.appendChild(b);
+  });
+
   // Sort
   const sLbl=document.createElement('div');sLbl.style.cssText='font-size:8px;font-family:"Press Start 2P",monospace;color:var(--gray);';sLbl.textContent='SORT';
-  const sBtns=document.createElement('div');sBtns.style.cssText='display:flex;flex-wrap:wrap;gap:4px;';
+  const sBtns=document.createElement('div');sBtns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';
   [{k:null,l:'Default'},{k:'id_asc',l:'ID ↑'},{k:'id_desc',l:'ID ↓'},{k:'dex_asc',l:'Dex# ↑'},{k:'dex_desc',l:'Dex# ↓'},{k:'bst_desc',l:'BST ↓'},{k:'bst_asc',l:'BST ↑'},{k:'type_az',l:'Type A-Z'},{k:'name_az',l:'Name A-Z'}].forEach(({k,l})=>{
     const b=document.createElement('button');b.type='button';
-    b.style.cssText='font-size:8px;padding:3px 8px;border-radius:5px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);cursor:pointer;';
+    b.style.cssText='font-size:10px;padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);cursor:pointer;';
     b.textContent=l;
     b.addEventListener('click',()=>{
       _acSort=k;
       sBtns.querySelectorAll('button').forEach(x=>{x.style.background='rgba(255,255,255,.04)';x.style.borderColor='var(--border)';x.style.color='var(--gray)';});
       b.style.background='rgba(206,147,216,.2)';b.style.borderColor='var(--pl)';b.style.color='var(--pl)';
-      fpToggle.style.background=_acGroups.size||_acSort?'rgba(206,147,216,.08)':'rgba(255,255,255,.03)';
+      fpToggle.style.background=_acGroups.size||_acSort||_acTypes.size?'rgba(206,147,216,.08)':'rgba(255,255,255,.03)';
       build(inp.value.trim());
     });
     sBtns.appendChild(b);
@@ -1860,15 +1891,17 @@ function makeAC(ph,list){
   // Clear
   const clrBtn=document.createElement('button');clrBtn.type='button';clrBtn.className='del-btn';clrBtn.style.cssText='width:100%;font-size:9px;';clrBtn.textContent='✕ Clear';
   clrBtn.addEventListener('click',()=>{
-    _acGroups.clear();_acSort=null;
+    _acGroups.clear();_acSort=null;_acTypes.clear();
     gBtns.querySelectorAll('button').forEach(x=>{x.style.background='rgba(255,255,255,.04)';x.style.borderColor='var(--border)';x.style.color='var(--gray)';});
+    tBtns.querySelectorAll('button').forEach(x=>{x.style.background='rgba(255,255,255,.04)';x.style.borderColor='rgba(255,255,255,.1)';});
     sBtns.querySelectorAll('button').forEach(x=>{x.style.background='rgba(255,255,255,.04)';x.style.borderColor='var(--border)';x.style.color='var(--gray)';});
     fpToggle.style.background='rgba(255,255,255,.03)';
     build(inp.value.trim());
   });
 
-  fpInner.append(gLbl,gBtns,sLbl,sBtns,clrBtn);
+  fpInner.append(gLbl,gBtns,tLbl,tBtns,sLbl,sBtns,clrBtn);
   fpanel.appendChild(fpInner);
+  fpToggle.addEventListener('click',()=>{fpOpen=!fpOpen;fpanel.style.maxHeight=fpOpen?'480px':'0';fpToggle.style.borderColor=fpOpen?'var(--pl)':'var(--border)';});
   wrap.append(fpToggle,fpanel,inp,dd,prev);
   return{wrap,getSel:()=>sel,getVal:()=>sel?sel.name:(inp.value.trim()||null),focus:()=>inp.focus(),_pick:pick};
 }
@@ -6621,7 +6654,7 @@ function initTwitchIntegration(){
   console.log('[Twitch] initTwitchIntegration OK, button found');
 
   let ws=null, connected=false, cooldownUntil=0, reconnTimer=null;
-  const COMMAND='!roll', CD=10000;
+  const COMMAND='!roll', CD=7000;
 
   const setStatus=(state,msg)=>{
     const c={connecting:'#f0c600',connected:'#4caf50',error:'#e57373',disconnected:'#555'}[state]||'#555';
@@ -6683,12 +6716,22 @@ function initTwitchIntegration(){
           setStatus('connected','#'+ch+' — ready for '+COMMAND);
           addLog('✅ Connected! Mods/broadcaster: type '+COMMAND,'#4caf50');
         };
-        // ComfyJS routes !commands to onCommand — PRIMARY handler for !roll
+        // ComfyJS routes !commands to onCommand — PRIMARY handler
         ComfyJS.onCommand=(user,command,message,flags)=>{
           console.log('[ComfyJS] onCommand: cmd='+command+' user='+user+' mod='+flags.mod+' broadcaster='+flags.broadcaster);
-          if(command.toLowerCase()===COMMAND.replace('!','').toLowerCase()){
-            if(flags.mod||flags.broadcaster)triggerRoll(user);
-            else addLog('\uD83D\uDEAB @'+user+' no permission','#555');
+          const cmd=command.toLowerCase();const ok=flags.mod||flags.broadcaster;
+          if(cmd===COMMAND.replace('!','').toLowerCase()){
+            if(ok)triggerRoll(user);else addLog('\uD83D\uDEAB @'+user+' no permission','#555');
+          } else if(cmd==='teamroll'){
+            if(ok){addLog('\uD83C\uDFB2 !teamroll by @'+user,'#f0c600');if(typeof window.triggerHofRoll==='function')window.triggerHofRoll(user);else addLog('\u26a0 HoF not ready','#e57373');}
+            else addLog('\uD83D\uDEAB @'+user+' no permission for !teamroll','#555');
+          } else if(cmd==='reload'){
+            if(ok){
+              addLog('\u21bb !reload by @'+user,'#8892a4');
+              if(typeof window.reloadRouletteData==='function')window.reloadRouletteData();
+              if(typeof window.reloadHofData==='function')window.reloadHofData();
+              addLog('\u2713 Pokemon Pool & Team Pool reloading...','#4caf50');
+            } else addLog('\uD83D\uDEAB @'+user+' no permission for !reload','#555');
           }
         };
         ComfyJS.onChat=(user,msg,flags)=>{
@@ -6922,6 +6965,10 @@ function initPkmRoulette(){
     rollBtn.addEventListener('mouseenter',()=>{if(!rolling)rollBtn.style.background='linear-gradient(135deg,rgba(77,182,172,.28),rgba(77,182,172,.1))';});
     rollBtn.addEventListener('mouseleave',()=>{if(!rolling)rollBtn.style.background='linear-gradient(135deg,rgba(77,182,172,.12),rgba(77,182,172,.04))';});
     // Global roll trigger — called by Twitch integration (works even when panel is closed)
+    // Global reload for Twitch !reload command
+    window.reloadRouletteData = function(){
+      hofData=null;sessionClaimed.clear();loadData();
+    };
     window.triggerRouletteRoll = function(){
       if(!hofData){loadData().then(()=>window.triggerRouletteRoll());return;}
       if(!open){
@@ -7010,6 +7057,7 @@ function initPkmRoulette(){
     countEl.textContent=unlocked.length+' unlocked';
   }
   searchEl.addEventListener('input',renderAll);
+  document.addEventListener('hof-refresh',()=>{hofData=null;loadData();countEl.textContent='Refreshing...';});
   // Refresh button: re-fetch JSON, reset session-claimed, re-render
   document.addEventListener('roulette-refresh',()=>{
     hofData=null;sessionClaimed.clear();
@@ -7109,6 +7157,26 @@ function initPkmHofBrowser(){
     rollBtn.textContent='\uD83C\uDFB2 ROLL TEAM RANDOMIZER';
     rollBtn.addEventListener('mouseenter',()=>{if(!rolling)rollBtn.style.background='linear-gradient(135deg,rgba(240,198,0,.22),rgba(240,198,0,.08))';});
     rollBtn.addEventListener('mouseleave',()=>{if(!rolling)rollBtn.style.background='linear-gradient(135deg,rgba(240,198,0,.1),rgba(240,198,0,.03))';});
+    // Global trigger for Twitch integration
+    window.triggerHofRoll = function(requestedBy){
+      if(!hofData){loadData().then(()=>window.triggerHofRoll(requestedBy));return;}
+      if(!open){
+        open=true;panel.style.display='block';
+        btn.textContent='\u2B50 POK\u00c9MON HALL OF FAME  \u25b2';
+        renderAll();
+      }
+      setTimeout(()=>{
+        const pool=getClaimed();
+        if(!pool.length) return;
+        panel.scrollIntoView({behavior:'smooth',block:'start'});
+        const rb=[...grid.querySelectorAll('button')].find(b=>b.textContent.includes('ROLL'));
+        if(rb&&!rb.disabled) rb.click();
+      },200);
+    };
+    // Global reload for Twitch !reload command
+    window.reloadHofData = function(){
+      hofData=null;loadData();
+    };
     rollBtn.addEventListener('click',()=>{
       if(rolling)return;const pool=getClaimed();
       if(!pool.length){showToast('No claimed Pokemon!',true);return;}
@@ -7172,6 +7240,7 @@ function initPkmHofBrowser(){
     allSec.appendChild(aGrid);grid.appendChild(allSec);
   }
   searchEl.addEventListener('input',renderAll);
+  document.addEventListener('hof-refresh',()=>{hofData=null;loadData();countEl.textContent='Refreshing...';});
   // Refresh button: re-fetch JSON, reset session-claimed, re-render
   document.addEventListener('roulette-refresh',()=>{
     hofData=null;sessionClaimed.clear();
