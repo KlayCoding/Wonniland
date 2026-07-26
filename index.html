@@ -1243,7 +1243,7 @@ function updPokemonCard(){
   // Progress count
   const PROG_TOTAL=currentMode==='trainer'?TRAINER_TOTAL:TOTAL;
   let answered=0;
-  for(let i=0;i<PROG_TOTAL;i++){const a=currentMode==='trainer'?slot[POKEMON_Q_START+i]:ans[i];if(a)answered++;}
+  for(let i=0;i<PROG_TOTAL;i++){const a=currentMode==='trainer'?slot[i]:ans[i];if(a)answered++;}
   const pct=Math.round(answered/PROG_TOTAL*100);
 
   panel.innerHTML='';
@@ -1457,16 +1457,22 @@ function updPokemonCard(){
       if(iItemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${iItemData.slug}.png`;ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;background:#fff;border-radius:3px;padding:1px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
       iEl.appendChild(document.createTextNode(itemName));
       return mkDR('Item',null,null,iEl,currentMode==='trainer'?6:10);
-   const _ballName=slot?.[9]?.value||'';
-   if(currentMode==='trainer'&&_ballName){
+   })(),
+   // Poké Ball (trainer mode only)
+   (()=>{
+     if(currentMode!=='trainer') return null;
+     const _ballName=slot?.[9]?.value||'';
+     if(!_ballName) return null;
      const _bData=ITEMS.find(it=>it.name===_ballName);
      const _bEl=document.createElement('div');_bEl.style.cssText='display:flex;align-items:center;gap:6px;color:var(--pl);font-weight:700;';
      if(_bData?.slug){const _bi=document.createElement('img');_bi.src=ITEM_BASE+_bData.slug+'.png';_bi.style.cssText='width:18px;height:18px;image-rendering:pixelated;flex-shrink:0;';_bi.onerror=()=>_bi.style.display='none';_bEl.appendChild(_bi);}
      _bEl.appendChild(document.createTextNode(_ballName));
-     const _bRow=mkDR('Pok\u00e9 Ball',null,null,_bEl,9);if(_bRow)det.appendChild(_bRow);
-   }
-   if(currentMode==='trainer'&&slot?.[10]?.value){const _hRow=mkDR('Happiness',slot[10].value,'var(--gray)',null,10);if(_hRow)det.appendChild(_hRow);}
-
+     return mkDR('Pok\u00e9 Ball',null,null,_bEl,9);
+   })(),
+   // Happiness (trainer mode only)
+   (()=>{
+     if(currentMode!=='trainer'||!slot?.[10]?.value) return null;
+     return mkDR('Happiness',String(slot[10].value),'var(--gray)',null,10);
    })(),
    (()=>{
       if(!teraType) return null;
@@ -5856,7 +5862,7 @@ function renderTrainerQ() {
     gmaxIndicator.append(gmaxSelIco,gmaxTextCol,gmaxBadge,gmaxGMaxIco);
     card.appendChild(gmaxIndicator);
 
-    function updateGmaxIndicator(){
+    const updateGmaxIndicatorT=()=>{
       const selMon=team[currentSlot]?.mon||null;
       if(!selMon){ gmaxSelName.textContent='No Pok\u00e9mon selected'; gmaxSelSub.textContent='Please select a Pokémon in Q2 first.'; gmaxBadge.textContent='❓'; gmaxSelIco.src=''; gmaxGMaxIco.style.opacity='0'; return; }
       // Load normal sprite
@@ -5893,7 +5899,7 @@ function renderTrainerQ() {
         gmaxGrid.querySelectorAll('[data-gmax-name]').forEach(chip=>{ chip.style.border='1px solid rgba(206,147,216,.25)'; chip.style.background='rgba(123,31,162,.15)'; chip.style.transform='scale(1)'; });
       }
     }
-    updateGmaxIndicator();
+    updateGmaxIndicatorT();
 
     const gmaxRowT=document.createElement('div'); gmaxRowT.className='g-opts'; let gmaxTT=null;
     const gmaxBtns=[];
@@ -5905,7 +5911,7 @@ function renderTrainerQ() {
       });
       gmaxRowT.appendChild(b); gmaxBtns.push({btn:b,key:k,cls:c});
     });
-    function applyGmaxEligibility(){
+    const applyGmaxEligibilityT=()=>{
       const selMon=team[currentSlot]?.mon||null;
       const canGMax=selMon?!!ALL_MON.find(m=>m.name.toLowerCase()===('gmax-'+selMon.name).toLowerCase()):true;
       const [yBtn,nBtn]=gmaxBtns;
@@ -5917,7 +5923,7 @@ function renderTrainerQ() {
         yBtn.btn.style.cssText=''; yBtn.btn.dataset.disabled='';
       }
     }
-    applyGmaxEligibility();
+    applyGmaxEligibilityT();
     card.append(gmaxHT,gmaxSubT,gmaxImg,gmaxRowT);
     const div=document.createElement('div'); div.style.cssText='height:1px;background:var(--border);margin:20px 0;'; card.appendChild(div);
     const dxHT=document.createElement('div'); dxHT.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; dxHT.textContent='Choose your Dynamax Level:';
