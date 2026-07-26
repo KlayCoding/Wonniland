@@ -4273,9 +4273,18 @@ function renderResult(){
     // Header
     const fHdr=document.createElement('div');fHdr.style.cssText='display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(100,181,246,.05);border-bottom:1px solid rgba(255,255,255,.06);position:relative;';
     const fSpr=document.createElement('img');
-    const sf=getSpriteFile(mon)||(mon.id?String(mon.id).padStart(4,'0'):'');
     const isShiny=ans[3]?.value==='Yes'||(ans[3]?.value||'').includes('Shiny');
-    if(sf){fSpr.src=isShiny?`${PKM_SHINY1}${sf}.png`:`${PKM_BASE1}${sf}.png`;fSpr.onerror=()=>{if(mon.id){fSpr.onerror=null;fSpr.src=isShiny?`${PKM_SHINY1}${String(mon.id).padStart(4,'0')}.png`:`${PKM_BASE1}${String(mon.id).padStart(4,'0')}.png`;}};}
+    // Try multiple sprite sources: padded id → getSpriteFile → fallback
+    const monId=mon.id;
+    const sf1=monId?String(monId).padStart(4,'0'):'';
+    const sf2=getSpriteFile(mon)||sf1;
+    function loadSpr(url,fallback){fSpr.onerror=fallback?()=>loadSpr(fallback,null):()=>{fSpr.style.opacity='.2';};fSpr.src=url;}
+    if(sf1){
+      const base=isShiny?PKM_SHINY1:PKM_BASE1;
+      loadSpr(base+sf1+'.png', sf2!==sf1?(base+sf2+'.png'):null);
+    } else if(sf2){
+      loadSpr((isShiny?PKM_SHINY1:PKM_BASE1)+sf2+'.png',null);
+    }
     fSpr.style.cssText='width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;min-width:72px;';
     const fIdent=document.createElement('div');fIdent.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;';
     const fNick=document.createElement('div');fNick.style.cssText='font-size:16px;font-weight:900;';fNick.textContent=(ans[2]?.value||mon.name)+(isShiny?' · ✨ Shiny':'');
@@ -4626,7 +4635,10 @@ function launchMode(mode) {
 }
 
 function goBackToMenu() {
-  step = 0; Object.keys(ans).forEach(k => delete ans[k]);
+  // Hide cards when returning to mode selector
+  const lc=document.getElementById('left-cards-col');if(lc)lc.style.display='none';
+  const tc=document.getElementById('trainer-card-panel');if(tc)tc.innerHTML='';
+  const pc=document.getElementById('pokemon-card-panel');if(pc)pc.innerHTML='';
   document.getElementById('app').innerHTML = '';
   document.getElementById('summary').innerHTML = '';
   document.getElementById('progWrap').style.display = 'none';
@@ -4654,7 +4666,23 @@ function makeNavBar(opts={}) {
   const menuBtn = document.createElement('button');
   menuBtn.className = 'nav-btn menu'; menuBtn.type = 'button';
   menuBtn.textContent = '⌂ Mode Select';
-  menuBtn.addEventListener('click', goBackToMenu);
+  menuBtn.addEventListener('click', ()=>{
+    const hasProgress=step>0||(currentMode==='trainer'&&typeof team!=='undefined'&&team.some(s=>s&&s.some(Boolean)));
+    if(hasProgress){
+      const ov=document.createElement('div');ov.style.cssText='position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.8);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;';
+      const bx=document.createElement('div');bx.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.5);border-radius:16px;padding:24px;max-width:340px;width:100%;text-align:center;';
+      const h=document.createElement('div');h.style.cssText='font-family:"Press Start 2P",monospace;font-size:11px;color:var(--pl);margin-bottom:12px;';h.textContent='Return to Mode Select';
+      const p=document.createElement('div');p.style.cssText='font-size:12px;color:var(--gray);margin-bottom:20px;line-height:1.5;';p.textContent='Would you like to keep your current progress or start fresh?';
+      const btnRow=document.createElement('div');btnRow.style.cssText='display:flex;flex-direction:column;gap:8px;';
+      const resumeB=document.createElement('button');resumeB.type='button';resumeB.style.cssText='padding:10px;border-radius:8px;border:none;background:#4caf50;color:#000;font-weight:700;cursor:pointer;font-size:12px;';resumeB.textContent='\u{1F4BE} Keep Progress (Resume later)';
+      resumeB.addEventListener('click',()=>{ov.remove();goBackToMenu();});
+      const resetB=document.createElement('button');resetB.type='button';resetB.style.cssText='padding:10px;border-radius:8px;border:1px solid #e57373;background:rgba(229,115,115,.1);color:#e57373;font-weight:700;cursor:pointer;font-size:12px;';resetB.textContent='\u{1F5D1} Reset & Start Over';
+      resetB.addEventListener('click',()=>{ov.remove();if(currentMode==='pokemon'){lsClearPkm();step=0;Object.keys(ans).forEach(k=>delete ans[k]);}else if(typeof clearTrainerDraft!=='undefined'){clearTrainerDraft();team=[];currentSlot=0;viewingSlot=-1;step=0;}goBackToMenu();});
+      const cancelB=document.createElement('button');cancelB.type='button';cancelB.style.cssText='padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--gray);cursor:pointer;font-size:11px;';cancelB.textContent='\u2190 Cancel (stay here)';
+      cancelB.addEventListener('click',()=>ov.remove());
+      btnRow.append(resumeB,resetB,cancelB);bx.append(h,p,btnRow);ov.appendChild(bx);document.body.appendChild(ov);
+    } else { goBackToMenu(); }
+  });
   row.appendChild(menuBtn);
 
   // Restart creation
@@ -5360,7 +5388,7 @@ function renderTrainerQ() {
     document.body.appendChild(ip6Popup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
     let selItem6=null,iai6=-1;
-    function buildIDD6(q){dd6.innerHTML='';iai6=-1;const q2=q.toLowerCase();let matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;if(activePockets6.size)matches=matches.filter(it=>activePockets6.has(it.pocket));if(activeCats6.size)matches=matches.filter(it=>activeCats6.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl6(it.slug);ico.loading='lazy';ico.onerror=()=>iFb6(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=it.category&&it.category!==it.pocket?document.createElement('span'):null;if(uB){uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category;top.append(nm,idB,uB);}else{top.append(nm,idB);}const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI6(it);});dd6.appendChild(item);});}
+    function buildIDD6(q){dd6.innerHTML='';iai6=-1;const q2=q.toLowerCase();let matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;if(activePockets6.size)matches=matches.filter(it=>activePockets6.has(it.pocket));if(activeCats6.size)matches=matches.filter(it=>activeCats6.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl6(it.slug);ico.loading='lazy';ico.onerror=()=>iFb6(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category||'';if(it.category)top.append(nm,idB,uB);else top.append(nm,idB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI6(it);});dd6.appendChild(item);});}
     function pickI6(it){
       selItem6=it;inp6.value=it.name;inp6.classList.add('valid');dd6.innerHTML='';
       pIco6.src=iUrl6(it.slug);pIco6.onerror=()=>iFb6(pIco6,it.slug);
@@ -6654,6 +6682,14 @@ function initTwitchIntegration(){
           connected=true;
           setStatus('connected','#'+ch+' — ready for '+COMMAND);
           addLog('✅ Connected! Mods/broadcaster: type '+COMMAND,'#4caf50');
+        };
+        // ComfyJS routes !commands to onCommand — PRIMARY handler for !roll
+        ComfyJS.onCommand=(user,command,message,flags)=>{
+          console.log('[ComfyJS] onCommand: cmd='+command+' user='+user+' mod='+flags.mod+' broadcaster='+flags.broadcaster);
+          if(command.toLowerCase()===COMMAND.replace('!','').toLowerCase()){
+            if(flags.mod||flags.broadcaster)triggerRoll(user);
+            else addLog('\uD83D\uDEAB @'+user+' no permission','#555');
+          }
         };
         ComfyJS.onChat=(user,msg,flags)=>{
           console.log('[ComfyJS] onChat: user='+user+' msg='+JSON.stringify(msg)+' mod='+flags.mod+' broadcaster='+flags.broadcaster);
