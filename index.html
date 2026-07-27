@@ -6027,8 +6027,7 @@ function renderTrainerQ() {
     }
 
     for(let i=0;i<4;i++){
-      }
-  const btn=document.createElement('button');btn.type='button';
+      const btn=document.createElement('button');btn.type='button';
       btn.style.cssText='display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;min-height:56px;width:100%;text-align:left;';
       slotCards[i]=btn;
       btn.addEventListener('click',()=>openMovePicker(i));
@@ -6297,6 +6296,8 @@ function renderTrainerQ() {
       return {value:picked.join(' / '), moves:slots.filter(Boolean)};
     };
     focEl=null;
+
+  }  // closes else if(step===15)
 
   // Q11 ── Held Item (full database, unlimited scroll)
   
