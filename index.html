@@ -1282,7 +1282,7 @@ function updPokemonCard(){
     const bstBg=document.createElement('div');bstBg.style.cssText='flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden;';
     const bstFl=document.createElement('div');bstFl.style.cssText=`height:100%;border-radius:3px;background:${bstCol};width:0%;`;
     bstBg.appendChild(bstFl);bstRow.append(bstTile,bstBg);card.appendChild(bstRow);
-    setTimeout(()=>bstFl.style.width=Math.min(100,Math.round(bst/720*100))+'%',50);
+    bstFl.style.width=Math.min(100,Math.round(bst/720*100))+'%';
   }
 
   // ── Stat bars v4: base + boost segments, breakdown rows, EV footer ──────────
@@ -1454,10 +1454,10 @@ function updPokemonCard(){
       if(!itemName) return null;
       const iItemData=ITEMS.find(it=>it.name===itemName);
       const iEl=document.createElement('div');iEl.style.cssText='display:flex;align-items:center;gap:6px;font-weight:700;color:#f0c600;';
-      if(iItemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${iItemData.slug}.png`;ici.addEventListener('load',()=>removeImgBg(ici),{once:true});ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;border-radius:3px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
+      if(iItemData?.slug){const ici=document.createElement('img');ici.crossOrigin='anonymous';ici.src=`${ITEM_BASE}${iItemData.slug}.png`;if(ici.complete&&ici.naturalWidth)removeImgBg(ici);else ici.addEventListener('load',()=>removeImgBg(ici),{once:true});ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;border-radius:3px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
       iEl.appendChild(document.createTextNode(itemName));
       // Apply bg removal after image loads
-      iEl.querySelectorAll&&setTimeout(()=>iEl.querySelectorAll('img').forEach(img=>img.complete?removeImgBg(img):img.addEventListener('load',()=>removeImgBg(img),{once:true})),50);
+      setTimeout(()=>{if(iEl.querySelectorAll)iEl.querySelectorAll('img').forEach(img=>{img.crossOrigin='anonymous';if(img.complete&&img.naturalWidth)removeImgBg(img);else img.addEventListener('load',()=>removeImgBg(img),{once:true});});},80);
       return mkDR('Item',null,null,iEl,currentMode==='trainer'?6:10);
    })(),
    // Poké Ball (trainer mode only)
@@ -4664,6 +4664,7 @@ function launchMode(mode) {
         } else if(resume && !isPkm){
           team=draft.team.map(slot=>slot?slot.map(a=>a?{value:a.value,mon:a.mon?deserializeMon(a.mon):undefined}:null):[]);
           currentSlot=draft.currentSlot||0; viewingSlot=-1;
+          trainerPhase=draft.trainerPhase||'trainer'; step=draft.step||0;
           renderTeamBar(); renderTrainerQ();
         } else {
           if(isPkm){ clearPokemonDraft(); step=0; Object.keys(ans).forEach(k=>delete ans[k]); renderQ(); }
@@ -4765,7 +4766,7 @@ function makeNavBar(opts={}) {
   restartBtn.textContent = '↺ Restart';
   restartBtn.addEventListener('click', () => {
     if(!confirm('Restart? All answers will be lost.')) return;
-    if(currentMode==='trainer'){ clearTrainerDraft(); team=[]; currentSlot=0; viewingSlot=-1; step=0; renderTrainerQ(); }
+    if(currentMode==='trainer'){ clearTrainerDraft(); team=[]; currentSlot=0; viewingSlot=-1; step=0; trainerPhase='trainer'; renderTrainerQ(); }
     else { clearPokemonDraft(); step=0; Object.keys(ans).forEach(k=>delete ans[k]); renderQ(); }
   });
   row.appendChild(restartBtn);
@@ -6330,6 +6331,8 @@ function renderTrainerQ() {
   card.appendChild(makeNavBar());
   app.appendChild(card);
   if(focEl) focEl.focus();
+  // Scroll to question area
+  setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),50);
 }
 
 function renderTrainerResult() {
@@ -7410,7 +7413,7 @@ function pkmSpriteUrl(p, shiny){
 }
 // Attach fallback to an img: tries secondary base if primary 404s
 // Remove background color from item icon using canvas (flood-fill from corner)
-function removeImgBg(img,tolerance=30){
+function removeImgBg(img,tolerance=45){
   try{
     const c2=document.createElement('canvas');c2.width=img.naturalWidth||img.width;c2.height=img.naturalHeight||img.height;
     const ctx=c2.getContext('2d');ctx.drawImage(img,0,0);
