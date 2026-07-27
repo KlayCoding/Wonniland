@@ -5619,7 +5619,7 @@ function renderTrainerQ() {
     totDiv.append(totLblT,totValT,remLblT,remValT);
     const evG=document.createElement('div');evG.className='sg';
     SKEYS.forEach((k,i)=>{const col=document.createElement('div');col.className='sc';const lbl=document.createElement('label');lbl.textContent=SLBLS[i];const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=252;inp.value=evD[k];evInputs[k]=inp;let _evT;inp.addEventListener('input',()=>{let v=Math.min(252,Math.max(0,parseInt(inp.value)||0));const others=SKEYS.filter(x=>x!==k).reduce((a,x)=>a+(evD[x]||0),0);v=Math.min(v,EV_MAX-others);evD[k]=v;inp.value=v;recalcEVT();clearTimeout(_evT);_evT=setTimeout(updPokemonCard,120);});col.append(lbl,inp);evG.appendChild(col);});
-    evRB.addEventListener('click',()=>{let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});recalcEVT();});
+    evRB.addEventListener('click',()=>{let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});recalcEVT();clearTimeout(window._evFlicker);window._evFlicker=setTimeout(()=>updPokemonCard(),50);});
     evSect.append(evH,evInfo,evRB,evG,totDiv);inputCol.appendChild(evSect);
     applyPresetT('custom'); updPokemonCard();
     getV=()=>{const pn={'phys':'Max Physical Attacker','spec':'Max Special Attacker','weak':'Minimum','rand':'Randomized','custom':'Custom'};return{value:`${pn[currentPreset]||currentPreset} | IVs: ${SKEYS.map(k=>ivD[k]).join('/')} | EVs: ${SKEYS.map(k=>evD[k]).join('/')}`,ivs:{...ivD},evs:{...evD}};};
@@ -5643,7 +5643,7 @@ function renderTrainerQ() {
     BALLS.forEach(ball=>{
       const cell=document.createElement('div');
       cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;border-radius:10px;border:2px solid transparent;background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;';
-      const img=document.createElement('img'); img.src=iUrl(ball.slug); img.loading='lazy';
+      const img=document.createElement('img'); img.crossOrigin='anonymous';img.src=iUrl(ball.slug);img.loading='lazy';img.addEventListener('load',()=>removeItemBg(img,ball.slug),{once:true});
       img.style.cssText='width:40px;height:40px;object-fit:contain;image-rendering:pixelated;';
       img.onerror=()=>iFb(img,ball.slug);
       const lbl=document.createElement('span'); lbl.style.cssText='font-size:9px;color:var(--gray);text-align:center;'; lbl.textContent=ball.name;
@@ -5835,9 +5835,9 @@ function renderTrainerQ() {
     let gmaxValTQ=null;
     const gmaxYesTQ=document.createElement('div');gmaxYesTQ.className='g-btn';
     gmaxYesTQ.textContent='⚡ Yes — GMax Factor!';
-    if(!canGMaxTQ){gmaxYesTQ.style.cssText+='opacity:.4;pointer-events:none;';}
     const gmaxNoTQ=document.createElement('div');gmaxNoTQ.className='g-btn';
     gmaxNoTQ.textContent='No';
+    if(!canGMaxTQ){gmaxYesTQ.style.cssText+='opacity:.4;pointer-events:none;';gmaxValTQ='No';gmaxNoTQ.className='g-btn sn';}
     gmaxYesTQ.addEventListener('click',()=>{gmaxValTQ='Yes';[gmaxYesTQ,gmaxNoTQ].forEach(b=>b.className='g-btn');gmaxYesTQ.className='g-btn sy';});
     gmaxNoTQ.addEventListener('click',()=>{gmaxValTQ='No';[gmaxYesTQ,gmaxNoTQ].forEach(b=>b.className='g-btn');gmaxNoTQ.className='g-btn sn';});
 
@@ -5854,13 +5854,14 @@ function renderTrainerQ() {
     gmaxNoteTQ.textContent='Gigantamaxing changes the appearance of your Pokémon. It also gains a very strong GMax Signature Move. Only these species can GMax:';
     card.appendChild(gmaxNoteTQ);
     const gmaxGridTQ=document.createElement('div');gmaxGridTQ.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;margin-bottom:12px;max-height:300px;overflow-y:auto;padding:4px;';
+    // GMax sprite ID overrides (IDs from pokeemerald-expansion)
+    const GMAX_ID_OVERRIDE={'Eternatus':1229,'Urshifu (Singe Strike)':1521,'Urshifu (Rapid Strike)':1522};
     GMAX_TQ.forEach(name=>{
-      // Match GMax form: try exact match, then prefix match ignoring variant suffix
+      const overrideId=GMAX_ID_OVERRIDE[name];
       const baseName=name.split(' (')[0].toLowerCase();
-      const gm=ALL_MON.find(m=>{
-        const mn=m.name.toLowerCase();
-        return mn.startsWith('gmax-'+baseName)||mn==='gmax-'+baseName.replace(/ /g,'-');
-      });
+      const gm=overrideId
+        ? ALL_MON.find(m=>m.id===overrideId)||ALL_MON.find(m=>{const mn=m.name.toLowerCase();return mn.startsWith('gmax-'+baseName);})
+        : ALL_MON.find(m=>{const mn=m.name.toLowerCase();return mn.startsWith('gmax-'+baseName)||mn==='gmax-'+baseName.replace(/ /g,'-');});
       const cell=document.createElement('div');cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 4px;border-radius:8px;border:2px solid rgba(206,147,216,.15);background:rgba(255,255,255,.02);';
       const img=document.createElement('img');img.style.cssText='width:56px;height:56px;image-rendering:pixelated;';
       if(gm){const sf=getSpriteFile(gm);img.src=PKM_BASE1+sf+'.png';img.onerror=()=>iconUrlFallback(img,gm.id,sf);}
@@ -5961,7 +5962,7 @@ function renderTrainerQ() {
     });
     teraActions.append(randTeraBtn,defTypeBtn);
     card.append(grid,teraActions);
-    getV=()=>selTeraT14?{value:selTera}:null;
+    getV=()=>selTeraT14?{value:selTeraT14}:null;
 
   // Q8 ── GMax Factor + Dynamax Level
   }else if(step===15){
