@@ -1440,7 +1440,7 @@ function updPokemonCard(){
       const iIco=document.createElement('img');
       const IB='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
       iIco.src=`${IB}${itemData.slug}.png`;
-      iIco.style.cssText='width:22px;height:22px;image-rendering:pixelated;background:#fff;border-radius:4px;padding:2px;box-sizing:border-box;';
+      iIco.style.cssText='width:22px;height:22px;image-rendering:pixelated;border-radius:4px;padding:2px;box-sizing:border-box;';
       iIco.onerror=()=>iIco.style.display='none';
       ie.appendChild(iIco);
     }
@@ -1455,7 +1455,7 @@ function updPokemonCard(){
       if(!itemName) return null;
       const iItemData=ITEMS.find(it=>it.name===itemName);
       const iEl=document.createElement('div');iEl.style.cssText='display:flex;align-items:center;gap:6px;font-weight:700;color:#f0c600;';
-      if(iItemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${iItemData.slug}.png`;ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;background:#fff;border-radius:3px;padding:1px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
+      if(iItemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${iItemData.slug}.png`;ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;border-radius:3px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
       iEl.appendChild(document.createTextNode(itemName));
       return mkDR('Item',null,null,iEl,currentMode==='trainer'?6:10);
    })(),
@@ -2070,7 +2070,7 @@ function moveCard(mv){
   const catBtns=document.createElement('div'); catBtns.style.cssText='display:flex;gap:6px;flex-wrap:wrap;';
   [{cat:'Physical',col:'#e8622a',ico:'⚔️'},{cat:'Special',col:'#4f90d3',ico:'✨'},{cat:'Status',col:'#4caf50',ico:'🔄'}].forEach(({cat,col,ico})=>{
     const b=document.createElement('button'); b.type='button';
-    b.style.cssText='font-size:10px;padding:5px 12px;border-radius:6px;border:1px solid '+col+'66;background:'+col+'22;color:'+col+';cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px;';
+    b.style.cssText='font-size:11px;padding:6px 14px;border-radius:6px;border:1px solid '+col+'66;background:'+col+'22;color:'+col+';cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px;';
     b.innerHTML=ico+' '+cat; b.dataset.fcat=cat;
     b.addEventListener('click',()=>{
       if(activeCat===cat){activeCat=null;b.style.background=col+'22';b.style.borderColor=col+'66';}
@@ -2508,7 +2508,7 @@ function showPokedex(mon) {
         const itemData=ITEMS.find(it=>it.name.toLowerCase()===name.toLowerCase());
         const slug=itemData?.slug||name.toLowerCase().replace(/\s+/g,'_');
         const chip=document.createElement('div');chip.style.cssText=`display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;background:${col}10;border:1px solid ${col}33;`;
-        const ico=document.createElement('img');ico.style.cssText='width:24px;height:24px;image-rendering:pixelated;background:#fff;border-radius:4px;padding:2px;box-sizing:border-box;flex-shrink:0;';
+        const ico=document.createElement('img');ico.style.cssText='width:24px;height:24px;image-rendering:pixelated;border-radius:4px;padding:2px;box-sizing:border-box;flex-shrink:0;';
         ico.src=`${ITEM_BASE2}${slug}.png`;ico.onerror=()=>ico.style.display='none';
         const info=document.createElement('div');
         const iname=document.createElement('div');iname.style.cssText=`font-size:11px;font-weight:700;color:${col};`;iname.textContent=name;
@@ -2723,7 +2723,7 @@ function showPokedex(mon) {
         gIco.src=ICON_BASE_EVO2+'gmax_factor.png';gIco.onerror=()=>gIco.style.display='none';
         pill.appendChild(gIco);
       } else if(slugToUse){
-        const ico=document.createElement('img');ico.style.cssText='width:24px;height:24px;image-rendering:pixelated;background:#fff;border-radius:4px;padding:2px;box-sizing:border-box;';
+        const ico=document.createElement('img');ico.style.cssText='width:24px;height:24px;image-rendering:pixelated;border-radius:4px;padding:2px;box-sizing:border-box;';
         ico.src=`${ITEM_BASE_EVO}${slugToUse}.png`;ico.onerror=()=>ico.style.display='none';
         pill.appendChild(ico);
       }
@@ -2816,7 +2816,7 @@ function showPokedex(mon) {
                 if(af.form_requirement){
                   const req=document.createElement('div');req.style.cssText='display:flex;align-items:center;gap:4px;font-size:8px;color:var(--gray);';
                   const rItem=ITEMS.find(it=>it.name&&it.name.toLowerCase()===af.form_requirement.toLowerCase());
-                  if(rItem?.slug){const ri=document.createElement('img');ri.style.cssText='width:16px;height:16px;background:#fff;border-radius:3px;padding:1px;';ri.src=`${ITEM_BASE_EVO}${rItem.slug}.png`;ri.onerror=()=>ri.style.display='none';req.appendChild(ri);}
+                  if(rItem?.slug){const ri=document.createElement('img');ri.style.cssText='width:16px;height:16px;border-radius:3px;';ri.src=`${ITEM_BASE_EVO}${rItem.slug}.png`;ri.onerror=()=>ri.style.display='none';req.appendChild(ri);}
                   req.appendChild(document.createTextNode(af.form_requirement));altWrap.appendChild(req);
                 }
                 altRow.appendChild(altWrap);
@@ -4121,7 +4121,7 @@ function renderQ(){
     // Top row: sprite + name + info btn
     const pTop=document.createElement('div');pTop.style.cssText='display:flex;align-items:center;gap:12px;padding:12px 14px;';
     const pIco=document.createElement('img');pIco.className='pico';
-    pIco.style.cssText='width:44px;height:44px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:8px;padding:4px;box-sizing:border-box;';
+    pIco.style.cssText='width:44px;height:44px;image-rendering:pixelated;flex-shrink:0;border-radius:8px;padding:4px;box-sizing:border-box;';
     const pMain=document.createElement('div');pMain.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;';
     const pName=document.createElement('div');pName.style.cssText='font-size:15px;font-weight:700;';
     const pChips=document.createElement('div');pChips.style.cssText='display:flex;gap:5px;flex-wrap:wrap;';
@@ -4141,7 +4141,7 @@ function renderQ(){
     ipBox.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:14px;width:100%;max-width:480px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);';
     // popup header
     const ipHdr=document.createElement('div');ipHdr.style.cssText='display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(149,117,205,.1);border-bottom:1px solid rgba(149,117,205,.2);';
-    const ipIco=document.createElement('img');ipIco.style.cssText='width:36px;height:36px;image-rendering:pixelated;background:#fff;border-radius:7px;padding:3px;box-sizing:border-box;';
+    const ipIco=document.createElement('img');ipIco.style.cssText='width:36px;height:36px;image-rendering:pixelated;border-radius:7px;padding:3px;box-sizing:border-box;';
     const ipTitle=document.createElement('span');ipTitle.style.cssText='font-size:16px;font-weight:700;flex:1;';
     const ipClose=document.createElement('button');ipClose.type='button';
     ipClose.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';
@@ -4204,7 +4204,7 @@ function renderQ(){
       matches.forEach(it=>{
         const item=document.createElement('div');item.className='dd-item';
         const ico=document.createElement('img');
-        ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:6px;padding:2px;box-sizing:border-box;';
+        ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;border-radius:6px;padding:2px;box-sizing:border-box;';
         ico.src=iUrl(it.slug);ico.loading='lazy';ico.onerror=()=>iFb(ico,it.slug);
         const info=document.createElement('div');info.className='dd-info';
         const top=document.createElement('div');top.className='dd-top';
@@ -4381,7 +4381,7 @@ function renderResult(){
       const itemEl=document.createElement('div');itemEl.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';
       const itemLbl=document.createElement('span');itemLbl.style.cssText='color:var(--gray);';itemLbl.textContent='Held Item';
       const itemVal=document.createElement('div');itemVal.style.cssText='display:flex;align-items:center;gap:6px;font-weight:700;color:#f0c600;';
-      if(itemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${itemData.slug}.png`;ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;background:#fff;border-radius:3px;padding:1px;';ici.onerror=()=>ici.style.display='none';itemVal.appendChild(ici);}
+      if(itemData?.slug){const ici=document.createElement('img');ici.src=`${ITEM_BASE}${itemData.slug}.png`;ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;border-radius:3px;';ici.onerror=()=>ici.style.display='none';itemVal.appendChild(ici);}
       itemVal.appendChild(document.createTextNode(ans[10].value));
       itemEl.append(itemLbl,itemVal);freshCard.appendChild(itemEl);
     }
@@ -4666,7 +4666,7 @@ function launchMode(mode) {
           renderTeamBar(); renderTrainerQ();
         } else {
           if(isPkm){ clearPokemonDraft(); step=0; Object.keys(ans).forEach(k=>delete ans[k]); renderQ(); }
-          else { clearTrainerDraft(); team=[]; currentSlot=0; viewingSlot=-1; renderTrainerQ(); }
+          else { clearTrainerDraft(); team=[]; currentSlot=0; viewingSlot=-1; trainerPhase='trainer'; step=0; renderTrainerQ(); }
         }
       },400);
     }
@@ -5240,7 +5240,7 @@ function renderTrainerQ() {
     addS(card,'OG Trainer name refers to your name as creator. We recommend using your Discord or Twitch username.');
     let otG='Male';
     const gRow=document.createElement('div'); gRow.style.cssText='display:flex;gap:16px;margin-bottom:16px;';
-    function makeTC2(gender,label,sprite){
+    const makeTC2=(gender,label,sprite)=>{
       const w=document.createElement('div');
       w.style.cssText='flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px;border-radius:12px;border:2px solid var(--border);background:var(--dark);cursor:pointer;transition:all .2s;';
       const img=document.createElement('img'); img.src=`${TRAINER_BASE}${sprite}.png`;
@@ -5438,7 +5438,7 @@ function renderTrainerQ() {
     // Preview card
     const prev6=document.createElement('div');prev6.style.cssText='display:none;flex-direction:column;gap:0;margin-bottom:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;overflow:hidden;';
     const p6Top=document.createElement('div');p6Top.style.cssText='display:flex;align-items:center;gap:12px;padding:12px 14px;';
-    const pIco6=document.createElement('img');pIco6.style.cssText='width:44px;height:44px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:8px;padding:4px;box-sizing:border-box;';
+    const pIco6=document.createElement('img');pIco6.style.cssText='width:44px;height:44px;image-rendering:pixelated;flex-shrink:0;border-radius:8px;padding:4px;box-sizing:border-box;';
     const p6Main=document.createElement('div');p6Main.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;';
     const pName6=document.createElement('div');pName6.style.cssText='font-size:15px;font-weight:700;';
     const p6Chips=document.createElement('div');p6Chips.style.cssText='display:flex;gap:5px;flex-wrap:wrap;';
@@ -5453,7 +5453,7 @@ function renderTrainerQ() {
     const ip6Popup=document.createElement('div');ip6Popup.style.cssText='display:none;position:fixed;inset:0;z-index:1200;align-items:center;justify-content:center;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);padding:16px;';
     const ip6Box=document.createElement('div');ip6Box.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:14px;width:100%;max-width:480px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);';
     const ip6Hdr=document.createElement('div');ip6Hdr.style.cssText='display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(149,117,205,.1);border-bottom:1px solid rgba(149,117,205,.2);';
-    const ip6Ico=document.createElement('img');ip6Ico.style.cssText='width:36px;height:36px;image-rendering:pixelated;background:#fff;border-radius:7px;padding:3px;box-sizing:border-box;';
+    const ip6Ico=document.createElement('img');ip6Ico.style.cssText='width:36px;height:36px;image-rendering:pixelated;border-radius:7px;padding:3px;box-sizing:border-box;';
     const ip6Title=document.createElement('span');ip6Title.style.cssText='font-size:16px;font-weight:700;flex:1;';
     const ip6Close=document.createElement('button');ip6Close.type='button';ip6Close.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';ip6Close.textContent='✕';
     ip6Close.addEventListener('click',()=>{ip6Popup.style.display='none';document.body.style.overflow='';});
@@ -5467,7 +5467,7 @@ function renderTrainerQ() {
     document.body.appendChild(ip6Popup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
     let selItem6=null,iai6=-1;
-    function buildIDD6(q){dd6.innerHTML='';iai6=-1;const q2=q.toLowerCase();let matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;if(activePockets6.size)matches=matches.filter(it=>activePockets6.has(it.pocket));if(activeCats6.size)matches=matches.filter(it=>activeCats6.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;background:#fff;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl6(it.slug);ico.loading='lazy';ico.onerror=()=>iFb6(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category||'';if(it.category)top.append(nm,idB,uB);else top.append(nm,idB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI6(it);});dd6.appendChild(item);});}
+    function buildIDD6(q){dd6.innerHTML='';iai6=-1;const q2=q.toLowerCase();let matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;if(activePockets6.size)matches=matches.filter(it=>activePockets6.has(it.pocket));if(activeCats6.size)matches=matches.filter(it=>activeCats6.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl6(it.slug);ico.loading='lazy';ico.onerror=()=>iFb6(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category||'';if(it.category)top.append(nm,idB,uB);else top.append(nm,idB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI6(it);});dd6.appendChild(item);});}
     function pickI6(it){
       selItem6=it;inp6.value=it.name;inp6.classList.add('valid');dd6.innerHTML='';
       pIco6.src=iUrl6(it.slug);pIco6.onerror=()=>iFb6(pIco6,it.slug);
@@ -6523,7 +6523,7 @@ function initDexBrowser(){
   });
   // Shiny toggle
   const shinyToggle=document.createElement('button');shinyToggle.type='button';
-  shinyToggle.style.cssText='font-size:9px;padding:4px 10px;border-radius:5px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);cursor:pointer;font-family:"Press Start 2P",monospace;transition:all .15s;margin-left:auto;';
+  shinyToggle.style.cssText='font-size:11px;padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);cursor:pointer;font-family:"Press Start 2P",monospace;transition:all .15s;margin-left:auto;';
   shinyToggle.textContent='✨ Shiny';
   shinyToggle.addEventListener('click',()=>{
     dexShiny=!dexShiny;
@@ -6544,7 +6544,7 @@ function initDexBrowser(){
   // Favorites filter
   let showFavsOnly=false;
   const favToggle=document.createElement('button');favToggle.type='button';
-  favToggle.style.cssText='font-size:9px;padding:4px 10px;border-radius:5px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);cursor:pointer;font-family:"Press Start 2P",monospace;transition:all .15s;';
+  favToggle.style.cssText='font-size:11px;padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);cursor:pointer;font-family:"Press Start 2P",monospace;transition:all .15s;';
   favToggle.textContent='⭐ Favorites';
   favToggle.addEventListener('click',()=>{
     showFavsOnly=!showFavsOnly;
@@ -7660,12 +7660,15 @@ function initPkmHofBrowser(){
     const tTitle=document.createElement('div');tTitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:9px;color:#f0c600;white-space:nowrap;';tTitle.textContent='TEAM POOL';
     const tCount=document.createElement('div');tCount.style.cssText='font-size:10px;color:#555;white-space:nowrap;';tCount.textContent='('+claimed.length+')';
     const tLine=document.createElement('div');tLine.style.cssText='flex:1;height:1px;background:rgba(240,198,0,.2);';
-    tHdr.append(tTitle,tCount,tLine);teamSec.appendChild(tHdr);
+    const tTog=document.createElement('span');tTog.style.cssText='font-size:10px;color:#f0c600;flex-shrink:0;';tTog.textContent='▲';
+    tHdr.append(tTitle,tCount,tLine,tTog);tHdr.style.cursor='pointer';teamSec.appendChild(tHdr);
     const tmDesc=document.createElement('div');tmDesc.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';tmDesc.textContent="All the Pok\u00e9mon which are available to you and have been claimed";teamSec.appendChild(tmDesc);
     const tGrid=document.createElement('div');tGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px;';
     claimed.forEach(p=>tGrid.appendChild(mkHofTile(p,false)));
     if(!claimed.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='No claimed Pokemon yet.';tGrid.appendChild(e);}
-    teamSec.appendChild(tGrid);grid.appendChild(teamSec);
+    const tGridW=document.createElement('div');tGridW.appendChild(tGrid);teamSec.appendChild(tGridW);
+    tHdr.style.cursor='pointer';tHdr.addEventListener('click',()=>{const o=tGridW.style.display!=='none';tGridW.style.display=o?'none':'block';tTog.textContent=o?'▼':'▲';});
+    grid.appendChild(teamSec);
 
     // ── Section 3: All Created Pokemon (claimed=false, silhouettes) ──────────
     const allSec=document.createElement('div');allSec.style.cssText='padding:14px;border-top:2px solid rgba(255,255,255,.06);';
@@ -7673,12 +7676,15 @@ function initPkmHofBrowser(){
     const aTitle=document.createElement('div');aTitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:9px;color:#444;white-space:nowrap;';aTitle.textContent='ALL CREATED POKEMON';
     const aCount=document.createElement('div');aCount.style.cssText='font-size:10px;color:#444;white-space:nowrap;';aCount.textContent='('+unclaimed.length+')';
     const aLine=document.createElement('div');aLine.style.cssText='flex:1;height:1px;background:rgba(255,255,255,.06);';
-    aHdr.append(aTitle,aCount,aLine);allSec.appendChild(aHdr);
+    const aTog=document.createElement('span');aTog.style.cssText='font-size:10px;color:#444;flex-shrink:0;';aTog.textContent='▲';
+    aHdr.append(aTitle,aCount,aLine,aTog);allSec.appendChild(aHdr);
     const aDescEl=document.createElement('div');aDescEl.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';aDescEl.textContent="All the Pok\u00e9mon which the community has created";allSec.appendChild(aDescEl);
     const aGrid=document.createElement('div');aGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px;';
     unclaimed.forEach(p=>aGrid.appendChild(mkHofTile(p,true)));
     if(!unclaimed.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='All Pokemon claimed!';aGrid.appendChild(e);}
-    allSec.appendChild(aGrid);grid.appendChild(allSec);
+    const aGridW=document.createElement('div');aGridW.appendChild(aGrid);allSec.appendChild(aGridW);
+    aHdr.style.cursor='pointer';aHdr.addEventListener('click',()=>{const o=aGridW.style.display!=='none';aGridW.style.display=o?'none':'block';aTog.textContent=o?'▼':'▲';});
+    grid.appendChild(allSec);
   }
   searchEl.addEventListener('input',renderAll);
   document.addEventListener('hof-refresh',()=>{hofData=null;loadData();countEl.textContent='Refreshing...';});
@@ -7800,7 +7806,7 @@ function initTrainerHofBrowser(){
     else{const m=ALL_MON.find(x=>x.name.toLowerCase()===p.species?.toLowerCase());if(m){img.src=`${PKM_BASE1}${getSpriteFile(m)}.png`;img.onerror=()=>img.style.opacity='.3';}else img.style.opacity='.3';}
     const nick=document.createElement('div');nick.style.cssText='font-size:9px;font-weight:700;text-align:center;max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nick.textContent=(p.shiny?'✨':'')+p.nickname;
     const lv=document.createElement('div');lv.style.cssText='font-family:"Press Start 2P",monospace;font-size:6px;color:#555;';lv.textContent=p.level?'Lv.'+p.level:'';
-    if(p.held_item){const iD=ITEMS.find(it=>it.name===p.held_item);if(iD?.slug){const iIco=document.createElement('img');iIco.src=`${ITEM_BASE_T}${iD.slug}.png`;iIco.style.cssText='width:14px;height:14px;background:#fff;border-radius:2px;padding:1px;';iIco.onerror=()=>iIco.style.display='none';slot.append(img,nick,lv,iIco);}else slot.append(img,nick,lv);}
+    if(p.held_item){const iD=ITEMS.find(it=>it.name===p.held_item);if(iD?.slug){const iIco=document.createElement('img');iIco.src=`${ITEM_BASE_T}${iD.slug}.png`;iIco.style.cssText='width:14px;height:14px;border-radius:2px;padding:1px;';iIco.onerror=()=>iIco.style.display='none';slot.append(img,nick,lv,iIco);}else slot.append(img,nick,lv);}
     else slot.append(img,nick,lv);
     return slot;
   }
@@ -7853,7 +7859,7 @@ function initTrainerHofBrowser(){
       const itemRow=document.createElement('div');itemRow.style.cssText='padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.04);';
       const prefix=document.createElement('div');prefix.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#444;margin-bottom:2px;';prefix.textContent='HELD ITEM';itemRow.appendChild(prefix);
       const mainRow=document.createElement('div');mainRow.style.cssText='display:flex;align-items:center;gap:5px;';
-      if(iD?.slug){const ii=document.createElement('img');ii.src=`${ITEM_BASE}${iD.slug}.png`;ii.style.cssText='width:14px;height:14px;background:#fff;border-radius:2px;padding:1px;image-rendering:pixelated;flex-shrink:0;';ii.onerror=()=>ii.style.display='none';mainRow.appendChild(ii);}
+      if(iD?.slug){const ii=document.createElement('img');ii.src=`${ITEM_BASE}${iD.slug}.png`;ii.style.cssText='width:14px;height:14px;border-radius:2px;padding:1px;image-rendering:pixelated;flex-shrink:0;';ii.onerror=()=>ii.style.display='none';mainRow.appendChild(ii);}
       const iName=document.createElement('span');iName.style.cssText='font-size:10px;font-weight:700;color:#f0c600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';iName.textContent=p.held_item;mainRow.appendChild(iName);itemRow.appendChild(mainRow);
       if(iD?.desc){const iDesc=document.createElement('div');iDesc.style.cssText='font-size:8px;color:#556;line-height:1.4;margin-top:2px;';iDesc.textContent=iD.desc.length>80?iD.desc.slice(0,78)+'…':iD.desc;iDesc.title=iD.desc;itemRow.appendChild(iDesc);}
       card.appendChild(itemRow);
@@ -7972,20 +7978,20 @@ function initTrainerHofBrowser(){
     if(t.intro_phrase||t.defeat_phrase||t.postmatch_phrase){
       const dlgHdr=document.createElement('div');dlgHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin-bottom:7px;letter-spacing:.5px;';dlgHdr.textContent='DIALOGUES';
       wrap.appendChild(dlgHdr);
-      const phrasesWrap=document.createElement('div');phrasesWrap.style.cssText='display:flex;flex-direction:column;gap:4px;margin-bottom:12px;';
+      const phrasesWrap=document.createElement('div');phrasesWrap.style.cssText='display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px;';
       [
         [t.intro_phrase,'💬','Intro','#64b5f6'],
         [t.defeat_phrase,'😔','Defeated','#e57373'],
         [t.postmatch_phrase,'💭','Post-Match','#8892a4']
       ].filter(([v])=>v).forEach(([phrase,icon,label,col])=>{
-        const el=document.createElement('div');el.style.cssText=`display:flex;align-items:flex-start;gap:8px;padding:6px 10px;border-radius:7px;background:${col}08;border-left:3px solid ${col}55;`;
-        const left=document.createElement('div');left.style.cssText='display:flex;flex-direction:column;align-items:center;gap:2px;flex-shrink:0;min-width:46px;';
+        const el=document.createElement('div');el.style.cssText=`display:flex;flex-direction:column;gap:4px;padding:8px;border-radius:8px;background:${col}0a;border-top:2px solid ${col}55;`;
+        const hdr2=document.createElement('div');hdr2.style.cssText='display:flex;align-items:center;gap:4px;';
         const ico=document.createElement('span');ico.style.cssText='font-size:13px;';ico.textContent=icon;
         const lbl=document.createElement('span');lbl.style.cssText=`font-size:7px;color:${col};font-family:"Press Start 2P",monospace;`;lbl.textContent=label;
-        left.append(ico,lbl);
-        const txt=document.createElement('span');txt.style.cssText='font-size:11px;color:#a0aec0;line-height:1.5;font-style:italic;';
-        txt.textContent=phrase.length>120?phrase.slice(0,118)+'…':phrase;txt.title=phrase;
-        el.append(left,txt);phrasesWrap.appendChild(el);
+        hdr2.append(ico,lbl);
+        const txt=document.createElement('span');txt.style.cssText='font-size:11px;color:#a0aec0;line-height:1.5;font-style:italic;word-break:break-word;';
+        txt.textContent=phrase;txt.title=phrase;
+        el.append(hdr2,txt);phrasesWrap.appendChild(el);
       });
       wrap.appendChild(phrasesWrap);
     }
