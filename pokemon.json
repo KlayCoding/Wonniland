@@ -42,7 +42,7 @@
       "ev_yield": {
         "spa": 1
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -104,7 +104,7 @@
         "spa": 1,
         "spd": 1
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -168,7 +168,7 @@
         "spa": 2,
         "spd": 1
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -231,7 +231,7 @@
         "spa": 2,
         "spd": 1
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -290,7 +290,7 @@
         "spa": 2,
         "spd": 1
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -348,7 +348,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -410,7 +410,7 @@
         "spe": 1,
         "spa": 1
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -471,7 +471,7 @@
       "ev_yield": {
         "spa": 3
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -534,7 +534,7 @@
       "ev_yield": {
         "spa": 3
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -597,7 +597,7 @@
       "ev_yield": {
         "spa": 3
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -656,7 +656,7 @@
       "ev_yield": {
         "spa": 3
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -715,7 +715,7 @@
       "ev_yield": {
         "def": 1
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -777,7 +777,7 @@
         "def": 1,
         "spd": 1
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -838,7 +838,7 @@
       "ev_yield": {
         "spd": 3
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -900,7 +900,7 @@
       "ev_yield": {
         "spd": 3
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -958,7 +958,7 @@
       "ev_yield": {
         "spd": 3
       },
-      "gender_ratio": "12.5% Female, 87.5% Male",
+      "gender_ratio": "12.5% Female | 87.5% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
@@ -1016,7 +1016,7 @@
       "ev_yield": {
         "hp": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Bug"
@@ -1072,7 +1072,7 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Bug"
@@ -1135,7 +1135,7 @@
         "spa": 2,
         "spd": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Bug"
@@ -1193,7 +1193,7 @@
         "spa": 2,
         "spd": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Bug"
@@ -1250,7 +1250,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Bug"
@@ -1306,7 +1306,7 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Bug"
@@ -1367,7 +1367,7 @@
         "atk": 2,
         "spd": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Bug"
@@ -1429,7 +1429,7 @@
         "atk": 2,
         "spd": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Bug"
@@ -1490,7 +1490,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
@@ -1554,7 +1554,7 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
@@ -1618,7 +1618,7 @@
       "ev_yield": {
         "spe": 3
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
@@ -1678,7 +1678,7 @@
       "ev_yield": {
         "spe": 3
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
@@ -1740,7 +1740,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
@@ -1808,7 +1808,7 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
@@ -1869,7 +1869,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
@@ -1936,7 +1936,7 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
@@ -1990,7 +1990,7 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Field"
@@ -2048,7 +2048,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
@@ -2109,7 +2109,7 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 15,
       "egg_groups": [
         "Flying"
@@ -2168,7 +2168,7 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field",
@@ -2233,7 +2233,7 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field",
@@ -2288,7 +2288,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "No Eggs Discovered"
@@ -2346,7 +2346,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "No Eggs Discovered"
@@ -2404,7 +2404,7 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Field",
@@ -3491,7 +3491,7 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Field",
@@ -3564,7 +3564,7 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "No Eggs Discovered"
@@ -3638,7 +3638,7 @@
       "ev_yield": {
         "spe": 3
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Field",
@@ -3693,7 +3693,7 @@
       "ev_yield": {
         "spe": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Field",
@@ -3752,7 +3752,7 @@
       "ev_yield": {
         "spe": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Field",
@@ -3811,7 +3811,7 @@
       "ev_yield": {
         "spe": 3
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Field",
@@ -3870,7 +3870,7 @@
       "ev_yield": {
         "def": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
@@ -3933,7 +3933,7 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
@@ -3990,7 +3990,7 @@
       "ev_yield": {
         "def": 1
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
@@ -4053,7 +4053,7 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female, 50% Male",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
@@ -4502,7 +4502,7 @@
       "ev_yield": {
         "spd": 1
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "No Eggs Discovered"
@@ -4567,7 +4567,7 @@
       "ev_yield": {
         "hp": 2
       },
-      "gender_ratio": "75% Female",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Fairy"
@@ -4632,7 +4632,7 @@
       "ev_yield": {
         "hp": 3
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Fairy"
@@ -4691,7 +4691,7 @@
       "ev_yield": {
         "hp": 3
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Fairy"
@@ -4748,7 +4748,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
@@ -4812,7 +4812,7 @@
         "spe": 1,
         "spd": 1
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
@@ -4869,7 +4869,7 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
@@ -4933,7 +4933,7 @@
         "spe": 1,
         "spd": 1
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
@@ -4994,7 +4994,7 @@
       "ev_yield": {
         "hp": 1
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "No Eggs Discovered"
@@ -5058,7 +5058,7 @@
       "ev_yield": {
         "hp": 2
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Fairy"
@@ -5123,7 +5123,7 @@
       "ev_yield": {
         "hp": 3
       },
-      "gender_ratio": "75% Female, 25% Male",
+      "gender_ratio": "75% Female | 25% Male",
       "egg_cycles": 10,
       "egg_groups": [
         "Fairy"
@@ -8566,12 +8566,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Fire Horse",
@@ -8630,12 +8630,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Yellow",
       "category": "Fire Horse",
@@ -8688,12 +8688,12 @@
       "ev_yield": {
         "spe": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "White",
       "category": "Unique Horn",
@@ -8752,12 +8752,12 @@
       "ev_yield": {
         "spe": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "White",
       "category": "Unique Horn",
@@ -8810,13 +8810,13 @@
       "ev_yield": {
         "hp": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Pink",
       "category": "Dopey",
@@ -8881,13 +8881,13 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Pink",
       "category": "Hermit Crab",
@@ -8941,14 +8941,16 @@
       ],
       "catch_rate": 70,
       "exp_yield": 172,
-      "ev_yield": {},
-      "gender_ratio": "50% Female",
+      "ev_yield": {
+        "spd": 2
+      },
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Pink",
       "category": "Royal",
@@ -9004,13 +9006,13 @@
       "ev_yield": {
         "def": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Pink",
       "category": "Hermit Crab",
@@ -9066,13 +9068,13 @@
       "ev_yield": {
         "hp": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Pink",
       "category": "Dopey",
@@ -9136,13 +9138,13 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Pink",
       "category": "Hermit Crab",
@@ -9196,13 +9198,13 @@
       "ev_yield": {
         "spd": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Monster",
         "Water 1"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Pink",
       "category": "Hexpert",
@@ -9260,7 +9262,7 @@
       "egg_groups": [
         "Mineral"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Gray",
       "category": "Magnet",
@@ -9325,7 +9327,7 @@
       "egg_groups": [
         "Mineral"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Gray",
       "category": "Magnet",
@@ -9390,7 +9392,7 @@
       "egg_groups": [
         "Mineral"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Gray",
       "category": "Magnet Area",
@@ -9444,13 +9446,13 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Flying",
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Wild Duck",
@@ -9502,13 +9504,13 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Flying",
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Wild Duck",
@@ -9566,13 +9568,13 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Flying",
         "Field"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "White",
       "category": "Wild Duck",
@@ -9628,12 +9630,12 @@
       "ev_yield": {
         "atk": 1
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Flying"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Twin Bird",
@@ -9695,12 +9697,12 @@
       "ev_yield": {
         "atk": 2
       },
-      "gender_ratio": "50% Female",
+      "gender_ratio": "50% Female | 50% Male",
       "egg_cycles": 20,
       "egg_groups": [
         "Flying"
       ],
-      "friendship": 70,
+      "friendship": 50,
       "growth_rate": "Medium Fast",
       "body_color": "Brown",
       "category": "Triple Bird",
@@ -86587,7 +86589,7 @@
       "id": 1521,
       "group": "GMax",
       "dex_number": "0892b",
-      "name": "GMax-Urshifu (Singe Strike)",
+      "name": "GMax-Urshifu (Single Strike)",
       "sprite": "1521",
       "shiny_sprite": "1521",
       "type1": "Fighting",
