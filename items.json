@@ -1284,7 +1284,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(5) hue-rotate(340deg)"
     },
     {
       "item_id": 82,
@@ -1300,7 +1301,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(5) hue-rotate(340deg)"
     },
     {
       "item_id": 83,
@@ -1316,7 +1318,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(5) hue-rotate(340deg)"
     },
     {
       "item_id": 84,
@@ -1332,7 +1335,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(5) hue-rotate(340deg)"
     },
     {
       "item_id": 85,
@@ -1348,7 +1352,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(20deg)"
     },
     {
       "item_id": 86,
@@ -1364,7 +1369,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(20deg)"
     },
     {
       "item_id": 87,
@@ -1380,7 +1386,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(20deg)"
     },
     {
       "item_id": 88,
@@ -1396,7 +1403,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(20deg)"
     },
     {
       "item_id": 89,
@@ -1412,7 +1420,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(5) hue-rotate(200deg)"
     },
     {
       "item_id": 90,
@@ -1428,7 +1437,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(5) hue-rotate(200deg)"
     },
     {
       "item_id": 91,
@@ -1444,7 +1454,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(5) hue-rotate(200deg)"
     },
     {
       "item_id": 92,
@@ -1460,7 +1471,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(5) hue-rotate(200deg)"
     },
     {
       "item_id": 93,
@@ -1476,7 +1488,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(90deg)"
     },
     {
       "item_id": 94,
@@ -1492,7 +1505,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(90deg)"
     },
     {
       "item_id": 95,
@@ -1508,7 +1522,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(90deg)"
     },
     {
       "item_id": 96,
@@ -1524,7 +1539,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(90deg)"
     },
     {
       "item_id": 97,
@@ -1540,7 +1556,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(6) hue-rotate(40deg)"
     },
     {
       "item_id": 98,
@@ -1556,7 +1573,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(6) hue-rotate(40deg)"
     },
     {
       "item_id": 99,
@@ -1572,7 +1590,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(6) hue-rotate(40deg)"
     },
     {
       "item_id": 100,
@@ -1588,7 +1607,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": "sepia(1) saturate(6) hue-rotate(40deg)"
     },
     {
       "item_id": 101,
@@ -1604,7 +1624,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#78C0A8"
+      "bg_color": "#78C0A8",
+      "tint_filter": null
     },
     {
       "item_id": 102,
@@ -2546,7 +2567,7 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": 30,
-      "bg_color": "#78C0A8"
+      "bg_color": "#D3D3D3"
     },
     {
       "item_id": 161,
@@ -2562,7 +2583,7 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": 30,
-      "bg_color": "#78C0A8"
+      "bg_color": "#D3D3D3"
     },
     {
       "item_id": 162,
@@ -2578,7 +2599,7 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": 30,
-      "bg_color": "#78C0A8"
+      "bg_color": "#D3D3D3"
     },
     {
       "item_id": 163,
@@ -2594,7 +2615,7 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": 30,
-      "bg_color": "#78C0A8"
+      "bg_color": "#D3D3D3"
     },
     {
       "item_id": 164,
@@ -3122,7 +3143,7 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 30,
-      "bg_color": "#D3D3D3"
+      "bg_color": "#78C0A8"
     },
     {
       "item_id": 197,
@@ -3586,7 +3607,7 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 30,
-      "bg_color": "#D3D3D3"
+      "bg_color": "#78C0A8"
     },
     {
       "item_id": 226,
@@ -3602,7 +3623,7 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 30,
-      "bg_color": "#D3D3D3"
+      "bg_color": "#78C0A8"
     },
     {
       "item_id": 227,
@@ -4594,7 +4615,7 @@
       "battle_functionality": "Held Item",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#FF0080"
+      "bg_color": "#F8F880"
     },
     {
       "item_id": 289,
@@ -4610,7 +4631,7 @@
       "battle_functionality": "Held Item",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#FF0080"
+      "bg_color": "#F8F880"
     },
     {
       "item_id": 290,
@@ -8610,7 +8631,7 @@
       "battle_functionality": "Held Item",
       "uses": "Non-Consumable",
       "fling_power": 40,
-      "bg_color": "#FF0080"
+      "bg_color": "#D3D3D3"
     },
     {
       "item_id": 495,
@@ -8626,7 +8647,7 @@
       "battle_functionality": "Held Item",
       "uses": "Non-Consumable",
       "fling_power": 30,
-      "bg_color": "#FF0080"
+      "bg_color": "#D3D3D3"
     },
     {
       "item_id": 496,
@@ -10002,7 +10023,7 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": 10,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#78C0A8"
     },
     {
       "item_id": 582,
@@ -10018,7 +10039,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 583,
@@ -10034,7 +10056,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 584,
@@ -10050,7 +10073,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 585,
@@ -10066,7 +10090,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 586,
@@ -10082,7 +10107,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 587,
@@ -10098,7 +10124,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 588,
@@ -10114,7 +10141,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 589,
@@ -10130,7 +10158,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 590,
@@ -10146,7 +10175,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 591,
@@ -10162,7 +10192,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 592,
@@ -10178,7 +10209,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 593,
@@ -10194,7 +10226,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 594,
@@ -10210,7 +10243,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 595,
@@ -10226,7 +10260,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 596,
@@ -10242,7 +10277,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 597,
@@ -10258,7 +10294,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 598,
@@ -10274,7 +10311,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 599,
@@ -10290,7 +10328,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 600,
@@ -10306,7 +10345,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 601,
@@ -10322,7 +10362,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 602,
@@ -10338,7 +10379,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 603,
@@ -10354,7 +10396,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 604,
@@ -10370,7 +10413,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 605,
@@ -10386,7 +10430,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 606,
@@ -10402,7 +10447,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 607,
@@ -10418,7 +10464,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 608,
@@ -10434,7 +10481,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 609,
@@ -10450,7 +10498,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 610,
@@ -10466,7 +10515,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 611,
@@ -10482,7 +10532,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 612,
@@ -10498,7 +10549,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 613,
@@ -10514,7 +10566,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 614,
@@ -10530,7 +10583,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 615,
@@ -10546,7 +10600,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 616,
@@ -10562,7 +10617,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 617,
@@ -10578,7 +10634,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 618,
@@ -10594,7 +10651,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 619,
@@ -10610,7 +10668,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 620,
@@ -10626,7 +10685,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 621,
@@ -10642,7 +10702,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 622,
@@ -10658,7 +10719,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 623,
@@ -10674,7 +10736,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 624,
@@ -10690,7 +10753,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 625,
@@ -10706,7 +10770,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 626,
@@ -10722,7 +10787,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 627,
@@ -10738,7 +10804,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 628,
@@ -10754,7 +10821,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 629,
@@ -10770,7 +10838,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 630,
@@ -10786,7 +10855,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 631,
@@ -10802,7 +10872,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 632,
@@ -10818,7 +10889,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 633,
@@ -10834,7 +10906,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 634,
@@ -10850,7 +10923,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 635,
@@ -10866,7 +10940,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 636,
@@ -10882,7 +10957,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 637,
@@ -10898,7 +10974,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 638,
@@ -10914,7 +10991,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 639,
@@ -10930,7 +11008,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 640,
@@ -10946,7 +11025,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 641,
@@ -10962,7 +11042,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 642,
@@ -10978,7 +11059,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 643,
@@ -10994,7 +11076,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 644,
@@ -11010,7 +11093,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 645,
@@ -11026,7 +11110,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 646,
@@ -11042,7 +11127,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 647,
@@ -11058,7 +11144,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 648,
@@ -11074,7 +11161,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 649,
@@ -11090,7 +11178,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 650,
@@ -11106,7 +11195,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 651,
@@ -11122,7 +11212,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 652,
@@ -11138,7 +11229,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 653,
@@ -11154,7 +11246,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 654,
@@ -11170,7 +11263,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 655,
@@ -11186,7 +11280,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 656,
@@ -11202,7 +11297,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 657,
@@ -11218,7 +11314,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 658,
@@ -11234,7 +11331,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 659,
@@ -11250,7 +11348,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 660,
@@ -11266,7 +11365,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 661,
@@ -11282,7 +11382,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 662,
@@ -11298,7 +11399,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 663,
@@ -11314,7 +11416,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 664,
@@ -11330,7 +11433,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 665,
@@ -11346,7 +11450,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 666,
@@ -11362,7 +11467,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 667,
@@ -11378,7 +11484,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 668,
@@ -11394,7 +11501,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 669,
@@ -11410,7 +11518,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 670,
@@ -11426,7 +11535,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 671,
@@ -11442,7 +11552,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 672,
@@ -11458,7 +11569,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 673,
@@ -11474,7 +11586,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 674,
@@ -11490,7 +11603,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 675,
@@ -11506,7 +11620,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 676,
@@ -11522,7 +11637,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 677,
@@ -11538,7 +11654,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 678,
@@ -11554,7 +11671,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 679,
@@ -11570,7 +11688,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 680,
@@ -11586,7 +11705,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 681,
@@ -11602,7 +11722,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 682,
@@ -11618,7 +11739,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 683,
@@ -11634,7 +11756,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 684,
@@ -11650,7 +11773,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 685,
@@ -11666,7 +11790,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 686,
@@ -11682,7 +11807,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 687,
@@ -11698,7 +11824,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 688,
@@ -11714,7 +11841,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 689,
@@ -11730,7 +11858,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#B4B4B4",
+      "needs_type_tint": true
     },
     {
       "item_id": 690,
@@ -13090,7 +13219,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(65deg)"
     },
     {
       "item_id": 775,
@@ -13106,7 +13236,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(2) hue-rotate(10deg) brightness(0.7)"
     },
     {
       "item_id": 776,
@@ -13122,7 +13253,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(230deg)"
     },
     {
       "item_id": 777,
@@ -13138,7 +13270,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(6) hue-rotate(30deg)"
     },
     {
       "item_id": 778,
@@ -13154,7 +13287,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(300deg)"
     },
     {
       "item_id": 779,
@@ -13170,7 +13304,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(340deg)"
     },
     {
       "item_id": 780,
@@ -13186,7 +13321,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(345deg)"
     },
     {
       "item_id": 781,
@@ -13202,7 +13338,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(200deg)"
     },
     {
       "item_id": 782,
@@ -13218,7 +13355,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(260deg)"
     },
     {
       "item_id": 783,
@@ -13234,7 +13372,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(80deg)"
     },
     {
       "item_id": 784,
@@ -13250,7 +13389,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(3) hue-rotate(15deg)"
     },
     {
       "item_id": 785,
@@ -13266,7 +13406,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(170deg)"
     },
     {
       "item_id": 786,
@@ -13282,7 +13423,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": null
     },
     {
       "item_id": 787,
@@ -13298,7 +13440,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(270deg)"
     },
     {
       "item_id": 788,
@@ -13314,7 +13457,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(310deg)"
     },
     {
       "item_id": 789,
@@ -13330,7 +13474,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(2) hue-rotate(25deg)"
     },
     {
       "item_id": 790,
@@ -13346,7 +13491,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(2) hue-rotate(180deg) brightness(1.1)"
     },
     {
       "item_id": 791,
@@ -13362,7 +13508,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(4) hue-rotate(190deg)"
     },
     {
       "item_id": 792,
@@ -13746,7 +13893,8 @@
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#00FF5C"
+      "bg_color": "#00FF5C",
+      "tint_filter": "sepia(1) saturate(5) hue-rotate(60deg)"
     },
     {
       "item_id": 816,
@@ -13955,22 +14103,6 @@
       "uses": "Non-Consumable",
       "fling_power": null,
       "bg_color": "#B4B4B4"
-    },
-    {
-      "item_id": 9999,
-      "key": "GMAX_FACTOR",
-      "name": "GMax Factor",
-      "icon_sprite": "gmax_factor",
-      "pocket": "Key Items",
-      "category": "Other",
-      "use_type": "Battle Only",
-      "price": 0,
-      "description": "A special factor that allows certain Pokémon species to Gigantamax during battle.",
-      "overworld_functionality": null,
-      "battle_functionality": null,
-      "uses": null,
-      "fling_power": null,
-      "bg_color": "#78C0A8"
     }
   ]
 }
