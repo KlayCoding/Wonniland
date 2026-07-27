@@ -1467,7 +1467,7 @@ function updPokemonCard(){
      if(!_ballName) return null;
      const _bData=ITEMS.find(it=>it.name===_ballName);
      const _bEl=document.createElement('div');_bEl.style.cssText='display:flex;align-items:center;gap:6px;color:var(--pl);font-weight:700;';
-     if(_bData?.slug){const _bi=document.createElement('img');_bi.src=ITEM_BASE+_bData.slug+'.png';_bi.style.cssText='width:18px;height:18px;image-rendering:pixelated;flex-shrink:0;';_bi.onerror=()=>_bi.style.display='none';_bEl.appendChild(_bi);}
+     if(_bData?.slug){const _bi=document.createElement('img');_bi.crossOrigin='anonymous';_bi.src=ITEM_BASE+_bData.slug+'.png';_bi.style.cssText='width:18px;height:18px;image-rendering:pixelated;flex-shrink:0;';_bi.addEventListener('load',()=>{removeItemBg(_bi,_bData.slug);const _bObj=ITEMS.find(it=>it.slug===_bData.slug);if(_bObj)applyItemTint(_bi,_bObj);},{once:true});_bi.onerror=()=>_bi.style.display='none';_bEl.appendChild(_bi);}
      _bEl.appendChild(document.createTextNode(_ballName));
      return mkDR('Pok\u00e9 Ball',null,null,_bEl,9);
    })(),
@@ -1970,7 +1970,7 @@ function openMoveInfoPopup(mv){
   const FL_ALL={'makes_contact':'Contact','multi_hit':'Multi-Hit','punching_move':'Punching','biting_move':'Biting','sound_move':'Sound','dance_move':'Dance','ballistic_move':'Ballistic','slicing_move':'Slicing','wind_move':'Wind','healing_move':'Healing','powder_move':'Powder','pulse_move':'Pulse','snatch_affected':'Snatch','magic_coat_affected':'Magic Coat','thaws_user':'Thaws User','minimize_double_damage':'Minimize ×2','ignores_protect':'Bypasses Protect','ignores_substitute':'Bypasses Sub','ignores_kings_rock':'No Flinch','ignores_target_ability':'Ignores Ability','cant_use_twice':'No Repeat','assist_banned':'No Assist','copycat_banned':'No Copycat','encore_banned':'No Encore','gravity_banned':'No Gravity','instruct_banned':'No Instruct','me_first_banned':'No Me First','metronome_banned':'No Metronome','mimic_banned':'No Mimic','mirror_move_banned':'No Mirror','sketch_banned':'No Sketch','sleep_talk_banned':'No Sleep Talk','apprentice_move':'Learnable','parental_bond_banned':'No Parental Bond'};
   const mkR=(label,val,col)=>{if(!val&&val!==0)return null;const row=document.createElement('div');row.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);';const l=document.createElement('span');l.style.cssText='font-size:11px;color:var(--gray);';l.textContent=label;const v=document.createElement('span');v.style.cssText='font-size:12px;font-weight:600;color:'+(col||'var(--white)')+';text-align:right;';v.textContent=val;row.append(l,v);return row;};
   [mkR('Base Power',bpVal||'—',bpColor(bpVal)),mkR('Accuracy',(mv.acc||'—')+(mv.acc?'%':'')),mkR('PP',mv.pp),mkR('Type',mv.type),mkR('Category',mv.cat),mkR('Target',mv.target||'Selected'),mkR('Priority',(mv.priority>0?'+':'')+mv.priority,mv.priority>0?'#4caf50':mv.priority<0?'#e57373':null),mv.strike>1?mkR('Strike Count',mv.strike+'×','#4caf50'):null,mv.crit>0?mkR('Crit Stage','+'+mv.crit,'#f0c600'):null,mv.addEff&&mv.addEff!=='False'&&mv.addEff!==false?mkR('Additional Effect',mv.addEff,'#f0c600'):null,mv.effect&&mv.effect!=='Hit'?mkR('Effect',mv.effect,'var(--pl)'):null].filter(Boolean).forEach(r=>tabPanes[0].appendChild(r));
-  if(mv.flags&&mv.flags.length){const atH=document.createElement('div');atH.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:var(--gray);margin:12px 0 6px;';atH.textContent='ATTRIBUTES';tabPanes[0].appendChild(atH);const atWrap=document.createElement('div');atWrap.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';mv.flags.forEach(f=>{const isBan=f.endsWith('_banned');const tag=document.createElement('span');tag.style.cssText='font-size:9px;padding:2px 8px;border-radius:4px;background:'+(isBan?'rgba(227,53,13,.15)':'rgba(100,181,246,.12)')+';color:'+(isBan?'#E3350D':'#64b5f6')+';border:1px solid '+(isBan?'rgba(227,53,13,.3)':'rgba(100,181,246,.25)')+';';tag.textContent=FL_ALL[f]||f.replace(/_/g,' ');atWrap.appendChild(tag);});tabPanes[0].appendChild(atWrap);}
+  if(mv.flags&&mv.flags.length){const atH=document.createElement('div');atH.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:var(--gray);margin:12px 0 6px;';atH.textContent='ATTRIBUTES';tabPanes[0].appendChild(atH);const atWrap=document.createElement('div');atWrap.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;';mv.flags.forEach(f=>{const isBan=f.endsWith('_banned');const tag=document.createElement('span');tag.style.cssText='font-size:10px;padding:4px 10px;border-radius:5px;text-align:center;background:'+(isBan?'rgba(227,53,13,.15)':'rgba(100,181,246,.12)')+';color:'+(isBan?'#E3350D':'#64b5f6')+';border:1px solid '+(isBan?'rgba(227,53,13,.3)':'rgba(100,181,246,.25)')+';font-weight:500;';tag.textContent=FL_ALL[f]||f.replace(/_/g,' ');atWrap.appendChild(tag);});tabPanes[0].appendChild(atWrap);}
   if(mv.desc){const d=document.createElement('div');d.style.cssText='margin-top:12px;font-size:12px;color:var(--gray);line-height:1.6;font-style:italic;';d.textContent=mv.desc;tabPanes[0].appendChild(d);}
   if(!mv.contestEff&&!mv.contestCat){const nc=document.createElement('div');nc.style.cssText='color:var(--gray);font-size:12px;padding:20px 0;text-align:center;';nc.textContent='No contest data available.';tabPanes[1].appendChild(nc);}
   else{[mkR('Contest Effect',mv.contestEff),mkR('Contest Category',mv.contestCat,'#f06292')].filter(Boolean).forEach(r=>tabPanes[1].appendChild(r));}
@@ -3810,7 +3810,7 @@ function renderQ(){
       const clrSlot=document.createElement('button');clrSlot.type='button';clrSlot.style.cssText='font-size:10px;padding:4px 10px;border-radius:6px;border:1px solid #e57373;background:rgba(229,115,115,.1);color:#e57373;cursor:pointer;';clrSlot.textContent='✕ Clear';
       clrSlot.addEventListener('click',()=>{slots[slotIdx]=null;refreshSlotBtn(slotIdx);overlay.remove();});
       const rndSlot=document.createElement('button');rndSlot.type='button';rndSlot.style.cssText='font-size:10px;padding:4px 10px;border-radius:6px;border:1px solid #64b5f6;background:rgba(100,181,246,.1);color:#64b5f6;cursor:pointer;';rndSlot.textContent='🎲 Random';
-      rndSlot.addEventListener('click',()=>{if(!MOVES.length)return;const mv=MOVES[Math.floor(Math.random()*MOVES.length)];slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
+      rndSlot.addEventListener('click',()=>{if(!MOVES.length)return;const avR=MOVES.filter(m=>m.id<=847);const mv=avR[Math.floor(Math.random()*avR.length)];slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
       const pcl=document.createElement('button');pcl.type='button';pcl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';pcl.textContent='✕';pcl.addEventListener('click',()=>overlay.remove());
       ph.append(ptitle,listCountEl,clrSlot,rndSlot,pcl);box.appendChild(ph);
       // Banned moves warning (declared early to avoid TDZ)
@@ -3915,7 +3915,7 @@ function renderQ(){
       // Banned Moves toggle chip
       const bannedChip=document.createElement('button');bannedChip.type='button';
       bannedChip.style.cssText='font-size:8px;padding:3px 8px;border-radius:5px;border:1px solid rgba(227,53,13,.4);background:rgba(227,53,13,.08);color:#e57373;cursor:pointer;white-space:nowrap;';
-      bannedChip.textContent='⚠ Banned Moves';bannedChip.title='Show Z/D/GMax moves (info only, not selectable)';
+      bannedChip.textContent='🚫 Restricted Moves';bannedChip.title='Show only Z/D/GMax moves when active';
       bannedChip.addEventListener('click',()=>{
         showBannedFilter=!showBannedFilter;
         bannedChip.style.background=showBannedFilter?'rgba(227,53,13,.25)':'rgba(227,53,13,.08)';
@@ -3923,7 +3923,7 @@ function renderQ(){
         bannedWarnEl.style.display=showBannedFilter?'block':'none';
         buildMoveList(popQuery);
       });
-      sortRow2.appendChild(bannedChip);
+      // Restricted Moves button goes in its own row below the main filters
       box.appendChild(bannedWarnEl);
 
       const clrFilter=document.createElement('button');clrFilter.type='button';
@@ -3941,6 +3941,11 @@ function renderQ(){
       sortRow2.appendChild(clrFilter);
       filterWrap.append(searchInp,typeRow2,catRow2,attrRow2,sortRow2);
       box.appendChild(filterWrap);
+      // Restricted Moves row - separate from main filters
+      const restrictedRow=document.createElement('div');restrictedRow.style.cssText='display:flex;align-items:center;gap:8px;padding:4px 14px 6px;border-top:1px solid rgba(255,255,255,.05);';
+      const restrictedLbl=document.createElement('span');restrictedLbl.style.cssText='font-size:8px;color:#555;flex-shrink:0;';restrictedLbl.textContent='ℹ️ Info only:';
+      restrictedRow.append(restrictedLbl,bannedChip);
+      box.appendChild(restrictedRow);
 
       // Move list
       const list=document.createElement('div');list.style.cssText='flex:1;overflow-y:auto;padding:6px;';
@@ -3951,7 +3956,7 @@ function renderQ(){
       function buildMoveList(q){
         list.innerHTML='';
         // Default: hide banned moves (id>847) unless showBanned filter is active
-        let moves=showBannedFilter?[...MOVES]:[...MOVES].filter(m=>m.id<=847);
+        let moves=showBannedFilter?[...MOVES].filter(m=>m.id>847):[...MOVES].filter(m=>m.id<=847);
         if(q) moves=moves.filter(m=>m.name.toLowerCase().includes(q.toLowerCase()));
         if(popFilterType&&popFilterType.length) moves=moves.filter(m=>popFilterType.includes(m.type));
         if(popFilterCat) moves=moves.filter(m=>m.cat===popFilterCat);
@@ -3969,11 +3974,11 @@ function renderQ(){
           const tc=TYPE_COL2[mv.type]||'#888';
           const cc=CAT_COL2[mv.cat]||'#888';
           const isSelected=slots[slotIdx]===mv.name;
-          const isDisabled=mv.id>847;
+          const isDisabled=showBannedFilter?false:mv.id>847;  // when Restricted filter on, show info-only (not clickable via guard below)
           const row=document.createElement('div');
           const rowIdx=moves.indexOf(mv);const isEven=rowIdx%2===0;
           row.style.cssText=`display:flex;flex-direction:column;gap:3px;padding:9px 12px;border-radius:10px;cursor:${isDisabled?'default':'pointer'};transition:all .15s;border:1px solid ${isSelected?tc+'55':'transparent'};background:${isSelected?tc+'12':isDisabled?'rgba(255,255,255,.015)':isEven?'rgba(255,255,255,.025)':'transparent'};opacity:${isDisabled?.4:1};margin-bottom:1px;`;
-          if(!isDisabled){
+          if(!isDisabled&&!showBannedFilter){
             row.addEventListener('mouseenter',()=>{if(!isSelected){row.style.background=tc+'0d';row.style.borderColor=tc+'33';}});
             row.addEventListener('mouseleave',()=>{if(!isSelected){row.style.background='transparent';row.style.borderColor='transparent';}});
             row.addEventListener('click',()=>{slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
@@ -4021,9 +4026,9 @@ function renderQ(){
           else{bpLbl.textContent='—';bpLbl.style.color='#444';}
           const ppLbl=document.createElement('span');ppLbl.style.cssText='font-size:10px;color:#555;flex-shrink:0;min-width:38px;text-align:right;';ppLbl.textContent=mv.pp?mv.pp+' PP':'';
           const accLbl=document.createElement('span');accLbl.style.cssText='font-size:10px;color:#555;flex-shrink:0;min-width:34px;text-align:right;';accLbl.textContent=mv.acc?mv.acc+'%':'—';
-          if(isDisabled){
-            const tag=document.createElement('span');tag.style.cssText='font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,.06);color:#555;flex-shrink:0;';
-            tag.textContent=mv.flags?.includes('z_move')?'Z-Move':mv.flags?.includes('max_move')?'Max Move':'Special';
+          if(isDisabled||showBannedFilter){
+            const tag=document.createElement('span');tag.style.cssText='font-size:8px;padding:2px 6px;border-radius:4px;background:rgba(255,100,0,.12);color:#ff9800;border:1px solid rgba(255,100,0,.25);flex-shrink:0;font-weight:600;';
+            tag.textContent=mv.flags?.includes('z_move')?'[Z] Z-Move':mv.flags?.includes('max_move')?'[D] Max Move':'[GMax] Signature';
             topRow.append(nm,catLbl,tag);
           } else {
             const mvInfoB=document.createElement('button');mvInfoB.type='button';
@@ -6074,7 +6079,7 @@ function renderTrainerQ() {
       const clrSlot=document.createElement('button');clrSlot.type='button';clrSlot.style.cssText='font-size:10px;padding:4px 10px;border-radius:6px;border:1px solid #e57373;background:rgba(229,115,115,.1);color:#e57373;cursor:pointer;';clrSlot.textContent='✕ Clear';
       clrSlot.addEventListener('click',()=>{slots[slotIdx]=null;refreshSlotBtn(slotIdx);overlay.remove();});
       const rndSlot=document.createElement('button');rndSlot.type='button';rndSlot.style.cssText='font-size:10px;padding:4px 10px;border-radius:6px;border:1px solid #64b5f6;background:rgba(100,181,246,.1);color:#64b5f6;cursor:pointer;';rndSlot.textContent='🎲 Random';
-      rndSlot.addEventListener('click',()=>{if(!MOVES.length)return;const mv=MOVES[Math.floor(Math.random()*MOVES.length)];slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
+      rndSlot.addEventListener('click',()=>{if(!MOVES.length)return;const avR=MOVES.filter(m=>m.id<=847);const mv=avR[Math.floor(Math.random()*avR.length)];slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
       const pcl=document.createElement('button');pcl.type='button';pcl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';pcl.textContent='✕';pcl.addEventListener('click',()=>overlay.remove());
       ph.append(ptitle,listCountEl,clrSlot,rndSlot,pcl);box.appendChild(ph);
       // Banned moves warning (declared early to avoid TDZ)
@@ -6179,7 +6184,7 @@ function renderTrainerQ() {
       // Banned Moves toggle chip
       const bannedChip=document.createElement('button');bannedChip.type='button';
       bannedChip.style.cssText='font-size:8px;padding:3px 8px;border-radius:5px;border:1px solid rgba(227,53,13,.4);background:rgba(227,53,13,.08);color:#e57373;cursor:pointer;white-space:nowrap;';
-      bannedChip.textContent='⚠ Banned Moves';bannedChip.title='Show Z/D/GMax moves (info only, not selectable)';
+      bannedChip.textContent='🚫 Restricted Moves';bannedChip.title='Show only Z/D/GMax moves when active';
       bannedChip.addEventListener('click',()=>{
         showBannedFilter=!showBannedFilter;
         bannedChip.style.background=showBannedFilter?'rgba(227,53,13,.25)':'rgba(227,53,13,.08)';
@@ -6187,7 +6192,7 @@ function renderTrainerQ() {
         bannedWarnEl.style.display=showBannedFilter?'block':'none';
         buildMoveList(popQuery);
       });
-      sortRow2.appendChild(bannedChip);
+      // Restricted Moves button goes in its own row below the main filters
       box.appendChild(bannedWarnEl);
 
       const clrFilter=document.createElement('button');clrFilter.type='button';
@@ -6205,6 +6210,11 @@ function renderTrainerQ() {
       sortRow2.appendChild(clrFilter);
       filterWrap.append(searchInp,typeRow2,catRow2,attrRow2,sortRow2);
       box.appendChild(filterWrap);
+      // Restricted Moves row - separate from main filters
+      const restrictedRow=document.createElement('div');restrictedRow.style.cssText='display:flex;align-items:center;gap:8px;padding:4px 14px 6px;border-top:1px solid rgba(255,255,255,.05);';
+      const restrictedLbl=document.createElement('span');restrictedLbl.style.cssText='font-size:8px;color:#555;flex-shrink:0;';restrictedLbl.textContent='ℹ️ Info only:';
+      restrictedRow.append(restrictedLbl,bannedChip);
+      box.appendChild(restrictedRow);
 
       // Move list
       const list=document.createElement('div');list.style.cssText='flex:1;overflow-y:auto;padding:6px;';
@@ -6215,7 +6225,7 @@ function renderTrainerQ() {
       function buildMoveList(q){
         list.innerHTML='';
         // Default: hide banned moves (id>847) unless showBanned filter is active
-        let moves=showBannedFilter?[...MOVES]:[...MOVES].filter(m=>m.id<=847);
+        let moves=showBannedFilter?[...MOVES].filter(m=>m.id>847):[...MOVES].filter(m=>m.id<=847);
         if(q) moves=moves.filter(m=>m.name.toLowerCase().includes(q.toLowerCase()));
         if(popFilterType&&popFilterType.length) moves=moves.filter(m=>popFilterType.includes(m.type));
         if(popFilterCat) moves=moves.filter(m=>m.cat===popFilterCat);
@@ -6233,11 +6243,11 @@ function renderTrainerQ() {
           const tc=TYPE_COL2[mv.type]||'#888';
           const cc=CAT_COL2[mv.cat]||'#888';
           const isSelected=slots[slotIdx]===mv.name;
-          const isDisabled=mv.id>847;
+          const isDisabled=showBannedFilter?false:mv.id>847;  // when Restricted filter on, show info-only (not clickable via guard below)
           const row=document.createElement('div');
           const rowIdx=moves.indexOf(mv);const isEven=rowIdx%2===0;
           row.style.cssText=`display:flex;flex-direction:column;gap:3px;padding:9px 12px;border-radius:10px;cursor:${isDisabled?'default':'pointer'};transition:all .15s;border:1px solid ${isSelected?tc+'55':'transparent'};background:${isSelected?tc+'12':isDisabled?'rgba(255,255,255,.015)':isEven?'rgba(255,255,255,.025)':'transparent'};opacity:${isDisabled?.4:1};margin-bottom:1px;`;
-          if(!isDisabled){
+          if(!isDisabled&&!showBannedFilter){
             row.addEventListener('mouseenter',()=>{if(!isSelected){row.style.background=tc+'0d';row.style.borderColor=tc+'33';}});
             row.addEventListener('mouseleave',()=>{if(!isSelected){row.style.background='transparent';row.style.borderColor='transparent';}});
             row.addEventListener('click',()=>{slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
@@ -6285,9 +6295,9 @@ function renderTrainerQ() {
           else{bpLbl.textContent='—';bpLbl.style.color='#444';}
           const ppLbl=document.createElement('span');ppLbl.style.cssText='font-size:10px;color:#555;flex-shrink:0;min-width:38px;text-align:right;';ppLbl.textContent=mv.pp?mv.pp+' PP':'';
           const accLbl=document.createElement('span');accLbl.style.cssText='font-size:10px;color:#555;flex-shrink:0;min-width:34px;text-align:right;';accLbl.textContent=mv.acc?mv.acc+'%':'—';
-          if(isDisabled){
-            const tag=document.createElement('span');tag.style.cssText='font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,.06);color:#555;flex-shrink:0;';
-            tag.textContent=mv.flags?.includes('z_move')?'Z-Move':mv.flags?.includes('max_move')?'Max Move':'Special';
+          if(isDisabled||showBannedFilter){
+            const tag=document.createElement('span');tag.style.cssText='font-size:8px;padding:2px 6px;border-radius:4px;background:rgba(255,100,0,.12);color:#ff9800;border:1px solid rgba(255,100,0,.25);flex-shrink:0;font-weight:600;';
+            tag.textContent=mv.flags?.includes('z_move')?'[Z] Z-Move':mv.flags?.includes('max_move')?'[D] Max Move':'[GMax] Signature';
             topRow.append(nm,catLbl,tag);
           } else {
             const mvInfoB=document.createElement('button');mvInfoB.type='button';
