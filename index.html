@@ -3813,6 +3813,13 @@ function renderQ(){
       rndSlot.addEventListener('click',()=>{if(!MOVES.length)return;const mv=MOVES[Math.floor(Math.random()*MOVES.length)];slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
       const pcl=document.createElement('button');pcl.type='button';pcl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';pcl.textContent='✕';pcl.addEventListener('click',()=>overlay.remove());
       ph.append(ptitle,listCountEl,clrSlot,rndSlot,pcl);box.appendChild(ph);
+      // Banned moves warning (declared early to avoid TDZ)
+      const bannedWarnEl=document.createElement('div');
+      bannedWarnEl.style.cssText='display:none;margin:6px 14px 0;padding:8px 10px;border-radius:7px;background:rgba(227,53,13,.08);border:1px solid rgba(227,53,13,.25);font-size:10px;color:#e57373;line-height:1.6;';
+      bannedWarnEl.innerHTML='<b style="color:#ff6b6b;font-size:9px;font-family:\"Press Start 2P\",monospace;">\u26a0\ufe0f These moves cannot be selected.</b><br>'+
+        '[Z] Moves require the appropriate Z-Crystal. '+
+        '[D] Moves require your Pok\u00e9mon to be Dynamaxed and have a move of the same type. '+
+        '[GMax] Moves are Signature Moves that only work while Gigantamaxed (same-type move required).';
 
       // Search + filter bar
       // Bulk action row above search
@@ -3940,14 +3947,6 @@ function renderQ(){
 
       // State for filters inside popup
       let popFilterType=null, popFilterCat=null, popSortKey='id', popQuery='', showBannedFilter=false;
-      
-      // Banned Moves warning subtitle (hidden by default)
-      const bannedWarnEl=document.createElement('div');
-      bannedWarnEl.style.cssText='display:none;margin:6px 14px 0;padding:8px 10px;border-radius:7px;background:rgba(227,53,13,.08);border:1px solid rgba(227,53,13,.25);font-size:10px;color:#e57373;line-height:1.6;';
-      bannedWarnEl.innerHTML='<b style="color:#ff6b6b;font-size:9px;font-family:\"Press Start 2P\",monospace;">ℹ️ These moves cannot be selected.</b><br>'+
-        '[Z] Moves require the appropriate Z-Crystal. '+
-        '[D] Moves require your Pokémon to be Dynamaxed and have a move of the same type. '+
-        '[GMax] Moves are Signature Moves that only work while Gigantamaxed (same-type move required).';
 
       function buildMoveList(q){
         list.innerHTML='';
@@ -5106,65 +5105,48 @@ function renderTeamBar() {
 // ── Slot Review Screen ───────────────────────────────────────────────────────
 function renderSlotReview(slotIdx, returnToSlot) {
   viewingSlot=slotIdx;
-  const app=document.getElementById('app'); app.innerHTML='';
+  const prevCurrentSlot=currentSlot;
+  currentSlot=slotIdx;
   renderTeamBar();
   updSummary();
+
+  // Build centered full-screen overlay with the Pokemon Card
+  const overlay=document.createElement('div');
+  overlay.style.cssText='position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:20px 16px;overflow-y:auto;';
+
+  // Header row: slot title + close button
+  const hdr=document.createElement('div');
+  hdr.style.cssText='width:100%;max-width:400px;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-shrink:0;';
   const slot=team[slotIdx];
-  if(!slot||!slot.mon){ currentSlot=returnToSlot; renderTrainerQ(); return; }
-
-  const card=document.createElement('div'); card.className='card';
-  const qn=document.createElement('div'); qn.className='q-num';
-  qn.textContent=`SLOT ${slotIdx+1} — ${slot.nick||slot.mon.name}`; card.appendChild(qn);
-
-  const header=document.createElement('div'); header.style.cssText='display:flex;align-items:center;gap:14px;padding:14px;border-radius:12px;background:rgba(206,147,216,.08);border:1px solid var(--pl);margin-bottom:16px;';
-  const img=document.createElement('img'); img.style.cssText='width:72px;height:72px;object-fit:contain;image-rendering:pixelated;';
-  img.src=iconUrl(slot.mon.spriteId,slot.mon.art,slot.mon.spriteFile);
-  img.onerror=()=>iconUrlFallback(img,slot.mon.spriteId||slot.mon.baseId,slot.mon.spriteFile);
-  const info=document.createElement('div');
-  const nm=document.createElement('div'); nm.style.cssText='font-size:18px;font-weight:700;'; nm.textContent=slot.nick||slot.mon.name;
-  if(slot.nick&&slot.nick!==slot.mon.name){const sub=document.createElement('div');sub.style.cssText='font-size:11px;color:var(--gray);';sub.textContent=slot.mon.name;info.appendChild(sub);}
-  const badges=document.createElement('div'); badges.className='tbadges'; badges.style.marginTop='4px';
-  badges.appendChild(tb(slot.mon.t1)); if(slot.mon.t2)badges.appendChild(tb(slot.mon.t2));
-  info.prepend(nm); info.appendChild(badges);
-  // Stat bars under name+types
-  const statsId=slot.mon.baseId||slot.mon.id;
-  const statsArr=getBaseStats(slot.mon);
-  if(statsArr){
-    const bars=document.createElement('div'); bars.className='stat-bars'; bars.style.marginTop='8px';
-    SLBLS.forEach((sl,si)=>{
-      const v=statsArr[si];
-      const wr=document.createElement('div'); wr.className='stat-bar-wrap';
-      const ll=document.createElement('div'); ll.className='stat-bar-lbl'; ll.textContent=sl;
-      const vl=document.createElement('div'); vl.className='stat-bar-val'; vl.style.color=statColor(v); vl.textContent=v;
-      const bg=document.createElement('div'); bg.className='stat-bar-bg';
-      const fill=document.createElement('div'); fill.className='stat-bar-fill'; fill.style.background=statColor(v); fill.style.height='0%';
-      bg.appendChild(fill); wr.append(ll,bg,vl); bars.appendChild(wr);
-      setTimeout(()=>{fill.style.height=Math.min(100,Math.round(v/255*100))+'%';},50+si*60);
-    });
-    info.appendChild(bars);
-  }
-  header.append(img,info); card.appendChild(header);
-
-  const pokeLbls=[
-    {label:'Pokemon',icon:'🎮'},{label:'Nickname',icon:'📛'},{label:'Held Item',icon:'🎒'},
-    {label:'Ability',icon:'🦋'},{label:'IVs & EVs',icon:'💪'},{label:'Poke Ball',icon:'🏀'},
-    {label:'Happiness',icon:'❤️'},{label:'Nature',icon:'🌿'},{label:'Shiny?',icon:'✨'},
-    {label:'GMax & Dynamax',icon:'⚡'},{label:'Tera Type',icon:'🔮'},{label:'Moves',icon:'⚔️'},
-  ];
-  pokeLbls.forEach(({label,icon},li)=>{
-    const stepIdx=POKEMON_Q_START+li; const a=slot[stepIdx]; if(!a) return;
-    const row=document.createElement('div'); row.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);';
-    const lbl=document.createElement('span'); lbl.style.cssText='font-size:12px;color:var(--gray);min-width:120px;flex-shrink:0;'; lbl.textContent=`${icon} ${label}`;
-    const val=document.createElement('span'); val.style.cssText='font-size:13px;font-weight:600;flex:1;word-break:break-word;'; val.textContent=a.value||'—';
-    const editBtn=document.createElement('button'); editBtn.type='button'; editBtn.className='sum-edit'; editBtn.textContent='✎';
-    editBtn.addEventListener('click',()=>{ currentSlot=slotIdx; step=stepIdx; trainerPhase='pokemon'; renderTrainerQ(); });
-    row.append(lbl,val,editBtn); card.appendChild(row);
+  const slotTitle=document.createElement('div');
+  slotTitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:10px;color:var(--pl);';
+  slotTitle.textContent=`SLOT ${slotIdx+1}${slot?.nick?' — '+slot.nick:''}`;
+  const closeBtn=document.createElement('button');closeBtn.type='button';
+  closeBtn.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;padding:5px 12px;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:var(--gray);cursor:pointer;';
+  closeBtn.textContent='✕ Close';
+  closeBtn.addEventListener('click',()=>{
+    overlay.remove();
+    currentSlot=prevCurrentSlot;
+    viewingSlot=-1;
+    updSummary();
+    renderTeamBar();
   });
+  hdr.append(slotTitle,closeBtn);
+  overlay.appendChild(hdr);
 
-  const btnRow=document.createElement('div'); btnRow.style.cssText='display:flex;gap:10px;margin-top:18px;';
-  const backBtn=document.createElement('button'); backBtn.type='button'; backBtn.className='rand-btn'; backBtn.style.flex='1';
+  // Pokemon Card container — same as left panel but wider/centered
+  const cardWrap=document.createElement('div');
+  cardWrap.style.cssText='width:100%;max-width:400px;';
+  cardWrap.id='slot-review-card';
+  overlay.appendChild(cardWrap);
+
+  // Back to slot button at bottom
+  const backBtn=document.createElement('button');backBtn.type='button';
+  backBtn.className='rand-btn';
+  backBtn.style.cssText='width:100%;max-width:400px;margin-top:12px;flex-shrink:0;';
   backBtn.textContent=`◀ Back to Slot ${returnToSlot+1}`;
   backBtn.addEventListener('click',()=>{
+    overlay.remove();
     viewingSlot=-1; currentSlot=returnToSlot; trainerPhase='pokemon';
     step=POKEMON_Q_START;
     for(let s=POKEMON_Q_START;s<=POKEMON_Q_END;s++){
@@ -5173,10 +5155,18 @@ function renderSlotReview(slotIdx, returnToSlot) {
     }
     renderTrainerQ();
   });
-  btnRow.appendChild(backBtn);
-  card.appendChild(btnRow);
-  card.appendChild(makeNavBar());
-  app.appendChild(card);
+  overlay.appendChild(backBtn);
+  document.body.appendChild(overlay);
+
+  // Render the full Pokemon card into cardWrap using updPokemonCard logic
+  // Temporarily swap the panel target
+  const origPanel=document.getElementById('pokemon-card-panel');
+  const fakePanel=cardWrap;
+  fakePanel.id='pokemon-card-panel';
+  if(origPanel) origPanel.id='pokemon-card-panel-hidden';
+  updPokemonCard();
+  fakePanel.id='slot-review-card';
+  if(origPanel) origPanel.id='pokemon-card-panel';
 }
 
 // ── After last Pokemon question: prompt to add more ───────────────────────────
@@ -6087,6 +6077,13 @@ function renderTrainerQ() {
       rndSlot.addEventListener('click',()=>{if(!MOVES.length)return;const mv=MOVES[Math.floor(Math.random()*MOVES.length)];slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
       const pcl=document.createElement('button');pcl.type='button';pcl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';pcl.textContent='✕';pcl.addEventListener('click',()=>overlay.remove());
       ph.append(ptitle,listCountEl,clrSlot,rndSlot,pcl);box.appendChild(ph);
+      // Banned moves warning (declared early to avoid TDZ)
+      const bannedWarnEl=document.createElement('div');
+      bannedWarnEl.style.cssText='display:none;margin:6px 14px 0;padding:8px 10px;border-radius:7px;background:rgba(227,53,13,.08);border:1px solid rgba(227,53,13,.25);font-size:10px;color:#e57373;line-height:1.6;';
+      bannedWarnEl.innerHTML='<b style="color:#ff6b6b;font-size:9px;font-family:\"Press Start 2P\",monospace;">\u26a0\ufe0f These moves cannot be selected.</b><br>'+
+        '[Z] Moves require the appropriate Z-Crystal. '+
+        '[D] Moves require your Pok\u00e9mon to be Dynamaxed and have a move of the same type. '+
+        '[GMax] Moves are Signature Moves that only work while Gigantamaxed (same-type move required).';
 
       // Search + filter bar
       // Bulk action row above search
@@ -6214,14 +6211,6 @@ function renderTrainerQ() {
 
       // State for filters inside popup
       let popFilterType=null, popFilterCat=null, popSortKey='id', popQuery='', showBannedFilter=false;
-      
-      // Banned Moves warning subtitle (hidden by default)
-      const bannedWarnEl=document.createElement('div');
-      bannedWarnEl.style.cssText='display:none;margin:6px 14px 0;padding:8px 10px;border-radius:7px;background:rgba(227,53,13,.08);border:1px solid rgba(227,53,13,.25);font-size:10px;color:#e57373;line-height:1.6;';
-      bannedWarnEl.innerHTML='<b style="color:#ff6b6b;font-size:9px;font-family:\"Press Start 2P\",monospace;">ℹ️ These moves cannot be selected.</b><br>'+
-        '[Z] Moves require the appropriate Z-Crystal. '+
-        '[D] Moves require your Pokémon to be Dynamaxed and have a move of the same type. '+
-        '[GMax] Moves are Signature Moves that only work while Gigantamaxed (same-type move required).';
 
       function buildMoveList(q){
         list.innerHTML='';
