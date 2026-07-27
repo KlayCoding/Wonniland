@@ -13974,7 +13974,7 @@
       "battle_functionality": "Use Item",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#BC02DA"
     },
     {
       "item_id": 821,
@@ -13990,7 +13990,7 @@
       "battle_functionality": "Use Item",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#BC02DA"
     },
     {
       "item_id": 822,
@@ -14006,7 +14006,7 @@
       "battle_functionality": "Use Item",
       "uses": "Consumable",
       "fling_power": null,
-      "bg_color": "#B4B4B4"
+      "bg_color": "#BC02DA"
     },
     {
       "item_id": 823,
