@@ -7445,16 +7445,28 @@ function initPkmRoulette(){
   let partySlots=[null,null,null,null,null,null];
   let partySec=null,partyGrid=null,partyOpen=true;
 
-  function findPkmByName(name){
+  function findPkmByName(name, ownerHint){
     if(!hofData?.pokemon)return null;
     if(name==='__CLEAR__')return null;
     const q=name.toLowerCase().trim();
-    // Try exact match on nickname/species first, then all string fields
-    return hofData.pokemon.find(p=>
+    const oq=ownerHint?ownerHint.toLowerCase().trim():null;
+
+    const nickMatch=p=>
       (p.nickname||'').toLowerCase().trim()===q ||
       (p.species||'').toLowerCase().trim()===q ||
       (p.name||'').toLowerCase().trim()===q ||
-      Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().trim()===q)
+      Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().trim()===q);
+
+    const ownerMatch=p=>
+      !oq||(p.owner_name||'').toLowerCase().includes(oq)||(p.owner||'').toLowerCase().includes(oq);
+
+    // Exact nick + optional owner filter
+    const hit=hofData.pokemon.find(p=>nickMatch(p)&&ownerMatch(p));
+    if(hit)return hit;
+
+    // Partial nick match + optional owner
+    return hofData.pokemon.find(p=>
+      ownerMatch(p)&&Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().includes(q))
     )||null;
   }
 
@@ -7501,44 +7513,27 @@ function initPkmRoulette(){
   }
 
   // Global hook for Twitch !slot commands
-  window._wonniSetPartySlot=(slotIdx,name)=>{
-    if(name==='__CLEAR__'){partySlots[slotIdx]=null;_refreshParty();return true;}
+  function _doSlotSet(slotIdx, name, ownerHint){
+    const pkm=findPkmByName(name, ownerHint||null);
+    if(pkm){partySlots[slotIdx]=pkm;if(partyGrid){renderPartyTiles();}else{_refreshParty();}return true;}
+    return false;
+  }
+
+  window._wonniSetPartySlot=(slotIdx, raw)=>{
+    if(raw==='__CLEAR__'){partySlots[slotIdx]=null;if(partyGrid)renderPartyTiles();return true;}
+    // Parse 'nickname, owner' format — comma splits nick from owner
+    const commaIdx=raw.indexOf(',');
+    const name=commaIdx>=0?raw.slice(0,commaIdx).trim():raw.trim();
+    const ownerHint=commaIdx>=0?raw.slice(commaIdx+1).trim():null;
+
     if(!hofData){
       loadData().then(()=>{
-        const p=findPkmByName(name);
-        if(p){
-          partySlots[slotIdx]=p;
-          // Force visual update
-          if(partyGrid){renderPartyTiles();}
-          else{_refreshParty();}
-          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:true}}));
-        } else {
-          // Last resort: partial match
-          const q2=name.toLowerCase().trim();
-          const p2=hofData?.pokemon?.find(px=>Object.values(px).some(v=>typeof v==='string'&&v.toLowerCase().includes(q2)));
-          if(p2){partySlots[slotIdx]=p2;if(partyGrid){renderPartyTiles();}else{_refreshParty();}window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:true,partial:true}}));}
-          else{window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false}}));}
-        }
+        const found=_doSlotSet(slotIdx,name,ownerHint);
+        window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
       });
       return 'loading';
     }
-    const pkm=findPkmByName(name);
-    if(pkm){
-      partySlots[slotIdx]=pkm;
-      // Force tile update regardless of panel state
-      if(partyGrid){renderPartyTiles();}
-      else{_refreshParty();}
-      return true;
-    }
-    // Try case-insensitive partial match as last resort
-    const q2=name.toLowerCase().trim();
-    const pkm2=hofData.pokemon.find(p=>Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().includes(q2)));
-    if(pkm2){
-      partySlots[slotIdx]=pkm2;
-      if(partyGrid){renderPartyTiles();} else{_refreshParty();}
-      return true;
-    }
-    return false;
+    return _doSlotSet(slotIdx,name,ownerHint);
   };
   // Open panel + refresh party grid (even if panel was closed)
   function _refreshParty(){
@@ -7781,16 +7776,28 @@ function initPkmHofBrowser(){
   let partySlots=[null,null,null,null,null,null];
   let partySec=null,partyGrid=null,partyOpen=true;
 
-  function findPkmByName(name){
+  function findPkmByName(name, ownerHint){
     if(!hofData?.pokemon)return null;
     if(name==='__CLEAR__')return null;
     const q=name.toLowerCase().trim();
-    // Try exact match on nickname/species first, then all string fields
-    return hofData.pokemon.find(p=>
+    const oq=ownerHint?ownerHint.toLowerCase().trim():null;
+
+    const nickMatch=p=>
       (p.nickname||'').toLowerCase().trim()===q ||
       (p.species||'').toLowerCase().trim()===q ||
       (p.name||'').toLowerCase().trim()===q ||
-      Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().trim()===q)
+      Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().trim()===q);
+
+    const ownerMatch=p=>
+      !oq||(p.owner_name||'').toLowerCase().includes(oq)||(p.owner||'').toLowerCase().includes(oq);
+
+    // Exact nick + optional owner filter
+    const hit=hofData.pokemon.find(p=>nickMatch(p)&&ownerMatch(p));
+    if(hit)return hit;
+
+    // Partial nick match + optional owner
+    return hofData.pokemon.find(p=>
+      ownerMatch(p)&&Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().includes(q))
     )||null;
   }
 
@@ -7830,44 +7837,27 @@ function initPkmHofBrowser(){
   }
 
   // Global hook for Twitch !slot commands
-  window._wonniSetPartySlot=(slotIdx,name)=>{
-    if(name==='__CLEAR__'){partySlots[slotIdx]=null;_refreshParty();return true;}
+  function _doSlotSet(slotIdx, name, ownerHint){
+    const pkm=findPkmByName(name, ownerHint||null);
+    if(pkm){partySlots[slotIdx]=pkm;if(partyGrid){renderPartyTiles();}else{_refreshParty();}return true;}
+    return false;
+  }
+
+  window._wonniSetPartySlot=(slotIdx, raw)=>{
+    if(raw==='__CLEAR__'){partySlots[slotIdx]=null;if(partyGrid)renderPartyTiles();return true;}
+    // Parse 'nickname, owner' format — comma splits nick from owner
+    const commaIdx=raw.indexOf(',');
+    const name=commaIdx>=0?raw.slice(0,commaIdx).trim():raw.trim();
+    const ownerHint=commaIdx>=0?raw.slice(commaIdx+1).trim():null;
+
     if(!hofData){
       loadData().then(()=>{
-        const p=findPkmByName(name);
-        if(p){
-          partySlots[slotIdx]=p;
-          // Force visual update
-          if(partyGrid){renderPartyTiles();}
-          else{_refreshParty();}
-          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:true}}));
-        } else {
-          // Last resort: partial match
-          const q2=name.toLowerCase().trim();
-          const p2=hofData?.pokemon?.find(px=>Object.values(px).some(v=>typeof v==='string'&&v.toLowerCase().includes(q2)));
-          if(p2){partySlots[slotIdx]=p2;if(partyGrid){renderPartyTiles();}else{_refreshParty();}window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:true,partial:true}}));}
-          else{window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false}}));}
-        }
+        const found=_doSlotSet(slotIdx,name,ownerHint);
+        window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
       });
       return 'loading';
     }
-    const pkm=findPkmByName(name);
-    if(pkm){
-      partySlots[slotIdx]=pkm;
-      // Force tile update regardless of panel state
-      if(partyGrid){renderPartyTiles();}
-      else{_refreshParty();}
-      return true;
-    }
-    // Try case-insensitive partial match as last resort
-    const q2=name.toLowerCase().trim();
-    const pkm2=hofData.pokemon.find(p=>Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().includes(q2)));
-    if(pkm2){
-      partySlots[slotIdx]=pkm2;
-      if(partyGrid){renderPartyTiles();} else{_refreshParty();}
-      return true;
-    }
-    return false;
+    return _doSlotSet(slotIdx,name,ownerHint);
   };
   // Open panel + refresh party grid (even if panel was closed)
   function _refreshParty(){
