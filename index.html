@@ -4107,15 +4107,16 @@ function renderQ(){
         });
       }
       overlay.appendChild(box);document.body.appendChild(overlay);
-      searchInp.focus();buildMoveList('');      searchInp.focus();buildMoveList('');
-        getV=()=>{
+      searchInp.focus();buildMoveList('');
+    }  // closes openMovePicker
+
+    getV=()=>{
       const picked=slots.filter(Boolean);
       if(!picked.length) return null;
       return {value:picked.join(' / '), moves:slots.filter(Boolean)};
     };
     focEl=null;
 
-  }  // closes else if(step===9)
 
   }else if(step===10){
     addT(card,'What item is your Pokémon holding?');
@@ -4175,7 +4176,7 @@ function renderQ(){
     itemHdr.append(itemIco,itemTitle,itemClose);
     const itemBody=document.createElement('div');itemBody.style.cssText='padding:16px;display:flex;flex-direction:column;gap:0;';
     const mkRow=(l,v,c)=>{if(!v&&v!==0)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);';const lEl=document.createElement('span');lEl.style.cssText='font-size:11px;color:var(--gray);';lEl.textContent=l;const vEl=document.createElement('span');vEl.style.cssText='font-size:12px;font-weight:600;color:'+(c||'var(--white)')+';text-align:right;';vEl.textContent=v;r.append(lEl,vEl);return r;};
-    const ip6Desc=document.createElement('div');ip6Desc.style.cssText='font-size:12px;color:var(--gray);line-height:1.6;padding:10px 0 6px;border-bottom:1px solid rgba(255,255,255,.05);font-style:italic;';
+    const ipDesc=document.createElement('div');ipDesc.style.cssText='font-size:12px;color:var(--gray);line-height:1.6;padding:10px 0 6px;border-bottom:1px solid rgba(255,255,255,.05);font-style:italic;';
     const ipRows=document.createElement('div');
     itemBody.append(ip6Desc,ipRows);itemBox.append(itemHdr,itemBody);itemPopup.appendChild(itemBox);
     document.body.appendChild(itemPopup);
@@ -4242,6 +4243,8 @@ function renderQ(){
         dd.appendChild(item);
       });
     }
+    let _debTimer;
+    const debouncedItem=(q)=>{clearTimeout(_debTimer);_debTimer=setTimeout(()=>buildIDD(q),120);};
     inp.addEventListener('input',()=>{selItem=null;inp.classList.remove('valid');prev.style.display='none';debouncedItem(inp.value.trim());});
     inp.addEventListener('focus',()=>{if(!dd.children.length)buildIDD(inp.value.trim());});
     inp.addEventListener('click',()=>{if(!dd.children.length)buildIDD(inp.value.trim());});
@@ -5481,7 +5484,7 @@ function renderTrainerQ() {
     ip6Hdr.append(ip6Ico,ip6Title,ip6Close);
     const ip6Body=document.createElement('div');ip6Body.style.cssText='padding:16px;display:flex;flex-direction:column;gap:0;';
     const mkRow6=(l,v,c)=>{if(!v&&v!==0)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);';const lEl=document.createElement('span');lEl.style.cssText='font-size:11px;color:var(--gray);';lEl.textContent=l;const vEl=document.createElement('span');vEl.style.cssText='font-size:12px;font-weight:600;color:'+(c||'var(--white)')+';text-align:right;';vEl.textContent=v;r.append(lEl,vEl);return r;};
-    const ip6Desc=document.createElement('div');ip6Desc.style.cssText='font-size:12px;color:var(--gray);line-height:1.6;padding:10px 0 6px;border-bottom:1px solid rgba(255,255,255,.05);font-style:italic;';
+    const ipDesc=document.createElement('div');ipDesc.style.cssText='font-size:12px;color:var(--gray);line-height:1.6;padding:10px 0 6px;border-bottom:1px solid rgba(255,255,255,.05);font-style:italic;';
     const ip6Rows=document.createElement('div');
     ip6Body.append(ip6Desc,ip6Rows);ip6Box.append(ip6Hdr,ip6Body);ip6Popup.appendChild(ip6Box);
     document.body.appendChild(ip6Popup);
@@ -5498,7 +5501,7 @@ function renderTrainerQ() {
       if(it.hold_effect)p6Chips.append(mkChip6('Holdable','rgba(76,175,80,.12)','#4caf50'));
       prev6.style.display='flex';
       ip6Ico.src=pIco6.src;ip6Ico.onerror=()=>iFb6(ip6Ico,it.slug);
-      ip6Title.textContent=it.name; ip6Desc.textContent=it.desc||'No description available.';
+      ip6Title.textContent=it.name; ipDesc.textContent=it.desc||'No description available.';
       ip6Rows.innerHTML='';
       [mkRow6('Item ID','#'+String(it.id).padStart(4,'0')),mkRow6('Pocket',it.pocket,'#64b5f6'),mkRow6('Category',it.category,'var(--pl)'),mkRow6('Use Type',it.uses),mkRow6('Price',it.price?`₽ ${it.price.toLocaleString()}`:null,'#f0c600'),mkRow6('Hold Effect',it.hold_effect,'#4caf50'),it.hold_effect_param?mkRow6('Hold Effect Power',String(it.hold_effect_param),'#4caf50'):null,mkRow6('Battle Use',it.battle_use)].filter(Boolean).forEach(r=>ip6Rows.appendChild(r));
     }
@@ -7452,16 +7455,27 @@ function initPkmRoulette(){
 
   // Global hook for Twitch !slot commands
   window._wonniSetPartySlot=(slotIdx,name)=>{
-    if(name==='__CLEAR__'){partySlots[slotIdx]=null;renderPartyTiles();return true;}
-    // Auto-load hofData if not yet fetched (e.g. panel was never opened)
+    if(name==='__CLEAR__'){partySlots[slotIdx]=null;_refreshParty();return true;}
     if(!hofData){
       loadData().then(()=>window._wonniSetPartySlot(slotIdx,name));
       return 'loading';
     }
     const pkm=findPkmByName(name);
-    if(pkm){partySlots[slotIdx]=pkm;renderPartyTiles();return true;}
+    if(pkm){partySlots[slotIdx]=pkm;_refreshParty();return true;}
     return false;
   };
+  // Open panel + refresh party grid (even if panel was closed)
+  function _refreshParty(){
+    if(!open){
+      open=true;
+      panel.style.display='block';
+      btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';
+      if(!hofData)loadData();
+      else renderAll();
+    } else if(partyGrid){
+      renderPartyTiles();
+    }
+  }
 
 
   btn.addEventListener('click',()=>{open=!open;panel.style.display=open?'block':'none';btn.textContent=open?'🎲 POKÉMON ROULETTE  ▲':'🎲 POKÉMON ROULETTE  ▼';if(open&&!hofData)loadData();});
@@ -7741,16 +7755,27 @@ function initPkmHofBrowser(){
 
   // Global hook for Twitch !slot commands
   window._wonniSetPartySlot=(slotIdx,name)=>{
-    if(name==='__CLEAR__'){partySlots[slotIdx]=null;renderPartyTiles();return true;}
-    // Auto-load hofData if not yet fetched (e.g. panel was never opened)
+    if(name==='__CLEAR__'){partySlots[slotIdx]=null;_refreshParty();return true;}
     if(!hofData){
       loadData().then(()=>window._wonniSetPartySlot(slotIdx,name));
       return 'loading';
     }
     const pkm=findPkmByName(name);
-    if(pkm){partySlots[slotIdx]=pkm;renderPartyTiles();return true;}
+    if(pkm){partySlots[slotIdx]=pkm;_refreshParty();return true;}
     return false;
   };
+  // Open panel + refresh party grid (even if panel was closed)
+  function _refreshParty(){
+    if(!open){
+      open=true;
+      panel.style.display='block';
+      btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';
+      if(!hofData)loadData();
+      else renderAll();
+    } else if(partyGrid){
+      renderPartyTiles();
+    }
+  }
 
 
   btn.addEventListener('click',()=>{open=!open;panel.style.display=open?'block':'none';btn.textContent=open?'\u2B50 POK\u00c9MON HALL OF FAME  \u25b2':'\u2B50 POK\u00c9MON HALL OF FAME  \u25bc';if(open&&!hofData)loadData();});
