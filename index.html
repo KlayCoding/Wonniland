@@ -3892,7 +3892,7 @@ function renderQ(){
       // ── Restricted warning (above search) ────────────────────────────────────
       const restrictWarnEl=document.createElement('div');
       restrictWarnEl.style.cssText='display:none;padding:8px 12px;background:rgba(227,53,13,.08);border-top:1px solid rgba(227,53,13,.2);font-size:9px;color:#e57373;line-height:1.65;flex-shrink:0;';
-      restrictWarnEl.innerHTML='<b style="color:#ff6b6b;font-size:9px;">\u26a0\ufe0f Restricted Moves</b><br><span style="color:#aab;font-size:9px;">All moves listed here can\'t be selected for your Pok\u00e9mon. These moves require the following criteria to be available mid-fight automatically:</span><br>\u2022 <b>[Z]</b> Z-Moves require the corresponding Z-Crystal<br>\u2022 <b>[D]</b> Max Moves require Dynamax + a move of the same type';
+      restrictWarnEl.innerHTML='<b style="color:#ff6b6b;font-size:9px;">\u26a0\ufe0f Restricted Moves</b><br><span style="color:#aab;font-size:9px;">All moves listed here can\'t be selected for your Pok\u00e9mon. These moves require the following criteria to be available mid-fight automatically:</span><br>\u2022 <b>[Z]</b> Z-Moves require the corresponding Z-Crystal<br>\u2022 <b>[D]</b> Max Moves require Dynamax + a move of the same type<br>\u2022 <b>[GMax]</b> Signature G-Max moves only work while Gigantamaxed (same-type move required)';
       // ── Two-panel body ────────────────────────────────────────────────────────
       const panels=document.createElement('div');panels.style.cssText='display:flex;flex:1;overflow:hidden;min-height:0;';
       // ═══════════════════════════════════════════════════════════════════════════
@@ -3914,7 +3914,7 @@ function renderQ(){
       const modeChips={};
       const MODES=[['all','All Moves'],['learnable','Learnable'],['restricted','Restricted']];
       function updateModeChips(){MODES.forEach(([k])=>{const el=modeChips[k];if(!el)return;const sel=popMode===k;el.style.background=sel?'rgba(149,117,205,.2)':'transparent';el.style.borderColor=sel?'rgba(149,117,205,.5)':'rgba(255,255,255,.08)';el.style.color=sel?'#c5a4e8':'#556';el.style.fontWeight=sel?'600':'400';});}
-      MODES.forEach(([k,lbl])=>{const b=document.createElement('button');b.type='button';b.style.cssText='padding:5px 9px;border-radius:5px;border:1px solid rgba(255,255,255,.08);background:transparent;color:#556;cursor:pointer;font-size:11px;text-align:left;transition:all .12s;';b.textContent=lbl;b.addEventListener('click',()=>{popMode=k;updateModeChips();restrictWarnEl.style.display=k==='restricted'?'block':'none';buildMoveList(popQuery);});modeChips[k]=b;modeSec.appendChild(b);});
+      MODES.forEach(([k,lbl])=>{const b=document.createElement('button');b.type='button';b.style.cssText='padding:5px 9px;border-radius:5px;border:1px solid rgba(255,255,255,.08);background:transparent;color:#556;cursor:pointer;font-size:11px;text-align:left;transition:all .12s;';b.textContent=lbl;b.addEventListener('click',()=>{popMode=k;if(k!=='learnable'&&popSortKey==='_learnable'){popSortKey='id';updateSortChips();}updateModeChips();restrictWarnEl.style.display=k==='restricted'?'block':'none';buildMoveList(popQuery);});modeChips[k]=b;modeSec.appendChild(b);});
       updateModeChips();sidebar.appendChild(modeSec);
       // ── Type filter – icon grid, no text ─────────────────────────────────────
       sidebar.appendChild(mkSecHdr('Type'));
@@ -4024,6 +4024,15 @@ function renderQ(){
           const {lvlMap,teachSet,eggSet}=learnData;
           const allNames=new Set([...Object.keys(lvlMap),...teachSet,...eggSet]);
           moves=[...MOVES].filter(m=>m.id<=847&&allNames.has(m.name));
+          // Auto-sort: LevelUp (by level) → TM → Egg → rest
+          const learnOrder=m=>{
+            if(lvlMap[m.name]!==undefined) return [0, lvlMap[m.name]||0, m.name];
+            if(teachSet.has(m.name)) return [1, 0, m.name];
+            if(eggSet.has(m.name)) return [2, 0, m.name];
+            return [3, 0, m.name];
+          };
+          moves.sort((a,b)=>{ const [ao,an,aname]=learnOrder(a); const [bo,bn,bname]=learnOrder(b); return ao-bo||an-bn||aname.localeCompare(bname); });
+          popSortKey='_learnable'; // lock sort to learnable order
         } else {
           moves=[...MOVES].filter(m=>m.id<=847);
         }
@@ -4036,7 +4045,8 @@ function renderQ(){
         // ── Attributes: OR logic ──
         if(activePopAttrs&&activePopAttrs.size)moves=moves.filter(m=>m.flags&&[...activePopAttrs].some(f=>m.flags.includes(f)));
         // ── Sort ──
-        if(popSortKey==='name')moves.sort((a,b)=>a.name.localeCompare(b.name));
+        if(popSortKey==='_learnable'){ /* already sorted */ }
+        else if(popSortKey==='name')moves.sort((a,b)=>a.name.localeCompare(b.name));
         else if(popSortKey==='name_desc')moves.sort((a,b)=>b.name.localeCompare(a.name));
         else if(popSortKey==='bp_desc')moves.sort((a,b)=>(b.power||0)-(a.power||0));
         else if(popSortKey==='bp_asc')moves.sort((a,b)=>(a.power||0)-(b.power||0));
@@ -6082,7 +6092,7 @@ function renderTrainerQ() {
       // ── Restricted warning (above search) ────────────────────────────────────
       const restrictWarnEl=document.createElement('div');
       restrictWarnEl.style.cssText='display:none;padding:8px 12px;background:rgba(227,53,13,.08);border-top:1px solid rgba(227,53,13,.2);font-size:9px;color:#e57373;line-height:1.65;flex-shrink:0;';
-      restrictWarnEl.innerHTML='<b style="color:#ff6b6b;font-size:9px;">\u26a0\ufe0f Restricted Moves</b><br><span style="color:#aab;font-size:9px;">All moves listed here can\'t be selected for your Pok\u00e9mon. These moves require the following criteria to be available mid-fight automatically:</span><br>\u2022 <b>[Z]</b> Z-Moves require the corresponding Z-Crystal<br>\u2022 <b>[D]</b> Max Moves require Dynamax + a move of the same type';
+      restrictWarnEl.innerHTML='<b style="color:#ff6b6b;font-size:9px;">\u26a0\ufe0f Restricted Moves</b><br><span style="color:#aab;font-size:9px;">All moves listed here can\'t be selected for your Pok\u00e9mon. These moves require the following criteria to be available mid-fight automatically:</span><br>\u2022 <b>[Z]</b> Z-Moves require the corresponding Z-Crystal<br>\u2022 <b>[D]</b> Max Moves require Dynamax + a move of the same type<br>\u2022 <b>[GMax]</b> Signature G-Max moves only work while Gigantamaxed (same-type move required)';
       // ── Two-panel body ────────────────────────────────────────────────────────
       const panels=document.createElement('div');panels.style.cssText='display:flex;flex:1;overflow:hidden;min-height:0;';
       // ═══════════════════════════════════════════════════════════════════════════
@@ -6104,7 +6114,7 @@ function renderTrainerQ() {
       const modeChips={};
       const MODES=[['all','All Moves'],['learnable','Learnable'],['restricted','Restricted']];
       function updateModeChips(){MODES.forEach(([k])=>{const el=modeChips[k];if(!el)return;const sel=popMode===k;el.style.background=sel?'rgba(149,117,205,.2)':'transparent';el.style.borderColor=sel?'rgba(149,117,205,.5)':'rgba(255,255,255,.08)';el.style.color=sel?'#c5a4e8':'#556';el.style.fontWeight=sel?'600':'400';});}
-      MODES.forEach(([k,lbl])=>{const b=document.createElement('button');b.type='button';b.style.cssText='padding:5px 9px;border-radius:5px;border:1px solid rgba(255,255,255,.08);background:transparent;color:#556;cursor:pointer;font-size:11px;text-align:left;transition:all .12s;';b.textContent=lbl;b.addEventListener('click',()=>{popMode=k;updateModeChips();restrictWarnEl.style.display=k==='restricted'?'block':'none';buildMoveList(popQuery);});modeChips[k]=b;modeSec.appendChild(b);});
+      MODES.forEach(([k,lbl])=>{const b=document.createElement('button');b.type='button';b.style.cssText='padding:5px 9px;border-radius:5px;border:1px solid rgba(255,255,255,.08);background:transparent;color:#556;cursor:pointer;font-size:11px;text-align:left;transition:all .12s;';b.textContent=lbl;b.addEventListener('click',()=>{popMode=k;if(k!=='learnable'&&popSortKey==='_learnable'){popSortKey='id';updateSortChips();}updateModeChips();restrictWarnEl.style.display=k==='restricted'?'block':'none';buildMoveList(popQuery);});modeChips[k]=b;modeSec.appendChild(b);});
       updateModeChips();sidebar.appendChild(modeSec);
       // ── Type filter – icon grid, no text ─────────────────────────────────────
       sidebar.appendChild(mkSecHdr('Type'));
@@ -6214,6 +6224,15 @@ function renderTrainerQ() {
           const {lvlMap,teachSet,eggSet}=learnData;
           const allNames=new Set([...Object.keys(lvlMap),...teachSet,...eggSet]);
           moves=[...MOVES].filter(m=>m.id<=847&&allNames.has(m.name));
+          // Auto-sort: LevelUp (by level) → TM → Egg → rest
+          const learnOrder=m=>{
+            if(lvlMap[m.name]!==undefined) return [0, lvlMap[m.name]||0, m.name];
+            if(teachSet.has(m.name)) return [1, 0, m.name];
+            if(eggSet.has(m.name)) return [2, 0, m.name];
+            return [3, 0, m.name];
+          };
+          moves.sort((a,b)=>{ const [ao,an,aname]=learnOrder(a); const [bo,bn,bname]=learnOrder(b); return ao-bo||an-bn||aname.localeCompare(bname); });
+          popSortKey='_learnable'; // lock sort to learnable order
         } else {
           moves=[...MOVES].filter(m=>m.id<=847);
         }
@@ -6226,7 +6245,8 @@ function renderTrainerQ() {
         // ── Attributes: OR logic ──
         if(activePopAttrs&&activePopAttrs.size)moves=moves.filter(m=>m.flags&&[...activePopAttrs].some(f=>m.flags.includes(f)));
         // ── Sort ──
-        if(popSortKey==='name')moves.sort((a,b)=>a.name.localeCompare(b.name));
+        if(popSortKey==='_learnable'){ /* already sorted */ }
+        else if(popSortKey==='name')moves.sort((a,b)=>a.name.localeCompare(b.name));
         else if(popSortKey==='name_desc')moves.sort((a,b)=>b.name.localeCompare(a.name));
         else if(popSortKey==='bp_desc')moves.sort((a,b)=>(b.power||0)-(a.power||0));
         else if(popSortKey==='bp_asc')moves.sort((a,b)=>(a.power||0)-(b.power||0));
@@ -7129,6 +7149,25 @@ function initTwitchIntegration(){
             if(ok)triggerRoll(user);
             else addLog('\uD83D\uDEAB @'+user+' no permission (flags: mod='+flags.mod+', broadcaster='+flags.broadcaster+')','#555');
           }
+          // ── !slot[1-6] <pokemon name> ──────────────────────────────────────────
+          const slotMatch=msg.match(/^!slot([1-6])\s+(.+)/i);
+          if(slotMatch){
+            const ok=badges.includes('broadcaster')||badges.includes('moderator');
+            if(ok){
+              const idx=parseInt(slotMatch[1])-1;
+              const name=slotMatch[2].trim();
+              const found=window._wonniSetPartySlot?.(idx,name);
+              if(found)addLog('\u2705 @'+user+': slot '+(idx+1)+' = '+name,'#9575cd');
+              else addLog('\u26a0\ufe0f @'+user+': '+name+' not found in Pok\u00e9mon data','#f0c600');
+            }
+          }
+          // ── !clearslot[1-6] ────────────────────────────────────────────────────
+          const clrMatch=msg.match(/^!clearslot([1-6])/i);
+          if(clrMatch&&(badges.includes('broadcaster')||badges.includes('moderator'))){
+            const idx=parseInt(clrMatch[1])-1;
+            if(window._wonniSetPartySlot){window._wonniSetPartySlot(idx,'__CLEAR__');}
+            addLog('\u2705 @'+user+': slot '+(idx+1)+' cleared','#9575cd');
+          }
         }
         }); // end lines.forEach
       };
@@ -7339,6 +7378,63 @@ function initPkmRoulette(){
   const grid=document.getElementById('pkm-roulette-grid');
   const TRAINER_BASE_R='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer/';
   let open=false,hofData=null,rolling=false;
+  // ── Party: 6 slots, set via chat !slot1-!slot6 ──────────────────────────────
+  let partySlots=[null,null,null,null,null,null];
+  let partySec=null,partyGrid=null,partyOpen=true;
+
+  function findPkmByName(name){
+    if(!hofData?.pokemon)return null;
+    if(name==='__CLEAR__')return null;
+    const q=name.toLowerCase().trim();
+    return hofData.pokemon.find(p=>
+      (p.nickname||'').toLowerCase()===q ||
+      (p.species||'').toLowerCase()===q
+    )||null;
+  }
+
+  function renderPartyTiles(){
+    if(!partyGrid)return;
+    partyGrid.innerHTML='';
+    for(let i=0;i<6;i++){
+      const pkm=partySlots[i];
+      const tile=document.createElement('div');
+      tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:#0d1117;min-width:80px;cursor:default;position:relative;';
+      if(pkm){
+        const sf=pkm.sprite_file||pkm.sprite||(pkm.shiny?pkm.species+'_s':pkm.species)||'';
+        const spr=document.createElement('img');
+        spr.style.cssText='width:52px;height:52px;image-rendering:pixelated;';
+        spr.src=`${PKM_BASE1}${sf}.png`;
+        spr.onerror=()=>{spr.src='';spr.alt='?';};
+        const nick=document.createElement('div');
+        nick.style.cssText='font-size:9px;font-weight:700;color:#e2e8f0;text-align:center;max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+        nick.textContent=pkm.nickname||pkm.species||'?';
+        const spec=document.createElement('div');
+        spec.style.cssText='font-size:8px;color:#4a5568;text-align:center;';
+        spec.textContent=pkm.species||'';
+        // Clear button
+        const clr=document.createElement('button');clr.type='button';
+        clr.style.cssText='position:absolute;top:3px;right:3px;padding:0 4px;border-radius:3px;border:1px solid rgba(229,115,115,.3);background:transparent;color:#e57373;cursor:pointer;font-size:9px;line-height:1.5;';
+        clr.textContent='✕';
+        clr.addEventListener('click',()=>{partySlots[i]=null;renderPartyTiles();});
+        tile.append(spr,nick,spec,clr);
+      } else {
+        const icon=document.createElement('div');icon.style.cssText='width:52px;height:52px;border-radius:50%;border:1px dashed rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#2d3748;font-size:18px;';icon.textContent='?';
+        const hint=document.createElement('div');hint.style.cssText='font-size:8px;color:#2d3748;text-align:center;font-family:"Press Start 2P",monospace;line-height:1.4;';
+        hint.textContent=`!slot${i+1}`;
+        tile.append(icon,hint);
+      }
+      partyGrid.appendChild(tile);
+    }
+  }
+
+  // Global hook for Twitch !slot commands
+  window._wonniSetPartySlot=(slotIdx,name)=>{
+    if(name==='__CLEAR__'){partySlots[slotIdx]=null;renderPartyTiles();return true;}
+    const pkm=findPkmByName(name);
+    if(pkm){partySlots[slotIdx]=pkm;renderPartyTiles();return true;}
+    return false;
+  };
+
 
   btn.addEventListener('click',()=>{open=!open;panel.style.display=open?'block':'none';btn.textContent=open?'🎲 POKÉMON ROULETTE  ▲':'🎲 POKÉMON ROULETTE  ▼';if(open&&!hofData)loadData();});
   closeBtn.addEventListener('click',()=>{open=false;panel.style.display='none';btn.textContent='🎲 POKÉMON ROULETTE  ▼';});
@@ -7449,6 +7545,30 @@ function initPkmRoulette(){
     rouletteSec.append(spinCard,rollDesc,rollBtnRow);grid.appendChild(rouletteSec);
 
 
+    // ── Party Section ──────────────────────────────────────────────────────────
+    if(!partySec){
+      partySec=document.createElement('div');
+      partySec.style.cssText='padding:14px;border-bottom:2px solid rgba(149,117,205,.15);';
+      const partyHdrRow=document.createElement('div');
+      partyHdrRow.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:10px;cursor:pointer;user-select:none;';
+      partyHdrRow.addEventListener('click',()=>{partyOpen=!partyOpen;partyGrid.style.display=partyOpen?'grid':'none';partyChevron.textContent=partyOpen?'▲':'▼';});
+      const partyTitle=document.createElement('div');
+      partyTitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:9px;color:#9575cd;white-space:nowrap;';
+      partyTitle.textContent='POKÉMON PARTY';
+      const partyLine=document.createElement('div');partyLine.style.cssText='flex:1;height:1px;background:rgba(149,117,205,.2);';
+      const partyHint=document.createElement('div');partyHint.style.cssText='font-size:9px;color:#334155;';
+      partyHint.textContent='!slot1-6 in Twitch chat';
+      const partyChevron=document.createElement('div');partyChevron.style.cssText='font-size:9px;color:#4a5568;';partyChevron.textContent='▲';
+      partyHdrRow.append(partyTitle,partyLine,partyHint,partyChevron);
+      partyGrid=document.createElement('div');
+      partyGrid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:6px;justify-items:center;';
+      renderPartyTiles();
+      partySec.append(partyHdrRow,partyGrid);
+      grid.appendChild(partySec);
+    } else {
+      grid.appendChild(partySec);
+    }
+
     // ── Section 2: Pokémon Pool (roll candidates) ─────────────────────────
     const lockSec=document.createElement('div');lockSec.style.cssText='padding:14px;';
     const lockHdr=document.createElement('div');lockHdr.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:10px;cursor:pointer;user-select:none;';
@@ -7530,6 +7650,63 @@ function initPkmHofBrowser(){
   const TRAINER_BASE_HOF='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer/';
   const TYPE_COL={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
   let open=false,hofData=null,rolling=false;
+  // ── Party: 6 slots, set via chat !slot1-!slot6 ──────────────────────────────
+  let partySlots=[null,null,null,null,null,null];
+  let partySec=null,partyGrid=null,partyOpen=true;
+
+  function findPkmByName(name){
+    if(!hofData?.pokemon)return null;
+    if(name==='__CLEAR__')return null;
+    const q=name.toLowerCase().trim();
+    return hofData.pokemon.find(p=>
+      (p.nickname||'').toLowerCase()===q ||
+      (p.species||'').toLowerCase()===q
+    )||null;
+  }
+
+  function renderPartyTiles(){
+    if(!partyGrid)return;
+    partyGrid.innerHTML='';
+    for(let i=0;i<6;i++){
+      const pkm=partySlots[i];
+      const tile=document.createElement('div');
+      tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:#0d1117;min-width:80px;cursor:default;position:relative;';
+      if(pkm){
+        const sf=pkm.sprite_file||pkm.sprite||(pkm.shiny?pkm.species+'_s':pkm.species)||'';
+        const spr=document.createElement('img');
+        spr.style.cssText='width:52px;height:52px;image-rendering:pixelated;';
+        spr.src=`${PKM_BASE1}${sf}.png`;
+        spr.onerror=()=>{spr.src='';spr.alt='?';};
+        const nick=document.createElement('div');
+        nick.style.cssText='font-size:9px;font-weight:700;color:#e2e8f0;text-align:center;max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+        nick.textContent=pkm.nickname||pkm.species||'?';
+        const spec=document.createElement('div');
+        spec.style.cssText='font-size:8px;color:#4a5568;text-align:center;';
+        spec.textContent=pkm.species||'';
+        // Clear button
+        const clr=document.createElement('button');clr.type='button';
+        clr.style.cssText='position:absolute;top:3px;right:3px;padding:0 4px;border-radius:3px;border:1px solid rgba(229,115,115,.3);background:transparent;color:#e57373;cursor:pointer;font-size:9px;line-height:1.5;';
+        clr.textContent='✕';
+        clr.addEventListener('click',()=>{partySlots[i]=null;renderPartyTiles();});
+        tile.append(spr,nick,spec,clr);
+      } else {
+        const icon=document.createElement('div');icon.style.cssText='width:52px;height:52px;border-radius:50%;border:1px dashed rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#2d3748;font-size:18px;';icon.textContent='?';
+        const hint=document.createElement('div');hint.style.cssText='font-size:8px;color:#2d3748;text-align:center;font-family:"Press Start 2P",monospace;line-height:1.4;';
+        hint.textContent=`!slot${i+1}`;
+        tile.append(icon,hint);
+      }
+      partyGrid.appendChild(tile);
+    }
+  }
+
+  // Global hook for Twitch !slot commands
+  window._wonniSetPartySlot=(slotIdx,name)=>{
+    if(name==='__CLEAR__'){partySlots[slotIdx]=null;renderPartyTiles();return true;}
+    const pkm=findPkmByName(name);
+    if(pkm){partySlots[slotIdx]=pkm;renderPartyTiles();return true;}
+    return false;
+  };
+
 
   btn.addEventListener('click',()=>{open=!open;panel.style.display=open?'block':'none';btn.textContent=open?'\u2B50 POK\u00c9MON HALL OF FAME  \u25b2':'\u2B50 POK\u00c9MON HALL OF FAME  \u25bc';if(open&&!hofData)loadData();});
   document.getElementById('pkm-hof-close').addEventListener('click',()=>{open=false;panel.style.display='none';btn.textContent='\u2B50 POK\u00c9MON HALL OF FAME  \u25bc';});
