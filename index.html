@@ -749,6 +749,7 @@ const PKM_BASE2  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/
 const PKM_SHINY1 = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites/';
 const PKM_SHINY2 = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites2/';
 const ITEM_BASE  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
+const IF = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/'; // PokeAPI item sprites fallback
 
 const SHOWDOWN= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/';
 const ART     = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
@@ -1507,8 +1508,9 @@ function updPokemonCard(){
     if(dynVal2){const gmR2=mkDR('Dynamax Lvl',dynVal2,'var(--white)',null,7);if(gmR2)details.appendChild(gmR2);}
   }
 
-  // ── Moves section — shown when moves are selected
-  if(currentMode==='trainer'||ans[9]?.moves?.length||(team&&team[currentSlot]?.[15]?.moves?.length)){
+  // ── Moves section — shown when moves are selected (or always visible)
+  const _movCheck=(currentMode==='trainer'?slot?.[15]:ans[9])?.moves?.length||0;
+  if(currentMode==='trainer'||_movCheck>0||ans[9]){
   (()=>{
     const MTID_C={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
     const TC={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
@@ -4199,7 +4201,7 @@ function renderQ(){
       if(it.hold_effect) pChips.appendChild(mkChip('Holdable','rgba(76,175,80,.12)','#4caf50'));
       prev.style.display='flex';
       // Fill popup
-      ipIco.src=pIco.src; ipIco.onerror=()=>iFb(ipIco,it.slug);
+      itemIco.src=pIco.src; itemIco.onerror=()=>iFb(itemIco,it.slug);
       ipTitle.textContent=it.name;
       ipDesc.textContent=it.desc||'No description available.';
       ipRows.innerHTML='';
@@ -5502,7 +5504,7 @@ function renderTrainerQ() {
     const mkRow6=(l,v,c)=>{if(!v&&v!==0)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);';const lEl=document.createElement('span');lEl.style.cssText='font-size:11px;color:var(--gray);';lEl.textContent=l;const vEl=document.createElement('span');vEl.style.cssText='font-size:12px;font-weight:600;color:'+(c||'var(--white)')+';text-align:right;';vEl.textContent=v;r.append(lEl,vEl);return r;};
     const ipDesc=document.createElement('div');ipDesc.style.cssText='font-size:12px;color:var(--gray);line-height:1.6;padding:10px 0 6px;border-bottom:1px solid rgba(255,255,255,.05);font-style:italic;';
     const ip6Rows=document.createElement('div');
-    ip6Body.append(ip6Desc,ip6Rows);ip6Box.append(ip6Hdr,ip6Body);ip6Popup.appendChild(ip6Box);
+    ip6Body.append(ipDesc,ip6Rows);ip6Box.append(ip6Hdr,ip6Body);ip6Popup.appendChild(ip6Box);
     document.body.appendChild(ip6Popup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
     let selItem6=null,iai6=-1;
@@ -5652,7 +5654,6 @@ function renderTrainerQ() {
     addT(card,'In which Pokéball should your Pokémon be?');
     const BALLS=ITEMS.filter(it=>it.id>=1&&it.id<=27);
     const IB='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
-    const IF='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/';
     const iUrl=slug=>`${IB}${slug}.png`;
     const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';}};
     let selBall=null;
@@ -7499,24 +7500,12 @@ function initPkmRoulette(){
   };
   // Open panel + refresh party grid (even if panel was closed)
   function _refreshParty(){
-    if(!open){
-      open=true;
-      panel.style.display='block';
-      btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';
-      if(!hofData){
-        loadData().then(()=>renderPartyTiles());
-      } else {
-        renderAll();
-        // renderAll creates partyGrid on first call; update tiles after
-        setTimeout(()=>renderPartyTiles(),0);
-      }
-    } else if(partyGrid){
+    // Only update tiles if panel is already open + partyGrid exists
+    // Don't auto-open — user opens the Roulette panel manually
+    if(open&&partyGrid){
       renderPartyTiles();
-    } else {
-      // partyGrid not yet created — trigger renderAll
-      renderAll();
-      setTimeout(()=>renderPartyTiles(),0);
     }
+    // Data is already set in partySlots[] — tiles update on next panel open
   }
 
 
@@ -7818,24 +7807,12 @@ function initPkmHofBrowser(){
   };
   // Open panel + refresh party grid (even if panel was closed)
   function _refreshParty(){
-    if(!open){
-      open=true;
-      panel.style.display='block';
-      btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';
-      if(!hofData){
-        loadData().then(()=>renderPartyTiles());
-      } else {
-        renderAll();
-        // renderAll creates partyGrid on first call; update tiles after
-        setTimeout(()=>renderPartyTiles(),0);
-      }
-    } else if(partyGrid){
+    // Only update tiles if panel is already open + partyGrid exists
+    // Don't auto-open — user opens the Roulette panel manually
+    if(open&&partyGrid){
       renderPartyTiles();
-    } else {
-      // partyGrid not yet created — trigger renderAll
-      renderAll();
-      setTimeout(()=>renderPartyTiles(),0);
     }
+    // Data is already set in partySlots[] — tiles update on next panel open
   }
 
 
