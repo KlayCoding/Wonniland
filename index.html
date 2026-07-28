@@ -7500,13 +7500,8 @@ function initPkmRoulette(){
         const mon=ALL_MON.find(m=>m.name.toLowerCase()===(pkm.species||'').toLowerCase());
         // Sprite
         const img=document.createElement('img');img.style.cssText='width:52px;height:52px;image-rendering:pixelated;';
-        // HOF data uses `sprite` and `shiny_sprite` fields
-        const sprKey=pkm.shiny&&pkm.shiny_sprite?pkm.shiny_sprite:(pkm.sprite||pkm.sprite_file||'');
-        const sprBase=pkm.shiny?PKM_SHINY1:PKM_BASE1;
-        if(sprKey){
-          img.src=sprBase+sprKey+'.png';
-          img.onerror=()=>{img.src=PKM_BASE1+sprKey+'.png';img.onerror=()=>{img.style.opacity='.2';};};}
-        else{img.style.opacity='.2';}
+        // Use same function as Hall of Fame (reads _SHINY_BASES/_PKM_BASES from pokemon.json)
+        pkmSpriteWithFallback(img, pkm, !!pkm.shiny);
         tile.appendChild(img);
         // Nickname
         const nick=document.createElement('div');nick.style.cssText='font-size:11px;font-weight:800;text-align:center;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
