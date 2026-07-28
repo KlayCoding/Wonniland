@@ -4178,7 +4178,7 @@ function renderQ(){
     const mkRow=(l,v,c)=>{if(!v&&v!==0)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);';const lEl=document.createElement('span');lEl.style.cssText='font-size:11px;color:var(--gray);';lEl.textContent=l;const vEl=document.createElement('span');vEl.style.cssText='font-size:12px;font-weight:600;color:'+(c||'var(--white)')+';text-align:right;';vEl.textContent=v;r.append(lEl,vEl);return r;};
     const ipDesc=document.createElement('div');ipDesc.style.cssText='font-size:12px;color:var(--gray);line-height:1.6;padding:10px 0 6px;border-bottom:1px solid rgba(255,255,255,.05);font-style:italic;';
     const ipRows=document.createElement('div');
-    itemBody.append(ip6Desc,ipRows);itemBox.append(itemHdr,itemBody);itemPopup.appendChild(itemBox);
+    itemBody.append(ipDesc,ipRows);itemBox.append(itemHdr,itemBody);itemPopup.appendChild(itemBox);
     document.body.appendChild(itemPopup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
     let selItem=null,iai=-1;
@@ -7457,7 +7457,10 @@ function initPkmRoulette(){
   window._wonniSetPartySlot=(slotIdx,name)=>{
     if(name==='__CLEAR__'){partySlots[slotIdx]=null;_refreshParty();return true;}
     if(!hofData){
-      loadData().then(()=>window._wonniSetPartySlot(slotIdx,name));
+      loadData().then(()=>{
+        const p=findPkmByName(name);
+        if(p){partySlots[slotIdx]=p;_refreshParty();}
+      });
       return 'loading';
     }
     const pkm=findPkmByName(name);
@@ -7470,10 +7473,19 @@ function initPkmRoulette(){
       open=true;
       panel.style.display='block';
       btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';
-      if(!hofData)loadData();
-      else renderAll();
+      if(!hofData){
+        loadData().then(()=>renderPartyTiles());
+      } else {
+        renderAll();
+        // renderAll creates partyGrid on first call; update tiles after
+        setTimeout(()=>renderPartyTiles(),0);
+      }
     } else if(partyGrid){
       renderPartyTiles();
+    } else {
+      // partyGrid not yet created — trigger renderAll
+      renderAll();
+      setTimeout(()=>renderPartyTiles(),0);
     }
   }
 
@@ -7757,7 +7769,10 @@ function initPkmHofBrowser(){
   window._wonniSetPartySlot=(slotIdx,name)=>{
     if(name==='__CLEAR__'){partySlots[slotIdx]=null;_refreshParty();return true;}
     if(!hofData){
-      loadData().then(()=>window._wonniSetPartySlot(slotIdx,name));
+      loadData().then(()=>{
+        const p=findPkmByName(name);
+        if(p){partySlots[slotIdx]=p;_refreshParty();}
+      });
       return 'loading';
     }
     const pkm=findPkmByName(name);
@@ -7770,10 +7785,19 @@ function initPkmHofBrowser(){
       open=true;
       panel.style.display='block';
       btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';
-      if(!hofData)loadData();
-      else renderAll();
+      if(!hofData){
+        loadData().then(()=>renderPartyTiles());
+      } else {
+        renderAll();
+        // renderAll creates partyGrid on first call; update tiles after
+        setTimeout(()=>renderPartyTiles(),0);
+      }
     } else if(partyGrid){
       renderPartyTiles();
+    } else {
+      // partyGrid not yet created — trigger renderAll
+      renderAll();
+      setTimeout(()=>renderPartyTiles(),0);
     }
   }
 
