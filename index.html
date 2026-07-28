@@ -7884,51 +7884,6 @@ function initPkmHofBrowser(){
   }
 
   // Global hook for Twitch !slot commands
-  function _doSlotSet(slotIdx, name, ownerHint){
-    const pkm=findPkmByName(name, ownerHint||null);
-    if(pkm){partySlots[slotIdx]=pkm;if(partyGrid){renderPartyTiles();}else{_refreshParty();}return true;}
-    return false;
-  }
-
-  window._wonniSetPartySlot=(slotIdx, raw)=>{
-    if(raw==='__CLEAR__'){partySlots[slotIdx]=null;if(partyGrid)renderPartyTiles();return true;}
-    // Parse 'nickname, owner' format — comma splits nick from owner
-    const commaIdx=raw.indexOf(',');
-    const name=commaIdx>=0?raw.slice(0,commaIdx).trim():raw.trim();
-    const ownerHint=commaIdx>=0?raw.slice(commaIdx+1).trim():null;
-
-    if(!hofData){
-      loadData().then(()=>{
-        // Diagnostic: log first pokemon's fields to help debug JSON structure
-        const pool=Array.isArray(hofData)?hofData:(hofData?.pokemon||hofData?.data||[]);
-        if(pool.length===0){
-          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false,err:'JSON loaded but pokemon array empty or wrong key'}}));
-          return;
-        }
-        // Log first entry's keys for debugging
-        const firstKeys=Object.keys(pool[0]).join(', ');
-        console.log('[Wonni Party] JSON fields:',firstKeys,'| Total pokemon:',pool.length);
-        // Log ALL nicknames to help debug
-        const allNicks=pool.map(p=>p.nickname||p.name||'?').slice(0,20).join(', ');
-        console.log('[Wonni Party] First 20 nicknames:',allNicks);
-        // Direct search log
-        const qq=(name||'').toLowerCase().trim();
-        const directHit=pool.find(p=>(p.nickname||'').toLowerCase().trim()===qq);
-        console.log('[Wonni Party] Direct nick search for "'+name+'":',directHit?'FOUND '+directHit.nickname+' (owner:'+directHit.owner_name+')'  :'NOT FOUND');
-        window.dispatchEvent(new CustomEvent('party-diag',{detail:{fields:firstKeys,total:pool.length}}));
-        try{
-          const found=_doSlotSet(slotIdx,name,ownerHint);
-          console.log('[Wonni Party] _doSlotSet result:',found);
-          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
-        }catch(err){
-          console.error('[Wonni Party] ERROR in _doSlotSet:',err);
-          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false,err:err.message}}));
-        }
-      });
-      return 'loading';
-    }
-    return _doSlotSet(slotIdx,name,ownerHint);
-  };
   // Open panel + refresh party grid (even if panel was closed)
   function _refreshParty(){
     // Only update tiles if panel is already open + partyGrid exists
