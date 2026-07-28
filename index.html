@@ -7063,13 +7063,16 @@ function initTwitchIntegration(){
   // Listen for party slot results and show in Twitch log
   window.addEventListener('party-slot-set',(ev)=>{
     const {slotIdx,name,ownerHint,found,err}=ev.detail;
-    if(err){addLog('\u274c Slot error: '+err,'#e57373');return;}
-    if(found){addLog('\u2705 Slot '+(slotIdx+1)+' \u2192 '+name+(ownerHint?' ('+ownerHint+')':''),'#9575cd');}
-    else{addLog('\u26a0\ufe0f Not found: "'+name+'"'+(ownerHint?' owner:'+ownerHint:'')+' \u2014 check JSON fields in console','#f0c600');}
+    console.log('[Wonni Party] slot-set event:',ev.detail);
+    try{
+      if(err){addLog('\u274c '+err,'#e57373');return;}
+      if(found){addLog('\u2705 Slot '+(slotIdx+1)+' \u2192 '+name+(ownerHint?' ('+ownerHint+')':''),'#9575cd');}
+      else{addLog('\u26a0\ufe0f Not found: "'+name+'" \u2014 check browser console','#f0c600');}
+    }catch(e){console.error('[Wonni Party] addLog failed:',e);}
   });
   window.addEventListener('party-diag',(ev)=>{
     const {fields,total}=ev.detail;
-    addLog('\uD83D\uDD0D JSON: '+total+' pokemon | fields: '+fields,'#64b5f6');
+    try{addLog('\uD83D\uDD0D JSON: '+total+' pkm loaded','#64b5f6');}catch(e){console.log('[Party] addLog err',e);}
   });
 
   const setStatus=(state,msg)=>{
@@ -7551,8 +7554,22 @@ function initPkmRoulette(){
         // Log first entry's keys for debugging
         const firstKeys=Object.keys(pool[0]).join(', ');
         console.log('[Wonni Party] JSON fields:',firstKeys,'| Total pokemon:',pool.length);
+        // Log ALL nicknames to help debug
+        const allNicks=pool.map(p=>p.nickname||p.name||'?').slice(0,20).join(', ');
+        console.log('[Wonni Party] First 20 nicknames:',allNicks);
+        // Direct search log
+        const qq=(name||'').toLowerCase().trim();
+        const directHit=pool.find(p=>(p.nickname||'').toLowerCase().trim()===qq);
+        console.log('[Wonni Party] Direct nick search for "'+name+'":',directHit?'FOUND '+directHit.nickname+' (owner:'+directHit.owner_name+')'  :'NOT FOUND');
         window.dispatchEvent(new CustomEvent('party-diag',{detail:{fields:firstKeys,total:pool.length}}));
-        const found=_doSlotSet(slotIdx,name,ownerHint);
+        try{
+          const found=_doSlotSet(slotIdx,name,ownerHint);
+          console.log('[Wonni Party] _doSlotSet result:',found);
+          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
+        }catch(err){
+          console.error('[Wonni Party] ERROR in _doSlotSet:',err);
+          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false,err:err.message}}));
+        }
         window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
       });
       return 'loading';
@@ -7887,8 +7904,22 @@ function initPkmHofBrowser(){
         // Log first entry's keys for debugging
         const firstKeys=Object.keys(pool[0]).join(', ');
         console.log('[Wonni Party] JSON fields:',firstKeys,'| Total pokemon:',pool.length);
+        // Log ALL nicknames to help debug
+        const allNicks=pool.map(p=>p.nickname||p.name||'?').slice(0,20).join(', ');
+        console.log('[Wonni Party] First 20 nicknames:',allNicks);
+        // Direct search log
+        const qq=(name||'').toLowerCase().trim();
+        const directHit=pool.find(p=>(p.nickname||'').toLowerCase().trim()===qq);
+        console.log('[Wonni Party] Direct nick search for "'+name+'":',directHit?'FOUND '+directHit.nickname+' (owner:'+directHit.owner_name+')'  :'NOT FOUND');
         window.dispatchEvent(new CustomEvent('party-diag',{detail:{fields:firstKeys,total:pool.length}}));
-        const found=_doSlotSet(slotIdx,name,ownerHint);
+        try{
+          const found=_doSlotSet(slotIdx,name,ownerHint);
+          console.log('[Wonni Party] _doSlotSet result:',found);
+          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
+        }catch(err){
+          console.error('[Wonni Party] ERROR in _doSlotSet:',err);
+          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false,err:err.message}}));
+        }
         window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
       });
       return 'loading';
