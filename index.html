@@ -4360,12 +4360,16 @@ function renderResult(){
     const sf1=monId?String(monId).padStart(4,'0'):'';
     const sf2=getSpriteFile(mon)||sf1;
     fSpr.style.display='block';
-    if(typeof pkmSpriteWithFallback==='function'){
-      pkmSpriteWithFallback(fSpr,mon,isShiny);
-    } else {
+    // Build sprite URL using Wonniland bases — getSpriteFile handles custom names
+    const sprFile=getSpriteFile(mon)||sf1||sf2;
+    if(sprFile){
       const base=isShiny?PKM_SHINY1:PKM_BASE1;
-      fSpr.onerror=()=>{fSpr.style.opacity='.25';};
-      fSpr.src=(sf1?(base+sf1+'.png'):(sf2?base+sf2+'.png':''));
+      fSpr.src=base+sprFile+'.png';
+      // Fallback chain: shiny→normal→opacity
+      if(isShiny){
+        fSpr.onerror=()=>{fSpr.src=PKM_BASE1+sprFile+'.png';fSpr.onerror=()=>{fSpr.style.opacity='.25';};};}
+      else{
+        fSpr.onerror=()=>{fSpr.style.opacity='.25';};}
     }
     fSpr.style.cssText='width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;min-width:72px;';
     const fIdent=document.createElement('div');fIdent.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;';
@@ -4420,7 +4424,9 @@ function renderResult(){
       if(gDv) freshCard.appendChild(mkFR2('Dynamax Lvl',gDv));
     }
     if(ans[10]?.value){
-      const itemData=ITEMS.find(it=>it.name===ans[10].value);
+      const _rawItemVal=ans[10].value||'';
+      const _itemName=_rawItemVal.split(' (#')[0].trim();
+      const itemData=ITEMS.find(it=>it.name===_itemName)||ITEMS.find(it=>it.name===_rawItemVal);
       const itemEl=document.createElement('div');itemEl.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';
       const itemLbl=document.createElement('span');itemLbl.style.cssText='color:var(--gray);';itemLbl.textContent='Held Item';
       const itemVal=document.createElement('div');itemVal.style.cssText='display:flex;align-items:center;gap:6px;font-weight:700;color:#f0c600;';
@@ -6345,6 +6351,8 @@ function renderTrainerQ() {
     } else {
       if(!team[currentSlot]) team[currentSlot]=Array(17).fill(null);
       team[currentSlot][step]=r;
+      // Species step: also cache .mon for easy access across all steps
+      if(step===POKEMON_Q_START&&r?.mon) team[currentSlot].mon=r.mon;
     }
     step++;lsSave();renderTrainerQ();
   });
