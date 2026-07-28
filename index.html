@@ -4123,65 +4123,65 @@ function renderQ(){
     const iUrl=slug=>`${ITEM_BASE}${slug}.png`;
     const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';}};
     const tBtnRow=document.createElement('div');tBtnRow.style.cssText='display:flex;gap:8px;margin-bottom:10px;';
-    const del6=document.createElement('button');del6.type='button';del6.className='del-btn';del6.style.cssText='flex:0 0 auto;';del6.textContent='✕ Clear';
-    const rand6=document.createElement('button');rand6.type='button';rand6.className='rand-btn';rand6.style.flex='1';rand6.textContent='🎲 Randomize Item!';
-    tBtnRow.append(del6,rand6); card.appendChild(tBtnRow);
+    const del=document.createElement('button');del.type='button';del.className='del-btn';del.style.cssText='flex:0 0 auto;';del.textContent='✕ Clear';
+    const rand=document.createElement('button');rand.type='button';rand.className='rand-btn';rand.style.flex='1';rand.textContent='🎲 Randomize Item!';
+    tBtnRow.append(del,rand); card.appendChild(tBtnRow);
 
     // ── Item Filter Panel (Trainer mode) ──────────────────────────────────
-    const activePockets6=new Set(), activeCats6=new Set();
-    const ift6Toggle=document.createElement('button');ift6Toggle.type='button';
-    ift6Toggle.style.cssText='display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);font-size:11px;cursor:pointer;margin-bottom:8px;transition:all .2s;width:100%;';
-    ift6Toggle.innerHTML='<span style="font-family:\'Press Start 2P\',monospace;font-size:9px;">FILTER</span> <span id="ift6Arrow">▼</span>';
-    const ift6Panel=document.createElement('div');ift6Panel.style.cssText='overflow:hidden;max-height:0;transition:max-height .3s ease;margin-bottom:8px;';
-    const ift6Inner=document.createElement('div');ift6Inner.style.cssText='display:flex;flex-direction:column;gap:10px;padding:12px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:10px;';
-    let ift6Open=false;
-    ift6Toggle.addEventListener('click',()=>{ift6Open=!ift6Open;ift6Panel.style.maxHeight=ift6Open?'500px':'0';ift6Toggle.querySelector('#ift6Arrow').textContent=ift6Open?'▲':'▼';ift6Toggle.style.borderColor=ift6Open?'var(--pl)':'var(--border)';});
-    const pocketColors6={'Berries':'#4caf50','Items':'#64b5f6','Key Items':'#f0c600','Poké Balls':'#e8622a','TMs & HMs':'#ce93d8'};
-    const ITEM_POCKETS6=[...new Set(ITEMS.map(i=>i.pocket).filter(Boolean))].sort();
-    const ITEM_CATS6=[...new Set(ITEMS.map(i=>i.category).filter(Boolean))].sort();
-    const mkIFS6=(title,values,activeSet,colorFn)=>{const sec=document.createElement('div');const lbl=document.createElement('div');lbl.style.cssText='font-size:9px;font-family:"Press Start 2P",monospace;color:var(--gray);margin-bottom:6px;';lbl.textContent=title;const btns=document.createElement('div');btns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';values.forEach(v=>{const col=colorFn(v);const b=document.createElement('button');b.type='button';b.style.cssText=`font-size:9px;padding:3px 9px;border-radius:5px;border:1px solid ${col}44;background:${col}11;color:${col};cursor:pointer;transition:all .15s;`;b.textContent=v;b.dataset.val=v;b.addEventListener('click',()=>{if(activeSet.has(v)){activeSet.delete(v);b.style.background=col+'11';b.style.borderColor=col+'44';b.style.fontWeight='';}else{activeSet.add(v);b.style.background=col+'44';b.style.borderColor=col;b.style.fontWeight='700';}ift6Toggle.style.borderColor=activePockets6.size||activeCats6.size?'var(--pl)':'var(--border)';buildIDD(inp6.value.trim());});btns.appendChild(b);});sec.append(lbl,btns);return sec;};
-    ift6Inner.append(mkIFS6('POCKET',ITEM_POCKETS6,activePockets6,v=>pocketColors6[v]||'#888'),mkIFS6('CATEGORY',ITEM_CATS6,activeCats6,()=>'#9575cd'));
+    const activePockets=new Set(), activeCats=new Set();
+    const iftToggle=document.createElement('button');iftToggle.type='button';
+    iftToggle.style.cssText='display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);font-size:11px;cursor:pointer;margin-bottom:8px;transition:all .2s;width:100%;';
+    iftToggle.innerHTML='<span style="font-family:\'Press Start 2P\',monospace;font-size:9px;">FILTER</span> <span id="ift6Arrow">▼</span>';
+    const iftPanel=document.createElement('div');iftPanel.style.cssText='overflow:hidden;max-height:0;transition:max-height .3s ease;margin-bottom:8px;';
+    const iftInner=document.createElement('div');iftInner.style.cssText='display:flex;flex-direction:column;gap:10px;padding:12px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:10px;';
+    let iftOpen=false;
+    iftToggle.addEventListener('click',()=>{iftOpen=!iftOpen;iftPanel.style.maxHeight=iftOpen?'500px':'0';iftToggle.querySelector('#ift6Arrow').textContent=iftOpen?'▲':'▼';iftToggle.style.borderColor=iftOpen?'var(--pl)':'var(--border)';});
+    const pocketColors={'Berries':'#4caf50','Items':'#64b5f6','Key Items':'#f0c600','Poké Balls':'#e8622a','TMs & HMs':'#ce93d8'};
+    const ITEM_POCKETS=[...new Set(ITEMS.map(i=>i.pocket).filter(Boolean))].sort();
+    const ITEM_CATS=[...new Set(ITEMS.map(i=>i.category).filter(Boolean))].sort();
+    const mkIFS=(title,values,activeSet,colorFn)=>{const sec=document.createElement('div');const lbl=document.createElement('div');lbl.style.cssText='font-size:9px;font-family:"Press Start 2P",monospace;color:var(--gray);margin-bottom:6px;';lbl.textContent=title;const btns=document.createElement('div');btns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';values.forEach(v=>{const col=colorFn(v);const b=document.createElement('button');b.type='button';b.style.cssText=`font-size:9px;padding:3px 9px;border-radius:5px;border:1px solid ${col}44;background:${col}11;color:${col};cursor:pointer;transition:all .15s;`;b.textContent=v;b.dataset.val=v;b.addEventListener('click',()=>{if(activeSet.has(v)){activeSet.delete(v);b.style.background=col+'11';b.style.borderColor=col+'44';b.style.fontWeight='';}else{activeSet.add(v);b.style.background=col+'44';b.style.borderColor=col;b.style.fontWeight='700';}iftToggle.style.borderColor=activePockets.size||activeCats.size?'var(--pl)':'var(--border)';buildIDD(inp.value.trim());});btns.appendChild(b);});sec.append(lbl,btns);return sec;};
+    iftInner.append(mkIFS('POCKET',ITEM_POCKETS,activePockets,v=>pocketColors[v]||'#888'),mkIFS('CATEGORY',ITEM_CATS,activeCats,()=>'#9575cd'));
     const clearIF=document.createElement('button');clearIF.type='button';clearIF.style.cssText='font-size:9px;padding:4px 12px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--gray);cursor:pointer;align-self:flex-start;margin-top:2px;';clearIF.textContent='✕ Clear Filters';
-    clearIF.addEventListener('click',()=>{activePockets6.clear();activeCats6.clear();ift6Inner.querySelectorAll('button[data-val]').forEach(b=>{const col=b.style.color;b.style.background=col+'11';b.style.borderColor=col+'44';b.style.fontWeight='';});ift6Toggle.style.borderColor='var(--border)';buildIDD(inp6.value.trim());});
-    ift6Inner.appendChild(clearIF);ift6Panel.appendChild(ift6Inner);
-    card.appendChild(ift6Toggle);card.appendChild(ift6Panel);
+    clearIF.addEventListener('click',()=>{activePockets.clear();activeCats.clear();iftInner.querySelectorAll('button[data-val]').forEach(b=>{const col=b.style.color;b.style.background=col+'11';b.style.borderColor=col+'44';b.style.fontWeight='';});iftToggle.style.borderColor='var(--border)';buildIDD(inp.value.trim());});
+    iftInner.appendChild(clearIF);iftPanel.appendChild(iftInner);
+    card.appendChild(iftToggle);card.appendChild(iftPanel);
 
-    const wrap6=document.createElement('div');wrap6.className='ac-wrap';
-    const inp6=document.createElement('input');inp6.type='text';inp6.placeholder='Search items by name or description…';inp6.autocomplete='off';inp6.spellcheck=false;
+    const wrap=document.createElement('div');wrap.className='ac-wrap';
+    const inp=document.createElement('input');inp.type='text';inp.placeholder='Search items by name or description…';inp.autocomplete='off';inp.spellcheck=false;
     const dd=document.createElement('div');dd.className='dd';dd.style.maxHeight='60vh';
     // Preview card
-    const prev6=document.createElement('div');prev6.style.cssText='display:none;flex-direction:column;gap:0;margin-bottom:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;overflow:hidden;';
-    const p6Top=document.createElement('div');p6Top.style.cssText='display:flex;align-items:center;gap:12px;padding:12px 14px;';
+    const prev=document.createElement('div');prev.style.cssText='display:none;flex-direction:column;gap:0;margin-bottom:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;overflow:hidden;';
+    const pTop=document.createElement('div');pTop.style.cssText='display:flex;align-items:center;gap:12px;padding:12px 14px;';
     const pIco=document.createElement('img');pIco.style.cssText='width:44px;height:44px;image-rendering:pixelated;flex-shrink:0;border-radius:8px;padding:4px;box-sizing:border-box;';
-    const p6Main=document.createElement('div');p6Main.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;';
+    const pMain=document.createElement('div');pMain.style.cssText='display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;';
     const pName=document.createElement('div');pName.style.cssText='font-size:15px;font-weight:700;';
-    const p6Chips=document.createElement('div');p6Chips.style.cssText='display:flex;gap:5px;flex-wrap:wrap;';
-    p6Main.append(pName,p6Chips);
-    const p6InfoBtn=document.createElement('button');p6InfoBtn.type='button';
-    p6InfoBtn.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:11px;padding:4px 10px;cursor:pointer;flex-shrink:0;transition:all .2s;align-self:flex-start;';
-    p6InfoBtn.textContent='ℹ Info';
-    p6Top.append(pIco,p6Main,p6InfoBtn);
+    const pChips=document.createElement('div');pChips.style.cssText='display:flex;gap:5px;flex-wrap:wrap;';
+    pMain.append(pName,pChips);
+    const pInfoBtn=document.createElement('button');pInfoBtn.type='button';
+    pInfoBtn.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;color:var(--gray);font-size:11px;padding:4px 10px;cursor:pointer;flex-shrink:0;transition:all .2s;align-self:flex-start;';
+    pInfoBtn.textContent='ℹ Info';
+    pTop.append(pIco,pMain,pInfoBtn);
     const pDesc=document.createElement('div');pDesc.style.cssText='padding:0 14px 12px;font-size:12px;color:var(--gray);line-height:1.55;';
-    prev6.append(p6Top,pDesc);
+    prev.append(pTop,pDesc);
     // Popup
-    const ip6Popup=document.createElement('div');ip6Popup.style.cssText='display:none;position:fixed;inset:0;z-index:1200;align-items:center;justify-content:center;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);padding:16px;';
-    const ip6Box=document.createElement('div');ip6Box.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:14px;width:100%;max-width:480px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);';
-    const ip6Hdr=document.createElement('div');ip6Hdr.style.cssText='display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(149,117,205,.1);border-bottom:1px solid rgba(149,117,205,.2);';
-    const ip6Ico=document.createElement('img');ip6Ico.style.cssText='width:36px;height:36px;image-rendering:pixelated;border-radius:7px;padding:3px;box-sizing:border-box;';
-    const ip6Title=document.createElement('span');ip6Title.style.cssText='font-size:16px;font-weight:700;flex:1;';
-    const ip6Close=document.createElement('button');ip6Close.type='button';ip6Close.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';ip6Close.textContent='✕';
-    ip6Close.addEventListener('click',()=>{ip6Popup.style.display='none';document.body.style.overflow='';});
-    ip6Popup.addEventListener('click',e=>{if(e.target===ip6Popup){ip6Popup.style.display='none';document.body.style.overflow='';}});
-    ip6Hdr.append(ip6Ico,ip6Title,ip6Close);
-    const ip6Body=document.createElement('div');ip6Body.style.cssText='padding:16px;display:flex;flex-direction:column;gap:0;';
-    const mkRow6=(l,v,c)=>{if(!v&&v!==0)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);';const lEl=document.createElement('span');lEl.style.cssText='font-size:11px;color:var(--gray);';lEl.textContent=l;const vEl=document.createElement('span');vEl.style.cssText='font-size:12px;font-weight:600;color:'+(c||'var(--white)')+';text-align:right;';vEl.textContent=v;r.append(lEl,vEl);return r;};
+    const itemPopup=document.createElement('div');itemPopup.style.cssText='display:none;position:fixed;inset:0;z-index:1200;align-items:center;justify-content:center;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);padding:16px;';
+    const itemBox=document.createElement('div');itemBox.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:14px;width:100%;max-width:480px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);';
+    const itemHdr=document.createElement('div');itemHdr.style.cssText='display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(149,117,205,.1);border-bottom:1px solid rgba(149,117,205,.2);';
+    const itemIco=document.createElement('img');itemIco.style.cssText='width:36px;height:36px;image-rendering:pixelated;border-radius:7px;padding:3px;box-sizing:border-box;';
+    const itemTitle=document.createElement('span');itemTitle.style.cssText='font-size:16px;font-weight:700;flex:1;';
+    const itemClose=document.createElement('button');itemClose.type='button';itemClose.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';itemClose.textContent='✕';
+    itemClose.addEventListener('click',()=>{itemPopup.style.display='none';document.body.style.overflow='';});
+    itemPopup.addEventListener('click',e=>{if(e.target===itemPopup){itemPopup.style.display='none';document.body.style.overflow='';}});
+    itemHdr.append(itemIco,itemTitle,itemClose);
+    const itemBody=document.createElement('div');itemBody.style.cssText='padding:16px;display:flex;flex-direction:column;gap:0;';
+    const mkRow=(l,v,c)=>{if(!v&&v!==0)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);';const lEl=document.createElement('span');lEl.style.cssText='font-size:11px;color:var(--gray);';lEl.textContent=l;const vEl=document.createElement('span');vEl.style.cssText='font-size:12px;font-weight:600;color:'+(c||'var(--white)')+';text-align:right;';vEl.textContent=v;r.append(lEl,vEl);return r;};
     const ip6Desc=document.createElement('div');ip6Desc.style.cssText='font-size:12px;color:var(--gray);line-height:1.6;padding:10px 0 6px;border-bottom:1px solid rgba(255,255,255,.05);font-style:italic;';
-    const ip6Rows=document.createElement('div');
-    ip6Body.append(ip6Desc,ip6Rows);ip6Box.append(ip6Hdr,ip6Body);ip6Popup.appendChild(ip6Box);
-    document.body.appendChild(ip6Popup);
+    const ipRows=document.createElement('div');
+    itemBody.append(ip6Desc,ipRows);itemBox.append(itemHdr,itemBody);itemPopup.appendChild(itemBox);
+    document.body.appendChild(itemPopup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
     let selItem=null,iai=-1;
-    function buildIDD(q){dd.innerHTML='';iai=-1;const q2=q.toLowerCase();let matches=(q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS).filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');if(activePockets6.size)matches=matches.filter(it=>activePockets6.has(it.pocket));if(activeCats6.size)matches=matches.filter(it=>activeCats6.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl(it.slug);ico.loading='lazy';ico.crossOrigin='anonymous';removeItemBg(ico,it.slug);ico.addEventListener('load',()=>applyItemTint(ico,it),{once:true});ico.onerror=()=>iFb(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category||'';if(it.category)top.append(nm,idB,uB);else top.append(nm,idB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI(it);});dd.appendChild(item);});}
+    function buildIDD(q){dd.innerHTML='';iai=-1;const q2=q.toLowerCase();let matches=(q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS).filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');if(activePockets.size)matches=matches.filter(it=>activePockets.has(it.pocket));if(activeCats.size)matches=matches.filter(it=>activeCats.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl(it.slug);ico.loading='lazy';ico.crossOrigin='anonymous';removeItemBg(ico,it.slug);ico.addEventListener('load',()=>applyItemTint(ico,it),{once:true});ico.onerror=()=>iFb(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category||'';if(it.category)top.append(nm,idB,uB);else top.append(nm,idB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI(it);});dd.appendChild(item);});}
     
     function pickI(it){
       selItem=it;inp.value=it.name;inp.classList.add('valid');dd.innerHTML='';
@@ -7157,7 +7157,8 @@ function initTwitchIntegration(){
               const idx=parseInt(slotMatch[1])-1;
               const name=slotMatch[2].trim();
               const found=window._wonniSetPartySlot?.(idx,name);
-              if(found)addLog('\u2705 @'+user+': slot '+(idx+1)+' = '+name,'#9575cd');
+              if(found==='loading')addLog('\u23f3 Loading data, setting slot '+(idx+1)+' for '+name+'...','#9575cd');
+              else if(found)addLog('\u2705 @'+user+': slot '+(idx+1)+' = '+name,'#9575cd');
               else addLog('\u26a0\ufe0f @'+user+': '+name+' not found in Pok\u00e9mon data','#f0c600');
             }
           }
@@ -7430,6 +7431,11 @@ function initPkmRoulette(){
   // Global hook for Twitch !slot commands
   window._wonniSetPartySlot=(slotIdx,name)=>{
     if(name==='__CLEAR__'){partySlots[slotIdx]=null;renderPartyTiles();return true;}
+    // Auto-load hofData if not yet fetched (e.g. panel was never opened)
+    if(!hofData){
+      loadData().then(()=>window._wonniSetPartySlot(slotIdx,name));
+      return 'loading';
+    }
     const pkm=findPkmByName(name);
     if(pkm){partySlots[slotIdx]=pkm;renderPartyTiles();return true;}
     return false;
@@ -7540,6 +7546,8 @@ function initPkmRoulette(){
         if(typeof doRoll==='function')doRoll(getRollPool(),rollBtnPool,rollBtnParty,'🎲 Pokémon Pool');
       },200);
     };
+    // Alias for Twitch !teamroll command
+    window.triggerHofRoll = window.triggerRouletteRoll;
 
     const rollDesc=document.createElement('div');rollDesc.style.cssText='font-size:10px;color:#555;text-align:center;max-width:280px;line-height:1.5;';rollDesc.textContent='The Randomizer will pick a random Pok\u00e9mon for you';
     rouletteSec.append(spinCard,rollDesc,rollBtnRow);grid.appendChild(rouletteSec);
@@ -7702,6 +7710,11 @@ function initPkmHofBrowser(){
   // Global hook for Twitch !slot commands
   window._wonniSetPartySlot=(slotIdx,name)=>{
     if(name==='__CLEAR__'){partySlots[slotIdx]=null;renderPartyTiles();return true;}
+    // Auto-load hofData if not yet fetched (e.g. panel was never opened)
+    if(!hofData){
+      loadData().then(()=>window._wonniSetPartySlot(slotIdx,name));
+      return 'loading';
+    }
     const pkm=findPkmByName(name);
     if(pkm){partySlots[slotIdx]=pkm;renderPartyTiles();return true;}
     return false;
