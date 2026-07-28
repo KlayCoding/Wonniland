@@ -7500,8 +7500,13 @@ function initPkmRoulette(){
         const mon=ALL_MON.find(m=>m.name.toLowerCase()===(pkm.species||'').toLowerCase());
         // Sprite
         const img=document.createElement('img');img.style.cssText='width:52px;height:52px;image-rendering:pixelated;';
-        if(typeof pkmSpriteWithFallback==='function')pkmSpriteWithFallback(img,pkm,pkm.shiny);
-        else{img.src=`${PKM_BASE1}${pkm.sprite_file||pkm.species||''}.png`;img.onerror=()=>{img.style.opacity='.3';};}
+        // HOF data uses `sprite` and `shiny_sprite` fields
+        const sprKey=pkm.shiny&&pkm.shiny_sprite?pkm.shiny_sprite:(pkm.sprite||pkm.sprite_file||'');
+        const sprBase=pkm.shiny?PKM_SHINY1:PKM_BASE1;
+        if(sprKey){
+          img.src=sprBase+sprKey+'.png';
+          img.onerror=()=>{img.src=PKM_BASE1+sprKey+'.png';img.onerror=()=>{img.style.opacity='.2';};};}
+        else{img.style.opacity='.2';}
         tile.appendChild(img);
         // Nickname
         const nick=document.createElement('div');nick.style.cssText='font-size:11px;font-weight:800;text-align:center;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
@@ -7570,7 +7575,6 @@ function initPkmRoulette(){
           console.error('[Wonni Party] ERROR in _doSlotSet:',err);
           window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false,err:err.message}}));
         }
-        window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
       });
       return 'loading';
     }
@@ -7920,7 +7924,6 @@ function initPkmHofBrowser(){
           console.error('[Wonni Party] ERROR in _doSlotSet:',err);
           window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false,err:err.message}}));
         }
-        window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
       });
       return 'loading';
     }
