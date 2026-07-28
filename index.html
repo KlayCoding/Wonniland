@@ -7060,6 +7060,18 @@ function initTwitchIntegration(){
   let ws=null, connected=false, cooldownUntil=0, reconnTimer=null;
   const COMMAND='!roll', CD=7000;
 
+  // Listen for party slot results and show in Twitch log
+  window.addEventListener('party-slot-set',(ev)=>{
+    const {slotIdx,name,ownerHint,found,err}=ev.detail;
+    if(err){addLog('\u274c Slot error: '+err,'#e57373');return;}
+    if(found){addLog('\u2705 Slot '+(slotIdx+1)+' \u2192 '+name+(ownerHint?' ('+ownerHint+')':''),'#9575cd');}
+    else{addLog('\u26a0\ufe0f Not found: "'+name+'"'+(ownerHint?' owner:'+ownerHint:'')+' \u2014 check JSON fields in console','#f0c600');}
+  });
+  window.addEventListener('party-diag',(ev)=>{
+    const {fields,total}=ev.detail;
+    addLog('\uD83D\uDD0D JSON: '+total+' pokemon | fields: '+fields,'#64b5f6');
+  });
+
   const setStatus=(state,msg)=>{
     const c={connecting:'#f0c600',connected:'#4caf50',error:'#e57373',disconnected:'#555'}[state]||'#555';
     try{statusDot.style.background=c;}catch(e){}
@@ -7461,11 +7473,13 @@ function initPkmRoulette(){
       !oq||(p.owner_name||'').toLowerCase().includes(oq)||(p.owner||'').toLowerCase().includes(oq);
 
     // Exact nick + optional owner filter
-    const hit=hofData.pokemon.find(p=>nickMatch(p)&&ownerMatch(p));
+    // Support both {pokemon:[...]} and direct array
+    const pool=Array.isArray(hofData)?hofData:(hofData.pokemon||hofData.data||[]);
+    if(!pool.length)return null;
+    const hit=pool.find(p=>nickMatch(p)&&ownerMatch(p));
     if(hit)return hit;
-
     // Partial nick match + optional owner
-    return hofData.pokemon.find(p=>
+    return pool.find(p=>
       ownerMatch(p)&&Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().includes(q))
     )||null;
   }
@@ -7528,6 +7542,16 @@ function initPkmRoulette(){
 
     if(!hofData){
       loadData().then(()=>{
+        // Diagnostic: log first pokemon's fields to help debug JSON structure
+        const pool=Array.isArray(hofData)?hofData:(hofData?.pokemon||hofData?.data||[]);
+        if(pool.length===0){
+          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false,err:'JSON loaded but pokemon array empty or wrong key'}}));
+          return;
+        }
+        // Log first entry's keys for debugging
+        const firstKeys=Object.keys(pool[0]).join(', ');
+        console.log('[Wonni Party] JSON fields:',firstKeys,'| Total pokemon:',pool.length);
+        window.dispatchEvent(new CustomEvent('party-diag',{detail:{fields:firstKeys,total:pool.length}}));
         const found=_doSlotSet(slotIdx,name,ownerHint);
         window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
       });
@@ -7792,11 +7816,13 @@ function initPkmHofBrowser(){
       !oq||(p.owner_name||'').toLowerCase().includes(oq)||(p.owner||'').toLowerCase().includes(oq);
 
     // Exact nick + optional owner filter
-    const hit=hofData.pokemon.find(p=>nickMatch(p)&&ownerMatch(p));
+    // Support both {pokemon:[...]} and direct array
+    const pool=Array.isArray(hofData)?hofData:(hofData.pokemon||hofData.data||[]);
+    if(!pool.length)return null;
+    const hit=pool.find(p=>nickMatch(p)&&ownerMatch(p));
     if(hit)return hit;
-
     // Partial nick match + optional owner
-    return hofData.pokemon.find(p=>
+    return pool.find(p=>
       ownerMatch(p)&&Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase().includes(q))
     )||null;
   }
@@ -7852,6 +7878,16 @@ function initPkmHofBrowser(){
 
     if(!hofData){
       loadData().then(()=>{
+        // Diagnostic: log first pokemon's fields to help debug JSON structure
+        const pool=Array.isArray(hofData)?hofData:(hofData?.pokemon||hofData?.data||[]);
+        if(pool.length===0){
+          window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,found:false,err:'JSON loaded but pokemon array empty or wrong key'}}));
+          return;
+        }
+        // Log first entry's keys for debugging
+        const firstKeys=Object.keys(pool[0]).join(', ');
+        console.log('[Wonni Party] JSON fields:',firstKeys,'| Total pokemon:',pool.length);
+        window.dispatchEvent(new CustomEvent('party-diag',{detail:{fields:firstKeys,total:pool.length}}));
         const found=_doSlotSet(slotIdx,name,ownerHint);
         window.dispatchEvent(new CustomEvent('party-slot-set',{detail:{slotIdx,name,ownerHint,found}}));
       });
