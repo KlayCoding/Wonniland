@@ -3250,6 +3250,13 @@ document.addEventListener('keydown',(e)=>{
   }
 });
 
+function updProg() {
+  const pf=document.getElementById('progFill');
+  const pl=document.getElementById('progLbl');
+  if(pf) pf.style.width=(step/TOTAL*100)+'%';
+  if(pl) pl.textContent=step<TOTAL?`QUESTION ${step+1} / ${TOTAL}`:'COMPLETE!';
+}
+
 function renderQ(){
   updProg(); updSummary();
   const app=document.getElementById('app'); app.innerHTML='';
@@ -4579,8 +4586,13 @@ function launchMode(mode) {
     sel.style.display = 'none';
     document.getElementById('progWrap').style.display = '';
     step = 0; Object.keys(ans).forEach(k => delete ans[k]);
-    if (mode === 'pokemon') renderQ();
-    else { trainerPhase='trainer'; team=[]; currentSlot=0; viewingSlot=-1; renderTrainerQ(); }
+    if (mode === 'pokemon') {
+      const lc=document.getElementById('left-cards-col');
+      if(lc) lc.style.display='flex';
+      renderQ();
+    } else {
+      trainerPhase='trainer'; team=[]; currentSlot=0; viewingSlot=-1; renderTrainerQ();
+    }
   }, 400);
 }
 
@@ -5115,6 +5127,7 @@ function renderTrainerQ() {
   if(trainerPhase==='trainer' && step>=4){
     // Switch to pokemon phase
     trainerPhase='pokemon'; step=POKEMON_Q_START;
+    if(!team[currentSlot]) team[currentSlot]=Array(17).fill(null);
   }
   if(trainerPhase==='trainer' && step>=TRAINER_TOTAL){renderTrainerResult();return;}
   const card=document.createElement('div'); card.className='card';
@@ -6073,7 +6086,12 @@ function renderTrainerQ() {
   btn.addEventListener('click',()=>{
     const r=getV();
     if(!r){showToast('Please answer the question before continuing!',true);return;}
-    if(trainerPhase==='trainer'){ans[step]=r;}else{team[currentSlot][step]=r;}
+    if(trainerPhase==='trainer'){
+      ans[step]=r;
+    } else {
+      if(!team[currentSlot]) team[currentSlot]=Array(17).fill(null);
+      team[currentSlot][step]=r;
+    }
     step++;lsSave();renderTrainerQ();
   });
   card.appendChild(btn);
