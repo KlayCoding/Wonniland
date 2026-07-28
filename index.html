@@ -4123,9 +4123,9 @@ function renderQ(){
     const iUrl=slug=>`${ITEM_BASE}${slug}.png`;
     const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';}};
     const tBtnRow=document.createElement('div');tBtnRow.style.cssText='display:flex;gap:8px;margin-bottom:10px;';
-    const del=document.createElement('button');del.type='button';del.className='del-btn';del.style.cssText='flex:0 0 auto;';del.textContent='✕ Clear';
-    const rand=document.createElement('button');rand.type='button';rand.className='rand-btn';rand.style.flex='1';rand.textContent='🎲 Randomize Item!';
-    tBtnRow.append(del,rand); card.appendChild(tBtnRow);
+    const delBtn=document.createElement('button');delBtn.type='button';delBtn.className='del-btn';delBtn.style.cssText='flex:0 0 auto;';delBtn.textContent='✕ Clear';
+    const randB=document.createElement('button');randB.type='button';randB.className='rand-btn';randB.style.flex='1';randB.textContent='🎲 Randomize Item!';
+    tBtnRow.append(delBtn,randB); card.appendChild(tBtnRow);
 
     // ── Item Filter Panel (Trainer mode) ──────────────────────────────────
     const activePockets=new Set(), activeCats=new Set();
@@ -7096,6 +7096,28 @@ function initTwitchIntegration(){
               if(typeof window.reloadHofData==='function')window.reloadHofData();
               addLog('\u2713 Pokemon Pool & Team Pool reloading...','#4caf50');
             } else addLog('\uD83D\uDEAB @'+user+' no permission for !reload','#555');
+          } else {
+            // ── !slot[1-6] <name> ─────────────────────────────────────────────
+            const slotM=cmd.match(/^slot([1-6])$/);
+            if(slotM&&ok){
+              const idx=parseInt(slotM[1])-1;
+              const name=message.trim();
+              if(name){
+                const found=window._wonniSetPartySlot?.(idx,name);
+                if(found==='loading')addLog('\u23f3 Loading... slot '+(idx+1)+': '+name,'#9575cd');
+                else if(found)addLog('\u2705 @'+user+': slot '+(idx+1)+' = '+name,'#9575cd');
+                else addLog('\u26a0\ufe0f @'+user+': "'+name+'" not found in Pok\u00e9mon data','#f0c600');
+              }
+            } else if(slotM&&!ok){
+              addLog('\uD83D\uDEAB @'+user+' no permission for !slot','#555');
+            }
+            // ── !clearslot[1-6] ─────────────────────────────────────────────
+            const clrM=cmd.match(/^clearslot([1-6])$/);
+            if(clrM&&ok){
+              const idx=parseInt(clrM[1])-1;
+              window._wonniSetPartySlot?.(idx,'__CLEAR__');
+              addLog('\u2705 @'+user+': slot '+(idx+1)+' cleared','#9575cd');
+            }
           }
         };
         ComfyJS.onChat=(user,msg,flags)=>{
@@ -7458,6 +7480,7 @@ function initPkmRoulette(){
   function getRollPool(){
     return(hofData?.pokemon||[]).filter(p=>p.claimed!==true&&!sessionClaimed.has(p.id));
   }
+  function getClaimedPool(){return(hofData?.pokemon||[]).filter(p=>p.claimed===true);}
 
   // ── Gewichteter Randomizer: jeder Owner bekommt gleiche Gesamtchance ────────
   function weightedRoll(pool){
@@ -7528,8 +7551,7 @@ function initPkmRoulette(){
         }
       },75);
     }
-    const getClaimedPool=()=>(hofData?.pokemon||[]).filter(p=>p.claimed===true);
-    rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBtnParty,'🎲 Pokémon Pool'));
+rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBtnParty,'🎲 Pokémon Pool'));
     rollBtnParty.addEventListener('click',()=>doRoll(getClaimedPool(),rollBtnParty,rollBtnPool,'🎲 Party Randomizer',true));
     window.triggerRouletteRoll = function(){
       if(!hofData){loadData().then(()=>window.triggerRouletteRoll());return;}
@@ -7547,7 +7569,17 @@ function initPkmRoulette(){
       },200);
     };
     // Alias for Twitch !teamroll command
-    window.triggerHofRoll = window.triggerRouletteRoll;
+    // !teamroll uses the CLAIMED (team) pool, not the unclaimed pool
+    window.triggerHofRoll = function(caller){
+      if(!hofData){loadData().then(()=>window.triggerHofRoll(caller));return;}
+      const claimedPool=getClaimedPool();
+      if(!claimedPool.length){addLog('\u26a0\ufe0f Team Pool is empty','#e57373');return;}
+      if(!open){open=true;panel.style.display='block';btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';renderAll();}
+      setTimeout(()=>{
+        panel.scrollIntoView({behavior:'smooth',block:'start'});
+        if(typeof doRoll==='function')doRoll(claimedPool,rollBtnParty,rollBtnPool,'\uD83C\uDFB2 Team Pool',true);
+      },200);
+    };
 
     const rollDesc=document.createElement('div');rollDesc.style.cssText='font-size:10px;color:#555;text-align:center;max-width:280px;line-height:1.5;';rollDesc.textContent='The Randomizer will pick a random Pok\u00e9mon for you';
     rouletteSec.append(spinCard,rollDesc,rollBtnRow);grid.appendChild(rouletteSec);
