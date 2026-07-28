@@ -7133,7 +7133,8 @@ function initTwitchIntegration(){
         ComfyJS.onConnected=()=>{
           connected=true;
           setStatus('connected','#'+ch+' — ready for '+COMMAND);
-          addLog('✅ Connected! Mods/broadcaster: type '+COMMAND,'#4caf50');
+          addLog('✅ Connected! Mods/broadcaster: type !roll','#4caf50');
+          addLog('⚡ Commands: !roll • !teamroll • !slot1-6 nick,owner • !clearslot1-6 • !reload','#64b5f6');
         };
         // ComfyJS routes !commands to onCommand — PRIMARY handler
         ComfyJS.onCommand=(user,command,message,flags)=>{
@@ -7495,19 +7496,19 @@ function initPkmRoulette(){
     for(let i=0;i<6;i++){
       const pkm=partySlots[i];
       const tile=document.createElement('div');
-      tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 8px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(149,117,205,.14);position:relative;';
+      tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 12px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(149,117,205,.14);position:relative;min-width:100px;';
       if(pkm){
         const mon=ALL_MON.find(m=>m.name.toLowerCase()===(pkm.species||'').toLowerCase());
         // Sprite
-        const img=document.createElement('img');img.style.cssText='width:52px;height:52px;image-rendering:pixelated;';
+        const img=document.createElement('img');img.style.cssText='width:72px;height:72px;image-rendering:pixelated;';
         // Use same function as Hall of Fame (reads _SHINY_BASES/_PKM_BASES from pokemon.json)
         pkmSpriteWithFallback(img, pkm, !!pkm.shiny);
         tile.appendChild(img);
         // Nickname
-        const nick=document.createElement('div');nick.style.cssText='font-size:11px;font-weight:800;text-align:center;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+        const nick=document.createElement('div');nick.style.cssText='font-size:12px;font-weight:800;text-align:center;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
         nick.textContent=(pkm.shiny?'\u2728 ':'')+pkm.nickname;tile.appendChild(nick);
         // Species
-        const spec=document.createElement('div');spec.style.cssText='font-size:9px;color:var(--gray);text-align:center;';spec.textContent=pkm.species||'';tile.appendChild(spec);
+        const spec=document.createElement('div');spec.style.cssText='font-size:10px;color:var(--gray);text-align:center;';spec.textContent=pkm.species||'';tile.appendChild(spec);
         // Types
         if(mon){const tr2=document.createElement('div');tr2.style.cssText='display:flex;gap:3px;flex-wrap:wrap;justify-content:center;margin:1px 0;';tr2.appendChild(tbP(mon.t1));if(mon.t2)tr2.appendChild(tbP(mon.t2));tile.appendChild(tr2);}
         // Owner
@@ -7520,7 +7521,7 @@ function initPkmRoulette(){
         clr.textContent='\u2715';clr.addEventListener('click',()=>{partySlots[i]=null;renderPartyTiles();});
         tile.appendChild(clr);
       } else {
-        const icon=document.createElement('div');icon.style.cssText='width:52px;height:52px;border-radius:50%;border:1px dashed rgba(149,117,205,.2);display:flex;align-items:center;justify-content:center;color:#2d3748;font-size:18px;';icon.textContent='?';
+        const icon=document.createElement('div');icon.style.cssText='width:72px;height:72px;border-radius:50%;border:1px dashed rgba(149,117,205,.2);display:flex;align-items:center;justify-content:center;color:#2d3748;font-size:22px;';icon.textContent='?';
         const hint=document.createElement('div');hint.style.cssText='font-size:8px;color:#2d3748;text-align:center;font-family:"Press Start 2P",monospace;line-height:1.4;';
         hint.textContent=`!slot${i+1}`;
         tile.append(icon,hint);
@@ -7723,7 +7724,7 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
       const partyChevron=document.createElement('div');partyChevron.style.cssText='font-size:9px;color:#4a5568;';partyChevron.textContent='▲';
       partyHdrRow.append(partyTitle,partyLine,partyHint,partyChevron);
       partyGrid=document.createElement('div');
-      partyGrid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:6px;justify-items:center;';
+      partyGrid.style.cssText='display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:flex-start;padding:6px 0;';
       renderPartyTiles();
       partySec.append(partyHdrRow,partyGrid);
       grid.appendChild(partySec);
@@ -7782,9 +7783,9 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
       const lckNick=document.createElement('div');lckNick.style.cssText='font-size:9px;font-weight:700;text-align:center;color:#2a2a2a;';lckNick.textContent='???';tile.appendChild(lckNick);
     } else {
       // Nickname
-      const nick=document.createElement('div');nick.style.cssText='font-size:11px;font-weight:800;text-align:center;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nick.textContent=(p.shiny?'\u2728 ':'')+p.nickname;tile.appendChild(nick);
+      const nick=document.createElement('div');nick.style.cssText='font-size:12px;font-weight:800;text-align:center;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nick.textContent=(p.shiny?'\u2728 ':'')+p.nickname;tile.appendChild(nick);
       // Species
-      const spec=document.createElement('div');spec.style.cssText='font-size:9px;color:var(--gray);text-align:center;';spec.textContent=p.species||'';tile.appendChild(spec);
+      const spec=document.createElement('div');spec.style.cssText='font-size:10px;color:var(--gray);text-align:center;';spec.textContent=p.species||'';tile.appendChild(spec);
       // Types
       if(mon){const tr2=document.createElement('div');tr2.style.cssText='display:flex;gap:3px;flex-wrap:wrap;justify-content:center;margin:1px 0;';const t1=tb(mon.t1);t1.style.fontSize='8px';t1.style.padding='1px 5px';tr2.appendChild(t1);if(mon.t2){const t2=tb(mon.t2);t2.style.fontSize='8px';t2.style.padding='1px 5px';tr2.appendChild(t2);}tile.appendChild(tr2);}
       // Location
@@ -7975,7 +7976,7 @@ function initPkmHofBrowser(){
     if(isLocked){
       const lckN=document.createElement('div');lckN.style.cssText='font-size:9px;font-weight:700;text-align:center;color:#2a2a2a;';lckN.textContent='???';tile.appendChild(lckN);
     } else {
-      const n2=document.createElement('div');n2.style.cssText='font-size:11px;font-weight:800;text-align:center;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';n2.textContent=(p.shiny?'\u2728 ':'')+p.nickname;tile.appendChild(n2);
+      const n2=document.createElement('div');n2.style.cssText='font-size:12px;font-weight:800;text-align:center;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';n2.textContent=(p.shiny?'\u2728 ':'')+p.nickname;tile.appendChild(n2);
       const sp2=document.createElement('div');sp2.style.cssText='font-size:9px;color:var(--gray);text-align:center;';sp2.textContent=p.species||'';tile.appendChild(sp2);
       if(mon){const tR=document.createElement('div');tR.style.cssText='display:flex;gap:3px;flex-wrap:wrap;justify-content:center;margin:1px 0;';const tt1=tb(mon.t1);tt1.style.fontSize='8px';tt1.style.padding='1px 5px';tR.appendChild(tt1);if(mon.t2){const tt2=tb(mon.t2);tt2.style.fontSize='8px';tt2.style.padding='1px 5px';tR.appendChild(tt2);}tile.appendChild(tR);}
       if(p.location){const loc=document.createElement('div');loc.style.cssText='font-size:8px;color:#4db6ac;text-align:center;font-family:"Press Start 2P",monospace;';loc.textContent=p.location;tile.appendChild(loc);}
