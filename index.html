@@ -6926,6 +6926,24 @@ function initTwitchIntegration(){
 }
 
 // ── Load Pokémon data on startup ──────────────────────────────────────────────
+// ── Mode card click handlers ──────────────────────────────────────────────────
+(()=>{
+  const pokeCard=document.getElementById('modePokeCard');
+  const trainerCard=document.getElementById('modeTrainerCard');
+  if(!pokeCard||!trainerCard)return;
+  [pokeCard,trainerCard].forEach(card=>{
+    card.addEventListener('mouseenter',()=>{
+      const other=card===pokeCard?trainerCard:pokeCard;
+      other.classList.add('hovered-other');
+    });
+    card.addEventListener('mouseleave',()=>{
+      trainerCard.classList.remove('hovered-other');
+      pokeCard.classList.remove('hovered-other');
+    });
+    card.addEventListener('click',()=>launchMode(card===pokeCard?'pokemon':'trainer'));
+  });
+})();
+
 loadPokemonData().then(()=>{
   document.getElementById('loadingScreen')?.remove();
   initDexBrowser();
