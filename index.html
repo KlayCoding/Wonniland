@@ -1277,9 +1277,17 @@ function updPokemonCard(){
   const hdr=document.createElement('div');
   hdr.style.cssText=`display:flex;align-items:center;gap:12px;padding:14px 16px 10px;background:linear-gradient(135deg,${typeColor}12,rgba(255,255,255,.01));border-bottom:1px solid rgba(255,255,255,.06);position:relative;`;
   const spr=document.createElement('img');
+  spr.className='pkm-card-sprite';
   spr.style.cssText='width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;';
+  // Track resolver args as real HTML attributes (dataset) — cloneNode(true) does NOT
+  // preserve JS-assigned onerror handlers, only HTML attributes. The HOF/Roulette
+  // Info popup clones this card, so without these data-* attrs the cloned sprite
+  // silently loses its fallback chain and shows a broken image on any 404.
+  spr.dataset.sprId=mon.id||'';
+  spr.dataset.sprFile=sf||'';
+  spr.dataset.sprShiny=isShiny?'1':'0';
   if(isShiny){spr.src=`${PKM_SHINY1}${sf}.png`;spr.onerror=()=>shinyUrlFallback(spr,mon.id,sf);}
-  else{spr.src=`${PKM_BASE1}${sf}.png`;spr.onerror=()=>iconUrlFallback(spr,mon.id);}
+  else{spr.src=`${PKM_BASE1}${sf}.png`;spr.onerror=()=>iconUrlFallback(spr,mon.id,sf);}
   const ident=document.createElement('div');ident.style.cssText='display:flex;flex-direction:column;gap:3px;flex:1;min-width:0;';
   const dispName=document.createElement('div');dispName.style.cssText='font-size:15px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
   dispName.textContent=nickname||mon.name;
@@ -1536,7 +1544,7 @@ function updPokemonCard(){
     const MTID_C={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
     const TC={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
     const CC={Physical:'#e8622a',Special:'#4f90d3',Status:'#8892a4'};
-    const mvSect=document.createElement('div');mvSect.style.cssText='padding:6px 10px 8px;border-bottom:1px solid rgba(255,255,255,.04);';
+    const mvSect=document.createElement('div');mvSect.className='pkm-card-movesect';mvSect.style.cssText='padding:6px 10px 8px;border-bottom:1px solid rgba(255,255,255,.04);';
     // Header row: label + edit button
     const mvHdr=document.createElement('div');mvHdr.style.cssText='display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;';
     const mvLbl=document.createElement('span');mvLbl.style.cssText='font-size:8px;color:#445;font-weight:600;letter-spacing:.05em;text-transform:uppercase;';mvLbl.textContent='Moves';
@@ -1589,7 +1597,7 @@ function updPokemonCard(){
 
   // ── Coverage + Reset buttons ────────────────────────────────────────────────
   if(currentMode==='pokemon'&&mon){
-    const actionRow=document.createElement('div');actionRow.style.cssText='display:flex;gap:6px;padding:8px 14px 0;';
+    const actionRow=document.createElement('div');actionRow.className='pkm-card-actionrow';actionRow.style.cssText='display:flex;gap:6px;padding:8px 14px 0;';
     const resetBtn=document.createElement('button');resetBtn.type='button';
     resetBtn.style.cssText='font-size:8px;padding:6px 10px;border-radius:7px;border:1px solid rgba(229,115,115,.3);background:rgba(229,115,115,.06);color:#e57373;cursor:pointer;font-family:"Press Start 2P",monospace;transition:all .2s;';
     resetBtn.textContent='🗑 Reset';resetBtn.title='Reset all saved data';
@@ -1597,7 +1605,7 @@ function updPokemonCard(){
     actionRow.append(resetBtn);card.appendChild(actionRow);
   }
   // ── Progress footer ──────────────────────────────────────────────────────────
-  const foot=document.createElement('div');foot.style.cssText='padding:8px 14px;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.04);';
+  const foot=document.createElement('div');foot.className='pkm-card-progfoot';foot.style.cssText='padding:8px 14px;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.04);';
   const pbg=document.createElement('div');pbg.style.cssText='height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin-bottom:5px;';
   const pfl=document.createElement('div');pfl.style.cssText=`height:100%;background:linear-gradient(90deg,${typeColor},#9575cd);border-radius:2px;width:${pct}%;transition:width .4s ease;`;
   pbg.appendChild(pfl);
@@ -7445,6 +7453,22 @@ function openHofPopup(p){
          b.classList.contains('edit-btn')||b.closest('.prog-wrap'))b.remove();
     });
     cloned.querySelectorAll('.prog-wrap,[id*="prog"],[id*="Prog"]').forEach(el=>el.remove());
+    // Remove the Reset button row, progress footer, and the embedded move-picker
+    // section — that section reads moves from a different answer-slot than the
+    // one populated here, so it always renders as empty in this popup; the real
+    // move list (with data pulled straight from the HoF entry) is appended below.
+    cloned.querySelectorAll('.pkm-card-actionrow,.pkm-card-progfoot,.pkm-card-movesect').forEach(el=>el.remove());
+    // Re-bind sprite fallback: cloneNode(true) copies HTML attributes but NOT
+    // JS-assigned onerror handlers, so without this the cloned sprite silently
+    // shows a broken image (no fallback chain) whenever the primary CDN 404s —
+    // even though the exact same URL loads fine elsewhere (e.g. Pokédex Browser),
+    // because those views build their <img> fresh instead of cloning one.
+    cloned.querySelectorAll('img.pkm-card-sprite').forEach(img=>{
+      const sid=img.dataset.sprId||'';
+      const sfile=img.dataset.sprFile||'';
+      const shiny=img.dataset.sprShiny==='1';
+      img.onerror=shiny?()=>shinyUrlFallback(img,sid,sfile):()=>iconUrlFallback(img,sid,sfile);
+    });
   }
 
   // ── Restore state ──────────────────────────────────────────────────────────
@@ -7495,9 +7519,12 @@ function openHofPopup(p){
       const row=document.createElement('div');row.style.cssText='display:flex;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.04);border-radius:6px;margin-bottom:3px;background:rgba(255,255,255,.02);';
       const bar2=document.createElement('div');bar2.style.cssText=`width:4px;background:${mc};flex-shrink:0;border-radius:6px 0 0 6px;`;
       const bd2=document.createElement('div');bd2.style.cssText='flex:1;display:flex;align-items:center;gap:8px;padding:7px 10px;min-width:0;';
-      const nm2=document.createElement('span');nm2.style.cssText='font-size:12px;font-weight:700;flex:1;';nm2.textContent=mv;
-      bd2.append(nm2);
-      if(mvD?.type){const ti2=document.createElement('img');ti2.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/'+(TMAP[mvD.type]||1)+'.png';ti2.style.cssText='height:14px;image-rendering:pixelated;';ti2.onerror=()=>ti2.style.display='none';bd2.appendChild(ti2);}
+      const nmCol2=document.createElement('div');nmCol2.style.cssText='display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;';
+      const nm2=document.createElement('span');nm2.style.cssText='font-size:12px;font-weight:700;';nm2.textContent=mv;
+      const dsc2=document.createElement('span');dsc2.style.cssText='font-size:9px;color:#4a5568;line-height:1.3;';dsc2.textContent=mvD?.desc||mvD?.description||'';
+      nmCol2.append(nm2,dsc2);
+      bd2.append(nmCol2);
+      if(mvD?.type){const ti2=document.createElement('img');ti2.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/'+(TMAP[mvD.type]||1)+'.png';ti2.style.cssText='height:14px;image-rendering:pixelated;flex-shrink:0;';ti2.onerror=()=>ti2.style.display='none';bd2.appendChild(ti2);}
       const st2=document.createElement('div');st2.style.cssText='display:flex;flex-direction:column;align-items:flex-end;padding:4px 10px;border-left:1px solid rgba(255,255,255,.06);min-width:50px;';
       const bp2=document.createElement('span');bp2.style.cssText=`font-size:14px;font-weight:700;color:${mc};line-height:1;`;bp2.textContent=mvD?.power||'—';
       const cat2=document.createElement('span');cat2.style.cssText='font-size:9px;color:#4a5568;';cat2.textContent=mvD?.cat||'';
