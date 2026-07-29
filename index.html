@@ -1233,7 +1233,7 @@ function updPokemonCard(){
   const nickname = ga(2)||'';
   const shinyVal = ga(3)||'';
   const natureTxt= ga(4)||'';  // Nature
-  const ability  = ga(5)||'';  // Ability
+  const ability  = (ga(5)||'').replace(/\s*\(Hidden\)\s*$/i,'');  // Ability (strip "(Hidden)" suffix — breaks ABILITIES_DB lookup otherwise)
   const teraType = ga(6)||'';
   const gmaxAns  = ga(7)||'';
   const ivevAns  = currentMode==='trainer'?slot[8]:ans[8];  // IVs/EVs
@@ -4448,8 +4448,7 @@ function renderResult(){
       const col=TYPE_COL_RES[mvData.type]||'#888';
       const catC=({Physical:'#e8622a',Special:'#4f90d3',Status:'#8892a4'})[mvData.cat||'Status']||'#888';
       const tid=MOVE_TYPE_IDS_RES[mvData.type];
-      const row=document.createElement('div');row.style.cssText=`display:flex;gap:8px;padding:8px 10px;border-radius:8px;background:${col}10;border:1px solid ${col}25;`;
-      const leftCol=document.createElement('div');leftCol.style.cssText='flex:1;min-width:0;';
+      const row=document.createElement('div');row.style.cssText=`padding:8px 10px;border-radius:8px;background:${col}10;border:1px solid ${col}25;`;
       // Line 1: Type icon + Name + Info btn
       const line1=document.createElement('div');line1.style.cssText='display:flex;align-items:center;gap:6px;';
       if(tid){const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid}.png`;ti.style.cssText='height:14px;image-rendering:pixelated;flex-shrink:0;';ti.onerror=()=>ti.style.display='none';line1.appendChild(ti);}
@@ -4459,16 +4458,12 @@ function renderResult(){
       line1.append(mNm,infoIco);
       // Line 2: Description
       const descL=document.createElement('div');descL.style.cssText='font-size:10px;color:#556;line-height:1.4;margin-top:3px;';descL.textContent=mvData.desc||mvData.description||'';
-      // Line 3: Category only (Power moved to its own bottom-right column)
-      const line3=document.createElement('div');line3.style.cssText='margin-top:3px;';
+      // Line 3: Category (left) + Power (right), same line
+      const line3=document.createElement('div');line3.style.cssText='display:flex;align-items:center;justify-content:space-between;margin-top:3px;';
       const catEl=document.createElement('span');catEl.style.cssText=`font-size:9px;color:${catC};font-weight:600;`;catEl.textContent=mvData.cat||'';
-      line3.append(catEl);
-      leftCol.append(line1);if(mvData.desc||mvData.description)leftCol.append(descL);leftCol.append(line3);
-      // Power column — pinned bottom-right of the row
-      const pwrCol=document.createElement('div');pwrCol.style.cssText='display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;flex-shrink:0;';
       const pwrEl=document.createElement('span');pwrEl.style.cssText=`font-size:10px;font-weight:700;white-space:nowrap;color:${mvData.power>=100?'#e8622a':mvData.power>=60?'#f0c600':'#555'};`;pwrEl.textContent=mvData.power?mvData.power+' Power':'—';
-      pwrCol.appendChild(pwrEl);
-      row.append(leftCol,pwrCol);
+      line3.append(catEl,pwrEl);
+      row.append(line1);if(mvData.desc||mvData.description)row.append(descL);row.append(line3);
       mList.appendChild(row);
     });
     movesSection.appendChild(mList);
@@ -4522,7 +4517,9 @@ function renderResult(){
 
   popup.append(body,actions);overlay.appendChild(popup);
   document.body.appendChild(overlay);
-  document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'&&!ev.defaultPrevented){/*keep open - don't close result popup on ESC*/}});
+  const onEscResult=e=>{if(e.key==='Escape'){overlay.remove();document.removeEventListener('keydown',onEscResult);}};
+  document.addEventListener('keydown',onEscResult);
+  overlay.addEventListener('click',e=>{if(e.target===overlay){overlay.remove();document.removeEventListener('keydown',onEscResult);}});
 }
 
 // ── Pokédex Side Panel ───────────────────────────────────────────────────────
@@ -4678,6 +4675,10 @@ function launchMode(mode) {
     const freshBtn=document.createElement('button'); freshBtn.type='button';
     freshBtn.style.cssText='padding:8px 14px;border-radius:8px;background:transparent;color:var(--gray);font-weight:600;border:1px solid var(--border);cursor:pointer;font-size:13px;margin-left:6px;';
     freshBtn.textContent='Start fresh';
+    const closeBannerBtn=document.createElement('button'); closeBannerBtn.type='button';
+    closeBannerBtn.style.cssText='padding:8px 12px;border-radius:8px;background:transparent;color:var(--gray);border:none;cursor:pointer;font-size:16px;line-height:1;margin-left:6px;';
+    closeBannerBtn.textContent='\u00d7'; closeBannerBtn.title='Dismiss (keeps the saved draft for later)';
+    closeBannerBtn.addEventListener('click',()=>banner.remove());
 
     function doLaunch(resume){
       banner.remove();
@@ -4704,7 +4705,7 @@ function launchMode(mode) {
     }
     resumeBtn.addEventListener('click',()=>doLaunch(true));
     freshBtn.addEventListener('click',()=>doLaunch(false));
-    banner.append(msg,resumeBtn,freshBtn); document.body.appendChild(banner);
+    banner.append(msg,resumeBtn,freshBtn,closeBannerBtn); document.body.appendChild(banner);
     return;
   }
 
