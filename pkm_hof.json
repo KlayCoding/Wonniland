@@ -2165,7 +2165,7 @@
     {
       "id": "Rotom (Mow)",
       "unlocked": false,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 1",
       "gender": "Genderless",
       "owner_name": "Squeaky",
