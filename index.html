@@ -341,19 +341,18 @@
     .team-bar-lbl{font-family:'Press Start 2P',monospace;font-size:7px;color:var(--gray);letter-spacing:1px;flex-shrink:0;}
     .team-slots{display:flex;gap:8px;flex-wrap:wrap;}
     .team-slot{
-      display:flex;flex-direction:column;align-items:center;gap:3px;
-      width:118px;padding:8px 6px;border-radius:10px;
+      display:flex;flex-direction:column;align-items:center;gap:2px;
+      width:56px;padding:5px 4px;border-radius:10px;
       border:2px dashed rgba(255,255,255,.15);
       background:rgba(255,255,255,.02);cursor:pointer;transition:all .2s;
       position:relative;
     }
-    .team-slot.filled{align-items:stretch;}
     .team-slot.filled{border-style:solid;border-color:var(--border);}
     .team-slot.active{border-color:var(--pl);background:rgba(206,147,216,.08);}
     .team-slot.filled:hover{border-color:var(--pl);}
     .team-slot.clickable{cursor:pointer;}
     .team-slot.clickable:hover{border-color:#64b5f6;background:rgba(100,181,246,.08);}
-    .team-slot-img{width:52px;height:52px;object-fit:contain;image-rendering:pixelated;}
+    .team-slot-img{width:40px;height:40px;object-fit:contain;image-rendering:pixelated;}
     .team-slot-name{font-size:7px;color:var(--gray);text-align:center;max-width:52px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
     .team-slot-num{font-size:7px;font-family:'Press Start 2P',monospace;color:rgba(255,255,255,.2);}
     .team-slot-empty-ico{font-size:18px;line-height:40px;color:rgba(255,255,255,.15);}
@@ -5004,6 +5003,91 @@ const TRAINER_SPRITES = [
 const TRAINER_BASE = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer/';
 
 // ── Team Bar ─────────────────────────────────────────────────────────────────
+// Rich team-slot tile ("Kachel") for the Trainer End Card — sprite, nickname/
+// species, types, ability, item, GMax badge, up to 4 moves, Info button.
+// Deliberately NOT used by the live sidebar team-bar (renderTeamBar) — this
+// richer card belongs only in the End Card summary.
+function buildTeamKachel(i){
+  const tile=document.createElement('div');
+  tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;width:118px;padding:8px 6px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);position:relative;';
+  if(!team[i]||!team[i].mon){
+    tile.style.cssText+='justify-content:center;min-height:80px;border-style:dashed;';
+    const ph=document.createElement('span');ph.style.cssText='font-size:18px;color:rgba(255,255,255,.15);';ph.textContent='?';
+    tile.appendChild(ph);
+    return tile;
+  }
+  const mon = team[i].mon;
+  const T_IDX_TILE={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
+  const gaTile=(k)=>team[i][T_IDX_TILE[k]??(POKEMON_Q_START+k-1)]?.value;
+  const nick = team[i].nick || mon.name;
+  const abilityRaw=(gaTile(5)||'').replace(/\s*\(Hidden\)\s*$/i,'');
+  const itemVal=(gaTile(10)||'').split(' (#')[0];
+  const itemData=itemVal?ITEMS.find(it=>it.name===itemVal):null;
+  const gmaxVal=gaTile(7)||'';
+  const isGmax=/^GMax Factor:\s*Yes/i.test(gmaxVal)||gmaxVal.toLowerCase()==='yes';
+  const slotMoves=team[i][15]?.moves||[];
+
+  // Sprite (+ GMax badge overlay)
+  const img = document.createElement('img'); img.style.cssText='width:52px;height:52px;object-fit:contain;image-rendering:pixelated;';
+  const sf=getSpriteFile(mon);
+  img.src = `${PKM_BASE1}${sf}.png`;
+  img.onerror = ()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
+  const sprWrap=document.createElement('div');sprWrap.style.cssText='display:flex;justify-content:center;position:relative;';
+  sprWrap.appendChild(img);
+  if(isGmax){const gIco=document.createElement('img');gIco.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/gmax_factor.png';gIco.style.cssText='width:16px;height:16px;position:absolute;top:-2px;right:6px;image-rendering:pixelated;';gIco.onerror=()=>gIco.style.display='none';sprWrap.appendChild(gIco);}
+
+  // Nickname (bigger) + species (smaller, only if different)
+  const nameCol=document.createElement('div');nameCol.style.cssText='display:flex;flex-direction:column;align-items:center;gap:0;';
+  const name = document.createElement('div'); name.style.cssText='font-size:9px;font-weight:800;color:var(--white);max-width:110px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+  name.textContent = nick.length > 14 ? nick.slice(0,13)+'…' : nick;
+  nameCol.appendChild(name);
+  if(team[i].nick){const spec=document.createElement('div');spec.style.cssText='font-size:7px;color:var(--gray);max-width:110px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';spec.textContent=mon.name.length>16?mon.name.slice(0,15)+'…':mon.name;nameCol.appendChild(spec);}
+
+  // Types
+  const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:3px;justify-content:center;flex-wrap:wrap;';
+  const tbMini=(t)=>{const s=tb(t);s.style.fontSize='7px';s.style.padding='1px 5px';return s;};
+  if(mon.t1)typesRow.appendChild(tbMini(mon.t1));if(mon.t2)typesRow.appendChild(tbMini(mon.t2));
+
+  // Ability
+  let abilityRow=null;
+  if(abilityRaw){abilityRow=document.createElement('div');abilityRow.style.cssText='font-size:8px;color:var(--gray);text-align:center;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';abilityRow.textContent=abilityRaw;}
+
+  // Item
+  let itemRow=null;
+  if(itemVal){
+    itemRow=document.createElement('div');itemRow.style.cssText='display:flex;align-items:center;justify-content:center;gap:3px;font-size:8px;color:#f0c600;max-width:110px;overflow:hidden;';
+    if(itemData?.slug){const iIco=document.createElement('img');iIco.dataset.itemSlug=itemData.slug;iIco.crossOrigin='anonymous';iIco.src=`${ITEM_BASE}${itemData.slug}.png`;iIco.style.cssText='width:12px;height:12px;image-rendering:pixelated;flex-shrink:0;';iIco.addEventListener('load',()=>{removeItemBg(iIco,itemData.slug);applyItemTint(iIco,itemData);},{once:true});iIco.onerror=()=>iIco.style.display='none';itemRow.appendChild(iIco);}
+    const iTxt=document.createElement('span');iTxt.style.cssText='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';iTxt.textContent=itemVal;itemRow.appendChild(iTxt);
+  }
+
+  // Moves (up to 4, compact chips)
+  let movesGrid=null;
+  if(slotMoves.length){
+    movesGrid=document.createElement('div');movesGrid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:2px;width:100%;';
+    const TC_TILE={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
+    slotMoves.slice(0,4).forEach(mv=>{
+      const mvD=findMoveByName(mv);
+      const mc=TC_TILE[mvD?.type]||'#4a5568';
+      const chip=document.createElement('div');chip.style.cssText=`font-size:7px;padding:2px 4px;border-radius:4px;background:${mc}18;color:${mc};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;`;chip.textContent=mv;
+      movesGrid.appendChild(chip);
+    });
+  }
+
+  // Info button — reuses the same slot-review Pokémon Card the app already
+  // builds for editing, so this always shows fully accurate, live data.
+  const infoBtn=document.createElement('button');infoBtn.type='button';
+  infoBtn.style.cssText='font-size:7px;padding:2px 8px;border-radius:4px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);cursor:pointer;margin-top:2px;';
+  infoBtn.textContent='ℹ Info';
+  infoBtn.addEventListener('click',(e)=>{e.stopPropagation();const prevSlot=currentSlot;currentSlot=i;renderSlotReview(i,prevSlot);});
+
+  tile.append(sprWrap,nameCol,typesRow);
+  if(abilityRow)tile.appendChild(abilityRow);
+  if(itemRow)tile.appendChild(itemRow);
+  if(movesGrid)tile.appendChild(movesGrid);
+  tile.appendChild(infoBtn);
+  return tile;
+}
+
 function renderTeamBar() {
   const existing = document.getElementById('trainerTeamBar');
   if(existing) existing.remove();
@@ -5018,71 +5102,16 @@ function renderTeamBar() {
     const isActive=i===currentSlot; const isComplete=team[i]&&team[i].complete; slot.className='team-slot'+(team[i]?' filled':'')+(isActive?' active':'')+(isComplete&&!isActive?' clickable':'');
 
     if(team[i] && team[i].mon) {
-      // Filled slot — rich tile: sprite, nickname/species, types, ability, item, moves
-      const mon = team[i].mon;
-      const T_IDX_TILE={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
-      const gaTile=(k)=>team[i][T_IDX_TILE[k]??(POKEMON_Q_START+k-1)]?.value;
-      const nick = team[i].nick || mon.name;
-      const abilityRaw=(gaTile(5)||'').replace(/\s*\(Hidden\)\s*$/i,'');
-      const itemVal=(gaTile(10)||'').split(' (#')[0];
-      const itemData=itemVal?ITEMS.find(it=>it.name===itemVal):null;
-      const gmaxVal=gaTile(7)||'';
-      const isGmax=/^GMax Factor:\s*Yes/i.test(gmaxVal)||gmaxVal.toLowerCase()==='yes';
-      const slotMoves=team[i][15]?.moves||[];
-
-      // Sprite
+      // Filled slot — show sprite + name
       const img = document.createElement('img'); img.className='team-slot-img';
+      const mon = team[i].mon;
       const sf=getSpriteFile(mon);
       img.src = `${PKM_BASE1}${sf}.png`;
       img.onerror = ()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
-      const sprWrap=document.createElement('div');sprWrap.style.cssText='display:flex;justify-content:center;position:relative;';
-      sprWrap.appendChild(img);
-      if(isGmax){const gIco=document.createElement('img');gIco.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/gmax_factor.png';gIco.style.cssText='width:16px;height:16px;position:absolute;top:-2px;right:6px;image-rendering:pixelated;';gIco.onerror=()=>gIco.style.display='none';sprWrap.appendChild(gIco);}
-
-      // Nickname (bigger) + species (smaller)
-      const nameCol=document.createElement('div');nameCol.style.cssText='display:flex;flex-direction:column;align-items:center;gap:0;';
-      const name = document.createElement('div'); name.className='team-slot-name'; name.style.cssText+='font-size:9px;font-weight:800;color:var(--white);max-width:110px;';
-      name.textContent = nick.length > 14 ? nick.slice(0,13)+'…' : nick;
-      nameCol.appendChild(name);
-      if(team[i].nick){const spec=document.createElement('div');spec.className='team-slot-name';spec.style.maxWidth='110px';spec.textContent=mon.name.length>16?mon.name.slice(0,15)+'…':mon.name;nameCol.appendChild(spec);}
-
-      // Types
-      const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:3px;justify-content:center;flex-wrap:wrap;';
-      const tbMini=(t)=>{const s=tb(t);s.style.fontSize='7px';s.style.padding='1px 5px';return s;};
-      if(mon.t1)typesRow.appendChild(tbMini(mon.t1));if(mon.t2)typesRow.appendChild(tbMini(mon.t2));
-
-      // Ability
-      let abilityRow=null;
-      if(abilityRaw){abilityRow=document.createElement('div');abilityRow.style.cssText='font-size:8px;color:var(--gray);text-align:center;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';abilityRow.textContent=abilityRaw;}
-
-      // Item
-      let itemRow=null;
-      if(itemVal){
-        itemRow=document.createElement('div');itemRow.style.cssText='display:flex;align-items:center;justify-content:center;gap:3px;font-size:8px;color:#f0c600;max-width:110px;overflow:hidden;';
-        if(itemData?.slug){const iIco=document.createElement('img');iIco.dataset.itemSlug=itemData.slug;iIco.crossOrigin='anonymous';iIco.src=`${ITEM_BASE}${itemData.slug}.png`;iIco.style.cssText='width:12px;height:12px;image-rendering:pixelated;flex-shrink:0;';iIco.addEventListener('load',()=>{removeItemBg(iIco,itemData.slug);applyItemTint(iIco,itemData);},{once:true});iIco.onerror=()=>iIco.style.display='none';itemRow.appendChild(iIco);}
-        const iTxt=document.createElement('span');iTxt.style.cssText='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';iTxt.textContent=itemVal;itemRow.appendChild(iTxt);
-      }
-
-      // Moves (up to 4, compact chips)
-      let movesGrid=null;
-      if(slotMoves.length){
-        movesGrid=document.createElement('div');movesGrid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:2px;width:100%;';
-        const TC_TILE={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
-        slotMoves.slice(0,4).forEach(mv=>{
-          const mvD=findMoveByName(mv);
-          const mc=TC_TILE[mvD?.type]||'#4a5568';
-          const chip=document.createElement('div');chip.style.cssText=`font-size:7px;padding:2px 4px;border-radius:4px;background:${mc}18;color:${mc};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;`;chip.textContent=mv;
-          movesGrid.appendChild(chip);
-        });
-      }
-
-      // Info button — reuses the same slot-review Pokémon Card the app already
-      // builds for editing, so this always shows fully accurate, live data.
-      const infoBtn=document.createElement('button');infoBtn.type='button';
-      infoBtn.style.cssText='font-size:7px;padding:2px 8px;border-radius:4px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);cursor:pointer;margin-top:2px;';
-      infoBtn.textContent='ℹ Info';
-      infoBtn.addEventListener('click',(e)=>{e.stopPropagation();const prevSlot=currentSlot;currentSlot=i;renderSlotReview(i,prevSlot);});
-
+      const name = document.createElement('div'); name.className='team-slot-name';
+      // Use nickname if set, else pokemon name
+      const nick = team[i].nick || mon.name;
+      name.textContent = nick.length > 8 ? nick.slice(0,7)+'…' : nick;
       // Delete button on filled slot
       const delSlot=document.createElement('button'); delSlot.type='button';
       delSlot.style.cssText='position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#E3350D;border:none;color:#fff;font-size:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;';
@@ -5099,11 +5128,7 @@ function renderTeamBar() {
         }
       });
       slot.style.position='relative'; slot.appendChild(delSlot);
-      slot.append(sprWrap,nameCol,typesRow);
-      if(abilityRow)slot.appendChild(abilityRow);
-      if(itemRow)slot.appendChild(itemRow);
-      if(movesGrid)slot.appendChild(movesGrid);
-      slot.appendChild(infoBtn);
+      slot.append(img, name);
       slot.addEventListener('click', ()=>{
         if(i < team.length && team[i] && team[i].mon) {
           const prevSlot = currentSlot;
@@ -6472,6 +6497,18 @@ function renderTrainerResult(){
     const cl=trPanel.children[0].cloneNode(true);
     cl.style.cssText+=';margin:12px;border-radius:12px;box-shadow:none;border:1px solid rgba(149,117,205,.2);';
     body.appendChild(cl);
+  }
+
+  // Team — rich Pokémon tiles (sprite, nickname/species, types, ability,
+  // item, GMax badge, moves, Info button)
+  if(typeof team!=='undefined'&&team.length){
+    const teamSect=document.createElement('div');teamSect.style.cssText='padding:0 12px 12px;';
+    const teamHdr=document.createElement('div');teamHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin-bottom:8px;';teamHdr.textContent='TEAM';
+    teamSect.appendChild(teamHdr);
+    const teamGrid=document.createElement('div');teamGrid.style.cssText='display:flex;flex-wrap:wrap;gap:8px;justify-content:center;';
+    for(let i=0;i<MAX_TEAM;i++) teamGrid.appendChild(buildTeamKachel(i));
+    teamSect.appendChild(teamGrid);
+    body.appendChild(teamSect);
   }
   popup.appendChild(body);
 
