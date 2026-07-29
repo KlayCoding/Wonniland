@@ -914,6 +914,14 @@ let ITEMS = [];
 // Total: 878
 
 let MOVES = []; // loaded from moves.json
+// Case-insensitive move lookup — hand-typed data (HoF/Trainer JSON) sometimes
+// doesn't match moves.json's exact casing (e.g. "U-Turn" vs canonical "U-turn"),
+// which silently broke every strict m.name===mv lookup.
+function findMoveByName(name){
+  if(!name) return null;
+  const norm=String(name).trim().toLowerCase();
+  return MOVES.find(m=>m.name.toLowerCase()===norm)||null;
+}
 
 // ── Gender lock data ─────────────────────────────────────────────────────────
 // -1 in PokeAPI = genderless, 0 = male only, 8 = female only
@@ -1022,12 +1030,12 @@ const QLBLS=['👤 OT Name','🎮 Pokémon','📛 Nickname','✨ Shiny?','🌿 N
 
 // ── Type Coverage Analysis ────────────────────────────────────────────────────
 function showTypeCoveragePopup(){
-  const movesAns=(ans[11])?.moves||[];
+  const movesAns=(ans[9])?.moves||[];
   const selMon=ans[1]?.mon;
   if(!selMon){showToast('Select a Pokémon first!',true);return;}
   const TYPE_COL3={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
   const TC=TYPE_CHART;
-  const moveTypes=movesAns.map(mvName=>{const mv=MOVES.find(m=>m.name===mvName);return mv&&mv.cat!=='Status'?mv.type:null;}).filter(Boolean);
+  const moveTypes=movesAns.map(mvName=>{const mv=findMoveByName(mvName);return mv&&mv.cat!=='Status'?mv.type:null;}).filter(Boolean);
   const defT1=selMon.t1||null; const defT2=selMon.t2||null;
   const overlay=document.createElement('div');overlay.style.cssText='position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;';
   overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
@@ -1230,7 +1238,7 @@ function updPokemonCard(){
   const gmaxAns  = ga(7)||'';
   const ivevAns  = currentMode==='trainer'?slot[8]:ans[8];  // IVs/EVs
   const itemVal  = ga(10)||'';
-  const movesAns = (currentMode==='trainer'?slot[15]:ans[11])?.moves||[];
+  const movesAns = (currentMode==='trainer'?slot[15]:ans[9])?.moves||[];
 
   const isShiny=shinyVal.toLowerCase().includes('yes')||shinyVal.includes('✨');
   const sf=getSpriteFile(mon);
@@ -1573,7 +1581,7 @@ function updPokemonCard(){
     // Move rows
     if(movesAns.length){
       movesAns.forEach(mv=>{
-        const mvD=MOVES.find(m=>m.name===mv)||{type:'Normal',cat:'Status',power:null,pp:null};
+        const mvD=findMoveByName(mv)||{type:'Normal',cat:'Status',power:null,pp:null};
         const col=TC[mvD.type]||'#888';const catCol=CC[mvD.cat]||'#888';const tid=MTID_C[mvD.type];
         const row=document.createElement('div');
         row.style.cssText=`display:flex;overflow:hidden;border-radius:7px;border:1px solid ${col}30;background:${col}0d;margin-bottom:4px;`;
@@ -3836,7 +3844,7 @@ function renderQ(){
     function refreshSlotBtn(i){
       if(!slotCards[i]) return;
       const mv=slots[i];
-      const mvD=mv?MOVES.find(m=>m.name===mv):null;
+      const mvD=mv?findMoveByName(mv):null;
       const col=mvD?({Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'}[mvD.type]||'#888'):'#333';
       const catCol=mvD?({Physical:'#e8622a',Special:'#4f90d3',Status:'#8892a4'}[mvD.cat]||'#888'):null;
       const MTID={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
@@ -4401,6 +4409,26 @@ function renderResult(){
     if(srcPanel&&srcPanel.children.length){
       const cloned=srcPanel.children[0].cloneNode(true);
       cloned.style.cssText+=';max-width:100%;width:100%;box-shadow:none;border:1px solid rgba(149,117,205,.25);border-radius:12px;';
+      // Strip the Reset row, progress footer (still visible until now), and the
+      // embedded move-picker section (a full, correct Moves list is rendered
+      // separately below) — same cleanup already applied to the HOF popup clone.
+      cloned.querySelectorAll('.pkm-card-actionrow,.pkm-card-progfoot,.pkm-card-movesect').forEach(el=>el.remove());
+      // Rebind sprite fallback + re-strip item icon bg on the clone itself —
+      // cloneNode(true) drops JS-assigned onerror/addEventListener handlers, so
+      // async fallback/bg-removal that hadn't finished on the original live card
+      // yet would otherwise be lost on this synchronously-taken clone.
+      cloned.querySelectorAll('img.pkm-card-sprite').forEach(img=>{
+        const sid=img.dataset.sprId||'';
+        const sfile=img.dataset.sprFile||'';
+        const shiny=img.dataset.sprShiny==='1';
+        img.onerror=shiny?()=>shinyUrlFallback(img,sid,sfile):()=>iconUrlFallback(img,sid,sfile);
+      });
+      cloned.querySelectorAll('img[data-item-slug]').forEach(img=>{
+        const slug=img.dataset.itemSlug;
+        const itemObj=ITEMS.find(it=>it.slug===slug);
+        const doStrip=()=>{removeItemBg(img,slug);if(itemObj)applyItemTint(img,itemObj);};
+        if(img.complete&&img.naturalWidth)doStrip();else img.addEventListener('load',doStrip,{once:true});
+      });
       pkSect.appendChild(cloned);
     }
   }  // end if(mon)
@@ -4416,7 +4444,7 @@ function renderResult(){
     const TYPE_COL_RES={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
     const MOVE_TYPE_IDS_RES={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
     movesList.forEach(mvName=>{
-      const mvData=MOVES.find(m=>m.name===mvName)||{type:'Normal',cat:'Status',power:null};
+      const mvData=findMoveByName(mvName)||{type:'Normal',cat:'Status',power:null};
       const col=TYPE_COL_RES[mvData.type]||'#888';
       const catC=({Physical:'#e8622a',Special:'#4f90d3',Status:'#8892a4'})[mvData.cat||'Status']||'#888';
       const tid=MOVE_TYPE_IDS_RES[mvData.type];
@@ -5988,7 +6016,7 @@ function renderTrainerQ() {
     function refreshSlotBtn(i){
       if(!slotCards[i]) return;
       const mv=slots[i];
-      const mvD=mv?MOVES.find(m=>m.name===mv):null;
+      const mvD=mv?findMoveByName(mv):null;
       const col=mvD?({Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'}[mvD.type]||'#888'):'#333';
       const catCol=mvD?({Physical:'#e8622a',Special:'#4f90d3',Status:'#8892a4'}[mvD.cat]||'#888'):null;
       const MTID={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
@@ -7569,7 +7597,7 @@ function openHofPopup(p){
     const mvHdr2=document.createElement('div');mvHdr2.style.cssText='padding:10px 0 4px;font-size:9px;color:#556;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:8px;';mvHdr2.textContent='Moves';
     body.appendChild(mvHdr2);
     p.moves.forEach(mv=>{
-      const mvD=MOVES.find(m=>m.name===mv);
+      const mvD=findMoveByName(mv);
       const mc=TC2[mvD?.type]||'#4a5568';
       const row=document.createElement('div');row.style.cssText='display:flex;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.04);border-radius:6px;margin-bottom:3px;background:rgba(255,255,255,.02);';
       const bar2=document.createElement('div');bar2.style.cssText=`width:4px;background:${mc};flex-shrink:0;border-radius:6px 0 0 6px;`;
@@ -7582,7 +7610,7 @@ function openHofPopup(p){
       const dsc2=document.createElement('span');dsc2.style.cssText='font-size:9px;color:#4a5568;line-height:1.3;';dsc2.textContent=mvD?.desc||mvD?.description||'';
       nmCol2.append(nm2,dsc2);
       bd2.append(nmCol2);
-      if(mvD?.type){const ti2=document.createElement('img');ti2.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/'+(TMAP[mvD.type]||1)+'.png';ti2.style.cssText='height:14px;image-rendering:pixelated;flex-shrink:0;margin-top:2px;';ti2.onerror=()=>ti2.style.display='none';bd2.appendChild(ti2);}
+      if(mvD?.type){const ti2=document.createElement('img');ti2.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/'+(TMAP[mvD.type]||1)+'.png';ti2.style.cssText='max-width:100%;max-height:100%;image-rendering:pixelated;';ti2.onerror=()=>{ti2wrap.style.display='none';};const ti2wrap=document.createElement('div');ti2wrap.style.cssText='width:64px;height:16px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;';ti2wrap.appendChild(ti2);bd2.appendChild(ti2wrap);}
       const st2=document.createElement('div');st2.style.cssText='display:flex;flex-direction:column;align-items:flex-end;padding:4px 10px;border-left:1px solid rgba(255,255,255,.06);min-width:50px;flex-shrink:0;';
       const bp2=document.createElement('span');bp2.style.cssText=`font-size:14px;font-weight:700;color:${mc};line-height:1;`;bp2.textContent=mvD?.power||'—';
       const cat2=document.createElement('span');cat2.style.cssText='font-size:9px;color:#4a5568;';cat2.textContent=mvD?.cat||'';
@@ -8476,7 +8504,7 @@ function initTrainerHofBrowser(){
       const mHdr=document.createElement('div');mHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#444;padding:5px 10px 2px;';mHdr.textContent='MOVES';card.appendChild(mHdr);
       const movesWrap=document.createElement('div');
       p.moves.slice(0,4).forEach((mv,mi)=>{
-        const mvD=MOVES.find(m=>m.name===mv)||{type:'Normal'};const tid=TIDS[mvD.type];
+        const mvD=findMoveByName(mv)||{type:'Normal'};const tid=TIDS[mvD.type];
         const mRow=document.createElement('div');mRow.style.cssText=`display:flex;align-items:center;gap:5px;padding:4px 10px;${mi%2===0?'background:rgba(255,255,255,.02);':''}border-bottom:1px solid rgba(255,255,255,.03);`;
         if(tid){const ti=document.createElement('img');ti.src=`${G9_BASE}${tid}.png`;ti.style.cssText='height:13px;image-rendering:pixelated;flex-shrink:0;';ti.onerror=()=>ti.style.display='none';mRow.appendChild(ti);}
         const mn=document.createElement('span');mn.style.cssText='font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;';mn.textContent=mv;
@@ -8522,7 +8550,7 @@ function initTrainerHofBrowser(){
     // IVs/EVs
     if(p.ivs){const ks=['hp','atk','def','spa','spd','spe'];const ivH=document.createElement('div');ivH.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin:10px 0 6px;';ivH.textContent='IVs / EVs';bd.appendChild(ivH);const ig=document.createElement('div');ig.style.cssText='display:grid;grid-template-columns:32px repeat(6,1fr);gap:3px;margin-bottom:4px;';const lbl=document.createElement('span');lbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#b39ddb;';lbl.textContent='IV';ig.appendChild(lbl);ks.forEach(k=>{const v=p.ivs[k]??0;const d=document.createElement('div');d.style.cssText=`font-size:9px;font-weight:${v===31?900:700};text-align:center;padding:2px 0;border-radius:3px;background:${v===31?'rgba(149,117,205,.28)':'rgba(149,117,205,.1)'};color:${v===31?'#ce93d8':'#b39ddb'};`;d.textContent=v;ig.appendChild(d);});bd.appendChild(ig);if(p.evs){const eg=document.createElement('div');eg.style.cssText='display:grid;grid-template-columns:32px repeat(6,1fr);gap:3px;';const el2=document.createElement('span');el2.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#4db6ac;';el2.textContent='EV';eg.appendChild(el2);ks.forEach(k=>{const v=p.evs[k]??0;const d=document.createElement('div');d.style.cssText=`font-size:9px;text-align:center;padding:2px 0;border-radius:3px;background:${v>=252?'rgba(77,182,172,.25)':v>0?'rgba(77,182,172,.08)':'transparent'};color:${v===0?'#333':'#4db6ac'};`;d.textContent=v;eg.appendChild(d);});bd.appendChild(eg);}}
     // Moves
-    if(p.moves?.length){const mH=document.createElement('div');mH.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin:10px 0 6px;';mH.textContent='MOVES';bd.appendChild(mH);const TIDS2={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};const mg=document.createElement('div');mg.style.cssText='display:flex;flex-direction:column;gap:4px;';p.moves.forEach(mv=>{const mvD=MOVES.find(m=>m.name===mv)||{type:'Normal'};const c=TCOLS2[mvD.type]||'#888';const tid2=TIDS2[mvD.type];const mr=document.createElement('div');mr.style.cssText=`display:flex;align-items:center;gap:6px;padding:4px 7px;border-radius:5px;background:${c}12;border:1px solid ${c}22;`;if(tid2){const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid2}.png`;ti.style.cssText='height:14px;image-rendering:pixelated;flex-shrink:0;';ti.onerror=()=>ti.style.display='none';mr.appendChild(ti);}const mn2=document.createElement('span');mn2.style.cssText='font-size:11px;font-weight:600;flex:1;';mn2.textContent=mv;const pw=document.createElement('span');pw.style.cssText=`font-size:10px;color:${mvD.power>=100?'#e8622a':mvD.power>=60?'#f0c600':'#555'};`;pw.textContent=mvD.power?mvD.power+' Power':'Status';mr.append(mn2,pw);mg.appendChild(mr);});bd.appendChild(mg);}
+    if(p.moves?.length){const mH=document.createElement('div');mH.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin:10px 0 6px;';mH.textContent='MOVES';bd.appendChild(mH);const TIDS2={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};const mg=document.createElement('div');mg.style.cssText='display:flex;flex-direction:column;gap:4px;';p.moves.forEach(mv=>{const mvD=findMoveByName(mv)||{type:'Normal'};const c=TCOLS2[mvD.type]||'#888';const tid2=TIDS2[mvD.type];const mr=document.createElement('div');mr.style.cssText=`display:flex;align-items:center;gap:6px;padding:4px 7px;border-radius:5px;background:${c}12;border:1px solid ${c}22;`;if(tid2){const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid2}.png`;ti.style.cssText='height:14px;image-rendering:pixelated;flex-shrink:0;';ti.onerror=()=>ti.style.display='none';mr.appendChild(ti);}const mn2=document.createElement('span');mn2.style.cssText='font-size:11px;font-weight:600;flex:1;';mn2.textContent=mv;const pw=document.createElement('span');pw.style.cssText=`font-size:10px;color:${mvD.power>=100?'#e8622a':mvD.power>=60?'#f0c600':'#555'};`;pw.textContent=mvD.power?mvD.power+' Power':'Status';mr.append(mn2,pw);mg.appendChild(mr);});bd.appendChild(mg);}
     bx.appendChild(bd);ov.appendChild(bx);document.body.appendChild(ov);
     document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'){ov.remove();document.removeEventListener('keydown',esc);}});
   }
