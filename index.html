@@ -1191,6 +1191,49 @@ function updTrainerCard(){
     });
   }
   if(det.children.length) card.appendChild(det);
+
+  // Team mini-grid — click a tile to switch slots, × to delete
+  if(typeof team!=='undefined'&&team.length){
+    const tRow=document.createElement('div');tRow.style.cssText='padding:8px 14px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid rgba(255,255,255,.06);';
+    const tL=document.createElement('div');tL.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;width:100%;margin-bottom:2px;';tL.textContent='TEAM';
+    tRow.appendChild(tL);
+    for(let i=0;i<MAX_TEAM;i++){
+      const sl=team[i];const mon=sl?.mon;
+      const el=document.createElement('div');
+      el.style.cssText=`position:relative;width:44px;height:44px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;transition:all .15s;${i===currentSlot?'border-color:#9575cd;background:rgba(149,117,205,.12);':''}`;
+      if(mon){
+        const img=document.createElement('img');img.style.cssText='width:44px;height:44px;image-rendering:pixelated;';
+        const sf=getSpriteFile(mon);
+        img.src=`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
+        el.appendChild(img);
+        const delBtn=document.createElement('button');delBtn.type='button';
+        delBtn.style.cssText='position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:#E3350D;border:none;color:#fff;font-size:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;';
+        delBtn.textContent='✕';
+        delBtn.addEventListener('click',(e)=>{
+          e.stopPropagation();
+          const monName=sl.nick||mon.name;
+          if(confirm(`Remove ${monName} from your team?`)){
+            team.splice(i,1);
+            if(currentSlot>=team.length) currentSlot=Math.max(0,team.length-1);
+            updTrainerCard();
+            if(trainerPhase==='pokemon') renderTrainerQ();
+          }
+        });
+        el.appendChild(delBtn);
+        el.addEventListener('click',()=>{
+          if(i<team.length&&team[i]&&team[i].mon){
+            const prevSlot=currentSlot;
+            currentSlot=i;
+            renderSlotReview(i,prevSlot);
+          }
+        });
+      } else {
+        const ph=document.createElement('span');ph.style.cssText='font-size:16px;opacity:.15;';ph.textContent='?';el.appendChild(ph);
+      }
+      tRow.appendChild(el);
+    }
+    card.appendChild(tRow);
+  }
   panel.appendChild(card);
 }
 
@@ -1546,7 +1589,7 @@ function updPokemonCard(){
 
   // ── Moves section — shown when moves are selected (or always visible)
   const _movCheck=(currentMode==='trainer'?slot?.[15]:ans[9])?.moves?.length||0;
-  if(currentMode==='trainer'||_movCheck>0||ans[9]){
+  if(_movCheck>0||ans[9]){
   (()=>{
     const MTID_C={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
     const TC={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
@@ -5073,106 +5116,42 @@ function buildTeamKachel(i){
     });
   }
 
-  // Info button — reuses the same slot-review Pokémon Card the app already
-  // builds for editing, so this always shows fully accurate, live data.
-  const infoBtn=document.createElement('button');infoBtn.type='button';
-  infoBtn.style.cssText='font-size:7px;padding:2px 8px;border-radius:4px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);cursor:pointer;margin-top:2px;';
-  infoBtn.textContent='ℹ Info';
-  infoBtn.addEventListener('click',(e)=>{e.stopPropagation();const prevSlot=currentSlot;currentSlot=i;renderSlotReview(i,prevSlot);});
+  // Edit button — closes the End Card and jumps into editing this slot from
+  // its first question. (Previously an Info button that opened a second
+  // full-screen overlay via renderSlotReview — that overlay's z-index sits
+  // BELOW the End Card's own, so it rendered hidden behind it: a genuine
+  // "popup in popup" bug, not just visual noise.)
+  const editBtn=document.createElement('button');editBtn.type='button';
+  editBtn.style.cssText='font-size:7px;padding:2px 8px;border-radius:4px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);cursor:pointer;margin-top:2px;';
+  editBtn.textContent='\u270e Edit';
+  editBtn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    if(typeof closeEndCard==='function') closeEndCard();
+    currentSlot=i; viewingSlot=-1; trainerPhase='pokemon';
+    step=POKEMON_Q_START;
+    for(let s=POKEMON_Q_START;s<=POKEMON_Q_END;s++){
+      if(!team[i]||!team[i][s]){step=s;break;}
+      if(s===POKEMON_Q_END){step=s+1;}
+    }
+    renderTrainerQ();
+  });
 
   tile.append(sprWrap,nameCol,typesRow);
   if(abilityRow)tile.appendChild(abilityRow);
   if(itemRow)tile.appendChild(itemRow);
   if(movesGrid)tile.appendChild(movesGrid);
-  tile.appendChild(infoBtn);
+  tile.appendChild(editBtn);
   return tile;
 }
 
 function renderTeamBar() {
+  // Team display now lives inside the Trainer Card itself (updTrainerCard's
+  // mini-grid) rather than as a separate bar between the Trainer and Pokémon
+  // cards. Kept as a thin shim so existing call sites (delete handlers, the
+  // resume flow, slot review, etc.) keep working without each needing changes.
   const existing = document.getElementById('trainerTeamBar');
   if(existing) existing.remove();
-  if(currentMode !== 'trainer' || trainerPhase === 'trainer') return;
-
-  const bar = document.createElement('div'); bar.className='team-bar'; bar.id='trainerTeamBar';
-  const lbl = document.createElement('div'); lbl.className='team-bar-lbl'; lbl.textContent='TEAM';
-  const slots = document.createElement('div'); slots.className='team-slots';
-
-  for(let i=0; i<MAX_TEAM; i++) {
-    const slot = document.createElement('div');
-    const isActive=i===currentSlot; const isComplete=team[i]&&team[i].complete; slot.className='team-slot'+(team[i]?' filled':'')+(isActive?' active':'')+(isComplete&&!isActive?' clickable':'');
-
-    if(team[i] && team[i].mon) {
-      // Filled slot — show sprite + name
-      const img = document.createElement('img'); img.className='team-slot-img';
-      const mon = team[i].mon;
-      const sf=getSpriteFile(mon);
-      img.src = `${PKM_BASE1}${sf}.png`;
-      img.onerror = ()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
-      const name = document.createElement('div'); name.className='team-slot-name';
-      // Use nickname if set, else pokemon name
-      const nick = team[i].nick || mon.name;
-      name.textContent = nick.length > 8 ? nick.slice(0,7)+'…' : nick;
-      // Delete button on filled slot
-      const delSlot=document.createElement('button'); delSlot.type='button';
-      delSlot.style.cssText='position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#E3350D;border:none;color:#fff;font-size:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;';
-      delSlot.textContent='✕';
-      delSlot.addEventListener('click',(e)=>{
-        e.stopPropagation();
-        const monName=team[i]&&team[i].mon?(team[i].nick||team[i].mon.name):`Slot ${i+1}`;
-        if(confirm(`Remove ${monName} from your team?`)){
-          team.splice(i,1);
-          if(currentSlot>=team.length) currentSlot=Math.max(0,team.length-1);
-          renderTeamBar();
-          // Re-render current view
-          if(trainerPhase==='pokemon') renderTrainerQ();
-        }
-      });
-      slot.style.position='relative'; slot.appendChild(delSlot);
-      slot.append(img, name);
-      slot.addEventListener('click', ()=>{
-        if(i < team.length && team[i] && team[i].mon) {
-          const prevSlot = currentSlot;
-          currentSlot = i;
-          renderSlotReview(i, prevSlot);
-        }
-      });
-    } else if(i === currentSlot) {
-      // Current active empty slot
-      const ico = document.createElement('div'); ico.className='team-slot-empty-ico'; ico.textContent='⚡';
-      const num = document.createElement('div'); num.className='team-slot-name'; num.textContent=`Slot ${i+1}`;
-      slot.append(ico, num);
-    } else {
-      // Future empty slot
-      const num = document.createElement('div'); num.className='team-slot-num'; num.textContent=`${i+1}`;
-      const ico = document.createElement('div'); ico.className='team-slot-empty-ico'; ico.textContent='·';
-      slot.append(ico, num);
-    }
-    slots.appendChild(slot);
-  }
-  // Reset button
-  const resetBtn=document.createElement('button'); resetBtn.type='button';
-  resetBtn.style.cssText='margin-left:auto;background:transparent;border:1px solid rgba(227,53,13,.4);color:rgba(227,53,13,.7);border-radius:6px;padding:4px 10px;font-size:9px;cursor:pointer;font-family:"Press Start 2P",monospace;white-space:nowrap;';
-  resetBtn.textContent='↺ Reset All';
-  resetBtn.addEventListener('click',()=>{
-    if(confirm('Reset your entire team? This cannot be undone.')){
-      team=[]; currentSlot=0; viewingSlot=-1; trainerPhase='trainer'; step=0;
-      Object.keys(ans).forEach(k=>delete ans[k]);
-      document.getElementById('trainerTeamBar')?.remove();
-      renderTrainerQ();
-    }
-  });
-  bar.append(lbl, slots, resetBtn);
-
-  // Insert inside trainer card panel (bottom section)
-  const tcPanel=document.getElementById('trainer-card-panel');
-  if(tcPanel){
-    const existBar=tcPanel.querySelector('.team-bar');if(existBar)existBar.remove();
-    tcPanel.appendChild(bar);
-  } else {
-    // fallback
-    const header=document.querySelector('header');
-    if(header&&header.nextSibling) header.parentNode.insertBefore(bar,header.nextSibling);
-  }
+  if(typeof updTrainerCard==='function') updTrainerCard();
 }
 
 // ── Slot Review Screen ───────────────────────────────────────────────────────
@@ -6478,6 +6457,7 @@ function renderTrainerResult(){
   // ── Overlay popup (same structure as Pokemon end card) ──────────────────────
   const overlay=document.createElement('div');
   overlay.style.cssText='position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;';
+  window.closeEndCard=()=>overlay.remove();
   const popup=document.createElement('div');
   popup.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.7);';
 
