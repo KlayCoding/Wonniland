@@ -7386,6 +7386,9 @@ loadPokemonData().then(()=>{
 
 
 // ── Global HoF info popup ─────────────────────────────────────────────────────
+// Alias called by HoF browser mkHofTile
+function openPkmHofPopup(p){ openHofPopup(p); }
+
 function openHofPopup(p){
   // Smart lookup: exact → base species → hyphenated form
   let mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
@@ -7409,11 +7412,12 @@ function openHofPopup(p){
   const _baseMon=mon||{name:p.species,t1:'Normal',t2:null};
   const hofMon={
     ..._baseMon,
-    // spriteFile from ALL_MON if available, else use species_id or sprite field
-    spriteFile:_baseMon.spriteFile||(_baseMon.id?String(_baseMon.id).padStart(4,'0'):null)||p.sprite,
-    shinyFile:_baseMon.shinyFile||_baseMon.shinySprite||p.shiny_sprite,
-    sprite:p.sprite, shiny_sprite:p.shiny_sprite,
-    species_id:p.species_id
+    // Use HoF sprite fields directly — they have the correct form sprite ID
+    sprite:p.sprite,              // e.g. '1227' for Zacian Crowned
+    shiny_sprite:p.shiny_sprite,  // e.g. '1227'
+    species_id:p.species_id,
+    spriteFile:null,              // null so pkmSpriteWithFallback uses p.sprite above
+    shinyFile:null
   };
   ans[1]={value:p.species, mon:hofMon};
   ans[3]={value:p.shiny?'Yes':'No'};
@@ -7598,7 +7602,8 @@ function removeItemBg(img, itemSlug) {
 
 function pkmSpriteWithFallback(img, p, shiny){
   // Mirror Pokédex: getSpriteFile first, then iconUrlFallback chain
-  const sf=getSpriteFile(p)||(p.sprite)||(p.species_id?String(p.species_id).padStart(4,'0'):null);
+  // HOF pokemon: p.sprite='1227' (exact file); ALL_MON: no p.sprite, uses getSpriteFile
+  const sf=(p.sprite)||getSpriteFile(p)||(p.species_id?String(p.species_id).padStart(4,'0'):null);
   if(!sf){img.style.opacity='.2';return;}
   if(shiny){
     const sf2=p.shiny_sprite||p.shinyFile||sf;
