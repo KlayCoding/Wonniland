@@ -843,14 +843,14 @@ function shinyUrlFallback(img, id, spriteFile) {
       img.onerror=null;
       img.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';
       img.src=`${PKM_BASE1}${file}.png`;
-      img.onerror=()=>{ img.src=`${PKM_BASE2}${file}.png`; img.onerror=null; };
+      img.onerror=()=>{ img.src=`${PKM_BASE2}${file}.png`; img.onerror=()=>{img.src=`${SHOWDOWN}${id||0}.gif`;img.onerror=null;}; };
     };
     img.src=`${PKM_SHINY2}${file}.png`;
   } else {
     img.onerror=null;
     img.style.filter='hue-rotate(120deg) saturate(1.5) brightness(1.2)';
     img.src=`${PKM_BASE1}${file}.png`;
-    img.onerror=()=>{ img.src=`${PKM_BASE2}${file}.png`; img.onerror=null; };
+    img.onerror=()=>{ img.src=`${PKM_BASE2}${file}.png`; img.onerror=()=>{img.src=`${SHOWDOWN}${id||0}.gif`;img.onerror=null;}; };
   }
 }
 
@@ -1202,7 +1202,7 @@ function updTrainerCard(){
     for(let i=0;i<MAX_TEAM;i++){
       const sl=team[i];const mon=sl?.mon;
       const el=document.createElement('div');
-      el.style.cssText=`position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:5px 2px;min-height:62px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);overflow:hidden;cursor:pointer;transition:all .15s;${i===currentSlot?'border-color:#9575cd;background:rgba(149,117,205,.12);':''}`;
+      el.style.cssText=`position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:5px 2px;min-height:68px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);overflow:hidden;cursor:pointer;transition:all .15s;${i===currentSlot?'border-color:#9575cd;background:rgba(149,117,205,.12);':''}`;
       if(mon){
         const img=document.createElement('img');img.style.cssText='width:40px;height:40px;image-rendering:pixelated;';
         const sf=getSpriteFile(mon);
@@ -1216,23 +1216,9 @@ function updTrainerCard(){
         }
         el.appendChild(img);
         const nick=sl.nick||mon.name;
-        const nickEl=document.createElement('div');nickEl.style.cssText='font-size:7px;font-weight:700;color:var(--white);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nickEl.textContent=nick.length>12?nick.slice(0,11)+'…':nick;
+        const nickEl=document.createElement('div');nickEl.style.cssText='font-size:9px;font-weight:700;color:var(--white);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nickEl.textContent=nick.length>12?nick.slice(0,11)+'…':nick;
         el.appendChild(nickEl);
-        if(sl.nick){const specEl=document.createElement('div');specEl.style.cssText='font-size:6px;color:var(--gray);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';specEl.textContent=mon.name.length>13?mon.name.slice(0,12)+'…':mon.name;el.appendChild(specEl);}
-        const delBtn=document.createElement('button');delBtn.type='button';
-        delBtn.style.cssText='position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:#E3350D;border:none;color:#fff;font-size:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;';
-        delBtn.textContent='✕';
-        delBtn.addEventListener('click',(e)=>{
-          e.stopPropagation();
-          const monName=sl.nick||mon.name;
-          if(confirm(`Remove ${monName} from your team?`)){
-            team.splice(i,1);
-            if(currentSlot>=team.length) currentSlot=Math.max(0,team.length-1);
-            updTrainerCard();
-            if(trainerPhase==='pokemon') renderTrainerQ();
-          }
-        });
-        el.appendChild(delBtn);
+        if(sl.nick){const specEl=document.createElement('div');specEl.style.cssText='font-size:8px;color:var(--gray);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';specEl.textContent=mon.name.length>13?mon.name.slice(0,12)+'…':mon.name;el.appendChild(specEl);}
         el.addEventListener('click',()=>{
           if(i<team.length&&team[i]&&team[i].mon){
             const prevSlot=currentSlot;
@@ -5094,7 +5080,7 @@ function buildTeamKachel(i){
     const monName=nick;
     const confOv=document.createElement('div');confOv.style.cssText='position:fixed;inset:0;z-index:1500;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:16px;';
     const confBx=document.createElement('div');confBx.style.cssText='background:#13192a;border:2px solid rgba(227,53,13,.4);border-radius:14px;padding:22px;max-width:320px;width:100%;text-align:center;';
-    const confTxt=document.createElement('div');confTxt.style.cssText='font-size:13px;color:var(--white);margin-bottom:18px;line-height:1.5;';confTxt.textContent=`Do you really want to delete ${monName}?`;
+    const confTxt=document.createElement('div');confTxt.style.cssText='font-size:13px;color:var(--white);margin-bottom:18px;line-height:1.5;white-space:normal;overflow-wrap:break-word;';confTxt.textContent=`Do you really want to delete ${monName}?`;
     const confRow=document.createElement('div');confRow.style.cssText='display:flex;gap:8px;';
     const yesBtn=document.createElement('button');yesBtn.type='button';yesBtn.style.cssText='flex:1;padding:9px;border-radius:8px;border:none;background:#E3350D;color:#fff;font-weight:700;cursor:pointer;font-size:12px;';yesBtn.textContent='Yes';
     const noBtn=document.createElement('button');noBtn.type='button';noBtn.style.cssText='flex:1;padding:9px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--gray);font-weight:700;cursor:pointer;font-size:12px;';noBtn.textContent='No';
