@@ -1703,7 +1703,7 @@ function saveTrainerDraft() {
     const data = { team: team.map(slot=>{
       if(!slot) return null;
       return slot.map((a,i)=> a ? { value:a.value, mon:serializeMon(a.mon)||undefined } : null);
-    }), currentSlot };
+    }), currentSlot, step, trainerPhase };
     localStorage.setItem(LS_KEY_T, JSON.stringify(data));
   } catch(e) {}
 }
@@ -4448,7 +4448,8 @@ function renderResult(){
       const col=TYPE_COL_RES[mvData.type]||'#888';
       const catC=({Physical:'#e8622a',Special:'#4f90d3',Status:'#8892a4'})[mvData.cat||'Status']||'#888';
       const tid=MOVE_TYPE_IDS_RES[mvData.type];
-      const row=document.createElement('div');row.style.cssText=`padding:8px 10px;border-radius:8px;background:${col}10;border:1px solid ${col}25;`;
+      const row=document.createElement('div');row.style.cssText=`display:flex;gap:8px;padding:8px 10px;border-radius:8px;background:${col}10;border:1px solid ${col}25;`;
+      const leftCol=document.createElement('div');leftCol.style.cssText='flex:1;min-width:0;';
       // Line 1: Type icon + Name + Info btn
       const line1=document.createElement('div');line1.style.cssText='display:flex;align-items:center;gap:6px;';
       if(tid){const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid}.png`;ti.style.cssText='height:14px;image-rendering:pixelated;flex-shrink:0;';ti.onerror=()=>ti.style.display='none';line1.appendChild(ti);}
@@ -4458,12 +4459,16 @@ function renderResult(){
       line1.append(mNm,infoIco);
       // Line 2: Description
       const descL=document.createElement('div');descL.style.cssText='font-size:10px;color:#556;line-height:1.4;margin-top:3px;';descL.textContent=mvData.desc||mvData.description||'';
-      // Line 3: Category + Power
-      const line3=document.createElement('div');line3.style.cssText='display:flex;align-items:center;gap:8px;margin-top:3px;';
+      // Line 3: Category only (Power moved to its own bottom-right column)
+      const line3=document.createElement('div');line3.style.cssText='margin-top:3px;';
       const catEl=document.createElement('span');catEl.style.cssText=`font-size:9px;color:${catC};font-weight:600;`;catEl.textContent=mvData.cat||'';
-      const pwrEl=document.createElement('span');pwrEl.style.cssText=`font-size:10px;font-weight:700;color:${mvData.power>=100?'#e8622a':mvData.power>=60?'#f0c600':'#555'};`;pwrEl.textContent=mvData.power?mvData.power+' BP':'—';
-      line3.append(catEl,pwrEl);
-      row.append(line1);if(mvData.desc||mvData.description)row.append(descL);row.append(line3);
+      line3.append(catEl);
+      leftCol.append(line1);if(mvData.desc||mvData.description)leftCol.append(descL);leftCol.append(line3);
+      // Power column — pinned bottom-right of the row
+      const pwrCol=document.createElement('div');pwrCol.style.cssText='display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;flex-shrink:0;';
+      const pwrEl=document.createElement('span');pwrEl.style.cssText=`font-size:10px;font-weight:700;white-space:nowrap;color:${mvData.power>=100?'#e8622a':mvData.power>=60?'#f0c600':'#555'};`;pwrEl.textContent=mvData.power?mvData.power+' Power':'—';
+      pwrCol.appendChild(pwrEl);
+      row.append(leftCol,pwrCol);
       mList.appendChild(row);
     });
     movesSection.appendChild(mList);
@@ -4762,9 +4767,12 @@ function makeNavBar(opts={}) {
       const btnRow=document.createElement('div');btnRow.style.cssText='display:flex;flex-direction:column;gap:8px;';
       const resumeB=document.createElement('button');resumeB.type='button';resumeB.style.cssText='padding:10px;border-radius:8px;border:none;background:#4caf50;color:#000;font-weight:700;cursor:pointer;font-size:12px;';resumeB.textContent='\u{1F4BE} Keep Progress (Resume later)';
       resumeB.addEventListener('click',()=>{
-        // Save current progress before leaving
-        if(currentMode==='pokemon'&&typeof lsSave==='function') lsSave();
-        else if(currentMode==='trainer'&&typeof lsSave==='function') lsSave();
+        // Save current progress before leaving — must use the SAME draft store
+        // that launchMode()'s resume banner reads from (savePokemonDraft/
+        // saveTrainerDraft), not the separate/legacy lsSave() which nothing
+        // reads back on re-entry.
+        if(currentMode==='pokemon'&&typeof savePokemonDraft==='function') savePokemonDraft();
+        else if(currentMode==='trainer'&&typeof saveTrainerDraft==='function') saveTrainerDraft();
         ov.remove();goBackToMenu();
       });
       const resetB=document.createElement('button');resetB.type='button';resetB.style.cssText='padding:10px;border-radius:8px;border:1px solid #e57373;background:rgba(229,115,115,.1);color:#e57373;font-weight:700;cursor:pointer;font-size:12px;';resetB.textContent='\u{1F5D1} Reset & Start Over';
@@ -5357,7 +5365,7 @@ function renderTrainerQ() {
   // ── TQ4: Trainer Phrases ──────────────────────────────────────────────────
   }else if(step===3){
     addT(card,'What would your Trainer say?');
-    addS(card,'Enter the three phrases your Trainer uses during battles. Letters and numbers only, max. 50 characters each.');
+    addS(card,'Enter the three phrases your Trainer uses during battles. Letters, numbers, and . ? ! , \' only, max. 50 characters each.');
     const phrases=[
       {key:'intro', label:'Intro text', hint:'What your Trainer says before the battle starts'},
       {key:'defeated', label:'Defeated text', hint:'What your Trainer says after losing'},
@@ -5374,7 +5382,7 @@ function renderTrainerQ() {
       const del=document.createElement('button'); del.type='button'; del.className='del-btn'; del.textContent='✕';
       del.addEventListener('click',()=>{inp.value='';ctr.textContent='0 / 50';ctr.className='char-ct';inp.focus();});
       inp.addEventListener('input',()=>{
-        inp.value=inp.value.replace(/[^a-zA-Z0-9 ]/g,'');
+        inp.value=inp.value.replace(/[^a-zA-Z0-9 .?!,']/g,'');
         const l=inp.value.length; ctr.textContent=`${l} / 50`;
         ctr.className='char-ct'+(l>=50?' err':l>=45?' warn':'');
       });
