@@ -1169,14 +1169,21 @@ function updTrainerCard(){
   }
   card.appendChild(hdr);
 
-  const mkR=(l,v)=>{if(!v)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.color='var(--gray)';le.textContent=l;const ve=document.createElement('span');ve.style.fontWeight='700';ve.textContent=v;r.append(le,ve);return r;};
+  const mkR=(l,v)=>{if(!v)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.color='var(--gray)';le.textContent=l;const ve=document.createElement('span');ve.style.fontWeight='700';ve.textContent=v;r.append(le,ve);return r;};
+  const mkCardEditBtn=(targetStep)=>{
+    const eb=document.createElement('button');eb.type='button';eb.className='trcard-edit-btn';
+    eb.style.cssText='font-size:9px;padding:2px 6px;border-radius:4px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);cursor:pointer;margin-left:8px;flex-shrink:0;';
+    eb.textContent='\u270e';
+    eb.addEventListener('click',(e)=>{e.stopPropagation();trainerPhase='trainer';step=targetStep;renderTrainerQ();});
+    return eb;
+  };
   const det=document.createElement('div');
   const battleFormatRow=mkR('Battle Format',trBattleFormat);
-  if(battleFormatRow)battleFormatRow.dataset.field='battle-format';
+  if(battleFormatRow){battleFormatRow.dataset.field='battle-format';battleFormatRow.appendChild(mkCardEditBtn(2));}
     [battleFormatRow,mkR('Rival',trRival),mkR('Hometown',trHome)].filter(Boolean).forEach(r=>det.appendChild(r));
   // Dialogues — parse and show each on own line
   if(trDialogues){
-    const dlgHdr=document.createElement('div');dlgHdr.dataset.field='dialogues-hdr';dlgHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;padding:8px 14px 4px;letter-spacing:.5px;';dlgHdr.textContent='DIALOGUES';det.appendChild(dlgHdr);
+    const dlgHdr=document.createElement('div');dlgHdr.dataset.field='dialogues-hdr';dlgHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;padding:8px 14px 4px;letter-spacing:.5px;display:flex;align-items:center;justify-content:space-between;';dlgHdr.textContent='DIALOGUES';dlgHdr.appendChild(mkCardEditBtn(3));det.appendChild(dlgHdr);
     const DLGSEP=/\|/;
     const parsePhrase=(raw,key)=>{const m=raw.match(new RegExp(key+'[:\\s]*"?([^"|]+)"?'));return m?m[1].trim():'';};
     const intro=parsePhrase(trDialogues,'Intro')||trDialogues.split('|')[0]?.replace(/Intro:?/i,'').replace(/"/g,'').trim();
@@ -1204,14 +1211,18 @@ function updTrainerCard(){
       const el=document.createElement('div');
       el.style.cssText=`position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:5px 2px;min-height:68px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);overflow:hidden;cursor:pointer;transition:all .15s;${i===currentSlot?'border-color:#9575cd;background:rgba(149,117,205,.12);':''}`;
       if(mon){
-        const img=document.createElement('img');img.style.cssText='width:40px;height:40px;image-rendering:pixelated;';
+        const img=document.createElement('img');img.className='trcard-team-sprite';img.style.cssText='width:40px;height:40px;image-rendering:pixelated;';
         const sf=getSpriteFile(mon);
         const isShinySlot=(sl[12]?.value||'').toLowerCase()==='yes';
+        img.dataset.sprId=mon.id||mon.spriteId||mon.baseId||'';
+        img.dataset.sprShiny=isShinySlot?'1':'0';
         if(isShinySlot){
           const shf=getShinyFile(mon);
+          img.dataset.sprFile=shf||'';
           img.src=shinyUrl(shf,mon.id||mon.spriteId||mon.baseId);
           img.onerror=()=>shinyUrlFallback(img,mon.id||mon.spriteId||mon.baseId,shf);
         } else {
+          img.dataset.sprFile=sf||'';
           img.src=`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
         }
         el.appendChild(img);
@@ -1352,13 +1363,13 @@ function updPokemonCard(){
   // ── Stat bars v4: base + boost segments, breakdown rows, EV footer ──────────
   if(baseStats){
     const q4answered=!!(natureTxt);
-    const q8answered=!!(ans[8]?.value||ivevAns);
+    const q8answered=!!(currentMode==='trainer'?ivevAns:(ans[8]?.value||ivevAns));
     const BASE_COL='#4f6f8f';   // muted steel blue for base segment
     const BOOST_COL='#4db6ac';  // teal for boost segment
     const lv50hdr=document.createElement('div');
     lv50hdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;padding:8px 14px 4px;display:flex;justify-content:space-between;align-items:center;';
     lv50hdr.textContent='LV. 50 BASE STATS';
-    if(currentMode==='pokemon'||currentMode==='trainer'){
+    if(q8answered&&(currentMode==='pokemon'||currentMode==='trainer')){
       const eb=document.createElement('button');eb.type='button';
       eb.style.cssText='font-size:8px;padding:2px 7px;border-radius:4px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#8892a4;cursor:pointer;transition:all .15s;';
       eb.textContent='✎ Edit IV/EV';
@@ -6512,24 +6523,29 @@ function renderTrainerResult(){
     cl.style.cssText+=';margin:12px;border-radius:12px;box-shadow:none;border:1px solid rgba(149,117,205,.2);';
     body.appendChild(cl);
 
-    // Per-question edit icons — added fresh onto the clone (cloneNode drops
-    // JS handlers), one for Battle Format, one for Dialogues, each jumping
-    // straight to that question instead of a single combined button.
-    const mkInlineEdit=(targetStep)=>{
-      const eb=document.createElement('button');eb.type='button';
-      eb.style.cssText='font-size:9px;padding:2px 6px;border-radius:4px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);cursor:pointer;margin-left:8px;flex-shrink:0;';
-      eb.textContent='\u270e';
+    // Rebind the edit buttons already present in the clone (updTrainerCard
+    // now builds them directly) — cloneNode keeps the <button> elements but
+    // drops their onclick handlers, so we just need to reattach those, not
+    // append brand-new buttons (that caused visible duplicates).
+    cl.querySelectorAll('.trcard-edit-btn').forEach(eb=>{
+      const targetStep=eb.closest('[data-field="battle-format"]')?2:eb.closest('[data-field="dialogues-hdr"]')?3:null;
+      if(targetStep===null) return;
       eb.addEventListener('click',(e)=>{
         e.stopPropagation();
         if(typeof closeEndCard==='function') closeEndCard();
         trainerPhase='trainer'; step=targetStep; renderTrainerQ();
       });
-      return eb;
-    };
-    const bfRow=cl.querySelector('[data-field="battle-format"]');
-    if(bfRow){bfRow.style.alignItems='center';bfRow.appendChild(mkInlineEdit(2));}
-    const dlgHdrEl=cl.querySelector('[data-field="dialogues-hdr"]');
-    if(dlgHdrEl){dlgHdrEl.style.cssText+='display:flex;align-items:center;justify-content:space-between;';dlgHdrEl.appendChild(mkInlineEdit(3));}
+    });
+
+    // Rebind Team mini-grid sprite fallbacks too — same clone-drops-onerror
+    // issue as pkm-card-sprite, just never applied here since this mini-grid
+    // was added after that original fix.
+    cl.querySelectorAll('img.trcard-team-sprite').forEach(img=>{
+      const sid=img.dataset.sprId||'';
+      const sfile=img.dataset.sprFile||'';
+      const shiny=img.dataset.sprShiny==='1';
+      img.onerror=shiny?()=>shinyUrlFallback(img,sid,sfile):()=>iconUrlFallback(img,sid,sfile);
+    });
   }
 
   // Team — rich Pokémon tiles (sprite, nickname/species, types, ability,
