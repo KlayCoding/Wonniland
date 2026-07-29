@@ -4223,7 +4223,7 @@ function renderQ(){
       prev.style.display='flex';
       // Fill popup
       itemIco.src=pIco.src; itemIco.onerror=()=>iFb(itemIco,it.slug);
-      ipTitle.textContent=it.name;
+      itemTitle.textContent=it.name;
       ipDesc.textContent=it.desc||'No description available.';
       ipRows.innerHTML='';
       [mkRow('Item ID','#'+String(it.id).padStart(4,'0')),
@@ -7387,7 +7387,15 @@ loadPokemonData().then(()=>{
 
 // ── Global HoF info popup ─────────────────────────────────────────────────────
 function openHofPopup(p){
-  const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+  // Smart lookup: exact → base species → hyphenated form
+  let mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+  if(!mon && p.species){
+    const base=p.species.replace(/\s*\([^)]*\)/,'').trim(); // 'Zacian (Crowned)' → 'Zacian'
+    const hyph=p.species.replace(/\s*\(([^)]+)\)/,'-$1').replace(/ /g,'-'); // 'Mr. Mime'
+    mon=ALL_MON.find(m=>m.name.toLowerCase()===base.toLowerCase())
+      ||ALL_MON.find(m=>m.name.toLowerCase()===hyph.toLowerCase())
+      ||ALL_MON.find(m=>m.name.toLowerCase().startsWith(base.toLowerCase()));
+  }
 
   // ── Temporarily populate creation-mode state ──────────────────────────────
   const savedAns={...ans}, savedStep=step, savedMode=currentMode;
@@ -7397,8 +7405,12 @@ function openHofPopup(p){
   currentMode='pokemon'; step=12;
   Object.keys(ans).forEach(k=>delete ans[k]);
   // Pass sprite fields from HoF data so pkmSpriteWithFallback uses correct file
-  const hofMon=mon?{...mon, sprite:p.sprite, shiny_sprite:p.shiny_sprite, species_id:p.species_id}:null;
-  if(hofMon) ans[1]={value:p.species, mon:hofMon};
+  // Always build hofMon — even if not in ALL_MON, sprite data comes from HoF json
+  const hofMon={
+    ...(mon||{name:p.species,t1:'Normal',t2:null}),
+    sprite:p.sprite, shiny_sprite:p.shiny_sprite, species_id:p.species_id
+  };
+  ans[1]={value:p.species, mon:hofMon};
   ans[3]={value:p.shiny?'Yes':'No'};
   if(p.nature) ans[4]={value:p.nature};
   if(p.ability) ans[5]={value:p.ability};
@@ -7461,6 +7473,28 @@ function openHofPopup(p){
   const body=document.createElement('div');body.style.cssText='overflow-y:auto;flex:1;padding:14px;';
   if(cloned)body.appendChild(cloned);
   else{const err=document.createElement('div');err.style.cssText='color:#e57373;padding:20px;text-align:center;';err.textContent='Could not render card.';body.appendChild(err);}
+
+  // Moves — always show from HoF data (in case card clone didn't capture them)
+  if(p.moves?.length){
+    const TC2={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
+    const TMAP={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
+    const mvHdr2=document.createElement('div');mvHdr2.style.cssText='padding:10px 0 4px;font-size:9px;color:#556;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:8px;';mvHdr2.textContent='Moves';
+    body.appendChild(mvHdr2);
+    p.moves.forEach(mv=>{
+      const mvD=MOVES.find(m=>m.name===mv);
+      const mc=TC2[mvD?.type]||'#4a5568';
+      const row=document.createElement('div');row.style.cssText='display:flex;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.04);border-radius:6px;margin-bottom:3px;background:rgba(255,255,255,.02);';
+      const bar2=document.createElement('div');bar2.style.cssText=`width:4px;background:${mc};flex-shrink:0;border-radius:6px 0 0 6px;`;
+      const bd2=document.createElement('div');bd2.style.cssText='flex:1;display:flex;align-items:center;gap:8px;padding:7px 10px;min-width:0;';
+      const nm2=document.createElement('span');nm2.style.cssText='font-size:12px;font-weight:700;flex:1;';nm2.textContent=mv;
+      bd2.append(nm2);
+      if(mvD?.type){const ti2=document.createElement('img');ti2.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/'+(TMAP[mvD.type]||1)+'.png';ti2.style.cssText='height:14px;image-rendering:pixelated;';ti2.onerror=()=>ti2.style.display='none';bd2.appendChild(ti2);}
+      const st2=document.createElement('div');st2.style.cssText='display:flex;flex-direction:column;align-items:flex-end;padding:4px 10px;border-left:1px solid rgba(255,255,255,.06);min-width:50px;';
+      const bp2=document.createElement('span');bp2.style.cssText=`font-size:14px;font-weight:700;color:${mc};line-height:1;`;bp2.textContent=mvD?.power||'—';
+      const cat2=document.createElement('span');cat2.style.cssText='font-size:9px;color:#4a5568;';cat2.textContent=mvD?.cat||'';
+      st2.append(bp2,cat2);row.append(bar2,bd2,st2);body.appendChild(row);
+    });
+  }
 
   // Location + Chapter (not in creation card)
   [['\uD83D\uDCCD Location',p.location,'#4db6ac'],['Chapter','Ch. '+(p.chapter||'?'),null]].forEach(([l,v,col])=>{
@@ -7971,7 +8005,15 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
   });
 
   function mkTile(p,isLocked){
-    const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+    // Smart lookup: exact → base species → hyphenated form
+  let mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+  if(!mon && p.species){
+    const base=p.species.replace(/\s*\([^)]*\)/,'').trim(); // 'Zacian (Crowned)' → 'Zacian'
+    const hyph=p.species.replace(/\s*\(([^)]+)\)/,'-$1').replace(/ /g,'-'); // 'Mr. Mime'
+    mon=ALL_MON.find(m=>m.name.toLowerCase()===base.toLowerCase())
+      ||ALL_MON.find(m=>m.name.toLowerCase()===hyph.toLowerCase())
+      ||ALL_MON.find(m=>m.name.toLowerCase().startsWith(base.toLowerCase()));
+  }
     const tile=document.createElement('div');
     tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:'+(isLocked?'7px 5px':'10px 8px')+';border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba('+(isLocked?'255,255,255,.04':'77,182,172,.14')+');transition:all .2s;cursor:'+(isLocked?'default':'pointer')+';';
     // Use nickname+owner as unique key to distinguish same-species Pokemon
