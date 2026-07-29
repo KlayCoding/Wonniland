@@ -578,6 +578,8 @@
         <b style="color:#9146ff;">!teamreroll1–6</b> — Same but you pick the slot (e.g. !teamreroll4)<br>
         <b style="color:#9146ff;">!slot1–6 nick, owner</b> — Sets a party slot by nickname (+ optional owner filter)<br>
         <b style="color:#9146ff;">!slotroll1–6</b> — Rolls unclaimed Pokémon (Pool), puts it in chosen slot<br>
+        <b style="color:#9146ff;">!popup nick, owner</b> — Opens info popup for a Pokémon by nickname (+ optional owner)<br>
+        <b style="color:#9146ff;">!close</b> — Closes the currently open popup<br>
         <b style="color:#9146ff;">!clearslot1–6</b> — Clears a specific party slot<br>
         <b style="color:#9146ff;">!clearparty</b> — Clears all 6 party slots<br>
         <b style="color:#9146ff;">!reload</b> — Reloads Pokémon data from JSON<br>
@@ -7216,6 +7218,30 @@ function initTwitchIntegration(){
               if(typeof window.triggerSlotRoll==='function')window.triggerSlotRoll(slotIdx);
               else addLog('\u26a0 Roulette not ready','#e57373');
             }
+            // ── !popup nick, owner ────────────────────────────────────────────
+            if(cmd==='popup'&&ok){
+              const ci=message.indexOf(',');
+              const nick=ci>=0?message.slice(0,ci).trim():message.trim();
+              const owner=ci>=0?message.slice(ci+1).trim():null;
+              const pool=(typeof hofData!=='undefined'&&hofData)?(Array.isArray(hofData)?hofData:(hofData.pokemon||[]))
+                :((window._wonniHofData&&Array.isArray(window._wonniHofData))?window._wonniHofData:[]);
+              const ql=nick.toLowerCase();
+              const oql=owner?owner.toLowerCase():null;
+              const hit=pool.find(p=>
+                (p.nickname||'').toLowerCase()===ql&&(!oql||(p.owner_name||'').toLowerCase().includes(oql))
+              )||pool.find(p=>Object.values(p).some(v=>typeof v==='string'&&v.toLowerCase()===ql));
+              if(hit){
+                // Close any existing popup first
+                document.getElementById('hof-info-overlay')?.remove();
+                if(typeof openHofPopup==='function')openHofPopup(hit);
+                addLog('\u2139\ufe0f Opened popup: '+hit.nickname+'  ('+hit.owner_name+')','#64b5f6');
+              } else addLog('\u26a0\ufe0f Not found: "'+nick+'"','#f0c600');
+            }
+            // ── !close ──────────────────────────────────────────────────────
+            if(cmd==='close'&&ok){
+              const popupEl=document.getElementById('hof-info-overlay');
+              if(popupEl){popupEl.remove();addLog('\u274c Popup closed','#8892a4');}
+            }
           }
         };
         ComfyJS.onChat=(user,msg,flags)=>{
@@ -7357,43 +7383,108 @@ loadPokemonData().then(()=>{
 
 // ── Global HoF info popup ─────────────────────────────────────────────────────
 function openHofPopup(p){
-  const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
-  const TC_POP={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
-  const typeColor=mon?(TC_POP[mon.t1]||'#4db6ac'):'#4db6ac';
-  const ov=document.createElement('div');ov.style.cssText='position:fixed;inset:0;z-index:1400;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;';
+  const mon=window.MON_MAP?.get(p.species?.toLowerCase())||ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
+  const TC={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
+  const typeCol=mon?(TC[mon.t1]||'#9575cd'):'#9575cd';
+
+  // ── Overlay (same as End Card) ──────────────────────────────────────────────
+  const ov=document.createElement('div');
+  ov.id='hof-info-overlay';
+  ov.style.cssText='position:fixed;inset:0;z-index:1400;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;';
   ov.addEventListener('click',e=>{if(e.target===ov)ov.remove();});
-  const bx=document.createElement('div');bx.style.cssText=`background:#13192a;border:2px solid ${typeColor}55;border-radius:16px;width:100%;max-width:400px;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;`;
-  const hd=document.createElement('div');hd.style.cssText=`display:flex;align-items:center;gap:12px;padding:14px 16px;background:${typeColor}12;border-bottom:1px solid rgba(255,255,255,.06);`;
-  const si=document.createElement('img');si.style.cssText='width:72px;height:72px;image-rendering:pixelated;flex-shrink:0;';
-  if(p.species_id){si.src=p.shiny?`${PKM_SHINY1}${String(p.species_id).padStart(4,'0')}.png`:`${PKM_BASE1}${String(p.species_id).padStart(4,'0')}.png`;}
-  const id2=document.createElement('div');id2.style.cssText='flex:1;';
-  const n2=document.createElement('div');n2.style.cssText='font-size:17px;font-weight:900;';n2.textContent=(p.shiny?'\u2728 ':'')+p.nickname;
-  const s2=document.createElement('div');s2.style.cssText='font-size:11px;color:var(--gray);';s2.textContent=p.species;
-  const tr2=document.createElement('div');tr2.style.cssText='display:flex;gap:4px;margin-top:3px;';
-  if(mon){tr2.appendChild(tb(mon.t1));if(mon.t2)tr2.appendChild(tb(mon.t2));}
+  document.body.appendChild(ov);
+
+  const popup=document.createElement('div');
+  popup.style.cssText=`background:#13192a;border:2px solid ${typeCol}55;border-radius:16px;width:100%;max-width:460px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.7);`;
+
+  // ── Header ─────────────────────────────────────────────────────────────────
+  const hdr=document.createElement('div');
+  hdr.style.cssText=`display:flex;align-items:center;gap:12px;padding:14px 16px;background:${typeCol}10;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;`;
+  // Sprite
+  const si=document.createElement('img');si.style.cssText='width:80px;height:80px;image-rendering:pixelated;flex-shrink:0;';
+  pkmSpriteWithFallback(si,p,!!p.shiny);
+  // Ident
+  const id2=document.createElement('div');id2.style.cssText='flex:1;min-width:0;';
+  const n2=document.createElement('div');n2.style.cssText='font-size:18px;font-weight:900;color:#e2e8f0;';n2.textContent=(p.shiny?'\u2728 ':'')+p.nickname;
+  const s2=document.createElement('div');s2.style.cssText='font-size:11px;color:var(--gray);margin:2px 0 5px;';s2.textContent=p.species;
+  const tr2=document.createElement('div');tr2.style.cssText='display:flex;gap:4px;flex-wrap:wrap;';
+  if(mon){const tbm=t=>{const sp=document.createElement('span');sp.style.cssText=`background:${TC[t]||'#555'}22;color:${TC[t]||'#888'};font-size:9px;padding:2px 8px;border-radius:10px;font-weight:700;`;sp.textContent=t;return sp;};tr2.appendChild(tbm(mon.t1));if(mon.t2)tr2.appendChild(tbm(mon.t2));}
   id2.append(n2,s2,tr2);
-  const cl2=document.createElement('button');cl2.type='button';cl2.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;align-self:flex-start;';cl2.textContent='\u2715';cl2.addEventListener('click',()=>ov.remove());
-  hd.append(si,id2,cl2);bx.appendChild(hd);
-  const bd2=document.createElement('div');bd2.style.cssText='overflow-y:auto;padding:12px 16px;display:flex;flex-direction:column;gap:0;';
-  const mkR2=(l,v,c)=>{if(!v&&v!==0)return;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.cssText='color:var(--gray);';le.textContent=l;const ve=document.createElement('span');ve.style.cssText='font-weight:700;color:'+(c||'var(--white)')+';';ve.textContent=v;r.append(le,ve);bd2.appendChild(r);};
-  mkR2('Owner',p.owner_name);mkR2('Nature',p.nature);mkR2('Ability',p.ability);mkR2('Held Item',p.held_item,'#f0c600');mkR2('Tera Type',p.tera_type,'#ce93d8');mkR2('Location',p.location,'#4db6ac');mkR2('Chapter',p.chapter?'Ch. '+p.chapter:null);mkR2('Evolution',p.evolution,p.evolution==='Allowed'?'#4caf50':'#e57373');
-  if(p.moves?.length){const mh=document.createElement('div');mh.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin:10px 0 6px;';mh.textContent='MOVES';bd2.appendChild(mh);const mg=document.createElement('div');mg.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';p.moves.forEach(mv=>{const mvD=MOVES.find(m=>m.name===mv)||{type:'Normal'};const c=TC_POP[mvD.type]||'#888';const mchip=document.createElement('span');mchip.style.cssText=`font-size:10px;padding:2px 7px;border-radius:4px;background:${c}18;color:${c};border:1px solid ${c}33;`;mchip.textContent=mv;mg.appendChild(mchip);});bd2.appendChild(mg);}
-  if(p.ivs){const ks=['hp','atk','def','spa','spd','spe'];const ih=document.createElement('div');ih.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin:10px 0 6px;';ih.textContent='IVs / EVs';bd2.appendChild(ih);const ig=document.createElement('div');ig.style.cssText='display:grid;grid-template-columns:32px repeat(6,1fr);gap:3px;margin-bottom:4px;';const ih2=document.createElement('span');ih2.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#b39ddb;';ih2.textContent='IV';ig.appendChild(ih2);ks.forEach(k=>{const v=p.ivs[k]??0;const d=document.createElement('div');d.style.cssText=`font-size:9px;font-weight:${v===31?900:700};text-align:center;padding:2px 0;border-radius:3px;background:${v===31?'rgba(149,117,205,.28)':'rgba(149,117,205,.1)'};color:${v===31?'#ce93d8':'#b39ddb'};`;d.textContent=v;ig.appendChild(d);});bd2.appendChild(ig);if(p.evs){const eg=document.createElement('div');eg.style.cssText='display:grid;grid-template-columns:32px repeat(6,1fr);gap:3px;';const eh=document.createElement('span');eh.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#4db6ac;';eh.textContent='EV';eg.appendChild(eh);ks.forEach(k=>{const v=p.evs[k]??0;const d=document.createElement('div');d.style.cssText=`font-size:9px;font-weight:${v>=252?900:700};text-align:center;padding:2px 0;border-radius:3px;background:${v>=252?'rgba(77,182,172,.25)':v>0?'rgba(77,182,172,.08)':'transparent'};color:${v===0?'#333':'#4db6ac'};`;d.textContent=v;eg.appendChild(d);});bd2.appendChild(eg);}}
-  bx.appendChild(bd2);ov.appendChild(bx);document.body.appendChild(ov);
-  document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'){ov.remove();document.removeEventListener('keydown',esc);}});
+  // Close
+  const cl=document.createElement('button');cl.type='button';
+  cl.style.cssText='background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#556;font-size:16px;padding:4px 11px;cursor:pointer;flex-shrink:0;align-self:flex-start;';
+  cl.textContent='\u00d7';cl.onclick=()=>ov.remove();
+  hdr.append(si,id2,cl);popup.appendChild(hdr);
+
+  // ── Scrollable body ────────────────────────────────────────────────────────
+  const body=document.createElement('div');body.style.cssText='overflow-y:auto;flex:1;';
+
+  // Info rows helper
+  const mkRow=(label,value,col)=>{
+    if(!value&&value!==0&&value!==false) return null;
+    const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:8px 16px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';
+    const le=document.createElement('span');le.style.cssText='color:#4a5568;font-size:10px;font-weight:600;';le.textContent=label;
+    const ve=document.createElement('span');ve.style.cssText=`color:${col||'#e2e8f0'};font-weight:600;text-align:right;max-width:65%;`;ve.textContent=String(value);
+    r.append(le,ve);body.appendChild(r);return r;
+  };
+
+  // Trainer info section
+  const trSec=document.createElement('div');trSec.style.cssText=`padding:8px 16px 4px;font-size:9px;color:${typeCol};font-weight:700;letter-spacing:.08em;text-transform:uppercase;`;trSec.textContent='TRAINER';body.appendChild(trSec);
+  const owRow=document.createElement('div');owRow.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 16px 12px;border-bottom:1px solid rgba(255,255,255,.06);';
+  const owSpr=document.createElement('img');owSpr.style.cssText='width:36px;height:36px;image-rendering:pixelated;border-radius:6px;';
+  owSpr.src=TRAINER_BASE_R+(p.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';
+  owSpr.onerror=()=>owSpr.style.display='none';
+  const owName=document.createElement('div');owName.style.cssText='font-size:14px;font-weight:800;color:#e2e8f0;';owName.textContent=p.owner_name||'Unknown';
+  const locEl=document.createElement('div');locEl.style.cssText='font-size:10px;color:#4a5568;margin-top:2px;';locEl.textContent=p.location||'';
+  const owInfo=document.createElement('div');owInfo.append(owName,locEl);owRow.append(owSpr,owInfo);body.appendChild(owRow);
+
+  // Pokemon details
+  const pkmSec=document.createElement('div');pkmSec.style.cssText=`padding:10px 16px 4px;font-size:9px;color:${typeCol};font-weight:700;letter-spacing:.08em;text-transform:uppercase;`;pkmSec.textContent='POKÉMON DETAILS';body.appendChild(pkmSec);
+  mkRow('Nature',p.nature);
+  mkRow('Ability',p.ability);
+  mkRow('Held Item',p.held_item,'#f0c600');
+  mkRow('Poké Ball',p.poke_ball);
+  mkRow('Tera Type',p.tera_type,typeCol);
+  mkRow('Happiness',p.happiness);
+  mkRow('G-Max',p.gmax?'\u2713 Yes':'No',p.gmax?'#4caf50':'#4a5568');
+  mkRow('Evolution',p.evolution,p.evolution==='Allowed'?'#4caf50':'#e57373');
+  mkRow('Chapter','Chapter '+(p.chapter||'?'));
+
+  // Moves
+  if(p.moves?.length){
+    const mvSec=document.createElement('div');mvSec.style.cssText=`padding:10px 16px 4px;font-size:9px;color:${typeCol};font-weight:700;letter-spacing:.08em;text-transform:uppercase;`;mvSec.textContent='MOVES';body.appendChild(mvSec);
+    p.moves.forEach(mv=>{
+      const mvD=MOVES.find(m=>m.name===mv);
+      const mc=TC[mvD?.type]||'#4a5568';
+      const mvR=document.createElement('div');mvR.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 16px;border-bottom:1px solid rgba(255,255,255,.03);';
+      const bar=document.createElement('div');bar.style.cssText=`width:3px;height:28px;background:${mc};border-radius:2px;flex-shrink:0;`;
+      const mvName=document.createElement('div');mvName.style.cssText='font-size:11px;font-weight:700;color:#e2e8f0;flex:1;';mvName.textContent=mv;
+      const mvType=document.createElement('div');mvType.style.cssText=`font-size:8px;color:${mc};font-weight:700;`;mvType.textContent=mvD?.type||'';
+      const mvInfo=document.createElement('div');mvInfo.append(mvName,mvType);
+      const mvBp=document.createElement('div');mvBp.style.cssText=`font-size:12px;font-weight:700;color:${mc};min-width:30px;text-align:right;`;mvBp.textContent=mvD?.power||'\u2014';
+      mvR.append(bar,mvInfo,mvBp);body.appendChild(mvR);
+    });
+  }
+
+  // IVs/EVs
+  const SKEYS=['hp','atk','def','spa','spd','spe'];
+  const SLBLS=['HP','Atk','Def','SpA','SpD','Spe'];
+  if(p.ivs||p.evs){
+    const ivSec=document.createElement('div');ivSec.style.cssText=`padding:10px 16px 4px;font-size:9px;color:${typeCol};font-weight:700;letter-spacing:.08em;text-transform:uppercase;`;ivSec.textContent='IVs / EVs';body.appendChild(ivSec);
+    const statGrid=document.createElement('div');statGrid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:8px 16px 12px;';
+    SKEYS.forEach((k,i)=>{
+      const cell=document.createElement('div');cell.style.cssText='text-align:center;';
+      const lbl=document.createElement('div');lbl.style.cssText='font-size:8px;color:#4a5568;';lbl.textContent=SLBLS[i];
+      const iv=document.createElement('div');iv.style.cssText='font-size:11px;font-weight:700;color:'+(p.ivs?.[k]===31?'#4caf50':'#e2e8f0')+';';iv.textContent=p.ivs?.[k]??'—';
+      const ev=document.createElement('div');ev.style.cssText='font-size:10px;color:#f0c600;';ev.textContent=p.evs?.[k]||'0';
+      cell.append(lbl,iv,ev);statGrid.appendChild(cell);
+    });
+    body.appendChild(statGrid);
+  }
+
+  popup.appendChild(body);ov.appendChild(popup);
 }
 
-// ── Global sprite URL for HoF/Roulette entries ───────────────────────────────
-// Uses p.sprite / p.shiny_sprite directly from pkm_hof.json (no lookup needed)
-// Tries multiple bases if first fails
-const _PKM_BASES=[
-  'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-sprites/',
-  'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-sprites2/'
-];
-const _SHINY_BASES=[
-  'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites/',
-  'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites2/'
-];
 function pkmSpriteUrl(p, shiny){
   // Priority 1: direct sprite filename from JSON (most reliable)
   const file = shiny ? (p.shiny_sprite||p.sprite) : p.sprite;
@@ -7589,6 +7680,8 @@ function initPkmRoulette(){
     hofData=null;
     loadData();
   };
+  // Expose hofData for !popup command
+  Object.defineProperty(window,'_wonniHofData',{get:()=>hofData?.pokemon||hofData||[]});
 
   window._wonniSetPartySlot=(slotIdx, raw)=>{
     if(raw==='__CLEAR__'){partySlots[slotIdx]=null;if(partyGrid)renderPartyTiles();return true;}
