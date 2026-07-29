@@ -7745,8 +7745,8 @@ function initPkmRoulette(){
     catch(e){grid.innerHTML=`<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json: ${e.message}</div>`;}
   }
 
-  function getUnlocked(){return(hofData?.pokemon||[]).filter(p=>p.claimed!==true);}
-  function getLocked(){return(hofData?.pokemon||[]).filter(p=>p.claimed===true);}
+  function getUnlocked(){return(hofData?.pokemon||[]).filter(p=>p.claimed===true);}
+  function getLocked(){return(hofData?.pokemon||[]).filter(p=>p.claimed!==true);}
   // Session-claimed: Pokemon rolled this session won't appear again
   const sessionClaimed=new Set();
   function getRollPool(){
@@ -7956,7 +7956,7 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
     const lToggle=document.createElement('span');lToggle.style.cssText='font-size:10px;color:#4db6ac;flex-shrink:0;';lToggle.textContent='▲'; lockHdr.append(lTitle,lCount,lLine,lToggle);lockSec.appendChild(lockHdr);
     const pkDesc=document.createElement('div');pkDesc.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';pkDesc.textContent="All the Pok\u00e9mon you haven't claimed yet";lockSec.appendChild(pkDesc);
     const lGrid=document.createElement('div');lGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:5px;';
-    locked.forEach(p=>lGrid.appendChild(mkTile(p,true)));
+    locked.forEach(p=>lGrid.appendChild(mkTile(p,false)));
     if(!locked.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='All Pokémon unlocked! 🎉';lGrid.appendChild(e);}
     const lWrap=document.createElement('div');lWrap.appendChild(lGrid);lockSec.appendChild(lWrap); lockHdr.addEventListener('click',()=>{const o=lWrap.style.display!=='none';lWrap.style.display=o?'none':'block';lToggle.textContent=o?'▼':'▲';});grid.appendChild(lockSec);
 
@@ -7968,8 +7968,8 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
     const tLine=document.createElement('div');tLine.style.cssText='flex:1;height:1px;background:rgba(255,255,255,.06);';
     const tToggle=document.createElement('span');tToggle.style.cssText='font-size:10px;color:#555;flex-shrink:0;';tToggle.textContent='▲'; teamHdr.append(tTitle,tCount,tLine,tToggle);teamSec.appendChild(teamHdr);
     const tGrid=document.createElement('div');tGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:7px;margin-bottom:6px;';
-    const tmDesc=document.createElement('div');tmDesc.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';tmDesc.textContent="All the Pok\u00e9mon which are available to you and have been claimed";teamSec.appendChild(tmDesc);
-    unlocked.forEach(p=>tGrid.appendChild(mkTile(p,false)));
+    const tmDesc=document.createElement('div');tmDesc.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';tmDesc.textContent="All Pok\u00e9mon that have been claimed by trainers";teamSec.appendChild(tmDesc);
+    unlocked.forEach(p=>tGrid.appendChild(mkTile(p,true)));
     if(!unlocked.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='No Pokemon claimed yet.';tGrid.appendChild(e);}
     const tWrap=document.createElement('div');tWrap.appendChild(tGrid);teamSec.appendChild(tWrap); teamHdr.addEventListener('click',()=>{const o=tWrap.style.display!=='none';tWrap.style.display=o?'none':'block';tToggle.textContent=o?'▼':'▲';});grid.appendChild(teamSec);
 
@@ -8148,7 +8148,7 @@ function initPkmHofBrowser(){
     const tLine=document.createElement('div');tLine.style.cssText='flex:1;height:1px;background:rgba(240,198,0,.2);';
     const tTog=document.createElement('span');tTog.style.cssText='font-size:10px;color:#f0c600;flex-shrink:0;';tTog.textContent='▲';
     tHdr.append(tTitle,tCount,tLine,tTog);tHdr.style.cursor='pointer';teamSec.appendChild(tHdr);
-    const tmDesc=document.createElement('div');tmDesc.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';tmDesc.textContent="All the Pok\u00e9mon which are available to you and have been claimed";teamSec.appendChild(tmDesc);
+    const tmDesc=document.createElement('div');tmDesc.style.cssText='font-size:10px;color:#555;margin-bottom:8px;font-style:italic;';tmDesc.textContent="All Pok\u00e9mon that have been claimed by trainers";teamSec.appendChild(tmDesc);
     const tGrid=document.createElement('div');tGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px;';
     claimed.forEach(p=>tGrid.appendChild(mkHofTile(p,false)));
     if(!claimed.length){const e=document.createElement('div');e.style.cssText='font-size:11px;color:#555;padding:8px 0;';e.textContent='No claimed Pokemon yet.';tGrid.appendChild(e);}
