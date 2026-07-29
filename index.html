@@ -1204,7 +1204,14 @@ function updTrainerCard(){
       if(mon){
         const img=document.createElement('img');img.style.cssText='width:40px;height:40px;image-rendering:pixelated;';
         const sf=getSpriteFile(mon);
-        img.src=`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
+        const isShinySlot=(sl[12]?.value||'').toLowerCase()==='yes';
+        if(isShinySlot){
+          const shf=getShinyFile(mon);
+          img.src=shinyUrl(shf,mon.id||mon.spriteId||mon.baseId);
+          img.onerror=()=>shinyUrlFallback(img,mon.id||mon.spriteId||mon.baseId,shf);
+        } else {
+          img.src=`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
+        }
         el.appendChild(img);
         const nick=sl.nick||mon.name;
         const nickEl=document.createElement('div');nickEl.style.cssText='font-size:7px;font-weight:700;color:var(--white);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nickEl.textContent=nick.length>12?nick.slice(0,11)+'…':nick;
@@ -5077,8 +5084,15 @@ function buildTeamKachel(i){
   // Sprite, GMax badge underneath
   const img = document.createElement('img'); img.style.cssText='width:52px;height:52px;object-fit:contain;image-rendering:pixelated;';
   const sf=getSpriteFile(mon);
-  img.src = `${PKM_BASE1}${sf}.png`;
-  img.onerror = ()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
+  const isShinySlot=(gaTile(3)||'').toLowerCase()==='yes';
+  if(isShinySlot){
+    const shf=getShinyFile(mon);
+    img.src=shinyUrl(shf,mon.id||mon.spriteId||mon.baseId);
+    img.onerror=()=>shinyUrlFallback(img,mon.id||mon.spriteId||mon.baseId,shf);
+  } else {
+    img.src = `${PKM_BASE1}${sf}.png`;
+    img.onerror = ()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
+  }
   const sprWrap=document.createElement('div');sprWrap.style.cssText='display:flex;flex-direction:column;align-items:center;gap:1px;';
   sprWrap.appendChild(img);
   if(isGmax){const gIco=document.createElement('img');gIco.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/gmax_factor.png';gIco.style.cssText='width:16px;height:16px;image-rendering:pixelated;';gIco.onerror=()=>gIco.style.display='none';sprWrap.appendChild(gIco);}
@@ -5088,7 +5102,10 @@ function buildTeamKachel(i){
   const name = document.createElement('div'); name.style.cssText='font-size:9px;font-weight:800;color:var(--white);max-width:110px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
   name.textContent = nick.length > 14 ? nick.slice(0,13)+'…' : nick;
   nameCol.appendChild(name);
-  if(team[i].nick){const spec=document.createElement('div');spec.style.cssText='font-size:7px;color:var(--gray);max-width:110px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';spec.textContent=mon.name.length>16?mon.name.slice(0,15)+'…':mon.name;nameCol.appendChild(spec);}
+  {const spec=document.createElement('div');spec.style.cssText='font-size:7px;color:var(--gray);max-width:110px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+    if(team[i].nick){spec.textContent=mon.name.length>16?mon.name.slice(0,15)+'…':mon.name;}
+    else{spec.textContent='\u00a0';spec.style.visibility='hidden';}
+    nameCol.appendChild(spec);}
 
   // Types
   const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:3px;justify-content:center;flex-wrap:wrap;';
@@ -5701,13 +5718,6 @@ function renderTrainerQ() {
     const iUrl=slug=>`${IB}${slug}.png`;
     const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';}};
     let selBall=null;
-    // Preview section for selected ball
-    const prev=document.createElement('div');prev.style.cssText='display:none;flex-direction:row;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,.04);border-radius:8px;margin-top:4px;margin-bottom:8px;';
-    const pIco=document.createElement('img');pIco.style.cssText='width:40px;height:40px;image-rendering:pixelated;';
-    const pTxt=document.createElement('div');pTxt.style.cssText='flex:1;min-width:0;';
-    const pName=document.createElement('div');pName.style.cssText='font-size:12px;font-weight:700;color:#e2e8f0;margin-bottom:3px;';
-    const pDesc=document.createElement('div');pDesc.style.cssText='font-size:10px;color:#556;line-height:1.4;';
-    pTxt.append(pName,pDesc);prev.append(pIco,pTxt);card.appendChild(prev);
     const grid=document.createElement('div'); grid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-top:8px;';
     BALLS.forEach(ball=>{
       const cell=document.createElement('div');
@@ -5721,8 +5731,6 @@ function renderTrainerQ() {
         selBall=ball;
         grid.querySelectorAll('[data-ball]').forEach(c=>{c.style.borderColor='transparent';c.style.background='rgba(255,255,255,.03)';});
         cell.style.borderColor='var(--green)'; cell.style.background='rgba(76,175,80,.1)';
-        pIco.src=iUrl(ball.slug); pIco.onerror=()=>iFb(pIco,ball.slug);
-        pName.textContent=ball.name; pDesc.textContent=ball.desc; prev.style.display='flex';
       });
       cell.dataset.ball=ball.id; grid.appendChild(cell);
     });
@@ -5732,7 +5740,6 @@ function renderTrainerQ() {
     ballDel.addEventListener('click',()=>{
       selBall=null;
       grid.querySelectorAll('[data-ball]').forEach(c=>{c.style.borderColor='transparent';c.style.background='rgba(255,255,255,.03)';});
-      prev.style.display='none'; pName.textContent=''; pDesc.textContent='';
     });
     const ballRand=document.createElement('button'); ballRand.type='button'; ballRand.className='rand-btn'; ballRand.style.flex='1'; ballRand.textContent='🎲 Randomize Ball!';
     ballRand.addEventListener('click',()=>{
@@ -6481,6 +6488,18 @@ function renderTrainerResult(){
     cl.style.cssText+=';margin:12px;border-radius:12px;box-shadow:none;border:1px solid rgba(149,117,205,.2);';
     body.appendChild(cl);
   }
+
+  // Edit Battle Format & Dialogues — added fresh (not part of the clone above,
+  // since cloneNode drops JS handlers), closes the End Card and jumps to the
+  // Battle Format question; Dialogues immediately follows it.
+  const editDlgBtn=document.createElement('button');editDlgBtn.type='button';
+  editDlgBtn.style.cssText='margin:0 12px 12px;padding:8px 12px;border-radius:8px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);font-size:11px;font-weight:700;cursor:pointer;';
+  editDlgBtn.textContent='\u270e Edit Battle Format & Dialogues';
+  editDlgBtn.addEventListener('click',()=>{
+    if(typeof closeEndCard==='function') closeEndCard();
+    step=2; renderTrainerQ();
+  });
+  body.appendChild(editDlgBtn);
 
   // Team — rich Pokémon tiles (sprite, nickname/species, types, ability,
   // item, GMax badge, moves, Info button)
