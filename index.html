@@ -4248,8 +4248,7 @@ function renderQ(){
       // Chips
       pChips.innerHTML='';
       const mkChip=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
-      pChips.appendChild(mkChip(it.pocket,'rgba(100,181,246,.12)','#64b5f6'));
-      if(it.category&&it.category!==it.pocket) pChips.appendChild(mkChip(it.category,'rgba(206,147,216,.12)','var(--pl)'));
+      if(it.category) pChips.appendChild(mkChip(it.category,'rgba(206,147,216,.12)','var(--pl)'));
       if(it.hold_effect) pChips.appendChild(mkChip('Holdable','rgba(76,175,80,.12)','#4caf50'));
       prev.style.display='flex';
       // Fill popup
@@ -4288,7 +4287,8 @@ function renderQ(){
         const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;
         const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;
         const uB=document.createElement('span');uB.style.cssText=`font-size:8px;padding:1px 5px;border-radius:4px;font-family:"Press Start 2P",monospace;flex-shrink:0;background:${it.pocket==='Poké Balls'?'rgba(240,198,0,.15)':it.hold_effect?'rgba(76,175,80,.15)':'rgba(100,181,246,.15)'};color:${it.pocket==='Poké Balls'?'#f0c600':it.hold_effect?'var(--green)':'#64b5f6'}`;
-        uB.textContent=it.pocket==='Poké Balls'?'Ball':it.hold_effect?'Hold':'Item';
+        uB.textContent=it.category||'';
+        if(!it.category) uB.style.display='none';
         top.append(nm,idB,uB);
         const bot=document.createElement('div');bot.className='dd-bot';
         const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;
@@ -7611,7 +7611,7 @@ function openHofPopup(p){
       nmCol2.append(nm2,dsc2);
       bd2.append(nmCol2);
       if(mvD?.type){const ti2=document.createElement('img');ti2.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/'+(TMAP[mvD.type]||1)+'.png';ti2.style.cssText='max-width:100%;max-height:100%;image-rendering:pixelated;';ti2.onerror=()=>{ti2wrap.style.display='none';};const ti2wrap=document.createElement('div');ti2wrap.style.cssText='width:64px;height:16px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;';ti2wrap.appendChild(ti2);bd2.appendChild(ti2wrap);}
-      const st2=document.createElement('div');st2.style.cssText='display:flex;flex-direction:column;align-items:flex-end;padding:4px 10px;border-left:1px solid rgba(255,255,255,.06);min-width:50px;flex-shrink:0;';
+      const st2=document.createElement('div');st2.style.cssText='display:flex;flex-direction:column;align-items:flex-end;padding:4px 10px;border-left:1px solid rgba(255,255,255,.06);width:58px;flex-shrink:0;';
       const bp2=document.createElement('span');bp2.style.cssText=`font-size:14px;font-weight:700;color:${mc};line-height:1;`;bp2.textContent=mvD?.power||'—';
       const cat2=document.createElement('span');cat2.style.cssText='font-size:9px;color:#4a5568;';cat2.textContent=mvD?.cat||'';
       st2.append(bp2,cat2);row.append(bar2,bd2,st2);body.appendChild(row);
