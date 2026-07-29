@@ -7134,7 +7134,7 @@ function initTwitchIntegration(){
           connected=true;
           setStatus('connected','#'+ch+' — ready for '+COMMAND);
           addLog('✅ Connected! Mods/broadcaster: type !roll','#4caf50');
-          addLog('⚡ Commands: !roll • !teamroll • !slot1-6 nick,owner • !clearslot1-6 • !reload','#64b5f6');
+          addLog('⚡ Commands: !roll • !teamroll • !teamreroll[1-6] • !slot1-6 nick,owner • !clearslot1-6 • !clearparty • !reload','#64b5f6');
         };
         // ComfyJS routes !commands to onCommand — PRIMARY handler
         ComfyJS.onCommand=(user,command,message,flags)=>{
@@ -7173,6 +7173,23 @@ function initTwitchIntegration(){
               const idx=parseInt(clrM[1])-1;
               window._wonniSetPartySlot?.(idx,'__CLEAR__');
               addLog('\u2705 @'+user+': slot '+(idx+1)+' cleared','#9575cd');
+            }
+            // ── !clearparty ─────────────────────────────────────────────────
+            if(cmd==='clearparty'&&ok){
+              if(typeof window._wonniClearParty==='function'){window._wonniClearParty();addLog('\u2705 @'+user+': Party cleared','#9575cd');}
+            }
+            // ── !teamreroll / !teamreroll[1-6] ──────────────────────────────
+            if(cmd==='teamreroll'&&ok){
+              addLog('\uD83C\uDFB2 !teamreroll by @'+user+' (random slot)','#f0c600');
+              if(typeof window.triggerTeamReroll==='function')window.triggerTeamReroll();
+              else addLog('\u26a0 Roulette not ready','#e57373');
+            }
+            const rerollM=cmd.match(/^teamreroll([1-6])$/);
+            if(rerollM&&ok){
+              const slotIdx=parseInt(rerollM[1])-1;
+              addLog('\uD83C\uDFB2 !teamreroll'+rerollM[1]+' by @'+user,'#f0c600');
+              if(typeof window.triggerTeamReroll==='function')window.triggerTeamReroll(slotIdx);
+              else addLog('\u26a0 Roulette not ready','#e57373');
             }
           }
         };
@@ -7537,6 +7554,11 @@ function initPkmRoulette(){
     return false;
   }
 
+  window._wonniClearParty=()=>{
+    partySlots.fill(null);
+    if(partyGrid)renderPartyTiles();
+  };
+
   window._wonniSetPartySlot=(slotIdx, raw)=>{
     if(raw==='__CLEAR__'){partySlots[slotIdx]=null;if(partyGrid)renderPartyTiles();return true;}
     // Parse 'nickname, owner' format — comma splits nick from owner
@@ -7670,6 +7692,17 @@ function initPkmRoulette(){
             const wt=grid.querySelector('[data-pkm-id="'+winner.id+'"]');
             if(wt){wt.style.boxShadow='0 0 18px #4db6ac88';wt.scrollIntoView({behavior:'smooth',block:'nearest'});}
             rolling=false;if(btnA){btnA.disabled=false;btnA.textContent=lbl||'Roll';}if(btnB)btnB.disabled=false;
+            // ── teamreroll hook: set winner into pending party slot ──────────
+            if(window._pendingRerollSlot!==undefined&&window._pendingRerollSlot!==null){
+              const tslot=window._pendingRerollSlot;
+              window._pendingRerollSlot=null;
+              partySlots[tslot]=winner;
+              renderPartyTiles();
+              // Remove highlight after tile is set
+              setTimeout(()=>{
+                clearSlotHighlight();
+              },600);
+            }
           },300);
         }
       },75);
@@ -7702,6 +7735,36 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
         panel.scrollIntoView({behavior:'smooth',block:'start'});
         if(typeof doRoll==='function')doRoll(claimedPool,rollBtnParty,rollBtnPool,'\uD83C\uDFB2 Team Pool',true);
       },200);
+    };
+
+    // ── !teamreroll / !teamreroll[1-6] ──────────────────────────────────────
+    function highlightRerollSlot(slotIdx){
+      if(!partyGrid)return;
+      [...partyGrid.children].forEach((t,i)=>{
+        t.style.transition='box-shadow .2s';
+        t.style.boxShadow=i===slotIdx?'0 0 0 3px #f0c600,0 0 22px #f0c60099':'none';
+        t.style.border=i===slotIdx?'1px solid #f0c600':'1px solid rgba(149,117,205,.14)';
+      });
+    }
+    function clearSlotHighlight(){
+      if(!partyGrid)return;
+      [...partyGrid.children].forEach(t=>{
+        t.style.boxShadow='none';
+        t.style.border='1px solid rgba(149,117,205,.14)';
+      });
+    }
+    window.triggerTeamReroll=function(slotIdx){
+      if(!hofData){loadData().then(()=>window.triggerTeamReroll(slotIdx));return;}
+      const pool=getClaimedPool();
+      if(!pool.length){addLog('\u26a0\ufe0f Team Pool is empty','#e57373');return;}
+      const target=(slotIdx!==undefined&&slotIdx!==null)?slotIdx:Math.floor(Math.random()*6);
+      window._pendingRerollSlot=target;
+      if(!open){open=true;panel.style.display='block';btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';renderAll();}
+      setTimeout(()=>highlightRerollSlot(target),150);
+      setTimeout(()=>{
+        panel.scrollIntoView({behavior:'smooth',block:'start'});
+        doRoll(pool,rollBtnParty,rollBtnPool,'\uD83C\uDFB2 Team Reroll',true);
+      },350);
     };
 
     const rollDesc=document.createElement('div');rollDesc.style.cssText='font-size:10px;color:#555;text-align:center;max-width:280px;line-height:1.5;';rollDesc.textContent='The Randomizer will pick a random Pok\u00e9mon for you';
