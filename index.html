@@ -1033,6 +1033,9 @@ function showTypeCoveragePopup(){
   const movesAns=(ans[9])?.moves||[];
   const selMon=ans[1]?.mon;
   if(!selMon){showToast('Select a Pokémon first!',true);return;}
+  buildTypeCoveragePopup(selMon, movesAns);
+}
+function buildTypeCoveragePopup(selMon, movesAns){
   const TYPE_COL3={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
   const TC=TYPE_CHART;
   const moveTypes=movesAns.map(mvName=>{const mv=findMoveByName(mvName);return mv&&mv.cat!=='Status'?mv.type:null;}).filter(Boolean);
@@ -1129,10 +1132,8 @@ function updTrainerCard(){
   const tAns=typeof trainerAns!=='undefined'?trainerAns:ans;
   const trName=tAns[0]?.value||'';          // Step 0 = OG Trainer name
   const trBattleFormat=tAns[2]?.value||'';   // Step 2 = Battle format
-  // Trainer name color: 'may' sprite = pink/Female, 'brendan' = blue/Male,
-  // anything else defaults to blue (no explicit gender question exists).
-  const rawSpriteName=(tAns[1]?.value||'').toLowerCase();
-  const trGender=rawSpriteName==='may'?'Female':'Male';
+  // Trainer name color: uses the explicit gender picked on Q1 (ans[0].otGender)
+  const trGender=tAns[0]?.otGender==='Female'?'Female':'Male';
   const trDialogues=tAns[3]?.value||'';
   const trRival=tAns[4]?.value||'';
   const trHome=tAns[5]?.value||'';
@@ -1902,7 +1903,7 @@ function makeAC(ph,list){
     // --- Sprite ---
     const sf=getSpriteFile(p);
     pIco.src=`${PKM_BASE1}${sf}.png`;
-    pIco.onerror=()=>iconUrlFallback(pIco,p.spriteId||p.baseId);
+    pIco.onerror=()=>iconUrlFallback(pIco,p.spriteId||p.baseId,sf);
     pIco.style.cursor='pointer'; pIco.title='Open Pokédex';
     pIco.onclick=()=>showPokedex(p);
     // --- Name ---
@@ -2114,7 +2115,7 @@ function openMoveInfoPopup(mv){
     if(hasEgg) eggL.push({name:monName,mon});
     if(hasTeach) teachL.push({name:monName,mon});
   });
-  const mkSec=(title,col,learners)=>{if(!learners.length)return;const h=document.createElement('div');h.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:'+col+';margin:10px 0 6px;';h.textContent=title+' ('+learners.length+')';tabPanes[2].appendChild(h);const grid=document.createElement('div');grid.style.cssText='display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;';learners.sort((a,b)=>a.name.localeCompare(b.name)).forEach(({name,mon,level})=>{const chip=document.createElement('div');chip.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 9px;border-radius:8px;background:'+col+'11;border:1px solid '+col+'33;min-width:70px;cursor:default;';chip.title=name+(level?' (Lv.'+level+')':'');const img=document.createElement('img');img.style.cssText='width:52px;height:52px;image-rendering:pixelated;';if(mon){img.src=`${PKM_BASE1}${getSpriteFile(mon)}.png`;img.onerror=()=>iconUrlFallback(img,mon.id);}else img.style.display='none';const lbl=document.createElement('span');lbl.style.cssText='font-size:10px;font-weight:600;color:var(--text);text-align:center;line-height:1.3;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';lbl.textContent=name;if(level){const lt=document.createElement('span');lt.style.cssText='font-size:7px;color:'+col+';';lt.textContent='Lv.'+level;chip.append(img,lbl,lt);}else chip.append(img,lbl);grid.appendChild(chip);});tabPanes[2].appendChild(grid);};
+  const mkSec=(title,col,learners)=>{if(!learners.length)return;const h=document.createElement('div');h.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:'+col+';margin:10px 0 6px;';h.textContent=title+' ('+learners.length+')';tabPanes[2].appendChild(h);const grid=document.createElement('div');grid.style.cssText='display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;';learners.sort((a,b)=>a.name.localeCompare(b.name)).forEach(({name,mon,level})=>{const chip=document.createElement('div');chip.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 9px;border-radius:8px;background:'+col+'11;border:1px solid '+col+'33;min-width:70px;cursor:default;';chip.title=name+(level?' (Lv.'+level+')':'');const img=document.createElement('img');img.style.cssText='width:52px;height:52px;image-rendering:pixelated;';if(mon){img.src=`${PKM_BASE1}${getSpriteFile(mon)}.png`;img.onerror=()=>iconUrlFallback(img,mon.id,getSpriteFile(mon));}else img.style.display='none';const lbl=document.createElement('span');lbl.style.cssText='font-size:10px;font-weight:600;color:var(--text);text-align:center;line-height:1.3;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';lbl.textContent=name;if(level){const lt=document.createElement('span');lt.style.cssText='font-size:7px;color:'+col+';';lt.textContent='Lv.'+level;chip.append(img,lbl,lt);}else chip.append(img,lbl);grid.appendChild(chip);});tabPanes[2].appendChild(grid);};
   mkSec('LEVEL-UP','#4caf50',lvlL);mkSec('EGG MOVE','#f06292',eggL);mkSec('TEACHABLE','#64b5f6',teachL);
   if(!lvlL.length&&!eggL.length&&!teachL.length){const empty=document.createElement('div');empty.style.cssText='color:var(--gray);font-size:12px;padding:20px 0;text-align:center;';empty.textContent='No Pokémon found in learnsets data.';tabPanes[2].appendChild(empty);}
 }
@@ -3484,7 +3485,7 @@ function renderQ(){
     // Sprite + stat bars row
     const natBody=document.createElement('div'); natBody.style.cssText='display:flex;gap:12px;align-items:flex-end;';
     const natIco=document.createElement('img'); natIco.style.cssText='width:64px;height:64px;image-rendering:pixelated;flex-shrink:0;align-self:center;';
-    if(selMon2){ natIco.src=`${PKM_BASE1}${getSpriteFile(selMon2)}.png`; natIco.onerror=()=>iconUrlFallback(natIco,selMon2.spriteId); }
+    if(selMon2){ natIco.src=`${PKM_BASE1}${getSpriteFile(selMon2)}.png`; natIco.onerror=()=>iconUrlFallback(natIco,selMon2.spriteId,getSpriteFile(selMon2)); }
     const natBarGrid=document.createElement('div'); natBarGrid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:5px;flex:1;';
     const natBarEls=[]; // {bg, fill, val}
     NAT_KEYS.forEach((k,i)=>{
@@ -3717,7 +3718,7 @@ function renderQ(){
       if(!selMon){ gmaxSelName.textContent='No Pok\u00e9mon selected'; gmaxSelSub.textContent='Please select a Pokémon in Q2 first.'; gmaxBadge.textContent='❓'; gmaxSelIco.src=''; gmaxGMaxIco.style.opacity='0'; return; }
       // Load normal sprite
       gmaxSelIco.src=`${PKM_BASE1}${getSpriteFile(selMon)}.png`;
-      gmaxSelIco.onerror=()=>iconUrlFallback(gmaxSelIco,selMon.id);
+      gmaxSelIco.onerror=()=>iconUrlFallback(gmaxSelIco,selMon.id,getSpriteFile(selMon));
       gmaxSelName.textContent=selMon.name;
       // Check if a GMax form exists for this mon
       const gmaxFormName='GMax-'+selMon.name;
@@ -4273,7 +4274,6 @@ function renderQ(){
     document.body.appendChild(itemPopup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
     let selItem=null,iai=-1;
-    function buildIDD(q){dd.innerHTML='';iai=-1;const q2=q.toLowerCase();let matches=(q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS).filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');if(activePockets.size)matches=matches.filter(it=>activePockets.has(it.pocket));if(activeCats.size)matches=matches.filter(it=>activeCats.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl(it.slug);ico.loading='lazy';ico.crossOrigin='anonymous';removeItemBg(ico,it.slug);ico.addEventListener('load',()=>applyItemTint(ico,it),{once:true});ico.onerror=()=>iFb(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category||'';if(it.category)top.append(nm,idB,uB);else top.append(nm,idB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI(it);});dd.appendChild(item);});}
     
     function pickI(it){
       selItem=it;inp.value=it.name;inp.classList.add('valid');dd.innerHTML='';
@@ -4850,8 +4850,6 @@ function makeNavBar(opts={}) {
   bar.appendChild(row);
   return bar;
 }
-// Legacy alias
-function makeBackBtn() { return makeNavBar(); }
 
 // ── Trainer questions ─────────────────────────────────────────────────────────
 const TRAINER_TOTAL = 17;
@@ -5190,7 +5188,14 @@ function buildTeamKachel(i){
   if(abilityRow)tile.appendChild(abilityRow);
   if(itemRow)tile.appendChild(itemRow);
   if(movesGrid)tile.appendChild(movesGrid);
-  tile.appendChild(editBtn);
+  const btnRow=document.createElement('div');btnRow.style.cssText='display:flex;gap:4px;margin-top:2px;';
+  const covBtn=document.createElement('button');covBtn.type='button';
+  covBtn.style.cssText='font-size:7px;padding:2px 6px;border-radius:4px;border:1px solid rgba(77,182,172,.3);background:rgba(77,182,172,.08);color:#4db6ac;cursor:pointer;flex:1;';
+  covBtn.textContent='\uD83D\uDCCA Coverage';
+  covBtn.addEventListener('click',(e)=>{e.stopPropagation();buildTypeCoveragePopup(mon,slotMoves);});
+  editBtn.style.flex='1';
+  btnRow.append(covBtn,editBtn);
+  tile.appendChild(btnRow);
   return tile;
 }
 
@@ -5839,7 +5844,7 @@ function renderTrainerQ() {
     // Sprite + stat bars row
     const natBody=document.createElement('div'); natBody.style.cssText='display:flex;gap:12px;align-items:flex-end;';
     const natIco=document.createElement('img'); natIco.style.cssText='width:64px;height:64px;image-rendering:pixelated;flex-shrink:0;align-self:center;';
-    if(selMon2){ natIco.src=`${PKM_BASE1}${getSpriteFile(selMon2)}.png`; natIco.onerror=()=>iconUrlFallback(natIco,selMon2.spriteId); }
+    if(selMon2){ natIco.src=`${PKM_BASE1}${getSpriteFile(selMon2)}.png`; natIco.onerror=()=>iconUrlFallback(natIco,selMon2.spriteId,getSpriteFile(selMon2)); }
     const natBarNGrid=document.createElement('div'); natBarNGrid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:5px;flex:1;';
     const natBarNEls=[]; // {bg, fill, val}
     NAT_KEYS.forEach((k,i)=>{
@@ -6474,29 +6479,77 @@ function renderTrainerResult(){
   const leftCol=document.getElementById('left-cards-col');
   if(leftCol)leftCol.style.width='300px';
 
-  // Build text summary (same format as Pokemon mode)
-  const trainerName=(ans[0]?.value||'Trainer').split(' (')[0];
-  const ls=['=== WONNILAND TRAINER CARD ===',`OT: ${trainerName}`,`Sprite: ${ans[1]?.value||'—'}`,`Format: ${ans[2]?.value||'—'}`,`Phrases: ${ans[3]?.value||'—'}`,''];
-  if(team&&team.length){
-    team.forEach((slot,si)=>{
-      if(!slot||!slot[4])return;
-      const spec=slot[4]?.value||'?';const nick=slot[5]?.value||spec;
-      ls.push(`-- Slot ${si+1} --`);
-      ls.push(nick!==spec?`Pokemon: ${spec} (${nick})`:`Pokemon: ${spec}`);
-      ls.push(`Held Item: ${slot[6]?.value||'—'}`);
-      ls.push(`Ability: ${slot[7]?.value||'—'}`);
-      ls.push(`IVs/EVs: ${slot[8]?.value||'Default'}`);
-      ls.push(`Ball: ${slot[9]?.value||'—'}`);
-      ls.push(`Happiness: ${slot[10]?.value||'—'}`);
-      ls.push(`Nature: ${slot[11]?.value||'—'}`);
-      ls.push(`Shiny: ${slot[12]?.value||'No'}`);
-      ls.push(`GMax: ${slot[13]?.value||'No'}`);
-      ls.push(`Tera Type: ${slot[14]?.value||'—'}`);
-      const moves=(slot[15]?.moves||[]).join(' / ');
-      if(moves)ls.push(`Moves: ${moves}`);
-      ls.push('');
-    });
-  }
+  // Build text summary — exact format specified by user
+  const trainerNameExp=ans[0]?.value||'—';
+  const trGenderExp=ans[0]?.otGender||'Male';
+  const spriteRawExp=ans[1]?.value||'';
+  const spriteDisplayExp=spriteRawExp?spriteRawExp.replace(/_frlg$/,'').replace(/_rs$/,'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()):'—';
+  const battleFmtExp=ans[2]?.value||'';
+  const doubleBattleExp=battleFmtExp==='Double'?'Yes':'No';
+  const dlgRawExp=ans[3]?.value||'';
+  const parsePhraseExp=(raw,key)=>{const m=raw.match(new RegExp(key+'[:\\s]*"([^"]*)"'));return m?m[1]:'';};
+  const introTxtExp=parsePhraseExp(dlgRawExp,'Intro');
+  const defeatedTxtExp=parsePhraseExp(dlgRawExp,'Defeated');
+  const postmatchTxtExp=parsePhraseExp(dlgRawExp,'Post-Match');
+
+  const ls=[];
+  ls.push('== TRAINER INFO ==');
+  ls.push(`Name: ${trainerNameExp}`);
+  ls.push(`Pic: ${spriteDisplayExp}`);
+  ls.push(`Double Battle: ${doubleBattleExp}`);
+  ls.push(`Gender: ${trGenderExp}`);
+  ls.push('');
+  ls.push('/*');
+  ls.push('Intro text:');
+  ls.push(introTxtExp);
+  ls.push('');
+  ls.push('Defeated text:');
+  ls.push(defeatedTxtExp);
+  ls.push('');
+  ls.push('Post-Match text:');
+  ls.push(postmatchTxtExp);
+  ls.push('*/');
+  ls.push('');
+
+  const filledSlotsExp=(team||[]).filter(slot=>slot&&slot[4]);
+  ls.push(`== TEAM (${filledSlotsExp.length} Pokemon) ==`);
+  ls.push('');
+  const SLBL_EXP={hp:'HP',atk:'Atk',def:'Def',spa:'SpA',spd:'SpD',spe:'Spe'};
+  filledSlotsExp.forEach((slot,idx)=>{
+    const species=slot[4]?.value||'?';
+    const nickname=slot[5]?.value||species;
+    const item=slot[6]?.value||'—';
+    const ability=(slot[7]?.value||'—').replace(/\s*\(Hidden\)\s*$/i,'');
+    const ivObj=slot[8]?.ivs||{};
+    const evObj=slot[8]?.evs||{};
+    const ivLine=SKEYS.map(k=>`${ivObj[k]??31} ${SLBL_EXP[k]}`).join(' / ');
+    const evLine=SKEYS.map(k=>`${evObj[k]??0} ${SLBL_EXP[k]}`).join(' / ');
+    const ball=slot[9]?.value||'—';
+    const happy=(slot[10]?.value||'').split(' / ')[0]||'255';
+    const nature=(slot[11]?.value||'—').split(' (')[0];
+    const shiny=slot[12]?.value||'No';
+    const gmaxRaw=slot[13]?.value||'';
+    const dynLevel=(gmaxRaw.match(/Dynamax Level:\s*(\d+)/i)||[])[1]||'0';
+    const gmaxYes=/GMax Factor:\s*Yes/i.test(gmaxRaw)?'Yes':'No';
+    const tera=slot[14]?.value||'—';
+    const moves=slot[15]?.moves||[];
+
+    ls.push(nickname!==species?`${nickname} (${species}) @ ${item}`:`${species} @ ${item}`);
+    ls.push(`Ability: ${ability}`);
+    ls.push(`IVs: ${ivLine}`);
+    ls.push(`EVs: ${evLine}`);
+    ls.push(`Ball: ${ball}`);
+    ls.push(`Happiness: ${happy}`);
+    ls.push(`Nature: ${nature}`);
+    ls.push(`Shiny: ${shiny}`);
+    ls.push(`Dynamax Level: ${dynLevel}`);
+    ls.push(`Gigantamax: ${gmaxYes}`);
+    ls.push(`Tera Type: ${tera}`);
+    ls.push('Moves:');
+    ls.push('');
+    moves.forEach(mv=>ls.push(`* ${mv}`));
+    if(idx<filledSlotsExp.length-1) ls.push('');
+  });
   const out=ls.join('\n');
 
   // ── Overlay popup (same structure as Pokemon end card) ──────────────────────
@@ -6637,7 +6690,7 @@ function initDexBrowser(){
       const sf=img.dataset.sf;
       if(!monId||!sf) return;
       if(dexShiny){ img.src=`${PKM_SHINY1}${sf}.png`; img.onerror=()=>shinyUrlFallback(img,monId,sf); }
-      else{ img.src=`${PKM_BASE1}${sf}.png`; img.onerror=()=>iconUrlFallback(img,monId); }
+      else{ img.src=`${PKM_BASE1}${sf}.png`; img.onerror=()=>iconUrlFallback(img,monId,sf); }
     });
   });
   dexControls.appendChild(shinyToggle);
@@ -6977,7 +7030,7 @@ function initEncBrowser(){
       chip.style.cssText=`border-color:${meta.col}44;margin-bottom:8px;width:100%;`;
       const img=document.createElement('img');
       img.style.cssText='width:52px;height:52px;image-rendering:pixelated;flex-shrink:0;';
-      if(monData){img.src=`${PKM_BASE1}${getSpriteFile(monData)}.png`;img.onerror=()=>iconUrlFallback(img,monData.id);}
+      if(monData){img.src=`${PKM_BASE1}${getSpriteFile(monData)}.png`;img.onerror=()=>iconUrlFallback(img,monData.id,getSpriteFile(monData));}
       const info=document.createElement('div');info.className='enc-mon-info';info.style.flex='1';
       const name=document.createElement('div');name.className='enc-mon-name';name.textContent=displayName;
       const lvl=document.createElement('div');lvl.className='enc-mon-sub';lvl.textContent=`Lv. ${minLevel}${minLevel!==maxLevel?'–'+maxLevel:''}`;
@@ -7088,7 +7141,7 @@ function initEncBrowser(){
         const {mon:monData,displayName}=speciesNameToMon(mon.species);
         const chip=document.createElement('div');chip.className='enc-mon-chip';chip.style.borderColor=meta.col+'33';
         const img=document.createElement('img');
-        if(monData){img.src=`${PKM_BASE1}${getSpriteFile(monData)}.png`;img.onerror=()=>iconUrlFallback(img,monData.id);}
+        if(monData){img.src=`${PKM_BASE1}${getSpriteFile(monData)}.png`;img.onerror=()=>iconUrlFallback(img,monData.id,getSpriteFile(monData));}
         else{img.style.cssText='width:52px;height:52px;opacity:.2;';}
         const info=document.createElement('div');info.className='enc-mon-info';
         const name=document.createElement('div');name.className='enc-mon-name';name.textContent=displayName;
@@ -7761,24 +7814,6 @@ function openHofPopup(p){
   popup.append(body);overlay.appendChild(popup);document.body.appendChild(overlay);
 }
 
-function pkmSpriteUrl(p, shiny){
-  // Priority 1: direct sprite filename from JSON (most reliable)
-  const file = shiny ? (p.shiny_sprite||p.sprite) : p.sprite;
-  if(file){
-    const bases = shiny ? _SHINY_BASES : _PKM_BASES;
-    return bases[0]+file+'.png'; // onerror handler tries bases[1]
-  }
-  // Priority 2: species_id padded (fallback if sprite field missing)
-  if(p.species_id){
-    const f2=String(p.species_id).padStart(4,'0');
-    return (shiny?_SHINY_BASES[0]:_PKM_BASES[0])+f2+'.png';
-  }
-  // Priority 3: look up via MON_MAP
-  const mon=window.MON_MAP?.get(p.species?.toLowerCase())||
-             ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
-  if(mon){const sf=shiny?getShinyFile(mon):getSpriteFile(mon);if(sf)return(shiny?_SHINY_BASES[0]:_PKM_BASES[0])+sf+'.png';}
-  return '';
-}
 // Attach fallback to an img: tries secondary base if primary 404s
 // GBA item icon background removal
 // exactColor: hex string like "#B4B4B4" from palette index 0 (most reliable)
@@ -8795,7 +8830,6 @@ function initTrainerHofBrowser(){
     }
   }
 
-  function mapToName(m){ return m.replace('MAP_','').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); }
 
   function buildMapList(enc){
     const seen=new Map();
@@ -8912,7 +8946,7 @@ function initTrainerHofBrowser(){
       chip.style.cssText=`border-color:${meta.col}44;margin-bottom:8px;width:100%;`;
       const img=document.createElement('img');
       img.style.cssText='width:52px;height:52px;image-rendering:pixelated;flex-shrink:0;';
-      if(monData){img.src=`${PKM_BASE1}${getSpriteFile(monData)}.png`;img.onerror=()=>iconUrlFallback(img,monData.id);}
+      if(monData){img.src=`${PKM_BASE1}${getSpriteFile(monData)}.png`;img.onerror=()=>iconUrlFallback(img,monData.id,getSpriteFile(monData));}
       const info=document.createElement('div');info.className='enc-mon-info';info.style.flex='1';
       const name=document.createElement('div');name.className='enc-mon-name';name.textContent=displayName;
       const lvl=document.createElement('div');lvl.className='enc-mon-sub';lvl.textContent=`Lv. ${minLevel}${minLevel!==maxLevel?'–'+maxLevel:''}`;
@@ -9012,7 +9046,7 @@ function initTrainerHofBrowser(){
         const {mon:monData,displayName}=speciesNameToMon(mon.species);
         const chip=document.createElement('div');chip.className='enc-mon-chip';chip.style.borderColor=meta.col+'33';
         const img=document.createElement('img');
-        if(monData){img.src=`${PKM_BASE1}${getSpriteFile(monData)}.png`;img.onerror=()=>iconUrlFallback(img,monData.id);}
+        if(monData){img.src=`${PKM_BASE1}${getSpriteFile(monData)}.png`;img.onerror=()=>iconUrlFallback(img,monData.id,getSpriteFile(monData));}
         else{img.style.cssText='width:52px;height:52px;opacity:.2;';}
         const info=document.createElement('div');info.className='enc-mon-info';
         const name=document.createElement('div');name.className='enc-mon-name';name.textContent=displayName;
