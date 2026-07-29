@@ -48592,8 +48592,8 @@
       "group": "Regional",
       "dex_number": "0555d",
       "name": "Galarian-Darmanitan (Zen)",
-      "sprite": "",
-      "shiny_sprite": "",
+      "sprite": "1093",
+      "shiny_sprite": "1093",
       "type1": "Ice",
       "type2": "Fire",
       "base_stats": {
@@ -87245,7 +87245,7 @@
       "dex_number": "0905b",
       "name": "Enamorus (Therian)",
       "sprite": "1103",
-      "shiny_sprite": "",
+      "shiny_sprite": "1103",
       "type1": "Fairy",
       "type2": "Flying",
       "base_stats": {
