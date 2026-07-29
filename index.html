@@ -7432,7 +7432,7 @@ function openHofPopup(p){
   if(p.nature) ans[4]={value:p.nature};
   if(p.ability) ans[5]={value:p.ability};
   if(p.tera_type) ans[6]={value:p.tera_type};
-  if(p.gmax) ans[7]={value:'Yes'};
+  ans[7]={value:p.gmax?'Yes':'???'};
   if(p.ivs||p.evs) ans[8]={value:'Custom',ivs:p.ivs,evs:p.evs};
   if(p.moves?.length) ans[9]={value:p.moves.join(' / '),moves:[...p.moves]};
   if(p.held_item) ans[10]={value:p.held_item};
@@ -7487,23 +7487,46 @@ function openHofPopup(p){
   const popup=document.createElement('div');
   popup.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.7);';
 
-  // Header
+  // Header — just the close control now; trainer identity moves into its own
+  // styled row below (matches the End Card look instead of a cramped title bar)
   const hdr=document.createElement('div');
-  hdr.style.cssText='padding:14px 18px;background:rgba(149,117,205,.08);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;';
-  const htitle=document.createElement('div');htitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:10px;color:var(--pl);';
-  htitle.textContent='\u2139 '+(p.nickname||p.species||'?').toUpperCase();
-  const owBadge=document.createElement('div');owBadge.style.cssText='display:flex;align-items:center;gap:6px;font-size:10px;color:var(--gray);';
-  const owSp=document.createElement('img');owSp.style.cssText='width:18px;height:18px;image-rendering:pixelated;border-radius:3px;';
-  owSp.src=TRAINER_BASE+(p.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';
-  owSp.onerror=()=>owSp.style.display='none';
-  owBadge.append(owSp,document.createTextNode(p.owner_name||''));
+  hdr.style.cssText='padding:10px 14px;background:rgba(149,117,205,.08);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:flex-end;flex-shrink:0;';
   const pcl=document.createElement('button');pcl.type='button';
   pcl.style.cssText='background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;color:#556;font-size:14px;padding:2px 9px;cursor:pointer;';
   pcl.textContent='\u00d7';pcl.onclick=()=>overlay.remove();
-  hdr.append(htitle,owBadge,pcl);popup.appendChild(hdr);
+  hdr.appendChild(pcl);popup.appendChild(hdr);
 
   // Body
   const body=document.createElement('div');body.style.cssText='overflow-y:auto;flex:1;padding:14px;';
+
+  // Trainer row — styled like the Pokémon Creation End Card (big sprite + name + "OG TRAINER")
+  const trRow=document.createElement('div');trRow.style.cssText='display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(149,117,205,.06);border-radius:10px;border:1px solid rgba(149,117,205,.15);margin-bottom:10px;';
+  const trSpr=document.createElement('img');trSpr.style.cssText='width:64px;height:64px;image-rendering:pixelated;flex-shrink:0;';
+  trSpr.src=TRAINER_BASE+(p.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';
+  trSpr.onerror=()=>trSpr.style.visibility='hidden';
+  const trInfo=document.createElement('div');trInfo.style.cssText='display:flex;flex-direction:column;gap:3px;flex:1;min-width:0;';
+  const trNm=document.createElement('div');trNm.style.cssText='font-size:18px;font-weight:900;color:#64b5f6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';trNm.textContent=p.owner_name||'?';
+  const trSub=document.createElement('div');trSub.style.cssText='font-size:9px;color:var(--gray);font-family:"Press Start 2P",monospace;';trSub.textContent='OG TRAINER';
+  trInfo.append(trNm,trSub);
+  trRow.append(trSpr,trInfo);body.appendChild(trRow);
+
+  // Chapter / Location / Evolution — straight from pkm_hof.json, between the
+  // trainer row and the Pokémon card
+  const metaRow=document.createElement('div');metaRow.style.cssText='display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;';
+  const evoYes=(p.evolution||'').toLowerCase().includes('allowed')&&!(p.evolution||'').toLowerCase().includes('not');
+  [
+    ['\uD83D\uDCD6 Chapter', p.chapter?('Ch. '+p.chapter):null, null],
+    ['\uD83D\uDCCD Location', p.location||null, '#4db6ac'],
+    [evoYes?'\uD83D\uDD04 Can Evolve':'\uD83D\uDEAB Can Evolve', p.evolution||null, evoYes?'#4caf50':'#e57373'],
+  ].forEach(([l,v,col])=>{
+    if(!v)return;
+    const chip=document.createElement('div');chip.style.cssText=`flex:1;min-width:110px;display:flex;flex-direction:column;gap:2px;padding:7px 10px;border-radius:8px;background:${col?col+'12':'rgba(255,255,255,.03)'};border:1px solid ${col?col+'30':'rgba(255,255,255,.08)'};`;
+    const le=document.createElement('span');le.style.cssText='font-size:8px;color:#556;font-weight:700;letter-spacing:.03em;';le.textContent=l;
+    const ve=document.createElement('span');ve.style.cssText='font-size:11px;font-weight:700;color:'+(col||'#e2e8f0')+';';ve.textContent=String(v);
+    chip.append(le,ve);metaRow.appendChild(chip);
+  });
+  if(metaRow.children.length)body.appendChild(metaRow);
+
   if(cloned)body.appendChild(cloned);
   else{const err=document.createElement('div');err.style.cssText='color:#e57373;padding:20px;text-align:center;';err.textContent='Could not render card.';body.appendChild(err);}
 
@@ -7531,15 +7554,6 @@ function openHofPopup(p){
       st2.append(bp2,cat2);row.append(bar2,bd2,st2);body.appendChild(row);
     });
   }
-
-  // Location + Chapter (not in creation card)
-  [['\uD83D\uDCCD Location',p.location,'#4db6ac'],['Chapter','Ch. '+(p.chapter||'?'),null]].forEach(([l,v,col])=>{
-    if(!v||v==='Ch. ?')return;
-    const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:7px 0;font-size:11px;border-top:1px solid rgba(255,255,255,.04);margin-top:4px;';
-    const le=document.createElement('span');le.style.cssText='color:#556;font-size:10px;font-weight:600;';le.textContent=l;
-    const ve=document.createElement('span');ve.style.cssText='color:'+(col||'#e2e8f0')+';font-weight:600;';ve.textContent=String(v);
-    r.append(le,ve);body.appendChild(r);
-  });
 
   popup.append(body);overlay.appendChild(popup);document.body.appendChild(overlay);
 }
