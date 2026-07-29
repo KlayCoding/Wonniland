@@ -577,6 +577,7 @@
         <b style="color:#9146ff;">!teamreroll</b> — Same as !teamroll, replaces a random party slot (slot glows gold)<br>
         <b style="color:#9146ff;">!teamreroll1–6</b> — Same but you pick the slot (e.g. !teamreroll4)<br>
         <b style="color:#9146ff;">!slot1–6 nick, owner</b> — Sets a party slot by nickname (+ optional owner filter)<br>
+        <b style="color:#9146ff;">!slotroll1–6</b> — Rolls unclaimed Pokémon (Pool), puts it in chosen slot<br>
         <b style="color:#9146ff;">!clearslot1–6</b> — Clears a specific party slot<br>
         <b style="color:#9146ff;">!clearparty</b> — Clears all 6 party slots<br>
         <b style="color:#9146ff;">!reload</b> — Reloads Pokémon data from JSON<br>
@@ -7207,6 +7208,14 @@ function initTwitchIntegration(){
               if(typeof window.triggerTeamReroll==='function')window.triggerTeamReroll(slotIdx);
               else addLog('\u26a0 Roulette not ready','#e57373');
             }
+            // ── !slotroll[1-6] ───────────────────────────────────────────────
+            const slotrollM=cmd.match(/^slotroll([1-6])$/);
+            if(slotrollM&&ok){
+              const slotIdx=parseInt(slotrollM[1])-1;
+              addLog('\uD83C\uDFB2 !slotroll'+slotrollM[1]+' by @'+user+' (Pok\u00e9mon Pool)','#64b5f6');
+              if(typeof window.triggerSlotRoll==='function')window.triggerSlotRoll(slotIdx);
+              else addLog('\u26a0 Roulette not ready','#e57373');
+            }
           }
         };
         ComfyJS.onChat=(user,msg,flags)=>{
@@ -7791,6 +7800,20 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
       setTimeout(()=>{
         panel.scrollIntoView({behavior:'smooth',block:'start'});
         doRoll(pool,rollBtnParty,rollBtnPool,'\uD83C\uDFB2 Team Reroll',true);
+      },350);
+    };
+
+    // ── !slotroll[1-6]: unclaimed pool → chosen party slot ──────────────────
+    window.triggerSlotRoll=function(slotIdx){
+      if(!hofData){loadData().then(()=>window.triggerSlotRoll(slotIdx));return;}
+      const pool=getRollPool();  // unclaimed (claimed=false)
+      if(!pool.length){addLog('\u26a0\ufe0f Pok\u00e9mon Pool is empty','#e57373');return;}
+      window._pendingRerollSlot=slotIdx;
+      if(!open){open=true;panel.style.display='block';btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';renderAll();}
+      setTimeout(()=>highlightRerollSlot(slotIdx),150);
+      setTimeout(()=>{
+        panel.scrollIntoView({behavior:'smooth',block:'start'});
+        doRoll(pool,rollBtnPool,rollBtnParty,'\uD83C\uDFB2 Slot Roll',false);
       },350);
     };
 
