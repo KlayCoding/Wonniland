@@ -7405,10 +7405,15 @@ function openHofPopup(p){
   currentMode='pokemon'; step=12;
   Object.keys(ans).forEach(k=>delete ans[k]);
   // Pass sprite fields from HoF data so pkmSpriteWithFallback uses correct file
-  // Always build hofMon — even if not in ALL_MON, sprite data comes from HoF json
+  // Build hofMon: use ALL_MON data (correct spriteFile etc.) + HoF-specific fields
+  const _baseMon=mon||{name:p.species,t1:'Normal',t2:null};
   const hofMon={
-    ...(mon||{name:p.species,t1:'Normal',t2:null}),
-    sprite:p.sprite, shiny_sprite:p.shiny_sprite, species_id:p.species_id
+    ..._baseMon,
+    // spriteFile from ALL_MON if available, else use species_id or sprite field
+    spriteFile:_baseMon.spriteFile||(_baseMon.id?String(_baseMon.id).padStart(4,'0'):null)||p.sprite,
+    shinyFile:_baseMon.shinyFile||_baseMon.shinySprite||p.shiny_sprite,
+    sprite:p.sprite, shiny_sprite:p.shiny_sprite,
+    species_id:p.species_id
   };
   ans[1]={value:p.species, mon:hofMon};
   ans[3]={value:p.shiny?'Yes':'No'};
@@ -7592,15 +7597,20 @@ function removeItemBg(img, itemSlug) {
 
 
 function pkmSpriteWithFallback(img, p, shiny){
-  const file=shiny?(p.shiny_sprite||p.sprite):p.sprite;
-  const bases=shiny?_SHINY_BASES:_PKM_BASES;
-  const f2=file||(p.species_id?String(p.species_id).padStart(4,'0'):null);
-  if(!f2){img.style.opacity='.2';return;}
-  img.src=bases[0]+f2+'.png';
-  img.onerror=()=>{
-    if(bases[1]){img.onerror=()=>img.style.opacity='.2';img.src=bases[1]+f2+'.png';}
-    else img.style.opacity='.2';
-  };
+  // Mirror Pokédex: getSpriteFile first, then iconUrlFallback chain
+  const sf=getSpriteFile(p)||(p.sprite)||(p.species_id?String(p.species_id).padStart(4,'0'):null);
+  if(!sf){img.style.opacity='.2';return;}
+  if(shiny){
+    const sf2=p.shiny_sprite||p.shinyFile||sf;
+    img.src=`${PKM_SHINY1}${sf2}.png`;
+    img.onerror=()=>{
+      img.src=`${PKM_SHINY2}${sf2}.png`;
+      img.onerror=()=>iconUrlFallback(img,p.spriteId||p.baseId||p.species_id||p.id,sf);
+    };
+  } else {
+    img.src=`${PKM_BASE1}${sf}.png`;
+    img.onerror=()=>iconUrlFallback(img,p.spriteId||p.baseId||p.species_id||p.id,sf);
+  }
 }
 
 
