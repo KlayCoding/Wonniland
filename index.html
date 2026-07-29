@@ -1129,10 +1129,18 @@ function updTrainerCard(){
   const tAns=typeof trainerAns!=='undefined'?trainerAns:ans;
   const trName=tAns[0]?.value||'';          // Step 0 = OG Trainer name
   const trBattleFormat=tAns[2]?.value||'';   // Step 2 = Battle format
-  // Derive gender from sprite name
-  const FEMALE_SPRITES=['leaf','may','dawn','lyra','hilda','rosa','serena','selene','gloria','nemona','kris','marnie','iris','skyla','elesa','clair','jasmine','sabrina','misty','wendy','lana','mallow','lillie','nessa','bea','sonia','triss','akari','rei'];
-  const spriteNameForGender=(tAns[1]?.value||'').toLowerCase().replace(/[_\-]/g,'');
-  const trGender=FEMALE_SPRITES.some(f=>spriteNameForGender.includes(f))?'Female':'Male';
+  // Derive gender from sprite name — no explicit gender question exists, so
+  // this is a best-effort heuristic. Prefer the explicit _f/_m suffix
+  // convention most TRAINER_SPRITES entries use (e.g. "cool_trainer_f_frlg",
+  // "aqua_admin_m") over plain substring name-matching, which was missing
+  // most of the roster.
+  const FEMALE_SPRITES=['leaf','may','dawn','lyra','hilda','rosa','serena','selene','gloria','nemona','kris','marnie','iris','skyla','elesa','clair','jasmine','sabrina','misty','wendy','lana','mallow','lillie','nessa','bea','sonia','triss','akari','rei','girl','lady','beauty','woman'];
+  const rawSpriteName=(tAns[1]?.value||'').toLowerCase();
+  const spriteNameForGender=rawSpriteName.replace(/[_\-]/g,'');
+  let trGender;
+  if(/(^|_)f(_|$)/.test(rawSpriteName)||/_female(_|$)/.test(rawSpriteName)) trGender='Female';
+  else if(/(^|_)m(_|$)/.test(rawSpriteName)||/_male(_|$)/.test(rawSpriteName)) trGender='Male';
+  else trGender=FEMALE_SPRITES.some(f=>spriteNameForGender.includes(f))?'Female':'Male';
   const trDialogues=tAns[3]?.value||'';
   const trRival=tAns[4]?.value||'';
   const trHome=tAns[5]?.value||'';
@@ -1171,10 +1179,12 @@ function updTrainerCard(){
 
   const mkR=(l,v)=>{if(!v)return null;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.color='var(--gray)';le.textContent=l;const ve=document.createElement('span');ve.style.fontWeight='700';ve.textContent=v;r.append(le,ve);return r;};
   const det=document.createElement('div');
-    [mkR('Battle Format',trBattleFormat),mkR('Rival',trRival),mkR('Hometown',trHome)].filter(Boolean).forEach(r=>det.appendChild(r));
+  const battleFormatRow=mkR('Battle Format',trBattleFormat);
+  if(battleFormatRow)battleFormatRow.dataset.field='battle-format';
+    [battleFormatRow,mkR('Rival',trRival),mkR('Hometown',trHome)].filter(Boolean).forEach(r=>det.appendChild(r));
   // Dialogues — parse and show each on own line
   if(trDialogues){
-    const dlgHdr=document.createElement('div');dlgHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;padding:8px 14px 4px;letter-spacing:.5px;';dlgHdr.textContent='DIALOGUES';det.appendChild(dlgHdr);
+    const dlgHdr=document.createElement('div');dlgHdr.dataset.field='dialogues-hdr';dlgHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;padding:8px 14px 4px;letter-spacing:.5px;';dlgHdr.textContent='DIALOGUES';det.appendChild(dlgHdr);
     const DLGSEP=/\|/;
     const parsePhrase=(raw,key)=>{const m=raw.match(new RegExp(key+'[:\\s]*"?([^"|]+)"?'));return m?m[1].trim():'';};
     const intro=parsePhrase(trDialogues,'Intro')||trDialogues.split('|')[0]?.replace(/Intro:?/i,'').replace(/"/g,'').trim();
@@ -5425,9 +5435,9 @@ function renderTrainerQ() {
   // ── TQ3: Battle Format ─────────────────────────────────────────────────────
   }else if(step===2){
     addT(card,'Do you want your Trainer to fight in a Solo or Double battle format?');
-    const row=document.createElement('div'); row.className='g-opts'; let se=null;
+    const row=document.createElement('div'); row.className='g-opts'; let se=ans[2]?.value||null;
     [['⚔️ Solo — 1v1','Solo','sy'],['👥 Double — 2v2','Double','sn']].forEach(([l,k,c])=>{
-      const b=document.createElement('div'); b.className='g-btn'; b.textContent=l;
+      const b=document.createElement('div'); b.className='g-btn'+(se===k?` ${c}`:''); b.textContent=l;
       b.addEventListener('click',()=>{se=k;row.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn');b.className=`g-btn ${c}`;});
       row.appendChild(b);
     });
@@ -5443,13 +5453,19 @@ function renderTrainerQ() {
       {key:'postmatch', label:'Post-Match text', hint:'What your Trainer says when you talk to them again after their loss'},
     ];
     const phraseInputs={};
+    const existingDlgVal=ans[3]?.value||'';
+    const DLG_LBL_MAP={intro:'Intro',defeated:'Defeated',postmatch:'Post-Match'};
     phrases.forEach(({key,label,hint})=>{
       const wrap=document.createElement('div'); wrap.style.cssText='display:flex;flex-direction:column;gap:4px;margin-bottom:14px;';
       const lbl=document.createElement('div'); lbl.style.cssText='font-size:13px;font-weight:700;color:var(--white);'; lbl.textContent=label;
       const sub=document.createElement('div'); sub.style.cssText='font-size:11px;color:var(--gray);margin-bottom:4px;'; sub.textContent=hint;
       const row=document.createElement('div'); row.style.cssText='display:flex;gap:8px;align-items:center;';
       const inp=document.createElement('input'); inp.type='text'; inp.placeholder=`${label}… (max. 50 characters)`; inp.maxLength=50; inp.style.flex='1';
-      const ctr=document.createElement('div'); ctr.className='char-ct'; ctr.textContent='0 / 50';
+      if(existingDlgVal){
+        const m=existingDlgVal.match(new RegExp(DLG_LBL_MAP[key]+'[:\\s]*"([^"]*)"'));
+        if(m) inp.value=m[1];
+      }
+      const ctr=document.createElement('div'); ctr.className='char-ct'; ctr.textContent=`${inp.value.length} / 50`;
       const del=document.createElement('button'); del.type='button'; del.className='del-btn'; del.textContent='✕';
       del.addEventListener('click',()=>{inp.value='';ctr.textContent='0 / 50';ctr.className='char-ct';inp.focus();});
       inp.addEventListener('input',()=>{
@@ -6487,19 +6503,26 @@ function renderTrainerResult(){
     const cl=trPanel.children[0].cloneNode(true);
     cl.style.cssText+=';margin:12px;border-radius:12px;box-shadow:none;border:1px solid rgba(149,117,205,.2);';
     body.appendChild(cl);
-  }
 
-  // Edit Battle Format & Dialogues — added fresh (not part of the clone above,
-  // since cloneNode drops JS handlers), closes the End Card and jumps to the
-  // Battle Format question; Dialogues immediately follows it.
-  const editDlgBtn=document.createElement('button');editDlgBtn.type='button';
-  editDlgBtn.style.cssText='margin:0 12px 12px;padding:8px 12px;border-radius:8px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);font-size:11px;font-weight:700;cursor:pointer;';
-  editDlgBtn.textContent='\u270e Edit Battle Format & Dialogues';
-  editDlgBtn.addEventListener('click',()=>{
-    if(typeof closeEndCard==='function') closeEndCard();
-    step=2; renderTrainerQ();
-  });
-  body.appendChild(editDlgBtn);
+    // Per-question edit icons — added fresh onto the clone (cloneNode drops
+    // JS handlers), one for Battle Format, one for Dialogues, each jumping
+    // straight to that question instead of a single combined button.
+    const mkInlineEdit=(targetStep)=>{
+      const eb=document.createElement('button');eb.type='button';
+      eb.style.cssText='font-size:9px;padding:2px 6px;border-radius:4px;border:1px solid rgba(149,117,205,.3);background:rgba(149,117,205,.08);color:var(--pl);cursor:pointer;margin-left:8px;flex-shrink:0;';
+      eb.textContent='\u270e';
+      eb.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        if(typeof closeEndCard==='function') closeEndCard();
+        trainerPhase='trainer'; step=targetStep; renderTrainerQ();
+      });
+      return eb;
+    };
+    const bfRow=cl.querySelector('[data-field="battle-format"]');
+    if(bfRow){bfRow.style.alignItems='center';bfRow.appendChild(mkInlineEdit(2));}
+    const dlgHdrEl=cl.querySelector('[data-field="dialogues-hdr"]');
+    if(dlgHdrEl){dlgHdrEl.style.cssText+='display:flex;align-items:center;justify-content:space-between;';dlgHdrEl.appendChild(mkInlineEdit(3));}
+  }
 
   // Team — rich Pokémon tiles (sprite, nickname/species, types, ability,
   // item, GMax badge, moves, Info button)
