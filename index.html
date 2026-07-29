@@ -7389,21 +7389,28 @@ loadPokemonData().then(()=>{
 function openHofPopup(p){
   const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
 
-  // ── Temporarily populate creation-mode state so updPokemonCard() can render ─
+  // ── Temporarily populate creation-mode state ──────────────────────────────
   const savedAns={...ans}, savedStep=step, savedMode=currentMode;
-  currentMode='pokemon';
-  step=12; // past all gates
+  const savedProgWrap=document.getElementById('progWrap');
+  const savedProgDisplay=savedProgWrap?.style.display;
+
+  currentMode='pokemon'; step=12;
   Object.keys(ans).forEach(k=>delete ans[k]);
-  if(mon) ans[1]={value:p.species,mon};
+  // Pass sprite fields from HoF data so pkmSpriteWithFallback uses correct file
+  const hofMon=mon?{...mon, sprite:p.sprite, shiny_sprite:p.shiny_sprite, species_id:p.species_id}:null;
+  if(hofMon) ans[1]={value:p.species, mon:hofMon};
   ans[3]={value:p.shiny?'Yes':'No'};
   if(p.nature) ans[4]={value:p.nature};
   if(p.ability) ans[5]={value:p.ability};
   if(p.tera_type) ans[6]={value:p.tera_type};
   if(p.gmax) ans[7]={value:'Yes'};
   if(p.ivs||p.evs) ans[8]={value:'Custom',ivs:p.ivs,evs:p.evs};
-  if(p.moves?.length) ans[9]={value:p.moves.join(' / '),moves:p.moves};
+  if(p.moves?.length) ans[9]={value:p.moves.join(' / '),moves:[...p.moves]};
   if(p.held_item) ans[10]={value:p.held_item};
   if(p.evolution) ans[11]={value:p.evolution};
+
+  // Hide progWrap while rendering temp card
+  if(savedProgWrap) savedProgWrap.style.display='none';
   updPokemonCard();
 
   // ── Clone the rendered card ────────────────────────────────────────────────
@@ -7411,15 +7418,22 @@ function openHofPopup(p){
   const cloned=srcPanel?.children[0]?.cloneNode(true)||null;
   if(cloned){
     cloned.style.cssText+=';max-width:100%;width:100%;box-shadow:none;border:1px solid rgba(149,117,205,.25);border-radius:12px;';
+    // Remove edit buttons and progress elements from the clone
+    cloned.querySelectorAll('button').forEach(b=>{
+      if(b.textContent.includes('\u270e')||b.textContent.includes('Edit')||
+         b.classList.contains('edit-btn')||b.closest('.prog-wrap'))b.remove();
+    });
+    cloned.querySelectorAll('.prog-wrap,[id*="prog"],[id*="Prog"]').forEach(el=>el.remove());
   }
 
   // ── Restore state ──────────────────────────────────────────────────────────
   Object.keys(ans).forEach(k=>delete ans[k]);
   Object.assign(ans,savedAns);
   step=savedStep; currentMode=savedMode;
+  if(savedProgWrap) savedProgWrap.style.display=savedProgDisplay||'';
   updPokemonCard();
 
-  // ── Build popup (exact same structure as End Card) ─────────────────────────
+  // ── Popup — same structure/styling as End Card ────────────────────────────
   const overlay=document.createElement('div');
   overlay.id='hof-info-overlay';
   overlay.style.cssText='position:fixed;inset:0;z-index:1400;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;';
@@ -7428,30 +7442,34 @@ function openHofPopup(p){
   const popup=document.createElement('div');
   popup.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.7);';
 
-  // Header — matches End Card exactly
+  // Header
   const hdr=document.createElement('div');
   hdr.style.cssText='padding:14px 18px;background:rgba(149,117,205,.08);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;';
   const htitle=document.createElement('div');htitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:10px;color:var(--pl);';
   htitle.textContent='\u2139 '+(p.nickname||p.species||'?').toUpperCase();
-  const pcl=document.createElement('button');pcl.type='button';
-  pcl.style.cssText='background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;color:#556;font-size:14px;padding:2px 9px;cursor:pointer;';
-  pcl.textContent='\u00d7';pcl.onclick=()=>overlay.remove();
-  // Owner badge in header
   const owBadge=document.createElement('div');owBadge.style.cssText='display:flex;align-items:center;gap:6px;font-size:10px;color:var(--gray);';
   const owSp=document.createElement('img');owSp.style.cssText='width:18px;height:18px;image-rendering:pixelated;border-radius:3px;';
   owSp.src=TRAINER_BASE+(p.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';
   owSp.onerror=()=>owSp.style.display='none';
   owBadge.append(owSp,document.createTextNode(p.owner_name||''));
+  const pcl=document.createElement('button');pcl.type='button';
+  pcl.style.cssText='background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;color:#556;font-size:14px;padding:2px 9px;cursor:pointer;';
+  pcl.textContent='\u00d7';pcl.onclick=()=>overlay.remove();
   hdr.append(htitle,owBadge,pcl);popup.appendChild(hdr);
 
   // Body
   const body=document.createElement('div');body.style.cssText='overflow-y:auto;flex:1;padding:14px;';
-  if(cloned) body.appendChild(cloned);
+  if(cloned)body.appendChild(cloned);
   else{const err=document.createElement('div');err.style.cssText='color:#e57373;padding:20px;text-align:center;';err.textContent='Could not render card.';body.appendChild(err);}
 
-  // Extra: location + chapter row (not in creation card)
-  const extras=[['Location',p.location,'#4db6ac'],['Chapter','Ch. '+(p.chapter||'?'),null]];
-  extras.forEach(([l,v,col])=>{if(!v||v==='Ch. ?')return;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:7px 0;font-size:11px;border-top:1px solid rgba(255,255,255,.04);margin-top:8px;';const le=document.createElement('span');le.style.cssText='color:#556;font-size:10px;font-weight:600;';le.textContent=l;const ve=document.createElement('span');ve.style.cssText='color:'+(col||'#e2e8f0')+';font-weight:600;';ve.textContent=String(v);r.append(le,ve);body.appendChild(r);});
+  // Location + Chapter (not in creation card)
+  [['\uD83D\uDCCD Location',p.location,'#4db6ac'],['Chapter','Ch. '+(p.chapter||'?'),null]].forEach(([l,v,col])=>{
+    if(!v||v==='Ch. ?')return;
+    const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:7px 0;font-size:11px;border-top:1px solid rgba(255,255,255,.04);margin-top:4px;';
+    const le=document.createElement('span');le.style.cssText='color:#556;font-size:10px;font-weight:600;';le.textContent=l;
+    const ve=document.createElement('span');ve.style.cssText='color:'+(col||'#e2e8f0')+';font-weight:600;';ve.textContent=String(v);
+    r.append(le,ve);body.appendChild(r);
+  });
 
   popup.append(body);overlay.appendChild(popup);document.body.appendChild(overlay);
 }
