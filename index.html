@@ -766,6 +766,9 @@ const PKM_BASE1  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/
 const PKM_BASE2  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-sprites2/';
 const PKM_SHINY1 = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites/';
 const PKM_SHINY2 = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/pkm-shinysprites2/';
+// Array versions used by pkmSpriteWithFallback (fallback chain)
+const _PKM_BASES   = [PKM_BASE1, PKM_BASE2];
+const _SHINY_BASES = [PKM_SHINY1, PKM_SHINY2];
 const ITEM_BASE  = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
 const IF = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/'; // PokeAPI item sprites fallback
 
@@ -7432,7 +7435,7 @@ function openHofPopup(p){
   const trSec=document.createElement('div');trSec.style.cssText=`padding:8px 16px 4px;font-size:9px;color:${typeCol};font-weight:700;letter-spacing:.08em;text-transform:uppercase;`;trSec.textContent='TRAINER';body.appendChild(trSec);
   const owRow=document.createElement('div');owRow.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 16px 12px;border-bottom:1px solid rgba(255,255,255,.06);';
   const owSpr=document.createElement('img');owSpr.style.cssText='width:36px;height:36px;image-rendering:pixelated;border-radius:6px;';
-  owSpr.src=TRAINER_BASE_R+(p.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';
+  owSpr.src=(typeof TRAINER_BASE_R!=='undefined'?TRAINER_BASE_R:TRAINER_BASE_RES)+(p.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';
   owSpr.onerror=()=>owSpr.style.display='none';
   const owName=document.createElement('div');owName.style.cssText='font-size:14px;font-weight:800;color:#e2e8f0;';owName.textContent=p.owner_name||'Unknown';
   const locEl=document.createElement('div');locEl.style.cssText='font-size:10px;color:#4a5568;margin-top:2px;';locEl.textContent=p.location||'';
@@ -7646,7 +7649,7 @@ function initPkmRoulette(){
         if(mon){const tr2=document.createElement('div');tr2.style.cssText='display:flex;gap:3px;flex-wrap:wrap;justify-content:center;margin:1px 0;';tr2.appendChild(tbP(mon.t1));if(mon.t2)tr2.appendChild(tbP(mon.t2));tile.appendChild(tr2);}
         // Owner
         const oRow=document.createElement('div');oRow.style.cssText='display:flex;align-items:center;gap:3px;font-size:8px;color:#555;margin-top:2px;';
-        const oSpr=document.createElement('img');oSpr.src=TRAINER_BASE_R+(pkm.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';oSpr.style.cssText='width:13px;height:13px;image-rendering:pixelated;border-radius:2px;';oSpr.onerror=()=>oSpr.style.display='none';
+        const oSpr=document.createElement('img');oSpr.src=(typeof TRAINER_BASE_R!=='undefined'?TRAINER_BASE_R:TRAINER_BASE_RES)+(pkm.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';oSpr.style.cssText='width:13px;height:13px;image-rendering:pixelated;border-radius:2px;';oSpr.onerror=()=>oSpr.style.display='none';
         const oName=document.createElement('span');oName.textContent=pkm.owner_name||'';oRow.append(oSpr,oName);tile.appendChild(oRow);
         // Clear button
         const clr=document.createElement('button');clr.type='button';
@@ -8006,7 +8009,7 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
       if(p.location){const loc=document.createElement('div');loc.style.cssText='font-size:8px;color:#4db6ac;text-align:center;font-family:"Press Start 2P",monospace;margin-top:1px;';loc.textContent=p.location;tile.appendChild(loc);}
       // Trainer
       const oRow=document.createElement('div');oRow.style.cssText='display:flex;align-items:center;gap:3px;font-size:8px;color:#555;';
-      const oSpr=document.createElement('img');oSpr.src=TRAINER_BASE_R+(p.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';oSpr.style.cssText='width:13px;height:13px;image-rendering:pixelated;';oSpr.onerror=()=>oSpr.style.display='none';
+      const oSpr=document.createElement('img');oSpr.src=(typeof TRAINER_BASE_R!=='undefined'?TRAINER_BASE_R:TRAINER_BASE_RES)+(p.owner_sprite||'brendan').toLowerCase().replace(/ /g,'_')+'.png';oSpr.style.cssText='width:13px;height:13px;image-rendering:pixelated;';oSpr.onerror=()=>oSpr.style.display='none';
       oRow.append(oSpr,document.createTextNode(p.owner_name||''));tile.appendChild(oRow);
       // Evolution
       const evoEl=document.createElement('div');evoEl.style.cssText='font-size:9px;color:'+(p.evolution==='Allowed'?'#4caf50':'#e57373')+';';evoEl.textContent=p.evolution==='Allowed'?'🔄 Evolution Allowed':'🚫 No Evolution';tile.appendChild(evoEl);
