@@ -1194,18 +1194,22 @@ function updTrainerCard(){
 
   // Team mini-grid — click a tile to switch slots, × to delete
   if(typeof team!=='undefined'&&team.length){
-    const tRow=document.createElement('div');tRow.style.cssText='padding:8px 14px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid rgba(255,255,255,.06);';
-    const tL=document.createElement('div');tL.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;width:100%;margin-bottom:2px;';tL.textContent='TEAM';
+    const tRow=document.createElement('div');tRow.style.cssText='padding:8px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;border-top:1px solid rgba(255,255,255,.06);';
+    const tL=document.createElement('div');tL.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#555;grid-column:1/-1;margin-bottom:2px;';tL.textContent='TEAM';
     tRow.appendChild(tL);
     for(let i=0;i<MAX_TEAM;i++){
       const sl=team[i];const mon=sl?.mon;
       const el=document.createElement('div');
-      el.style.cssText=`position:relative;width:44px;height:44px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;transition:all .15s;${i===currentSlot?'border-color:#9575cd;background:rgba(149,117,205,.12);':''}`;
+      el.style.cssText=`position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:5px 2px;min-height:62px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);overflow:hidden;cursor:pointer;transition:all .15s;${i===currentSlot?'border-color:#9575cd;background:rgba(149,117,205,.12);':''}`;
       if(mon){
-        const img=document.createElement('img');img.style.cssText='width:44px;height:44px;image-rendering:pixelated;';
+        const img=document.createElement('img');img.style.cssText='width:40px;height:40px;image-rendering:pixelated;';
         const sf=getSpriteFile(mon);
         img.src=`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
         el.appendChild(img);
+        const nick=sl.nick||mon.name;
+        const nickEl=document.createElement('div');nickEl.style.cssText='font-size:7px;font-weight:700;color:var(--white);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nickEl.textContent=nick.length>12?nick.slice(0,11)+'…':nick;
+        el.appendChild(nickEl);
+        if(sl.nick){const specEl=document.createElement('div');specEl.style.cssText='font-size:6px;color:var(--gray);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';specEl.textContent=mon.name.length>13?mon.name.slice(0,12)+'…':mon.name;el.appendChild(specEl);}
         const delBtn=document.createElement('button');delBtn.type='button';
         delBtn.style.cssText='position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:#E3350D;border:none;color:#fff;font-size:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;';
         delBtn.textContent='✕';
@@ -5070,14 +5074,14 @@ function buildTeamKachel(i){
   const isGmax=/^GMax Factor:\s*Yes/i.test(gmaxVal)||gmaxVal.toLowerCase()==='yes';
   const slotMoves=team[i][15]?.moves||[];
 
-  // Sprite (+ GMax badge overlay)
+  // Sprite, GMax badge underneath
   const img = document.createElement('img'); img.style.cssText='width:52px;height:52px;object-fit:contain;image-rendering:pixelated;';
   const sf=getSpriteFile(mon);
   img.src = `${PKM_BASE1}${sf}.png`;
   img.onerror = ()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);
-  const sprWrap=document.createElement('div');sprWrap.style.cssText='display:flex;justify-content:center;position:relative;';
+  const sprWrap=document.createElement('div');sprWrap.style.cssText='display:flex;flex-direction:column;align-items:center;gap:1px;';
   sprWrap.appendChild(img);
-  if(isGmax){const gIco=document.createElement('img');gIco.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/gmax_factor.png';gIco.style.cssText='width:16px;height:16px;position:absolute;top:-2px;right:6px;image-rendering:pixelated;';gIco.onerror=()=>gIco.style.display='none';sprWrap.appendChild(gIco);}
+  if(isGmax){const gIco=document.createElement('img');gIco.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/icons/gmax_factor.png';gIco.style.cssText='width:16px;height:16px;image-rendering:pixelated;';gIco.onerror=()=>gIco.style.display='none';sprWrap.appendChild(gIco);}
 
   // Nickname (bigger) + species (smaller, only if different)
   const nameCol=document.createElement('div');nameCol.style.cssText='display:flex;flex-direction:column;align-items:center;gap:0;';
@@ -5555,8 +5559,7 @@ function renderTrainerQ() {
       pIco6.src=iUrl6(it.slug);pIco6.crossOrigin='anonymous';removeItemBg(pIco6,it.slug);pIco6.addEventListener('load',()=>applyItemTint(pIco6,it),{once:true});pIco6.onerror=()=>iFb6(pIco6,it.slug);
       pName6.textContent=it.name; pDesc6.textContent=it.desc||'No description available.';
       p6Chips.innerHTML='';
-      p6Chips.append(mkChip6(it.pocket,'rgba(100,181,246,.12)','#64b5f6'));
-      if(it.category&&it.category!==it.pocket)p6Chips.append(mkChip6(it.category,'rgba(206,147,216,.12)','var(--pl)'));
+      if(it.category)p6Chips.append(mkChip6(it.category,'rgba(206,147,216,.12)','var(--pl)'));
       if(it.hold_effect)p6Chips.append(mkChip6('Holdable','rgba(76,175,80,.12)','#4caf50'));
       prev6.style.display='flex';
       ip6Ico.src=pIco6.src;ip6Ico.onerror=()=>iFb6(ip6Ico,it.slug);
