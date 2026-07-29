@@ -1479,7 +1479,19 @@ function updPokemonCard(){
   const natTxt=natureTxt.split(' (')[0];
   const natMods=natEntry?.up?` +${natEntry.up}/-${natEntry.dn}`:'';
   const natCol=natEntry?.up?'var(--white)':null;
-  [mkDR('Ability',ability,null,null,5),
+  [(()=>{
+      if(!ability) return null;
+      const key=ability.toLowerCase();
+      const localAb=ABILITIES_DB[key]||ABILITIES_DB[key.replace(/ /g,'-')]||ABILITIES_DB[key.replace(/-/g,' ')];
+      const aEl=document.createElement('div');aEl.style.cssText='display:flex;flex-direction:column;align-items:flex-end;gap:2px;max-width:220px;';
+      const aNm=document.createElement('span');aNm.style.cssText='font-weight:700;color:var(--white);';aNm.textContent=ability;
+      aEl.appendChild(aNm);
+      if(localAb?.description){
+        const aDesc=document.createElement('span');aDesc.style.cssText='font-size:9px;color:#4a5568;line-height:1.3;text-align:right;white-space:normal;';aDesc.textContent=localAb.description;
+        aEl.appendChild(aDesc);
+      }
+      return mkDR('Ability',null,null,aEl,5);
+   })(),
    (()=>{
       if(!itemName) return null;
       const iItemData=ITEMS.find(it=>it.name===itemName);
@@ -1509,9 +1521,13 @@ function updPokemonCard(){
    (()=>{
       if(!teraType) return null;
       const TERA_TID={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18,Stellar:19};
-      const tid=TERA_TID[teraType];
+      const teraNorm=teraType.trim().charAt(0).toUpperCase()+teraType.trim().slice(1).toLowerCase();
+      const tid=TERA_TID[teraNorm];
       const tEl=document.createElement('div');tEl.style.cssText='display:flex;align-items:center;gap:6px;';
-      if(tid){const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid}.png`;ti.style.cssText='height:18px;image-rendering:pixelated;';ti.onerror=()=>ti.style.display='none';tEl.appendChild(ti);}
+      if(tid){
+        const ti=document.createElement('img');ti.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${tid}.png`;ti.style.cssText='height:18px;image-rendering:pixelated;';ti.onerror=()=>ti.style.display='none';tEl.appendChild(ti);
+        const tTxt=document.createElement('span');tTxt.style.cssText='font-weight:700;';tTxt.textContent=teraNorm;tEl.appendChild(tTxt);
+      }
       else{const ts=document.createElement('span');ts.style.cssText='font-weight:700;color:#ce93d8;';ts.textContent=teraType;tEl.appendChild(ts);}
       return mkDR('Tera',null,null,tEl,6);
    })(),
@@ -7428,6 +7444,7 @@ function openHofPopup(p){
     shinyFile:null
   };
   ans[1]={value:p.species, mon:hofMon};
+  if(p.nickname) ans[2]={value:p.nickname};
   ans[3]={value:p.shiny?'Yes':'No'};
   if(p.nature) ans[4]={value:p.nature};
   if(p.ability) ans[5]={value:p.ability};
@@ -7549,22 +7566,27 @@ function openHofPopup(p){
     const TMAP={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
     const mvHdr2=document.createElement('div');mvHdr2.style.cssText='padding:10px 0 4px;font-size:9px;color:#556;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:8px;';mvHdr2.textContent='Moves';
     body.appendChild(mvHdr2);
+    const mvGrid=document.createElement('div');mvGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:6px;';
+    body.appendChild(mvGrid);
     p.moves.forEach(mv=>{
       const mvD=MOVES.find(m=>m.name===mv);
       const mc=TC2[mvD?.type]||'#4a5568';
-      const row=document.createElement('div');row.style.cssText='display:flex;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.04);border-radius:6px;margin-bottom:3px;background:rgba(255,255,255,.02);';
-      const bar2=document.createElement('div');bar2.style.cssText=`width:4px;background:${mc};flex-shrink:0;border-radius:6px 0 0 6px;`;
-      const bd2=document.createElement('div');bd2.style.cssText='flex:1;display:flex;align-items:center;gap:8px;padding:7px 10px;min-width:0;';
-      const nmCol2=document.createElement('div');nmCol2.style.cssText='display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;';
-      const nm2=document.createElement('span');nm2.style.cssText='font-size:12px;font-weight:700;';nm2.textContent=mv;
-      const dsc2=document.createElement('span');dsc2.style.cssText='font-size:9px;color:#4a5568;line-height:1.3;';dsc2.textContent=mvD?.desc||mvD?.description||'';
-      nmCol2.append(nm2,dsc2);
-      bd2.append(nmCol2);
-      if(mvD?.type){const ti2=document.createElement('img');ti2.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/'+(TMAP[mvD.type]||1)+'.png';ti2.style.cssText='height:14px;image-rendering:pixelated;flex-shrink:0;';ti2.onerror=()=>ti2.style.display='none';bd2.appendChild(ti2);}
-      const st2=document.createElement('div');st2.style.cssText='display:flex;flex-direction:column;align-items:flex-end;padding:4px 10px;border-left:1px solid rgba(255,255,255,.06);min-width:50px;';
-      const bp2=document.createElement('span');bp2.style.cssText=`font-size:14px;font-weight:700;color:${mc};line-height:1;`;bp2.textContent=mvD?.power||'—';
+      // Uniform grid per card: icon always in its own fixed column/row so it
+      // never drifts based on how long the description wraps.
+      const card=document.createElement('div');
+      card.style.cssText=`display:grid;grid-template-columns:20px 1fr;column-gap:7px;row-gap:3px;padding:8px 9px;border-radius:8px;background:${mc}0d;border:1px solid ${mc}25;border-left:3px solid ${mc};`;
+      const icoWrap=document.createElement('div');icoWrap.style.cssText='grid-column:1;grid-row:1;display:flex;align-items:center;justify-content:center;';
+      if(mvD?.type){const ti2=document.createElement('img');ti2.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/'+(TMAP[mvD.type]||1)+'.png';ti2.style.cssText='height:14px;image-rendering:pixelated;';ti2.onerror=()=>ti2.style.display='none';icoWrap.appendChild(ti2);}
+      card.appendChild(icoWrap);
+      const nm2=document.createElement('span');nm2.style.cssText='grid-column:2;grid-row:1;font-size:12px;font-weight:700;align-self:center;';nm2.textContent=mv;
+      card.appendChild(nm2);
+      const dsc2=document.createElement('span');dsc2.style.cssText='grid-column:1/3;grid-row:2;font-size:9px;color:#4a5568;line-height:1.3;';dsc2.textContent=mvD?.desc||mvD?.description||'';
+      card.appendChild(dsc2);
+      const st2=document.createElement('div');st2.style.cssText='grid-column:1/3;grid-row:3;display:flex;align-items:center;gap:8px;margin-top:2px;';
+      const bp2=document.createElement('span');bp2.style.cssText=`font-size:12px;font-weight:700;color:${mc};line-height:1;`;bp2.textContent=mvD?.power||'—';
       const cat2=document.createElement('span');cat2.style.cssText='font-size:9px;color:#4a5568;';cat2.textContent=mvD?.cat||'';
-      st2.append(bp2,cat2);row.append(bar2,bd2,st2);body.appendChild(row);
+      st2.append(bp2,cat2);card.appendChild(st2);
+      mvGrid.appendChild(card);
     });
   }
 
