@@ -568,6 +568,21 @@
         <button id="twitch-connect-btn" style="padding:5px 12px;border-radius:6px;border:1px solid rgba(145,71,255,.5);background:rgba(145,71,255,.15);color:#9146ff;font-size:10px;font-family:'Press Start 2P',monospace;cursor:pointer;">CONNECT</button>
       </div>
     </div>
+    <!-- Command reference -->
+    <div id="twitch-cmd-panel" style="display:none;border-top:1px solid rgba(145,71,255,.1);">
+      <div onclick="this.parentElement.querySelector('#twitch-cmd-body').style.display=this.parentElement.querySelector('#twitch-cmd-body').style.display==='none'?'block':'none';this.querySelector('span').textContent=this.parentElement.querySelector('#twitch-cmd-body').style.display==='none'?'▸':'▾';" style="padding:5px 16px;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:9px;color:#4a5568;user-select:none;"><span>▾</span> Commands</div>
+      <div id="twitch-cmd-body" style="padding:0 16px 8px;font-size:9px;color:#4a5568;line-height:1.9;">
+        <b style="color:#9146ff;">!roll</b> — Rolls random unclaimed Pokémon from the pool<br>
+        <b style="color:#9146ff;">!teamroll</b> — Rolls random Pokémon from the Team Pool (claimed=true), excludes current party<br>
+        <b style="color:#9146ff;">!teamreroll</b> — Same as !teamroll, replaces a random party slot (slot glows gold)<br>
+        <b style="color:#9146ff;">!teamreroll1–6</b> — Same but you pick the slot (e.g. !teamreroll4)<br>
+        <b style="color:#9146ff;">!slot1–6 nick, owner</b> — Sets a party slot by nickname (+ optional owner filter)<br>
+        <b style="color:#9146ff;">!clearslot1–6</b> — Clears a specific party slot<br>
+        <b style="color:#9146ff;">!clearparty</b> — Clears all 6 party slots<br>
+        <b style="color:#9146ff;">!reload</b> — Reloads Pokémon data from JSON<br>
+        <i style="color:#334155;">All commands: Mod/Broadcaster only</i>
+      </div>
+    </div>
     <div id="twitch-log" style="padding:4px 16px 8px;font-size:10px;color:#555;font-family:monospace;display:none;border-top:1px solid rgba(145,71,255,.1);min-height:0;max-height:80px;overflow-y:auto;"></div>
   </div>
 
@@ -7084,6 +7099,7 @@ function initTwitchIntegration(){
   const addLog=(msg,col='#555')=>{
     try{
       logEl.style.display='block';
+      document.getElementById('twitch-cmd-panel')?.style && (document.getElementById('twitch-cmd-panel').style.display='block');
       const d=document.createElement('div');
       d.style.cssText='color:'+col+';line-height:1.6;font-size:10px;';
       d.textContent=msg;logEl.appendChild(d);
@@ -7132,7 +7148,7 @@ function initTwitchIntegration(){
         ComfyJS.Init(ch);
         ComfyJS.onConnected=()=>{
           connected=true;
-          setStatus('connected','#'+ch+' — ready for '+COMMAND);
+          setStatus('connected','Connected to #'+ch+' chat!');
           addLog('✅ Connected! Mods/broadcaster: type !roll','#4caf50');
           addLog('⚡ Commands: !roll • !teamroll • !teamreroll[1-6] • !slot1-6 nick,owner • !clearslot1-6 • !clearparty • !reload','#64b5f6');
         };
@@ -7227,7 +7243,7 @@ function initTwitchIntegration(){
         if(!raw.includes(':tmi.twitch.tv 00')&&!raw.includes('CAP *'))console.log('[WS LINE]',raw.slice(0,150));
         if(raw.includes('366')||raw.includes('End of /NAMES')){
           connected=true;
-          setStatus('connected','#'+ch+' — ready for '+COMMAND);
+          setStatus('connected','Connected to #'+ch+' chat!');
           addLog('✅ Raw IRC connected to #'+ch,'#4caf50');
           return;
         }
@@ -7625,7 +7641,16 @@ function initPkmRoulette(){
   function getRollPool(){
     return(hofData?.pokemon||[]).filter(p=>p.claimed!==true&&!sessionClaimed.has(p.id));
   }
-  function getClaimedPool(){return(hofData?.pokemon||[]).filter(p=>p.claimed===true);}
+  function getClaimedPool(){
+    const inParty=new Set(
+      partySlots.filter(Boolean).map(p=>(p.nickname&&p.owner_name)?p.nickname+'|'+p.owner_name:(p.id||''))
+    );
+    return (hofData?.pokemon||[]).filter(p=>{
+      if(!p.claimed) return false;
+      const k=(p.nickname&&p.owner_name)?p.nickname+'|'+p.owner_name:(p.id||'');
+      return !inParty.has(k);  // exclude already-slotted Pokemon
+    });
+  }
 
   // ── Gewichteter Randomizer: jeder Owner bekommt gleiche Gesamtchance ────────
   function weightedRoll(pool){
@@ -7689,7 +7714,9 @@ function initPkmRoulette(){
             ib.textContent='Info';ib.addEventListener('click',()=>openHofPopup(winner,wmon));spinCard.appendChild(ib);
             if(winner.id)sessionClaimed.add(winner.id);
             grid.querySelectorAll('[data-pkm-id]').forEach(t3=>t3.style.boxShadow='');
-            const wt=grid.querySelector('[data-pkm-id="'+winner.id+'"]');
+            // Match by nickname+owner (unique), fallback to species id
+            const _winKey=(winner.nickname&&winner.owner_name)?winner.nickname+'|'+winner.owner_name:(winner.id||'');
+            const wt=grid.querySelector('[data-pkm-id="'+_winKey+'"]');
             if(wt){wt.style.boxShadow='0 0 18px #4db6ac88';wt.scrollIntoView({behavior:'smooth',block:'nearest'});}
             rolling=false;if(btnA){btnA.disabled=false;btnA.textContent=lbl||'Roll';}if(btnB)btnB.disabled=false;
             // ── teamreroll hook: set winner into pending party slot ──────────
@@ -7836,7 +7863,9 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
     const mon=ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
     const tile=document.createElement('div');
     tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:'+(isLocked?'7px 5px':'10px 8px')+';border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba('+(isLocked?'255,255,255,.04':'77,182,172,.14')+');transition:all .2s;cursor:'+(isLocked?'default':'pointer')+';';
-    if(p.id) tile.dataset.pkmId=p.id;
+    // Use nickname+owner as unique key to distinguish same-species Pokemon
+    const _tileKey=(p.nickname&&p.owner_name)?p.nickname+'|'+p.owner_name:(p.id||'');
+    if(_tileKey) tile.dataset.pkmId=_tileKey;
     if(!isLocked){tile.addEventListener('mouseenter',()=>{tile.style.borderColor='#4db6ac';tile.style.background='rgba(77,182,172,.09)';tile.style.transform='translateY(-2px)';});tile.addEventListener('mouseleave',()=>{tile.style.borderColor='rgba(77,182,172,.14)';tile.style.background='rgba(255,255,255,.03)';tile.style.transform='';});}
     const imgSz=isLocked?36:52;
     const img=document.createElement('img');img.style.cssText='width:'+imgSz+'px;height:'+imgSz+'px;image-rendering:pixelated;'+(isLocked?'filter:brightness(0);opacity:.55;':'');
@@ -8031,7 +8060,9 @@ function initPkmHofBrowser(){
     const mon=window.MON_MAP?.get(p.species?.toLowerCase())||ALL_MON.find(m=>m.name.toLowerCase()===p.species?.toLowerCase());
     const tile=document.createElement('div');
     tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;padding:'+(isLocked?'7px 5px':'10px 8px')+';border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba('+(isLocked?'255,255,255,.04':'240,198,0,.18')+');transition:all .2s;cursor:'+(isLocked?'default':'pointer')+';';
-    if(p.id) tile.dataset.pkmId=p.id;
+    // Use nickname+owner as unique key to distinguish same-species Pokemon
+    const _tileKey=(p.nickname&&p.owner_name)?p.nickname+'|'+p.owner_name:(p.id||'');
+    if(_tileKey) tile.dataset.pkmId=_tileKey;
     if(!isLocked){tile.addEventListener('mouseenter',()=>{tile.style.borderColor='#f0c600';tile.style.background='rgba(240,198,0,.08)';tile.style.transform='translateY(-2px)';});tile.addEventListener('mouseleave',()=>{tile.style.borderColor='rgba(240,198,0,.18)';tile.style.background='rgba(255,255,255,.03)';tile.style.transform='';});}
     const img=document.createElement('img');img.style.cssText='width:'+(isLocked?36:52)+'px;height:'+(isLocked?36:52)+'px;image-rendering:pixelated;'+(isLocked?'filter:brightness(0);opacity:.55;':'');
     pkmSpriteWithFallback(img,p,p.shiny&&!isLocked);
