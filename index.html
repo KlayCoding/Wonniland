@@ -7584,6 +7584,12 @@ function initPkmRoulette(){
     if(partyGrid)renderPartyTiles();
   };
 
+  // Expose for Twitch !reload — forces fresh fetch bypassing cache
+  window.reloadRouletteData=()=>{
+    hofData=null;
+    loadData();
+  };
+
   window._wonniSetPartySlot=(slotIdx, raw)=>{
     if(raw==='__CLEAR__'){partySlots[slotIdx]=null;if(partyGrid)renderPartyTiles();return true;}
     // Parse 'nickname, owner' format — comma splits nick from owner
@@ -7639,7 +7645,7 @@ function initPkmRoulette(){
 
   async function loadData(){
     grid.innerHTML='<div style="padding:20px;text-align:center;color:var(--gray);">Loading…</div>';
-    try{const r=await fetch('pkm_hof.json');if(!r.ok)throw new Error(`HTTP ${r.status} ${r.statusText}`);hofData=await r.json();renderAll();}
+    try{const r=await fetch('pkm_hof.json?_='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error(`HTTP ${r.status} ${r.statusText}`);hofData=await r.json();renderAll();}
     catch(e){grid.innerHTML=`<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json: ${e.message}</div>`;}
   }
 
@@ -8011,7 +8017,7 @@ function initPkmHofBrowser(){
 
   async function loadData(){
     grid.innerHTML='<div style="padding:20px;text-align:center;color:var(--gray);">Loading\u2026</div>';
-    try{const r=await fetch('pkm_hof.json');if(!r.ok)throw new Error('HTTP '+r.status);hofData=await r.json();renderAll();}
+    try{const r=await fetch('pkm_hof.json?_='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);hofData=await r.json();renderAll();}
     catch(e){grid.innerHTML='<div style="padding:20px;color:#e57373;font-size:12px;">Failed to load pkm_hof.json: '+e.message+'</div>';}
   }
 
