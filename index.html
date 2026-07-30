@@ -1432,6 +1432,49 @@ function updPokemonCard(){
   });
   const sprCol=document.createElement('div');sprCol.style.cssText='display:flex;flex-direction:column;align-items:center;flex-shrink:0;';
   sprCol.append(spr,shinyToggleBtn);
+  // Gender toggle — reads gender_ratio off the Pokémon's full data. Hidden for
+  // Genderless species; locked (shown but non-interactive) for species that
+  // are always one gender; otherwise a real Male/Female toggle.
+  {
+    const gr=mon._full?.gender_ratio||'';
+    let genderMode=null; // null=hidden, 'fixed', 'toggle'
+    let fixedGender=null;
+    if(gr && gr!=='Genderless'){
+      if(gr==='100% Male'){genderMode='fixed';fixedGender='Male';}
+      else if(gr==='100% Female'){genderMode='fixed';fixedGender='Female';}
+      else{
+        const fMatch=gr.match(/([\d.]+)%\s*Female/);
+        const fPct=fMatch?parseFloat(fMatch[1]):null;
+        if(fPct===0){genderMode='fixed';fixedGender='Male';}
+        else if(fPct===100){genderMode='fixed';fixedGender='Female';}
+        else genderMode='toggle';
+      }
+    }
+    if(genderMode){
+      const genderKey='pkmGender';
+      const storedGender=currentMode==='trainer'?slot[genderKey]:ans[genderKey];
+      const curGender=genderMode==='fixed'?fixedGender:(storedGender||'Male');
+      // Persist the resolved gender so the copy/export step can read it even
+      // for fixed-gender species (which the user never explicitly toggles).
+      if(currentMode==='trainer'){ if(slot[genderKey]!==curGender) slot[genderKey]=curGender; }
+      else{ if(ans[genderKey]!==curGender) ans[genderKey]=curGender; }
+      const isMale=curGender==='Male';
+      const genderBtn=document.createElement('button');genderBtn.type='button';
+      genderBtn.style.cssText=`margin-top:4px;font-size:8px;padding:2px 7px;border-radius:10px;border:1px solid ${isMale?'#64b5f6':'#f48fb1'};background:${isMale?'rgba(100,181,246,.15)':'rgba(244,143,177,.15)'};color:${isMale?'#64b5f6':'#f48fb1'};font-weight:700;white-space:nowrap;align-self:center;${genderMode==='toggle'?'cursor:pointer;':'cursor:default;opacity:.85;'}`;
+      genderBtn.textContent=(isMale?'\u2642 Male':'\u2640 Female');
+      genderBtn.title=genderMode==='toggle'?'Toggle Gender':'Fixed by species';
+      if(genderMode==='toggle'){
+        genderBtn.addEventListener('click',(e)=>{
+          e.stopPropagation();
+          const newGender=isMale?'Female':'Male';
+          if(currentMode==='trainer'){ slot[genderKey]=newGender; }
+          else{ ans[genderKey]=newGender; }
+          updPokemonCard();
+        });
+      }
+      sprCol.appendChild(genderBtn);
+    }
+  }
   const dexN=document.createElement('div');dexN.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#333;position:absolute;top:10px;right:12px;';
   if(mon.id)dexN.textContent='#'+String(mon.id).padStart(4,'0');
   hdr.append(sprCol,ident,dexN);card.appendChild(hdr);
@@ -4508,6 +4551,7 @@ function renderResult(){
   const otNameExp=ans[0]?.value||'—';
   const speciesExp=monP?.name||ans[1]?.value||'—';
   const gameIdExp=monP?.id?('#'+String(monP.id).padStart(4,'0')):'#????';
+  const genderExp=ans.pkmGender?` (${ans.pkmGender})`:'';
   const shinyExp=ans[3]?.value||'No';
   const natureExp=(ans[4]?.value||'—').split(' (')[0];
   const abilityExp=(ans[5]?.value||'—').replace(/\s*\(Hidden\)\s*$/i,'');
@@ -4530,7 +4574,7 @@ function renderResult(){
   const lines=[];
   lines.push(`OT Gender: ${otGenderExp}`);
   lines.push(`OT Name: ${otNameExp}`);
-  lines.push(`Pokémon: ${speciesExp} (${gameIdExp})`);
+  lines.push(`Pokémon: ${speciesExp}${genderExp} (${gameIdExp})`);
   lines.push(`Level : 20`);
   lines.push(`Shiny: ${shinyExp}`);
   lines.push(`Nature: ${natureExp}`);
@@ -6788,8 +6832,9 @@ function renderTrainerResult(){
     const gmaxYes=/GMax Factor:\s*Yes/i.test(gmaxRaw)?'Yes':'No';
     const tera=slot[14]?.value||'—';
     const moves=slot[15]?.moves||[];
+    const genderAbbr=slot.pkmGender==='Male'?' (M)':slot.pkmGender==='Female'?' (F)':'';
 
-    ls.push(nickname!==species?`${nickname} (${species}) @ ${item}`:`${species} @ ${item}`);
+    ls.push(nickname!==species?`${nickname} (${species})${genderAbbr} @ ${item}`:`${species}${genderAbbr} @ ${item}`);
     ls.push(`Ability: ${ability}`);
     ls.push(`IVs: ${ivLine}`);
     ls.push(`EVs: ${evLine}`);
