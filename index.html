@@ -261,7 +261,7 @@
     /* Result */
     .res-card{background:var(--card);border:1px solid var(--green);border-radius:16px;padding:32px 36px;width:100%;max-width:min(1100px,calc(100vw - 64px));box-shadow:0 8px 40px rgba(76,175,80,.15);animation:fadeUp .4s ease both;}
     .res-title{font-family:'Press Start 2P',monospace;font-size:12px;color:var(--green);margin-bottom:18px;text-align:center;}
-    .res-box{background:var(--dark);border:1px solid var(--border);border-radius:10px;padding:18px;white-space:pre-wrap;font-size:14px;line-height:1.9;font-family:'Inter',sans-serif;}
+    .res-box{background:var(--dark);border:1px solid var(--border);border-radius:10px;padding:18px;white-space:pre-wrap;font-size:14px;line-height:1.9;font-family:'Inter',sans-serif;max-height:40vh;overflow-y:auto;}
     .copy-btn{margin-top:14px;width:100%;padding:12px;background:var(--green);color:#fff;border:none;border-radius:10px;font-family:'Press Start 2P',monospace;font-size:10px;cursor:pointer;letter-spacing:1px;transition:background .2s;}
     .copy-btn:hover{background:#388e3c;} .copy-btn.copied{background:#1565C0;}
     /* ── Unified navigation bar at bottom of each question ── */
@@ -4557,7 +4557,52 @@ function renderResult(){
   const leftCol=document.getElementById('left-cards-col');
   if(leftCol) leftCol.style.width='300px';
 
-  const lines=QLBLS.map((l,i)=>`${l}: ${(ans[i]&&ans[i].value)||'—'}`);
+  const monP=ans[1]?.mon;
+  const otGenderExp=ans[0]?.otGender==='Female'?'Female':'Male';
+  const otNameExp=ans[0]?.value||'—';
+  const speciesExp=monP?.name||ans[1]?.value||'—';
+  const gameIdExp=monP?.id?('#'+String(monP.id).padStart(4,'0')):'#????';
+  const shinyExp=ans[3]?.value||'No';
+  const natureExp=(ans[4]?.value||'—').split(' (')[0];
+  const abilityExp=(ans[5]?.value||'—').replace(/\s*\(Hidden\)\s*$/i,'');
+  const teraExp=ans[6]?.value||'—';
+  const gmaxRawExp=ans[7]?.value||'';
+  const dmaxLvlExp=(gmaxRawExp.match(/Dynamax Level:\s*(\d+)/i)||[])[1]||'0';
+  const gmaxFactorExp=/GMax Factor:\s*Yes/i.test(gmaxRawExp)?'Yes':'No';
+  const ivObjExp=ans[8]?.ivs||{};
+  const evObjExp=ans[8]?.evs||{};
+  // NOTE: order here is HP/Atk/Def/Spd/SpA/SpD — Speed sits in the 4th slot,
+  // not last, per the user's exact spec. Do not reorder to the usual .../SpA/SpD/Spe.
+  const ivLineExp=`${ivObjExp.hp??31} HP / ${ivObjExp.atk??31} Atk / ${ivObjExp.def??31} Def / ${ivObjExp.spe??31} Spd / ${ivObjExp.spa??31} SpA / ${ivObjExp.spd??31} SpD`;
+  const evLineExp=`${evObjExp.hp??0} HP / ${evObjExp.atk??0} Atk / ${evObjExp.def??0} Def / ${evObjExp.spe??0} Spd / ${evObjExp.spa??0} SpA / ${evObjExp.spd??0} SpD`;
+  const movesExp=ans[9]?.moves||[];
+  const itemExp=ans[10]?.value||'—'; // already "Name (#ID)"
+  const nicknameExp=ans[2]?.value||'—';
+  const evoRawExp=ans[11]?.value||'';
+  const evoExp=evoRawExp==='Yes'?'Allowed':evoRawExp==='No'?'Not Allowed':'—';
+
+  const lines=[];
+  lines.push(`OT Gender: ${otGenderExp}`);
+  lines.push(`OT Name: ${otNameExp}`);
+  lines.push(`Pokémon: ${speciesExp} (${gameIdExp})`);
+  lines.push(`Level : 20`);
+  lines.push(`Shiny: ${shinyExp}`);
+  lines.push(`Nature: ${natureExp}`);
+  lines.push(`Ability: ${abilityExp}`);
+  lines.push(`Tera Type: ${teraExp}`);
+  lines.push(`Dmax Lvl: ${dmaxLvlExp}`);
+  lines.push(`GMax Factor: ${gmaxFactorExp}`);
+  lines.push(`IVs: ${ivLineExp}`);
+  lines.push(`EVs: ${evLineExp}`);
+  lines.push(`Moves: `);
+  movesExp.forEach(mv=>{
+    const mvD=findMoveByName(mv);
+    const idStr=mvD?.id?` (#${String(mvD.id).padStart(4,'0')})`:'';
+    lines.push(`- ${mv}${idStr}`);
+  });
+  lines.push(`Held Item: ${itemExp}`);
+  lines.push(`Nickname: ${nicknameExp}`);
+  lines.push(`Evolution: ${evoExp}`);
   const out=lines.join('\n');
 
   // ── Result popup overlay ──────────────────────────────────────────────────
@@ -6736,8 +6781,7 @@ function renderTrainerResult(){
     ls.push(`Gigantamax: ${gmaxYes}`);
     ls.push(`Tera Type: ${tera}`);
     ls.push('Moves:');
-    ls.push('');
-    moves.forEach(mv=>ls.push(`* ${mv}`));
+    moves.forEach(mv=>ls.push(`- ${mv}`));
     if(idx<filledSlotsExp.length-1) ls.push('');
   });
   const out=ls.join('\n');
