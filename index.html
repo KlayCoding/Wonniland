@@ -9095,26 +9095,40 @@ function initTrainerHofBrowser(){
 
   function mkTrainerGroup(group){
     const t0=group[0];
-    const isLocked0=t0.unlocked===false;
     const card=document.createElement('div');card.style.cssText='border-bottom:1px solid rgba(255,255,255,.05);';
     const hdr=document.createElement('div');hdr.style.cssText='display:flex;align-items:center;gap:14px;padding:12px 14px;cursor:pointer;';
     hdr.addEventListener('click',()=>{body.style.display=body.style.display==='none'?'block':'none';});
     // Trainer sprite — black silhouette when locked
-    const spr=document.createElement('img');spr.style.cssText=`width:56px;height:56px;image-rendering:pixelated;flex-shrink:0;${isLocked0?'filter:brightness(0);':''}`;spr.src=spriteUrl(t0.sprite);spr.onerror=()=>spr.style.visibility='hidden';
+    const spr=document.createElement('img');spr.style.cssText='width:56px;height:56px;image-rendering:pixelated;flex-shrink:0;';spr.onerror=()=>spr.style.visibility='hidden';
     // Info block: Name (Class) / Format / Map / Chapter
     const info=document.createElement('div');info.style.cssText='flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;';
     const nameRow=document.createElement('div');nameRow.style.cssText='display:flex;align-items:baseline;gap:6px;';
-    const nm=document.createElement('span');nm.style.cssText='font-size:16px;font-weight:900;line-height:1.2;';nm.textContent=isLocked0?'???':t0.name;
-    const cls=document.createElement('span');cls.style.cssText='font-size:11px;color:#555;';cls.textContent=isLocked0?(t0.class?'(???)':''):(t0.class?'('+t0.class+')':'');
+    const nm=document.createElement('span');nm.style.cssText='font-size:16px;font-weight:900;line-height:1.2;';
+    const cls=document.createElement('span');cls.style.cssText='font-size:11px;color:#555;';
     nameRow.append(nm,cls);
-    const fmtRow=document.createElement('div');fmtRow.style.cssText='font-size:11px;color:#8892a4;line-height:1.4;margin-top:1px;';fmtRow.textContent=isLocked0?'???':(t0.battle_format||'Singles');
-    const mapRow=document.createElement('div');mapRow.style.cssText='font-size:11px;color:#8892a4;line-height:1.4;';mapRow.textContent=mapToName(t0.map);
+    const fmtRow=document.createElement('div');fmtRow.style.cssText='font-size:11px;color:#8892a4;line-height:1.4;margin-top:1px;';
+    const mapRow=document.createElement('div');mapRow.style.cssText='font-size:11px;color:#8892a4;line-height:1.4;';
     const chRow=document.createElement('div');chRow.style.cssText='line-height:1.4;margin-top:2px;';
-    if(t0.chapter){chRow.style.cssText+='font-family:"Press Start 2P",monospace;font-size:7px;color:#9575cd;';chRow.textContent='Chapter '+t0.chapter;}
     info.append(nameRow,fmtRow,mapRow,chRow);
-    // Category badge — censored when locked
-    const catCol=isLocked0?'#555':(CAT_COLS[t0.category]||'#888');
-    const catBadge=document.createElement('div');catBadge.style.cssText=`font-size:9px;padding:2px 8px;border-radius:4px;background:${catCol}18;color:${catCol};border:1px solid ${catCol}33;flex-shrink:0;align-self:flex-start;`;catBadge.textContent=isLocked0?(t0.category?'???':''):(t0.category||'');
+    const catBadge=document.createElement('div');catBadge.style.cssText='font-size:9px;padding:2px 8px;border-radius:4px;flex-shrink:0;align-self:flex-start;';
+    // Header reflects whichever match/tab is currently active — Map/Chapter
+    // never censored, everything else follows THAT entry's own unlocked flag
+    // (a trainer can have some matches unlocked and others not, so the shared
+    // header can't just use group[0] once and ignore which tab is selected)
+    const updHeaderFor=(t)=>{
+      const isLocked=t.unlocked===false;
+      spr.src=spriteUrl(t.sprite);spr.style.filter=isLocked?'brightness(0)':'';
+      nm.textContent=isLocked?'???':t.name;
+      cls.textContent=isLocked?(t.class?'(???)':''):(t.class?'('+t.class+')':'');
+      fmtRow.textContent=isLocked?'???':(t.battle_format||'Singles');
+      mapRow.textContent=mapToName(t.map);
+      chRow.style.cssText='line-height:1.4;margin-top:2px;'+(t.chapter?'font-family:"Press Start 2P",monospace;font-size:7px;color:#9575cd;':'');
+      chRow.textContent=t.chapter?'Chapter '+t.chapter:'';
+      const catCol=isLocked?'#555':(CAT_COLS[t.category]||'#888');
+      catBadge.style.cssText=`font-size:9px;padding:2px 8px;border-radius:4px;background:${catCol}18;color:${catCol};border:1px solid ${catCol}33;flex-shrink:0;align-self:flex-start;`;
+      catBadge.textContent=isLocked?(t.category?'???':''):(t.category||'');
+    };
+    updHeaderFor(t0);
     // Collapse toggle
     const toggle=document.createElement('div');toggle.style.cssText='font-size:10px;color:#333;flex-shrink:0;';toggle.textContent=group.length>1?'▼ '+group.length+' teams':'▼';
     hdr.append(spr,info,catBadge,toggle);card.appendChild(hdr);
@@ -9133,7 +9147,7 @@ function initTrainerHofBrowser(){
         tb2.textContent=t.match_count?'Match '+t.match_count:(suffix||'#'+(i+1));
         const pane=document.createElement('div');pane.style.display=i===0?'block':'none';
         pane.appendChild(mkTeamDisplay(t));
-        tb2.addEventListener('click',()=>{teamPanes.forEach((p2,j)=>{p2.style.display=j===i?'block':'none';});tabBar.querySelectorAll('button').forEach((b2,j)=>{b2.style.borderColor=j===i?'rgba(149,117,205,.5)':'rgba(255,255,255,.1)';b2.style.color=j===i?'var(--pl)':'var(--gray)';b2.style.background=j===i?'rgba(149,117,205,.12)':'rgba(255,255,255,.03)';});});
+        tb2.addEventListener('click',()=>{updHeaderFor(t);teamPanes.forEach((p2,j)=>{p2.style.display=j===i?'block':'none';});tabBar.querySelectorAll('button').forEach((b2,j)=>{b2.style.borderColor=j===i?'rgba(149,117,205,.5)':'rgba(255,255,255,.1)';b2.style.color=j===i?'var(--pl)':'var(--gray)';b2.style.background=j===i?'rgba(149,117,205,.12)':'rgba(255,255,255,.03)';});});
         tabBar.appendChild(tb2);teamPanes.push(pane);
       });
       body.appendChild(tabBar);teamPanes.forEach(p2=>body.appendChild(p2));
