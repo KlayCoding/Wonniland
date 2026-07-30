@@ -1092,6 +1092,77 @@ function buildTypeCoveragePopup(selMon, movesAns){
   document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'){overlay.remove();document.removeEventListener('keydown',esc);}});
 }
 
+// Team-wide Type Coverage — aggregates offensive move-type coverage and
+// defensive weak/resist counts across every Pokémon on the team, using the
+// actual Gen9 type icon images (not colored dots/text) for each type.
+function buildTeamTypeCoveragePopup(){
+  const members=[];
+  (team||[]).forEach(slot=>{
+    if(!slot||!slot.mon) return;
+    members.push({mon:slot.mon, moves:slot[15]?.moves||[], nick:slot.nick||slot.mon.name});
+  });
+  if(!members.length){showToast('No Pokémon in your team yet!',true);return;}
+
+  const TID={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
+  const TC=TYPE_CHART;
+  const typeIcon=(t,size)=>{const img=document.createElement('img');img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${TID[t]||1}.png`;img.style.cssText=`height:${size}px;image-rendering:pixelated;`;img.onerror=()=>img.style.display='none';return img;};
+
+  const overlay=document.createElement('div');overlay.style.cssText='position:fixed;inset:0;z-index:1450;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;';
+  const closeAll=()=>{overlay.remove();document.removeEventListener('keydown',onEsc);};
+  const onEsc=e=>{if(e.key==='Escape')closeAll();};
+  document.addEventListener('keydown',onEsc);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeAll();});
+  const box=document.createElement('div');box.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:14px;width:100%;max-width:560px;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.6);';
+  const hdr=document.createElement('div');hdr.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);background:rgba(149,117,205,.06);flex-shrink:0;';
+  const htitle=document.createElement('div');htitle.style.cssText='font-family:"Press Start 2P",monospace;font-size:10px;color:var(--pl);';htitle.textContent='TEAM TYPE COVERAGE';
+  const hcl=document.createElement('button');hcl.type='button';hcl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';hcl.textContent='✕';hcl.addEventListener('click',closeAll);
+  hdr.append(htitle,hcl);box.appendChild(hdr);
+  const body=document.createElement('div');body.style.cssText='overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:16px;';
+
+  // ── Offensive: best multiplier the team's combined moves land on each defending type ──
+  const teamMoveTypes=new Set();
+  members.forEach(m=>m.moves.forEach(mvName=>{const mv=findMoveByName(mvName);if(mv&&mv.cat!=='Status')teamMoveTypes.add(mv.type);}));
+  const offHdr=document.createElement('div');offHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:var(--pl);margin-bottom:8px;';offHdr.textContent='⚔️ TEAM OFFENSIVE COVERAGE';body.appendChild(offHdr);
+  if(!teamMoveTypes.size){const empty=document.createElement('div');empty.style.cssText='font-size:11px;color:var(--gray);';empty.textContent='No damaging moves selected on your team yet.';body.appendChild(empty);}
+  else{
+    const offGrid=document.createElement('div');offGrid.style.cssText='display:grid;grid-template-columns:repeat(3,1fr);gap:6px;';
+    ALL_TYPES.forEach(defType=>{
+      let maxMult=0;
+      teamMoveTypes.forEach(atkType=>{const mult=(TC[atkType]&&TC[atkType][defType])||1;if(mult>maxMult)maxMult=mult;});
+      const multCol=maxMult>=2?'#4caf50':maxMult===1?'var(--white)':maxMult===0.5?'#f0c600':'#e57373';
+      const cell=document.createElement('div');cell.style.cssText=`display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,${maxMult>=2?'.06':'.02'});border:1px solid rgba(255,255,255,${maxMult>=2?'.12':'.06'});`;
+      cell.appendChild(typeIcon(defType,14));
+      const mult=document.createElement('span');mult.style.cssText=`font-size:10px;font-weight:800;color:${multCol};margin-left:auto;`;mult.textContent=maxMult===0?'0×':maxMult===0.5?'½×':maxMult===2?'2×':maxMult===4?'4×':'1×';
+      cell.appendChild(mult);offGrid.appendChild(cell);
+    });
+    body.appendChild(offGrid);
+  }
+
+  // ── Defensive: how many team members are weak / resist each attacking type ──
+  const defHdr=document.createElement('div');defHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#e8622a;margin-bottom:8px;';defHdr.textContent='🛡️ TEAM DEFENSIVE MATCHUPS';body.appendChild(defHdr);
+  const defGrid=document.createElement('div');defGrid.style.cssText='display:flex;flex-direction:column;gap:5px;';
+  ALL_TYPES.forEach(atkType=>{
+    const weakMons=[],resistMons=[],immuneMons=[];
+    members.forEach(m=>{
+      const t1=m.mon.t1,t2=m.mon.t2;
+      const mult=((TC[atkType]&&TC[atkType][t1])||1)*(t2?((TC[atkType]&&TC[atkType][t2])||1):1);
+      if(mult===0)immuneMons.push(m.nick);
+      else if(mult>=2)weakMons.push(m.nick);
+      else if(mult<1)resistMons.push(m.nick);
+    });
+    if(!weakMons.length&&!resistMons.length&&!immuneMons.length)return;
+    const row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);flex-wrap:wrap;';
+    row.appendChild(typeIcon(atkType,14));
+    if(weakMons.length){const w=document.createElement('span');w.style.cssText='font-size:9px;color:#e57373;';w.textContent=`⚠ ${weakMons.length} weak (${weakMons.join(', ')})`;row.appendChild(w);}
+    if(resistMons.length){const r=document.createElement('span');r.style.cssText='font-size:9px;color:#4caf50;';r.textContent=`🛡 ${resistMons.length} resist (${resistMons.join(', ')})`;row.appendChild(r);}
+    if(immuneMons.length){const im=document.createElement('span');im.style.cssText='font-size:9px;color:#64b5f6;';im.textContent=`⊘ ${immuneMons.length} immune (${immuneMons.join(', ')})`;row.appendChild(im);}
+    defGrid.appendChild(row);
+  });
+  body.appendChild(defGrid);
+
+  box.appendChild(body);overlay.appendChild(box);document.body.appendChild(overlay);
+}
+
 function updTrainerCard(){
   const panel=document.getElementById('trainer-card-panel');
   const leftCol=document.getElementById('left-cards-col');
@@ -5188,14 +5259,7 @@ function buildTeamKachel(i){
   if(abilityRow)tile.appendChild(abilityRow);
   if(itemRow)tile.appendChild(itemRow);
   if(movesGrid)tile.appendChild(movesGrid);
-  const btnRow=document.createElement('div');btnRow.style.cssText='display:flex;gap:4px;margin-top:2px;';
-  const covBtn=document.createElement('button');covBtn.type='button';
-  covBtn.style.cssText='font-size:7px;padding:2px 6px;border-radius:4px;border:1px solid rgba(77,182,172,.3);background:rgba(77,182,172,.08);color:#4db6ac;cursor:pointer;flex:1;';
-  covBtn.textContent='\uD83D\uDCCA Coverage';
-  covBtn.addEventListener('click',(e)=>{e.stopPropagation();buildTypeCoveragePopup(mon,slotMoves);});
-  editBtn.style.flex='1';
-  btnRow.append(covBtn,editBtn);
-  tile.appendChild(btnRow);
+  tile.appendChild(editBtn);
   return tile;
 }
 
@@ -6605,8 +6669,14 @@ function renderTrainerResult(){
   // item, GMax badge, moves, Info button)
   if(typeof team!=='undefined'&&team.length){
     const teamSect=document.createElement('div');teamSect.style.cssText='padding:0 12px 12px;';
-    const teamHdr=document.createElement('div');teamHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin-bottom:8px;';teamHdr.textContent='TEAM';
-    teamSect.appendChild(teamHdr);
+    const teamHdrRow=document.createElement('div');teamHdrRow.style.cssText='display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;';
+    const teamHdr=document.createElement('div');teamHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;';teamHdr.textContent='TEAM';
+    const covBtn=document.createElement('button');covBtn.type='button';
+    covBtn.style.cssText='font-size:9px;padding:4px 10px;border-radius:6px;border:1px solid rgba(77,182,172,.35);background:rgba(77,182,172,.1);color:#4db6ac;cursor:pointer;font-weight:700;';
+    covBtn.textContent='\uD83D\uDCCA Type Coverage';
+    covBtn.addEventListener('click',()=>buildTeamTypeCoveragePopup());
+    teamHdrRow.append(teamHdr,covBtn);
+    teamSect.appendChild(teamHdrRow);
     const teamGrid=document.createElement('div');teamGrid.style.cssText='display:flex;flex-wrap:wrap;gap:8px;justify-content:center;';
     for(let i=0;i<MAX_TEAM;i++) teamGrid.appendChild(buildTeamKachel(i));
     teamSect.appendChild(teamGrid);
