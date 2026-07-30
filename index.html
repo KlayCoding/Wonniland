@@ -1055,7 +1055,7 @@ function buildTypeCoveragePopup(selMon, movesAns){
     const offGrid=document.createElement('div');offGrid.style.cssText='display:grid;grid-template-columns:repeat(3,1fr);gap:5px;';
     ALL_TYPES.forEach(defType=>{
       let maxMult=0;
-      moveTypes.forEach(atkType=>{const mult=(TC[atkType]&&TC[atkType][defType])||1;if(mult>maxMult)maxMult=mult;});
+      moveTypes.forEach(atkType=>{const mult=TC[atkType]?.[defType]??1;if(mult>maxMult)maxMult=mult;});
       const col=TYPE_COL3[defType]||'#888';
       const multCol=maxMult>=2?'#4caf50':maxMult===1?'var(--white)':maxMult===0.5?'#f0c600':'#e57373';
       const cell=document.createElement('div');cell.style.cssText=`display:flex;align-items:center;gap:5px;padding:5px 7px;border-radius:6px;background:${col}${maxMult>=2?'22':'0a'};border:1px solid ${col}${maxMult>=2?'55':'1a'};`;
@@ -1072,8 +1072,8 @@ function buildTypeCoveragePopup(selMon, movesAns){
     const defGrid=document.createElement('div');defGrid.style.cssText='display:grid;grid-template-columns:repeat(3,1fr);gap:5px;';
     let hasNonNeutral=false;
     ALL_TYPES.forEach(atkType=>{
-      const m1=(TC[atkType]&&TC[atkType][defT1])||1;
-      const m2=defT2?((TC[atkType]&&TC[atkType][defT2])||1):1;
+      const m1=TC[atkType]?.[defT1]??1;
+      const m2=defT2?(TC[atkType]?.[defT2]??1):1;
       const total=m1*m2;
       if(total===1) return;
       hasNonNeutral=true;
@@ -1105,7 +1105,6 @@ function buildTeamTypeCoveragePopup(){
 
   const TID={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
   const TC=TYPE_CHART;
-  const TYPE_COL_T={Normal:'#9099a1',Fire:'#e8622a',Water:'#4f90d3',Electric:'#f0c600',Grass:'#4caf50',Ice:'#5fd8d8',Fighting:'#d1425a',Poison:'#a040a0',Ground:'#d68b23',Flying:'#7d8bca',Psychic:'#db3c6c',Bug:'#8da12e',Rock:'#b29a3c',Ghost:'#5d5e9d',Dragon:'#5b61cf',Dark:'#5c4c3e',Steel:'#8e9bb3',Fairy:'#d980a0'};
   const multLabel=(m)=>m===0?'immune':m===0.25?'¼×':m===0.5?'½×':m===2?'2×':m===4?'4×':null;
 
   const overlay=document.createElement('div');overlay.style.cssText='position:fixed;inset:0;z-index:1450;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;';
@@ -1125,16 +1124,25 @@ function buildTeamTypeCoveragePopup(){
   const defTab=mkTab('Defensive Coverage'), offTab=mkTab('Offensive Coverage');
   tabBar.append(defTab,offTab);box.appendChild(tabBar);
 
+  const subtitle=document.createElement('div');subtitle.style.cssText='padding:8px 18px 0;font-size:11px;color:var(--gray);flex-shrink:0;';
+  box.appendChild(subtitle);
+  const SUBTITLES={
+    def:'How well your Pokémon\u2019s own typing holds up when the opponent attacks — weaknesses and resistances.',
+    off:'How well your Pokémon\u2019s own moves can hit an opponent of each type — your attacking coverage.'
+  };
+
   const body=document.createElement('div');body.style.cssText='overflow:auto;padding:16px 18px;flex:1;';
   box.appendChild(body);
 
   const nameFor=(nm)=>nm.length>9?nm.slice(0,8)+'…':nm;
+  const typeIconImg=(t,h)=>{const img=document.createElement('img');img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${TID[t]||1}.png`;img.style.cssText=`height:${h}px;image-rendering:pixelated;`;img.onerror=()=>{img.style.display='none';};return img;};
 
   function renderTable(mode){
     defTab.style.background=mode==='def'?'rgba(149,117,205,.15)':'rgba(255,255,255,.03)';
     defTab.style.color=mode==='def'?'var(--pl)':'var(--gray)';
     offTab.style.background=mode==='off'?'rgba(149,117,205,.15)':'rgba(255,255,255,.03)';
     offTab.style.color=mode==='off'?'var(--pl)':'var(--gray)';
+    subtitle.textContent=SUBTITLES[mode];
     body.innerHTML='';
 
     const table=document.createElement('div');
@@ -1152,16 +1160,17 @@ function buildTeamTypeCoveragePopup(){
       const nm=document.createElement('span');nm.style.cssText='font-size:9px;color:var(--white);text-align:center;';nm.textContent=nameFor(m.nick);
       hc.append(img,nm);table.appendChild(hc);
     });
-    const totCol1=document.createElement('div');totCol1.style.cssText='background:#1a2035;padding:8px 4px;display:flex;align-items:center;justify-content:center;color:#e57373;font-weight:700;text-align:center;font-size:10px;';
+    const totCol1=document.createElement('div');totCol1.style.cssText=`background:#1a2035;padding:8px 4px;display:flex;align-items:center;justify-content:center;color:${mode==='def'?'#e57373':'#4db6ac'};font-weight:700;text-align:center;font-size:10px;`;
     totCol1.textContent=mode==='def'?'Total Weak':'Best ×';
-    const totCol2=document.createElement('div');totCol2.style.cssText='background:#1a2035;padding:8px 4px;display:flex;align-items:center;justify-content:center;color:#4caf50;font-weight:700;text-align:center;font-size:10px;';
+    const totCol2=document.createElement('div');totCol2.style.cssText=`background:#1a2035;padding:8px 4px;display:flex;align-items:center;justify-content:center;color:${mode==='def'?'#4caf50':'#4db6ac'};font-weight:700;text-align:center;font-size:10px;`;
     totCol2.textContent=mode==='def'?'Total Resist':'# 2×+';
     table.append(totCol1,totCol2);
 
     // Data rows
     ALL_TYPES.forEach((rowType,ri)=>{
       const rowBg=ri%2===0?'#1c2338':'#1a2035';
-      const lbl=document.createElement('div');lbl.style.cssText=`background:${TYPE_COL_T[rowType]};padding:6px 8px;display:flex;align-items:center;font-size:9px;font-weight:800;color:#fff;letter-spacing:.3px;`;lbl.textContent=rowType.toUpperCase();
+      const lbl=document.createElement('div');lbl.style.cssText=`background:${rowBg};padding:4px 6px;display:flex;align-items:center;justify-content:center;`;
+      lbl.appendChild(typeIconImg(rowType,16));
       table.appendChild(lbl);
 
       let weakCount=0, resistCount=0, bestMult=0, superCount=0;
@@ -1170,11 +1179,11 @@ function buildTeamTypeCoveragePopup(){
         let mult, label;
         if(mode==='def'){
           const t1=m.mon.t1,t2=m.mon.t2;
-          mult=((TC[rowType]&&TC[rowType][t1])||1)*(t2?((TC[rowType]&&TC[rowType][t2])||1):1);
+          mult=(TC[rowType]?.[t1]??1)*(t2?(TC[rowType]?.[t2]??1):1);
           if(mult>=2)weakCount++; else if(mult<1)resistCount++;
         } else {
           const moveTypes=m.moves.map(mvName=>{const mv=findMoveByName(mvName);return mv&&mv.cat!=='Status'?mv.type:null;}).filter(Boolean);
-          mult=0; moveTypes.forEach(t=>{const mm=(TC[t]&&TC[t][rowType])||1; if(mm>mult)mult=mm;});
+          mult=0; moveTypes.forEach(t=>{const mm=TC[t]?.[rowType]??1; if(mm>mult)mult=mm;});
           if(!moveTypes.length)mult=1; // no damaging moves yet — treat as unknown/neutral display
           if(mult>bestMult)bestMult=mult;
           if(mult>=2)superCount++;
@@ -1473,10 +1482,8 @@ function updPokemonCard(){
   const grpRow=document.createElement('div');grpRow.style.cssText='margin-top:3px;';
   if(grp)grpRow.appendChild(groupChip(grp,{fontSize:'6px',padding:'1px 5px'}));
   ident.append(dispName,sub,typesRow,grpRow);
-  const dexN=document.createElement('div');dexN.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#333;position:absolute;top:10px;right:12px;';
-  if(mon.id)dexN.textContent='#'+String(mon.id).padStart(4,'0');
   const shinyToggleBtn=document.createElement('button');shinyToggleBtn.type='button';
-  shinyToggleBtn.style.cssText=`position:absolute;top:26px;right:12px;font-size:9px;padding:3px 8px;border-radius:12px;border:1px solid ${isShiny?'#f0c600':'rgba(255,255,255,.15)'};background:${isShiny?'rgba(240,198,0,.15)':'rgba(255,255,255,.04)'};color:${isShiny?'#f0c600':'var(--gray)'};cursor:pointer;font-weight:700;white-space:nowrap;`;
+  shinyToggleBtn.style.cssText=`margin-top:4px;font-size:8px;padding:2px 7px;border-radius:10px;border:1px solid ${isShiny?'#f0c600':'rgba(255,255,255,.15)'};background:${isShiny?'rgba(240,198,0,.15)':'rgba(255,255,255,.04)'};color:${isShiny?'#f0c600':'var(--gray)'};cursor:pointer;font-weight:700;white-space:nowrap;align-self:center;`;
   shinyToggleBtn.textContent=isShiny?'\u2728 Shiny':'Shiny: No';
   shinyToggleBtn.title='Toggle Shiny';
   shinyToggleBtn.addEventListener('click',(e)=>{
@@ -1486,7 +1493,11 @@ function updPokemonCard(){
     else{ ans[3]={value:newVal}; }
     updPokemonCard();
   });
-  hdr.append(spr,ident,dexN,shinyToggleBtn);card.appendChild(hdr);
+  const sprCol=document.createElement('div');sprCol.style.cssText='display:flex;flex-direction:column;align-items:center;flex-shrink:0;';
+  sprCol.append(spr,shinyToggleBtn);
+  const dexN=document.createElement('div');dexN.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#333;position:absolute;top:10px;right:12px;';
+  if(mon.id)dexN.textContent='#'+String(mon.id).padStart(4,'0');
+  hdr.append(sprCol,ident,dexN);card.appendChild(hdr);
   // ── BST ─────────────────────────────────────────────────────────────────────
   if(bst){
     const bstCol=bst>=600?'#E3350D':bst>=500?'#ff9800':bst>=400?'#f0c600':'#4caf50';
@@ -5404,10 +5415,29 @@ function renderSlotReview(slotIdx, returnToSlot) {
   cardWrap.id='slot-review-card';
   overlay.appendChild(cardWrap);
 
+  // Continue with this Pokémon — resume filling out THIS slot's own
+  // remaining questions (distinct from "Back to Slot X" below, which returns
+  // to wherever the user came from)
+  const continueBtn=document.createElement('button');continueBtn.type='button';
+  continueBtn.className='rand-btn';
+  continueBtn.style.cssText='width:100%;max-width:400px;margin-top:12px;flex-shrink:0;';
+  continueBtn.textContent='▶ Continue with this Pokémon';
+  continueBtn.addEventListener('click',()=>{
+    overlay.remove();
+    viewingSlot=-1; currentSlot=slotIdx; trainerPhase='pokemon';
+    step=POKEMON_Q_START;
+    for(let s=POKEMON_Q_START;s<=POKEMON_Q_END;s++){
+      if(!team[slotIdx]||!team[slotIdx][s]){step=s;break;}
+      if(s===POKEMON_Q_END){step=s+1;}
+    }
+    renderTrainerQ();
+  });
+  overlay.appendChild(continueBtn);
+
   // Back to slot button at bottom
   const backBtn=document.createElement('button');backBtn.type='button';
   backBtn.className='rand-btn';
-  backBtn.style.cssText='width:100%;max-width:400px;margin-top:12px;flex-shrink:0;';
+  backBtn.style.cssText='width:100%;max-width:400px;margin-top:8px;flex-shrink:0;background:transparent;border:1px solid rgba(255,255,255,.15);';
   backBtn.textContent=`◀ Back to Slot ${returnToSlot+1}`;
   backBtn.addEventListener('click',()=>{
     overlay.remove();
