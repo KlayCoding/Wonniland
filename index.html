@@ -1128,7 +1128,7 @@ function buildTeamTypeCoveragePopup(){
   box.appendChild(subtitle);
   const SUBTITLES={
     def:'How well your Pokémon\u2019s own typing holds up when the opponent attacks — weaknesses and resistances.',
-    off:'Each row is a possible opponent type. Cells show the best multiplier that team member\u2019s own moves land against it.'
+    off:'How well your Pokémon\u2019s own type(s) hit an opponent of each type, using STAB — the mirror image of Defensive Coverage.'
   };
 
   const body=document.createElement('div');body.style.cssText='overflow:auto;padding:16px 18px;flex:1;';
@@ -1160,10 +1160,10 @@ function buildTeamTypeCoveragePopup(){
       const nm=document.createElement('span');nm.style.cssText='font-size:9px;color:var(--white);text-align:center;';nm.textContent=nameFor(m.nick);
       hc.append(img,nm);table.appendChild(hc);
     });
-    const totCol1=document.createElement('div');totCol1.style.cssText=`background:#1a2035;padding:8px 4px;display:flex;align-items:center;justify-content:center;color:${mode==='def'?'#e57373':'#4db6ac'};font-weight:700;text-align:center;font-size:10px;`;
-    totCol1.textContent=mode==='def'?'Total Weak':'Best ×';
-    const totCol2=document.createElement('div');totCol2.style.cssText=`background:#1a2035;padding:8px 4px;display:flex;align-items:center;justify-content:center;color:${mode==='def'?'#4caf50':'#4db6ac'};font-weight:700;text-align:center;font-size:10px;`;
-    totCol2.textContent=mode==='def'?'Total Resist':'# 2×+';
+    const totCol1=document.createElement('div');totCol1.style.cssText=`background:#1a2035;padding:8px 4px;display:flex;align-items:center;justify-content:center;color:${mode==='def'?'#e57373':'#4caf50'};font-weight:700;text-align:center;font-size:10px;`;
+    totCol1.textContent=mode==='def'?'Total Weak':'Total Effective';
+    const totCol2=document.createElement('div');totCol2.style.cssText=`background:#1a2035;padding:8px 4px;display:flex;align-items:center;justify-content:center;color:${mode==='def'?'#4caf50':'#e57373'};font-weight:700;text-align:center;font-size:10px;`;
+    totCol2.textContent=mode==='def'?'Total Resist':'Total Resisted';
     table.append(totCol1,totCol2);
 
     // Data rows
@@ -1173,20 +1173,20 @@ function buildTeamTypeCoveragePopup(){
       lbl.appendChild(typeIconImg(rowType,16));
       table.appendChild(lbl);
 
-      let weakCount=0, resistCount=0, bestMult=0, superCount=0;
+      let weakCount=0, resistCount=0, effCount=0, resistedCount=0;
       members.forEach(m=>{
         const cell=document.createElement('div');cell.style.cssText=`background:${rowBg};padding:6px 4px;display:flex;align-items:center;justify-content:center;`;
         let mult, label;
+        const t1=m.mon.t1,t2=m.mon.t2;
         if(mode==='def'){
-          const t1=m.mon.t1,t2=m.mon.t2;
           mult=(TC[rowType]?.[t1]??1)*(t2?(TC[rowType]?.[t2]??1):1);
           if(mult>=2)weakCount++; else if(mult<1)resistCount++;
         } else {
-          const moveTypes=m.moves.map(mvName=>{const mv=findMoveByName(mvName);return mv&&mv.cat!=='Status'?mv.type:null;}).filter(Boolean);
-          mult=0; moveTypes.forEach(t=>{const mm=TC[t]?.[rowType]??1; if(mm>mult)mult=mm;});
-          if(!moveTypes.length)mult=1; // no damaging moves yet — treat as unknown/neutral display
-          if(mult>bestMult)bestMult=mult;
-          if(mult>=2)superCount++;
+          // STAB-based: this member's OWN type(s) attacking an opponent of rowType
+          const m1=TC[t1]?.[rowType]??1;
+          const m2=t2?(TC[t2]?.[rowType]??1):null;
+          mult=m2!==null?Math.max(m1,m2):m1;
+          if(mult>=2)effCount++; else if(mult<1)resistedCount++;
         }
         label=multLabel(mult);
         if(label){
@@ -1206,8 +1206,8 @@ function buildTeamTypeCoveragePopup(){
         t1c.textContent=weakCount||''; t1c.style.color='#fff'; t1c.style.background=weakCount>=3?'#c0392b':weakCount===2?'#a24858':weakCount===1?'#7d4a63':rowBg;
         t2c.textContent=resistCount||''; t2c.style.color='#fff'; t2c.style.background=resistCount>=3?'#2e7d4f':resistCount===2?'#3d7a5f':resistCount===1?'#3d6e6a':rowBg;
       } else {
-        t1c.textContent=bestMult?multLabel(bestMult)||'1×':'—'; t1c.style.color=bestMult>=2?'#4caf50':'var(--gray)';
-        t2c.textContent=superCount||''; t2c.style.color='#fff'; t2c.style.background=superCount>=3?'#2e7d4f':superCount===2?'#3d7a5f':superCount===1?'#3d6e6a':rowBg;
+        t1c.textContent=effCount||''; t1c.style.color='#fff'; t1c.style.background=effCount>=3?'#2e7d4f':effCount===2?'#3d7a5f':effCount===1?'#3d6e6a':rowBg;
+        t2c.textContent=resistedCount||''; t2c.style.color='#fff'; t2c.style.background=resistedCount>=3?'#c0392b':resistedCount===2?'#a24858':resistedCount===1?'#7d4a63':rowBg;
       }
       table.append(t1c,t2c);
     });
