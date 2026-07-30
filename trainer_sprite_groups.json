@@ -5,1074 +5,1074 @@
       "key": "aqua_admin_f",
       "label": "Aqua Admin F",
       "group": "special",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "aqua_admin_m",
       "label": "Aqua Admin M",
       "group": "special",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "aqua_grunt_f",
       "label": "Aqua Grunt F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "aqua_grunt_m",
       "label": "Aqua Grunt M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "aqua_leader_archie",
       "label": "Aqua Leader Archie",
       "group": "special",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "arena_tycoon_greta",
       "label": "Arena Tycoon Greta",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "aroma_lady",
       "label": "Aroma Lady",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "aroma_lady_frlg",
-      "label": "Aroma Lady",
+      "label": "Aroma Lady (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "battle_girl",
       "label": "Battle Girl",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "beauty",
       "label": "Beauty",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "beauty_frlg",
-      "label": "Beauty",
+      "label": "Beauty (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "biker_frlg",
-      "label": "Biker",
+      "label": "Biker (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "bird_keeper",
       "label": "Bird Keeper",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "bird_keeper_frlg",
-      "label": "Bird Keeper",
+      "label": "Bird Keeper (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "black_belt",
       "label": "Black Belt",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "black_belt_frlg",
-      "label": "Black Belt",
+      "label": "Black Belt (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "brendan",
       "label": "Brendan",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "brendan_rs",
-      "label": "Brendan",
+      "label": "Brendan (RS)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "bug_catcher",
       "label": "Bug Catcher",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "bug_catcher_frlg",
-      "label": "Bug Catcher",
+      "label": "Bug Catcher (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "bug_maniac",
       "label": "Bug Maniac",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "burglar_frlg",
-      "label": "Burglar",
+      "label": "Burglar (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "camper",
       "label": "Camper",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "camper_frlg",
-      "label": "Camper",
+      "label": "Camper (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "champion_rival_frlg",
-      "label": "Champion Rival",
+      "label": "Champion Rival (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "champion_steven_frlg",
-      "label": "Champion Steven",
+      "label": "Champion Steven (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "champion_wallace",
       "label": "Champion Wallace",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "channeler_frlg",
-      "label": "Channeler",
+      "label": "Channeler (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "collector",
       "label": "Collector",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "collector_frlg",
-      "label": "Collector",
+      "label": "Collector (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cool_couple_frlg",
-      "label": "Cool Couple",
+      "label": "Cool Couple (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cool_trainer_f_frlg",
-      "label": "Cool Trainer F",
+      "label": "Cool Trainer F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cool_trainer_m_frlg",
-      "label": "Cool Trainer M",
+      "label": "Cool Trainer M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cooltrainer_f",
       "label": "Cooltrainer F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cooltrainer_m",
       "label": "Cooltrainer M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "crush_girl_frlg",
-      "label": "Crush Girl",
+      "label": "Crush Girl (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "crush_kin_frlg",
-      "label": "Crush Kin",
+      "label": "Crush Kin (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cue_ball_frlg",
-      "label": "Cue Ball",
+      "label": "Cue Ball (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cycling_triathlete_f",
       "label": "Cycling Triathlete F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cycling_triathlete_f_frlg",
-      "label": "Cycling Triathlete F",
+      "label": "Cycling Triathlete F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cycling_triathlete_m",
       "label": "Cycling Triathlete M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "cycling_triathlete_m_frlg",
-      "label": "Cycling Triathlete M",
+      "label": "Cycling Triathlete M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "dome_ace_tucker",
       "label": "Dome Ace Tucker",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "dragon_tamer",
       "label": "Dragon Tamer",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "dragon_tamer_frlg",
-      "label": "Dragon Tamer",
+      "label": "Dragon Tamer (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "elite_four_agatha_frlg",
-      "label": "Elite Four Agatha",
+      "label": "Elite Four Agatha (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "elite_four_bruno_frlg",
-      "label": "Elite Four Bruno",
+      "label": "Elite Four Bruno (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "elite_four_drake",
       "label": "Elite Four Drake",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "elite_four_glacia",
       "label": "Elite Four Glacia",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "elite_four_lance_frlg",
-      "label": "Elite Four Lance",
+      "label": "Elite Four Lance (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "elite_four_lorelei_frlg",
-      "label": "Elite Four Lorelei",
+      "label": "Elite Four Lorelei (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "elite_four_phoebe",
       "label": "Elite Four Phoebe",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "elite_four_sidney",
       "label": "Elite Four Sidney",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "engineer_frlg",
-      "label": "Engineer",
+      "label": "Engineer (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "expert_f",
       "label": "Expert F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "expert_f_frlg",
-      "label": "Expert F",
+      "label": "Expert F (FRLG)",
       "group": "basic"
     },
     {
       "key": "expert_m",
       "label": "Expert M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "expert_m_frlg",
-      "label": "Expert M",
+      "label": "Expert M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "factory_head_noland",
       "label": "Factory Head Noland",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "fisherman",
       "label": "Fisherman",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "fisherman_frlg",
-      "label": "Fisherman",
+      "label": "Fisherman (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "gamer_frlg",
-      "label": "Gamer",
+      "label": "Gamer (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "gentleman",
       "label": "Gentleman",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "gentleman_frlg",
-      "label": "Gentleman",
+      "label": "Gentleman (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "guitarist",
       "label": "Guitarist",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "guitarist_frlg",
-      "label": "Guitarist",
+      "label": "Guitarist (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "hex_maniac",
       "label": "Hex Maniac",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "hex_maniac_frlg",
-      "label": "Hex Maniac",
+      "label": "Hex Maniac (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "hiker",
       "label": "Hiker",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "hiker_frlg",
-      "label": "Hiker",
+      "label": "Hiker (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "interviewer",
       "label": "Interviewer",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "interviewer_frlg",
-      "label": "Interviewer",
+      "label": "Interviewer (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "juggler_frlg",
-      "label": "Juggler",
+      "label": "Juggler (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "kindler",
       "label": "Kindler",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "kindler_frlg",
-      "label": "Kindler",
+      "label": "Kindler (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "lady",
       "label": "Lady",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "lady_frlg",
-      "label": "Lady",
+      "label": "Lady (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "lass",
       "label": "Lass",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "lass_frlg",
-      "label": "Lass",
+      "label": "Lass (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_blaine_frlg",
-      "label": "Leader Blaine",
+      "label": "Leader Blaine (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_brawly",
       "label": "Leader Brawly",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_brock_frlg",
-      "label": "Leader Brock",
+      "label": "Leader Brock (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_erika_frlg",
-      "label": "Leader Erika",
+      "label": "Leader Erika (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_flannery",
       "label": "Leader Flannery",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_giovanni_frlg",
-      "label": "Leader Giovanni",
+      "label": "Leader Giovanni (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_juan",
       "label": "Leader Juan",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_koga_frlg",
-      "label": "Leader Koga",
+      "label": "Leader Koga (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_lt_surge_frlg",
-      "label": "Leader Lt Surge",
+      "label": "Leader Lt Surge (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_misty_frlg",
-      "label": "Leader Misty",
+      "label": "Leader Misty (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_norman",
       "label": "Leader Norman",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_roxanne",
       "label": "Leader Roxanne",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_sabrina_frlg",
-      "label": "Leader Sabrina",
+      "label": "Leader Sabrina (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_tate_and_liza",
       "label": "Leader Tate And Liza",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_wattson",
       "label": "Leader Wattson",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leader_winona",
       "label": "Leader Winona",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "leaf",
       "label": "Leaf",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "magma_admin",
       "label": "Magma Admin",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "magma_grunt_f",
       "label": "Magma Grunt F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "magma_grunt_m",
       "label": "Magma Grunt M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "magma_leader_maxie",
       "label": "Magma Leader Maxie",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "may",
       "label": "May",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "may_rs",
-      "label": "May",
+      "label": "May (RS)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "ninja_boy",
       "label": "Ninja Boy",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "old_couple",
       "label": "Old Couple",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "painter_frlg",
-      "label": "Painter",
+      "label": "Painter (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "palace_maven_spenser",
       "label": "Palace Maven Spenser",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "parasol_lady",
       "label": "Parasol Lady",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "parasol_lady_frlg",
-      "label": "Parasol Lady",
+      "label": "Parasol Lady (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "picnicker",
       "label": "Picnicker",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "picnicker_frlg",
-      "label": "Picnicker",
+      "label": "Picnicker (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pike_queen_lucy",
       "label": "Pike Queen Lucy",
       "group": "basic",
-      "locked" : true
+      "locked": true
     },
     {
       "key": "pokefan_f",
       "label": "Pokefan F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokefan_f_frlg",
-      "label": "Pokefan F",
+      "label": "Pokefan F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokefan_m",
       "label": "Pokefan M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokefan_m_frlg",
-      "label": "Pokefan M",
+      "label": "Pokefan M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokemaniac",
       "label": "Pokemaniac",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokemaniac_frlg",
-      "label": "Pokemaniac",
+      "label": "Pokemaniac (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokemon_breeder_f",
       "label": "Pokemon Breeder F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokemon_breeder_frlg",
-      "label": "Pokemon Breeder",
+      "label": "Pokemon Breeder (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokemon_breeder_m",
       "label": "Pokemon Breeder M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokemon_ranger_f",
       "label": "Pokemon Ranger F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokemon_ranger_f_frlg",
-      "label": "Pokemon Ranger F",
+      "label": "Pokemon Ranger F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokemon_ranger_m",
       "label": "Pokemon Ranger M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pokemon_ranger_m_frlg",
-      "label": "Pokemon Ranger M",
+      "label": "Pokemon Ranger M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "professor_oak_frlg",
-      "label": "Professor Oak",
+      "label": "Professor Oak (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "psychic_f",
       "label": "Psychic F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "psychic_f_frlg",
-      "label": "Psychic F",
+      "label": "Psychic F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "psychic_m",
       "label": "Psychic M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "psychic_m_frlg",
-      "label": "Psychic M",
+      "label": "Psychic M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "pyramid_king_brandon",
       "label": "Pyramid King Brandon",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "red",
       "label": "Red",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "rich_boy",
       "label": "Rich Boy",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "rich_boy_frlg",
-      "label": "Rich Boy",
+      "label": "Rich Boy (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "rival_early_frlg",
-      "label": "Rival Early",
+      "label": "Rival Early (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "rival_late_frlg",
-      "label": "Rival Late",
+      "label": "Rival Late (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "rocker_frlg",
-      "label": "Rocker",
+      "label": "Rocker (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "rocket_grunt_f_frlg",
-      "label": "Rocket Grunt F",
+      "label": "Rocket Grunt F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "rocket_grunt_m_frlg",
-      "label": "Rocket Grunt M",
+      "label": "Rocket Grunt M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "ruin_maniac",
       "label": "Ruin Maniac",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "ruin_maniac_frlg",
-      "label": "Ruin Maniac",
+      "label": "Ruin Maniac (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "running_triathlete_f",
       "label": "Running Triathlete F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "running_triathlete_f_frlg",
-      "label": "Running Triathlete F",
+      "label": "Running Triathlete F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "running_triathlete_m",
       "label": "Running Triathlete M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "running_triathlete_m_frlg",
-      "label": "Running Triathlete M",
+      "label": "Running Triathlete M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "sailor",
       "label": "Sailor",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "sailor_frlg",
-      "label": "Sailor",
+      "label": "Sailor (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "salon_maiden_anabel",
       "label": "Salon Maiden Anabel",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "school_kid_f",
       "label": "School Kid F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "school_kid_f_frlg",
-      "label": "School Kid F",
+      "label": "School Kid F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "school_kid_m",
       "label": "School Kid M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "school_kid_m_frlg",
-      "label": "School Kid M",
+      "label": "School Kid M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "scientist_frlg",
-      "label": "Scientist",
+      "label": "Scientist (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "sis_and_bro",
       "label": "Sis And Bro",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "sis_and_bro_frlg",
-      "label": "Sis And Bro",
+      "label": "Sis And Bro (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "sr_and_jr",
       "label": "Sr And Jr",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "sr_and_jr_frlg",
-      "label": "Sr And Jr",
+      "label": "Sr And Jr (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "steven",
       "label": "Steven",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "super_nerd_frlg",
-      "label": "Super Nerd",
+      "label": "Super Nerd (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "swimmer_f",
       "label": "Swimmer F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "swimmer_f_frlg",
-      "label": "Swimmer F",
+      "label": "Swimmer F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "swimmer_m",
       "label": "Swimmer M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "swimmer_m_frlg",
-      "label": "Swimmer M",
+      "label": "Swimmer M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "swimming_triathlete_f",
       "label": "Swimming Triathlete F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "swimming_triathlete_f_frlg",
-      "label": "Swimming Triathlete F",
+      "label": "Swimming Triathlete F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "swimming_triathlete_m",
       "label": "Swimming Triathlete M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "swimming_triathlete_m_frlg",
-      "label": "Swimming Triathlete M",
+      "label": "Swimming Triathlete M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "tamer_frlg",
-      "label": "Tamer",
+      "label": "Tamer (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "tuber_f",
       "label": "Tuber F",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "tuber_f_frlg",
-      "label": "Tuber F",
+      "label": "Tuber F (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "tuber_m",
       "label": "Tuber M",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "tuber_m_frlg",
-      "label": "Tuber M",
+      "label": "Tuber M (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "twins",
       "label": "Twins",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "twins_frlg",
-      "label": "Twins",
+      "label": "Twins (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "wally",
       "label": "Wally",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "wally_frlg",
-      "label": "Wally",
+      "label": "Wally (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "young_couple",
       "label": "Young Couple",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "young_couple_frlg",
-      "label": "Young Couple",
+      "label": "Young Couple (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "youngster",
       "label": "Youngster",
       "group": "basic",
-      "locked" : false
+      "locked": false
     },
     {
       "key": "youngster_frlg",
-      "label": "Youngster",
+      "label": "Youngster (FRLG)",
       "group": "basic",
-      "locked" : false
+      "locked": false
     }
   ]
 }
