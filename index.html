@@ -1174,7 +1174,11 @@ function updTrainerCard(){
     const rawName=ans[0]?.value||'';
     const trName=rawName.split(' (')[0]||'Trainer';
     const otGender=ans[0]?.otGender||'';
-    if(!rawName){panel.innerHTML='';return;}
+    if(!rawName){
+      panel.innerHTML='';
+      if(leftCol&&!document.getElementById('pokemon-card-panel')?.children.length) leftCol.style.display='none';
+      return;
+    }
     if(leftCol) leftCol.style.display='flex';
     panel.innerHTML='';
     const card=document.createElement('div');
@@ -1208,7 +1212,11 @@ function updTrainerCard(){
   const trDialogues=tAns[3]?.value||'';
   const trRival=tAns[4]?.value||'';
   const trHome=tAns[5]?.value||'';
-  if(!trName){panel.innerHTML='';return;}
+  if(!trName){
+    panel.innerHTML='';
+    if(leftCol&&!document.getElementById('pokemon-card-panel')?.children.length) leftCol.style.display='none';
+    return;
+  }
   if(leftCol) leftCol.style.display='flex';
   panel.innerHTML='';
 
@@ -1417,7 +1425,18 @@ function updPokemonCard(){
   ident.append(dispName,sub,typesRow,grpRow);
   const dexN=document.createElement('div');dexN.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#333;position:absolute;top:10px;right:12px;';
   if(mon.id)dexN.textContent='#'+String(mon.id).padStart(4,'0');
-  hdr.append(spr,ident,dexN);card.appendChild(hdr);
+  const shinyToggleBtn=document.createElement('button');shinyToggleBtn.type='button';
+  shinyToggleBtn.style.cssText=`position:absolute;top:26px;right:12px;font-size:9px;padding:3px 8px;border-radius:12px;border:1px solid ${isShiny?'#f0c600':'rgba(255,255,255,.15)'};background:${isShiny?'rgba(240,198,0,.15)':'rgba(255,255,255,.04)'};color:${isShiny?'#f0c600':'var(--gray)'};cursor:pointer;font-weight:700;white-space:nowrap;`;
+  shinyToggleBtn.textContent=isShiny?'\u2728 Shiny':'Shiny: No';
+  shinyToggleBtn.title='Toggle Shiny';
+  shinyToggleBtn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    const newVal=isShiny?'No':'Yes';
+    if(currentMode==='trainer'){ if(!slot[12])slot[12]={}; slot[12].value=newVal; }
+    else{ ans[3]={value:newVal}; }
+    updPokemonCard();
+  });
+  hdr.append(spr,ident,dexN,shinyToggleBtn);card.appendChild(hdr);
   // ── BST ─────────────────────────────────────────────────────────────────────
   if(bst){
     const bstCol=bst>=600?'#E3350D':bst>=500?'#ff9800':bst>=400?'#f0c600':'#4caf50';
@@ -1507,11 +1526,15 @@ function updPokemonCard(){
 
     // Breakdown rows: IV / EV / Nature
     const mkEditBtn=(stepN,label)=>{
-      if(stepN===undefined||currentMode!=='pokemon') return document.createElement('span');
+      if(stepN===undefined) return document.createElement('span');
       const eb=document.createElement('button');eb.type='button';
       eb.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#555;cursor:pointer;transition:all .15s;';
       eb.textContent='✎';eb.title='Edit '+label;
-      eb.addEventListener('click',()=>{step=stepN;renderQ();});
+      eb.addEventListener('click',()=>{
+        const tIdx={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
+        step=currentMode==='trainer'?(tIdx[stepN]??stepN):stepN;
+        if(currentMode==='trainer')renderTrainerQ();else renderQ();
+      });
       eb.addEventListener('mouseenter',()=>{eb.style.borderColor='var(--pl)';eb.style.color='var(--pl)';});
       eb.addEventListener('mouseleave',()=>{eb.style.borderColor='rgba(255,255,255,.1)';eb.style.color='#555';});
       return eb;
@@ -1630,10 +1653,26 @@ function updPokemonCard(){
      _bEl.appendChild(document.createTextNode(_ballName));
      return mkDR('Pok\u00e9 Ball',null,null,_bEl,9);
    })(),
-   // Happiness (trainer mode only)
+   // Happiness (trainer mode only) — built without mkDR's editStep translation:
+   // that mechanism assumes editStep is a Pokémon-mode step number and remaps
+   // it for trainer mode, but Happiness has no Pokémon-mode counterpart at
+   // all — its "10" is already the trainer step number, and 10 happens to
+   // collide with an unrelated translation entry (Held Item), sending Edit
+   // to the wrong question. Wire the edit button directly instead.
    (()=>{
      if(currentMode!=='trainer'||!slot?.[10]?.value) return null;
-     return mkDR('Happiness',String(slot[10].value),'var(--gray)',null,10);
+     const hRow=mkDR('Happiness',String(slot[10].value),'var(--gray)',null,undefined);
+     if(hRow){
+       const mid=hRow.querySelector('div');
+       const eb=document.createElement('button');eb.type='button';
+       eb.style.cssText='font-size:8px;padding:2px 6px;border-radius:4px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--gray);cursor:pointer;flex-shrink:0;transition:all .15s;';
+       eb.textContent='✎';eb.title='Edit';
+       eb.addEventListener('click',()=>{step=10;renderTrainerQ();});
+       eb.addEventListener('mouseenter',()=>{eb.style.borderColor='var(--pl)';eb.style.color='var(--pl)';});
+       eb.addEventListener('mouseleave',()=>{eb.style.borderColor='rgba(255,255,255,.12)';eb.style.color='var(--gray)';});
+       mid.appendChild(eb);
+     }
+     return hRow;
    })(),
    (()=>{
       if(!teraType) return null;
@@ -6133,8 +6172,8 @@ function renderTrainerQ() {
     const defTypeBtn=document.createElement('button'); defTypeBtn.type='button'; defTypeBtn.className='rand-btn';
     defTypeBtn.style.cssText='flex:2;'; defTypeBtn.textContent='🎯 Use Default Type';
     defTypeBtn.addEventListener('click',()=>{
-      const selMon=ans[1]&&ans[1].mon;
-      if(!selMon){showToast('Please select a Pokémon in Q2 first!', true);return;}
+      const selMon=team[currentSlot]?.mon;
+      if(!selMon){showToast('Please select a Pokémon in Q4 first!', true);return;}
       let chosenType=selMon.t1;
       if(selMon.t2 && selMon.t2!==selMon.t1){ chosenType=Math.random()<0.5?selMon.t1:selMon.t2; }
       selectTera(chosenType);
