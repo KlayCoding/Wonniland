@@ -34,7 +34,7 @@
     {
       "key": "arena_tycoon_greta",
       "label": "Arena Tycoon Greta",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -100,8 +100,8 @@
     {
       "key": "brendan",
       "label": "Brendan",
-      "group": "basic",
-      "locked": false
+      "group": "special",
+      "locked": true
     },
     {
       "key": "brendan_rs",
@@ -148,20 +148,20 @@
     {
       "key": "champion_rival_frlg",
       "label": "Champion Rival (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "champion_steven_frlg",
       "label": "Champion Steven (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "champion_wallace",
       "label": "Champion Wallace",
-      "group": "basic",
-      "locked": false
+      "group": "special",
+      "locked": true
     },
     {
       "key": "channeler_frlg",
@@ -256,7 +256,7 @@
     {
       "key": "dome_ace_tucker",
       "label": "Dome Ace Tucker",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -274,49 +274,49 @@
     {
       "key": "elite_four_agatha_frlg",
       "label": "Elite Four Agatha (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "elite_four_bruno_frlg",
       "label": "Elite Four Bruno (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "elite_four_drake",
       "label": "Elite Four Drake",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "elite_four_glacia",
       "label": "Elite Four Glacia",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "elite_four_lance_frlg",
       "label": "Elite Four Lance (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "elite_four_lorelei_frlg",
       "label": "Elite Four Lorelei (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "elite_four_phoebe",
       "label": "Elite Four Phoebe",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "elite_four_sidney",
       "label": "Elite Four Sidney",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -334,7 +334,8 @@
     {
       "key": "expert_f_frlg",
       "label": "Expert F (FRLG)",
-      "group": "basic"
+      "group": "basic",
+      "locked": false
     },
     {
       "key": "expert_m",
@@ -351,7 +352,7 @@
     {
       "key": "factory_head_noland",
       "label": "Factory Head Noland",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -477,109 +478,109 @@
     {
       "key": "leader_blaine_frlg",
       "label": "Leader Blaine (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_brawly",
       "label": "Leader Brawly",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_brock_frlg",
       "label": "Leader Brock (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_erika_frlg",
       "label": "Leader Erika (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_flannery",
       "label": "Leader Flannery",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_giovanni_frlg",
       "label": "Leader Giovanni (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_juan",
       "label": "Leader Juan",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_koga_frlg",
       "label": "Leader Koga (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_lt_surge_frlg",
       "label": "Leader Lt Surge (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_misty_frlg",
       "label": "Leader Misty (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_norman",
       "label": "Leader Norman",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_roxanne",
       "label": "Leader Roxanne",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_sabrina_frlg",
       "label": "Leader Sabrina (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_tate_and_liza",
       "label": "Leader Tate And Liza",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_wattson",
       "label": "Leader Wattson",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leader_winona",
       "label": "Leader Winona",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "leaf",
       "label": "Leaf",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "magma_admin",
       "label": "Magma Admin",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -597,19 +598,19 @@
     {
       "key": "magma_leader_maxie",
       "label": "Magma Leader Maxie",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "may",
       "label": "May",
-      "group": "basic",
-      "locked": false
+      "group": "special",
+      "locked": true
     },
     {
       "key": "may_rs",
       "label": "May (RS)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -633,7 +634,7 @@
     {
       "key": "palace_maven_spenser",
       "label": "Palace Maven Spenser",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -663,7 +664,7 @@
     {
       "key": "pike_queen_lucy",
       "label": "Pike Queen Lucy",
-      "group": "basic",
+      "group": "special",
       "locked": true
     },
     {
@@ -747,8 +748,8 @@
     {
       "key": "professor_oak_frlg",
       "label": "Professor Oak (FRLG)",
-      "group": "basic",
-      "locked": false
+      "group": "special",
+      "locked": true
     },
     {
       "key": "psychic_f",
@@ -777,7 +778,7 @@
     {
       "key": "pyramid_king_brandon",
       "label": "Pyramid King Brandon",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -795,19 +796,19 @@
     {
       "key": "rich_boy_frlg",
       "label": "Rich Boy (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "rival_early_frlg",
       "label": "Rival Early (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "rival_late_frlg",
       "label": "Rival Late (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -879,7 +880,7 @@
     {
       "key": "salon_maiden_anabel",
       "label": "Salon Maiden Anabel",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -939,7 +940,7 @@
     {
       "key": "steven",
       "label": "Steven",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
@@ -1041,13 +1042,13 @@
     {
       "key": "wally",
       "label": "Wally",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
       "key": "wally_frlg",
       "label": "Wally (FRLG)",
-      "group": "basic",
+      "group": "special",
       "locked": false
     },
     {
