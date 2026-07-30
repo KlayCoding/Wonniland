@@ -1128,7 +1128,7 @@ function buildTeamTypeCoveragePopup(){
   box.appendChild(subtitle);
   const SUBTITLES={
     def:'How well your Pokémon\u2019s own typing holds up when the opponent attacks — weaknesses and resistances.',
-    off:'How well your Pokémon\u2019s own moves can hit an opponent of each type — your attacking coverage.'
+    off:'Each row is a possible opponent type. Cells show the best multiplier that team member\u2019s own moves land against it.'
   };
 
   const body=document.createElement('div');body.style.cssText='overflow:auto;padding:16px 18px;flex:1;';
@@ -1151,7 +1151,7 @@ function buildTeamTypeCoveragePopup(){
 
     // Header row
     const cornerCell=document.createElement('div');cornerCell.style.cssText='background:#1a2035;padding:8px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--gray);font-weight:700;';
-    cornerCell.innerHTML=`<span>${mode==='def'?'Attack ↓':'Move ↓'}</span>`;
+    cornerCell.innerHTML=`<span>${mode==='def'?'Attack ↓':'Opponent ↓'}</span>`;
     table.appendChild(cornerCell);
     members.forEach(m=>{
       const hc=document.createElement('div');hc.style.cssText='background:#1a2035;padding:6px 4px;display:flex;flex-direction:column;align-items:center;gap:3px;';
@@ -5237,9 +5237,15 @@ function buildTeamKachel(i){
   const tile=document.createElement('div');
   tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;width:118px;padding:8px 6px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);position:relative;';
   if(!team[i]||!team[i].mon){
-    tile.style.cssText+='justify-content:center;min-height:80px;border-style:dashed;';
-    const ph=document.createElement('span');ph.style.cssText='font-size:18px;color:rgba(255,255,255,.15);';ph.textContent='?';
+    tile.style.cssText+='justify-content:center;min-height:80px;border-style:dashed;cursor:pointer;';
+    const ph=document.createElement('span');ph.style.cssText='font-size:22px;color:rgba(255,255,255,.25);';ph.textContent='+';
     tile.appendChild(ph);
+    tile.addEventListener('click',()=>{
+      if(typeof closeEndCard==='function') closeEndCard();
+      currentSlot=i; viewingSlot=-1; trainerPhase='pokemon';
+      step=POKEMON_Q_START;
+      renderTrainerQ();
+    });
     return tile;
   }
   const mon = team[i].mon;
@@ -5271,11 +5277,8 @@ function buildTeamKachel(i){
     noBtn.addEventListener('click',()=>confOv.remove());
     yesBtn.addEventListener('click',()=>{
       confOv.remove();
-      if(typeof closeEndCard==='function') closeEndCard();
-      team[i]=Array(17).fill(null);
-      currentSlot=i; viewingSlot=-1; trainerPhase='pokemon';
-      step=POKEMON_Q_START;
-      renderTrainerQ();
+      team[i]=null;
+      tile.replaceWith(buildTeamKachel(i));
     });
     confRow.append(yesBtn,noBtn);confBx.append(confTxt,confRow);confOv.appendChild(confBx);
     confOv.addEventListener('click',ev=>{if(ev.target===confOv)confOv.remove();});
