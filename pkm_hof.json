@@ -15,7 +15,7 @@
   "pokemon": [
     {
       "id": "Breloom",
-      "claimed": true,
+      "claimed": false,
       "location": "Pool 1",
       "gender": "female",
       "owner_name": "Rodspln",
