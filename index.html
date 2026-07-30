@@ -6632,6 +6632,8 @@ function renderTrainerQ() {
       team[currentSlot][step]=r;
       // Species step: also cache .mon for easy access across all steps
       if(step===POKEMON_Q_START&&r?.mon) team[currentSlot].mon=r.mon;
+      // Nickname step: also cache .nick (every UI reads this shortcut, not [5].value directly)
+      if(step===5&&r?.value) team[currentSlot].nick=r.value;
     }
     step++;lsSave();renderTrainerQ();
   });
