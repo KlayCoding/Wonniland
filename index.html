@@ -3284,16 +3284,25 @@ function addS(c,t){const e=document.createElement('div');e.className='q-sub';e.t
 async function loadPokemonData() {
   try {
     // Fetch all JSONs in parallel
-    const [r, ra, ri, rl, rm] = await Promise.all([
+    const [r, ra, ri, rl, rm, rsg] = await Promise.all([
       fetch('pokemon.json'),
       fetch('abilities.json').catch(()=>null),
       fetch('items.json').catch(()=>null),
       fetch('learnsets.json').catch(()=>null),
       fetch('moves.json').catch(()=>null),
+      fetch('trainer_sprite_groups.json').catch(()=>null),
     ]);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const data = await r.json();
     const list = data.pokemon || [];
+    // Load trainer sprite groupings (Basic/Special split for Q2)
+    if(rsg && rsg.ok){
+      try{
+        const sgd = await rsg.json();
+        (sgd.sprites||[]).forEach(s=>{ if(s.key) SPRITE_GROUPS[s.key]={label:s.label||s.key, group:s.group==='special'?'special':'basic', locked:!!s.locked}; });
+        console.log(`✓ Loaded ${Object.keys(SPRITE_GROUPS).length} trainer sprite groupings`);
+      }catch(e){}
+    }
     // Load abilities immediately
     if(ra && ra.ok){
       const ad = await ra.json();
@@ -5208,6 +5217,11 @@ const TRAINER_SPRITES = [
   'youngster_frlg'
 ];
 const TRAINER_BASE = 'https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer/';
+// Sprite key -> {label, group:'basic'|'special', locked:bool}, loaded from
+// trainer_sprite_groups.json. Missing/unloaded entries default to basic,
+// unlocked, so the picker still works fully if the file fails to load.
+let SPRITE_GROUPS = {};
+const TRAINER_SPRITE_PW = 'wonniland2026';
 
 // ── Team Bar ─────────────────────────────────────────────────────────────────
 // Rich team-slot tile ("Kachel") for the Trainer End Card — sprite, nickname/
@@ -5590,41 +5604,101 @@ function renderTrainerQ() {
     const previewImg=document.createElement('img'); previewImg.style.cssText='width:64px;height:64px;object-fit:contain;image-rendering:pixelated;';
     const previewName=document.createElement('span'); previewName.style.cssText='font-size:14px;font-weight:600;color:var(--gray);'; previewName.textContent='No sprite selected';
     previewWrap.append(previewImg,previewName); card.appendChild(previewWrap);
-    // Grid
-    const grid=document.createElement('div'); grid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:8px;max-height:50vh;overflow-y:auto;padding:4px;';
-    grid.style.cssText+='scrollbar-width:thin;';
-    TRAINER_SPRITES.forEach(name=>{
+
+    // Buttons ABOVE grid
+    const q2row=document.createElement('div'); q2row.style.cssText='display:flex;gap:8px;margin-bottom:10px;';
+    const q2del=document.createElement('button'); q2del.type='button'; q2del.className='del-btn'; q2del.textContent='✕ Clear Selection';
+    const q2rand=document.createElement('button'); q2rand.type='button'; q2rand.className='rand-btn'; q2rand.style.flex='1'; q2rand.textContent='🎲 Randomize Trainer!';
+    q2row.append(q2del,q2rand); card.appendChild(q2row);
+
+    const pickCell=(name,cell)=>{
+      selSprite=name;
+      card.querySelectorAll('div[data-sprite]').forEach(c=>{c.style.borderColor='transparent';c.style.background='rgba(255,255,255,.03)';});
+      cell.style.borderColor='var(--pl)'; cell.style.background='rgba(206,147,216,.1)';
+      previewImg.src=`${TRAINER_BASE}${name}.png`;
+      previewName.textContent=name.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); previewName.style.color='var(--white)';
+    };
+    const mkSpriteCell=(name)=>{
       const cell=document.createElement('div');
       cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border-radius:10px;border:2px solid transparent;background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;';
       const img=document.createElement('img'); img.src=`${TRAINER_BASE}${name}.png`;
       img.style.cssText='width:56px;height:56px;object-fit:contain;image-rendering:pixelated;';
       img.onerror=()=>{cell.style.display='none';};
-      const lbl=document.createElement('span'); lbl.style.cssText='font-size:8px;color:var(--gray);text-align:center;word-break:break-all;'; lbl.textContent=name.replace(/_frlg$/,'').replace(/_rs$/,'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+      const lbl=document.createElement('span'); lbl.style.cssText='font-size:8px;color:var(--gray);text-align:center;word-break:break-all;'; lbl.textContent=(SPRITE_GROUPS[name]?.label)||name.replace(/_frlg$/,'').replace(/_rs$/,'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
       cell.append(img,lbl);
-      cell.addEventListener('click',()=>{
-        selSprite=name;
-        grid.querySelectorAll('div[data-sprite]').forEach(c=>{c.style.borderColor='transparent';c.style.background='rgba(255,255,255,.03)';});
-        cell.style.borderColor='var(--pl)'; cell.style.background='rgba(206,147,216,.1)';
-        previewImg.src=`${TRAINER_BASE}${name}.png`;
-        previewName.textContent=name.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); previewName.style.color='var(--white)';
+      cell.addEventListener('click',()=>pickCell(name,cell));
+      cell.dataset.sprite=name;
+      return cell;
+    };
+
+    // Split by group; fully-locked sprites (locked:true) never appear at all
+    const visibleSprites=TRAINER_SPRITES.filter(n=>!SPRITE_GROUPS[n]?.locked);
+    const basicSprites=visibleSprites.filter(n=>SPRITE_GROUPS[n]?.group!=='special');
+    const specialSprites=visibleSprites.filter(n=>SPRITE_GROUPS[n]?.group==='special');
+
+    // Basic Trainer — always expanded
+    const basicHdr=document.createElement('div'); basicHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:9px;color:var(--pl);margin-bottom:6px;';
+    basicHdr.textContent='BASIC TRAINER';
+    card.appendChild(basicHdr);
+    const basicGrid=document.createElement('div'); basicGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:8px;max-height:38vh;overflow-y:auto;padding:4px;scrollbar-width:thin;margin-bottom:14px;';
+    basicSprites.forEach(name=>basicGrid.appendChild(mkSpriteCell(name)));
+    card.appendChild(basicGrid);
+
+    // Special Trainer — collapsed + password-gated
+    if(specialSprites.length){
+      let specialUnlocked=!!window._specialSpritesUnlocked;
+      const specHdr=document.createElement('button'); specHdr.type='button';
+      specHdr.style.cssText='width:100%;display:flex;align-items:center;justify-content:space-between;font-family:"Press Start 2P",monospace;font-size:9px;color:var(--gray);background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:10px 12px;cursor:pointer;margin-bottom:6px;';
+      specHdr.innerHTML=`<span>${specialUnlocked?'\u{1F513}':'\u{1F512}'} SPECIAL TRAINER</span><span style="font-size:12px;">${specialUnlocked?'▲':'▼'}</span>`;
+      card.appendChild(specHdr);
+      const specGrid=document.createElement('div'); specGrid.style.cssText=`display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:8px;overflow-y:auto;padding:4px;scrollbar-width:thin;max-height:${specialUnlocked?'38vh':'0'};transition:max-height .25s ease;`;
+      specialSprites.forEach(name=>specGrid.appendChild(mkSpriteCell(name)));
+      card.appendChild(specGrid);
+
+      const openSpecial=()=>{
+        specialUnlocked=true; window._specialSpritesUnlocked=true;
+        specGrid.style.maxHeight='38vh';
+        specHdr.innerHTML=`<span>\u{1F513} SPECIAL TRAINER</span><span style="font-size:12px;">▲</span>`;
+      };
+      specHdr.addEventListener('click',()=>{
+        if(specialUnlocked){
+          specialUnlocked=false;
+          specGrid.style.maxHeight='0';
+          specHdr.innerHTML=`<span>\u{1F513} SPECIAL TRAINER</span><span style="font-size:12px;">▼</span>`;
+          return;
+        }
+        // Password popup
+        const pwOv=document.createElement('div'); pwOv.style.cssText='position:fixed;inset:0;z-index:1500;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:16px;';
+        const pwBx=document.createElement('div'); pwBx.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.4);border-radius:14px;padding:22px;max-width:300px;width:100%;';
+        const pwTitle=document.createElement('div'); pwTitle.style.cssText='font-size:13px;font-weight:700;color:var(--white);margin-bottom:10px;';pwTitle.textContent='🔒 Enter password to unlock Special Trainer sprites';
+        const pwInp=document.createElement('input'); pwInp.type='password'; pwInp.style.cssText='width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--white);font-size:13px;margin-bottom:8px;';
+        const pwErr=document.createElement('div'); pwErr.style.cssText='font-size:11px;color:#e57373;margin-bottom:8px;min-height:14px;';
+        const pwRow=document.createElement('div'); pwRow.style.cssText='display:flex;gap:8px;';
+        const pwOk=document.createElement('button'); pwOk.type='button'; pwOk.textContent='Unlock'; pwOk.style.cssText='flex:1;padding:9px;border-radius:8px;border:none;background:var(--pl);color:#fff;font-weight:700;cursor:pointer;';
+        const pwCancel=document.createElement('button'); pwCancel.type='button'; pwCancel.textContent='Cancel'; pwCancel.style.cssText='flex:1;padding:9px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--gray);font-weight:700;cursor:pointer;';
+        const tryUnlock=()=>{
+          if(pwInp.value===TRAINER_SPRITE_PW){ pwOv.remove(); openSpecial(); }
+          else { pwErr.textContent='Incorrect password.'; pwInp.value=''; pwInp.focus(); }
+        };
+        pwOk.addEventListener('click',tryUnlock);
+        pwInp.addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
+        pwCancel.addEventListener('click',()=>pwOv.remove());
+        pwOv.addEventListener('click',e=>{if(e.target===pwOv)pwOv.remove();});
+        pwRow.append(pwOk,pwCancel); pwBx.append(pwTitle,pwInp,pwErr,pwRow); pwOv.appendChild(pwBx);
+        document.body.appendChild(pwOv); pwInp.focus();
       });
-      cell.dataset.sprite=name; grid.appendChild(cell);
-    });
-    // Buttons ABOVE grid
-    const q2row=document.createElement('div'); q2row.style.cssText='display:flex;gap:8px;margin-bottom:10px;';
-    const q2del=document.createElement('button'); q2del.type='button'; q2del.className='del-btn'; q2del.textContent='✕ Clear Selection';
+    }
+
     q2del.addEventListener('click',()=>{
       selSprite=null;
-      grid.querySelectorAll('div[data-sprite]').forEach(c=>{c.style.borderColor='transparent';c.style.background='rgba(255,255,255,.03)';});
+      card.querySelectorAll('div[data-sprite]').forEach(c=>{c.style.borderColor='transparent';c.style.background='rgba(255,255,255,.03)';});
       previewImg.src=''; previewName.textContent='No sprite selected'; previewName.style.color='var(--gray)'; previewWrap.classList.remove('vis');
     });
-    const q2rand=document.createElement('button'); q2rand.type='button'; q2rand.className='rand-btn'; q2rand.style.flex='1'; q2rand.textContent='🎲 Randomize Trainer!';
     q2rand.addEventListener('click',()=>{
-      const cells=[...grid.querySelectorAll('div[data-sprite]')].filter(c=>c.style.display!=='none');
+      // Randomizer only ever draws from Basic Trainer sprites
+      const cells=[...basicGrid.querySelectorAll('div[data-sprite]')].filter(c=>c.style.display!=='none');
       if(cells.length) cells[Math.floor(Math.random()*cells.length)].click();
     });
-    q2row.append(q2del,q2rand); card.appendChild(q2row);
-    card.appendChild(grid);
     getV=()=>selSprite?{value:selSprite}:null;
 
   // ── TQ3: Battle Format ─────────────────────────────────────────────────────
