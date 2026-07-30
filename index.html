@@ -8858,7 +8858,10 @@ function initTrainerHofBrowser(){
     const q=searchEl.value.toLowerCase().trim();
     const mapFilter=mapSel.value;
     let trainers=hofData?.trainers||[];
-    if(q) trainers=trainers.filter(t=>t.name?.toLowerCase().includes(q)||t.class?.toLowerCase().includes(q)||(t.team||[]).some(p=>p.species?.toLowerCase().includes(q)||p.nickname?.toLowerCase().includes(q)||(p.moves||[]).some(m=>m.toLowerCase().includes(q))));
+    if(q) trainers=trainers.filter(t=>{
+      if(t.unlocked===false) return false; // locked trainers never match name/team search text
+      return t.name?.toLowerCase().includes(q)||t.class?.toLowerCase().includes(q)||(t.team||[]).some(p=>p.species?.toLowerCase().includes(q)||p.nickname?.toLowerCase().includes(q)||(p.moves||[]).some(m=>m.toLowerCase().includes(q)));
+    });
     if(mapFilter) trainers=trainers.filter(t=>t.map===mapFilter);
     if(activeCategory) trainers=trainers.filter(t=>t.category===activeCategory);
     if(activeChapter) trainers=trainers.filter(t=>t.chapter==activeChapter);
@@ -8883,6 +8886,13 @@ function initTrainerHofBrowser(){
   }
 
   // ── Full Pokémon slot card for Trainer HoF ────────────────────────────────
+  function mkLockedPokemonTile(){
+    const card=document.createElement('div');card.style.cssText='display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);min-height:150px;padding:12px;';
+    const q=document.createElement('div');q.style.cssText='font-size:32px;color:rgba(255,255,255,.15);font-weight:900;';q.textContent='?';
+    const t=document.createElement('div');t.style.cssText='font-size:10px;color:rgba(255,255,255,.2);font-family:"Press Start 2P",monospace;';t.textContent='???';
+    card.append(q,t);
+    return card;
+  }
   function mkPokemonSlotFull(p){
     const mon=ALL_MON.find(x=>x.id===p.species_id)||ALL_MON.find(x=>x.name.toLowerCase()===p.species?.toLowerCase());
     const TIDS={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
@@ -9026,25 +9036,26 @@ function initTrainerHofBrowser(){
 
   function mkTrainerGroup(group){
     const t0=group[0];
+    const isLocked0=t0.unlocked===false;
     const card=document.createElement('div');card.style.cssText='border-bottom:1px solid rgba(255,255,255,.05);';
     const hdr=document.createElement('div');hdr.style.cssText='display:flex;align-items:center;gap:14px;padding:12px 14px;cursor:pointer;';
     hdr.addEventListener('click',()=>{body.style.display=body.style.display==='none'?'block':'none';});
-    // Trainer sprite
-    const spr=document.createElement('img');spr.style.cssText='width:56px;height:56px;image-rendering:pixelated;flex-shrink:0;';spr.src=spriteUrl(t0.sprite);spr.onerror=()=>spr.style.visibility='hidden';
+    // Trainer sprite — black silhouette when locked
+    const spr=document.createElement('img');spr.style.cssText=`width:56px;height:56px;image-rendering:pixelated;flex-shrink:0;${isLocked0?'filter:brightness(0);':''}`;spr.src=spriteUrl(t0.sprite);spr.onerror=()=>spr.style.visibility='hidden';
     // Info block: Name (Class) / Format / Map / Chapter
     const info=document.createElement('div');info.style.cssText='flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;';
     const nameRow=document.createElement('div');nameRow.style.cssText='display:flex;align-items:baseline;gap:6px;';
-    const nm=document.createElement('span');nm.style.cssText='font-size:16px;font-weight:900;line-height:1.2;';nm.textContent=t0.name;
-    const cls=document.createElement('span');cls.style.cssText='font-size:11px;color:#555;';cls.textContent=t0.class?'('+t0.class+')':'';
+    const nm=document.createElement('span');nm.style.cssText='font-size:16px;font-weight:900;line-height:1.2;';nm.textContent=isLocked0?'???':t0.name;
+    const cls=document.createElement('span');cls.style.cssText='font-size:11px;color:#555;';cls.textContent=isLocked0?(t0.class?'(???)':''):(t0.class?'('+t0.class+')':'');
     nameRow.append(nm,cls);
-    const fmtRow=document.createElement('div');fmtRow.style.cssText='font-size:11px;color:#8892a4;line-height:1.4;margin-top:1px;';fmtRow.textContent=t0.battle_format||'Singles';
+    const fmtRow=document.createElement('div');fmtRow.style.cssText='font-size:11px;color:#8892a4;line-height:1.4;margin-top:1px;';fmtRow.textContent=isLocked0?'???':(t0.battle_format||'Singles');
     const mapRow=document.createElement('div');mapRow.style.cssText='font-size:11px;color:#8892a4;line-height:1.4;';mapRow.textContent=mapToName(t0.map);
     const chRow=document.createElement('div');chRow.style.cssText='line-height:1.4;margin-top:2px;';
     if(t0.chapter){chRow.style.cssText+='font-family:"Press Start 2P",monospace;font-size:7px;color:#9575cd;';chRow.textContent='Chapter '+t0.chapter;}
     info.append(nameRow,fmtRow,mapRow,chRow);
-    // Category badge
-    const catCol=CAT_COLS[t0.category]||'#888';
-    const catBadge=document.createElement('div');catBadge.style.cssText=`font-size:9px;padding:2px 8px;border-radius:4px;background:${catCol}18;color:${catCol};border:1px solid ${catCol}33;flex-shrink:0;align-self:flex-start;`;catBadge.textContent=t0.category||'';
+    // Category badge — censored when locked
+    const catCol=isLocked0?'#555':(CAT_COLS[t0.category]||'#888');
+    const catBadge=document.createElement('div');catBadge.style.cssText=`font-size:9px;padding:2px 8px;border-radius:4px;background:${catCol}18;color:${catCol};border:1px solid ${catCol}33;flex-shrink:0;align-self:flex-start;`;catBadge.textContent=isLocked0?(t0.category?'???':''):(t0.category||'');
     // Collapse toggle
     const toggle=document.createElement('div');toggle.style.cssText='font-size:10px;color:#333;flex-shrink:0;';toggle.textContent=group.length>1?'▼ '+group.length+' teams':'▼';
     hdr.append(spr,info,catBadge,toggle);card.appendChild(hdr);
@@ -9073,10 +9084,11 @@ function initTrainerHofBrowser(){
 
   function mkTeamDisplay(t){
     const wrap=document.createElement('div');
+    const isLocked=t.unlocked===false;
     // OG Trainer (tiny)
     if(t.replacement){
       const ogRow=document.createElement('div');ogRow.style.cssText='font-size:7px;color:#3a3a4a;padding:2px 0 8px;font-family:"Press Start 2P",monospace;';
-      ogRow.textContent='OG Emerald Trainer: '+t.replacement;wrap.appendChild(ogRow);
+      ogRow.textContent='OG Emerald Trainer: '+(isLocked?'???':t.replacement);wrap.appendChild(ogRow);
     }
     // ── DIALOGUES ────────────────────────────────────────────────────────────
     if(t.intro_phrase||t.defeat_phrase||t.postmatch_phrase){
@@ -9086,9 +9098,9 @@ function initTrainerHofBrowser(){
       wrap.appendChild(dlgHdr);
       const phrasesWrap=document.createElement('div');phrasesWrap.style.cssText='display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px;overflow:hidden;max-height:400px;transition:max-height .25s ease;';
       [
-        [t.intro_phrase,'💬','Intro','#64b5f6'],
-        [t.defeat_phrase,'😔','Defeated','#e57373'],
-        [t.postmatch_phrase,'💭','Post-Match','#8892a4']
+        [isLocked?'???':t.intro_phrase,'💬','Intro','#64b5f6'],
+        [isLocked?'???':t.defeat_phrase,'😔','Defeated','#e57373'],
+        [isLocked?'???':t.postmatch_phrase,'💭','Post-Match','#8892a4']
       ].filter(([v])=>v).forEach(([phrase,icon,label,col])=>{
         const el=document.createElement('div');el.style.cssText=`display:flex;flex-direction:column;gap:4px;padding:8px;border-radius:8px;background:${col}0a;border-top:2px solid ${col}55;`;
         const hdr2=document.createElement('div');hdr2.style.cssText='display:flex;align-items:center;gap:4px;';
@@ -9108,14 +9120,20 @@ function initTrainerHofBrowser(){
         dlgHdr.querySelector('span:last-child').textContent=dlgOpen?'▲':'▼';
       });
     }
-    // ── Team grid (up to 6, auto-fill) ───────────────────────────────────────
-    if(t.team?.length){
+    // ── Team grid (up to 6, auto-fill) — locked entries always show exactly
+    // 6 "?" placeholders regardless of actual team size, so team size itself
+    // isn't leaked either ──────────────────────────────────────────────────
+    if(isLocked||t.team?.length){
       const teamHdr=document.createElement('button');teamHdr.type='button';
       teamHdr.style.cssText='width:100%;display:flex;align-items:center;justify-content:space-between;font-family:"Press Start 2P",monospace;font-size:8px;color:#555;margin-bottom:7px;letter-spacing:.5px;background:transparent;border:none;padding:2px 0;cursor:pointer;';
       teamHdr.innerHTML='<span>POKÉMON TEAM</span><span style="font-size:10px;">▲</span>';
       wrap.appendChild(teamHdr);
       const teamGrid=document.createElement('div');teamGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;overflow:hidden;max-height:2000px;transition:max-height .25s ease;';
-      t.team.forEach(p=>teamGrid.appendChild(mkPokemonSlotFull(p)));
+      if(isLocked){
+        for(let i=0;i<6;i++) teamGrid.appendChild(mkLockedPokemonTile());
+      } else {
+        t.team.forEach(p=>teamGrid.appendChild(mkPokemonSlotFull(p)));
+      }
       wrap.appendChild(teamGrid);
       let teamOpen=true;
       teamHdr.addEventListener('click',()=>{
