@@ -15,8 +15,8 @@
   "pokemon": [
     {
       "id": "Breloom",
-      "claimed": false,
-      "location": "Pool 1",
+      "claimed": true,
+      "location": "Team",
       "gender": "Male",
       "owner_name": "Rodspln",
       "owner_sprite": "brendan",
@@ -792,7 +792,7 @@
     {
       "id": "Miltank",
       "claimed": true,
-      "location": "Pool 1",
+      "location": "Team",
       "gender": "female",
       "owner_name": "Jsins",
       "owner_sprite": "may",
@@ -883,9 +883,9 @@
     },
     {
       "id": "Trubbish",
-      "claimed": false,
-      "location": "Pool 1",
-      "gender": "male",
+      "claimed": true,
+      "location": "Team",
+      "gender": "Male",
       "owner_name": "Eman",
       "owner_sprite": "brendan",
       "species": "Trubbish",
@@ -930,8 +930,8 @@
     {
       "id": "Obstagoon",
       "claimed": true,
-      "location": "Pool 1",
-      "gender": "male",
+      "location": "Team",
+      "gender": "Male",
       "owner_name": "Wolfeys",
       "owner_sprite": "brendan",
       "species": "Obstagoon",
@@ -976,7 +976,7 @@
     {
       "id": "Grapploct",
       "claimed": true,
-      "location": "Pool 1",
+      "location": "Team",
       "gender": "female",
       "owner_name": "Wolfeys",
       "owner_sprite": "brendan",
@@ -1614,8 +1614,8 @@
     },
     {
       "id": "Cacnea",
-      "claimed": false,
-      "location": "Pool 1",
+      "claimed": true,
+      "location": "Team",
       "gender": "Female",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -2578,7 +2578,7 @@
     {
       "id": "Mega-Sceptile",
       "claimed": true,
-      "location": "Pool 1",
+      "location": "Team",
       "gender": "Male",
       "owner_name": "Teraf",
       "owner_sprite": "brendan",
@@ -2670,7 +2670,7 @@
     {
       "id": "Shuckle",
       "claimed": true,
-      "location": "Pool 1",
+      "location": "Team",
       "gender": "Female",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -2715,8 +2715,8 @@
     },
     {
       "id": "Deoxys (Attack)",
-      "claimed": false,
-      "location": "Pool 1",
+      "claimed": true,
+      "location": "Team",
       "gender": "Female",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -2761,8 +2761,8 @@
     },
     {
       "id": "Copperajah",
-      "claimed": false,
-      "location": "Pool 1",
+      "claimed": true,
+      "location": "Team",
       "gender": "Male",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -3127,7 +3127,7 @@
     {
       "id": "Galarian-Zigzagoon",
       "claimed": true,
-      "location": "Pool 1",
+      "location": "Team",
       "gender": "Female",
       "owner_name": "Nemorih",
       "owner_sprite": "brendan",
