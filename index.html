@@ -8550,7 +8550,7 @@ function initPkmRoulette(){
     grid.innerHTML='';
 
     // ── Section 1: Roulette (centered card) ──────────────────────────────────
-    const rouletteSec=document.createElement('div');rouletteSec.style.cssText='padding:16px;border-bottom:2px solid rgba(77,182,172,.15);display:flex;flex-direction:column;align-items:center;gap:12px;';
+    const rouletteSec=document.createElement('div');rouletteSec.id='roulette-sec';rouletteSec.style.cssText='padding:16px;border-bottom:2px solid rgba(77,182,172,.15);display:flex;flex-direction:column;align-items:center;gap:12px;';
     const counterBox=document.createElement('div');counterBox.style.cssText='display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 20px;border-radius:10px;background:rgba(77,182,172,.08);border:1px solid rgba(77,182,172,.25);';
     const counterLbl=document.createElement('div');counterLbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#4db6ac;letter-spacing:.5px;';counterLbl.textContent='COUNTER';
     counterValEl=document.createElement('div');counterValEl.style.cssText='font-size:26px;font-weight:900;color:var(--white);line-height:1.1;transition:transform .2s ease,color .3s ease;';counterValEl.textContent=rouletteCounter;
@@ -8630,7 +8630,7 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
       setTimeout(()=>{
         const pool=getRollPool();
         if(!pool.length) return;
-        rouletteSec.scrollIntoView({behavior:'smooth',block:'center'});
+        document.getElementById('roulette-sec')?.scrollIntoView({behavior:'smooth',block:'center'});
         // Find the roll button in the grid
         if(typeof doRoll==='function')doRoll(getRollPool(),rollBtnPool,rollBtnParty,'🎲 Pokémon Pool');
       },200);
@@ -8643,7 +8643,7 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
       if(!claimedPool.length){addLog('\u26a0\ufe0f Team Pool is empty','#e57373');return;}
       if(!open){open=true;panel.style.display='block';btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';renderAll();}
       setTimeout(()=>{
-        rouletteSec.scrollIntoView({behavior:'smooth',block:'center'});
+        document.getElementById('roulette-sec')?.scrollIntoView({behavior:'smooth',block:'center'});
         if(typeof doRoll==='function')doRoll(claimedPool,rollBtnParty,rollBtnPool,'\uD83C\uDFB2 Team Pool',true);
       },200);
     };
@@ -8673,7 +8673,7 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
       if(!open){open=true;panel.style.display='block';btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';renderAll();}
       setTimeout(()=>highlightRerollSlot(target),150);
       setTimeout(()=>{
-        rouletteSec.scrollIntoView({behavior:'smooth',block:'center'});
+        document.getElementById('roulette-sec')?.scrollIntoView({behavior:'smooth',block:'center'});
         doRoll(pool,rollBtnParty,rollBtnPool,'\uD83C\uDFB2 Team Reroll',true);
       },350);
     };
@@ -8687,7 +8687,7 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
       if(!open){open=true;panel.style.display='block';btn.textContent='\uD83C\uDFB2 POK\u00c9MON ROULETTE  \u25b2';renderAll();}
       setTimeout(()=>highlightRerollSlot(slotIdx),150);
       setTimeout(()=>{
-        rouletteSec.scrollIntoView({behavior:'smooth',block:'center'});
+        document.getElementById('roulette-sec')?.scrollIntoView({behavior:'smooth',block:'center'});
         doRoll(pool,rollBtnPool,rollBtnParty,'\uD83C\uDFB2 Slot Roll',false);
       },350);
     };
