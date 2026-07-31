@@ -583,6 +583,8 @@
         <b style="color:#9146ff;">!clearslot1–6</b> — Clears a specific party slot<br>
         <b style="color:#9146ff;">!clearparty</b> — Clears all 6 party slots<br>
         <b style="color:#9146ff;">!reload</b> — Reloads Pokémon data from JSON<br>
+        <b style="color:#9146ff;">!counteradd X</b> — Adds X to the counter above the Randomizer<br>
+        <b style="color:#9146ff;">!counterremove X</b> — Subtracts X from the counter<br>
         <i style="color:#334155;">All commands: Mod/Broadcaster only</i>
       </div>
     </div>
@@ -1907,8 +1909,11 @@ function saveTrainerDraft() {
     Object.keys(ans).forEach(k=>{ if(ans[k]) ansCopy[k]={value:ans[k].value, otGender:ans[k].otGender}; });
     const data = { team: team.map(slot=>{
       if(!slot) return null;
-      return slot.map((a,i)=> a ? { value:a.value, mon:serializeMon(a.mon)||undefined } : null);
-    }), currentSlot, step, trainerPhase, ans:ansCopy };
+      return {
+        items: slot.map((a,i)=> a ? { value:a.value, mon:serializeMon(a.mon)||undefined } : null),
+        nick: slot.nick, mon: serializeMon(slot.mon)||undefined, pkmGender: slot.pkmGender, complete: slot.complete
+      };
+    }), currentSlot, step, trainerPhase, ans:ansCopy, signatureSlot };
     localStorage.setItem(LS_KEY_T, JSON.stringify(data));
   } catch(e) {}
 }
@@ -4953,15 +4958,29 @@ function launchMode(mode) {
           for(const k in draft.ans){ const a=draft.ans[k]; ans[k]={value:a.value,mon:a.mon?deserializeMon(a.mon):undefined}; }
           renderQ();
         } else if(resume && !isPkm){
-          team=draft.team.map(slot=>slot?slot.map(a=>a?{value:a.value,mon:a.mon?deserializeMon(a.mon):undefined}:null):[]);
+          team=draft.team.map(slotData=>{
+            if(!slotData) return [];
+            const isNewFormat=Array.isArray(slotData.items);
+            const rawItems=isNewFormat?slotData.items:slotData;
+            const arr=rawItems.map(a=>a?{value:a.value,mon:a.mon?deserializeMon(a.mon):undefined}:null);
+            if(isNewFormat){
+              arr.nick=slotData.nick; arr.mon=slotData.mon?deserializeMon(slotData.mon):undefined;
+              arr.pkmGender=slotData.pkmGender; arr.complete=slotData.complete;
+            } else {
+              // Old-format draft: rebuild the shortcuts from indexed data as a best effort
+              arr.nick=arr[5]?.value; arr.mon=arr[POKEMON_Q_START]?.mon;
+            }
+            return arr;
+          });
           currentSlot=draft.currentSlot||0; viewingSlot=-1;
           trainerPhase=draft.trainerPhase||'trainer'; step=draft.step||0;
+          signatureSlot=typeof draft.signatureSlot==='number'?draft.signatureSlot:null;
           Object.keys(ans).forEach(k=>delete ans[k]);
           for(const k in (draft.ans||{})){ const a=draft.ans[k]; if(a) ans[k]={value:a.value, otGender:a.otGender}; }
           renderTeamBar(); renderTrainerQ();
         } else {
           if(isPkm){ clearPokemonDraft(); step=0; Object.keys(ans).forEach(k=>delete ans[k]); renderQ(); }
-          else { clearTrainerDraft(); team=[]; currentSlot=0; viewingSlot=-1; trainerPhase='trainer'; step=0; renderTrainerQ(); }
+          else { clearTrainerDraft(); team=[]; currentSlot=0; viewingSlot=-1; trainerPhase='trainer'; step=0; signatureSlot=null; renderTrainerQ(); }
         }
       },400);
     }
@@ -4983,7 +5002,7 @@ function launchMode(mode) {
       if(lc) lc.style.display='flex';
       renderQ();
     } else {
-      trainerPhase='trainer'; team=[]; currentSlot=0; viewingSlot=-1; renderTrainerQ();
+      trainerPhase='trainer'; team=[]; currentSlot=0; viewingSlot=-1; signatureSlot=null; renderTrainerQ();
     }
   }, 400);
 }
@@ -5046,7 +5065,7 @@ function makeNavBar(opts={}) {
           launchMode('pokemon');
         } else {
           if(typeof clearTrainerDraft!=='undefined') clearTrainerDraft();
-          if(typeof team!=='undefined'){team=[];currentSlot=0;viewingSlot=-1;}step=0;
+          if(typeof team!=='undefined'){team=[];currentSlot=0;viewingSlot=-1;}step=0;signatureSlot=null;
           if(typeof trainerPhase!=='undefined')trainerPhase='trainer';
           Object.keys(ans).forEach(k=>delete ans[k]);
           // Use launchMode to properly re-initialize trainer creation
@@ -5066,7 +5085,7 @@ function makeNavBar(opts={}) {
   restartBtn.textContent = '↺ Restart';
   restartBtn.addEventListener('click', () => {
     if(!confirm('Restart? All answers will be lost.')) return;
-    if(currentMode==='trainer'){ clearTrainerDraft(); team=[]; currentSlot=0; viewingSlot=-1; step=0; trainerPhase='trainer'; renderTrainerQ(); }
+    if(currentMode==='trainer'){ clearTrainerDraft(); team=[]; currentSlot=0; viewingSlot=-1; step=0; trainerPhase='trainer'; signatureSlot=null; renderTrainerQ(); }
     else { clearPokemonDraft(); step=0; Object.keys(ans).forEach(k=>delete ans[k]); renderQ(); }
   });
   row.appendChild(restartBtn);
@@ -5091,6 +5110,7 @@ let team = [];
 let currentSlot = 0;
 let viewingSlot = -1;  // -1 = building, >=0 = reviewing that slot
 let trainerPhase = 'trainer';
+let signatureSlot = null; // index into team[] chosen as the Signature Pokémon
 
 
 
@@ -5296,7 +5316,8 @@ function formatSpriteLabel(name){
 // richer card belongs only in the End Card summary.
 function buildTeamKachel(i){
   const tile=document.createElement('div');
-  tile.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;width:118px;padding:8px 6px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);position:relative;';
+  const isSig=i===signatureSlot;
+  tile.style.cssText=`display:flex;flex-direction:column;align-items:center;gap:3px;width:118px;padding:8px 6px;border-radius:10px;border:${isSig?'2px solid #f0c93a':'1px solid rgba(255,255,255,.1)'};background:${isSig?'rgba(240,201,58,.08)':'rgba(255,255,255,.03)'};position:relative;${isSig?'box-shadow:0 0 10px rgba(240,201,58,.3);':''}`;
   if(!team[i]||!team[i].mon){
     tile.style.cssText+='justify-content:center;min-height:80px;border-style:dashed;cursor:pointer;';
     const ph=document.createElement('span');ph.style.cssText='font-size:22px;color:rgba(255,255,255,.25);';ph.textContent='+';
@@ -5339,6 +5360,7 @@ function buildTeamKachel(i){
     yesBtn.addEventListener('click',()=>{
       confOv.remove();
       team[i]=null;
+      if(signatureSlot===i) signatureSlot=null;
       tile.replaceWith(buildTeamKachel(i));
     });
     confRow.append(yesBtn,noBtn);confBx.append(confTxt,confRow);confOv.appendChild(confBx);
@@ -5423,6 +5445,11 @@ function buildTeamKachel(i){
   });
 
   tile.appendChild(delBtn);
+  if(isSig){
+    const sigBadge=document.createElement('div');sigBadge.style.cssText='position:absolute;top:-6px;left:-6px;font-size:14px;filter:drop-shadow(0 0 3px rgba(240,201,58,.8));';
+    sigBadge.textContent='\u2605';sigBadge.title='Signature Pokémon';
+    tile.appendChild(sigBadge);
+  }
   tile.append(sprWrap,nameCol,typesRow);
   if(abilityRow)tile.appendChild(abilityRow);
   if(itemRow)tile.appendChild(itemRow);
@@ -5583,15 +5610,76 @@ function renderAddPokemonPrompt() {
       renderTrainerQ();
     });
     const noBtn = document.createElement('div'); noBtn.className='g-btn sn'; noBtn.textContent=`✓ Finish Team (${currentSlot+1} Pokémon)`;
-    noBtn.addEventListener('click', ()=>{ team[currentSlot].complete=true; renderTrainerResult(); });
+    noBtn.addEventListener('click', ()=>{ team[currentSlot].complete=true; renderSignaturePokemonScreen(); });
     row.append(yesBtn,noBtn); card.appendChild(row);
   } else {
     // Max team reached
     const q = document.createElement('div'); q.className='q-text'; q.textContent='Your team is complete! (6/6 Pokémon)'; card.appendChild(q);
     const btn = document.createElement('button'); btn.className='btn'; btn.textContent='GET RESULT ✓';
-    btn.addEventListener('click', ()=>{ team[currentSlot].complete=true; renderTrainerResult(); });
+    btn.addEventListener('click', ()=>{ team[currentSlot].complete=true; renderSignaturePokemonScreen(); });
     card.appendChild(btn);
   }
+
+  card.appendChild(makeNavBar());
+  app.appendChild(card);
+}
+
+function renderSignaturePokemonScreen(){
+  updProgT();
+  const app=document.getElementById('app'); app.innerHTML='';
+  renderTeamBar();
+  const card=document.createElement('div'); card.className='card';
+
+  const q=document.createElement('div'); q.className='q-text'; q.textContent='Choose your Signature Pokémon';card.appendChild(q);
+  const sub=document.createElement('div'); sub.className='q-sub';
+  sub.textContent="A Signature Pokémon is like your Starter Pokémon — it's your favorite Pokémon on the team, and supposedly also your strongest, with the highest level.";
+  card.appendChild(sub);
+
+  let staged=signatureSlot;
+  const grid=document.createElement('div'); grid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin:16px 0;';
+  const tileEls=[];
+  team.forEach((slot,i)=>{
+    if(!slot||!slot.mon) return;
+    const mon=slot.mon;
+    const tile=document.createElement('div');
+    const paintTile=()=>{
+      const isStaged=staged===i;
+      tile.style.cssText=`display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:10px;cursor:pointer;transition:all .15s;border:2px solid ${isStaged?'#f0c93a':'transparent'};background:${isStaged?'rgba(240,201,58,.1)':'rgba(255,255,255,.03)'};box-shadow:${isStaged?'0 0 12px rgba(240,201,58,.35)':'none'};`;
+    };
+    paintTile();
+    const img=document.createElement('img'); img.style.cssText='width:52px;height:52px;object-fit:contain;image-rendering:pixelated;';
+    const sf=getSpriteFile(mon);
+    const isShinySlot=(slot[12]?.value||'').toLowerCase()==='yes';
+    if(isShinySlot){const shf=getShinyFile(mon);img.src=shinyUrl(shf,mon.id||mon.spriteId||mon.baseId);img.onerror=()=>shinyUrlFallback(img,mon.id||mon.spriteId||mon.baseId,shf);}
+    else{img.src=`${PKM_BASE1}${sf}.png`;img.onerror=()=>iconUrlFallback(img,mon.id||mon.spriteId||mon.baseId,sf);}
+    const nm=document.createElement('span'); nm.style.cssText='font-size:10px;font-weight:700;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;';
+    nm.textContent=slot.nick||mon.name;
+    const typesRow=document.createElement('div'); typesRow.style.cssText='display:flex;gap:3px;';
+    const tbMini=(t)=>{const s=tb(t);s.style.fontSize='7px';s.style.padding='1px 5px';return s;};
+    if(mon.t1)typesRow.appendChild(tbMini(mon.t1)); if(mon.t2)typesRow.appendChild(tbMini(mon.t2));
+    const star=document.createElement('div'); star.style.cssText=`font-size:9px;color:#f0c93a;font-weight:700;visibility:${staged===i?'visible':'hidden'};`; star.textContent='★ Signature';
+    tile.append(img,nm,typesRow,star);
+    tile.addEventListener('click',()=>{
+      staged=i;
+      tileEls.forEach(t2=>t2.repaint());
+      confirmBtn.disabled=false;
+      confirmBtn.textContent=`★ Confirm ${slot.nick||mon.name} as Signature Pokémon`;
+    });
+    tileEls.push({el:tile, idx:i, repaint:()=>{paintTile();star.style.visibility=staged===i?'visible':'hidden';}});
+    grid.appendChild(tile);
+  });
+  card.appendChild(grid);
+
+  const confirmBtn=document.createElement('button'); confirmBtn.type='button'; confirmBtn.className='btn';
+  confirmBtn.style.cssText='width:100%;margin-top:4px;';
+  confirmBtn.disabled=staged===null;
+  confirmBtn.textContent=staged!==null?`★ Confirm ${(team[staged]?.nick||team[staged]?.mon?.name)} as Signature Pokémon`:'Select a Pokémon above first';
+  confirmBtn.addEventListener('click',()=>{
+    if(staged===null) return;
+    signatureSlot=staged;
+    renderTrainerResult();
+  });
+  card.appendChild(confirmBtn);
 
   card.appendChild(makeNavBar());
   app.appendChild(card);
@@ -6847,8 +6935,9 @@ function renderTrainerResult(){
     const tera=slot[14]?.value||'—';
     const moves=slot[15]?.moves||[];
     const genderAbbr=slot.pkmGender==='Male'?' (M)':slot.pkmGender==='Female'?' (F)':'';
+    const sigPrefix=team.indexOf(slot)===signatureSlot?'*':'';
 
-    ls.push(nickname!==species?`${nickname} (${species})${genderAbbr} @ ${item}`:`${species}${genderAbbr} @ ${item}`);
+    ls.push(nickname!==species?`${sigPrefix}${nickname} (${species})${genderAbbr} @ ${item}`:`${sigPrefix}${species}${genderAbbr} @ ${item}`);
     ls.push(`Ability: ${ability}`);
     ls.push(`IVs: ${ivLine}`);
     ls.push(`EVs: ${evLine}`);
@@ -6923,11 +7012,17 @@ function renderTrainerResult(){
     const teamSect=document.createElement('div');teamSect.style.cssText='padding:0 12px 12px;';
     const teamHdrRow=document.createElement('div');teamHdrRow.style.cssText='display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;';
     const teamHdr=document.createElement('div');teamHdr.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#555;';teamHdr.textContent='TEAM';
+    const btnGroup=document.createElement('div');btnGroup.style.cssText='display:flex;gap:6px;';
     const covBtn=document.createElement('button');covBtn.type='button';
     covBtn.style.cssText='font-size:9px;padding:4px 10px;border-radius:6px;border:1px solid rgba(77,182,172,.35);background:rgba(77,182,172,.1);color:#4db6ac;cursor:pointer;font-weight:700;';
     covBtn.textContent='\uD83D\uDCCA Type Coverage';
     covBtn.addEventListener('click',()=>buildTeamTypeCoveragePopup());
-    teamHdrRow.append(teamHdr,covBtn);
+    const sigBtn=document.createElement('button');sigBtn.type='button';
+    sigBtn.style.cssText='font-size:9px;padding:4px 10px;border-radius:6px;border:1px solid rgba(240,201,58,.4);background:rgba(240,201,58,.1);color:#f0c93a;cursor:pointer;font-weight:700;';
+    sigBtn.textContent='\u2605 Change Signature Pokémon';
+    sigBtn.addEventListener('click',()=>{if(typeof closeEndCard==='function')closeEndCard();renderSignaturePokemonScreen();});
+    btnGroup.append(covBtn,sigBtn);
+    teamHdrRow.append(teamHdr,btnGroup);
     teamSect.appendChild(teamHdrRow);
     const teamGrid=document.createElement('div');teamGrid.style.cssText='display:flex;flex-wrap:wrap;gap:8px;justify-content:center;';
     for(let i=0;i<MAX_TEAM;i++) teamGrid.appendChild(buildTeamKachel(i));
@@ -7723,7 +7818,7 @@ function initTwitchIntegration(){
           connected=true;
           setStatus('connected','Connected to #'+ch+' chat!');
           addLog('✅ Connected! Mods/broadcaster: type !roll','#4caf50');
-          addLog('⚡ Commands: !roll • !teamroll • !teamreroll[1-6] • !slot1-6 nick,owner • !clearslot1-6 • !clearparty • !reload','#64b5f6');
+          addLog('⚡ Commands: !roll • !teamroll • !teamreroll[1-6] • !slot1-6 nick,owner • !clearslot1-6 • !clearparty • !reload • !counteradd X • !counterremove X','#64b5f6');
         };
         // ComfyJS routes !commands to onCommand — PRIMARY handler
         ComfyJS.onCommand=(user,command,message,flags)=>{
@@ -7787,6 +7882,18 @@ function initTwitchIntegration(){
               addLog('\uD83C\uDFB2 !slotroll'+slotrollM[1]+' by @'+user+' (Pok\u00e9mon Pool)','#64b5f6');
               if(typeof window.triggerSlotRoll==='function')window.triggerSlotRoll(slotIdx);
               else addLog('\u26a0 Roulette not ready','#e57373');
+            }
+            // ── !counteradd X / !counterremove X ────────────────────────────────
+            if((cmd==='counteradd'||cmd==='counterremove')&&ok){
+              const n=parseInt(message.trim(),10);
+              if(!isNaN(n)){
+                const delta=cmd==='counteradd'?n:-n;
+                const newVal=typeof window._wonniCounterChange==='function'?window._wonniCounterChange(delta):null;
+                if(newVal!==null)addLog((delta>=0?'\u2795':'\u2796')+' !'+cmd+' '+n+' by @'+user+' \u2192 Counter: '+newVal,'#4db6ac');
+                else addLog('\u26a0 Roulette not ready','#e57373');
+              } else addLog('\u26a0\ufe0f !'+cmd+' needs a number, e.g. !'+cmd+' 5','#f0c600');
+            } else if((cmd==='counteradd'||cmd==='counterremove')&&!ok){
+              addLog('\uD83D\uDEAB @'+user+' no permission for !'+cmd,'#555');
             }
             // ── !popup nick, owner ────────────────────────────────────────────
             if(cmd==='popup'&&ok){
@@ -7879,6 +7986,18 @@ function initTwitchIntegration(){
             const idx=parseInt(clrMatch[1])-1;
             if(window._wonniSetPartySlot){window._wonniSetPartySlot(idx,'__CLEAR__');}
             addLog('\u2705 @'+user+': slot '+(idx+1)+' cleared','#9575cd');
+          }
+          // ── !counteradd X / !counterremove X ────────────────────────────────────
+          const counterMatch=msg.match(/^!counter(add|remove)\s+(-?\d+)/i);
+          if(counterMatch){
+            const ok=badges.includes('broadcaster')||badges.includes('moderator');
+            if(ok){
+              const n=parseInt(counterMatch[2],10);
+              const delta=counterMatch[1].toLowerCase()==='add'?n:-n;
+              const newVal=typeof window._wonniCounterChange==='function'?window._wonniCounterChange(delta):null;
+              if(newVal!==null)addLog((delta>=0?'\u2795':'\u2796')+' !counter'+counterMatch[1]+' '+n+' by @'+user+' \u2192 Counter: '+newVal,'#4db6ac');
+              else addLog('\u26a0 Roulette not ready','#e57373');
+            } else addLog('\uD83D\uDEAB @'+user+' no permission for !counter'+counterMatch[1],'#555');
           }
         }
         }); // end lines.forEach
@@ -8227,6 +8346,22 @@ function initPkmRoulette(){
   const grid=document.getElementById('pkm-roulette-grid');
   const TRAINER_BASE_R='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/trainer/';
   let open=false,hofData=null,rolling=false;
+  // ── Chat-driven counter, shown above the Randomizer ─────────────────────────
+  let rouletteCounter=0;
+  let counterValEl=null; // reassigned each renderAll() since the section rebuilds
+  function updateCounterDisplay(oldVal,newVal){
+    if(!counterValEl) return;
+    counterValEl.textContent=newVal;
+    counterValEl.style.transform='scale(1.35)';
+    counterValEl.style.color=newVal>oldVal?'#4caf50':newVal<oldVal?'#e57373':counterValEl.style.color;
+    setTimeout(()=>{ counterValEl.style.transform='scale(1)'; },220);
+  }
+  window._wonniCounterChange=(delta)=>{
+    const oldVal=rouletteCounter;
+    rouletteCounter+=delta;
+    updateCounterDisplay(oldVal,rouletteCounter);
+    return rouletteCounter;
+  };
   // ── Party: 6 slots, set via chat !slot1-!slot6 ──────────────────────────────
   let partySlots=[null,null,null,null,null,null];
   let partySec=null,partyGrid=null,partyOpen=true;
@@ -8416,6 +8551,10 @@ function initPkmRoulette(){
 
     // ── Section 1: Roulette (centered card) ──────────────────────────────────
     const rouletteSec=document.createElement('div');rouletteSec.style.cssText='padding:16px;border-bottom:2px solid rgba(77,182,172,.15);display:flex;flex-direction:column;align-items:center;gap:12px;';
+    const counterBox=document.createElement('div');counterBox.style.cssText='display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 20px;border-radius:10px;background:rgba(77,182,172,.08);border:1px solid rgba(77,182,172,.25);';
+    const counterLbl=document.createElement('div');counterLbl.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#4db6ac;letter-spacing:.5px;';counterLbl.textContent='COUNTER';
+    counterValEl=document.createElement('div');counterValEl.style.cssText='font-size:26px;font-weight:900;color:var(--white);line-height:1.1;transition:transform .2s ease,color .3s ease;';counterValEl.textContent=rouletteCounter;
+    counterBox.append(counterLbl,counterValEl);rouletteSec.appendChild(counterBox);
     const spinCard=document.createElement('div');spinCard.style.cssText='width:220px;min-height:280px;border-radius:14px;overflow:hidden;border:2px solid rgba(77,182,172,.3);background:#0d1117;display:none;flex-direction:column;align-items:center;';
     const spinSprWrap=document.createElement('div');spinSprWrap.style.cssText='width:100%;display:flex;justify-content:center;padding:14px 12px 6px;background:rgba(77,182,172,.05);';
     const spinSpr=document.createElement('img');spinSpr.style.cssText='width:80px;height:80px;image-rendering:pixelated;';spinSprWrap.appendChild(spinSpr);
