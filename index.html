@@ -2240,16 +2240,26 @@ function catChip(cat){const col=MOVE_CAT_COL[cat]||'#888';const ico={Physical:'�
 // ── Global Move Info Popup ────────────────────────────────────────────────────
 function openMoveInfoPopup(mv){
   const typeCol=MOVE_TYPE_COL[mv.type]||'#888';
+  const TYPE_IDS_POPUP={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
   const popup=document.createElement('div');
   popup.style.cssText='position:fixed;inset:0;z-index:1300;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);padding:16px;';
   popup.addEventListener('click',e=>{if(e.target===popup)popup.remove();});
   const popBox=document.createElement('div');
   popBox.style.cssText='background:#13192a;border:2px solid '+typeCol+'66;border-radius:14px;width:100%;max-width:600px;max-height:80vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);';
-  const popHdr=document.createElement('div');popHdr.style.cssText='display:flex;align-items:center;gap:8px;padding:12px 16px;background:'+typeCol+'22;border-bottom:1px solid '+typeCol+'33;flex-shrink:0;';
-  const popTitle=document.createElement('span');popTitle.style.cssText='font-weight:700;font-size:15px;flex:1;';popTitle.textContent=mv.name;
+  const popHdr=document.createElement('div');popHdr.style.cssText='display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:'+typeCol+'22;border-bottom:1px solid '+typeCol+'33;flex-shrink:0;';
+  const popHdrLeft=document.createElement('div');popHdrLeft.style.cssText='flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;';
+  const popTitleRow=document.createElement('div');popTitleRow.style.cssText='display:flex;align-items:baseline;gap:8px;';
+  const popTitle=document.createElement('span');popTitle.style.cssText='font-weight:700;font-size:15px;';popTitle.textContent=mv.name;
+  const popId=document.createElement('span');popId.style.cssText='font-size:10px;color:var(--gray);font-family:"Press Start 2P",monospace;';popId.textContent=mv.id!=null?'#'+String(mv.id).padStart(4,'0'):'';
+  popTitleRow.append(popTitle,popId);
+  popHdrLeft.appendChild(popTitleRow);
+  if(mv.desc){const popDesc=document.createElement('div');popDesc.style.cssText='font-size:11px;color:var(--gray);line-height:1.4;font-style:italic;';popDesc.textContent=mv.desc;popHdrLeft.appendChild(popDesc);}
+  const popHdrRight=document.createElement('div');popHdrRight.style.cssText='display:flex;align-items:center;gap:6px;flex-shrink:0;';
+  const typeIco=document.createElement('img');typeIco.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${TYPE_IDS_POPUP[mv.type]||1}.png`;typeIco.style.cssText='height:20px;image-rendering:pixelated;';typeIco.onerror=()=>typeIco.style.display='none';
   const popClose=document.createElement('button');popClose.type='button';popClose.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';popClose.textContent='✕';
   popClose.addEventListener('click',()=>popup.remove());
-  popHdr.append(popTitle,typeChip(mv.type),catChip(mv.cat),popClose);
+  popHdrRight.append(typeIco,catChip(mv.cat),popClose);
+  popHdr.append(popHdrLeft,popHdrRight);
   const tabBar=document.createElement('div');tabBar.style.cssText='display:flex;border-bottom:1px solid var(--border);flex-shrink:0;';
   const tabBtns=[];const tabPanes=[];
   ['Info','Contest','Pokémon'].forEach((t,i)=>{
@@ -2267,7 +2277,6 @@ function openMoveInfoPopup(mv){
   const mkR=(label,val,col)=>{if(!val&&val!==0)return null;const row=document.createElement('div');row.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);';const l=document.createElement('span');l.style.cssText='font-size:11px;color:var(--gray);';l.textContent=label;const v=document.createElement('span');v.style.cssText='font-size:12px;font-weight:600;color:'+(col||'var(--white)')+';text-align:right;';v.textContent=val;row.append(l,v);return row;};
   [mkR('Base Power',bpVal||'—',bpColor(bpVal)),mkR('Accuracy',(mv.acc||'—')+(mv.acc?'%':'')),mkR('PP',mv.pp),mkR('Type',mv.type),mkR('Category',mv.cat),mkR('Target',mv.target||'Selected'),mkR('Priority',(mv.priority>0?'+':'')+mv.priority,mv.priority>0?'#4caf50':mv.priority<0?'#e57373':null),mv.strike>1?mkR('Strike Count',mv.strike+'×','#4caf50'):null,mv.crit>0?mkR('Crit Stage','+'+mv.crit,'#f0c600'):null,mv.addEff&&mv.addEff!=='False'&&mv.addEff!==false?mkR('Additional Effect',mv.addEff,'#f0c600'):null,mv.effect&&mv.effect!=='Hit'?mkR('Effect',mv.effect,'var(--pl)'):null].filter(Boolean).forEach(r=>tabPanes[0].appendChild(r));
   if(mv.flags&&mv.flags.length){const atH=document.createElement('div');atH.style.cssText='font-size:10px;font-family:"Press Start 2P",monospace;color:var(--gray);margin:12px 0 6px;';atH.textContent='ATTRIBUTES';tabPanes[0].appendChild(atH);const atWrap=document.createElement('div');atWrap.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;';mv.flags.forEach(f=>{const isBan=f.endsWith('_banned');const tag=document.createElement('span');tag.style.cssText='font-size:10px;padding:4px 10px;border-radius:5px;text-align:center;background:'+(isBan?'rgba(227,53,13,.15)':'rgba(100,181,246,.12)')+';color:'+(isBan?'#E3350D':'#64b5f6')+';border:1px solid '+(isBan?'rgba(227,53,13,.3)':'rgba(100,181,246,.25)')+';font-weight:500;';tag.textContent=FL_ALL[f]||f.replace(/_/g,' ');atWrap.appendChild(tag);});tabPanes[0].appendChild(atWrap);}
-  if(mv.desc){const d=document.createElement('div');d.style.cssText='margin-top:12px;font-size:12px;color:var(--gray);line-height:1.6;font-style:italic;';d.textContent=mv.desc;tabPanes[0].appendChild(d);}
   if(!mv.contestEff&&!mv.contestCat){const nc=document.createElement('div');nc.style.cssText='color:var(--gray);font-size:12px;padding:20px 0;text-align:center;';nc.textContent='No contest data available.';tabPanes[1].appendChild(nc);}
   else{[mkR('Contest Effect',mv.contestEff),mkR('Contest Category',mv.contestCat,'#f06292')].filter(Boolean).forEach(r=>tabPanes[1].appendChild(r));}
   tabPanes[2].innerHTML='<div style="color:var(--gray);font-size:11px;padding:10px 0;">Loading learners…</div>';
