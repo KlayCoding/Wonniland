@@ -622,8 +622,8 @@
     {
       "key": "old_couple",
       "label": "Old Couple",
-      "group": "basic",
-      "locked": false
+      "group": "special",
+      "locked": true
     },
     {
       "key": "painter_frlg",
