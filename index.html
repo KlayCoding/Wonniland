@@ -1352,7 +1352,7 @@ function updPokemonCard(){
   const teraType = ga(6)||'';
   const gmaxAns  = ga(7)||'';
   const ivevAns  = currentMode==='trainer'?slot[8]:ans[8];  // IVs/EVs
-  const itemVal  = ga(10)||'';
+  const itemVal  = ga(11)||'';
   const movesAns = (currentMode==='trainer'?slot[15]:ans[9])?.moves||[];
 
   const isShiny=shinyVal.toLowerCase().includes('yes')||shinyVal.includes('✨');
@@ -5384,7 +5384,7 @@ function buildTeamKachel(i){
   const gaTile=(k)=>team[i][T_IDX_TILE[k]??(POKEMON_Q_START+k-1)]?.value;
   const nick = team[i].nick || mon.name;
   const abilityRaw=(gaTile(5)||'').replace(/\s*\(Hidden\)\s*$/i,'');
-  const itemVal=(gaTile(10)||'').split(' (#')[0];
+  const itemVal=(gaTile(11)||'').split(' (#')[0];
   const itemData=itemVal?ITEMS.find(it=>it.name===itemVal):null;
   const gmaxVal=gaTile(7)||'';
   const isGmax=/^GMax Factor:\s*Yes/i.test(gmaxVal)||gmaxVal.toLowerCase()==='yes';
