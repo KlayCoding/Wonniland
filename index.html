@@ -971,7 +971,7 @@ const SLBLS=["HP","Atk","Def","SpA","SpD","Spe"];
 const SKEYS=["hp","atk","def","spa","spd","spe"];
 
 // ── State ─────────────────────────────────────────────────────────────────────
-let step=0; const ans={}; const TOTAL=12;
+let step=0; const ans={}; const TOTAL=13;
 
 // ── localStorage Autosave ─────────────────────────────────────────────────────
 const LS_PKM_KEY='wonniland_pkm_ans';
@@ -1025,7 +1025,7 @@ function getFavorites(){ try{return new Set(JSON.parse(localStorage.getItem(LS_F
 function toggleFavorite(name){ const favs=getFavorites(); if(favs.has(name)){favs.delete(name);}else{favs.add(name);} localStorage.setItem(LS_FAV_KEY,JSON.stringify([...favs])); return favs.has(name); }
 function isFavorite(name){ return getFavorites().has(name); }
 
-const QLBLS=['👤 OT Name','🎮 Pokémon','📛 Nickname','✨ Shiny?','🌿 Nature','🦋 Ability','🔮 Tera Type','⚡ GMax & Dynamax','💪 IVs & EVs','⚔️ Moves','🎒 Held Item','🔄 Can Evolve'];
+const QLBLS=['👤 OT Name','🎮 Pokémon','📛 Nickname','✨ Shiny?','🌿 Nature','🦋 Ability','🔮 Tera Type','⚡ GMax & Dynamax','💪 IVs & EVs','⚔️ Moves','⚾ Poké Ball','🎒 Held Item','🔄 Can Evolve'];
 
 // ── Progress ──────────────────────────────────────────────────────────────────
 // updProg defined below near panel code
@@ -1339,11 +1339,11 @@ function updPokemonCard(){
   if(leftCol) leftCol.style.display='flex';
 
   // ── Read answers with correct step indices (Pokemon mode) ──────────────────
-  // ans[1]=species, ans[2]=nickname, ans[3]=shiny, ans[4]=ability,
-  // ans[5]=nature, ans[6]=tera, ans[7]=gmax, ans[8]=ivev, ans[9]=ivev_custom
-  // ans[10]=item, ans[11]=moves
+  // ans[0]=OT name, ans[1]=species, ans[2]=nickname, ans[3]=shiny, ans[4]=nature,
+  // ans[5]=ability, ans[6]=tera, ans[7]=gmax, ans[8]=ivev, ans[9]=moves,
+  // ans[10]=poke ball, ans[11]=item, ans[12]=can evolve
   // Trainer slot index map: maps pokemon-creation step → trainer slot index
-  const T_IDX={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
+  const T_IDX={2:5,3:12,4:11,5:7,6:14,7:13,10:9,11:6,12:15};
   const ga=i=>{if(currentMode==='trainer'){const si=T_IDX[i]??(POKEMON_Q_START+i-1);return slot[si]?.value;}return ans[i]?.value;};
   const nickname = ga(2)||'';
   const shinyVal = ga(3)||'';
@@ -1427,7 +1427,7 @@ function updPokemonCard(){
     b.textContent='✎ '+label;b.title='Edit '+label;
     b.addEventListener('click',(e)=>{
       e.stopPropagation();
-      const tIdxLocal={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
+      const tIdxLocal={2:5,3:12,4:11,5:7,6:14,7:13,10:9,11:6,12:15};
       step=currentMode==='trainer'?(tIdxLocal[editStep]??(POKEMON_Q_START+editStep-1)):editStep;
       if(currentMode==='trainer')renderTrainerQ();else renderQ();
     });
@@ -1588,7 +1588,7 @@ function updPokemonCard(){
       eb.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#555;cursor:pointer;transition:all .15s;';
       eb.textContent='✎';eb.title='Edit '+label;
       eb.addEventListener('click',()=>{
-        const tIdx={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
+        const tIdx={2:5,3:12,4:11,5:7,6:14,7:13,10:9,11:6,12:15};
         step=currentMode==='trainer'?(tIdx[stepN]??stepN):stepN;
         if(currentMode==='trainer')renderTrainerQ();else renderQ();
       });
@@ -1648,7 +1648,7 @@ function updPokemonCard(){
       eb.style.cssText='font-size:8px;padding:2px 6px;border-radius:4px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--gray);cursor:pointer;flex-shrink:0;transition:all .15s;';
       eb.textContent='✎';eb.title='Edit';
       eb.addEventListener('click',()=>{
-        const tIdx={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
+        const tIdx={2:5,3:12,4:11,5:7,6:14,7:13,10:9,11:6,12:15};
         step=currentMode==='trainer'?(tIdx[editStep]??editStep):editStep;
         if(currentMode==='trainer')renderTrainerQ();else renderQ();
       });
@@ -1697,18 +1697,17 @@ function updPokemonCard(){
       iEl.appendChild(document.createTextNode(itemName));
       // Apply bg removal after image loads
       setTimeout(()=>{if(iEl.querySelectorAll){const itemObj=ITEMS.find(it=>it.name===itemName);iEl.querySelectorAll('img').forEach(img=>{img.crossOrigin='anonymous';removeItemBg(img,itemName?.toLowerCase().replace(/ /g,'-')||'');if(itemObj)applyItemTint(img,itemObj);});}},80);
-      return mkDR('Item',null,null,iEl,10);
+      return mkDR('Item',null,null,iEl,11);
    })(),
-   // Poké Ball (trainer mode only)
+   // Poké Ball
    (()=>{
-     if(currentMode!=='trainer') return null;
-     const _ballName=slot?.[9]?.value||'';
+     const _ballName=currentMode==='trainer'?(slot?.[9]?.value||''):(ans[10]?.value||'');
      if(!_ballName) return null;
      const _bData=ITEMS.find(it=>it.name===_ballName);
      const _bEl=document.createElement('div');_bEl.style.cssText='display:flex;align-items:center;gap:6px;color:var(--pl);font-weight:700;';
      if(_bData?.slug){const _bi=document.createElement('img');_bi.crossOrigin='anonymous';_bi.src=ITEM_BASE+_bData.slug+'.png';_bi.style.cssText='width:18px;height:18px;image-rendering:pixelated;flex-shrink:0;';_bi.addEventListener('load',()=>{removeItemBg(_bi,_bData.slug);const _bObj=ITEMS.find(it=>it.slug===_bData.slug);if(_bObj)applyItemTint(_bi,_bObj);},{once:true});_bi.onerror=()=>_bi.style.display='none';_bEl.appendChild(_bi);}
      _bEl.appendChild(document.createTextNode(_ballName));
-     return mkDR('Pok\u00e9 Ball',null,null,_bEl,9);
+     return mkDR('Pok\u00e9 Ball',null,null,_bEl,10);
    })(),
    // Happiness (trainer mode only) — built without mkDR's editStep translation:
    // that mechanism assumes editStep is a Pokémon-mode step number and remaps
@@ -1777,7 +1776,7 @@ function updPokemonCard(){
     const mvHdr=document.createElement('div');mvHdr.style.cssText='display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;';
     const mvLbl=document.createElement('span');mvLbl.style.cssText='font-size:8px;color:#445;font-weight:600;letter-spacing:.05em;text-transform:uppercase;';mvLbl.textContent='Moves';
     const mvEditStep=currentMode==='trainer'?15:9;
-    const mvTStep=currentMode==='trainer'?(({2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15})[mvEditStep]??mvEditStep):mvEditStep;
+    const mvTStep=currentMode==='trainer'?(({2:5,3:12,4:11,5:7,6:14,7:13,10:9,11:6,12:15})[mvEditStep]??mvEditStep):mvEditStep;
     const mvEb=document.createElement('button');mvEb.type='button';
     mvEb.style.cssText='font-size:8px;padding:2px 7px;border-radius:4px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#8892a4;cursor:pointer;';
     mvEb.textContent='✎ Edit';
@@ -4399,8 +4398,46 @@ function renderQ(){
     };
     focEl=null;
 
-
+  // ── Q11 ── Poké Ball ──────────────────────────────────────────────────────
   }else if(step===10){
+    addT(card,'In which Pokéball should your Pokémon be?');
+    const BALLS=ITEMS.filter(it=>it.id>=1&&it.id<=27);
+    const IB='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/';
+    const iUrl=slug=>`${IB}${slug}.png`;
+    const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';}};
+    let selBall=null;
+    const grid=document.createElement('div'); grid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-top:8px;';
+    BALLS.forEach(ball=>{
+      const cell=document.createElement('div');
+      cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;border-radius:10px;border:2px solid transparent;background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;';
+      const img=document.createElement('img'); img.crossOrigin='anonymous';img.src=iUrl(ball.slug);img.loading='lazy';img.addEventListener('load',()=>removeItemBg(img,ball.slug),{once:true});
+      img.style.cssText='width:40px;height:40px;object-fit:contain;image-rendering:pixelated;';
+      img.onerror=()=>iFb(img,ball.slug);
+      const lbl=document.createElement('span'); lbl.style.cssText='font-size:9px;color:var(--gray);text-align:center;'; lbl.textContent=ball.name;
+      cell.append(img,lbl);
+      cell.addEventListener('click',()=>{
+        selBall=ball;
+        grid.querySelectorAll('[data-ball]').forEach(c=>{c.style.borderColor='transparent';c.style.background='rgba(255,255,255,.03)';});
+        cell.style.borderColor='var(--green)'; cell.style.background='rgba(76,175,80,.1)';
+      });
+      cell.dataset.ball=ball.id; grid.appendChild(cell);
+    });
+    card.appendChild(grid);
+    const ballBtnRow=document.createElement('div'); ballBtnRow.style.cssText='display:flex;gap:8px;margin-top:10px;';
+    const ballDel=document.createElement('button'); ballDel.type='button'; ballDel.className='del-btn'; ballDel.style.cssText='flex:0 0 auto;'; ballDel.textContent='✕ Clear';
+    ballDel.addEventListener('click',()=>{
+      selBall=null;
+      grid.querySelectorAll('[data-ball]').forEach(c=>{c.style.borderColor='transparent';c.style.background='rgba(255,255,255,.03)';});
+    });
+    const ballRand=document.createElement('button'); ballRand.type='button'; ballRand.className='rand-btn'; ballRand.style.flex='1'; ballRand.textContent='🎲 Randomize Ball!';
+    ballRand.addEventListener('click',()=>{
+      const cells=[...grid.querySelectorAll('[data-ball]')];
+      if(cells.length) cells[Math.floor(Math.random()*cells.length)].click();
+    });
+    ballBtnRow.append(ballDel,ballRand); card.appendChild(ballBtnRow);
+    getV=()=>selBall?{value:selBall.name}:null;
+
+  }else if(step===11){
     addT(card,'What item is your Pokémon holding?');
     addS(card,'Search from all 878 items in Wonniland Version.');
     const iUrl=slug=>`${ITEM_BASE}${slug}.png`;
@@ -4537,8 +4574,8 @@ function renderQ(){
     focEl={focus:()=>inp.focus()};
     getV=()=>selItem?{value:`${selItem.name} (#${String(selItem.id).padStart(4,'0')})`}:inp.value.trim()?{value:inp.value.trim()}:null;
 
-  // Q12 ── Can Evolve?
-  }else if(step===11){
+  // Q13 ── Can Evolve?
+  }else if(step===12){
     addT(card,'Is Wonni allowed to evolve your Pokémon?');
     const row=document.createElement('div');row.className='g-opts';let se=null;
     [['Yes ✓','Yes','sy'],['No ✗','No','sn']].forEach(([l,k,c])=>{const b=document.createElement('div');b.className='g-btn';b.textContent=l;b.addEventListener('click',()=>{se=k;row.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn');b.className=`g-btn ${c}`;});row.appendChild(b);});
@@ -4579,7 +4616,7 @@ function renderResult(){
   const otNameExp=ans[0]?.value||'—';
   const speciesExp=monP?.name||ans[1]?.value||'—';
   const gameIdExp=monP?.id?('#'+String(monP.id).padStart(4,'0')):'#????';
-  const genderExp=ans.pkmGender?` (${ans.pkmGender})`:'';
+  const genderExp=ans.pkmGender||'—';
   const shinyExp=ans[3]?.value||'No';
   const natureExp=(ans[4]?.value||'—').split(' (')[0];
   const abilityExp=(ans[5]?.value||'—').replace(/\s*\(Hidden\)\s*$/i,'');
@@ -4594,17 +4631,19 @@ function renderResult(){
   const ivLineExp=`${ivObjExp.hp??31} HP / ${ivObjExp.atk??31} Atk / ${ivObjExp.def??31} Def / ${ivObjExp.spe??31} Spd / ${ivObjExp.spa??31} SpA / ${ivObjExp.spd??31} SpD`;
   const evLineExp=`${evObjExp.hp??0} HP / ${evObjExp.atk??0} Atk / ${evObjExp.def??0} Def / ${evObjExp.spe??0} Spd / ${evObjExp.spa??0} SpA / ${evObjExp.spd??0} SpD`;
   const movesExp=ans[9]?.moves||[];
-  const itemExp=ans[10]?.value||'—'; // already "Name (#ID)"
+  const ballExp=ans[10]?.value||'—';
+  const itemExp=ans[11]?.value||'—'; // already "Name (#ID)"
   const nicknameExp=ans[2]?.value||'—';
-  const evoRawExp=ans[11]?.value||'';
+  const evoRawExp=ans[12]?.value||'';
   const evoExp=evoRawExp==='Yes'?'Allowed':evoRawExp==='No'?'Not Allowed':'—';
 
   const lines=[];
   lines.push(`OT Gender: ${otGenderExp}`);
   lines.push(`OT Name: ${otNameExp}`);
-  lines.push(`Pokémon: ${speciesExp}${genderExp} (${gameIdExp})`);
+  lines.push(`Pokémon: ${speciesExp} (${gameIdExp})`);
   lines.push(`Level : 20`);
   lines.push(`Shiny: ${shinyExp}`);
+  lines.push(`Gender: ${genderExp}`);
   lines.push(`Nature: ${natureExp}`);
   lines.push(`Ability: ${abilityExp}`);
   lines.push(`Tera Type: ${teraExp}`);
@@ -4618,6 +4657,7 @@ function renderResult(){
     const idStr=mvD?.id?` (#${String(mvD.id).padStart(4,'0')})`:'';
     lines.push(`- ${mv}${idStr}`);
   });
+  lines.push(`Ball: ${ballExp}`);
   lines.push(`Held Item: ${itemExp}`);
   lines.push(`Nickname: ${nicknameExp}`);
   lines.push(`Evolution: ${evoExp}`);
@@ -4661,7 +4701,7 @@ function renderResult(){
   trRow.append(trSpr,trInfo,trEditBtn);trSect.appendChild(trRow);body.appendChild(trSect);
 
   // Evolution info between Trainer and Pokémon card
-  const evolveAns=ans[11]?.value||'';
+  const evolveAns=ans[12]?.value||'';
   if(evolveAns){
     const evoRow=document.createElement('div');evoRow.style.cssText='padding:8px 16px 0;';
     const evoChip=document.createElement('div');evoChip.style.cssText=`display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:8px;background:${evolveAns.toLowerCase().includes('yes')?'rgba(76,175,80,.1)':'rgba(255,255,255,.03)'};border:1px solid ${evolveAns.toLowerCase().includes('yes')?'rgba(76,175,80,.3)':'rgba(255,255,255,.08)'};`;
@@ -5340,7 +5380,7 @@ function buildTeamKachel(i){
     return tile;
   }
   const mon = team[i].mon;
-  const T_IDX_TILE={2:5,3:12,4:11,5:7,6:14,7:13,10:6,11:15};
+  const T_IDX_TILE={2:5,3:12,4:11,5:7,6:14,7:13,10:9,11:6,12:15};
   const gaTile=(k)=>team[i][T_IDX_TILE[k]??(POKEMON_Q_START+k-1)]?.value;
   const nick = team[i].nick || mon.name;
   const abilityRaw=(gaTile(5)||'').replace(/\s*\(Hidden\)\s*$/i,'');
@@ -8121,8 +8161,9 @@ function openHofPopup(p){
   }
   if(p.ivs||p.evs) ans[8]={value:'Custom',ivs:p.ivs,evs:p.evs};
   if(p.moves?.length) ans[9]={value:p.moves.join(' / '),moves:[...p.moves]};
-  if(p.held_item) ans[10]={value:p.held_item};
-  if(p.evolution) ans[11]={value:p.evolution};
+  if(p.poke_ball) ans[10]={value:p.poke_ball};
+  if(p.held_item) ans[11]={value:p.held_item};
+  if(p.evolution) ans[12]={value:p.evolution};
 
   // Hide progWrap while rendering temp card
   if(savedProgWrap) savedProgWrap.style.display='none';
