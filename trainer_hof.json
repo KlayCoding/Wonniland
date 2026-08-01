@@ -2602,7 +2602,7 @@
           "ivs": { "hp": 31, "atk": 0, "def": 31, "spa": 26, "spd": 10, "spe": 25 },
           "evs": { "hp": 246, "atk": 9, "def": 15, "spa": 170, "spd": 70, "spe": 0 },
           "moves": ["Hex", "Will-O-Wisp", "Substitute", "Nasty Plot"]
-        },
+        }
       ]
     },
     {
@@ -2707,7 +2707,7 @@
           "ivs": { "hp": 31, "atk": 31, "def": 31, "spa": 31, "spd": 31, "spe": 31 },
           "evs": { "hp": 6, "atk": 252, "def": 0, "spa": 0, "spd": 0, "spe": 252 },
           "moves": ["Bolt Strike", "Zing Zap", "Pin Missle", "Quick Attack"]
-        },
+        }
       ]
     },
     {
@@ -2814,7 +2814,7 @@
           "ivs": { "hp": 24, "atk": 4, "def": 21, "spa": 27, "spd": 15, "spe": 19 },
           "evs": { "hp": 211, "atk": 0, "def": 179, "spa": 0, "spd": 117, "spe": 3 },
           "moves": ["Sludge", "Toxic", "Dragon Breath"]
-        },
+        }
       ]
     },
     {
@@ -2921,7 +2921,7 @@
           "ivs": { "hp": 24, "atk": 4, "def": 21, "spa": 27, "spd": 15, "spe": 19 },
           "evs": { "hp": 211, "atk": 0, "def": 179, "spa": 0, "spd": 117, "spe": 3 },
           "moves": ["Sludge", "Toxic", "Dragon Breath"]
-        },
+        }
       ]
     },
     {
@@ -3028,7 +3028,7 @@
           "ivs": { "hp": 24, "atk": 4, "def": 21, "spa": 27, "spd": 15, "spe": 19 },
           "evs": { "hp": 211, "atk": 0, "def": 179, "spa": 0, "spd": 117, "spe": 3 },
           "moves": ["Sludge", "Toxic", "Dragon Breath"]
-        },
+        }
       ]
     },
     {
@@ -3135,7 +3135,7 @@
           "ivs": { "hp": 24, "atk": 4, "def": 21, "spa": 27, "spd": 15, "spe": 19 },
           "evs": { "hp": 211, "atk": 0, "def": 179, "spa": 0, "spd": 117, "spe": 3 },
           "moves": ["Sludge", "Toxic", "Dragon Breath"]
-        },
+        }
       ]
     },
     {
