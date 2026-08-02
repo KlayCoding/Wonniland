@@ -319,7 +319,7 @@
       "description": "Throws coins at the foe. Money is recovered after.",
       "effect": "Hit",
       "power": 40,
-      "type": "Fairy",
+      "type": "Normal",
       "accuracy": 100,
       "critical_hit_stage": 0,
       "pp": 20,
