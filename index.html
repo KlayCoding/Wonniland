@@ -4616,7 +4616,7 @@ function renderResult(){
   const otNameExp=ans[0]?.value||'—';
   const speciesExp=monP?.name||ans[1]?.value||'—';
   const gameIdExp=monP?.id?('#'+String(monP.id).padStart(4,'0')):'#????';
-  const genderExp=ans.pkmGender||'—';
+  const genderExp=(monP?._full?.gender_ratio==='Genderless')?'Genderless':(ans.pkmGender||'—');
   const shinyExp=ans[3]?.value||'No';
   const natureExp=(ans[4]?.value||'—').split(' (')[0];
   const abilityExp=(ans[5]?.value||'—').replace(/\s*\(Hidden\)\s*$/i,'');
