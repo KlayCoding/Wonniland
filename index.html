@@ -1883,8 +1883,9 @@ function deserializeMon(saved) {
 
 function savePokemonDraft() {
   try {
-    const data = { step, ans: {} };
+    const data = { step, ans: {}, pkmGender: ans.pkmGender };
     for(const k in ans) {
+      if(k==='pkmGender') continue; // plain string, not a {value,mon} answer — saved separately above
       const a = ans[k];
       data.ans[k] = { value:a.value, mon:serializeMon(a.mon)||undefined };
     }
@@ -5005,6 +5006,7 @@ function launchMode(mode) {
           step=draft.step;
           Object.keys(ans).forEach(k=>delete ans[k]);
           for(const k in draft.ans){ const a=draft.ans[k]; ans[k]={value:a.value,mon:a.mon?deserializeMon(a.mon):undefined}; }
+          if(draft.pkmGender) ans.pkmGender=draft.pkmGender;
           renderQ();
         } else if(resume && !isPkm){
           team=draft.team.map(slotData=>{
