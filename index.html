@@ -4638,8 +4638,6 @@ function renderResult(){
   const evoExp=evoRawExp==='Yes'?'Allowed':evoRawExp==='No'?'Not Allowed':'—';
 
   const lines=[];
-  lines.push(`OT Gender: ${otGenderExp}`);
-  lines.push(`OT Name: ${otNameExp}`);
   lines.push(`Pokémon: ${speciesExp} (${gameIdExp})`);
   lines.push(`Level : 20`);
   lines.push(`Shiny: ${shinyExp}`);
@@ -4659,6 +4657,8 @@ function renderResult(){
   });
   lines.push(`Ball: ${ballExp}`);
   lines.push(`Held Item: ${itemExp}`);
+  lines.push(`OT Gender: ${otGenderExp}`);
+  lines.push(`OT Name: ${otNameExp}`);
   lines.push(`Nickname: ${nicknameExp}`);
   lines.push(`Evolution: ${evoExp}`);
   const out=lines.join('\n');
@@ -5918,7 +5918,7 @@ function renderTrainerQ() {
   // ── TQ4: Trainer Phrases ──────────────────────────────────────────────────
   }else if(step===3){
     addT(card,'What would your Trainer say?');
-    addS(card,'Enter the three phrases your Trainer uses during battles. Letters, numbers, and . ? ! , \' only, max. 80 characters each.');
+    addS(card,'Enter the three phrases your Trainer uses during battles. Letters, numbers, and . ? ! , \' only, max. 50 characters each.');
     const phrases=[
       {key:'intro', label:'Intro text', hint:'What your Trainer says before the battle starts'},
       {key:'defeated', label:'Defeated text', hint:'What your Trainer says after losing'},
@@ -5932,18 +5932,18 @@ function renderTrainerQ() {
       const lbl=document.createElement('div'); lbl.style.cssText='font-size:13px;font-weight:700;color:var(--white);'; lbl.textContent=label;
       const sub=document.createElement('div'); sub.style.cssText='font-size:11px;color:var(--gray);margin-bottom:4px;'; sub.textContent=hint;
       const row=document.createElement('div'); row.style.cssText='display:flex;gap:8px;align-items:center;';
-      const inp=document.createElement('input'); inp.type='text'; inp.placeholder=`${label}… (max. 80 characters)`; inp.maxLength=80; inp.style.flex='1';
+      const inp=document.createElement('input'); inp.type='text'; inp.placeholder=`${label}… (max. 50 characters)`; inp.maxLength=50; inp.style.flex='1';
       if(existingDlgVal){
         const m=existingDlgVal.match(new RegExp(DLG_LBL_MAP[key]+'[:\\s]*"([^"]*)"'));
         if(m) inp.value=m[1];
       }
-      const ctr=document.createElement('div'); ctr.className='char-ct'; ctr.textContent=`${inp.value.length} / 80`;
+      const ctr=document.createElement('div'); ctr.className='char-ct'; ctr.textContent=`${inp.value.length} / 50`;
       const del=document.createElement('button'); del.type='button'; del.className='del-btn'; del.textContent='✕';
-      del.addEventListener('click',()=>{inp.value='';ctr.textContent='0 / 80';ctr.className='char-ct';inp.focus();});
+      del.addEventListener('click',()=>{inp.value='';ctr.textContent='0 / 50';ctr.className='char-ct';inp.focus();});
       inp.addEventListener('input',()=>{
         inp.value=inp.value.replace(/[^a-zA-Z0-9 .?!,']/g,'');
-        const l=inp.value.length; ctr.textContent=`${l} / 80`;
-        ctr.className='char-ct'+(l>=80?' err':l>=72?' warn':'');
+        const l=inp.value.length; ctr.textContent=`${l} / 50`;
+        ctr.className='char-ct'+(l>=50?' err':l>=45?' warn':'');
       });
       row.append(inp,del); wrap.append(lbl,sub,row,ctr);
       card.appendChild(wrap);
