@@ -546,11 +546,11 @@
       },
       "evs": {
         "hp": 6,
-        "atk": 252,
+        "atk": 0,
         "def": 0,
         "spa": 252,
         "spd": 0,
-        "spe": 0
+        "spe": 252
       },
       "moves": [
         "Dragon Rush",
