@@ -7825,7 +7825,7 @@
       "description": "Charges with speed to climb waterfalls. May flinch.",
       "effect": "Hit",
       "power": 80,
-      "type": "Fairy",
+      "type": "Water",
       "accuracy": 100,
       "critical_hit_stage": 0,
       "pp": 10,
