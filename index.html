@@ -4445,8 +4445,9 @@ function renderQ(){
     const iFb=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';}};
     const tBtnRow=document.createElement('div');tBtnRow.style.cssText='display:flex;gap:8px;margin-bottom:10px;';
     const delBtn=document.createElement('button');delBtn.type='button';delBtn.className='del-btn';delBtn.style.cssText='flex:0 0 auto;';delBtn.textContent='✕ Clear';
+    const noItemBtn=document.createElement('button');noItemBtn.type='button';noItemBtn.className='del-btn';noItemBtn.style.cssText='flex:0 0 auto;';noItemBtn.textContent='🚫 No Item';
     const randB=document.createElement('button');randB.type='button';randB.className='rand-btn';randB.style.flex='1';randB.textContent='🎲 Randomize Item!';
-    tBtnRow.append(delBtn,randB); card.appendChild(tBtnRow);
+    tBtnRow.append(delBtn,noItemBtn,randB); card.appendChild(tBtnRow);
 
     // ── Item Filter Panel (Trainer mode) ──────────────────────────────────
     const activePockets=new Set(), activeCats=new Set();
@@ -4458,8 +4459,8 @@ function renderQ(){
     let iftOpen=false;
     iftToggle.addEventListener('click',()=>{iftOpen=!iftOpen;iftPanel.style.maxHeight=iftOpen?'500px':'0';iftToggle.querySelector('#ift6Arrow').textContent=iftOpen?'▲':'▼';iftToggle.style.borderColor=iftOpen?'var(--pl)':'var(--border)';});
     const pocketColors={'Berries':'#4caf50','Items':'#64b5f6','Key Items':'#f0c600','Poké Balls':'#e8622a','TMs & HMs':'#ce93d8'};
-    const ITEM_POCKETS=[...new Set(ITEMS.map(i=>i.pocket).filter(Boolean))].sort();
-    const ITEM_CATS=[...new Set(ITEMS.map(i=>i.category).filter(Boolean))].sort();
+    const ITEM_POCKETS=[...new Set(ITEMS.filter(i=>i.pocket!=='Key Items').map(i=>i.pocket).filter(Boolean))].sort();
+    const ITEM_CATS=[...new Set(ITEMS.filter(i=>i.pocket!=='Key Items'&&i.category!=='Key Items').map(i=>i.category).filter(Boolean))].sort();
     const mkIFS=(title,values,activeSet,colorFn)=>{const sec=document.createElement('div');const lbl=document.createElement('div');lbl.style.cssText='font-size:9px;font-family:"Press Start 2P",monospace;color:var(--gray);margin-bottom:6px;';lbl.textContent=title;const btns=document.createElement('div');btns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';values.forEach(v=>{const col=colorFn(v);const b=document.createElement('button');b.type='button';b.style.cssText=`font-size:9px;padding:3px 9px;border-radius:5px;border:1px solid ${col}44;background:${col}11;color:${col};cursor:pointer;transition:all .15s;`;b.textContent=v;b.dataset.val=v;b.addEventListener('click',()=>{if(activeSet.has(v)){activeSet.delete(v);b.style.background=col+'11';b.style.borderColor=col+'44';b.style.fontWeight='';}else{activeSet.add(v);b.style.background=col+'44';b.style.borderColor=col;b.style.fontWeight='700';}iftToggle.style.borderColor=activePockets.size||activeCats.size?'var(--pl)':'var(--border)';buildIDD(inp.value.trim());});btns.appendChild(b);});sec.append(lbl,btns);return sec;};
     iftInner.append(mkIFS('POCKET',ITEM_POCKETS,activePockets,v=>pocketColors[v]||'#888'),mkIFS('CATEGORY',ITEM_CATS,activeCats,()=>'#9575cd'));
     const clearIF=document.createElement('button');clearIF.type='button';clearIF.style.cssText='font-size:9px;padding:4px 12px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--gray);cursor:pointer;align-self:flex-start;margin-top:2px;';clearIF.textContent='✕ Clear Filters';
@@ -4501,10 +4502,10 @@ function renderQ(){
     itemBody.append(ipDesc,ipRows);itemBox.append(itemHdr,itemBody);itemPopup.appendChild(itemBox);
     document.body.appendChild(itemPopup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
-    let selItem=null,iai=-1;
+    let selItem=null,iai=-1,noItemSelected=false;
     
     function pickI(it){
-      selItem=it;inp.value=it.name;inp.classList.add('valid');dd.innerHTML='';
+      selItem=it;noItemSelected=false;inp.value=it.name;inp.classList.add('valid');dd.innerHTML='';
       // Sprite with bg removal
       pIco.src=iUrl(it.slug);pIco.crossOrigin='anonymous';removeItemBg(pIco,it.slug);pIco.addEventListener('load',()=>applyItemTint(pIco,it),{once:true});pIco.onerror=()=>iFb(pIco,it.slug);
       pIco.style.background='transparent';
@@ -4540,6 +4541,7 @@ function renderQ(){
     function buildIDD(q){
       dd.innerHTML='';iai=-1;const q2=q.toLowerCase();
       let matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;
+      matches=matches.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
       if(activePockets.size) matches=matches.filter(it=>activePockets.has(it.pocket));
       if(activeCats.size) matches=matches.filter(it=>activeCats.has(it.category));
       matches.forEach(it=>{
@@ -4564,16 +4566,17 @@ function renderQ(){
     }
     let _debTimer;
     const debouncedItem=(q)=>{clearTimeout(_debTimer);_debTimer=setTimeout(()=>buildIDD(q),120);};
-    inp.addEventListener('input',()=>{selItem=null;inp.classList.remove('valid');prev.style.display='none';debouncedItem(inp.value.trim());});
+    inp.addEventListener('input',()=>{selItem=null;noItemSelected=false;inp.classList.remove('valid');prev.style.display='none';debouncedItem(inp.value.trim());});
     inp.addEventListener('focus',()=>{if(!dd.children.length)buildIDD(inp.value.trim());});
     inp.addEventListener('click',()=>{if(!dd.children.length)buildIDD(inp.value.trim());});
     inp.addEventListener('keydown',e=>{const its=dd.querySelectorAll('.dd-item');if(e.key==='ArrowDown'){e.preventDefault();iai=Math.min(iai+1,its.length-1);its.forEach((el,i)=>el.classList.toggle('act',i===iai));if(its[iai])its[iai].scrollIntoView({block:'nearest'});}else if(e.key==='ArrowUp'){e.preventDefault();iai=Math.max(iai-1,0);its.forEach((el,i)=>el.classList.toggle('act',i===iai));if(its[iai])its[iai].scrollIntoView({block:'nearest'});}else if(e.key==='Escape')dd.innerHTML='';});
     inp.addEventListener('blur',()=>setTimeout(()=>{dd.innerHTML='';},160));
     wrap.append(inp,dd); card.appendChild(prev); card.appendChild(wrap);
-    delBtn.addEventListener('click',()=>{selItem=null;inp.value='';prev.style.display='none';inp.classList.remove('valid');inp.focus();});
+    delBtn.addEventListener('click',()=>{selItem=null;noItemSelected=false;inp.value='';prev.style.display='none';inp.classList.remove('valid');inp.focus();});
+    noItemBtn.addEventListener('click',()=>{selItem=null;noItemSelected=true;inp.value='No Item';inp.classList.add('valid');prev.style.display='none';dd.innerHTML='';});
     randB.addEventListener('click',()=>{pickI((()=>{const pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');return pool[Math.floor(Math.random()*pool.length)];})());});
     focEl={focus:()=>inp.focus()};
-    getV=()=>selItem?{value:`${selItem.name} (#${String(selItem.id).padStart(4,'0')})`}:inp.value.trim()?{value:inp.value.trim()}:null;
+    getV=()=>noItemSelected?{value:'None'}:selItem?{value:`${selItem.name} (#${String(selItem.id).padStart(4,'0')})`}:inp.value.trim()?{value:inp.value.trim()}:null;
 
   // Q13 ── Can Evolve?
   }else if(step===12){
@@ -6003,8 +6006,9 @@ function renderTrainerQ() {
     const iFb6=(img,slug)=>{if(img.src.includes('KlayCoding')){img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';};img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${slug.replace(/_/g,'-')}.png`;};img.src=`${IF6}${slug.replace(/_/g,'-')}.png`;}else if(img.src.includes('PokeAPI')){img.onerror=null;img.src='https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png';img.style.opacity='.6';}};
     const t6BtnRow=document.createElement('div');t6BtnRow.style.cssText='display:flex;gap:8px;margin-bottom:10px;';
     const del6=document.createElement('button');del6.type='button';del6.className='del-btn';del6.style.cssText='flex:0 0 auto;';del6.textContent='✕ Clear';
+    const noItem6Btn=document.createElement('button');noItem6Btn.type='button';noItem6Btn.className='del-btn';noItem6Btn.style.cssText='flex:0 0 auto;';noItem6Btn.textContent='🚫 No Item';
     const rand6=document.createElement('button');rand6.type='button';rand6.className='rand-btn';rand6.style.flex='1';rand6.textContent='🎲 Randomize Item!';
-    t6BtnRow.append(del6,rand6); card.appendChild(t6BtnRow);
+    t6BtnRow.append(del6,noItem6Btn,rand6); card.appendChild(t6BtnRow);
 
     // ── Item Filter Panel (Trainer mode) ──────────────────────────────────
     const activePockets6=new Set(), activeCats6=new Set();
@@ -6016,8 +6020,8 @@ function renderTrainerQ() {
     let ift6Open=false;
     ift6Toggle.addEventListener('click',()=>{ift6Open=!ift6Open;ift6Panel.style.maxHeight=ift6Open?'500px':'0';ift6Toggle.querySelector('#ift6ArrowT').textContent=ift6Open?'▲':'▼';ift6Toggle.style.borderColor=ift6Open?'var(--pl)':'var(--border)';});
     const pocketColors6={'Berries':'#4caf50','Items':'#64b5f6','Key Items':'#f0c600','Poké Balls':'#e8622a','TMs & HMs':'#ce93d8'};
-    const ITEM_POCKETS6=[...new Set(ITEMS.map(i=>i.pocket).filter(Boolean))].sort();
-    const ITEM_CATS6=[...new Set(ITEMS.map(i=>i.category).filter(Boolean))].sort();
+    const ITEM_POCKETS6=[...new Set(ITEMS.filter(i=>i.pocket!=='Key Items').map(i=>i.pocket).filter(Boolean))].sort();
+    const ITEM_CATS6=[...new Set(ITEMS.filter(i=>i.pocket!=='Key Items'&&i.category!=='Key Items').map(i=>i.category).filter(Boolean))].sort();
     const mkIFS6=(title,values,activeSet,colorFn)=>{const sec=document.createElement('div');const lbl=document.createElement('div');lbl.style.cssText='font-size:9px;font-family:"Press Start 2P",monospace;color:var(--gray);margin-bottom:6px;';lbl.textContent=title;const btns=document.createElement('div');btns.style.cssText='display:flex;flex-wrap:wrap;gap:5px;';values.forEach(v=>{const col=colorFn(v);const b=document.createElement('button');b.type='button';b.style.cssText=`font-size:9px;padding:3px 9px;border-radius:5px;border:1px solid ${col}44;background:${col}11;color:${col};cursor:pointer;transition:all .15s;`;b.textContent=v;b.dataset.val=v;b.addEventListener('click',()=>{if(activeSet.has(v)){activeSet.delete(v);b.style.background=col+'11';b.style.borderColor=col+'44';b.style.fontWeight='';}else{activeSet.add(v);b.style.background=col+'44';b.style.borderColor=col;b.style.fontWeight='700';}ift6Toggle.style.borderColor=activePockets6.size||activeCats6.size?'var(--pl)':'var(--border)';buildIDD6(inp6.value.trim());});btns.appendChild(b);});sec.append(lbl,btns);return sec;};
     ift6Inner.append(mkIFS6('POCKET',ITEM_POCKETS6,activePockets6,v=>pocketColors6[v]||'#888'),mkIFS6('CATEGORY',ITEM_CATS6,activeCats6,()=>'#9575cd'));
     const clearIF6=document.createElement('button');clearIF6.type='button';clearIF6.style.cssText='font-size:9px;padding:4px 12px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--gray);cursor:pointer;align-self:flex-start;margin-top:2px;';clearIF6.textContent='✕ Clear Filters';
@@ -6059,10 +6063,10 @@ function renderTrainerQ() {
     ip6Body.append(ipDesc,ip6Rows);ip6Box.append(ip6Hdr,ip6Body);ip6Popup.appendChild(ip6Box);
     document.body.appendChild(ip6Popup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
-    let selItem6=null,iai6=-1;
+    let selItem6=null,iai6=-1,noItemSelected6=false;
     function buildIDD6(q){dd6.innerHTML='';iai6=-1;const q2=q.toLowerCase();let matches=(q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS).filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');if(activePockets6.size)matches=matches.filter(it=>activePockets6.has(it.pocket));if(activeCats6.size)matches=matches.filter(it=>activeCats6.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl6(it.slug);ico.loading='lazy';ico.crossOrigin='anonymous';removeItemBg(ico,it.slug);ico.addEventListener('load',()=>applyItemTint(ico,it),{once:true});ico.onerror=()=>iFb6(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category||'';if(it.category)top.append(nm,idB,uB);else top.append(nm,idB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI6(it);});dd6.appendChild(item);});}
     function pickI6(it){
-      selItem6=it;inp6.value=it.name;inp6.classList.add('valid');dd6.innerHTML='';
+      selItem6=it;noItemSelected6=false;inp6.value=it.name;inp6.classList.add('valid');dd6.innerHTML='';
       pIco6.src=iUrl6(it.slug);pIco6.crossOrigin='anonymous';removeItemBg(pIco6,it.slug);pIco6.addEventListener('load',()=>applyItemTint(pIco6,it),{once:true});pIco6.onerror=()=>iFb6(pIco6,it.slug);
       pName6.textContent=it.name; pDesc6.textContent=it.desc||'No description available.';
       p6Chips.innerHTML='';
@@ -6075,16 +6079,17 @@ function renderTrainerQ() {
       [mkRow6('Item ID','#'+String(it.id).padStart(4,'0')),mkRow6('Pocket',it.pocket,'#64b5f6'),mkRow6('Category',it.category,'var(--pl)'),mkRow6('Use Type',it.uses),mkRow6('Price',it.price?`₽ ${it.price.toLocaleString()}`:null,'#f0c600'),mkRow6('Hold Effect',it.hold_effect,'#4caf50'),it.hold_effect_param?mkRow6('Hold Effect Power',String(it.hold_effect_param),'#4caf50'):null,mkRow6('Battle Use',it.battle_use)].filter(Boolean).forEach(r=>ip6Rows.appendChild(r));
     }
     p6InfoBtn.addEventListener('click',()=>{if(!selItem6)return;ip6Popup.style.display='flex';document.body.style.overflow='hidden';});
-    inp6.addEventListener('input',()=>{selItem6=null;inp6.classList.remove('valid');prev6.style.display='none';buildIDD6(inp6.value.trim());});
+    inp6.addEventListener('input',()=>{selItem6=null;noItemSelected6=false;inp6.classList.remove('valid');prev6.style.display='none';buildIDD6(inp6.value.trim());});
     inp6.addEventListener('focus',()=>{if(!dd6.children.length)buildIDD6(inp6.value.trim());});
     inp6.addEventListener('click',()=>{if(!dd6.children.length)buildIDD6(inp6.value.trim());});
     inp6.addEventListener('keydown',e=>{const its=dd6.querySelectorAll('.dd-item');if(e.key==='ArrowDown'){e.preventDefault();iai6=Math.min(iai6+1,its.length-1);its.forEach((el,i)=>el.classList.toggle('act',i===iai6));if(its[iai6])its[iai6].scrollIntoView({block:'nearest'});}else if(e.key==='ArrowUp'){e.preventDefault();iai6=Math.max(iai6-1,0);its.forEach((el,i)=>el.classList.toggle('act',i===iai6));if(its[iai6])its[iai6].scrollIntoView({block:'nearest'});}else if(e.key==='Escape')dd6.innerHTML='';});
     inp6.addEventListener('blur',()=>setTimeout(()=>{dd6.innerHTML='';},160));
     wrap6.append(inp6,dd6); card.appendChild(prev6); card.appendChild(wrap6);
-    del6.addEventListener('click',()=>{selItem6=null;inp6.value='';prev6.style.display='none';inp6.classList.remove('valid');inp6.focus();});
+    del6.addEventListener('click',()=>{selItem6=null;noItemSelected6=false;inp6.value='';prev6.style.display='none';inp6.classList.remove('valid');inp6.focus();});
+    noItem6Btn.addEventListener('click',()=>{selItem6=null;noItemSelected6=true;inp6.value='No Item';inp6.classList.add('valid');prev6.style.display='none';dd6.innerHTML='';});
     rand6.addEventListener('click',()=>{pickI6((()=>{const pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');return pool[Math.floor(Math.random()*pool.length)];})());});
     focEl={focus:()=>inp6.focus()};
-    getV=()=>selItem6?{value:`${selItem6.name} (#${String(selItem6.id).padStart(4,'0')})`}:inp6.value.trim()?{value:inp6.value.trim()}:null;
+    getV=()=>noItemSelected6?{value:'None'}:selItem6?{value:`${selItem6.name} (#${String(selItem6.id).padStart(4,'0')})`}:inp6.value.trim()?{value:inp6.value.trim()}:null;
   // ── TQ7: Ability ─────────────────────────────────────
   }else if(step===7){
     addT(card,'Which Ability would you like to give your Pokémon?');
