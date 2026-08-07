@@ -1924,6 +1924,7 @@
       "category": "Encounter Modifiers",
       "use_type": "Field Use",
       "price": 1000,
+      "description": "Use to escape instantly from a cave or a dungeon.",
       "overworld_functionality": "Use Item",
       "battle_functionality": "None (Game Mechanic)",
       "uses": "Non-Consumable",
