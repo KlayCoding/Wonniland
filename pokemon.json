@@ -15047,7 +15047,20 @@
         "spe": 55
       },
       "bst": 325,
-      "abilities": [],
+      "abilities": [
+        {
+          "name": "Run Away",
+          "hidden": false
+        },
+        {
+          "name": "Adaptability",
+          "hidden": false
+        },
+        {
+          "name": "Anticipation",
+          "hidden": true
+        }
+      ],
       "catch_rate": 45,
       "exp_yield": 65,
       "ev_yield": {
@@ -15135,7 +15148,20 @@
         "spe": 55
       },
       "bst": 325,
-      "abilities": [],
+      "abilities": [
+        {
+          "name": "Run Away",
+          "hidden": false
+        },
+        {
+          "name": "Adaptability",
+          "hidden": false
+        },
+        {
+          "name": "Anticipation",
+          "hidden": true
+        }
+      ],
       "catch_rate": 45,
       "exp_yield": 65,
       "ev_yield": {
