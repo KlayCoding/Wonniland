@@ -12476,7 +12476,7 @@
       "description": "An attack that steals half the damage inflicted.",
       "effect": "Absorb",
       "power": 75,
-      "type": "Geass",
+      "type": "Grass",
       "accuracy": 100,
       "critical_hit_stage": 0,
       "pp": 10,
