@@ -4227,7 +4227,7 @@ function renderQ(){
       const MTID={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
       const TYPE_LIST=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
       // State
-      let popMode='all',popFilterType=[],popFilterCat=null,popSortKey='id',popQuery='',activePopAttrs=new Set();
+      let popMode='all',popFilterType=[],popFilterCat=null,popSortKey='id',popQuery='',activePopAttrs=new Set(),popFilterTarget=new Set();
       // ── Box ──────────────────────────────────────────────────────────────────
       const box=document.createElement('div');
       box.style.cssText='background:#13192a;border:1px solid rgba(149,117,205,.35);border-radius:14px;width:100%;max-width:760px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);';
@@ -4353,7 +4353,19 @@ function renderQ(){
       function updateAttrUI(){ATTRS.forEach(([k])=>{const b=attrGrid.querySelector('[data-attr="'+k+'"]');if(!b)return;const sel=activePopAttrs.has(k);b.style.background=sel?'rgba(149,117,205,.2)':'transparent';b.style.borderColor=sel?'rgba(149,117,205,.5)':'rgba(255,255,255,.07)';b.style.color=sel?'#c5a4e8':'#445';});}
       ATTRS.forEach(([k,lbl])=>{const b=document.createElement('button');b.type='button';b.dataset.attr=k;b.style.cssText='padding:2px 4px;border-radius:4px;border:1px solid rgba(255,255,255,.07);background:transparent;color:#445;cursor:pointer;font-size:8px;text-align:center;transition:all .1s;';b.textContent=lbl;b.addEventListener('click',()=>{if(activePopAttrs.has(k))activePopAttrs.delete(k);else activePopAttrs.add(k);updateAttrUI();buildMoveList(popQuery);});attrGrid.appendChild(b);});
       updateAttrUI();attrWrap.append(attrHdr,attrGrid);
-      rightPanel.append(searchWrap,attrWrap,restrictWarnEl);
+      // Target section (collapsible)
+      const TARGETS=['All Battlers','Ally','Both','Depends','Field',"Foes and Ally",'Opponent',"Opponent's Field",'Random','Selected','Smart','User','User and Ally','User or Ally'];
+      const targetWrap=document.createElement('div');targetWrap.style.cssText='padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;';
+      const targetToggle=document.createElement('button');targetToggle.type='button';targetToggle.style.cssText='display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;padding:2px 0;cursor:pointer;font-size:9px;color:#334155;font-weight:700;letter-spacing:.07em;text-transform:uppercase;';
+      targetToggle.innerHTML='<span>Target</span><span>▶</span>';
+      const targetBody=document.createElement('div');targetBody.style.cssText='overflow:hidden;max-height:0;transition:max-height .2s ease;';
+      const targetGrid=document.createElement('div');targetGrid.style.cssText='display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:4px;';
+      let targetOpenState=false;
+      targetToggle.addEventListener('click',()=>{targetOpenState=!targetOpenState;targetBody.style.maxHeight=targetOpenState?'260px':'0';targetToggle.querySelector('span:last-child').textContent=targetOpenState?'▼':'▶';});
+      function updateTargetUI(){TARGETS.forEach(t=>{const b=targetGrid.querySelector('[data-target="'+t+'"]');if(!b)return;const sel=popFilterTarget.has(t);b.style.background=sel?'rgba(100,181,246,.2)':'transparent';b.style.borderColor=sel?'rgba(100,181,246,.5)':'rgba(255,255,255,.07)';b.style.color=sel?'#64b5f6':'#445';});}
+      TARGETS.forEach(t=>{const b=document.createElement('button');b.type='button';b.dataset.target=t;b.style.cssText='padding:3px 5px;border-radius:4px;border:1px solid rgba(255,255,255,.07);background:transparent;color:#445;cursor:pointer;font-size:8px;text-align:center;transition:all .1s;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';b.textContent=t;b.title=t;b.addEventListener('click',()=>{if(popFilterTarget.has(t))popFilterTarget.delete(t);else popFilterTarget.add(t);updateTargetUI();buildMoveList(popQuery);});targetGrid.appendChild(b);});
+      updateTargetUI();targetBody.appendChild(targetGrid);targetWrap.append(targetToggle,targetBody);
+      rightPanel.append(searchWrap,attrWrap,targetWrap,restrictWarnEl);
       // Move list
       const list=document.createElement('div');list.style.cssText='flex:1;overflow-y:auto;min-height:0;';rightPanel.appendChild(list);
       panels.append(sidebar,rightPanel);box.appendChild(panels);
@@ -4392,6 +4404,7 @@ function renderQ(){
         if(popFilterType&&popFilterType.length)moves=moves.filter(m=>popFilterType.includes(m.type));
         if(popFilterCat)moves=moves.filter(m=>m.cat===popFilterCat);
         if(activePopAttrs&&activePopAttrs.size)moves=moves.filter(m=>[...activePopAttrs].some(f=>f==='protectable'?!(m.flags&&m.flags.includes('ignores_protect')):(m.flags&&m.flags.includes(f))));
+        if(popFilterTarget&&popFilterTarget.size)moves=moves.filter(m=>popFilterTarget.has(m.target));
         return moves;
       }
       function buildMoveList(q){
@@ -4426,6 +4439,8 @@ function renderQ(){
         if(popFilterCat)moves=moves.filter(m=>m.cat===popFilterCat);
         // ── Attributes: OR logic ──
         if(activePopAttrs&&activePopAttrs.size)moves=moves.filter(m=>[...activePopAttrs].some(f=>f==='protectable'?!(m.flags&&m.flags.includes('ignores_protect')):(m.flags&&m.flags.includes(f))));
+        // ── Target filter ──
+        if(popFilterTarget&&popFilterTarget.size)moves=moves.filter(m=>popFilterTarget.has(m.target));
         // ── Sort ──
         if(popSortKey==='_learnable'){ /* already sorted */ }
         else if(popSortKey==='name')moves.sort((a,b)=>a.name.localeCompare(b.name));
@@ -6808,7 +6823,7 @@ function renderTrainerQ() {
       const MTID={Normal:1,Fighting:2,Flying:3,Poison:4,Ground:5,Rock:6,Bug:7,Ghost:8,Steel:9,Fire:10,Water:11,Grass:12,Electric:13,Psychic:14,Ice:15,Dragon:16,Dark:17,Fairy:18};
       const TYPE_LIST=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
       // State
-      let popMode='all',popFilterType=[],popFilterCat=null,popSortKey='id',popQuery='',activePopAttrs=new Set();
+      let popMode='all',popFilterType=[],popFilterCat=null,popSortKey='id',popQuery='',activePopAttrs=new Set(),popFilterTarget=new Set();
       // ── Box ──────────────────────────────────────────────────────────────────
       const box=document.createElement('div');
       box.style.cssText='background:#13192a;border:1px solid rgba(149,117,205,.35);border-radius:14px;width:100%;max-width:760px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);';
@@ -6934,7 +6949,19 @@ function renderTrainerQ() {
       function updateAttrUI(){ATTRS.forEach(([k])=>{const b=attrGrid.querySelector('[data-attr="'+k+'"]');if(!b)return;const sel=activePopAttrs.has(k);b.style.background=sel?'rgba(149,117,205,.2)':'transparent';b.style.borderColor=sel?'rgba(149,117,205,.5)':'rgba(255,255,255,.07)';b.style.color=sel?'#c5a4e8':'#445';});}
       ATTRS.forEach(([k,lbl])=>{const b=document.createElement('button');b.type='button';b.dataset.attr=k;b.style.cssText='padding:2px 4px;border-radius:4px;border:1px solid rgba(255,255,255,.07);background:transparent;color:#445;cursor:pointer;font-size:8px;text-align:center;transition:all .1s;';b.textContent=lbl;b.addEventListener('click',()=>{if(activePopAttrs.has(k))activePopAttrs.delete(k);else activePopAttrs.add(k);updateAttrUI();buildMoveList(popQuery);});attrGrid.appendChild(b);});
       updateAttrUI();attrWrap.append(attrHdr,attrGrid);
-      rightPanel.append(searchWrap,attrWrap,restrictWarnEl);
+      // Target section (collapsible)
+      const TARGETS=['All Battlers','Ally','Both','Depends','Field',"Foes and Ally",'Opponent',"Opponent's Field",'Random','Selected','Smart','User','User and Ally','User or Ally'];
+      const targetWrap=document.createElement('div');targetWrap.style.cssText='padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;';
+      const targetToggle=document.createElement('button');targetToggle.type='button';targetToggle.style.cssText='display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;padding:2px 0;cursor:pointer;font-size:9px;color:#334155;font-weight:700;letter-spacing:.07em;text-transform:uppercase;';
+      targetToggle.innerHTML='<span>Target</span><span>▶</span>';
+      const targetBody=document.createElement('div');targetBody.style.cssText='overflow:hidden;max-height:0;transition:max-height .2s ease;';
+      const targetGrid=document.createElement('div');targetGrid.style.cssText='display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:4px;';
+      let targetOpenState=false;
+      targetToggle.addEventListener('click',()=>{targetOpenState=!targetOpenState;targetBody.style.maxHeight=targetOpenState?'260px':'0';targetToggle.querySelector('span:last-child').textContent=targetOpenState?'▼':'▶';});
+      function updateTargetUI(){TARGETS.forEach(t=>{const b=targetGrid.querySelector('[data-target="'+t+'"]');if(!b)return;const sel=popFilterTarget.has(t);b.style.background=sel?'rgba(100,181,246,.2)':'transparent';b.style.borderColor=sel?'rgba(100,181,246,.5)':'rgba(255,255,255,.07)';b.style.color=sel?'#64b5f6':'#445';});}
+      TARGETS.forEach(t=>{const b=document.createElement('button');b.type='button';b.dataset.target=t;b.style.cssText='padding:3px 5px;border-radius:4px;border:1px solid rgba(255,255,255,.07);background:transparent;color:#445;cursor:pointer;font-size:8px;text-align:center;transition:all .1s;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';b.textContent=t;b.title=t;b.addEventListener('click',()=>{if(popFilterTarget.has(t))popFilterTarget.delete(t);else popFilterTarget.add(t);updateTargetUI();buildMoveList(popQuery);});targetGrid.appendChild(b);});
+      updateTargetUI();targetBody.appendChild(targetGrid);targetWrap.append(targetToggle,targetBody);
+      rightPanel.append(searchWrap,attrWrap,targetWrap,restrictWarnEl);
       // Move list
       const list=document.createElement('div');list.style.cssText='flex:1;overflow-y:auto;min-height:0;';rightPanel.appendChild(list);
       panels.append(sidebar,rightPanel);box.appendChild(panels);
@@ -6973,6 +7000,7 @@ function renderTrainerQ() {
         if(popFilterType&&popFilterType.length)moves=moves.filter(m=>popFilterType.includes(m.type));
         if(popFilterCat)moves=moves.filter(m=>m.cat===popFilterCat);
         if(activePopAttrs&&activePopAttrs.size)moves=moves.filter(m=>[...activePopAttrs].some(f=>f==='protectable'?!(m.flags&&m.flags.includes('ignores_protect')):(m.flags&&m.flags.includes(f))));
+        if(popFilterTarget&&popFilterTarget.size)moves=moves.filter(m=>popFilterTarget.has(m.target));
         return moves;
       }
       function buildMoveList(q){
@@ -7007,6 +7035,8 @@ function renderTrainerQ() {
         if(popFilterCat)moves=moves.filter(m=>m.cat===popFilterCat);
         // ── Attributes: OR logic ──
         if(activePopAttrs&&activePopAttrs.size)moves=moves.filter(m=>[...activePopAttrs].some(f=>f==='protectable'?!(m.flags&&m.flags.includes('ignores_protect')):(m.flags&&m.flags.includes(f))));
+        // ── Target filter ──
+        if(popFilterTarget&&popFilterTarget.size)moves=moves.filter(m=>popFilterTarget.has(m.target));
         // ── Sort ──
         if(popSortKey==='_learnable'){ /* already sorted */ }
         else if(popSortKey==='name')moves.sort((a,b)=>a.name.localeCompare(b.name));
@@ -8758,7 +8788,7 @@ function initDbBrowser(){
   const typeIconUrl=t=>`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${DB_TYPE_IDS[t]||1}.png`;
   let open=false;
   let activeCat='items';
-  const activeFilters={items:{category:new Set()},moves:{type:new Set(),category:new Set(),attrs:new Set()},abilities:{}};
+  const activeFilters={items:{category:new Set()},moves:{type:new Set(),category:new Set(),attrs:new Set(),target:new Set()},abilities:{}};
   const sortKey={items:'name',moves:'id',abilities:'name'};
   const showFavsOnly={items:false,moves:false,abilities:false};
   let showRestrictedMoves=false;
@@ -9083,9 +9113,18 @@ function initDbBrowser(){
           activeFilters.moves.attrs.has(k)?activeFilters.moves.attrs.delete(k):activeFilters.moves.attrs.add(k);render();
         }));
       });
+      const targetSubLbl=document.createElement('div');targetSubLbl.style.cssText='grid-column:1/-1;font-size:8px;color:#556;letter-spacing:.3px;margin-top:6px;margin-bottom:2px;';targetSubLbl.textContent='TARGET';
+      attrsEl.appendChild(targetSubLbl);
+      const MOVE_TARGETS=['All Battlers','Ally','Both','Depends','Field',"Foes and Ally",'Opponent',"Opponent's Field",'Random','Selected','Smart','User','User and Ally','User or Ally'];
+      MOVE_TARGETS.forEach(t=>{
+        attrsEl.appendChild(mkFilterChip(t,'#64b5f6',activeFilters.moves.target.has(t),()=>{
+          activeFilters.moves.target.has(t)?activeFilters.moves.target.delete(t):activeFilters.moves.target.add(t);render();
+        }));
+      });
       if(activeFilters.moves.type.size) pool=pool.filter(m=>activeFilters.moves.type.has(m.type));
       if(activeFilters.moves.category.size) pool=pool.filter(m=>activeFilters.moves.category.has(m.cat));
       if(activeFilters.moves.attrs.size) pool=pool.filter(m=>m.flags&&[...activeFilters.moves.attrs].some(f=>m.flags.includes(f)));
+      if(activeFilters.moves.target.size) pool=pool.filter(m=>activeFilters.moves.target.has(m.target));
       if(q) pool=pool.filter(m=>m.name.toLowerCase().includes(q)||(m.desc||'').toLowerCase().includes(q));
       if(showFavsOnly.moves){ const favs=getDbFavs(); pool=pool.filter(m=>favs.has(m.name)); }
       const mk=sortKey.moves;
