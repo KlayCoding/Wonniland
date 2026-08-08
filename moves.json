@@ -3485,7 +3485,7 @@
       "accuracy": 100,
       "critical_hit_stage": 0,
       "pp": 15,
-      "target": "Ally",
+      "target": "Foes and Ally",
       "priority": 0,
       "category": "Special",
       "z_move_effect": false,
