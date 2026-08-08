@@ -3578,7 +3578,7 @@ function renderQ(){
     const prev=document.createElement('div'); prev.style.cssText='font-size:18px;font-weight:700;min-height:26px;margin-bottom:6px;color:#64b5f6;transition:color .2s;';
     delBtn.addEventListener('click',()=>{inp.value='';prev.textContent='';ctr.textContent='0 / 7';inp.focus();});
     inp.addEventListener('input',()=>{
-      inp.value=inp.value.replace(/[^a-zA-Z0-9]/g,'');
+      inp.value=inp.value.replace(/[^a-zA-Z0-9 .,/\-?!]/g,'');
       const l=inp.value.length; ctr.textContent=`${l} / 7`;
       ctr.className='char-ct'+(l>=7?' err':l>=6?' warn':'');
       prev.textContent=inp.value||'';
@@ -3587,6 +3587,11 @@ function renderQ(){
     mCard.addEventListener('click',()=>{ prev.style.color='#64b5f6'; inp.style.borderColor='#64b5f6'; });
     fCard.addEventListener('click',()=>{ prev.style.color='#f48fb1'; inp.style.borderColor='#f48fb1'; });
     inpRow.append(inp,delBtn); card.append(prev,inpRow,ctr); focEl={focus:()=>inp.focus()};
+    if(ans[0]?.value){
+      const restoredName=ans[0].value.split(' (')[0];
+      inp.value=restoredName; const l=inp.value.length; ctr.textContent=`${l} / 7`; prev.textContent=restoredName;
+      if(ans[0].otGender==='Female') fCard.click(); else mCard.click();
+    }
     getV=()=>inp.value.trim()?{value:`${inp.value.trim()} (${otG})`,otGender:otG}:null;
 
   // Q2 ── Pokémon
@@ -3595,6 +3600,7 @@ function renderQ(){
     const randBQ2=document.createElement('button'); randBQ2.type='button'; randBQ2.className='rand-btn'; randBQ2.style.cssText='width:100%;margin-bottom:10px;'; randBQ2.textContent='🎲 Randomize Pokémon!';
     card.appendChild(randBQ2);
     const ac=makeAC('Search Pokémon (incl. alternate forms)…',ALL_MON);
+    if(ans[1]?.mon) ac._pick(ans[1].mon);
     const _acPick=ac._pick; ac._pick=function(p){
       // If species changes, reset all downstream answers (ability, nature, etc.)
       const prevMon=ans[1]?.mon;
@@ -3615,8 +3621,9 @@ function renderQ(){
     const delBtn=document.createElement('button'); delBtn.type='button'; delBtn.className='del-btn'; delBtn.textContent='✕';
     const ctr=document.createElement('div'); ctr.className='char-ct'; ctr.textContent='0 / 12';
     delBtn.addEventListener('click',()=>{inp.value='';ctr.textContent='0 / 12';inp.focus();});
-    inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[^a-zA-Z0-9 \-'\.]/g,'');const l=inp.value.length;ctr.textContent=`${l} / 12`;ctr.className='char-ct'+(l>=12?' err':l>=10?' warn':'');});
+    inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[^a-zA-Z0-9 .,/\-'?!]/g,'');const l=inp.value.length;ctr.textContent=`${l} / 12`;ctr.className='char-ct'+(l>=12?' err':l>=10?' warn':'');});
     inpRow.append(inp,delBtn); card.append(inpRow,ctr);
+    if(ans[2]?.value){ inp.value=ans[2].value; const l=inp.value.length; ctr.textContent=`${l} / 12`; }
     const defBtn=document.createElement('button'); defBtn.type='button'; defBtn.className='rand-btn'; defBtn.style.cssText='margin-top:10px;width:100%;'; defBtn.textContent='✔ Keep Default Name';
     defBtn.addEventListener('click',()=>{const dn=(ans[1]&&ans[1].mon)?ans[1].mon.name.slice(0,12):'Default';ans[step]={value:dn};step++;step>=TOTAL?renderResult():renderQ();});
     card.appendChild(defBtn); focEl={focus:()=>inp.focus()};
@@ -3644,9 +3651,9 @@ function renderQ(){
       shinyW.append(shinyImg,shinyL); sprites.appendChild(shinyW);
       card.appendChild(sprites);
     }
-    const row=document.createElement('div'); row.className='g-opts'; let se=null;
+    const row=document.createElement('div'); row.className='g-opts'; let se=ans[3]?.value||null;
     [['No','No','sn'],['✨ Yes — make it Shiny!','Yes','sy']].forEach(([l,k,c])=>{
-      const b=document.createElement('div'); b.className='g-btn'; b.textContent=l;
+      const b=document.createElement('div'); b.className='g-btn'+(se===k?` ${c}`:''); b.textContent=l;
       b.addEventListener('click',()=>{se=k;row.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn');b.className=`g-btn ${c}`;});
       row.appendChild(b);
     });
@@ -3727,6 +3734,7 @@ function renderQ(){
     let selN=null,nai=-1;
     function buildNDD(q){ dd.innerHTML=''; nai=-1; const q2=q.toLowerCase(); const matches=q?NATURES.filter(n=>n.name.toLowerCase().includes(q2)):NATURES; matches.forEach(n=>{ const item=document.createElement('div'); item.className='dd-item'; const nm=document.createElement('span'); nm.className='pnm'; nm.textContent=n.name; const mods=document.createElement('div'); mods.className='tbadges'; mods.style.gap='6px'; if(n.up){const u=document.createElement('span');u.className='nature-up';u.textContent='+'+n.up;mods.appendChild(u);} if(n.dn){const d=document.createElement('span');d.className='nature-dn';d.textContent='-'+n.dn;mods.appendChild(d);} if(!n.up){const neu=document.createElement('span');neu.className='nature-neu';neu.textContent='Neutral';mods.appendChild(neu);} item.append(nm,mods); item.addEventListener('mousedown',e=>{e.preventDefault();pickN(n);}); dd.appendChild(item); }); }
     function pickN(n){ selN=n; inp.value=n.name; inp.classList.add('valid'); dd.innerHTML=''; updateNatBars(n); }
+    if(ans[4]?.value){ const existingN=NATURES.find(n=>n.name===ans[4].value.split(' (')[0]); if(existingN) pickN(existingN); }
     randBtn.addEventListener('click',()=>pickN(NATURES[Math.floor(Math.random()*NATURES.length)]));
     inp.addEventListener('input',()=>{selN=null;inp.classList.remove('valid');natPrev.style.display='none';buildNDD(inp.value.trim());});
     inp.addEventListener('focus',()=>{if(!dd.children.length)buildNDD(inp.value.trim());});
@@ -3769,6 +3777,7 @@ function renderQ(){
 }dp.style.maxHeight='120px';ib.style.background='rgba(206,147,216,.2)';ib.style.color='var(--pl)';}else{dp.style.maxHeight='0';ib.style.background='rgba(255,255,255,.08)';ib.style.color='var(--gray)';}});
         btn.append(nm,tag,ib);
         btn.addEventListener('click',()=>{abilityWrap.querySelectorAll('[data-awrap]').forEach(w=>w.style.borderColor='var(--border)');wrap.style.borderColor=ab.isHidden?'var(--pl)':'var(--green)';selectedAbility=dn+(ab.isHidden?' (Hidden)':'');});
+        wrap.dataset.abname=dn+(ab.isHidden?' (Hidden)':'');
         wrap.append(btn,dp); wrap.dataset.awrap='1'; abilityWrap.appendChild(wrap);
       });
     }
@@ -3779,6 +3788,10 @@ function renderQ(){
       const abilitiesRaw=(fullMon&&fullMon.abilities)||(selMon._full&&selMon._full.abilities)||[];
       if(abilitiesRaw.length){
         renderAbilityBtnsP(abilitiesRaw.map(a=>({name:a.name,isHidden:!!a.hidden})));
+        if(ans[5]?.value){
+          const match=abilityWrap.querySelector(`[data-awrap][data-abname="${CSS.escape(ans[5].value)}"]`);
+          if(match){ match.querySelector('div').click(); }
+        }
       } else {
         renderAbilityBtnsP([]);
       }
@@ -3818,6 +3831,7 @@ function renderQ(){
       btn.addEventListener('click',()=>selectTera(type));
       btn.dataset.tera=type; grid.appendChild(btn);
     });
+    if(ans[6]?.value) selectTera(ans[6].value);
 
     // Button row: Randomize + Default Type — fixed height to prevent layout shift
     const teraActions=document.createElement('div'); teraActions.style.cssText='display:flex;gap:8px;margin-top:12px;min-height:44px;';
@@ -3965,11 +3979,17 @@ function renderQ(){
       }
     }
     applyGmaxEligibility();
+    if(ans[7]?.value){
+      const gmYes=/GMax Factor:\s*Yes/i.test(ans[7].value);
+      const target=gmaxBtns.find(b=>b.key===(gmYes?'Yes':'No'));
+      if(target&&target.btn.dataset.disabled!=='1') target.btn.click();
+    }
     card.append(gmaxH,gmaxSub,gmaxImg,gmaxRow);
     const div=document.createElement('div'); div.style.cssText='height:1px;background:var(--border);margin:20px 0;'; card.appendChild(div);
     const dxH=document.createElement('div'); dxH.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;'; dxH.textContent='Choose your Dynamax Level:';
     const dxSub=document.createElement('div'); dxSub.className='q-sub'; dxSub.textContent='Pick between a 50% and 100% HP boost';
     const slider=document.createElement('input'); slider.type='range'; slider.min=0; slider.max=10; slider.value=10; slider.style.cssText='width:100%;accent-color:var(--purple);cursor:pointer;margin-top:8px;';
+    if(ans[7]?.value){ const m=ans[7].value.match(/Dynamax Level:\s*(\d+)/i); if(m) slider.value=m[1]; }
     const sliderLbl=document.createElement('div'); sliderLbl.style.cssText='display:flex;justify-content:space-between;align-items:center;margin-top:6px;';
     const sliderVal=document.createElement('div'); sliderVal.style.cssText='font-family:"Press Start 2P",monospace;font-size:12px;color:var(--yellow);';
     const sliderDesc=document.createElement('div'); sliderDesc.style.cssText='font-size:12px;color:var(--gray);';
@@ -3994,6 +4014,8 @@ function renderQ(){
     makeInfoPopup(ivEvInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
     ivEvTitleRow2.append(ivEvTitleEl,ivEvInfoBtn);card.appendChild(ivEvTitleRow2);
     const EV_MAX=510; const ivD={hp:31,atk:31,def:31,spa:31,spd:31,spe:31}; const evD={hp:0,atk:0,def:0,spa:0,spd:0,spe:0}; const ivInputs={},evInputs={}; let currentPreset='Custom';
+    if(ans[8]?.ivs) SKEYS.forEach(k=>{ if(ans[8].ivs[k]!=null) ivD[k]=ans[8].ivs[k]; });
+    if(ans[8]?.evs) SKEYS.forEach(k=>{ if(ans[8].evs[k]!=null) evD[k]=ans[8].evs[k]; });
     const presetWrap=document.createElement('div'); presetWrap.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;';
     function recalcEVT(){const sum=SKEYS.reduce((a,k)=>a+(evD[k]||0),0);const rem=EV_MAX-sum;totValT.textContent=`${sum} / 510`;totValT.className='ev-total-val'+(sum>EV_MAX?' over':'');remValT.textContent=rem>=0?rem:'0';remValT.style.color=rem<=0?'#E3350D':rem<=50?'#ff9800':'var(--pl)';}
     function applyPresetT(key){currentPreset=key;presetWrap.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));presetWrap.querySelector(`[data-preset="${key}"]`)?.classList.add('active');if(key==='phys'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.atk=252;evInputs.atk.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='spec'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.spa=252;evInputs.spa.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='weak'){SKEYS.forEach(k=>{ivD[k]=0;ivInputs[k].value=0;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}else if(key==='rand'){SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});}else{SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}recalcEVT();}
@@ -4049,7 +4071,7 @@ function renderQ(){
     }
 
     // ── Selected moves state ──────────────────────────────────────────────────
-    const slots=[null,null,null,null];
+    const slots=ans[9]?.moves?[...ans[9].moves,null,null,null,null].slice(0,4):[null,null,null,null];
     const slotCards=[null,null,null,null]; // previews on card face
 
     // ── Card-face: 4 slot buttons that open the popup ─────────────────────────
@@ -4259,8 +4281,24 @@ function renderQ(){
       const mkActBtn=(txt,col,fn)=>{const b=document.createElement('button');b.type='button';b.style.cssText=`flex:1;font-size:9px;padding:4px 4px;border-radius:5px;border:1px solid ${col}44;background:${col}08;color:${col};cursor:pointer;white-space:nowrap;`;b.textContent=txt;b.addEventListener('click',fn);return b;};
       const clrSlotBtn=mkActBtn('\u2715 Clear','#e57373',()=>{slots[slotIdx]=null;refreshSlotBtn(slotIdx);overlay.remove();});
       const clrAllPop=mkActBtn('\u2715 Clear All','#e57373',()=>{slots.fill(null);for(let i=0;i<4;i++)refreshSlotBtn(i);overlay.remove();});
-      const rndSlotBtn=mkActBtn('\uD83C\uDFB2 Random','#64b5f6',()=>{if(!MOVES.length)return;const avR=MOVES.filter(m=>m.id<=847);const mv=avR[Math.floor(Math.random()*avR.length)];slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
-      const rndAllPop=mkActBtn('\uD83C\uDFB2 All','#9575cd',()=>{if(!MOVES.length)return;const avail=MOVES.filter(m=>m.id<=847);for(let i=0;i<4;i++){slots[i]=avail[Math.floor(Math.random()*avail.length)].name;refreshSlotBtn(i);}overlay.remove();});
+      const rndSlotBtn=mkActBtn('\uD83C\uDFB2 Random','#64b5f6',()=>{
+        if(!MOVES.length)return;
+        const hasFilters=(popFilterType&&popFilterType.length)||popFilterCat||(activePopAttrs&&activePopAttrs.size);
+        let pool=getMovePool();
+        if(hasFilters&&pool.length) showToast('Info: Randomizing within your selected filters.');
+        if(!pool.length) pool=MOVES.filter(m=>m.id<=847);
+        const mv=pool[Math.floor(Math.random()*pool.length)];
+        slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();
+      });
+      const rndAllPop=mkActBtn('\uD83C\uDFB2 All','#9575cd',()=>{
+        if(!MOVES.length)return;
+        const hasFilters=(popFilterType&&popFilterType.length)||popFilterCat||(activePopAttrs&&activePopAttrs.size);
+        let pool=getMovePool();
+        if(hasFilters&&pool.length) showToast('Info: Randomizing within your selected filters.');
+        if(!pool.length) pool=MOVES.filter(m=>m.id<=847);
+        for(let i=0;i<4;i++){slots[i]=pool[Math.floor(Math.random()*pool.length)].name;refreshSlotBtn(i);}
+        overlay.remove();
+      });
       actRow.append(clrSlotBtn,clrAllPop,rndSlotBtn,rndAllPop);
       searchWrap.append(searchInp,actRow);
       // Attributes section (OR logic)
@@ -4294,6 +4332,24 @@ function renderQ(){
       // ═══════════════════════════════════════════════════════════════════════════
       // BUILD MOVE LIST
       // ═══════════════════════════════════════════════════════════════════════════
+      function getMovePool(){
+        let moves;
+        const learnData=getLearnData();
+        if(popMode==='restricted'){
+          moves=[...MOVES].filter(m=>m.id>847);
+        } else if(popMode==='learnable'){
+          if(!learnData) return [];
+          const {lvlMap,teachSet,eggSet}=learnData;
+          const allNames=new Set([...Object.keys(lvlMap),...teachSet,...eggSet]);
+          moves=[...MOVES].filter(m=>m.id<=847&&allNames.has(m.name));
+        } else {
+          moves=[...MOVES].filter(m=>m.id<=847);
+        }
+        if(popFilterType&&popFilterType.length)moves=moves.filter(m=>popFilterType.includes(m.type));
+        if(popFilterCat)moves=moves.filter(m=>m.cat===popFilterCat);
+        if(activePopAttrs&&activePopAttrs.size)moves=moves.filter(m=>m.flags&&[...activePopAttrs].some(f=>m.flags.includes(f)));
+        return moves;
+      }
       function buildMoveList(q){
         list.innerHTML='';
         // ── Mode filter ──
@@ -4436,6 +4492,7 @@ function renderQ(){
       if(cells.length) cells[Math.floor(Math.random()*cells.length)].click();
     });
     ballBtnRow.append(ballDel,ballRand); card.appendChild(ballBtnRow);
+    if(ans[10]?.value){ const existingBall=BALLS.find(b=>b.name===ans[10].value); if(existingBall) grid.querySelector(`[data-ball="${existingBall.id}"]`)?.click(); }
     getV=()=>selBall?{value:selBall.name}:null;
 
   }else if(step===11){
@@ -4574,15 +4631,24 @@ function renderQ(){
     wrap.append(inp,dd); card.appendChild(prev); card.appendChild(wrap);
     delBtn.addEventListener('click',()=>{selItem=null;noItemSelected=false;inp.value='';prev.style.display='none';inp.classList.remove('valid');inp.focus();});
     noItemBtn.addEventListener('click',()=>{selItem=null;noItemSelected=true;inp.value='No Item';inp.classList.add('valid');prev.style.display='none';dd.innerHTML='';});
-    randB.addEventListener('click',()=>{pickI((()=>{const pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');return pool[Math.floor(Math.random()*pool.length)];})());});
+    randB.addEventListener('click',()=>{
+      let pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      if(activePockets.size) pool=pool.filter(it=>activePockets.has(it.pocket));
+      if(activeCats.size) pool=pool.filter(it=>activeCats.has(it.category));
+      if((activePockets.size||activeCats.size)&&pool.length) showToast('Info: Randomizing within your selected filters.');
+      if(!pool.length) pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      pickI(pool[Math.floor(Math.random()*pool.length)]);
+    });
     focEl={focus:()=>inp.focus()};
+    if(ans[11]?.value==='None'){ noItemSelected=true; inp.value='No Item'; inp.classList.add('valid'); }
+    else if(ans[11]?.value){ const existingIt=ITEMS.find(it=>it.name===ans[11].value.split(' (#')[0]); if(existingIt) pickI(existingIt); }
     getV=()=>noItemSelected?{value:'None'}:selItem?{value:`${selItem.name} (#${String(selItem.id).padStart(4,'0')})`}:inp.value.trim()?{value:inp.value.trim()}:null;
 
   // Q13 ── Can Evolve?
   }else if(step===12){
     addT(card,'Is Wonni allowed to evolve your Pokémon?');
-    const row=document.createElement('div');row.className='g-opts';let se=null;
-    [['Yes ✓','Yes','sy'],['No ✗','No','sn']].forEach(([l,k,c])=>{const b=document.createElement('div');b.className='g-btn';b.textContent=l;b.addEventListener('click',()=>{se=k;row.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn');b.className=`g-btn ${c}`;});row.appendChild(b);});
+    const row=document.createElement('div');row.className='g-opts';let se=ans[12]?.value||null;
+    [['Yes ✓','Yes','sy'],['No ✗','No','sn']].forEach(([l,k,c])=>{const b=document.createElement('div');b.className='g-btn'+(se===k?` ${c}`:'');b.textContent=l;b.addEventListener('click',()=>{se=k;row.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn');b.className=`g-btn ${c}`;});row.appendChild(b);});
     card.appendChild(row);
     getV=()=>se?{value:se}:null;
   }
@@ -5798,8 +5864,12 @@ function renderTrainerQ() {
     const delBtn=document.createElement('button'); delBtn.type='button'; delBtn.className='del-btn'; delBtn.textContent='✕';
     const ctr=document.createElement('div'); ctr.className='char-ct'; ctr.textContent='0 / 7';
     delBtn.addEventListener('click',()=>{inp.value='';prev2.textContent='';ctr.textContent='0 / 7';inp.focus();});
-    inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[^a-zA-Z0-9]/g,'');const l=inp.value.length;ctr.textContent=`${l} / 7`;ctr.className='char-ct'+(l>=7?' err':l>=6?' warn':'');prev2.textContent=inp.value||'';});
+    inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[^a-zA-Z0-9 .,/\-?!]/g,'');const l=inp.value.length;ctr.textContent=`${l} / 7`;ctr.className='char-ct'+(l>=7?' err':l>=6?' warn':'');prev2.textContent=inp.value||'';});
     inpRow.append(inp,delBtn); card.append(prev2,inpRow,ctr); focEl={focus:()=>inp.focus()};
+    if(ans[0]?.value){
+      inp.value=ans[0].value; const l=inp.value.length; ctr.textContent=`${l} / 7`; prev2.textContent=ans[0].value;
+      if(ans[0].otGender==='Female') fCard2.click(); else mCard2.click();
+    }
     getV=()=>inp.value.trim()?{value:inp.value.trim(),otGender:otG}:null;
 
   // ── TQ2: Trainer Sprite picker ─────────────────────────────────────────────
@@ -5923,7 +5993,7 @@ function renderTrainerQ() {
   // ── TQ4: Trainer Phrases ──────────────────────────────────────────────────
   }else if(step===3){
     addT(card,'What would your Trainer say?');
-    addS(card,'Enter the three phrases your Trainer uses during battles. Letters, numbers, and . ? ! , \' only, max. 50 characters each.');
+    addS(card,'Enter the three phrases your Trainer uses during battles. Letters, numbers, and . ? ! , \' only, max. 100 characters each.');
     const phrases=[
       {key:'intro', label:'Intro text', hint:'What your Trainer says before the battle starts'},
       {key:'defeated', label:'Defeated text', hint:'What your Trainer says after losing'},
@@ -5937,18 +6007,18 @@ function renderTrainerQ() {
       const lbl=document.createElement('div'); lbl.style.cssText='font-size:13px;font-weight:700;color:var(--white);'; lbl.textContent=label;
       const sub=document.createElement('div'); sub.style.cssText='font-size:11px;color:var(--gray);margin-bottom:4px;'; sub.textContent=hint;
       const row=document.createElement('div'); row.style.cssText='display:flex;gap:8px;align-items:center;';
-      const inp=document.createElement('input'); inp.type='text'; inp.placeholder=`${label}… (max. 50 characters)`; inp.maxLength=50; inp.style.flex='1';
+      const inp=document.createElement('input'); inp.type='text'; inp.placeholder=`${label}… (max. 100 characters)`; inp.maxLength=100; inp.style.flex='1';
       if(existingDlgVal){
         const m=existingDlgVal.match(new RegExp(DLG_LBL_MAP[key]+'[:\\s]*"([^"]*)"'));
         if(m) inp.value=m[1];
       }
-      const ctr=document.createElement('div'); ctr.className='char-ct'; ctr.textContent=`${inp.value.length} / 50`;
+      const ctr=document.createElement('div'); ctr.className='char-ct'; ctr.textContent=`${inp.value.length} / 100`;
       const del=document.createElement('button'); del.type='button'; del.className='del-btn'; del.textContent='✕';
-      del.addEventListener('click',()=>{inp.value='';ctr.textContent='0 / 50';ctr.className='char-ct';inp.focus();});
+      del.addEventListener('click',()=>{inp.value='';ctr.textContent='0 / 100';ctr.className='char-ct';inp.focus();});
       inp.addEventListener('input',()=>{
         inp.value=inp.value.replace(/[^a-zA-Z0-9 .?!,']/g,'');
-        const l=inp.value.length; ctr.textContent=`${l} / 50`;
-        ctr.className='char-ct'+(l>=50?' err':l>=45?' warn':'');
+        const l=inp.value.length; ctr.textContent=`${l} / 100`;
+        ctr.className='char-ct'+(l>=100?' err':l>=90?' warn':'');
       });
       row.append(inp,del); wrap.append(lbl,sub,row,ctr);
       card.appendChild(wrap);
@@ -5969,6 +6039,7 @@ function renderTrainerQ() {
     const randBT=document.createElement('button'); randBT.type='button'; randBT.className='rand-btn'; randBT.style.cssText='width:100%;margin-bottom:10px;'; randBT.textContent='🎲 Randomize Pokémon!';
     card.appendChild(randBT);
     const ac=makeAC('Search Pokémon (incl. alternate forms)…',ALL_MON);
+    if(team[currentSlot]?.mon) ac._pick(team[currentSlot].mon);
     card.appendChild(ac.wrap); focEl=ac;
     randBT.addEventListener('click',()=>{const p=ALL_MON[Math.floor(Math.random()*ALL_MON.length)];ac._pick(p);});
     getV=()=>{const p=ac.getSel();return p?{value:p.name,mon:p}:null;};
@@ -5983,8 +6054,9 @@ function renderTrainerQ() {
     const inp=document.createElement('input'); inp.type='text'; inp.placeholder='Max. 12 characters'; inp.maxLength=12; inp.style.flex='1';
     const ctr=document.createElement('div'); ctr.className='char-ct'; ctr.textContent='0 / 12';
     delBtnN.addEventListener('click',()=>{inp.value='';ctr.textContent='0 / 12';inp.focus();});
-    inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[^a-zA-Z0-9 ]/g,'');const l=inp.value.length;ctr.textContent=`${l} / 12`;ctr.className='char-ct'+(l>=12?' err':l>=10?' warn':'');});
+    inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[^a-zA-Z0-9 .,/\-'?!]/g,'');const l=inp.value.length;ctr.textContent=`${l} / 12`;ctr.className='char-ct'+(l>=12?' err':l>=10?' warn':'');});
     inpRow.append(inp); card.append(inpRow,ctr);
+    if(team[currentSlot]?.[5]?.value){ inp.value=team[currentSlot][5].value; const l=inp.value.length; ctr.textContent=`${l} / 12`; }
     const defBtn=document.createElement('button'); defBtn.type='button'; defBtn.className='rand-btn'; defBtn.style.cssText='margin-top:10px;width:100%;'; defBtn.textContent='✔ Keep Default Name';
     defBtn.addEventListener('click',()=>{
       const mon=team[currentSlot]&&team[currentSlot][4]&&team[currentSlot][4].mon;
@@ -6087,8 +6159,17 @@ function renderTrainerQ() {
     wrap6.append(inp6,dd6); card.appendChild(prev6); card.appendChild(wrap6);
     del6.addEventListener('click',()=>{selItem6=null;noItemSelected6=false;inp6.value='';prev6.style.display='none';inp6.classList.remove('valid');inp6.focus();});
     noItem6Btn.addEventListener('click',()=>{selItem6=null;noItemSelected6=true;inp6.value='No Item';inp6.classList.add('valid');prev6.style.display='none';dd6.innerHTML='';});
-    rand6.addEventListener('click',()=>{pickI6((()=>{const pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');return pool[Math.floor(Math.random()*pool.length)];})());});
+    rand6.addEventListener('click',()=>{
+      let pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      if(activePockets6.size) pool=pool.filter(it=>activePockets6.has(it.pocket));
+      if(activeCats6.size) pool=pool.filter(it=>activeCats6.has(it.category));
+      if((activePockets6.size||activeCats6.size)&&pool.length) showToast('Info: Randomizing within your selected filters.');
+      if(!pool.length) pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      pickI6(pool[Math.floor(Math.random()*pool.length)]);
+    });
     focEl={focus:()=>inp6.focus()};
+    if(team[currentSlot]?.[6]?.value==='None'){ noItemSelected6=true; inp6.value='No Item'; inp6.classList.add('valid'); }
+    else if(team[currentSlot]?.[6]?.value){ const existingIt6=ITEMS.find(it=>it.name===team[currentSlot][6].value.split(' (#')[0]); if(existingIt6) pickI6(existingIt6); }
     getV=()=>noItemSelected6?{value:'None'}:selItem6?{value:`${selItem6.name} (#${String(selItem6.id).padStart(4,'0')})`}:inp6.value.trim()?{value:inp6.value.trim()}:null;
   // ── TQ7: Ability ─────────────────────────────────────
   }else if(step===7){
@@ -6147,6 +6228,7 @@ function renderTrainerQ() {
         });
         btn.append(nm,tag,infoBtn);
         btn.addEventListener('click',()=>{abilityWrap.querySelectorAll('[data-awrap]').forEach(w=>{w.style.borderColor='var(--border)';});wrap.style.borderColor=ab.isHidden?'var(--pl)':'var(--green)';selectedAbility=dn+(ab.isHidden?' (Hidden)':'');});
+        wrap.dataset.abname=dn+(ab.isHidden?' (Hidden)':'');
         wrap.append(btn,descPanel); wrap.dataset.awrap='1'; abilityWrap.appendChild(wrap);
       });    }
     if(selMon){
@@ -6155,6 +6237,10 @@ function renderTrainerQ() {
       const abilitiesRawT=(fullMonT&&fullMonT.abilities)||(selMon._full&&selMon._full.abilities)||[];
       if(abilitiesRawT.length){
         renderAbilityBtnsT(abilitiesRawT.map(a=>({name:a.name,isHidden:!!a.hidden})));
+        if(team[currentSlot]?.[7]?.value){
+          const matchT=abilityWrap.querySelector(`[data-awrap][data-abname="${CSS.escape(team[currentSlot][7].value)}"]`);
+          if(matchT){ matchT.querySelector('div').click(); }
+        }
       } else {
         renderAbilityBtnsT([]);
       }
@@ -6170,6 +6256,8 @@ function renderTrainerQ() {
     makeInfoPopup(ivEvInfoBtn,'IVs & EVs Explained',`<b>IVs (Individual Values)</b> are hidden stats from 0–31 per stat, fixed at birth. 31 = perfect.<br><br><b>EVs (Effort Values)</b> range 0–252 per stat, max 510 total. Gained through training. 252 in a stat = major power boost.<br><br>Use presets like <b>Max Physical</b> or <b>Max Special</b> for competitive-ready builds.`);
     ivEvTitleRow2.append(ivEvTitleEl,ivEvInfoBtn);card.appendChild(ivEvTitleRow2);
     const EV_MAX=510; const ivD={hp:31,atk:31,def:31,spa:31,spd:31,spe:31}; const evD={hp:0,atk:0,def:0,spa:0,spd:0,spe:0}; const ivInputs={},evInputs={}; let currentPreset='Custom';
+    if(team[currentSlot]?.[8]?.ivs) SKEYS.forEach(k=>{ if(team[currentSlot][8].ivs[k]!=null) ivD[k]=team[currentSlot][8].ivs[k]; });
+    if(team[currentSlot]?.[8]?.evs) SKEYS.forEach(k=>{ if(team[currentSlot][8].evs[k]!=null) evD[k]=team[currentSlot][8].evs[k]; });
     const presetWrap=document.createElement('div'); presetWrap.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;';
     function recalcEVT(){const sum=SKEYS.reduce((a,k)=>a+(evD[k]||0),0);const rem=EV_MAX-sum;totValT.textContent=`${sum} / 510`;totValT.className='ev-total-val'+(sum>EV_MAX?' over':'');remValT.textContent=rem>=0?rem:'0';remValT.style.color=rem<=0?'#E3350D':rem<=50?'#ff9800':'var(--pl)';}
     function applyPresetT(key){currentPreset=key;presetWrap.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));presetWrap.querySelector(`[data-preset="${key}"]`)?.classList.add('active');if(key==='phys'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.atk=252;evInputs.atk.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='spec'){SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});evD.hp=6;evInputs.hp.value=6;evD.spa=252;evInputs.spa.value=252;evD.spe=252;evInputs.spe.value=252;}else if(key==='weak'){SKEYS.forEach(k=>{ivD[k]=0;ivInputs[k].value=0;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}else if(key==='rand'){SKEYS.forEach(k=>{const v=Math.floor(Math.random()*32);ivD[k]=v;ivInputs[k].value=v;});let pool=510;const order=[...SKEYS].sort(()=>Math.random()-.5);order.forEach((k,i)=>{if(i===order.length-1){evD[k]=Math.min(252,pool);}else{const v=Math.min(252,Math.floor(Math.random()*(Math.min(pool,252)+1)));evD[k]=v;pool-=v;}evInputs[k].value=evD[k];});}else{SKEYS.forEach(k=>{ivD[k]=31;ivInputs[k].value=31;});SKEYS.forEach(k=>{evD[k]=0;evInputs[k].value=0;});}recalcEVT();}
@@ -6242,6 +6330,7 @@ function renderTrainerQ() {
       if(cells.length) cells[Math.floor(Math.random()*cells.length)].click();
     });
     ballBtnRow.append(ballDel,ballRand); card.appendChild(ballBtnRow);
+    if(team[currentSlot]?.[9]?.value){ const existingBall=BALLS.find(b=>b.name===team[currentSlot][9].value); if(existingBall) grid.querySelector(`[data-ball="${existingBall.id}"]`)?.click(); }
     getV=()=>selBall?{value:selBall.name}:null;
 
   // ── TQ10: Happiness ────────────────────────────────────────────────────────
@@ -6351,6 +6440,7 @@ function renderTrainerQ() {
     let selN=null,nai=-1;
     function buildNDD(q){ dd.innerHTML=''; nai=-1; const q2=q.toLowerCase(); const matches=q?NATURES.filter(n=>n.name.toLowerCase().includes(q2)):NATURES; matches.forEach(n=>{ const item=document.createElement('div'); item.className='dd-item'; const nm=document.createElement('span'); nm.className='pnm'; nm.textContent=n.name; const mods=document.createElement('div'); mods.className='tbadges'; mods.style.gap='6px'; if(n.up){const u=document.createElement('span');u.className='nature-up';u.textContent='+'+n.up;mods.appendChild(u);} if(n.dn){const d=document.createElement('span');d.className='nature-dn';d.textContent='-'+n.dn;mods.appendChild(d);} if(!n.up){const neu=document.createElement('span');neu.className='nature-neu';neu.textContent='Neutral';mods.appendChild(neu);} item.append(nm,mods); item.addEventListener('mousedown',e=>{e.preventDefault();pickN(n);}); dd.appendChild(item); }); }
     function pickN(n){ selN=n; inp.value=n.name; inp.classList.add('valid'); dd.innerHTML=''; updateNatBars(n); }
+    if(team[currentSlot]?.[11]?.value){ const existingN=NATURES.find(n=>n.name===team[currentSlot][11].value.split(' (')[0]); if(existingN) pickN(existingN); }
     randBtnN2.addEventListener('click',()=>pickN(NATURES[Math.floor(Math.random()*NATURES.length)]));
     inp.addEventListener('input',()=>{selN=null;inp.classList.remove('valid');natPrev.style.display='none';buildNDD(inp.value.trim());});
     inp.addEventListener('focus',()=>{if(!dd.children.length)buildNDD(inp.value.trim());});
@@ -6381,8 +6471,8 @@ function renderTrainerQ() {
       const sLS=document.createElement('div'); sLS.style.cssText='font-size:10px;color:#ffd700;'; sLS.textContent='✨ Shiny';
       sWS.append(sImgS,sLS); spritesS.appendChild(sWS); card.appendChild(spritesS);
     }
-    const rowS=document.createElement('div'); rowS.className='g-opts'; let seS=null;
-    [['No','No','sn'],['✨ Yes — make it Shiny!','Yes','sy']].forEach(([l,k,c])=>{const b=document.createElement('div');b.className='g-btn';b.textContent=l;b.addEventListener('click',()=>{seS=k;rowS.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn');b.className=`g-btn ${c}`;});rowS.appendChild(b);});
+    const rowS=document.createElement('div'); rowS.className='g-opts'; let seS=team[currentSlot]?.[12]?.value||null;
+    [['No','No','sn'],['✨ Yes — make it Shiny!','Yes','sy']].forEach(([l,k,c])=>{const b=document.createElement('div');b.className='g-btn'+(seS===k?` ${c}`:'');b.textContent=l;b.addEventListener('click',()=>{seS=k;rowS.querySelectorAll('.g-btn').forEach(x=>x.className='g-btn');b.className=`g-btn ${c}`;});rowS.appendChild(b);});
     card.appendChild(rowS); getV=()=>seS?{value:seS}:null;
 
   // ── TQ13 step===13: GMax & Dynamax ────────────────────────────────────────
@@ -6466,6 +6556,10 @@ function renderTrainerQ() {
     const gmaxSubTQ=document.createElement('div');gmaxSubTQ.className='q-sub';gmaxSubTQ.textContent='Selecting Yes means it will be able to Gigantamax. Selecting No means it will only be able to Dynamax.';
     const gmaxRowTQ=document.createElement('div');gmaxRowTQ.className='g-opts';
     gmaxRowTQ.append(gmaxYesTQ,gmaxNoTQ);
+    if(team[currentSlot]?.[13]?.value){
+      const gmYesTQ=/GMax Factor:\s*Yes/i.test(team[currentSlot][13].value);
+      if(gmYesTQ&&canGMaxTQ) gmaxYesTQ.click(); else gmaxNoTQ.click();
+    }
     card.append(gmaxHTQ,gmaxSubTQ,gmaxRowTQ);
 
     // 8. Dynamax Level slider
@@ -6473,6 +6567,7 @@ function renderTrainerQ() {
     const dxHTQ=document.createElement('div');dxHTQ.style.cssText='font-size:14px;font-weight:700;margin-bottom:8px;';dxHTQ.textContent='Choose your Dynamax Level:';
     const dxSubTQ=document.createElement('div');dxSubTQ.className='q-sub';dxSubTQ.textContent='Pick between a 50% and 100% HP boost';
     const sliderTQ=document.createElement('input');sliderTQ.type='range';sliderTQ.min=0;sliderTQ.max=10;sliderTQ.value=10;sliderTQ.style.cssText='width:100%;accent-color:var(--purple);cursor:pointer;margin-top:8px;';
+    if(team[currentSlot]?.[13]?.value){ const mTQ=team[currentSlot][13].value.match(/Dynamax Level:\s*(\d+)/i); if(mTQ) sliderTQ.value=mTQ[1]; }
     const sliderLblTQ=document.createElement('div');sliderLblTQ.style.cssText='display:flex;justify-content:space-between;align-items:center;margin-top:6px;';
     const sliderValTQ=document.createElement('div');sliderValTQ.style.cssText='font-family:"Press Start 2P",monospace;font-size:12px;color:var(--yellow);';
     const sliderDescTQ=document.createElement('div');sliderDescTQ.style.cssText='font-size:12px;color:var(--gray);';
@@ -6515,6 +6610,7 @@ function renderTrainerQ() {
       btn.addEventListener('click',()=>selectTera(type));
       btn.dataset.tera=type; grid.appendChild(btn);
     });
+    if(team[currentSlot]?.[14]?.value) selectTera(team[currentSlot][14].value);
 
     // Button row: Randomize + Default Type — fixed height to prevent layout shift
     const teraActions=document.createElement('div'); teraActions.style.cssText='display:flex;gap:8px;margin-top:12px;min-height:44px;';
@@ -6556,7 +6652,7 @@ function renderTrainerQ() {
     }
 
     // ── Selected moves state ──────────────────────────────────────────────────
-    const slots=[null,null,null,null];
+    const slots=team[currentSlot]?.[15]?.moves?[...team[currentSlot][15].moves,null,null,null,null].slice(0,4):[null,null,null,null];
     const slotCards=[null,null,null,null]; // previews on card face
 
     // ── Card-face: 4 slot buttons that open the popup ─────────────────────────
@@ -6766,8 +6862,24 @@ function renderTrainerQ() {
       const mkActBtn=(txt,col,fn)=>{const b=document.createElement('button');b.type='button';b.style.cssText=`flex:1;font-size:9px;padding:4px 4px;border-radius:5px;border:1px solid ${col}44;background:${col}08;color:${col};cursor:pointer;white-space:nowrap;`;b.textContent=txt;b.addEventListener('click',fn);return b;};
       const clrSlotBtn=mkActBtn('\u2715 Clear','#e57373',()=>{slots[slotIdx]=null;refreshSlotBtn(slotIdx);overlay.remove();});
       const clrAllPop=mkActBtn('\u2715 Clear All','#e57373',()=>{slots.fill(null);for(let i=0;i<4;i++)refreshSlotBtn(i);overlay.remove();});
-      const rndSlotBtn=mkActBtn('\uD83C\uDFB2 Random','#64b5f6',()=>{if(!MOVES.length)return;const avR=MOVES.filter(m=>m.id<=847);const mv=avR[Math.floor(Math.random()*avR.length)];slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();});
-      const rndAllPop=mkActBtn('\uD83C\uDFB2 All','#9575cd',()=>{if(!MOVES.length)return;const avail=MOVES.filter(m=>m.id<=847);for(let i=0;i<4;i++){slots[i]=avail[Math.floor(Math.random()*avail.length)].name;refreshSlotBtn(i);}overlay.remove();});
+      const rndSlotBtn=mkActBtn('\uD83C\uDFB2 Random','#64b5f6',()=>{
+        if(!MOVES.length)return;
+        const hasFilters=(popFilterType&&popFilterType.length)||popFilterCat||(activePopAttrs&&activePopAttrs.size);
+        let pool=getMovePool();
+        if(hasFilters&&pool.length) showToast('Info: Randomizing within your selected filters.');
+        if(!pool.length) pool=MOVES.filter(m=>m.id<=847);
+        const mv=pool[Math.floor(Math.random()*pool.length)];
+        slots[slotIdx]=mv.name;refreshSlotBtn(slotIdx);overlay.remove();
+      });
+      const rndAllPop=mkActBtn('\uD83C\uDFB2 All','#9575cd',()=>{
+        if(!MOVES.length)return;
+        const hasFilters=(popFilterType&&popFilterType.length)||popFilterCat||(activePopAttrs&&activePopAttrs.size);
+        let pool=getMovePool();
+        if(hasFilters&&pool.length) showToast('Info: Randomizing within your selected filters.');
+        if(!pool.length) pool=MOVES.filter(m=>m.id<=847);
+        for(let i=0;i<4;i++){slots[i]=pool[Math.floor(Math.random()*pool.length)].name;refreshSlotBtn(i);}
+        overlay.remove();
+      });
       actRow.append(clrSlotBtn,clrAllPop,rndSlotBtn,rndAllPop);
       searchWrap.append(searchInp,actRow);
       // Attributes section (OR logic)
@@ -6801,6 +6913,24 @@ function renderTrainerQ() {
       // ═══════════════════════════════════════════════════════════════════════════
       // BUILD MOVE LIST
       // ═══════════════════════════════════════════════════════════════════════════
+      function getMovePool(){
+        let moves;
+        const learnData=getLearnData();
+        if(popMode==='restricted'){
+          moves=[...MOVES].filter(m=>m.id>847);
+        } else if(popMode==='learnable'){
+          if(!learnData) return [];
+          const {lvlMap,teachSet,eggSet}=learnData;
+          const allNames=new Set([...Object.keys(lvlMap),...teachSet,...eggSet]);
+          moves=[...MOVES].filter(m=>m.id<=847&&allNames.has(m.name));
+        } else {
+          moves=[...MOVES].filter(m=>m.id<=847);
+        }
+        if(popFilterType&&popFilterType.length)moves=moves.filter(m=>popFilterType.includes(m.type));
+        if(popFilterCat)moves=moves.filter(m=>m.cat===popFilterCat);
+        if(activePopAttrs&&activePopAttrs.size)moves=moves.filter(m=>m.flags&&[...activePopAttrs].some(f=>m.flags.includes(f)));
+        return moves;
+      }
       function buildMoveList(q){
         list.innerHTML='';
         // ── Mode filter ──
