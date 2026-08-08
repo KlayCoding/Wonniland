@@ -8690,7 +8690,7 @@ function initDbBrowser(){
   const typeIconUrl=t=>`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${DB_TYPE_IDS[t]||1}.png`;
   let open=false;
   let activeCat='items';
-  const activeFilters={items:{pocket:new Set(),category:new Set()},moves:{type:new Set(),category:new Set()},abilities:{}};
+  const activeFilters={items:{category:new Set()},moves:{type:new Set(),category:new Set()},abilities:{}};
   let searchQ='';
 
   const CATS=[
@@ -8728,7 +8728,11 @@ function initDbBrowser(){
     img.src=`${ITEM_BASE}${it.slug}.png`;
     img.style.cssText='width:28px;height:28px;image-rendering:pixelated;flex-shrink:0;';
     img.addEventListener('load',()=>{removeItemBg(img,it.slug);applyItemTint(img,it);},{once:true});
-    img.onerror=()=>{img.style.display='none';};
+    img.onerror=()=>{
+      img.onerror=()=>{img.style.display='none';};
+      img.src=`https://raw.githubusercontent.com/KlayCoding/Wonniland/main/items/question_mark.png`;
+      img.style.opacity='.5';
+    };
     return img;
   }
 
@@ -8754,17 +8758,18 @@ function initDbBrowser(){
     const q=searchQ.toLowerCase().trim();
 
     if(activeCat==='items'){
+      resultsEl.style.gridTemplateColumns='repeat(auto-fill,minmax(220px,1fr))';
       let pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
-      const pockets=[...new Set(pool.map(it=>it.pocket))].sort();
-      pockets.forEach(p=>{
-        filtersEl.appendChild(mkFilterChip(p,'#e8622a',activeFilters.items.pocket.has(p),()=>{
-          activeFilters.items.pocket.has(p)?activeFilters.items.pocket.delete(p):activeFilters.items.pocket.add(p);render();
+      const groups=[...new Set(pool.map(it=>it.category))].sort();
+      groups.forEach(g=>{
+        filtersEl.appendChild(mkFilterChip(g,'#e8622a',activeFilters.items.category.has(g),()=>{
+          activeFilters.items.category.has(g)?activeFilters.items.category.delete(g):activeFilters.items.category.add(g);render();
         }));
       });
-      if(activeFilters.items.pocket.size) pool=pool.filter(it=>activeFilters.items.pocket.has(it.pocket));
+      if(activeFilters.items.category.size) pool=pool.filter(it=>activeFilters.items.category.has(it.category));
       if(q) pool=pool.filter(it=>it.name.toLowerCase().includes(q)||(it.desc||'').toLowerCase().includes(q));
       countEl.textContent=`${pool.length} items`;
-      pool.slice(0,120).forEach(it=>{
+      pool.forEach(it=>{
         const card=document.createElement('div');card.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);';
         card.appendChild(itemSpriteEl(it));
         const info=document.createElement('div');info.style.cssText='flex:1;min-width:0;';
@@ -8778,6 +8783,7 @@ function initDbBrowser(){
     }
 
     if(activeCat==='moves'){
+      resultsEl.style.gridTemplateColumns='repeat(2,1fr)';
       let pool=MOVES;
       ['Normal','Fighting','Flying','Poison','Ground','Rock','Bug','Ghost','Steel','Fire','Water','Grass','Electric','Psychic','Ice','Dragon','Dark','Fairy'].forEach(t=>{
         const chip=document.createElement('div');
@@ -8796,7 +8802,7 @@ function initDbBrowser(){
       if(activeFilters.moves.category.size) pool=pool.filter(m=>activeFilters.moves.category.has(m.cat));
       if(q) pool=pool.filter(m=>m.name.toLowerCase().includes(q)||(m.desc||'').toLowerCase().includes(q));
       countEl.textContent=`${pool.length} moves`;
-      pool.slice(0,120).forEach(mv=>{
+      pool.forEach(mv=>{
         const card=document.createElement('div');card.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);';
         const icoImg=document.createElement('img');icoImg.src=typeIconUrl(mv.type);icoImg.style.cssText='height:20px;image-rendering:pixelated;flex-shrink:0;';icoImg.onerror=()=>{icoImg.style.display='none';};
         card.appendChild(icoImg);
@@ -8811,10 +8817,11 @@ function initDbBrowser(){
     }
 
     if(activeCat==='abilities'){
+      resultsEl.style.gridTemplateColumns='repeat(auto-fill,minmax(220px,1fr))';
       let pool=Object.values(ABILITIES_DB);
       if(q) pool=pool.filter(a=>a.name.toLowerCase().includes(q)||(a.description||'').toLowerCase().includes(q));
       countEl.textContent=`${pool.length} abilities`;
-      pool.slice(0,120).forEach(ab=>{
+      pool.forEach(ab=>{
         const card=document.createElement('div');card.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);';
         const info=document.createElement('div');info.style.cssText='flex:1;min-width:0;';
         const nm=document.createElement('div');nm.style.cssText='font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nm.textContent=ab.name;
