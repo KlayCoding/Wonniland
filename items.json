@@ -8208,7 +8208,7 @@
       "name": "Smoke Ball",
       "icon_sprite": "smoke_ball",
       "pocket": "Items",
-      "category": "Encounters",
+      "category": "Encounter Modifiers",
       "use_type": "Usable",
       "price": 15000,
       "description": "A hold item that assures fleeing from wild Pokémon.",
