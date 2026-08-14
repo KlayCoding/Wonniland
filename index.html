@@ -6035,7 +6035,9 @@ function renderTrainerQ() {
       [mkRow6('Item ID','#'+String(it.id).padStart(4,'0')),mkRow6('Pocket',it.pocket,'#64b5f6'),mkRow6('Category',it.category,'var(--pl)'),mkRow6('Use Type',it.uses),mkRow6('Price',it.price?`₽ ${it.price.toLocaleString()}`:null,'#f0c600'),mkRow6('Overworld Use',it.overworld_functionality,'#4caf50'),mkRow6('Battle Use',it.battle_functionality,'#4caf50'),it.fling_power?mkRow6('Fling Power',String(it.fling_power),'#4caf50'):null].filter(Boolean).forEach(r=>ip6Rows.appendChild(r));
     }
     p6InfoBtn.addEventListener('click',()=>{if(!selItem6)return;ip6Popup.style.display='flex';document.body.style.overflow='hidden';});
-    inp6.addEventListener('input',()=>{selItem6=null;noItemSelected6=false;inp6.classList.remove('valid');prev6.style.display='none';buildIDD6(inp6.value.trim());});
+    let _debTimer6;
+    const debouncedItem6=(q)=>{clearTimeout(_debTimer6);_debTimer6=setTimeout(()=>buildIDD6(q),120);};
+    inp6.addEventListener('input',()=>{selItem6=null;noItemSelected6=false;inp6.classList.remove('valid');prev6.style.display='none';debouncedItem6(inp6.value.trim());});
     inp6.addEventListener('focus',()=>{if(!dd6.children.length)buildIDD6(inp6.value.trim());});
     inp6.addEventListener('click',()=>{if(!dd6.children.length)buildIDD6(inp6.value.trim());});
     inp6.addEventListener('keydown',e=>{const its=dd6.querySelectorAll('.dd-item');if(e.key==='ArrowDown'){e.preventDefault();iai6=Math.min(iai6+1,its.length-1);its.forEach((el,i)=>el.classList.toggle('act',i===iai6));if(its[iai6])its[iai6].scrollIntoView({block:'nearest'});}else if(e.key==='ArrowUp'){e.preventDefault();iai6=Math.max(iai6-1,0);its.forEach((el,i)=>el.classList.toggle('act',i===iai6));if(its[iai6])its[iai6].scrollIntoView({block:'nearest'});}else if(e.key==='Escape')dd6.innerHTML='';});
@@ -7045,7 +7047,8 @@ function initDexBrowser(){
     groupFilter.appendChild(chip);
   });
 
-  searchEl.addEventListener('input',()=>renderDex());
+  let _dexSearchT;
+  searchEl.addEventListener('input',()=>{clearTimeout(_dexSearchT);_dexSearchT=setTimeout(renderDex,150);});
 
   function renderDex(){
     const q=searchEl.value.toLowerCase().trim();
@@ -7678,11 +7681,24 @@ function removeImgBg(img, exactColor, tolerance) {
   }catch(e){}
 }
 
-// Apply bg removal using known palette color if available, else corner detection
+// Memoized — the flood-fill + canvas re-encode in removeImgBg() is genuinely
+// expensive (reads every pixel, rebuilds via toDataURL()), and it was re-running
+// from scratch on every single re-render of the same item slug: a fresh <img>
+// fires 'load' even when the browser serves the request from its own HTTP cache,
+// and several call sites (e.g. the Database Browser's buildIDD6, which rebuilds
+// its whole result list on every keystroke/filter click) recreate all visible
+// item icons from scratch on every render. Caching the finished data-URL per
+// slug turns "N renders = N flood-fills" into "1 flood-fill, ever, per item".
+const ITEM_BG_CACHE={};
 function removeItemBg(img, itemSlug) {
+  if(ITEM_BG_CACHE[itemSlug]){ img.src=ITEM_BG_CACHE[itemSlug]; return; }
   const known=ITEM_BG_COLORS[itemSlug]||(ITEMS.find?.(it=>it.slug===itemSlug)?.bg_color)||null;
-  if(img.complete&&img.naturalWidth){ removeImgBg(img,known); }
-  else { img.addEventListener('load',()=>removeImgBg(img,known),{once:true}); }
+  const apply=()=>{
+    removeImgBg(img,known);
+    if(img.src&&img.src.startsWith('data:')) ITEM_BG_CACHE[itemSlug]=img.src;
+  };
+  if(img.complete&&img.naturalWidth){ apply(); }
+  else { img.addEventListener('load',apply,{once:true}); }
 }
 
 
@@ -8107,7 +8123,8 @@ rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBt
 
     countEl.textContent=unlocked.length+' unlocked';
   }
-  searchEl.addEventListener('input',renderAll);
+  let _hofSearchT1;
+  searchEl.addEventListener('input',()=>{clearTimeout(_hofSearchT1);_hofSearchT1=setTimeout(renderAll,150);});
   document.addEventListener('hof-refresh',()=>{hofData=null;loadData();countEl.textContent='Refreshing...';});
   // Refresh button: re-fetch JSON, reset session-claimed, re-render
   document.addEventListener('roulette-refresh',()=>{
@@ -8277,7 +8294,8 @@ function initPkmHofBrowser(){
     aHdr.style.cursor='pointer';aHdr.addEventListener('click',()=>{const o=aGridW.style.display!=='none';aGridW.style.display=o?'none':'block';aTog.textContent=o?'▼':'▲';});
     grid.appendChild(allSec);
   }
-  searchEl.addEventListener('input',renderAll);
+  let _hofSearchT2;
+  searchEl.addEventListener('input',()=>{clearTimeout(_hofSearchT2);_hofSearchT2=setTimeout(renderAll,150);});
   document.addEventListener('hof-refresh',()=>{hofData=null;loadData();countEl.textContent='Refreshing...';});
   // Refresh button: re-fetch JSON, reset session-claimed, re-render
   document.addEventListener('roulette-refresh',()=>{
@@ -8788,7 +8806,8 @@ function initDbBrowser(){
   document.getElementById('db-close-btn').addEventListener('click',()=>{
     open=false;panel.style.display='none';btn.textContent='🗂️ DATABASE BROWSER  ▼';
   });
-  searchEl.addEventListener('input',()=>{searchQ=searchEl.value;render();});
+  let _dbSearchT;
+  searchEl.addEventListener('input',()=>{searchQ=searchEl.value;clearTimeout(_dbSearchT);_dbSearchT=setTimeout(render,150);});
 }
 
 function initTrainerHofBrowser(){
@@ -8938,7 +8957,8 @@ function initTrainerHofBrowser(){
     groups.forEach(grp=>list.appendChild(mkTrainerGroup(grp,q)));
     if(!trainers.length){list.innerHTML='<div style="padding:30px;text-align:center;color:var(--gray);font-size:12px;">No trainers found.</div>';}
   }
-  searchEl.addEventListener('input',renderList);
+  let _trainerHofSearchT;
+  searchEl.addEventListener('input',()=>{clearTimeout(_trainerHofSearchT);_trainerHofSearchT=setTimeout(renderList,150);});
 
   // ── Full Pokémon slot card for Trainer HoF ────────────────────────────────
   function mkLockedPokemonTile(){
