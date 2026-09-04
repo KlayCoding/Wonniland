@@ -93,7 +93,7 @@
         "atk": 0,
         "def": 6,
         "spa": 0,
-        "spd": 252,
+        "spd": 0,
         "spe": 252
       },
       "moves": [
@@ -181,10 +181,10 @@
       "evs": {
         "hp": 252,
         "atk": 0,
-        "def": 0,
+        "def": 6,
         "spa": 0,
         "spd": 252,
-        "spe": 6
+        "spe": 0
       },
       "moves": [
         "Wing Attack",
@@ -215,20 +215,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 23,
-        "atk": 14,
-        "def": 13,
-        "spa": 11,
-        "spd": 12,
-        "spe": 12
+        "hp": 31,
+        "atk": 7,
+        "def": 5,
+        "spa": 18,
+        "spd": 10,
+        "spe": 20
       },
       "evs": {
-        "hp": 0,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0
+        "hp": 114,
+        "atk": 31,
+        "def": 112,
+        "spa": 93,
+        "spd": 125,
+        "spe": 35
       },
       "moves": [
         "Close Combat",
@@ -261,20 +261,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 31,
+        "hp": 26,
         "atk": 31,
-        "def": 31,
-        "spa": 0,
-        "spd": 31,
+        "def": 29,
+        "spa": 11,
+        "spd": 22,
         "spe": 31
       },
       "evs": {
-        "hp": 252,
-        "atk": 252,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 6
+        "hp": 60,
+        "atk": 136,
+        "def": 70,
+        "spa": 25,
+        "spd": 74,
+        "spe": 145
       },
       "moves": [
         "U-Turn",
