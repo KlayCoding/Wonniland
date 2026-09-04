@@ -307,20 +307,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 0,
-        "atk": 13,
-        "def": 24,
-        "spa": 24,
-        "spd": 9,
-        "spe": 29
+        "hp": 8,
+        "atk": 5,
+        "def": 0,
+        "spa": 23,
+        "spd": 19,
+        "spe": 26
       },
       "evs": {
         "hp": 252,
-        "atk": 0,
+        "atk": 252,
         "def": 0,
-        "spa": 1,
+        "spa": 0,
         "spd": 0,
-        "spe": 5
+        "spe": 6
       },
       "moves": [
         "Hyper Drill",
@@ -365,7 +365,7 @@
         "atk": 0,
         "def": 180,
         "spa": 0,
-        "spd": 76,
+        "spd": 78,
         "spe": 0
       },
       "moves": [
@@ -454,7 +454,7 @@
       },
       "evs": {
         "hp": 240,
-        "atk": 0,
+        "atk": 10,
         "def": 252,
         "spa": 0,
         "spd": 8,
@@ -462,7 +462,7 @@
       },
       "moves": [
         "Seismic Toss",
-        "Order",
+        "Heal Order",
         "Thunder Wave",
         "Explosion"
       ],
@@ -491,20 +491,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 27,
-        "atk": 15,
-        "def": 21,
-        "spa": 11,
-        "spd": 24,
-        "spe": 1
+        "hp": 11,
+        "atk": 0,
+        "def": 4,
+        "spa": 0,
+        "spd": 4,
+        "spe": 0
       },
       "evs": {
-        "hp": 91,
-        "atk": 36,
-        "def": 21,
-        "spa": 122,
-        "spd": 119,
-        "spe": 121
+        "hp": 40,
+        "atk": 44,
+        "def": 141,
+        "spa": 17,
+        "spd": 199,
+        "spe": 69
       },
       "moves": [
         "Judgement",
@@ -531,7 +531,7 @@
       "ability": "Blaze",
       "nature": "Modest",
       "tera_type": "Flying",
-      "gmax": false,
+      "gmax": true,
       "dmax_level": 10,
       "held_item": "Flame Plate",
       "poke_ball": "Poke Ball",
@@ -558,7 +558,7 @@
         "Slash",
         "Flare Blitz"
       ],
-      "evolution": "Not Allowed",
+      "evolution": "Allowed",
       "chapter": 1
     },
     {
@@ -583,20 +583,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 17,
-        "atk": 24,
-        "def": 3,
-        "spa": 18,
-        "spd": 10,
-        "spe": 10
+        "hp": 5,
+        "atk": 27,
+        "def": 14,
+        "spa": 19,
+        "spd": 20,
+        "spe": 8
       },
       "evs": {
-        "hp": 12,
-        "atk": 39,
-        "def": 151,
-        "spa": 45,
-        "spd": 236,
-        "spe": 27
+        "hp": 128,
+        "atk": 38,
+        "def": 21,
+        "spa": 151,
+        "spd": 148,
+        "spe": 24
       },
       "moves": [
         "Sludge Bomb",
@@ -629,20 +629,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 6,
-        "atk": 4,
-        "def": 17,
-        "spa": 14,
-        "spd": 8,
-        "spe": 8
+        "hp": 9,
+        "atk": 9,
+        "def": 9,
+        "spa": 2,
+        "spd": 20,
+        "spe": 3
       },
       "evs": {
-        "hp": 70,
-        "atk": 22,
-        "def": 250,
-        "spa": 0,
-        "spd": 78,
-        "spe": 89
+        "hp": 76,
+        "atk": 116,
+        "def": 55,
+        "spa": 3,
+        "spd": 159,
+        "spe": 101
       },
       "moves": [
         "Aqua Jet",
@@ -675,20 +675,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 14,
-        "atk": 30,
-        "def": 21,
-        "spa": 3,
-        "spd": 17,
-        "spe": 20
+        "hp": 17,
+        "atk": 27,
+        "def": 25,
+        "spa": 2,
+        "spd": 28,
+        "spe": 11
       },
       "evs": {
-        "hp": 0,
-        "atk": 6,
-        "def": 154,
-        "spa": 244,
-        "spd": 10,
-        "spe": 95
+        "hp": 232,
+        "atk": 90,
+        "def": 6,
+        "spa": 39,
+        "spd": 107,
+        "spe": 36
       },
       "moves": [
         "Endeavor",
@@ -765,20 +765,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 21,
-        "atk": 4,
-        "def": 4,
-        "spa": 18,
-        "spd": 20,
-        "spe": 16
+        "hp": 15,
+        "atk": 23,
+        "def": 27,
+        "spa": 2,
+        "spd": 25,
+        "spe": 5
       },
       "evs": {
-        "hp": 0,
-        "atk": 6,
-        "def": 154,
-        "spa": 244,
-        "spd": 10,
-        "spe": 95
+        "hp": 104,
+        "atk": 210,
+        "def": 18,
+        "spa": 102,
+        "spd": 46,
+        "spe": 30
       },
       "moves": [
         "Ice Punch",
@@ -811,20 +811,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 24,
-        "atk": 8,
-        "def": 24,
-        "spa": 14,
-        "spd": 18,
-        "spe": 24
+        "hp": 31,
+        "atk": 27,
+        "def": 12,
+        "spa": 29,
+        "spd": 24,
+        "spe": 5
       },
       "evs": {
-        "hp": 252,
-        "atk": 22,
-        "def": 21,
-        "spa": 90,
-        "spd": 80,
-        "spe": 45
+        "hp": 91,
+        "atk": 81,
+        "def": 70,
+        "spa": 6,
+        "spd": 216,
+        "spe": 46
       },
       "moves": [
         "Milk Drink",
