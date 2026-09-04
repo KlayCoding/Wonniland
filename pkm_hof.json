@@ -903,20 +903,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 17,
-        "atk": 12,
-        "def": 13,
-        "spa": 1,
-        "spd": 8,
-        "spe": 1
+        "hp": 8,
+        "atk": 19,
+        "def": 23,
+        "spa": 25,
+        "spd": 1,
+        "spe": 15
       },
       "evs": {
-        "hp": 181,
-        "atk": 66,
-        "def": 76,
-        "spa": 169,
-        "spd": 0,
-        "spe": 17
+        "hp": 171,
+        "atk": 86,
+        "def": 105,
+        "spa": 61,
+        "spd": 22,
+        "spe": 65
       },
       "moves": [
         "Struggle",
@@ -949,20 +949,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 15,
-        "atk": 26,
+        "hp": 6,
+        "atk": 21,
         "def": 29,
-        "spa": 6,
-        "spd": 22,
-        "spe": 19
+        "spa": 25,
+        "spd": 9,
+        "spe": 13
       },
       "evs": {
-        "hp": 91,
-        "atk": 38,
-        "def": 21,
-        "spa": 119,
-        "spd": 119,
-        "spe": 122
+        "hp": 103,
+        "atk": 58,
+        "def": 140,
+        "spa": 176,
+        "spd": 4,
+        "spe": 140
       },
       "moves": [
         "Seed Bomb",
@@ -995,20 +995,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 31,
-        "atk": 10,
-        "def": 31,
-        "spa": 20,
-        "spd": 13,
-        "spe": 8
+        "hp": 23,
+        "atk": 5,
+        "def": 14,
+        "spa": 15,
+        "spd": 25,
+        "spe": 5
       },
       "evs": {
-        "hp": 185,
-        "atk": 19,
-        "def": 88,
-        "spa": 13,
-        "spd": 65,
-        "spe": 140
+        "hp": 88,
+        "atk": 134,
+        "def": 42,
+        "spa": 143,
+        "spd": 85,
+        "spe": 18
       },
       "moves": [
         "Hyperspace Hole",
@@ -1039,20 +1039,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 15,
-        "atk": 30,
-        "def": 0,
-        "spa": 7,
-        "spd": 31,
-        "spe": 23
+        "hp": 0,
+        "atk": 10,
+        "def": 14,
+        "spa": 5,
+        "spd": 6,
+        "spe": 26
       },
       "evs": {
-        "hp": 5,
-        "atk": 189,
-        "def": 39,
-        "spa": 227,
-        "spd": 31,
-        "spe": 19
+        "hp": 0,
+        "atk": 139,
+        "def": 192,
+        "spa": 98,
+        "spd": 23,
+        "spe": 6
       },
       "moves": [
         "Poison Gas",
@@ -1091,12 +1091,12 @@
         "spe": 31
       },
       "evs": {
-        "hp": 252,
+        "hp": 6,
         "atk": 0,
         "def": 6,
         "spa": 252,
         "spd": 0,
-        "spe": 0
+        "spe": 252
       },
       "moves": [
         "Tearful Look",
@@ -1266,20 +1266,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 1,
-        "atk": 7,
-        "def": 8,
-        "spa": 4,
-        "spd": 12,
-        "spe": 17
+        "hp": 11,
+        "atk": 19,
+        "def": 31,
+        "spa": 5,
+        "spd": 18,
+        "spe": 26
       },
       "evs": {
-        "hp": 5,
-        "atk": 28,
-        "def": 100,
-        "spa": 5,
-        "spd": 252,
-        "spe": 119
+        "hp": 169,
+        "atk": 171,
+        "def": 2,
+        "spa": 63,
+        "spd": 55,
+        "spe": 50
       },
       "moves": [
         "Giga Drain",
@@ -1320,12 +1320,12 @@
         "spe": 9
       },
       "evs": {
-        "hp": 22,
+        "hp": 6,
         "atk": 252,
         "def": 0,
-        "spa": 215,
-        "spd": 14,
-        "spe": 0
+        "spa": 0,
+        "spd": 0,
+        "spe": 252
       },
       "moves": [
         "Curse",
@@ -1358,20 +1358,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 24,
-        "atk": 20,
-        "def": 5,
-        "spa": 15,
-        "spd": 31,
-        "spe": 8
+        "hp": 8,
+        "atk": 28,
+        "def": 17,
+        "spa": 20,
+        "spd": 12,
+        "spe": 9
       },
       "evs": {
-        "hp": 246,
-        "atk": 4,
-        "def": 3,
-        "spa": 1,
-        "spd": 131,
-        "spe": 125
+        "hp": 252,
+        "atk": 6,
+        "def": 0,
+        "spa": 0,
+        "spd": 252,
+        "spe": 0
       },
       "moves": [
         "Synthesis",
@@ -1404,20 +1404,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 26,
-        "atk": 31,
-        "def": 27,
-        "spa": 12,
-        "spd": 29,
-        "spe": 19
+        "hp": 23,
+        "atk": 21,
+        "def": 21,
+        "spa": 13,
+        "spd": 5,
+        "spe": 14
       },
       "evs": {
-        "hp": 166,
-        "atk": 252,
-        "def": 0,
-        "spa": 20,
-        "spd": 20,
-        "spe": 20
+        "hp": 98,
+        "atk": 223,
+        "def": 32,
+        "spa": 43,
+        "spd": 97,
+        "spe": 32
       },
       "moves": [
         "Drain Punch",
@@ -1450,20 +1450,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 14,
-        "atk": 6,
-        "def": 21,
-        "spa": 14,
-        "spd": 31,
-        "spe": 26
+        "hp": 11,
+        "atk": 3,
+        "def": 31,
+        "spa": 7,
+        "spd": 22,
+        "spe": 2
       },
       "evs": {
-        "hp": 68,
-        "atk": 107,
-        "def": 49,
-        "spa": 3,
+        "hp": 252,
+        "atk": 6,
+        "def": 0,
+        "spa": 0,
         "spd": 252,
-        "spe": 3
+        "spe": 0
       },
       "moves": [
         "Dragon Rush",
@@ -1496,20 +1496,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 2,
-        "atk": 10,
-        "def": 9,
-        "spa": 23,
-        "spd": 26,
-        "spe": 31
+        "hp": 16,
+        "atk": 2,
+        "def": 16,
+        "spa": 6,
+        "spd": 19,
+        "spe": 28
       },
       "evs": {
-        "hp": 252,
-        "atk": 19,
-        "def": 8,
-        "spa": 1,
-        "spd": 184,
-        "spe": 46
+        "hp": 6,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 252,
+        "spe": 0
       },
       "moves": [
         "Psyshock",
@@ -1542,20 +1542,20 @@
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
-        "hp": 2,
-        "atk": 26,
-        "def": 22,
-        "spa": 15,
-        "spd": 8,
-        "spe": 1
+        "hp": 26,
+        "atk": 15,
+        "def": 17,
+        "spa": 3,
+        "spd": 6,
+        "spe": 2
       },
       "evs": {
-        "hp": 198,
-        "atk": 222,
-        "def": 0,
-        "spa": 0,
-        "spd": 86,
-        "spe": 4
+        "hp": 107,
+        "atk": 120,
+        "def": 68,
+        "spa": 67,
+        "spd": 140,
+        "spe": 8
       },
       "moves": [
         "Hail",
