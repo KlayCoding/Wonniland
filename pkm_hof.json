@@ -1906,7 +1906,7 @@
       "tera_type": "Dragon",
       "gmax": false,
       "dmax_level": 10,
-      "held_item": "None",
+      "held_item": "Life Orb",
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
@@ -2180,7 +2180,7 @@
       "tera_type": "Electric",
       "gmax": false,
       "dmax_level": 10,
-      "held_item": "Pokeshi Doll",
+      "held_item": "Safety Glasses",
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
@@ -2958,7 +2958,7 @@
       "tera_type": "Psychic",
       "gmax": false,
       "dmax_level": 10,
-      "held_item": "Big Nugget",
+      "held_item": "Leftovers",
       "poke_ball": "Poke Ball",
       "happiness": 255,
       "ivs": {
