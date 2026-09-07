@@ -6785,13 +6785,13 @@ function renderTrainerResult(){
   filledSlotsExp.forEach((slot,idx)=>{
     const species=slot[4]?.value||'?';
     const nickname=slot[5]?.value||species;
-    const item=slot[6]?.value||'—';
+    const item=(slot[6]?.value||'—').replace(/\s*\(#\d+\)\s*$/,'');
     const ability=(slot[7]?.value||'—').replace(/\s*\(Hidden\)\s*$/i,'');
     const ivObj=slot[8]?.ivs||{};
     const evObj=slot[8]?.evs||{};
     const ivLine=SKEYS.map(k=>`${ivObj[k]??31} ${SLBL_EXP[k]}`).join(' / ');
     const evLine=SKEYS.map(k=>`${evObj[k]??0} ${SLBL_EXP[k]}`).join(' / ');
-    const ball=slot[9]?.value||'—';
+    const ball=(slot[9]?.value||'—').replace(/\s*Ball\s*$/i,'');
     const happy=(slot[10]?.value||'').split(' / ')[0]||'255';
     const nature=(slot[11]?.value||'—').split(' (')[0];
     const shiny=slot[12]?.value||'No';
@@ -6804,6 +6804,7 @@ function renderTrainerResult(){
     const sigPrefix=team.indexOf(slot)===signatureSlot?'*':'';
 
     ls.push(nickname!==species?`${sigPrefix}${nickname} (${species})${genderAbbr} @ ${item}`:`${sigPrefix}${species}${genderAbbr} @ ${item}`);
+    ls.push(`Level: `);
     ls.push(`Ability: ${ability}`);
     ls.push(`IVs: ${ivLine}`);
     ls.push(`EVs: ${evLine}`);
@@ -6814,7 +6815,6 @@ function renderTrainerResult(){
     ls.push(`Dynamax Level: ${dynLevel}`);
     ls.push(`Gigantamax: ${gmaxYes}`);
     ls.push(`Tera Type: ${tera}`);
-    ls.push('Moves:');
     moves.forEach(mv=>ls.push(`- ${mv}`));
     if(idx<filledSlotsExp.length-1) ls.push('');
   });
