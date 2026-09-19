@@ -3494,7 +3494,7 @@
     },
     {
       "id": 77,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 3",
       "gender": "Genderless",
       "owner_name": "Saykoro",
