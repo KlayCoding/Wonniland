@@ -1890,7 +1890,7 @@
     },
     {
       "id": 42,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 2",
       "gender": "Genderless",
       "owner_name": "ModRiot",
