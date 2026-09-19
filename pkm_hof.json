@@ -471,7 +471,7 @@
     },
     {
       "id": 11,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 1",
       "gender": "Male",
       "owner_name": "WannaGo",
@@ -563,7 +563,7 @@
     },
     {
       "id": 13,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 1",
       "gender": "Female",
       "owner_name": "Witch",
@@ -837,7 +837,7 @@
     },
     {
       "id": 19,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 1",
       "gender": "Female",
       "owner_name": "Mega",
