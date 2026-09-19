@@ -3264,7 +3264,7 @@
     },
     {
       "id": 72,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 2",
       "gender": "Female",
       "owner_name": "Rika",
@@ -4322,7 +4322,7 @@
     },
     {
       "id": 95,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 3",
       "gender": "Male",
       "owner_name": "Kaly",
@@ -4644,7 +4644,7 @@
     },
     {
       "id": 102,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 3",
       "gender": "Male",
       "owner_name": "Faron93",
@@ -4782,7 +4782,7 @@
     },
     {
       "id": 105,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 4",
       "gender": "Male",
       "owner_name": "Basuke",
