@@ -6207,7 +6207,7 @@
       "id": "30",
       "replacement": "Rusturf Tunnel Aqua Grunt M",
       "match_count": 1,
-      "unlocked": false,
+      "unlocked": true,
       "name": "Fufu",
       "gender": "Male",
       "sprite": "Aqua Grunt M",
