@@ -1451,7 +1451,7 @@ function updPokemonCard(){
 
   // Item lookup
   const itemName=itemVal.split(' (#')[0];
-  const itemData=ITEMS.find(it=>it.name===itemName)||null;
+  const itemData=ITEMS.find(it=>it.name.toLowerCase()===itemName.toLowerCase())||null;
 
   // Progress count
   const PROG_TOTAL=currentMode==='trainer'?TRAINER_TOTAL:TOTAL;
@@ -1760,12 +1760,12 @@ function updPokemonCard(){
    })(),
    (()=>{
       if(!itemName) return null;
-      const iItemData=ITEMS.find(it=>it.name===itemName);
+      const iItemData=ITEMS.find(it=>it.name.toLowerCase()===itemName.toLowerCase());
       const iEl=document.createElement('div');iEl.style.cssText='display:flex;align-items:center;gap:6px;font-weight:700;color:#f0c600;';
-      if(iItemData?.slug){const ici=document.createElement('img');ici.dataset.itemSlug=iItemData.slug;ici.crossOrigin='anonymous';ici.crossOrigin='anonymous';ici.src=`${ITEM_BASE}${iItemData.slug}.png`;const _iObj=ITEMS.find(it=>it.name===itemName);if(ici.complete&&ici.naturalWidth){removeItemBg(ici,iItemData.slug);if(_iObj)applyItemTint(ici,_iObj);}else{ici.addEventListener('load',()=>{removeItemBg(ici,iItemData.slug);if(_iObj)applyItemTint(ici,_iObj);},{once:true});}ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;border-radius:3px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
+      if(iItemData?.slug){const ici=document.createElement('img');ici.dataset.itemSlug=iItemData.slug;ici.crossOrigin='anonymous';ici.crossOrigin='anonymous';ici.src=`${ITEM_BASE}${iItemData.slug}.png`;const _iObj=ITEMS.find(it=>it.name.toLowerCase()===itemName.toLowerCase());if(ici.complete&&ici.naturalWidth){removeItemBg(ici,iItemData.slug);if(_iObj)applyItemTint(ici,_iObj);}else{ici.addEventListener('load',()=>{removeItemBg(ici,iItemData.slug);if(_iObj)applyItemTint(ici,_iObj);},{once:true});}ici.style.cssText='width:20px;height:20px;image-rendering:pixelated;border-radius:3px;flex-shrink:0;';ici.onerror=()=>ici.style.display='none';iEl.appendChild(ici);}
       iEl.appendChild(document.createTextNode(itemName));
       // Apply bg removal after image loads
-      setTimeout(()=>{if(iEl.querySelectorAll){const itemObj=ITEMS.find(it=>it.name===itemName);iEl.querySelectorAll('img').forEach(img=>{img.crossOrigin='anonymous';removeItemBg(img,itemName?.toLowerCase().replace(/ /g,'-')||'');if(itemObj)applyItemTint(img,itemObj);});}},80);
+      setTimeout(()=>{if(iEl.querySelectorAll){const itemObj=ITEMS.find(it=>it.name.toLowerCase()===itemName.toLowerCase());iEl.querySelectorAll('img').forEach(img=>{img.crossOrigin='anonymous';removeItemBg(img,itemName?.toLowerCase().replace(/ /g,'-')||'');if(itemObj)applyItemTint(img,itemObj);});}},80);
       return mkDR('Item',null,null,iEl,11);
    })(),
    // Poké Ball
@@ -7742,7 +7742,7 @@ function initPkmRoulette(){
   }
   window._wonniCounterChange=(delta)=>{
     const oldVal=rouletteCounter;
-    rouletteCounter+=delta;
+    rouletteCounter=Math.max(0,rouletteCounter+delta);
     updateCounterDisplay(oldVal,rouletteCounter);
     return rouletteCounter;
   };
@@ -8011,6 +8011,8 @@ function initPkmRoulette(){
 
   // ── Gewichteter Randomizer: jeder Owner bekommt gleiche Gesamtchance ────────
 
+  const ROLL_HISTORY_MAX=20;
+  const rollHistory={pool:[],party:[]};
   function renderAll(){
     const q=searchEl.value.toLowerCase().trim();
     const unlocked=getUnlocked().filter(p=>!q||p.nickname?.toLowerCase().includes(q)||p.species?.toLowerCase().includes(q)||p.owner_name?.toLowerCase().includes(q));
@@ -8040,8 +8042,6 @@ function initPkmRoulette(){
     rollBtnParty.textContent='🎲 Party Randomizer';
     const rollBtnRow=document.createElement('div');rollBtnRow.style.cssText='display:flex;gap:8px;flex-wrap:wrap;justify-content:center;';
     rollBtnRow.append(rollBtnPool,rollBtnParty);
-    const ROLL_HISTORY_MAX=20;
-    const rollHistory={pool:[],party:[]};
     const historyBtn=document.createElement('button');historyBtn.type='button';
     historyBtn.style.cssText='width:220px;padding:7px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--gray);font-family:"Press Start 2P",monospace;font-size:8px;cursor:pointer;transition:all .2s;';
     historyBtn.textContent='📜 Roll History';
@@ -9021,8 +9021,9 @@ function initTrainerHofBrowser(){
     const chapters=[...new Set(trainers.map(t=>t.chapter).filter(Boolean))].sort((a,b)=>a-b);
     if(chapters.length){
       const chapGrid=mkFilterRow('CHAPTER');
+      mkChip(chapGrid,'All',!activeChapter,()=>{activeChapter=null;chapGrid.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===0));renderList();});
       chapters.forEach(ch=>{
-        mkChip(chapGrid,'Ch.'+ch,activeChapter==ch,function(){activeChapter=activeChapter==ch?null:ch;chapGrid.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===this&&activeChapter!=null));renderList();});
+        mkChip(chapGrid,'Ch.'+ch,activeChapter==ch,function(){activeChapter=ch;chapGrid.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===this));renderList();});
       });
     }
 
@@ -9125,7 +9126,7 @@ function initTrainerHofBrowser(){
     }
     // ── Held item ────────────────────────────────────────────────────────────
     if(p.held_item){
-      const iD=ITEMS.find(it=>it.name===p.held_item);
+      const iD=ITEMS.find(it=>it.name.toLowerCase()===p.held_item.toLowerCase());
       const itemRow=document.createElement('div');itemRow.style.cssText='padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.04);';
       const prefix=document.createElement('div');prefix.style.cssText='font-family:"Press Start 2P",monospace;font-size:7px;color:#444;margin-bottom:2px;';prefix.textContent='HELD ITEM';itemRow.appendChild(prefix);
       const mainRow=document.createElement('div');mainRow.style.cssText='display:flex;align-items:center;gap:5px;';
@@ -9196,7 +9197,7 @@ function initTrainerHofBrowser(){
     const mkR=(l,v,c)=>{if(!v&&v!==0)return;const r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';const le=document.createElement('span');le.style.cssText='color:var(--gray);';le.textContent=l;const ve=document.createElement('span');ve.style.cssText='font-weight:700;color:'+(c||'var(--white)')+';';ve.textContent=v;r.append(le,ve);bd.appendChild(r);};
     mkR('Gender',p.gender);mkR('Ability',p.ability);mkR('Nature',p.nature);mkR('Tera Type',p.tera_type,'#ce93d8');mkR('Poké Ball',p.poke_ball);
     if(p.held_item){
-      const itemObj2=ITEMS.find(it=>it.name===p.held_item);
+      const itemObj2=ITEMS.find(it=>it.name.toLowerCase()===p.held_item.toLowerCase());
       const ir=document.createElement('div');ir.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;';
       const irL=document.createElement('span');irL.style.cssText='color:var(--gray);';irL.textContent='Held Item';
       const irV=document.createElement('div');irV.style.cssText='display:flex;align-items:center;gap:6px;';
