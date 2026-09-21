@@ -16,7 +16,7 @@
     {
       "id": 1,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Rodspln",
       "owner_sprite": "brendan",
@@ -472,7 +472,7 @@
     {
       "id": 11,
       "claimed": true,
-      "location": "Pool 1",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "WannaGo",
       "owner_sprite": "brendan",
@@ -564,7 +564,7 @@
     {
       "id": 13,
       "claimed": true,
-      "location": "Pool 1",
+      "location": "TeamPool",
       "gender": "Female",
       "owner_name": "Witch",
       "owner_sprite": "may",
@@ -792,7 +792,7 @@
     {
       "id": 18,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Female",
       "owner_name": "Jsins",
       "owner_sprite": "brendan",
@@ -838,7 +838,7 @@
     {
       "id": 19,
       "claimed": true,
-      "location": "Pool 1",
+      "location": "TeamPool",
       "gender": "Female",
       "owner_name": "Mega",
       "owner_sprite": "brendan",
@@ -884,7 +884,7 @@
     {
       "id": 20,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Eman",
       "owner_sprite": "brendan",
@@ -930,7 +930,7 @@
     {
       "id": 21,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Wolfeys",
       "owner_sprite": "brendan",
@@ -976,7 +976,7 @@
     {
       "id": 22,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Female",
       "owner_name": "Wolfeys",
       "owner_sprite": "brendan",
@@ -1156,7 +1156,7 @@
     {
       "id": 26,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Genderless",
       "owner_name": "Furio",
       "owner_sprite": "may",
@@ -1615,7 +1615,7 @@
     {
       "id": 36,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -1891,7 +1891,7 @@
     {
       "id": 42,
       "claimed": true,
-      "location": "Pool 2",
+      "location": "TeamPool",
       "gender": "Genderless",
       "owner_name": "ModRiot",
       "owner_sprite": "brendan",
@@ -2578,7 +2578,7 @@
     {
       "id": 57,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Teraf",
       "owner_sprite": "brendan",
@@ -2670,7 +2670,7 @@
     {
       "id": 59,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Female",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -2716,7 +2716,7 @@
     {
       "id": 60,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Genderless",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -2762,7 +2762,7 @@
     {
       "id": 61,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -3127,7 +3127,7 @@
     {
       "id": 69,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Nemorih",
       "owner_sprite": "brendan",
@@ -3173,7 +3173,7 @@
     {
       "id": 70,
       "claimed": true,
-      "location": "Team",
+      "location": "TeamPool",
       "gender": "Genderless",
       "owner_name": "Reaps",
       "owner_sprite": "brendan",
@@ -3265,7 +3265,7 @@
     {
       "id": 72,
       "claimed": true,
-      "location": "Pool 2",
+      "location": "TeamPool",
       "gender": "Female",
       "owner_name": "Rika",
       "owner_sprite": "may",
@@ -3495,7 +3495,7 @@
     {
       "id": 77,
       "claimed": true,
-      "location": "Pool 3",
+      "location": "TeamPool",
       "gender": "Genderless",
       "owner_name": "Saykoro",
       "owner_sprite": "brendan",
@@ -4323,7 +4323,7 @@
     {
       "id": 95,
       "claimed": true,
-      "location": "Pool 3",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Kaly",
       "owner_sprite": "brendan",
@@ -4645,7 +4645,7 @@
     {
       "id": 102,
       "claimed": true,
-      "location": "Pool 3",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Faron93",
       "owner_sprite": "brendan",
@@ -4783,7 +4783,7 @@
     {
       "id": 105,
       "claimed": true,
-      "location": "Pool 4",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Basuke",
       "owner_sprite": "brendan",
