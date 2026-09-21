@@ -7824,6 +7824,57 @@ function initPkmRoulette(){
   // Manual "+"-button assignment: search the Team Pool (claimed pool) and
   // drop the pick straight into the given empty slot — same end result as
   // the !slotN chat command, just triggered from the UI instead of chat.
+  function openRollHistoryPopup(){
+    const {overlay,close}=createOverlay();
+    const box=document.createElement('div');box.style.cssText='background:#13192a;border:2px solid rgba(77,182,172,.3);border-radius:14px;width:100%;max-width:400px;max-height:75vh;overflow:hidden;display:flex;flex-direction:column;';
+    const hdr=document.createElement('div');hdr.style.cssText='padding:12px 14px;background:rgba(77,182,172,.1);border-bottom:1px solid rgba(77,182,172,.25);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;';
+    const t=document.createElement('span');t.style.cssText='font-weight:700;font-size:13px;color:#4db6ac;';t.textContent='📜 Roll History';
+    const cl=document.createElement('button');cl.type='button';cl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';cl.textContent='✕';
+    cl.addEventListener('click',close);
+    hdr.append(t,cl);
+    const tabRow=document.createElement('div');tabRow.style.cssText='display:flex;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0;';
+    const list=document.createElement('div');list.style.cssText='flex:1;overflow-y:auto;padding:8px;display:flex;flex-direction:column;gap:6px;';
+    let activeTab='pool';
+    const tabs=[['pool','Pokémon Pool'],['party','Party Randomizer']];
+    const tabBtns={};
+    tabs.forEach(([key,label])=>{
+      const tbtn=document.createElement('button');tbtn.type='button';
+      tbtn.style.cssText='flex:1;text-align:center;padding:9px 0;font-size:10px;font-weight:700;border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;';
+      tbtn.textContent=label;
+      tbtn.addEventListener('click',()=>{activeTab=key;paintTabs();renderHistList();});
+      tabBtns[key]=tbtn;tabRow.appendChild(tbtn);
+    });
+    function paintTabs(){
+      tabs.forEach(([key])=>{
+        const on=key===activeTab;
+        tabBtns[key].style.color=on?'#4db6ac':'var(--gray)';
+        tabBtns[key].style.borderBottomColor=on?'#4db6ac':'transparent';
+      });
+    }
+    function renderHistList(){
+      list.innerHTML='';
+      const entries=rollHistory[activeTab];
+      if(!entries.length){const em=document.createElement('div');em.style.cssText='padding:30px;text-align:center;color:#2d3748;font-size:11px;';em.textContent='No rolls yet.';list.appendChild(em);return;}
+      entries.forEach(({winner,wmon,ts})=>{
+        const row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(77,182,172,.1);';
+        const img=document.createElement('img');img.style.cssText='width:44px;height:44px;image-rendering:pixelated;flex-shrink:0;';pkmSpriteWithFallback(img,winner,!!winner.shiny);
+        const info=document.createElement('div');info.style.cssText='flex:1;min-width:0;';
+        const nm=document.createElement('div');nm.style.cssText='font-size:12px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nm.textContent=(winner.shiny?'✨ ':'')+winner.nickname;
+        const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);';sub.textContent=winner.species||'';
+        const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:3px;margin-top:2px;';
+        if(wmon){typesRow.appendChild(tb(wmon.t1));if(wmon.t2)typesRow.appendChild(tb(wmon.t2));}
+        info.append(nm,sub,typesRow);
+        const timeEl=document.createElement('div');timeEl.style.cssText='font-size:8px;color:#2d3748;flex-shrink:0;white-space:nowrap;';
+        const secsAgo=Math.max(0,Math.round((Date.now()-ts)/1000));
+        timeEl.textContent=secsAgo<60?secsAgo+'s ago':secsAgo<3600?Math.round(secsAgo/60)+'m ago':Math.round(secsAgo/3600)+'h ago';
+        row.append(img,info,timeEl);
+        list.appendChild(row);
+      });
+    }
+    paintTabs();renderHistList();
+    box.append(hdr,tabRow,list);overlay.appendChild(box);
+  }
+
   function openManualSlotPicker(slotIdx){
     const {overlay,close}=createOverlay();
     const box=document.createElement('div');box.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.3);border-radius:14px;width:100%;max-width:380px;max-height:70vh;overflow:hidden;display:flex;flex-direction:column;';
@@ -7989,6 +8040,12 @@ function initPkmRoulette(){
     rollBtnParty.textContent='🎲 Party Randomizer';
     const rollBtnRow=document.createElement('div');rollBtnRow.style.cssText='display:flex;gap:8px;flex-wrap:wrap;justify-content:center;';
     rollBtnRow.append(rollBtnPool,rollBtnParty);
+    const ROLL_HISTORY_MAX=20;
+    const rollHistory={pool:[],party:[]};
+    const historyBtn=document.createElement('button');historyBtn.type='button';
+    historyBtn.style.cssText='width:220px;padding:7px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--gray);font-family:"Press Start 2P",monospace;font-size:8px;cursor:pointer;transition:all .2s;';
+    historyBtn.textContent='📜 Roll History';
+    historyBtn.addEventListener('click',()=>openRollHistoryPopup());
     function doRoll(pool,btnA,btnB,lbl,showSprites){
       if(rolling)return;if(!pool.length){showToast('No Pokemon available!',true);return;}
       rolling=true;if(btnA){btnA.disabled=true;btnA.textContent='Rolling...';}if(btnB)btnB.disabled=true;
@@ -8009,6 +8066,9 @@ function initPkmRoulette(){
             spinName.textContent=(winner.shiny?'\u2728 ':'')+winner.nickname;spinName.style.color='#4db6ac';
             spinSpec.textContent=winner.species;spinTypes.innerHTML='';spinMeta.innerHTML='';
             if(wmon){spinTypes.appendChild(tb(wmon.t1));if(wmon.t2)spinTypes.appendChild(tb(wmon.t2));}
+            const histKey=lbl==='🎲 Party Randomizer'?'party':'pool';
+            rollHistory[histKey].unshift({winner,wmon,ts:Date.now()});
+            if(rollHistory[histKey].length>ROLL_HISTORY_MAX) rollHistory[histKey].length=ROLL_HISTORY_MAX;
             [['\uD83D\uDDA5 '+(winner.location||''),'#4db6ac'],['\uD83D\uDC64 '+(winner.owner_name||''),'#8892a4'],[winner.evolution==='Allowed'?'\uD83D\uDD04 Evolution Allowed':'\uD83D\uDEAB No Evolution',winner.evolution==='Allowed'?'#4caf50':'#e57373']].filter(([v])=>v&&!v.endsWith(' ')).forEach(([v,col])=>{const r2=document.createElement('div');r2.style.cssText='font-size:10px;color:'+col+';text-align:center;';r2.textContent=v;spinMeta.appendChild(r2);});
             const ib=document.createElement('button');ib.type='button';ib.className='spin-info-btn';
             ib.style.cssText='width:100%;padding:7px;font-size:8px;font-family:"Press Start 2P",monospace;border:none;border-top:1px solid rgba(77,182,172,.2);background:rgba(77,182,172,.05);color:#4db6ac;cursor:pointer;';
@@ -8110,7 +8170,7 @@ rollBtnPool.addEventListener('click',()=>{if(typeof window._wonniCounterChange==
     };
 
     const rollDesc=document.createElement('div');rollDesc.style.cssText='font-size:10px;color:#555;text-align:center;max-width:280px;line-height:1.5;';rollDesc.textContent='The Randomizer will pick a random Pok\u00e9mon for you';
-    rouletteSec.append(spinCard,rollDesc,rollBtnRow);grid.appendChild(rouletteSec);
+    rouletteSec.append(spinCard,rollDesc,rollBtnRow,historyBtn);grid.appendChild(rouletteSec);
 
 
     // ── Party Section ──────────────────────────────────────────────────────────
@@ -8544,6 +8604,7 @@ function initDbBrowser(){
     const hdr=document.createElement('div');hdr.style.cssText=`padding:14px 16px;background:${typeCol}22;border-bottom:1px solid ${typeCol}33;display:flex;align-items:center;gap:10px;flex-shrink:0;`;
     if(opts.spriteEl){opts.spriteEl.style.flexShrink='0';hdr.appendChild(opts.spriteEl);}
     const t=document.createElement('span');t.style.cssText='font-weight:700;font-size:15px;flex:1;';t.textContent=title;
+    if(opts.gameId){const gid=document.createElement('span');gid.style.cssText='font-size:10px;color:var(--gray);font-family:monospace;margin-left:6px;';gid.textContent='#'+String(opts.gameId).padStart(4,'0');t.appendChild(gid);}
     const cl=document.createElement('button');cl.type='button';cl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;flex-shrink:0;';cl.textContent='✕';
     cl.addEventListener('click',close);
     hdr.append(t,cl);
@@ -8631,14 +8692,15 @@ function initDbBrowser(){
 
     if(activeCat==='items'){
       resultsEl.style.display='flex';resultsEl.style.flexDirection='column';resultsEl.style.gap='18px';
-      let pool=ITEMS.filter(it=>it.pocket!=='Key Items');
-      const groups=[...new Set(pool.map(it=>it.category))].sort();
+      let pool=ITEMS.slice();
+      const dispCat=it=>it.pocket==='Key Items'?'Key Items':it.category;
+      const groups=[...new Set(pool.map(dispCat))].sort();
       groups.forEach(g=>{
         filtersEl.appendChild(mkFilterChip(g,'#e8622a',activeFilters.items.category.has(g),()=>{
           activeFilters.items.category.has(g)?activeFilters.items.category.delete(g):activeFilters.items.category.add(g);render();
         }));
       });
-      if(activeFilters.items.category.size) pool=pool.filter(it=>activeFilters.items.category.has(it.category));
+      if(activeFilters.items.category.size) pool=pool.filter(it=>activeFilters.items.category.has(dispCat(it)));
       if(q) pool=pool.filter(it=>it.name.toLowerCase().includes(q)||(it.desc||'').toLowerCase().includes(q));
       if(showFavsOnly.items){ const favs=getDbFavs(); pool=pool.filter(it=>favs.has(it.name)); }
       const isK=sortKey.items;
@@ -8649,7 +8711,7 @@ function initDbBrowser(){
       countEl.textContent=`${pool.length} items`;
       mkHeaderRow(`${pool.length} ITEMS`,[['name','A – Z'],['name_desc','Z – A'],['price_desc','Price ↑'],['price_asc','Price ↓']]);
       const byGroup={};
-      pool.forEach(it=>{(byGroup[it.category||it.pocket||'Other']=byGroup[it.category||it.pocket||'Other']||[]).push(it);});
+      pool.forEach(it=>{(byGroup[dispCat(it)||it.pocket||'Other']=byGroup[dispCat(it)||it.pocket||'Other']||[]).push(it);});
       const mkItemCard=(it)=>{
         const notHoldable=it.pocket==='Key Items'||it.category==='Mail';
         const card=document.createElement('div');card.style.cssText='display:flex;gap:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);';
@@ -8686,7 +8748,7 @@ function initDbBrowser(){
           ];
           const rowsHtml=rows.filter(([,v])=>v!=null&&v!==''&&v!=='n/a').map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:11px;"><span style="color:#556;">${k}</span><span>${v}</span></div>`).join('');
           const html=`<div style="display:flex;gap:6px;margin-bottom:10px;">${chips.join('')}</div>${warnHtml}${tmTypeHtml}${it.desc||'No description available.'}<div style="margin-top:12px;">${rowsHtml}</div>`;
-          openInfoPopup(it.name,'#e8622a',html,{spriteEl:itemSpriteEl(it)});
+          openInfoPopup(it.name,'#e8622a',html,{spriteEl:itemSpriteEl(it),gameId:it.id});
         });
         rightGrp.appendChild(ib);
         btnRow.appendChild(rightGrp);
@@ -8839,7 +8901,7 @@ function initDbBrowser(){
           const lbl2=document.createElement('div');lbl2.style.cssText='font-family:"Press Start 2P",monospace;font-size:8px;color:#ce93d8;margin:14px 0 8px;';
           lbl2.textContent=`HIDDEN ABILITY (${hiddenMatches.length})`;
           extraEl.append(lbl2,mkPkmGrid(hiddenMatches));
-          openInfoPopup(ab.name,'#9575cd',ab.description||'No description available.',{extraEl});
+          openInfoPopup(ab.name,'#9575cd',ab.description||'No description available.',{extraEl,gameId:ab.id});
         });
         card.append(info,ib); resultsEl.appendChild(card);
       });
