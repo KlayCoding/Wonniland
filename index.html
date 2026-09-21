@@ -7864,10 +7864,17 @@ function initPkmRoulette(){
         const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:3px;margin-top:2px;';
         if(wmon){typesRow.appendChild(tb(wmon.t1));if(wmon.t2)typesRow.appendChild(tb(wmon.t2));}
         info.append(nm,sub,typesRow);
-        const timeEl=document.createElement('div');timeEl.style.cssText='font-size:8px;color:#2d3748;flex-shrink:0;white-space:nowrap;';
+        if(winner.location){const locEl=document.createElement('div');locEl.style.cssText='font-size:9px;color:#4db6ac;margin-top:2px;';locEl.textContent='🖥 '+winner.location;info.appendChild(locEl);}
+        if(winner.owner_name){const ownEl=document.createElement('div');ownEl.style.cssText='font-size:9px;color:#8892a4;';ownEl.textContent='👤 '+winner.owner_name;info.appendChild(ownEl);}
+        const rightCol=document.createElement('div');rightCol.style.cssText='display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;';
+        const timeEl=document.createElement('div');timeEl.style.cssText='font-size:8px;color:#2d3748;white-space:nowrap;';
         const secsAgo=Math.max(0,Math.round((Date.now()-ts)/1000));
         timeEl.textContent=secsAgo<60?secsAgo+'s ago':secsAgo<3600?Math.round(secsAgo/60)+'m ago':Math.round(secsAgo/3600)+'h ago';
-        row.append(img,info,timeEl);
+        const histIb=document.createElement('button');histIb.type='button';
+        histIb.style.cssText='font-size:8px;font-family:"Press Start 2P",monospace;border:1px solid rgba(77,182,172,.2);border-radius:5px;background:rgba(77,182,172,.05);color:#4db6ac;cursor:pointer;padding:3px 8px;';
+        histIb.textContent='Info';histIb.addEventListener('click',()=>openHofPopup(winner,wmon));
+        rightCol.append(timeEl,histIb);
+        row.append(img,info,rightCol);
         list.appendChild(row);
       });
     }
@@ -7900,8 +7907,12 @@ function initPkmRoulette(){
         const img=document.createElement('img');img.style.cssText='width:36px;height:36px;image-rendering:pixelated;flex-shrink:0;';pkmSpriteWithFallback(img,pkm,!!pkm.shiny);
         const info=document.createElement('div');info.style.cssText='flex:1;min-width:0;';
         const nm=document.createElement('div');nm.style.cssText='font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nm.textContent=(pkm.shiny?'✨ ':'')+(pkm.nickname||pkm.species);
-        const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);';sub.textContent=(pkm.species||'')+' · '+(pkm.owner_name||'');
-        info.append(nm,sub);
+        const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);';sub.textContent=pkm.species||'';
+        const wmonPk=ALL_MON.find(m=>m.name.toLowerCase()===pkm.species?.toLowerCase());
+        const typesRow=document.createElement('div');typesRow.style.cssText='display:flex;gap:3px;margin-top:2px;';
+        if(wmonPk){typesRow.appendChild(tb(wmonPk.t1));if(wmonPk.t2)typesRow.appendChild(tb(wmonPk.t2));}
+        info.append(nm,sub,typesRow);
+        if(pkm.owner_name){const ownEl=document.createElement('div');ownEl.style.cssText='font-size:9px;color:#8892a4;margin-top:2px;';ownEl.textContent='👤 '+pkm.owner_name;info.appendChild(ownEl);}
         row.append(img,info);
         row.addEventListener('click',()=>{partySlots[slotIdx]=pkm;renderPartyTiles();close();});
         list.appendChild(row);
