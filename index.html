@@ -4481,7 +4481,7 @@ function renderQ(){
     function buildIDD(q){
       dd.innerHTML='';iai=-1;const q2=q.toLowerCase();
       let matches=q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS;
-      matches=matches.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      matches=matches.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items'&&it.category!=='Mail');
       if(activePockets.size) matches=matches.filter(it=>activePockets.has(it.pocket));
       if(activeCats.size) matches=matches.filter(it=>activeCats.has(it.category));
       matches.forEach(it=>{
@@ -4515,11 +4515,11 @@ function renderQ(){
     delBtn.addEventListener('click',()=>{selItem=null;noItemSelected=false;inp.value='';prev.style.display='none';inp.classList.remove('valid');inp.focus();});
     noItemBtn.addEventListener('click',()=>{selItem=null;noItemSelected=true;inp.value='No Item';inp.classList.add('valid');prev.style.display='none';dd.innerHTML='';});
     randB.addEventListener('click',()=>{
-      let pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      let pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items'&&it.category!=='Mail');
       if(activePockets.size) pool=pool.filter(it=>activePockets.has(it.pocket));
       if(activeCats.size) pool=pool.filter(it=>activeCats.has(it.category));
       if((activePockets.size||activeCats.size)&&pool.length) showToast('Info: Randomizing within your selected filters.');
-      if(!pool.length) pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      if(!pool.length) pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items'&&it.category!=='Mail');
       pickI(pool[Math.floor(Math.random()*pool.length)]);
     });
     focEl={focus:()=>inp.focus()};
@@ -6020,7 +6020,7 @@ function renderTrainerQ() {
     document.body.appendChild(ip6Popup);
     const mkChip6=(t,bg,col)=>{const s=document.createElement('span');s.style.cssText=`font-size:8px;padding:2px 7px;border-radius:4px;background:${bg};color:${col};font-family:'Press Start 2P',monospace;`;s.textContent=t;return s;};
     let selItem6=null,iai6=-1,noItemSelected6=false;
-    function buildIDD6(q){dd6.innerHTML='';iai6=-1;const q2=q.toLowerCase();let matches=(q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS).filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');if(activePockets6.size)matches=matches.filter(it=>activePockets6.has(it.pocket));if(activeCats6.size)matches=matches.filter(it=>activeCats6.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl6(it.slug);ico.loading='lazy';ico.crossOrigin='anonymous';removeItemBg(ico,it.slug);ico.addEventListener('load',()=>applyItemTint(ico,it),{once:true});ico.onerror=()=>iFb6(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category||'';if(it.category)top.append(nm,idB,uB);else top.append(nm,idB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI6(it);});dd6.appendChild(item);});}
+    function buildIDD6(q){dd6.innerHTML='';iai6=-1;const q2=q.toLowerCase();let matches=(q?ITEMS.filter(it=>it.name.toLowerCase().includes(q2)||it.desc.toLowerCase().includes(q2)):ITEMS).filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items'&&it.category!=='Mail');if(activePockets6.size)matches=matches.filter(it=>activePockets6.has(it.pocket));if(activeCats6.size)matches=matches.filter(it=>activeCats6.has(it.category));matches.forEach(it=>{const item=document.createElement('div');item.className='dd-item';const ico=document.createElement('img');ico.style.cssText='width:32px;height:32px;image-rendering:pixelated;flex-shrink:0;border-radius:6px;padding:2px;box-sizing:border-box;';ico.src=iUrl6(it.slug);ico.loading='lazy';ico.crossOrigin='anonymous';removeItemBg(ico,it.slug);ico.addEventListener('load',()=>applyItemTint(ico,it),{once:true});ico.onerror=()=>iFb6(ico,it.slug);const info=document.createElement('div');info.className='dd-info';const top=document.createElement('div');top.className='dd-top';const nm=document.createElement('span');nm.className='pnm';nm.textContent=it.name;const idB=document.createElement('span');idB.className='dex';idB.textContent=`#${String(it.id).padStart(4,'0')}`;const uB=document.createElement('span');uB.style.cssText='font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(149,117,205,.15);color:#b39ddb;flex-shrink:0;';uB.textContent=it.category||'';if(it.category)top.append(nm,idB,uB);else top.append(nm,idB);const bot=document.createElement('div');bot.className='dd-bot';const desc=document.createElement('span');desc.style.cssText='font-size:11px;color:var(--gray);white-space:normal;';desc.textContent=it.desc;bot.appendChild(desc);info.append(top,bot);item.append(ico,info);item.addEventListener('mousedown',e=>{e.preventDefault();pickI6(it);});dd6.appendChild(item);});}
     function pickI6(it){
       selItem6=it;noItemSelected6=false;inp6.value=it.name;inp6.classList.add('valid');dd6.innerHTML='';
       pIco6.src=iUrl6(it.slug);pIco6.crossOrigin='anonymous';removeItemBg(pIco6,it.slug);pIco6.addEventListener('load',()=>applyItemTint(pIco6,it),{once:true});pIco6.onerror=()=>iFb6(pIco6,it.slug);
@@ -6046,11 +6046,11 @@ function renderTrainerQ() {
     del6.addEventListener('click',()=>{selItem6=null;noItemSelected6=false;inp6.value='';prev6.style.display='none';inp6.classList.remove('valid');inp6.focus();});
     noItem6Btn.addEventListener('click',()=>{selItem6=null;noItemSelected6=true;inp6.value='No Item';inp6.classList.add('valid');prev6.style.display='none';dd6.innerHTML='';});
     rand6.addEventListener('click',()=>{
-      let pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      let pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items'&&it.category!=='Mail');
       if(activePockets6.size) pool=pool.filter(it=>activePockets6.has(it.pocket));
       if(activeCats6.size) pool=pool.filter(it=>activeCats6.has(it.category));
       if((activePockets6.size||activeCats6.size)&&pool.length) showToast('Info: Randomizing within your selected filters.');
-      if(!pool.length) pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      if(!pool.length) pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items'&&it.category!=='Mail');
       pickI6(pool[Math.floor(Math.random()*pool.length)]);
     });
     focEl={focus:()=>inp6.focus()};
@@ -7810,13 +7810,55 @@ function initPkmRoulette(){
         clr.textContent='\u2715';clr.addEventListener('click',()=>{partySlots[i]=null;renderPartyTiles();});
         tile.appendChild(clr);
       } else {
-        const icon=document.createElement('div');icon.style.cssText='width:72px;height:72px;border-radius:50%;border:1px dashed rgba(149,117,205,.2);display:flex;align-items:center;justify-content:center;color:#2d3748;font-size:22px;';icon.textContent='?';
+        const icon=document.createElement('div');icon.style.cssText='width:72px;height:72px;border-radius:50%;border:1px dashed rgba(149,117,205,.2);display:flex;align-items:center;justify-content:center;color:#2d3748;font-size:22px;cursor:pointer;';icon.textContent='+';
+        icon.title='Manually assign from Team Pool';
+        icon.addEventListener('click',()=>openManualSlotPicker(i));
         const hint=document.createElement('div');hint.style.cssText='font-size:8px;color:#2d3748;text-align:center;font-family:"Press Start 2P",monospace;line-height:1.4;';
         hint.textContent=`!slot${i+1}`;
         tile.append(icon,hint);
       }
       partyGrid.appendChild(tile);
     }
+  }
+
+  // Manual "+"-button assignment: search the Team Pool (claimed pool) and
+  // drop the pick straight into the given empty slot — same end result as
+  // the !slotN chat command, just triggered from the UI instead of chat.
+  function openManualSlotPicker(slotIdx){
+    const {overlay,close}=createOverlay();
+    const box=document.createElement('div');box.style.cssText='background:#13192a;border:2px solid rgba(149,117,205,.3);border-radius:14px;width:100%;max-width:380px;max-height:70vh;overflow:hidden;display:flex;flex-direction:column;';
+    const hdr=document.createElement('div');hdr.style.cssText='padding:12px 14px;background:rgba(149,117,205,.1);border-bottom:1px solid rgba(149,117,205,.25);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;';
+    const t=document.createElement('span');t.style.cssText='font-weight:700;font-size:13px;color:#c5a4e8;';t.textContent=`Assign Slot ${slotIdx+1}`;
+    const cl=document.createElement('button');cl.type='button';cl.style.cssText='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:var(--gray);font-size:14px;padding:3px 9px;cursor:pointer;';cl.textContent='✕';
+    cl.addEventListener('click',close);
+    hdr.append(t,cl);
+    const searchWrap=document.createElement('div');searchWrap.style.cssText='padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;';
+    const inp=document.createElement('input');inp.type='text';inp.placeholder='Search Team Pool…';inp.autocomplete='off';
+    inp.style.cssText='width:100%;background:#0d1117;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:var(--white);font-size:12px;padding:7px 10px;';
+    searchWrap.appendChild(inp);
+    const list=document.createElement('div');list.style.cssText='flex:1;overflow-y:auto;padding:6px;';
+    box.append(hdr,searchWrap,list);overlay.appendChild(box);
+    function renderPicks(q){
+      list.innerHTML='';
+      const pool=getClaimedPool().filter(p=>!q||(p.nickname||'').toLowerCase().includes(q)||(p.species||'').toLowerCase().includes(q)||(p.owner_name||'').toLowerCase().includes(q));
+      if(!pool.length){const em=document.createElement('div');em.style.cssText='padding:20px;text-align:center;color:#4a5568;font-size:11px;';em.textContent='No matching Pokémon in the Team Pool.';list.appendChild(em);return;}
+      pool.forEach(pkm=>{
+        const row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 8px;border-radius:8px;cursor:pointer;transition:background .1s;';
+        row.addEventListener('mouseenter',()=>row.style.background='rgba(149,117,205,.1)');
+        row.addEventListener('mouseleave',()=>row.style.background='transparent');
+        const img=document.createElement('img');img.style.cssText='width:36px;height:36px;image-rendering:pixelated;flex-shrink:0;';pkmSpriteWithFallback(img,pkm,!!pkm.shiny);
+        const info=document.createElement('div');info.style.cssText='flex:1;min-width:0;';
+        const nm=document.createElement('div');nm.style.cssText='font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nm.textContent=(pkm.shiny?'✨ ':'')+(pkm.nickname||pkm.species);
+        const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);';sub.textContent=(pkm.species||'')+' · '+(pkm.owner_name||'');
+        info.append(nm,sub);
+        row.append(img,info);
+        row.addEventListener('click',()=>{partySlots[slotIdx]=pkm;renderPartyTiles();close();});
+        list.appendChild(row);
+      });
+    }
+    renderPicks('');
+    inp.addEventListener('input',()=>renderPicks(inp.value.toLowerCase().trim()));
+    inp.focus();
   }
 
   // Global hook for Twitch !slot commands
@@ -7993,7 +8035,7 @@ function initPkmRoulette(){
         }
       },75);
     }
-rollBtnPool.addEventListener('click',()=>doRoll(getRollPool(),rollBtnPool,rollBtnParty,'🎲 Pokémon Pool'));
+rollBtnPool.addEventListener('click',()=>{if(typeof window._wonniCounterChange==='function')window._wonniCounterChange(-1);doRoll(getRollPool(),rollBtnPool,rollBtnParty,'🎲 Pokémon Pool');});
     rollBtnParty.addEventListener('click',()=>doRoll(getClaimedPool(),rollBtnParty,rollBtnPool,'🎲 Party Randomizer',true));
     window.triggerRouletteRoll = function(){
       if(!hofData){loadData().then(()=>window.triggerRouletteRoll());return;}
@@ -8589,7 +8631,7 @@ function initDbBrowser(){
 
     if(activeCat==='items'){
       resultsEl.style.display='flex';resultsEl.style.flexDirection='column';resultsEl.style.gap='18px';
-      let pool=ITEMS.filter(it=>it.pocket!=='Key Items'&&it.category!=='Key Items');
+      let pool=ITEMS.filter(it=>it.pocket!=='Key Items');
       const groups=[...new Set(pool.map(it=>it.category))].sort();
       groups.forEach(g=>{
         filtersEl.appendChild(mkFilterChip(g,'#e8622a',activeFilters.items.category.has(g),()=>{
@@ -8609,6 +8651,7 @@ function initDbBrowser(){
       const byGroup={};
       pool.forEach(it=>{(byGroup[it.category||it.pocket||'Other']=byGroup[it.category||it.pocket||'Other']||[]).push(it);});
       const mkItemCard=(it)=>{
+        const notHoldable=it.pocket==='Key Items'||it.category==='Mail';
         const card=document.createElement('div');card.style.cssText='display:flex;gap:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);';
         const spr=itemSpriteEl(it);spr.style.marginTop='2px';card.appendChild(spr);
         const info=document.createElement('div');info.style.cssText='flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;';
@@ -8618,11 +8661,15 @@ function initDbBrowser(){
         rightGrp.appendChild(mkCompareBtn(it.name));
         const nm=document.createElement('div');nm.style.cssText='font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';nm.textContent=it.name;
         const sub=document.createElement('div');sub.style.cssText='font-size:9px;color:var(--gray);line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;';sub.textContent=it.desc||'';
+        let warnEl=null;
+        if(notHoldable){warnEl=document.createElement('div');warnEl.style.cssText='font-size:8px;color:#e57373;background:rgba(229,115,115,.1);border:1px solid rgba(229,115,115,.25);border-radius:4px;padding:2px 6px;margin-top:2px;display:inline-block;width:fit-content;';warnEl.textContent="⚠ Can't be selected as Held Item";}
         const ib=document.createElement('button');ib.type='button';ib.style.cssText='font-size:9px;padding:4px 8px;border-radius:5px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--gray);cursor:pointer;flex-shrink:0;';ib.textContent='ℹ Info';
         ib.addEventListener('click',()=>{
           const isHoldable=/held/i.test(it.category||'');
           const chips=[`<span style="font-size:8px;padding:2px 7px;border-radius:4px;background:rgba(232,98,42,.15);color:#e8622a;font-family:&quot;Press Start 2P&quot;,monospace;">${it.category||it.pocket}</span>`];
           if(isHoldable) chips.push(`<span style="font-size:8px;padding:2px 7px;border-radius:4px;background:rgba(76,175,80,.15);color:#4caf50;font-family:&quot;Press Start 2P&quot;,monospace;">Holdable</span>`);
+          let warnHtml='';
+          if(notHoldable) warnHtml=`<div style="font-size:11px;color:#e57373;background:rgba(229,115,115,.1);border:1px solid rgba(229,115,115,.25);border-radius:6px;padding:6px 10px;margin-bottom:10px;">⚠ This Item can't be selected as Held Item</div>`;
           let tmTypeHtml='';
           if(it.needs_type_tint){
             const moveName=it.name.replace(/^(TM|HM)\d*\s+/,'');
@@ -8638,12 +8685,13 @@ function initDbBrowser(){
             ['Fling Power',it.fling_power],
           ];
           const rowsHtml=rows.filter(([,v])=>v!=null&&v!==''&&v!=='n/a').map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:11px;"><span style="color:#556;">${k}</span><span>${v}</span></div>`).join('');
-          const html=`<div style="display:flex;gap:6px;margin-bottom:10px;">${chips.join('')}</div>${tmTypeHtml}${it.desc||'No description available.'}<div style="margin-top:12px;">${rowsHtml}</div>`;
+          const html=`<div style="display:flex;gap:6px;margin-bottom:10px;">${chips.join('')}</div>${warnHtml}${tmTypeHtml}${it.desc||'No description available.'}<div style="margin-top:12px;">${rowsHtml}</div>`;
           openInfoPopup(it.name,'#e8622a',html,{spriteEl:itemSpriteEl(it)});
         });
         rightGrp.appendChild(ib);
         btnRow.appendChild(rightGrp);
         info.append(btnRow,nm,sub);
+        if(warnEl) info.appendChild(warnEl);
         card.appendChild(info); return card;
       };
       Object.keys(byGroup).sort().forEach(gname=>{
@@ -8870,7 +8918,7 @@ function initTrainerHofBrowser(){
   let activeSpecials=new Set();
   function buildFiltersAndMaps(){
     filtersEl.innerHTML='';
-    filtersEl.style.cssText='display:flex;flex-direction:column;gap:10px;';
+    filtersEl.style.cssText='display:flex;flex-direction:column;gap:10px;padding:10px 16px;';
     const trainers=hofData?.trainers||[];
     const maps=[...new Set(trainers.map(t=>t.map).filter(Boolean))].sort();
     maps.forEach(m=>{const opt=document.createElement('option');opt.value=m;opt.textContent=mapToName(m);mapSel.appendChild(opt);});
@@ -8887,7 +8935,7 @@ function initTrainerHofBrowser(){
       const b=document.createElement('button');b.type='button';
       b.className='hof-filter-chip'+(active?' active':'');
       if(borderCol)b.style.borderColor=borderCol+'44';
-      b.style.cssText+=';min-height:30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+      b.style.cssText+=';height:36px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;text-align:center;white-space:normal;word-break:break-word;line-height:1.25;';
       b.textContent=text;
       b.addEventListener('click',onClick);
       grid.appendChild(b);
