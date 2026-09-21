@@ -4551,7 +4551,7 @@
       "intro_phrase": "Did you try turning it off and on again?",
       "defeat_phrase": "GUH! You unplugged me!",
       "postmatch_phrase": "P p please plug it back in?",
-      "map": "MAP_ROUTE166",
+      "map": "MAP_ROUTE116",
       "category": "Route",
       "chapter": 2,
       "team": [
