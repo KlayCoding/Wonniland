@@ -241,8 +241,8 @@
     },
     {
       "id": 6,
-      "claimed": false,
-      "location": "Pool 1",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Genderless",
       "owner_name": "Thread",
       "owner_sprite": "brendan",
@@ -699,8 +699,8 @@
     },
     {
       "id": 16,
-      "claimed": false,
-      "location": "Pool 1",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "izzy",
       "owner_sprite": "brendan",
@@ -2348,8 +2348,8 @@
     },
     {
       "id": 52,
-      "claimed": false,
-      "location": "Pool 2",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Iris",
       "owner_sprite": "may",
@@ -2440,8 +2440,8 @@
     },
     {
       "id": 54,
-      "claimed": false,
-      "location": "Pool 2",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Female",
       "owner_name": "Brock",
       "owner_sprite": "brendan",
@@ -4276,8 +4276,8 @@
     },
     {
       "id": 94,
-      "claimed": false,
-      "location": "Pool 3",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Genderless",
       "owner_name": "Kaly",
       "owner_sprite": "brendan",
@@ -5105,7 +5105,7 @@
     {
       "id": 112,
       "claimed": true,
-      "location": "Pool 4",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Budds",
       "owner_sprite": "brendan",
