@@ -1246,8 +1246,8 @@
     },
     {
       "id": 28,
-      "claimed": false,
-      "location": "Pool 1",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Wumbiie",
       "owner_sprite": "brendan",
@@ -2256,8 +2256,8 @@
     },
     {
       "id": 50,
-      "claimed": false,
-      "location": "Pool 2",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Squeaky",
       "owner_sprite": "brendan",
@@ -3955,7 +3955,7 @@
     {
       "id": 87,
       "claimed": true,
-      "location": "Pool 3",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -4001,7 +4001,7 @@
     {
       "id": 88,
       "claimed": false,
-      "location": "Pool 3",
+      "location": "TeamPool",
       "gender": "Genderless",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
