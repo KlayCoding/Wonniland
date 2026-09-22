@@ -1707,7 +1707,7 @@
     {
       "id": 38,
       "claimed": true,
-      "location": "Pool 2",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Squeaky",
       "owner_sprite": "brendan",
@@ -3909,7 +3909,7 @@
     {
       "id": 86,
       "claimed": true,
-      "location": "Pool 3",
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
@@ -4139,7 +4139,7 @@
     {
       "id": 91,
       "claimed": true,
-      "location": "Pool 3",
+      "location": "TeamPool",
       "gender": "Genderless",
       "owner_name": "Soul",
       "owner_sprite": "brendan",
