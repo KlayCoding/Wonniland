@@ -655,8 +655,8 @@
     },
     {
       "id": 15,
-      "claimed": false,
-      "location": "Pool 1",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Thauris",
       "owner_sprite": "brendan",
@@ -1752,8 +1752,8 @@
     },
     {
       "id": 39,
-      "claimed": false,
-      "location": "Pool 2",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Destroy",
       "owner_sprite": "brendan",
@@ -3540,8 +3540,8 @@
     },
     {
       "id": 78,
-      "claimed": false,
-      "location": "Pool 3",
+      "claimed": true,
+      "location": "TeamPool",
       "gender": "Male",
       "owner_name": "Zenith",
       "owner_sprite": "brendan",
