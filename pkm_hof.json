@@ -1706,7 +1706,7 @@
     },
     {
       "id": 38,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 2",
       "gender": "Male",
       "owner_name": "Squeaky",
@@ -3908,7 +3908,7 @@
     },
     {
       "id": 86,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 3",
       "gender": "Male",
       "owner_name": "Soul",
@@ -3954,7 +3954,7 @@
     },
     {
       "id": 87,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 3",
       "gender": "Male",
       "owner_name": "Soul",
@@ -4138,7 +4138,7 @@
     },
     {
       "id": 91,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 3",
       "gender": "Genderless",
       "owner_name": "Soul",
@@ -5104,7 +5104,7 @@
     },
     {
       "id": 112,
-      "claimed": false,
+      "claimed": true,
       "location": "Pool 4",
       "gender": "Male",
       "owner_name": "Budds",
