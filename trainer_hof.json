@@ -5653,7 +5653,7 @@
       "id": "28a",
       "replacement": "Jerry",
       "match_count": 1,
-      "unlocked": false,
+      "unlocked": true,
       "name": "WmbsSon",
       "gender": "Male",
       "sprite": "Pokemon Breeder M",
