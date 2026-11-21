@@ -16,7 +16,7 @@
     {
       "id": 1,
       "claimed": true,
-      "location": "TeamPool",
+      "location": "TeamPool | ID: 001",
       "gender": "Male",
       "owner_name": "Rodspln",
       "owner_sprite": "brendan",
